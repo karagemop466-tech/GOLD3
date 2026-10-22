@@ -369,3 +369,44 @@ Publish:
 - PR → `main`: #11 https://github.com/karagemop466-tech/GOLD3/pull/11 — opened; merge pending.
 - Merge: pending.
 - GitHub Pages: source `main` `/`; public URL https://karagemop466-tech.github.io/GOLD3/; HTTPS enforced.
+
+---
+
+## 8. Correction pass — `arena/8aaa18bf-gold3`, 2026-10-23
+
+Landed after rebasing onto the integrated `main`. Six defects, all of the same family: **the page did not
+match its data**, and no gate looked at both at once.
+
+| # | Defect | Evidence | Fix |
+|---|---|---|---|
+| 1 | Calculator shipped a **pre-filled 3 g weight** — a fabricated ring weight inside the one tool meant to prove nothing is assumed | `<input id="calc-grams" value="3">` | input starts empty; the tool refuses to compute without a weight |
+| 2 | Mejuri's "returns policy" link was a **product page** (`/products/diamonds-band?…`), printed as if it were the policy | `data/retailers.json` | `returns_url = null` with the reason recorded; `policy_link()` prints "policy page not retrievable"; `verify.py` permits a null URL **only** with note + quote + flag |
+| 3 | The **28 flag definitions were never published** — chips showed labels, nothing explained them | `flagged.html` | full flag dictionary (code, meaning, severity, what closes it); dataset-B chips now print the code (`W1 · No weight`) |
+| 4 | The parallel pass's **5 rejected listings were invisible** on the page a reader would look at | `excluded.html` | "Also excluded from the combined dataset" table with reason, verified facts and source |
+| 5 | Four superseded pages sat in the root with **no indication they were historical**, contradicting the live counts | `analysis/standards/sellers/methodology.html` | explicit "archived snapshot — superseded" banner; `build_site.py` now fails if a root page is ungenerated or unbannered |
+| 6 | Three legal rules in `data/standards.json` (multi-metal quantities, rhodium disclosure, "total weight") were **never explained anywhere** | `checklist.html` | "Every rule this site relies on" table generated from the data |
+
+Also: hardcoded counts in the checklist prose ("Seven gold listings…", "0 of 17…") are now computed at build
+time; R07 is recorded under Blue Nile (the page lives on bluenile.com even though the listing is branded
+James Allen — kept visible as flag L2); a worked example in `under-1000.html` is now computed from the captured
+spot and labelled `data-illustration` so the price trace can exempt it honestly.
+
+### New gate: `scripts/page-check.js` (26 checks)
+
+`scripts/render-test.js` proves the tables render. The new check proves **the numbers printed are the numbers
+in `data/*.json`**: the per-karat melt arithmetic (to the cent), fineness never above 100%, listing counts, spot
+and cross-check sources, one row per product with its own URL, prices that exist in the data, honest blanks,
+policy links or honest replacements, the flag dictionary, the exclusion list, citations and local links.
+
+CI now runs: `verify.py` → `audit.py` → `build_site.py` → **rebuild diff must be empty** → `render-test.js` →
+`page-check.js`. A page that does not match its data can no longer merge.
+
+### Final gate results on this branch
+
+| Gate | Result |
+|---|---|
+| `scripts/verify.py` | PASS |
+| `scripts/audit.py` | 102 checks, 0 errors, 0 warnings |
+| `scripts/build_site.py` | 13 built + 4 archived, no orphans, links OK |
+| `scripts/render-test.js` | 20/20 |
+| `scripts/page-check.js` | 26/26 |

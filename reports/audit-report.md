@@ -1,10 +1,10 @@
 # Anti-hallucination audit report
 
-- Run: 2026-10-22 23:31 UTC
+- Run: 2026-10-22 23:36 UTC
 - Rows audited: **19**
 - Sellers audited: **8**
 - Flag definitions: **28**
-- Result: **PASS** — 0 error(s), 36 warning(s), 102 check(s) passed
+- Result: **PASS** — 0 error(s), 0 warning(s), 102 check(s) passed
 
 ## What this pass is looking for
 
@@ -24,44 +24,9 @@
 
 None.
 
-## Warnings — reviewed and accepted
+## Warnings
 
-- [site] calculator.html: printed $53.94 which is not in data/*.json — either it is a policy quote or a hallucination
-- [site] calculator.html: printed $75.52 which is not in data/*.json — either it is a policy quote or a hallucination
-- [site] calculator.html: printed $97.10 which is not in data/*.json — either it is a policy quote or a hallucination
-- [site] calculator.html: printed $118.68 which is not in data/*.json — either it is a policy quote or a hallucination
-- [site] calculator.html: printed $129.45 which is not in data/*.json — either it is a policy quote or a hallucination
-- [site] calculator.html: printed $53.94 which is not in data/*.json — either it is a policy quote or a hallucination
-- [site] calculator.html: printed $75.52 which is not in data/*.json — either it is a policy quote or a hallucination
-- [site] calculator.html: printed $75.52 which is not in data/*.json — either it is a policy quote or a hallucination
-- [site] calculator.html: printed $75.52 which is not in data/*.json — either it is a policy quote or a hallucination
-- [site] calculator.html: printed $75.52 which is not in data/*.json — either it is a policy quote or a hallucination
-- [site] calculator.html: printed $75.52 which is not in data/*.json — either it is a policy quote or a hallucination
-- [site] calculator.html: printed $75.52 which is not in data/*.json — either it is a policy quote or a hallucination
-- [site] calculator.html: printed $75.52 which is not in data/*.json — either it is a policy quote or a hallucination
-- [site] calculator.html: printed $97.10 which is not in data/*.json — either it is a policy quote or a hallucination
-- [site] calculator.html: printed $97.10 which is not in data/*.json — either it is a policy quote or a hallucination
-- [site] calculator.html: printed $75.52 which is not in data/*.json — either it is a policy quote or a hallucination
-- [site] calculator.html: printed $75.52 which is not in data/*.json — either it is a policy quote or a hallucination
-- [site] calculator.html: printed $75.52 which is not in data/*.json — either it is a policy quote or a hallucination
-- [site] calculator.html: printed $75.52 which is not in data/*.json — either it is a policy quote or a hallucination
-- [site] calculator.html: printed $75.52 which is not in data/*.json — either it is a policy quote or a hallucination
-- [site] calculator.html: printed $75.52 which is not in data/*.json — either it is a policy quote or a hallucination
-- [site] calculator.html: printed $75.52 which is not in data/*.json — either it is a policy quote or a hallucination
-- [site] combined.html: printed $368 which is not in data/*.json — either it is a policy quote or a hallucination
-- [site] combined.html: printed $2,150 which is not in data/*.json — either it is a policy quote or a hallucination
-- [site] index.html: printed $75.52 which is not in data/*.json — either it is a policy quote or a hallucination
-- [site] index.html: printed $6,983.75 which is not in data/*.json — either it is a policy quote or a hallucination
-- [site] index.html: printed $20,951.26 which is not in data/*.json — either it is a policy quote or a hallucination
-- [site] index.html: printed $9,777.25 which is not in data/*.json — either it is a policy quote or a hallucination
-- [site] index.html: printed $29,331.76 which is not in data/*.json — either it is a policy quote or a hallucination
-- [site] index.html: printed $12,570.75 which is not in data/*.json — either it is a policy quote or a hallucination
-- [site] index.html: printed $37,712.26 which is not in data/*.json — either it is a policy quote or a hallucination
-- [site] index.html: printed $15,364.26 which is not in data/*.json — either it is a policy quote or a hallucination
-- [site] index.html: printed $46,092.77 which is not in data/*.json — either it is a policy quote or a hallucination
-- [site] index.html: printed $129.45 which is not in data/*.json — either it is a policy quote or a hallucination
-- [site] index.html: printed $388.35 which is not in data/*.json — either it is a policy quote or a hallucination
-- [site] index.html: printed $129.46 which is not in data/*.json — either it is a policy quote or a hallucination
+None.
 
 ## Passed checks
 

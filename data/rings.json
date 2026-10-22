@@ -263,7 +263,7 @@
     },
     {
       "id": "R07",
-      "seller": "Blue Nile (James Allen collection)",
+      "seller": "Blue Nile",
       "product": "Criss Cross Solitaire Engagement Ring",
       "condition": "New",
       "karat": "18K",
@@ -303,7 +303,8 @@
         "solid_gold_claim",
         "hallmark_reported",
         "maker_mark_reported"
-      ]
+      ],
+      "seller_note": "Branded 'By James Allen' but resolves on bluenile.com; Blue Nile now operates that catalogue, so the page and the return policy are Blue Nile's. The naming mismatch is flag L2."
     },
     {
       "id": "R08",

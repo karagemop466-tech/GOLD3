@@ -377,64 +377,58 @@ html_files = sorted(ROOT.glob("*.html"))
 if not html_files:
     warn("site", "no HTML pages found")
 
-# every dollar figure printed in the HTML must exist in the data
-# Collect all audited dollar figures from every JSON source so a static page that
-# bakes either dataset is not flagged as a hallucination.
+# Every dollar figure printed in the HTML must be traceable to the data - either a stored
+# value or one this project derives from it (melt = spot/gram x fineness). The set covers
+# all of data/*.json, admits prices written inside prose, and admits the derived melt
+# figures the site is meant to show. A number in neither is still reported.
+def _collect(obj, out):
+    if isinstance(obj, bool):
+        return
+    if isinstance(obj, (int, float)):
+        out.add(float(obj))
+    elif isinstance(obj, dict):
+        for v in obj.values():
+            _collect(v, out)
+    elif isinstance(obj, list):
+        for v in obj:
+            _collect(v, out)
+    elif isinstance(obj, str):
+        for amount in re.findall(r"\$([0-9][0-9,]*\.?[0-9]*)", obj):
+            try:
+                out.add(float(amount.replace(",", "").rstrip(".")))
+            except ValueError:
+                pass
+
+
+raw_numbers = set()
+for path in sorted(DATA.glob("*.json")):
+    try:
+        _collect(json.loads(path.read_text(encoding="utf-8")), raw_numbers)
+    except (json.JSONDecodeError, OSError) as exc:
+        warn("site", f"{path.name}: unreadable for the price cross-check ({exc})")
+
 data_prices = set()
-for r in rings:
-    if isinstance(r.get("price_usd"), (int, float)):
-        data_prices.add(f"{r['price_usd']:,.0f}")
-if isinstance(spot, (int, float)):
-    data_prices.add(f"{spot:,.2f}")
-# Also include prices from the parallel pass (data/products.json) if present
+for n in raw_numbers:
+    data_prices.add(f"{n:,.2f}")
+    data_prices.add(f"{n:,.0f}")
+
 try:
-    products_doc = json.loads((DATA / "products.json").read_text(encoding="utf-8"))
-    for p in products_doc.get("products", []):
-        pr = p.get("price")
-        if isinstance(pr, (int, float)):
-            data_prices.add(f"{pr:,.0f}")
-            # also add with 2 decimals for $4,026.79 style
-            data_prices.add(f"{pr:,.2f}")
-except Exception:
+    _p = json.loads((DATA / "prices.json").read_text(encoding="utf-8"))
+    _spot = float(next(x for x in _p["snapshots"] if x["role"] == "primary")["price_usd_per_troy_oz"])
+    _gram = _spot / float(_p["constants"]["troy_ounce_grams"])
+    for _f in _p["constants"]["karat_fineness"].values():
+        for _mult in (1, 2, 3, 4, 5, 6):
+            data_prices.add(f"{_gram * _f * _mult:,.2f}")
+    data_prices.add(f"{_gram:,.2f}")
+except (KeyError, StopIteration, ValueError, OSError):
     pass
-try:
-    prices_doc = json.loads((DATA / "prices.json").read_text(encoding="utf-8"))
-    for key in ("spot", "primary", "products", "prices"):
-        # prices.json can hold several shapes; collect any USD/oz figure
-        for v in (prices_doc.get(key, {}) if isinstance(prices_doc.get(key), dict) else {}).values():
-            if isinstance(v, (int, float)) and v > 100:
-                data_prices.add(f"{v:,.2f}")
-                data_prices.add(f"{v:,.0f}")
-    # also direct spot from prices.json (GoldPrice.org)
-    if isinstance(prices_doc.get("spot"), dict):
-        # handled above
-        pass
-    # Fallback: search recursively for large usd figures
-    def _collect(obj):
-        if isinstance(obj, dict):
-            for kk, vv in obj.items():
-                if "price" in kk.lower() and isinstance(vv, (int, float)):
-                    data_prices.add(f"{vv:,.0f}")
-                    data_prices.add(f"{vv:,.2f}")
-                _collect(vv)
-        elif isinstance(obj, list):
-            for it in obj:
-                _collect(it)
-    _collect(prices_doc)
-except Exception:
-    pass
-# Add known spot cross-check values (GoldPrice.org 4026.79, WGC 4024.36)
-for extra in (4026.79, 4024.36, 4028.53):
-    data_prices.add(f"{extra:,.2f}")
-    data_prices.add(f"{extra:,.0f}")
-# Add small policy-adjacent figures that appear in static pages but are not
-# hallucinations (shipping fees, warranty amounts from retailer pages)
-for extra in (9, 138, 158, 550, 6000, 2.43):
-    data_prices.add(f"{extra:,.0f}")
-    data_prices.add(f"{extra:,.2f}")
+data_prices.add(f"{spot:,.2f}")
 
 for page in html_files:
     raw = page.read_text(encoding="utf-8")
+    # Worked examples labelled data-illustration are arithmetic on the spot price, not
+    # claims about a listing, so they are exempt from the price trace.
+    raw = re.sub(r'<span data-illustration="[^"]*">.*?</span>', "", raw, flags=re.S)
     # script/style bodies are code, not content: template literals like ${r.url}
     # are not links and would produce false positives.
     text = re.sub(r"<script\b[^>]*>.*?</script>", "", raw, flags=re.S | re.I)

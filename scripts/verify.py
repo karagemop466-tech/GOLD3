@@ -211,7 +211,18 @@ def main() -> int:
             )
         if not r.get("returns_quote"):
             err(f"retailer {rid}: returns_quote missing - policy claim is unsourced")
-        if not domain_ok(r.get("returns_url")):
+        if r.get("returns_url") is None:
+            # A policy page that could not be retrieved may be absent - but only when the record
+            # says so, keeps the quote the window rests on, and carries a flag. Pointing the link
+            # at any page that is not the policy is worse than admitting it is missing.
+            if "could not be retrieved" not in (r.get("returns_window_note") or ""):
+                err(f"retailer {rid}: returns_url missing without a note explaining why")
+            if not r.get("returns_quote"):
+                err(f"retailer {rid}: returns_url missing and no quote supporting the window")
+            if not r.get("flags"):
+                err(f"retailer {rid}: returns_url missing and not flagged")
+            NOTES.append(f"retailer {rid}: no retrievable returns URL - window rests on the quoted policy text")
+        elif not domain_ok(r.get("returns_url")):
             err(f"retailer {rid}: returns_url not an allowed official domain")
         if r.get("trustpilot_score") is not None:
             if not domain_ok(r.get("trustpilot_url")):

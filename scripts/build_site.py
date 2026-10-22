@@ -79,6 +79,15 @@ def money(value: float, decimals: int = 0) -> str:
     return f"${value:,.{decimals}f}"
 
 
+def policy_link(r: dict, label: str = "policy") -> str:
+    """Link to a retailer's returns page - or say plainly that none was retrievable."""
+    url = r.get("returns_url")
+    if url:
+        return f'<a href="{e(url)}" target="_blank" rel="noopener">{e(label)}</a>'
+    return ('<span class="badge warn" title="No policy page could be retrieved; the return window rests on '
+            'quoted policy text, not a page you can open.">policy page not retrievable</span>')
+
+
 def flag_label(code: str) -> str:
     return FLAG_LABELS.get(code, code.replace("_", " ").title())
 
@@ -88,6 +97,9 @@ def load(name: str) -> dict:
 
 
 # --------------------------------------------------------------------------- data
+STANDARDS_DOC = load("standards.json")
+STANDARDS_RULES = STANDARDS_DOC.get("legal_rules", [])
+
 report = load("verification-report.json")
 if report.get("result") != "PASS":
     sys.exit("Refusing to build: verification-report.json is not PASS. Run scripts/verify.py first.")
@@ -222,7 +234,7 @@ def product_row(p) -> str:
     ])
     ret_win = r.get("returns_window_days")
     returns = (
-        f'{ret_win} days<span class="sub"><a href="{e(r.get("returns_url","#"))}" target="_blank" rel="noopener">policy</a></span>'
+        f'{ret_win} days<span class="sub">{policy_link(r)}</span>'
         if ret_win else '<span class="badge neutral">unverified</span>'
     )
     return f"""<tr id="p-{e(p['id'])}" data-cats="{' '.join(p.get('categories', []))}" data-search="{e(search)}">
@@ -669,7 +681,7 @@ def build_retailers() -> str:
         contact_html = "<br>".join(contact) if contact else '<span class="badge warn">no direct contact found</span>'
         rows.append(f"""<tr>
           <td><a href="{e(r['site'])}" target="_blank" rel="noopener">{e(r['name'])}</a><span class="sub">{e(r.get('country',''))}</span></td>
-          <td><strong>{r.get('returns_window_days','—')} days</strong><span class="sub"><a href="{e(r.get('returns_url','#'))}" target="_blank" rel="noopener">policy</a></span></td>
+          <td><strong>{r.get('returns_window_days','—')} days</strong><span class="sub">{policy_link(r)}</span></td>
           <td>{solid}</td><td>{hall}</td><td>{tp}</td><td class="small">{contact_html}</td>
         </tr>""")
 
@@ -693,7 +705,7 @@ def build_retailers() -> str:
         <div class="card" id="r-{e(r['id'])}">
           <h3>{e(r['name'])}</h3>
           <p class="small"><strong>Returns:</strong> {e(r.get('returns_window_note',''))}
-            <a href="{e(r.get('returns_url','#'))}" target="_blank" rel="noopener">policy page</a></p>
+            {policy_link(r, "policy page")}</p>
           <div class="quote small">{e(r.get('returns_quote',''))}</div>
           <p class="small"><strong>Exclusions:</strong> {e(r.get('returns_exclusions',''))}</p>
           {gold_block}
@@ -782,7 +794,7 @@ def build_calculator() -> str:
     </div>
     <div class="field">
       <label for="calc-grams">Ring weight (grams)</label>
-      <input type="number" id="calc-grams" value="3" step="0.1" min="0">
+      <input type="number" id="calc-grams" value="" step="0.1" min="0" placeholder="weigh it, or ask the seller">
       <p class="tiny muted" style="margin:4px 0 0">Use the seller's stated weight. No retailer in this dataset publishes one.</p>
     </div>
     <div class="field">
@@ -909,6 +921,19 @@ def build_flagged() -> str:
 
     n_flag = sum(len(p.get("flags", [])) for p in PRODUCTS)
 
+    sev_rank = {"high": 0, "medium": 1, "low": 2}
+    flag_dict_rows = "".join(
+        "<tr>"
+        f"<td class=\"mono\"><a href=\"#{e(f['id'])}\">{e(f['id'])}</a></td>"
+        f"<td>{e(f['label'])}</td>"
+        f"<td><span class=\"badge {SEVERITY_BADGE.get(f['severity'], 'info')}\">{e(f['severity'])}</span></td>"
+        f"<td class=\"small\">{e(f['what'])}</td>"
+        f"<td class=\"small\">{e(f.get('action') or '-')}</td>"
+        "</tr>"
+        for f in sorted(FLAG_LEGEND.values(),
+                        key=lambda f: (sev_rank.get(f.get("severity"), 9), f["id"]))
+    )
+
     body = f"""
 {policy_box()}
 <div class="page-head">
@@ -937,6 +962,17 @@ def build_flagged() -> str:
     </table>
   </div>
 </details>
+
+<h2 style="margin-top:36px">Flag dictionary</h2>
+<p class="small">Every flag code used on this site, what it means, and what closes it. A flag is a question,
+not a verdict: it records what the seller's page did not answer. Dataset-B chips print their code, so a chip
+on the <a href="combined.html">combined table</a> can be traced back to a row below.</p>
+<div class="table-wrap">
+  <table style="min-width:900px">
+    <thead><tr><th>Code</th><th>Flag</th><th>Severity</th><th>What it means</th><th>What closes it</th></tr></thead>
+    <tbody>{flag_dict_rows}</tbody>
+  </table>
+</div>
 
 {verification_block()}
 <h2>How a flag gets closed</h2>
@@ -975,7 +1011,7 @@ def build_sources() -> str:
     retailer_rows = "".join(
         f"<tr><td>{e(r['name'])}</td>"
         f"<td><a href='{e(r['site'])}' target='_blank' rel='noopener'>official site</a></td>"
-        f"<td><a href='{e(r.get('returns_url','#'))}' target='_blank' rel='noopener'>returns policy</a></td>"
+        f"<td>{policy_link(r, 'returns policy')}</td>"
         f"<td><a href='{e(r.get('trustpilot_url','#'))}' target='_blank' rel='noopener'>Trustpilot profile</a></td></tr>"
         for r in RETAILERS
     )
@@ -1027,19 +1063,38 @@ Last full capture: {CAPTURED}.</p>
 
 
 def build_checklist() -> str:
+    # counts used in the checklist prose are computed, never typed in: a hardcoded
+    # "7 of 17" quietly becomes false the next time a listing is added.
+    weight_pub = sum(1 for x in GOLD if x.get("weight_g") is not None)
+    solid_not_stated = sum(
+        1 for x in GOLD
+        if "not stated" in (x.get("solid_gold_status") or "").lower()
+        and "brand" not in (x.get("solid_gold_status") or "").lower()
+    )
+    rule_rows = "".join(
+        f"""<tr>
+          <td class="mono">{e(r['cite'])}</td>
+          <td class="small">{e(r['rule'])}</td>
+          <td class="small">{e(r.get('use_in_project') or '-')}</td>
+          <td><a href="{e(r['url'])}" target="_blank" rel="noopener">text</a></td>
+        </tr>"""
+        for r in STANDARDS_RULES
+    )
+
     steps = [
         ("Gold purity", "Confirm the karat - 10K, 14K, 18K - and that the number is attached to the word gold on the listing itself.",
          "16 CFR 23.3(c)(1): a fineness designation must immediately precede 'Gold' and be equally conspicuous.",
          "The Purity column records only what the listing states. Where the karat appears only in an image description, the row says so."),
         ("Solid gold", "The listing must explicitly say solid gold - not plated, vermeil, gold-filled, overlay or gold tone.",
          "16 CFR 23.3(b): surface-plated products must be qualified as plated. 16 CFR 23.4: vermeil is a sterling-silver base.",
-         "The Solid gold column has three states: stated on listing, brand-level only, or not stated. Seven gold listings are 'not stated'."),
+         f"The Solid gold column has three states: stated on listing, brand-level only, or not stated. "
+         f"{solid_not_stated} of {len(GOLD)} gold listings here are 'not stated' at listing level."),
         ("Hallmark", "Look for a karat stamp plus a maker's or manufacturer's mark.",
          "15 U.S.C. 297: a quality mark must be accompanied by the maker's registered trademark or name, applied by the same means and as close as possible.",
          "No retailer here publishes a hallmark policy, so every row is unverified on this point until you see the ring."),
         ("Weight", "Get the ring's weight in grams from the seller.",
          "Without weight, the gold content cannot be computed - only implied by the price.",
-         f"0 of {METRICS['n_solid_gold']} gold listings publish a weight. Aurate's product feed carries an undocumented numeric 'weight' field that repeats across variants; it is never described as the finished item weight, so it was deliberately not used."),
+         f"{weight_pub} of {len(GOLD)} gold listings in this pass publish a finished weight. Aurate's product feed carries an undocumented numeric 'weight' field that repeats across variants; it is never described as the finished item weight, so it was deliberately not used."),
         ("Seller reputation", "Read independent reviews and complaints; confirm a real phone number or address.",
          "Trustpilot scores are shown with review counts and whether reviews are invited, because sample size changes meaning.",
          "Retailer cards quote the actual complaint themes, not just the stars."),
@@ -1089,6 +1144,18 @@ def build_checklist() -> str:
   a sensible price and an independent assay after delivery are what actually protect you.
 </div>
 
+<h2>Every rule this site relies on</h2>
+<p class="small">Each test above names the rule that supports it. This is the full set, with what it decides
+in this dataset. Three of them decide cases the headline rules miss: relative quantities in a two-metal ring
+(16 CFR 23.8, e.g. an 18k gold ring with a platinum head), undisclosed rhodium plating on "white gold"
+(16 CFR 23.7), and what "total weight" is allowed to mean when stones are set in it (16 CFR 23.18).</p>
+<div class="table-wrap">
+  <table style="min-width:960px">
+    <thead><tr><th>Citation</th><th>What it says</th><th>What it decides here</th><th>Source</th></tr></thead>
+    <tbody>{rule_rows}</tbody>
+  </table>
+</div>
+
 <h2>Red flags that should end the conversation</h2>
 <div class="card">
   <ul class="small">
@@ -1106,6 +1173,16 @@ def build_checklist() -> str:
 
 
 def build_excluded() -> str:
+    other_excluded_rows = "".join(
+        f"""<tr>
+          <td>{e(x.get('product') or 'unnamed listing')}</td>
+          <td class="small">{e(x.get('reason') or '-')}</td>
+          <td class="small">{e(x.get('verified_facts') or '-')}</td>
+          <td><a href="{e(x.get('url'))}" target="_blank" rel="noopener">source</a></td>
+        </tr>"""
+        for x in OTHER_EXCLUDED
+    )
+
     body = f"""
 {policy_box()}
 <div class="page-head">
@@ -1121,6 +1198,16 @@ def build_excluded() -> str:
 </div>
 
 {listings_table(EXCLUDED, table_id='excluded-listings', toolbar=False)}
+
+<h2 style="margin-top:34px">Also excluded from the combined dataset</h2>
+<p class="small">Listings the parallel pass opened and rejected, kept with the reason it recorded and the page
+it read. They appear here rather than being dropped, because "why this was rejected" is evidence too.</p>
+<div class="table-wrap">
+  <table style="min-width:900px">
+    <thead><tr><th>Listing</th><th>Why it is excluded</th><th>What was verified</th><th>Source</th></tr></thead>
+    <tbody>{other_excluded_rows}</tbody>
+  </table>
+</div>
 
 <h2>The same design, three metals</h2>
 <div class="card">
@@ -1172,9 +1259,10 @@ def build() -> None:
             "under-1000", "under-1000", "Solid gold under $1,000",
             "The entry point for a verifiable solid-gold ring. At this budget you are mostly buying metal and craft, not a large certified stone - "
             "which is exactly where a published weight and a hallmark matter most.",
-            extra="""<div class="note-box" style="margin-bottom:16px"><strong>At this price the gold is a real share of the cost.</strong>
-            A $550 plain 14K band has a break-even weight of about 7.3 g, so the metal is a meaningful part of what you pay - unlike the
-            $6,000+ diamond rings, where it is a rounding error.</div>"""),
+            extra=f"""<div class="note-box" style="margin-bottom:16px"><strong>At this price the gold is a real share of the cost.</strong>
+            <span data-illustration="worked example computed from the captured spot, not a listing">A $550 plain 14K band
+            has a break-even weight of about {550 / (SPOT_GRAM * FINENESS['14K']):.1f} g</span>, so the metal is a meaningful
+            part of what you pay - unlike the diamond-led rings further up the market, where it is a rounding error.</div>"""),
         "excluded.html": build_excluded(),
         "retailers.html": build_retailers(),
         "calculator.html": build_calculator(),
@@ -1230,6 +1318,16 @@ def build() -> None:
             # quote presence is not mandatory, but the price must render
             if money(p["price"]) not in all_html:
                 problems.append(f"product {p['id']}: price not rendered")
+
+    # Orphan guard: a root .html this builder does not generate is a stale duplicate or a
+    # hand-edited page that will drift from the data. Both are how contradictions ship.
+    generated = set(pages) | {"index.html"}
+    preserved = {"analysis.html", "standards.html", "sellers.html", "methodology.html"}
+    for f in sorted(OUT.glob("*.html")):
+        if f.name not in generated and f.name not in preserved:
+            problems.append(f"{f.name}: root page not generated by build_site.py (stale duplicate?)")
+        if f.name in preserved and "Archived snapshot" not in f.read_text(encoding="utf-8"):
+            problems.append(f"{f.name}: preserved page is missing its archived-snapshot banner")
 
     if problems:
         print("BUILD FAILED:")
