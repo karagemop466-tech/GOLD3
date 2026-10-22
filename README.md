@@ -1,6 +1,6 @@
 # GOLD3 — verified gold engagement rings
 
-A source-verified workbench for buying a **solid gold engagement ring** online: 19 listings across 8 sellers.
+A source-verified workbench for buying a **solid gold engagement ring** online: 22 listings across 10 sellers.
 
 **No hallucinations.** Every number on the site is traceable to a linked official page, retrieved
 **22 October 2026**. Where a seller does not publish a value, the cell is blank, marked
@@ -21,23 +21,26 @@ Live site: **https://karagemop466-tech.github.io/GOLD3/**
 | `analysis.html` | Coverage of each requirement, and melt value vs asking price for rows that publish a weight. |
 | `calculator.html` | Fine-gold content and melt value from a weight you supply and the dated spot price. |
 | `standards.html` | The FTC jewellery guides and National Stamping Act rules the checklist rests on, with citations. |
+| `verify.html` | The verification log: every source URL reopened, what was confirmed, what was corrected, what was deleted. |
 | `flagged.html` | Everything unconfirmed or irregular, with severity, remedy and source. |
 | `methodology.html` | The passes run, the sources used, and what the audit caught. |
 | `data/gold-price.json` | The dated benchmark, with publisher, quote and caveats. |
-| `data/rings.json` | The 19 listing rows, each with verbatim quotes and source URLs. |
+| `data/rings.json` | The 22 listing rows, each with verbatim quotes and source URLs. |
 | `data/sellers.json` | Seller policy and contact facts. |
 | `data/standards.json` | Karat fineness table and legal rules with citations. |
 | `data/flags.json` | Flag definitions: what was found, why it matters, what to do. |
 | `scripts/audit.py` | The anti-hallucination audit. |
+| `scripts/report_verify.py` | Renders `data/verification.json` into `reports/verification-report.md`. |
 | `reports/audit-report.md` | Output of the last audit run. |
 | `archive/session-982bfc88/` | The parallel session's original site, data, scripts and reports, preserved verbatim. |
-| `scripts/render-test.js` | Runs every page's table against the real JSON in a DOM shim (20 checks). |
+| `scripts/render-test.js` | Runs every page's table against the real JSON in a DOM shim (24 checks). |
 | `COORDINATION.md` | Shared task board for parallel agent sessions. |
 
 ## Run the checks
 
 ```bash
 python3 scripts/audit.py          # exits non-zero on any error
+python3 scripts/report_verify.py  # rebuilds the verification report from data/
 node scripts/render-test.js       # renders every page against the real JSON
 ```
 
@@ -70,9 +73,12 @@ The pages read `data/*.json` over HTTP, so serve them rather than opening the fi
    from the centre diamond.
 4. **One retailer's return policy excludes precious metals** — which fails the return requirement
    outright, whatever the price.
-5. **Weights are the exception.** Estate jewellers and one catalogue retailer publish grams; even then the
-   figure is *total* item weight or explicitly approximate, so a melt calculation from it is an upper bound.
-6. **A luxury product page can override the glossy policy.** One flagship ring is declared non-returnable and
+5. **Weights are the exception, and always qualified.** Seven of 22 rows publish grams. Even those are
+   approximate (±5%), stated for a *reference size* (Sarraf's 8.30 g is a size-10 ring), or shared across two
+   metals (Automic's 5.4 g gold / 8.1 g platinum). A melt calculation from any of them is an estimate.
+6. **A page can contradict itself.** One 18K white-gold listing describes the same ring as "crafted from warmly
+   lustrous 14k yellow gold" in its own description — which is why the audit asks for the stamp, not the copy.
+7. **A luxury product page can override the glossy policy.** One flagship ring is declared non-returnable and
    exchange-only on its own product page, even though the same brand advertises a 30-day return policy.
 
 ## Two sessions, one dataset
@@ -81,6 +87,13 @@ A second agent session merged its own implementation to `main` (PR #1) while thi
 was discarded: its seven verified listings were re-opened, re-verified and folded in, its seller facts merged,
 its two dead listings moved to the excluded table, and its original files preserved verbatim under
 `archive/session-982bfc88/`. See `COORDINATION.md` for the reconciliation log.
+
+## What the second pass changed
+
+Every cited URL was reopened on 22 October 2026 and each stored value was searched for in the page text. The
+result: 17 URLs confirmed, 6 rows corrected, 5 newly flagged, 3 listings added. Seven metal-option phrases
+("white/rose gold & platinum also offered") were **deleted** because the fetched pages never printed them.
+The full record is on `verify.html` and in `data/verification.json`.
 
 ## Standing recommendation
 

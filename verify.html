@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Verification log — GOLD3</title>
+<meta name="description" content="Every source URL in this project reopened and re-read on 22 October 2026, with what was confirmed, what was corrected and what was deleted for lack of evidence.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="verify">
+
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="index.html"><span class="mark"></span>GOLD3 <small>ring verification</small></a>
+    <nav class="main">
+      <a href="index.html">Overview</a>
+      <a href="rings.html">Rings</a>
+      <a href="sellers.html">Sellers</a>
+      <a href="analysis.html">Analysis</a>
+      <a href="calculator.html">Calculator</a>
+      <a href="standards.html">Standards</a>
+      <a href="verify.html">Verification</a>
+      <a href="flagged.html">Flagged</a>
+      <a href="methodology.html">Method</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <h1>Verification log</h1>
+    <p class="lede">This page is the paper trail. Every URL the dataset relies on was opened again on
+      <strong>22 October 2026</strong> and the stored value was checked against the text the page returned.
+      What was confirmed, what was corrected, and what was deleted is listed below — including the values that
+      were removed because the seller's page never printed them.</p>
+  </section>
+
+  <section class="oath">
+    <h2>No hallucinations — the rule this page enforces</h2>
+    <p><strong>If a number is not on the linked page, it does not belong in the dataset.</strong> A value found
+      only on a search result, a cached copy, or a "typical" price list is treated as invented. When a seller
+      does not publish a value, the cell stays blank and carries an <span class="badge b-neutral">unverified</span>
+      badge. Better an empty cell than a confident error.</p>
+    <ul>
+      <li><strong>Confirmed</strong> — the value was found verbatim on the page on the date shown.</li>
+      <li><strong>Corrected</strong> — the value was on the page but the row described it wrongly, so the row was fixed.</li>
+      <li><strong>Flagged</strong> — the page contradicts itself, or the listing cannot be safely bought as described.</li>
+      <li><strong>Deleted</strong> — the page did not support the claim at all, so the claim was removed rather than softened.</li>
+    </ul>
+    <p class="hint" style="margin-top:10px">Re-run <code>python3 scripts/audit.py</code> after any change, then repeat
+      the hallucination pass by hand: pick any number on the site and try to find it on the linked page.</p>
+  </section>
+
+  <div class="grid cols-4" id="vstats" style="margin-top:6px">
+    <div class="card stat"><span class="n">…</span><span class="k">loading</span></div>
+  </div>
+
+  <h2>Source checks</h2>
+  <p class="dim">One row per URL that was actually opened. The "rows" column says which listings depend on it.</p>
+  <div class="tscroll card" style="padding:0">
+    <table id="verify-table">
+      <thead><tr>
+        <th>ID</th><th>Source</th><th>Depends</th><th>Result</th><th>What the page actually said</th>
+      </tr></thead>
+      <tbody><tr><td colspan="5" class="dim" style="padding:18px">Loading the verification log…</td></tr></tbody>
+    </table>
+  </div>
+
+  <h2>Irregularities raised by this pass</h2>
+  <p class="dim">These are on the <a href="flagged.html">Flagged for Review</a> page too, with an action for each.</p>
+  <div class="tscroll card" style="padding:0">
+    <table id="disc-table">
+      <thead><tr><th>Row</th><th>What is irregular</th><th>Flag</th><th>Severity</th></tr></thead>
+      <tbody><tr><td colspan="4" class="dim" style="padding:18px">Loading…</td></tr></tbody>
+    </table>
+  </div>
+
+  <h2>Deliberately not re-checked</h2>
+  <div class="card">
+    <p class="dim" style="margin-top:0">Links kept in the dataset but not opened in this pass are declared here
+      rather than implied to be verified.</p>
+    <ul id="notrechecked" class="dim" style="padding-left:18px;margin:6px 0 0"><li>Loading…</li></ul>
+  </div>
+
+  <h2>What no website can verify</h2>
+  <div class="grid cols-2" style="margin-top:6px">
+    <div class="card">
+      <h3>Needs the object in hand</h3>
+      <ul class="dim" id="unverifiable" style="padding-left:18px;margin:6px 0 0"><li>Loading…</li></ul>
+    </div>
+    <div class="card">
+      <h3>How to do that check yourself</h3>
+      <p class="dim">Take the ring, before wearing or resizing it, to an independent jeweller — not the seller —
+        and ask for an <strong>XRF test</strong> or an assay, plus a weight on a calibrated scale. Compare the
+        reading with the karat stamp and with the weight recorded here. Keep the receipt from that test with your
+        order documentation.</p>
+      <p class="dim">If the reading is below the stamp, stop: contact the seller in writing inside the return
+        window and keep the ring unworn.</p>
+    </div>
+  </div>
+
+  <div class="note bad" style="margin-top:16px">
+    <p><strong>If a seller will not let you independently verify the ring, or will not let you return it after
+      verification, do not buy it.</strong> No price and no brand reputation overrides that rule.</p>
+  </div>
+
+</main>
+
+<footer class="site wrap">
+  <p><strong>No hallucinations policy.</strong> This log records what was on the page on the date shown. Listings,
+    prices and policies change without notice — re-open the link before you pay.</p>
+  <p>Machine-readable copy: <a href="data/verification.json">data/verification.json</a>.</p>
+</footer>
+
+<script src="assets/app.js"></script>
+</body>
+</html>

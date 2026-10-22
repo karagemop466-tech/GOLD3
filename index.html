@@ -19,6 +19,7 @@
       <a href="analysis.html">Analysis</a>
       <a href="calculator.html">Calculator</a>
       <a href="standards.html">Standards</a>
+      <a href="verify.html">Verification</a>
       <a href="flagged.html">Flagged</a>
       <a href="methodology.html">Method</a>
     </nav>
@@ -52,6 +53,10 @@
       <li><strong>Derived numbers</strong> (per-gram gold value, melt value, price per pure gram) are computed
         in your browser from the audited spot price and the quoted weight — never stored as a rounded claim.</li>
     </ul>
+    <p><strong>Standing recommendation, repeated on every page:</strong> re-run the audit after every review,
+      then spend one pass doing nothing but hunting hallucinations — take any number here and try to find it on the
+      linked page. If it is not there, delete it and mark the field unverified. The
+      <a href="verify.html">Verification log</a> is that pass, written down.</p>
     <p class="hint" style="margin-top:10px">An automated audit re-checks these rules on every change:
       <code>python3 scripts/audit.py</code>. It fails the build if a price lacks its quoted source text,
       if a gram figure is not present in its own quote, or if a "pass" verdict was reached without the
@@ -96,8 +101,10 @@
       <span>Federal rules require a quality mark on gold to be accompanied by the maker's name or trademark.
       Almost no online listing shows either. <a href="standards.html">Legal basis →</a></span></span></li>
     <li><span class="ico">④</span><span class="txt"><strong>Weight in grams</strong>
-      <span>Estate jewellers and one catalogue retailer publish it in this study; most others do not. Where it is
-      absent it stays blank and flagged, because a weight you cannot source is a number you invented.</span></span></li>
+      <span>7 of 22 rows publish grams — estate jewellers, a catalogue retailer and two jewellers who list the
+      weight on the product page. Even those are qualified (approximate, ±5%, or for a reference size), so a melt
+      figure from them is an estimate. The other 15 stay blank and flagged: a weight you cannot source is a
+      number you invented.</span></span></li>
     <li><span class="ico">⑤</span><span class="txt"><strong>Seller reputation and real contact details</strong>
       <span>Phone and email are recorded only where the seller publishes them. Independent review scores are
       deliberately left empty rather than fabricated.</span></span></li>
@@ -147,6 +154,9 @@
       <p>Type a weight, pick a karat, get fine-gold content and melt value at the dated spot price.</p></div>
     <div class="card"><h3><a href="standards.html">Standards</a></h3>
       <p>The FTC jewellery guides and National Stamping Act rules this checklist rests on, quoted with citations.</p></div>
+    <div class="card"><h3><a href="verify.html">Verification log</a></h3>
+      <p>Every source URL reopened on 22 October 2026: what was confirmed, what was corrected, and the values
+        that were deleted because the page never printed them.</p></div>
     <div class="card"><h3><a href="flagged.html">Flagged for Review</a></h3>
       <p>Everything unconfirmed or irregular, with severity, what to do, and the source.</p></div>
   </div>

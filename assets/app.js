@@ -4,7 +4,7 @@
    so the site cannot drift from the audited dataset. */
 
 const GOLD = (() => {
-  const state = { gold: null, rings: [], sellers: [], flags: [], standards: null };
+  const state = { gold: null, rings: [], sellers: [], flags: [], standards: null, verification: null };
   let flagIndex = {};
 
   const fmtMoney = (n, dec = 0) =>
@@ -72,18 +72,20 @@ const GOLD = (() => {
       if (!res.ok) throw new Error(`${p} → HTTP ${res.status}`);
       return res.json();
     };
-    const [gold, rings, sellers, flags, standards] = await Promise.all([
+    const [gold, rings, sellers, flags, standards, verification] = await Promise.all([
       get("data/gold-price.json"),
       get("data/rings.json"),
       get("data/sellers.json"),
       get("data/flags.json"),
       get("data/standards.json"),
+      get("data/verification.json").catch(() => null),
     ]);
     state.gold = gold;
     state.rings = rings.rings;
     state.sellers = sellers.sellers;
     state.flags = flags.flags;
     state.standards = standards;
+    state.verification = verification;
     flagIndex = Object.fromEntries(state.flags.map((f) => [f.id, f]));
     return state;
   }
@@ -416,13 +418,76 @@ const GOLD = (() => {
     compute();
   }
 
+
+  /* ---- verification log ---- */
+  function initVerify() {
+    const v = state.verification;
+    const stats = document.getElementById("vstats");
+    const tbody = document.querySelector("#verify-table tbody");
+    if (!v) {
+      if (stats) stats.innerHTML = `<div class="card"><p class="dim">Verification log not available.</p></div>`;
+      if (tbody) tbody.innerHTML = `<tr><td colspan="5" class="dim" style="padding:18px">data/verification.json could not be loaded.</td></tr>`;
+      return;
+    }
+
+    if (stats) {
+      stats.innerHTML = `
+        <div class="card stat b"><span class="n">${v.summary.urls_opened}</span>
+          <span class="k">URLs opened</span><span class="sub">each one fetched, not assumed</span></div>
+        <div class="card stat g"><span class="n">${v.summary.confirmed}</span>
+          <span class="k">confirmed as stored</span><span class="sub">value found verbatim on the page</span></div>
+        <div class="card stat a"><span class="n">${v.summary.corrected}</span>
+          <span class="k">rows corrected</span><span class="sub">page said something different</span></div>
+        <div class="card stat r"><span class="n">${v.summary.flagged}</span>
+          <span class="k">newly flagged</span><span class="sub">page contradicts itself or the listing</span></div>`;
+    }
+
+    if (tbody) {
+      const cls = { confirmed: "b-ok", corrected: "b-info", flagged: "b-bad" };
+      tbody.innerHTML = v.checks
+        .map((c) => `<tr>
+          <td class="num">${esc(c.id)}</td>
+          <td class="name"><a href="${esc(c.url)}" rel="noopener">${esc(c.label)}</a>
+            <span class="sub">${esc(c.kind)}</span></td>
+          <td class="num">${esc((c.rows || []).join(", "))}</td>
+          <td><span class="badge ${cls[c.outcome] || "b-neutral"}">${esc(c.outcome)}</span></td>
+          <td>${esc(c.findings)}</td>
+        </tr>`)
+        .join("");
+    }
+
+    const disc = document.querySelector("#disc-table tbody");
+    if (disc) {
+      disc.innerHTML = (v.discrepancies || [])
+        .map((d) => `<tr>
+          <td class="num">${esc(d.row)}</td>
+          <td>${esc(d.what)}</td>
+          <td>${flagChips([d.flag])}</td>
+          <td><span class="badge ${d.severity === "high" ? "b-bad" : d.severity === "medium" ? "b-warn" : "b-neutral"}">${esc(d.severity)}</span></td>
+        </tr>`)
+        .join("");
+    }
+
+    const nr = document.getElementById("notrechecked");
+    if (nr) {
+      nr.innerHTML = (v.not_rechecked || [])
+        .map((n) => `<li><a href="${esc(n.url)}" rel="noopener">${esc(n.url)}</a> — ${esc(n.why)}</li>`)
+        .join("");
+    }
+
+    const un = document.getElementById("unverifiable");
+    if (un) {
+      un.innerHTML = (v.summary.unverifiable_online || []).map((t) => `<li>${esc(t)}</li>`).join("");
+    }
+  }
+
   /* ---- boot ---- */
   async function boot() {
     markNav();
     try {
       await loadAll();
     } catch (e) {
-      ["stats", "rings-table", "sellers-list", "flags-list", "c-out"].forEach((id) =>
+      ["stats", "rings-table", "sellers-list", "flags-list", "c-out", "vstats"].forEach((id) =>
         showError(document.getElementById(id), e)
       );
       return;
@@ -435,6 +500,7 @@ const GOLD = (() => {
     if (page === "analysis") initAnalysis();
     if (page === "standards") initStandards();
     if (page === "calculator") initCalc();
+    if (page === "verify") initVerify();
   }
 
   return { boot, fmtMoney, fmtNum, state };

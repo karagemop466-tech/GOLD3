@@ -37,6 +37,11 @@ function runPage(page, appSource) {
     body: { dataset: { page } },
     getElementById: getEl,
     querySelectorAll: () => [],
+    // "#id tbody" is the only selector the app uses; map it onto a shim element
+    querySelector: (sel) => {
+      const m = /^#([\w-]+)\s+tbody$/.exec(String(sel));
+      return m ? getEl(m[1] + "-body") : null;
+    },
     addEventListener: (_evt, fn) => { bootFn = fn; },
   };
 
@@ -148,6 +153,20 @@ function check(name, cond, detail = "") {
   el = await runPage("standards", appSource);
   check("standards: karat table renders", el("karat-body").innerHTML.includes("58.33"));
   check("standards: legal rules render", el("rules-list").innerHTML.includes("16 CFR 23.4"));
+
+  // ---- verification log
+  el = await runPage("verify", appSource);
+  const verif = JSON.parse(fs.readFileSync(path.join(ROOT, "data/verification.json"), "utf8"));
+  const vTbl = el("verify-table-body").innerHTML;
+  check("verify: every check renders", vTbl.includes(verif.checks[0].id) &&
+    vTbl.includes(verif.checks[verif.checks.length - 1].id),
+    `${verif.checks.length} checks`);
+  check("verify: stats come from the log",
+    el("vstats").innerHTML.includes(String(verif.summary.urls_opened)));
+  check("verify: discrepancies listed",
+    verif.discrepancies.every((d) => el("disc-table-body").innerHTML.includes(d.flag)));
+  check("verify: declared gaps are printed, not hidden",
+    (verif.not_rechecked || []).every((n) => el("notrechecked").innerHTML.includes(n.url)));
 
   // ---- report
   let failed = 0;

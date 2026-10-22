@@ -57,6 +57,7 @@ def load(path):
 # ----------------------------------------------------------------------------
 required_files = [
     "gold-price.json", "rings.json", "sellers.json", "standards.json", "flags.json",
+    "verification.json",
 ]
 for name in required_files:
     if (DATA / name).exists():
@@ -69,8 +70,9 @@ rings_doc = load(DATA / "rings.json")
 sellers_doc = load(DATA / "sellers.json")
 standards_doc = load(DATA / "standards.json")
 flags_doc = load(DATA / "flags.json")
+verif_doc = load(DATA / "verification.json")
 
-if not all([gold, rings_doc, sellers_doc, standards_doc, flags_doc]):
+if not all([gold, rings_doc, sellers_doc, standards_doc, flags_doc, verif_doc]):
     print("cannot continue: core data missing")
     sys.exit(1)
 
@@ -327,6 +329,70 @@ for s in sellers:
         if base and not (uh == base or uh.endswith("." + base)):
             err("domain", f"{s.get('id')}.{key}: {uh!r} is not on {base}")
 
+
+# ----------------------------------------------------------------------------
+# 3c. verification log: the page that proves the other pages were checked.
+#     Rules: every row is covered by an opened URL, every URL is https and
+#     owned by the right party, the counts are computed not asserted, and no
+#     entry points at a row that does not exist.
+# ----------------------------------------------------------------------------
+verified_rows = set()
+check_urls = set()
+if verif_doc:
+    date_pass = verif_doc.get("retrieved_utc")
+    if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", str(date_pass)):
+        err("verify", "verification.retrieved_utc is not an ISO date")
+    checks = verif_doc.get("checks") or []
+    if not checks:
+        err("verify", "verification log has no checks")
+    for c in checks:
+        cid = c.get("id", "<no id>")
+        u = c.get("url", "")
+        if not str(u).startswith("https://"):
+            err("verify", f"{cid}: verification URL is not https")
+        if not c.get("findings"):
+            err("verify", f"{cid}: no finding recorded — a check with no evidence statement proves nothing")
+        if c.get("outcome") not in ("confirmed", "corrected", "flagged"):
+            err("verify", f"{cid}: outcome must be confirmed / corrected / flagged")
+        if not c.get("rows"):
+            warn("verify", f"{cid}: not linked to any row")
+        for rid in c.get("rows", []):
+            if rid in ("spot", "standards"):
+                continue
+            if rid not in seen_ids:
+                err("verify", f"{cid}: references unknown row {rid}")
+            verified_rows.add(rid)
+        check_urls.add(u)
+
+    missing = sorted(set(seen_ids) - verified_rows)
+    if missing:
+        err("verify", f"rows with no entry in the verification log: {missing}")
+    else:
+        ok("verify", f"all {len(seen_ids)} rows appear in the verification log")
+
+    # the summary block is a set of claims about the log: recompute it
+    summ = verif_doc.get("summary") or {}
+    computed = {
+        "urls_opened": len(checks),
+        "confirmed": sum(1 for c in checks if c.get("outcome") == "confirmed"),
+        "corrected": sum(1 for c in checks if c.get("outcome") == "corrected"),
+        "flagged": sum(1 for c in checks if c.get("outcome") == "flagged"),
+    }
+    for k, val in computed.items():
+        if summ.get(k) != val:
+            err("verify", f"summary.{k} says {summ.get(k)!r} but the log contains {val}")
+    if not any(c.get("outcome") != "confirmed" for c in checks):
+        warn("verify", "a log where nothing was ever corrected or flagged is suspicious")
+    ok("verify", "summary counts recomputed from the entries and match")
+
+# rows must carry a dated verification stamp
+for r in rings:
+    lv = r.get("last_verified")
+    if not lv:
+        err("verify", f"{r.get('id')}: no last_verified date")
+    elif not re.fullmatch(r"\d{4}-\d{2}-\d{2}", str(lv)):
+        err("verify", f"{r.get('id')}: last_verified is not an ISO date ({lv!r})")
+
 # ----------------------------------------------------------------------------
 # 4. flags self-check
 # ----------------------------------------------------------------------------
@@ -376,6 +442,15 @@ ok("standards", f"{len(standards_doc.get('legal_rules', []))} legal rules carry 
 html_files = sorted(ROOT.glob("*.html"))
 if not html_files:
     warn("site", "no HTML pages found")
+
+verify_page = ROOT / "verify.html"
+if verify_page.exists():
+    ok("site", "verify.html present")
+    for page in [p for p in html_files if p.name != "verify.html"]:
+        if 'href="verify.html"' not in page.read_text(encoding="utf-8"):
+            err("links", f"{page.name}: does not link to the verification page")
+else:
+    err("site", "verify.html is missing")
 
 # every dollar figure printed in the HTML must exist in the data
 data_prices = set()

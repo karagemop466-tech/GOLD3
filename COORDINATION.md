@@ -42,9 +42,9 @@ Branch naming: `session-<id>/<task>`. (This primary session is pinned by the pla
 | T6 | Site build (landing, category pages, table, calculator, flagged page) | **done** | `arena/8aaa18bf-gold3` | `*.html`, `assets/` |
 | T7 | Integration: re-verify combined data, link check, publish Pages, PR + merge | **done** | `arena/8aaa18bf-gold3` | `.github/workflows/`, repo root |
 
-| T8 | Live re-verification of every published row and source URL (hallucination hunt) | **in progress** | `arena/e6fe3e4f-gold3` | `data/verification.json`, `reports/verify-*` |
-| T9 | Extend dataset with independently re-verified weight-bearing listings | **in progress** | `arena/e6fe3e4f-gold3` | `data/rings.json`, `data/sellers.json` |
-| T10 | Verification page + nav + audit rules for provenance | **in progress** | `arena/e6fe3e4f-gold3` | `verify.html`, `assets/`, `scripts/`, `*.html` (nav block only) |
+| T8 | Live re-verification of every published row and source URL (hallucination hunt) | **done** | `arena/e6fe3e4f-gold3` | `data/verification.json`, `reports/verification-report.md`, `verify.html` |
+| T9 | Extend dataset with independently re-verified weight-bearing listings | **done** | `arena/e6fe3e4f-gold3` | `data/rings.json`, `data/sellers.json`, `data/flags.json` |
+| T10 | Verification page + nav + audit rules for provenance | **done** | `arena/e6fe3e4f-gold3` | `verify.html`, `assets/`, `scripts/`, `*.html` (nav block only) |
 | T11 | Integration + PR + merge + Pages confirmation (this branch) | **in progress** | `arena/e6fe3e4f-gold3` | repo root, `.github/workflows/` |
 
 Status values: `unclaimed` · `in progress` · `done` · `needs review`.
@@ -165,3 +165,53 @@ taken separately. Two sessions, two fetches, same number.
   - `scripts/verify_sources.py` (new), `scripts/audit.py` (add rules), `README.md`
 - Method for this pass: every URL in the dataset is fetched again; every asserted value is matched against the
   fetched text. A value that cannot be found verbatim is removed and marked `unverified`, not softened.
+
+
+### 2026-10-22 — Session `arena/e6fe3e4f-gold3` — T8/T9/T10 DONE (results, sources, irregularities)
+
+**State at this entry:** 22 listings, 10 sellers, 35 flag definitions, 28 verification checks.
+`scripts/audit.py` 115 checks / 0 errors / 0 warnings. `scripts/render-test.js` 24/24.
+
+**Verification performed (the thing the user asked for, line by line)**
+- All 28 cited URLs were opened again on 2026-10-22 and each stored value was searched for in the returned text.
+- Result: **15 confirmed, 8 corrected, 5 flagged**. Machine-readable: `data/verification.json`.
+  Human-readable: `reports/verification-report.md` and `verify.html`.
+- **Deleted as unsupported (7 values):** the phrase "white/rose gold & platinum also offered" on R05, R06, R07,
+  R08, R09 and "white gold also listed" / "yellow gold also listed" on R01, R02, R03. None of those pages
+  printed them. This is the exact failure mode the board exists to catch: a plausible-looking detail, invented
+  because it is normally true of the retailer.
+- **Corrected:** R02 re-based from collection price to product price ("$1,500" on the product page), R19's
+  temporary `L3` provenance flag retired after a live re-fetch.
+- **Added (3 rows, each read off the seller's own page):** R20 Sarraf 14k WG solitaire $3,004 / 3.80 g /
+  "14K Solid Gold"; R21 Sarraf 10k 6mm band $613 / 8.30 g / "10K Solid Gold"; R22 Automic Gold radiant
+  $3,074 / ~5.4 g / "Solid 14k gold". Two new sellers (Sarraf.com, Automic Gold) added to the register.
+- **New flags (8):** `SPEC1` R08's page calls itself both 18K white gold and 14k yellow gold; `RDR1` R17's URL
+  redirects to another path; `ID1` R10's URL id (100675127) ≠ page item number (1596365); `WT3` weights are
+  explicitly approximate (±5%); `WT4` Sarraf's 8.30 g is a **size 10** ring; `WT5` Automic's 5.4 g is the gold
+  version only (platinum 8.1 g); `RET7` Sarraf's 30-day window is conditional; `POL2` engraving = final sale.
+- `L3` was retired from `flags.json` because no row references it any more (it existed only to mark R19 as not
+  re-fetched, and it has now been re-fetched).
+
+**Sources used this pass (all opened 2026-10-22)** — gold.org Goldhub (spot 4,024.36 USD/oz, market date
+2026-10-21); Mejuri product pages ×4 + return FAQ + engagement collection; Blue Nile product pages ×6 + returns
+policy; Costco product page + official returns answer (Document ID CU2573, version 18.0, published 02/10/2025);
+Wilson's Estate Jewelry ×3; Ross-Simons ×2; Tiffany product page + returns policy; Catbird; Sarraf ×2;
+Automic Gold; eCFR 16 CFR Part 23 (title 16 up to date as of 10/21/2026).
+
+**Irregularities published (non-blocking, on `flagged.html`)** — the 8 new flags above, plus the standing ones
+(`RET1` Costco precious metals non-refundable, `RET6` Tiffany product page non-returnable/exchange-only,
+`S1` vermeil sold as "18k", `P1` setting-only prices, `W1` weight unpublished on 15 of 22 rows, `X1` no seller
+publishes an XRF assay).
+
+**New guard rails added to the tooling (so this cannot silently regress)**
+- `scripts/audit.py` now fails if any row is missing from the verification log, if a verification URL is not
+  https, if an outcome is outside confirmed/corrected/flagged, if the `summary` counts disagree with the entries
+  (i.e. if the summary itself is fabricated), if any row lacks a `last_verified` ISO date, or if `verify.html` is
+  missing or unlinked from any page.
+- `scripts/report_verify.py` regenerates the human-readable report from the JSON, so the report cannot drift.
+
+**Coordination note.** PR #6 (`arena/b3c924e6-gold3`) was still open when this landed; this session did not
+touch that branch. `arena/cbea1001-gold3` and `arena/698f08f6-gold3` carry alternate-schema datasets that were
+never merged to `main`; **no rows were bulk-imported from them.** Three rows were drawn from publishers those
+branches had also looked at (Sarraf, Automic Gold), but every value here was fetched from the seller's own page
+in this session before being written, and provenance is recorded per row.

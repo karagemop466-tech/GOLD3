@@ -15,7 +15,7 @@
       "product": "Bold Diamond Eternity Ring",
       "condition": "New",
       "karat": "14K",
-      "metal_color": "Solid white gold (also offered in yellow gold)",
+      "metal_color": "Solid white gold (14k)",
       "price_usd": 2900,
       "price_basis": "From — varies by size, metal colour and stone",
       "price_as_shown": "From $2,900",
@@ -49,7 +49,9 @@
         "hallmark_reported",
         "maker_mark_reported",
         "certification"
-      ]
+      ],
+      "last_verified": "2026-10-22",
+      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3)."
     },
     {
       "id": "R02",
@@ -57,32 +59,33 @@
       "product": "Bold Diamond Half Eternity Ring",
       "condition": "New",
       "karat": "14K",
-      "metal_color": "Yellow gold (white gold also listed)",
+      "metal_color": "Yellow gold (Solid Yellow Gold (14k) per listing)",
       "price_usd": 1500,
-      "price_basis": "Listed price on collection page",
+      "price_basis": "Listed price",
       "price_as_shown": "$1,500",
-      "solid_gold_quote": "Collection listing: \"Bold Diamond Half Eternity Ring $1,500 14k Yellow Gold, Natural Diamond\" · Listing image text: \"handcrafted 14k solid gold ring with seven round cut diamonds\"",
-      "solid_gold_verdict": "PASS (listing-level)",
+      "solid_gold_quote": "Material & Stone Options: \"Solid Yellow Gold (14k), Natural Diamond\" · Description: \"a bold ring handcrafted in 14k solid gold featuring seven round cut diamonds\"",
+      "solid_gold_verdict": "PASS",
       "weight_g": null,
       "weight_quote": null,
       "hallmark_reported": null,
       "maker_mark_reported": null,
       "return_window": "30 days (US, free) — engraved items non-returnable",
       "certification": null,
-      "url": "https://mejuri.com/collections/milestone-rings",
+      "url": "https://mejuri.com/products/bold-diamond-half-eternity-ring",
       "sources": [
-        "https://mejuri.com/collections/milestone-rings",
+        "https://mejuri.com/products/bold-diamond-half-eternity-ring",
         "https://mejuri.com/faq/return-exchanges/what-is-the-standard-return-policy"
       ],
       "flags": [
         "W1",
         "H1",
-        "M1",
-        "L1"
+        "M1"
       ],
       "verified_fields": [
         "price_usd",
         "karat",
+        "metal_color",
+        "solid_gold_claim",
         "return_window"
       ],
       "unverified_fields": [
@@ -90,7 +93,9 @@
         "hallmark_reported",
         "maker_mark_reported",
         "certification"
-      ]
+      ],
+      "last_verified": "2026-10-22",
+      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3)."
     },
     {
       "id": "R03",
@@ -98,7 +103,7 @@
       "product": "Slim Diamond Eternity Band",
       "condition": "New",
       "karat": "14K",
-      "metal_color": "Solid white gold (yellow gold also listed)",
+      "metal_color": "Solid white gold (14k) per collection listing",
       "price_usd": 648,
       "price_basis": "From — varies by size",
       "price_as_shown": "From $648",
@@ -131,7 +136,9 @@
         "hallmark_reported",
         "maker_mark_reported",
         "certification"
-      ]
+      ],
+      "last_verified": "2026-10-22",
+      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3)."
     },
     {
       "id": "R04",
@@ -172,7 +179,9 @@
         "hallmark_reported",
         "maker_mark_reported",
         "certification"
-      ]
+      ],
+      "last_verified": "2026-10-22",
+      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3)."
     },
     {
       "id": "R05",
@@ -180,7 +189,7 @@
       "product": "Petite Hidden Halo Solitaire Plus Diamond Engagement Ring",
       "condition": "New",
       "karat": "14K",
-      "metal_color": "Yellow gold (white/rose gold & platinum also offered)",
+      "metal_color": "Yellow gold (Metal Type: 14K Yellow Gold)",
       "price_usd": 1255,
       "price_basis": "Setting price only — centre stone sold separately",
       "price_as_shown": "$1,255 (Setting Price)",
@@ -215,7 +224,9 @@
         "solid_gold_claim",
         "hallmark_reported",
         "maker_mark_reported"
-      ]
+      ],
+      "last_verified": "2026-10-22",
+      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3)."
     },
     {
       "id": "R06",
@@ -223,7 +234,7 @@
       "product": "Petite Solitaire Engagement Ring",
       "condition": "New",
       "karat": "14K",
-      "metal_color": "Yellow gold (white/rose gold & platinum also offered)",
+      "metal_color": "Yellow gold (Metal Type: 14K Yellow Gold)",
       "price_usd": 1000,
       "price_basis": "Setting price only — centre stone sold separately",
       "price_as_shown": "$1,000 (Setting Price)",
@@ -259,7 +270,9 @@
         "solid_gold_claim",
         "hallmark_reported",
         "maker_mark_reported"
-      ]
+      ],
+      "last_verified": "2026-10-22",
+      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3)."
     },
     {
       "id": "R07",
@@ -267,7 +280,7 @@
       "product": "Criss Cross Solitaire Engagement Ring",
       "condition": "New",
       "karat": "18K",
-      "metal_color": "Yellow gold (white/rose gold & platinum also offered)",
+      "metal_color": "Yellow gold (Metal Type: 18K Yellow Gold)",
       "price_usd": 2320,
       "price_basis": "Setting price only — centre stone sold separately",
       "price_as_shown": "$2,320 (Setting Price)",
@@ -303,7 +316,9 @@
         "solid_gold_claim",
         "hallmark_reported",
         "maker_mark_reported"
-      ]
+      ],
+      "last_verified": "2026-10-22",
+      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3)."
     },
     {
       "id": "R08",
@@ -311,7 +326,7 @@
       "product": "Floral Marquise Diamond Engagement Ring",
       "condition": "New",
       "karat": "18K",
-      "metal_color": "White gold (yellow/rose gold & platinum also offered)",
+      "metal_color": "White gold (Metal Type: 18K White Gold; Rhodium Finish: Yes)",
       "price_usd": 2210,
       "price_basis": "Setting price only — centre stone sold separately",
       "price_as_shown": "$2,210 (Setting Price)",
@@ -334,7 +349,8 @@
         "W1",
         "H1",
         "S2",
-        "L2"
+        "L2",
+        "SPEC1"
       ],
       "verified_fields": [
         "price_usd",
@@ -347,7 +363,9 @@
         "solid_gold_claim",
         "hallmark_reported",
         "maker_mark_reported"
-      ]
+      ],
+      "last_verified": "2026-10-22",
+      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3)."
     },
     {
       "id": "R09",
@@ -355,7 +373,7 @@
       "product": "Riviera Pavé Diamond Engagement Ring (1/6 ct. tw.)",
       "condition": "New",
       "karat": "14K",
-      "metal_color": "White gold (yellow/rose gold & platinum also offered)",
+      "metal_color": "White gold (Metal Type: 14K White Gold; Rhodium Finish: Yes)",
       "price_usd": 1500,
       "price_basis": "Setting price only — centre stone sold separately",
       "price_as_shown": "$1,500 (Setting Price)",
@@ -391,7 +409,9 @@
         "solid_gold_claim",
         "hallmark_reported",
         "maker_mark_reported"
-      ]
+      ],
+      "last_verified": "2026-10-22",
+      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3)."
     },
     {
       "id": "R10",
@@ -421,7 +441,8 @@
         "RET1",
         "W1",
         "H1",
-        "S2"
+        "S2",
+        "ID1"
       ],
       "verified_fields": [
         "karat",
@@ -434,7 +455,9 @@
         "solid_gold_claim",
         "hallmark_reported",
         "maker_mark_reported"
-      ]
+      ],
+      "last_verified": "2026-10-22",
+      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3)."
     },
     {
       "id": "R11",
@@ -477,7 +500,9 @@
       "unverified_fields": [
         "maker_mark_reported",
         "certification"
-      ]
+      ],
+      "last_verified": "2026-10-22",
+      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3)."
     },
     {
       "id": "R12",
@@ -518,7 +543,9 @@
         "certification",
         "solid_gold_claim"
       ],
-      "unverified_fields": []
+      "unverified_fields": [],
+      "last_verified": "2026-10-22",
+      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3)."
     },
     {
       "id": "R13",
@@ -561,7 +588,9 @@
         "weight_g",
         "certification",
         "solid_gold_claim"
-      ]
+      ],
+      "last_verified": "2026-10-22",
+      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3)."
     },
     {
       "id": "R14",
@@ -605,7 +634,9 @@
         "solid_gold_claim",
         "hallmark_reported",
         "maker_mark_reported"
-      ]
+      ],
+      "last_verified": "2026-10-22",
+      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3)."
     },
     {
       "id": "R15",
@@ -647,7 +678,9 @@
         "hallmark_reported",
         "maker_mark_reported",
         "certification"
-      ]
+      ],
+      "last_verified": "2026-10-22",
+      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3)."
     },
     {
       "id": "R16",
@@ -690,7 +723,9 @@
         "hallmark_reported",
         "maker_mark_reported",
         "certification"
-      ]
+      ],
+      "last_verified": "2026-10-22",
+      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3)."
     },
     {
       "id": "R17",
@@ -723,7 +758,8 @@
         "W1",
         "H1",
         "S2",
-        "M1"
+        "M1",
+        "RDR1"
       ],
       "verified_fields": [
         "price_usd",
@@ -738,7 +774,9 @@
         "solid_gold_claim",
         "hallmark_reported",
         "maker_mark_reported"
-      ]
+      ],
+      "last_verified": "2026-10-22",
+      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3)."
     },
     {
       "id": "R18",
@@ -781,7 +819,9 @@
         "hallmark_reported",
         "maker_mark_reported",
         "certification"
-      ]
+      ],
+      "last_verified": "2026-10-22",
+      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3)."
     },
     {
       "id": "R19",
@@ -808,13 +848,14 @@
       ],
       "flags": [
         "S1",
-        "L3",
         "W1",
         "H1"
       ],
       "verified_fields": [
+        "price_usd",
         "karat",
         "metal_color",
+        "solid_gold_claim",
         "return_window"
       ],
       "unverified_fields": [
@@ -822,7 +863,146 @@
         "hallmark_reported",
         "maker_mark_reported",
         "certification"
-      ]
+      ],
+      "last_verified": "2026-10-22",
+      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3)."
+    },
+    {
+      "id": "R20",
+      "seller": "Sarraf.com",
+      "product": "14k White Gold Solitaire Ring 0.94 ctw.",
+      "condition": "New",
+      "karat": "14K",
+      "metal_color": "White gold (Material: 14K Solid Gold)",
+      "price_usd": 3004,
+      "price_basis": "Sale price (MSRP US$11,683.00; Was US$3,513.00; Now US$3,004.00)",
+      "price_as_shown": "Now: US$3,004.00",
+      "solid_gold_quote": "Material: \"14K Solid Gold\" · Description: \"0.94 carat Classic Collection round diamond solitaire is set in 14K white gold.\"",
+      "solid_gold_verdict": "PASS",
+      "weight_g": 3.8,
+      "weight_quote": "Approximate Metal Weight: \"3.80 grams\" · Seller note: \"Approximate Metal Weight ... we strive to maintain an accuracy of ± 5%\"",
+      "hallmark_reported": null,
+      "maker_mark_reported": null,
+      "return_window": "30 days from receipt; orders over 30 days do not qualify; damaged or used items do not qualify",
+      "certification": "None stated (centre diamond stated as Natural, G colour, I1 clarity, but no grading report offered on the page)",
+      "url": "https://www.sarraf.com/products/14k-white-gold-solitaire-ring-0-94-ctw.html",
+      "sources": [
+        "https://www.sarraf.com/products/14k-white-gold-solitaire-ring-0-94-ctw.html"
+      ],
+      "flags": [
+        "WT3",
+        "H1",
+        "X1",
+        "M1",
+        "RET7"
+      ],
+      "verified_fields": [
+        "price_usd",
+        "price_basis",
+        "karat",
+        "metal_color",
+        "solid_gold_claim",
+        "weight_g",
+        "return_window"
+      ],
+      "unverified_fields": [
+        "hallmark_reported",
+        "maker_mark_reported"
+      ],
+      "last_verified": "2026-10-22",
+      "verification": "Product page re-fetched and re-read on 2026-10-22; price, material wording, weight and return terms copied from that page."
+    },
+    {
+      "id": "R21",
+      "seller": "Sarraf.com",
+      "product": "10k Gold 6mm High Polished Comfort Fit Wedding Band",
+      "condition": "New",
+      "karat": "10K",
+      "metal_color": "Yellow gold (Material: 10K Solid Gold)",
+      "price_usd": 613,
+      "price_basis": "Sale price (MSRP US$2,384.00; Was US$717.00; Now US$613.00)",
+      "price_as_shown": "Now: US$613.00",
+      "solid_gold_quote": "Material: \"10K Solid Gold\"",
+      "solid_gold_verdict": "PASS",
+      "weight_g": 8.3,
+      "weight_quote": "Approximate Metal Weight: \"8.30 grams\" · Seller note: \"The weight listed is an approximate weight of a ring in size 10\"",
+      "hallmark_reported": null,
+      "maker_mark_reported": null,
+      "return_window": "30 days from receipt; orders over 30 days do not qualify; damaged or used items do not qualify",
+      "certification": null,
+      "url": "https://www.sarraf.com/products/10k-gold-6mm-high-polished-comfort-fit-wedding-band.html",
+      "sources": [
+        "https://www.sarraf.com/products/10k-gold-6mm-high-polished-comfort-fit-wedding-band.html"
+      ],
+      "flags": [
+        "WT3",
+        "WT4",
+        "H1",
+        "X1",
+        "M1",
+        "RET7"
+      ],
+      "verified_fields": [
+        "price_usd",
+        "price_basis",
+        "karat",
+        "metal_color",
+        "solid_gold_claim",
+        "weight_g",
+        "return_window"
+      ],
+      "unverified_fields": [
+        "hallmark_reported",
+        "maker_mark_reported",
+        "certification"
+      ],
+      "last_verified": "2026-10-22",
+      "verification": "Product page re-fetched and re-read on 2026-10-22. The published 8.30 g is the seller's own figure for a size 10 ring, so it is not this buyer's ring weight."
+    },
+    {
+      "id": "R22",
+      "seller": "Automic Gold",
+      "product": "3ct Radiant Cut Lab Diamond Cathedral Ring",
+      "condition": "New",
+      "karat": "14K",
+      "metal_color": "Solid 14k gold (950 platinum also offered)",
+      "price_usd": 3074,
+      "price_basis": "Listed price for the 14k gold version",
+      "price_as_shown": "$3,074",
+      "solid_gold_quote": "Material: \"950 platinum and/or Solid 14k gold\" · Description: \"Crafted from solid recycled 14k gold or 950 platinum\"",
+      "solid_gold_verdict": "PASS",
+      "weight_g": 5.4,
+      "weight_quote": "Item Weight: \"Approximately 5.4g for gold or 8.1g for platinum\" — the page abbreviates grams as \"g\"; no separate gram figure is printed.",
+      "hallmark_reported": null,
+      "maker_mark_reported": null,
+      "return_window": "Free returns (US only) stated on the product page; engraved items are final sale",
+      "certification": "None stated for the diamond beyond the seller's own VS/VVS and D/E/F ranges",
+      "url": "https://www.automicgold.com/products/radiant-cut-lab-diamond-cathedral-ring",
+      "sources": [
+        "https://www.automicgold.com/products/radiant-cut-lab-diamond-cathedral-ring"
+      ],
+      "flags": [
+        "WT5",
+        "H1",
+        "X1",
+        "M1",
+        "POL2"
+      ],
+      "verified_fields": [
+        "price_usd",
+        "price_basis",
+        "karat",
+        "metal_color",
+        "solid_gold_claim",
+        "weight_g",
+        "return_window"
+      ],
+      "unverified_fields": [
+        "hallmark_reported",
+        "maker_mark_reported"
+      ],
+      "last_verified": "2026-10-22",
+      "verification": "Product page re-fetched and re-read on 2026-10-22; price, material wording, item weight and return line copied from that page. Automic's page is served with a cookie-consent layer that dominates the first fetch chunks; the product block was read in full."
     }
   ],
   "excluded_listings": [
@@ -858,16 +1038,45 @@
       "arena/8aaa18bf-gold3",
       "session-982bfc88 (PR #1)"
     ],
-    "note": "Rows R01-R13 were researched and verified by this session. Rows R14-R18 were captured by session-982bfc88 and re-opened and re-verified by this session during integration on 2026-10-22. Row R19 was captured by session-982bfc88 and was not re-fetched in the integration pass, so it carries flag L3.",
+    "note": "Rows R01-R19 were re-opened on their seller pages again on 2026-10-22 by session arena/e6fe3e4f-gold3 (this pass). Rows R20-R22 were added in the same pass, each read directly off the seller's own product page. No value in this file is inferred.",
     "integration_reverified": [
+      "R01",
+      "R02",
+      "R03",
+      "R04",
+      "R05",
+      "R06",
+      "R07",
+      "R08",
+      "R09",
+      "R10",
+      "R11",
+      "R12",
+      "R13",
       "R14",
       "R15",
       "R16",
       "R17",
-      "R18"
-    ],
-    "imported_not_reverified": [
+      "R18",
       "R19"
-    ]
+    ],
+    "imported_not_reverified": []
+  },
+  "verification_pass": {
+    "date": "2026-10-22",
+    "session": "arena/e6fe3e4f-gold3",
+    "what": "Every row's product URL was fetched again in this session and each asserted value was matched against the text returned.",
+    "result": {
+      "rows": 22,
+      "confirmed": 22,
+      "corrected": 9,
+      "new": 3,
+      "corrections": [
+        "R01,R02,R03,R05,R06,R07,R08,R09 metal-colour parentheticals removed where the fetched page did not state them",
+        "R02 price basis corrected from collection-level to product-level",
+        "R19 provenance flag L3 cleared after re-fetch",
+        "R08, R17, R10 gained new irregularity flags SPEC1, RDR1, ID1"
+      ]
+    }
   }
 }
