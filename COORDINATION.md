@@ -24,8 +24,8 @@
 | **C3** | Official gold engagement ring product listings collection & line-by-line verification | `done` | `arena/cbea1001-gold3` | `data/rings.json` |
 | **C4** | Seller reputation, contact info, return policies (custom/resized exclusions), payment protection & XRF inspection verification | `done` | `arena/cbea1001-gold3` | `data/sellers.json` |
 | **C5** | Anti-hallucination security scanner, raw gold / melt math verifier, blank-cell enforcement & link checker | `done` | `arena/cbea1001-gold3` | `package.json`, `scripts/security-check.mjs`, `scripts/verify-links.mjs`, `data/flagged-items.json`, `data/audit-report.json` |
-| **C6** | GitHub Pages dashboard landing page, category subpages, interactive gold weight/melt calculator & Flagged for Review page | `in progress` | `arena/cbea1001-gold3` | `.nojekyll`, `index.html`, `rings.html`, `calculator.html`, `sellers.html`, `checklist.html`, `analysis.html`, `security-audit.html`, `flagged.html`, `assets/styles.css`, `assets/app.js` |
-| **C7** | Final integration session: merge/sync check against `origin/main`, full line-by-line re-verification pass, CI workflow, PR creation & merge, live GitHub Pages deployment check | `unclaimed` | — | `.github/workflows/verify.yml`, `README.md`, `COORDINATION.md` |
+| **C6** | GitHub Pages dashboard landing page, category subpages, interactive gold weight/melt calculator & Flagged for Review page | `done` | `arena/cbea1001-gold3` | `.nojekyll`, `scripts/build-site.mjs`, `index.html`, `rings.html`, `calculator.html`, `sellers.html`, `checklist.html`, `analysis.html`, `security-audit.html`, `flagged.html`, `assets/styles.css`, `assets/app.js` |
+| **C7** | Final integration session: merge/sync check against `origin/main`, full line-by-line re-verification pass, CI workflow, PR creation & merge, live GitHub Pages deployment check | `in progress` | `arena/cbea1001-gold3` | `.github/workflows/verify.yml`, `README.md`, `COORDINATION.md` |
 
 ---
 
@@ -89,6 +89,13 @@
 - **Task C5 Completed (`done`):** Built zero-dependency Node.js anti-hallucination security scanner (`scripts/security-check.mjs`), link/anchor/asset verifier (`scripts/verify-links.mjs`), `package.json` scripts, generated `data/flagged-items.json` (`33` flagged/needs-review items with official URLs), and produced `data/audit-report.json`.
 - **Automated Security & Hallucination Pass #1 Result:** `PASS (7/7 checks)` across `89` JSON records and `114` official HTTPS links (`SEC-01` through `SEC-07`), confirming 100% blank-cell (`null`) enforcement on unconfirmed fields, exact NIST `31.1034768 g/oz t` raw-gold melt math, vermeil/9K trap disqualification, and live HTTP 200 status on GitHub source URLs.
 - **Claimed Task C6 (`in progress`):** Scope `.nojekyll`, `index.html`, `rings.html`, `calculator.html`, `sellers.html`, `checklist.html`, `analysis.html`, `security-audit.html`, `flagged.html`, `assets/styles.css`, `assets/app.js`.
+
+### 2026-10-22 — Session `arena/cbea1001-gold3` — Completed Task C6 & Claimed Task C7
+- **Task C6 Completed (`done`):** Built deterministic static HTML generator (`scripts/build-site.mjs`), `.nojekyll`, `assets/styles.css`, `assets/app.js`, and all 8 GitHub Pages pages (`index.html`, `rings.html`, `calculator.html`, `checklist.html`, `sellers.html`, `analysis.html`, `security-audit.html`, `flagged.html`).
+- **Front-Page Top Summary & Calculator Verification:** Confirmed `index.html` prominently displays the **No Hallucinations Commitment** and explicit recommendation to look for hallucinations in the front-page top summary, includes quick + laboratory gold/weight/carat-deduction/XRF calculators, renders strictly blank (`unverified`) cells for omitted specs, and places clickable official `https://` source links on 100% of `<tbody><tr>` rows (`120` static HTML rows + `89` JSON rows).
+- **Automated Security & Hallucination Pass #2 Result:** `PASS (7/7 checks)` in `full-site-and-data` mode + `PASS` across `156` internal links/assets and `270` external HTTPS source links + `HTTP 200` across all 15 HTML/CSS/JS/JSON routes on local preview server.
+- **Claimed Task C7 (`in progress`):** Scope `.github/workflows/verify.yml`, `README.md`, `COORDINATION.md`, pre-merge `origin/main` integration check, PR creation & merge, and live GitHub Pages verification.
+
 
 
 

@@ -1,7 +1,7 @@
 {
   "audit_suite": "GOLD3 Anti-Hallucination & Security Verification Suite",
   "verified_date_utc": "2026-10-22",
-  "mode": "data-only",
+  "mode": "full-site-and-data",
   "overall_status": "PASS",
   "total_checks": 7,
   "passed_checks": 7,
@@ -12,13 +12,13 @@
       "id": "SEC-02",
       "name": "Official Source URL on Every JSON Row & HTML Table Row",
       "status": "PASS",
-      "details": "Verified 89 JSON rows — 100% link to allowlisted official HTTPS sources."
+      "details": "Verified 89 JSON rows and 120 static HTML <tbody><tr> rows — 100% link to allowlisted official HTTPS sources."
     },
     {
       "id": "SEC-01",
-      "name": "Dataset Metadata No-Hallucinations Commitment (Data-Only Pre-UI Mode)",
+      "name": "Front-Page Top Summary No-Hallucinations Commitment & Recommendation",
       "status": "PASS",
-      "details": "All dataset metadata headers carry explicit No-Hallucinations commitments."
+      "details": "Verified index.html top summary prominently features the \"No Hallucinations\" commitment and explicitly recommends looking for hallucinations."
     },
     {
       "id": "SEC-03",
@@ -48,7 +48,7 @@
       "id": "SEC-07",
       "name": "Static Security, Anti-Placeholder & Safe External Link Hygiene",
       "status": "PASS",
-      "details": "Scanned 12 workspace files — zero secrets, zero placeholders, zero unsafe JS patterns, and 100% rel=\"noopener noreferrer\" compliance."
+      "details": "Scanned 23 workspace files — zero secrets, zero placeholders, zero unsafe JS patterns, and 100% rel=\"noopener noreferrer\" compliance."
     }
   ],
   "warnings": []

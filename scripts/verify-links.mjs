@@ -56,9 +56,10 @@ for (const file of htmlFiles) {
       continue;
     }
 
-    // Internal relative path and/or anchor
+    // Internal relative path and/or anchor (strip ?query before checking disk path)
     internalLinksChecked += 1;
-    const [cleanRel, hashPart] = rawTarget.split('#');
+    const [beforeHash, hashPart] = rawTarget.split('#');
+    const [cleanRel] = beforeHash.split('?');
     const targetFile = cleanRel === '' ? file : cleanRel.replace(/^\.\//, '');
     const absTarget = path.join(ROOT, targetFile);
 
