@@ -117,5 +117,16 @@ printed the fine-gold price ($129.39/g) instead of the alloy price ($75.48/g for
 deployed page, not by the audit — the audit only checks stored data, not JavaScript. Fixed in the next commit and
 re-deployed. This is recorded because it is exactly the class of error this project is built to avoid.
 
+| PR #4 → `main` (calculator defect) | https://github.com/karagemop466-tech/GOLD3/pull/4 — **merged**; re-verified live: calculator now reports **$75.48/g** for 14K |
+| Cache lesson | The first read-back of the fixed calculator page still showed the old figure — GitHub's CDN served a cached copy. Re-fetched with a cache-busting query and the correct value appeared. This is the same "cached page" trap the site warns about, hit by the project's own tooling. |
+
+**Second review pass (post-deploy) found two more issues, both fixed:**
+- Two seller "contact page" URLs (Ross-Simons, Tiffany) had been written as plausible-looking guesses and were never
+  opened. They were **removed**, not left in, and the missing contact details are flagged.
+- The Sellers table printed "not verified yet" twice for sellers without a read policy.
+
+New audit check **A14** now enforces this permanently: every stored URL must resolve to the domain it claims to
+belong to (14 checks total). Latest run: **11 pass / 2 warn / 0 fail / 1 info**, clean build, 0 broken links.
+
 T9 (final integration) is `done`. T10–T13 remain `needs review` and are published on `flagged.html`; they do not
 block the merge, per the project rules.

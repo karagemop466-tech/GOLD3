@@ -19,7 +19,10 @@
       "returns_evidence": "\"you may return eligible items in their original, unworn condition within 30 days from the shipment date for a full refund or exchange\" and \"Personalized jewelry, custom orders, engraved items, items resized after initial purchase, Diamond Upgrade Program purchases, clearance items and \"Final Sale\" items are not eligible for return or exchange.\" and \"Two complimentary returns are allowed per customer, per year.\"",
       "payment_note": "Credit card accepted; site also advertises installment financing on a Blue Nile credit card.",
       "reputation_note": "Independent reputation research not completed in this pass — see Flagged for Review. Only the company's own disclosures are recorded here.",
-      "flags": ["reputation-not-researched", "resized-items-not-returnable"]
+      "flags": [
+        "reputation-not-researched",
+        "resized-items-not-returnable"
+      ]
     },
     {
       "id": "ross-simons",
@@ -28,7 +31,7 @@
       "type": "Online + catalogue retailer (Cranston, Rhode Island)",
       "phone": null,
       "email": null,
-      "contact_url": "https://www.ross-simons.com/pages/contact-us",
+      "contact_url": null,
       "contact_evidence": null,
       "returns_url": null,
       "returns_summary": null,
@@ -36,7 +39,12 @@
       "returns_evidence": null,
       "payment_note": null,
       "reputation_note": "Publishes an explicit \"Gold Weight\" in grams on product pages — one of the few sellers in this dataset that does. Third-party complaints about hollow gold exist in forums but were not verified against an official source, so they are not repeated here.",
-      "flags": ["policy-page-not-read", "weight-is-approximate", "reputation-not-researched"]
+      "flags": [
+        "contact-not-captured",
+        "policy-page-not-read",
+        "weight-is-approximate",
+        "reputation-not-researched"
+      ]
     },
     {
       "id": "mejuri",
@@ -53,7 +61,9 @@
       "returns_evidence": "Product page: \"We offer free 30-day returns & exchanges starting from the day the shipment is delivered or picked up in-store. Some exclusions apply\" and \"Note: Engraving is optional (complimentary) and not eligible for returns.\"",
       "payment_note": "Credit card; Klarna / installment options advertised.",
       "reputation_note": "Not researched in this pass. Sells both solid 14k gold and 18k gold vermeil — the two are clearly labelled on product pages.",
-      "flags": ["reputation-not-researched"]
+      "flags": [
+        "reputation-not-researched"
+      ]
     },
     {
       "id": "tiffany",
@@ -62,7 +72,7 @@
       "type": "Brand retailer with own stores",
       "phone": "(800) 843-3269",
       "email": null,
-      "contact_url": "https://www.tiffany.com/contact-us.html",
+      "contact_url": null,
       "contact_evidence": "Product page: \"Call us at (800) 843-3269 for more details.\"",
       "returns_url": "https://www.tiffany.com/policy/return-policy.html",
       "returns_summary": "U.S.: returns for credit or exchange within 30 days of purchase, merchandise in perfect saleable condition with the sales receipt and all original packaging. Personalised, altered or engraved items are not eligible. Items of $75,000 or more are exchange-only — no refunds.",
@@ -70,7 +80,11 @@
       "returns_evidence": "\"Products are accepted for credit or exchange in the U.S. within 30 days of purchase.\" and \"Personalized, altered, or engraved items are not eligible for return or exchange.\" and \"Merchandise $75,000 or more will be eligible for exchange within 30 days of purchase. No refunds will be issued for purchases above $75,000.\"",
       "payment_note": "Credit card; Tiffany payment plans advertised.",
       "reputation_note": "Not researched in this pass. Note that the ring product page displayed its own \"non returnable\" and \"exchange only\" notices, which were not reconciled with this policy page — logged on Flagged for Review.",
-      "flags": ["product-page-notices-unresolved", "reputation-not-researched", "altered-items-not-returnable"]
+      "flags": [
+        "product-page-notices-unresolved",
+        "reputation-not-researched",
+        "altered-items-not-returnable"
+      ]
     },
     {
       "id": "catbird",
@@ -87,7 +101,11 @@
       "returns_evidence": null,
       "payment_note": null,
       "reputation_note": "States on its own pages \"Solid gold always, never plated\". Not independently verified in this pass.",
-      "flags": ["contact-not-captured", "policy-page-not-read", "reputation-not-researched"]
+      "flags": [
+        "contact-not-captured",
+        "policy-page-not-read",
+        "reputation-not-researched"
+      ]
     },
     {
       "id": "james-allen",
@@ -104,7 +122,11 @@
       "returns_evidence": null,
       "payment_note": null,
       "reputation_note": "jamesallen.com product URLs fetched in this project redirected to bluenile.com with the banner \"James Allen is Now Part of Blue Nile\". Treated as a redirecting domain, not an independent seller.",
-      "flags": ["redirects-to-blue-nile", "policy-page-not-read", "reputation-not-researched"]
+      "flags": [
+        "redirects-to-blue-nile",
+        "policy-page-not-read",
+        "reputation-not-researched"
+      ]
     },
     {
       "id": "costco",
@@ -121,7 +143,11 @@
       "returns_evidence": null,
       "payment_note": null,
       "reputation_note": "Included only because one Costco wedding-band URL surfaced during research and turned out to be dead. No Costco listing is presented as buyable.",
-      "flags": ["no-live-listing", "policy-page-not-read", "reputation-not-researched"]
+      "flags": [
+        "no-live-listing",
+        "policy-page-not-read",
+        "reputation-not-researched"
+      ]
     }
   ]
 }
