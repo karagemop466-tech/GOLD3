@@ -316,6 +316,51 @@
       "why_it_matters": "A free or cheap engraving can quietly remove the return right that the rest of the policy advertises.",
       "action": "Decline engraving until the ring has been independently verified, or accept that the purchase becomes non-returnable.",
       "source": "https://www.automicgold.com/products/radiant-cut-lab-diamond-cathedral-ring"
+    },
+    {
+      "id": "RET8",
+      "severity": "high",
+      "label": "$300 recycling fee on setting-only or engraved returns",
+      "what": "VRAI's official return help article states that engraved or setting-only engagement ring returns refunded to the original payment method incur a $300 USD recycling fee, and its Los Angeles BBB profile carries an unaccredited F rating for unanswered complaints.",
+      "why_it_matters": "A $300 deduction penalises a buyer who exercises the return right after independent inspection, and unanswered BBB complaints signal post-purchase friction.",
+      "action": "Do not engrave before independent scale and XRF verification, confirm fee-free return eligibility in writing, and pay by credit card.",
+      "source": "https://help.vrai.com/hc/en-us/articles/360000836514-What-is-your-return-policy"
+    },
+    {
+      "id": "RET9",
+      "severity": "high",
+      "label": "14-day original-payment cutoff inside 90-day credit window",
+      "what": "Local Eclectic advertises a 90-day return window, but its official FAQ restricts refunds to the original payment method to 14 days from delivery (days 15-90 receive store credit only, minus return label cost).",
+      "why_it_matters": "Store credit traps your funds with the same seller if independent XRF testing reveals an alloy discrepancy on day 15.",
+      "action": "Complete independent jeweller weighing and XRF testing within 10 days of delivery so any return falls inside the 14-day cash refund cutoff.",
+      "source": "https://www.localeclectic.com/pages/frequently-asked-questions"
+    },
+    {
+      "id": "RET10",
+      "severity": "high",
+      "label": "7-day return window and up to 10% restocking fee",
+      "what": "Menē's Terms of Service limit returns to 7 days from receipt, default self-service returns to non-cash Menē Credit, permit up to a 10% restocking fee on discretionary original-payment refunds, and deduct 5% if the Certificate of Authenticity is missing.",
+      "why_it_matters": "A 7-day window plus up to 10% fee leaves minimal time and high cost if you need to return after independent inspection.",
+      "action": "Book your independent XRF appointment before delivery, keep the Certificate of Authenticity intact, and confirm cash-refund terms in writing.",
+      "source": "https://mene.com/terms-of-service"
+    },
+    {
+      "id": "SPEC2",
+      "severity": "high",
+      "label": "9k vs 10k karat contradiction on product page",
+      "what": "Local Eclectic's Solid Gold Simple Knot Ring page displays a '9k Solid Gold' material badge (37.5% Au, below the US 10K karat-gold threshold in 16 CFR 23.3) while the Product Materials bullet states '10k solid yellow gold'.",
+      "why_it_matters": "Under 16 CFR 23.3(b), an item below 10 karat cannot be marketed simply as karat gold in the US, and conflicting specs make true fineness uncertain online.",
+      "action": "Do not purchase without written confirmation of >=10K fineness and post-arrival XRF verification.",
+      "source": "https://www.localeclectic.com/products/solid-gold-simple-knot-ring"
+    },
+    {
+      "id": "SPEC3",
+      "severity": "medium",
+      "label": "Resizing badge contradicts product details exclusion",
+      "what": "Brilliant Earth's Fairmined 2mm Six-Prong Solitaire page displays a 'Free 1-Year Resizing' badge while its Product Details section states 'resizing is not available for this ring'.",
+      "why_it_matters": "Ordering the wrong size expecting free resizing can force an exchange or custom remake outside the return window.",
+      "action": "Confirm exact finger size before ordering and verify resizing/return eligibility in writing.",
+      "source": "https://www.brilliantearth.com/Fairmined-2mm-Six-Prong-Solitaire-Ring-Gold-BE1FM0126-24910022/"
     }
   ]
 }

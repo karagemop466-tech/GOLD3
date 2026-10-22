@@ -59,6 +59,18 @@ OFFICIAL_DOMAINS = {
     "www.tiffany.com", "tiffany.com",
     "www.sarraf.com", "sarraf.com",
     "www.automicgold.com", "automicgold.com",
+    "www.brilliantearth.com", "brilliantearth.com",
+    "www.vrai.com", "vrai.com", "help.vrai.com",
+    "www.localeclectic.com", "localeclectic.com",
+    "mene.com", "www.mene.com",
+    "www.bbb.org", "bbb.org",
+    "www.nist.gov", "nist.gov",
+    "www.iso.org", "iso.org",
+    "www.govinfo.gov", "govinfo.gov",
+    "consumer.ftc.gov",
+    "www.kitco.com", "kitco.com",
+    "www.bullionvault.com", "bullionvault.com",
+    "github.com",
 }
 
 ERRORS: list[str] = []

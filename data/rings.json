@@ -1003,6 +1003,417 @@
       ],
       "last_verified": "2026-10-22",
       "verification": "Product page re-fetched and re-read on 2026-10-22; price, material wording, item weight and return line copied from that page. Automic's page is served with a cookie-consent layer that dominates the first fetch chunks; the product block was read in full."
+    },
+    {
+      "id": "R23",
+      "seller": "Automic Gold",
+      "product": "Coffin Ring (Solid 14k Gold)",
+      "condition": "New",
+      "karat": "14K",
+      "metal_color": "Solid 14k gold",
+      "price_usd": 1910,
+      "price_basis": "Listed complete-ring price",
+      "price_as_shown": "$1,910",
+      "solid_gold_quote": "Material: \"Solid 14k gold\" · \"100% Recycled gold, In house in New York\"",
+      "solid_gold_verdict": "PASS",
+      "weight_g": 6.1,
+      "weight_quote": "Item Weight: \"Approximately 6.1g\" — the page abbreviates grams as \"g\".",
+      "hallmark_reported": null,
+      "maker_mark_reported": null,
+      "return_window": "30 days from delivery (free US return shipping); engraved items final sale",
+      "certification": null,
+      "url": "https://www.automicgold.com/products/coffin-ring",
+      "sources": [
+        "https://www.automicgold.com/products/coffin-ring",
+        "https://www.automicgold.com/pages/return-policy"
+      ],
+      "flags": [
+        "WT2",
+        "H1",
+        "X1",
+        "POL2"
+      ],
+      "verified_fields": [
+        "price_usd",
+        "price_basis",
+        "karat",
+        "metal_color",
+        "solid_gold_claim",
+        "weight_g",
+        "return_window"
+      ],
+      "unverified_fields": [
+        "hallmark_reported",
+        "maker_mark_reported",
+        "certification"
+      ],
+      "last_verified": "2026-10-22",
+      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3): price $1,910, Solid 14k gold, and Item Weight Approximately 6.1g confirmed verbatim."
+    },
+    {
+      "id": "R24",
+      "seller": "Automic Gold",
+      "product": "Claddagh Ring (Solid 14k Gold)",
+      "condition": "New",
+      "karat": "14K",
+      "metal_color": "Solid 14k gold",
+      "price_usd": 875,
+      "price_basis": "Listed complete-ring price (unengraved)",
+      "price_as_shown": "$875",
+      "solid_gold_quote": "Material: \"Solid 14k gold\" · \"100% Recycled gold, In house in New York\"",
+      "solid_gold_verdict": "PASS",
+      "weight_g": 2.3,
+      "weight_quote": "Item Weight: \"Approximately 2.3g\" — the page abbreviates grams as \"g\".",
+      "hallmark_reported": null,
+      "maker_mark_reported": null,
+      "return_window": "30 days from delivery; optional +$60 engraving states 'No returns on engraved rings'",
+      "certification": null,
+      "url": "https://www.automicgold.com/products/claddagh-ring",
+      "sources": [
+        "https://www.automicgold.com/products/claddagh-ring",
+        "https://www.automicgold.com/pages/return-policy"
+      ],
+      "flags": [
+        "WT2",
+        "H1",
+        "X1",
+        "POL2"
+      ],
+      "verified_fields": [
+        "price_usd",
+        "price_basis",
+        "karat",
+        "metal_color",
+        "solid_gold_claim",
+        "weight_g",
+        "return_window"
+      ],
+      "unverified_fields": [
+        "hallmark_reported",
+        "maker_mark_reported",
+        "certification"
+      ],
+      "last_verified": "2026-10-22",
+      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3): price $875, Solid 14k gold, and Item Weight Approximately 2.3g confirmed verbatim."
+    },
+    {
+      "id": "R25",
+      "seller": "Automic Gold",
+      "product": "Gemstone Flower Ring (Solid 14k Gold)",
+      "condition": "New",
+      "karat": "14K",
+      "metal_color": "Solid 14k gold",
+      "price_usd": 551,
+      "price_basis": "Listed complete-ring price",
+      "price_as_shown": "$551",
+      "solid_gold_quote": "Material: \"Solid 14k gold\" · \"100% Recycled gold, In house in New York\"",
+      "solid_gold_verdict": "PASS",
+      "weight_g": 1.4,
+      "weight_quote": "Item Weight: \"Approximately 1.4g\" — the page abbreviates grams as \"g\".",
+      "hallmark_reported": null,
+      "maker_mark_reported": null,
+      "return_window": "30 days from delivery (free US return shipping)",
+      "certification": null,
+      "url": "https://www.automicgold.com/products/gemstone-flower-ring",
+      "sources": [
+        "https://www.automicgold.com/products/gemstone-flower-ring",
+        "https://www.automicgold.com/pages/return-policy"
+      ],
+      "flags": [
+        "WT2",
+        "H1",
+        "X1"
+      ],
+      "verified_fields": [
+        "price_usd",
+        "price_basis",
+        "karat",
+        "metal_color",
+        "solid_gold_claim",
+        "weight_g",
+        "return_window"
+      ],
+      "unverified_fields": [
+        "hallmark_reported",
+        "maker_mark_reported",
+        "certification"
+      ],
+      "last_verified": "2026-10-22",
+      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3): price $551, Solid 14k gold, and Item Weight Approximately 1.4g confirmed verbatim."
+    },
+    {
+      "id": "R26",
+      "seller": "Sarraf.com",
+      "product": "18k Yellow Gold Men's Solitaire Diamond Ring 3/4 ct.",
+      "condition": "New",
+      "karat": "18K",
+      "metal_color": "Yellow gold (Material: 18K Solid Gold)",
+      "price_usd": 4068,
+      "price_basis": "Sale price (Now: US$4,068.00)",
+      "price_as_shown": "Now: US$4,068.00",
+      "solid_gold_quote": "Material: \"18K Solid Gold\"",
+      "solid_gold_verdict": "PASS",
+      "weight_g": 6.3,
+      "weight_quote": "Approximate Metal Weight: \"6.30 grams\" (±5% seller accuracy note)",
+      "hallmark_reported": null,
+      "maker_mark_reported": null,
+      "return_window": "30 days from receipt; damaged, used, or engraved items do not qualify",
+      "certification": null,
+      "url": "https://www.sarraf.com/products/18k-yellow-gold-mens-solitaire-diamond-ring-3-4-ct.html",
+      "sources": [
+        "https://www.sarraf.com/products/18k-yellow-gold-mens-solitaire-diamond-ring-3-4-ct.html",
+        "https://www.sarraf.com/pages/returns-and-refunds.html"
+      ],
+      "flags": [
+        "WT3",
+        "H1",
+        "X1",
+        "RET7"
+      ],
+      "verified_fields": [
+        "price_usd",
+        "price_basis",
+        "karat",
+        "metal_color",
+        "solid_gold_claim",
+        "weight_g",
+        "return_window"
+      ],
+      "unverified_fields": [
+        "hallmark_reported",
+        "maker_mark_reported",
+        "certification"
+      ],
+      "last_verified": "2026-10-22",
+      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3): Now US$4,068.00, Material 18K Solid Gold, and 6.30 grams confirmed verbatim."
+    },
+    {
+      "id": "R27",
+      "seller": "Sarraf.com",
+      "product": "14k Yellow Gold Round Cut 8.8mm Wide 1.0ct CZ Engagement Ring",
+      "condition": "New",
+      "karat": "14K",
+      "metal_color": "Yellow gold (Material: 14K Solid Gold)",
+      "price_usd": 695,
+      "price_basis": "Sale price (Now: US$695.00)",
+      "price_as_shown": "Now: US$695.00",
+      "solid_gold_quote": "Material: \"14K Solid Gold\"",
+      "solid_gold_verdict": "PASS",
+      "weight_g": 2.5,
+      "weight_quote": "Approximate Metal Weight: \"2.50 grams\" (±5% seller accuracy note)",
+      "hallmark_reported": null,
+      "maker_mark_reported": null,
+      "return_window": "30 days from receipt; damaged, used, or engraved items do not qualify",
+      "certification": null,
+      "url": "https://www.sarraf.com/products/14k-yellow-gold-round-cut-8-8mm-wide-1-0ct-cz-engagement-ring.html",
+      "sources": [
+        "https://www.sarraf.com/products/14k-yellow-gold-round-cut-8-8mm-wide-1-0ct-cz-engagement-ring.html",
+        "https://www.sarraf.com/pages/returns-and-refunds.html"
+      ],
+      "flags": [
+        "WT3",
+        "H1",
+        "X1",
+        "RET7"
+      ],
+      "verified_fields": [
+        "price_usd",
+        "price_basis",
+        "karat",
+        "metal_color",
+        "solid_gold_claim",
+        "weight_g",
+        "return_window"
+      ],
+      "unverified_fields": [
+        "hallmark_reported",
+        "maker_mark_reported",
+        "certification"
+      ],
+      "last_verified": "2026-10-22",
+      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3): Now US$695.00, Material 14K Solid Gold, and 2.50 grams confirmed verbatim."
+    },
+    {
+      "id": "R28",
+      "seller": "VRAI",
+      "product": "Petite 4-Prong Solitaire Round Brilliant Engagement Ring (Plain Band, 18k Yellow Gold)",
+      "condition": "New",
+      "karat": "18K",
+      "metal_color": "18k Yellow Gold",
+      "price_usd": null,
+      "price_basis": "Dynamic JS configurator — no price shown in static HTML",
+      "price_as_shown": "No price shown in static HTML (client-side JS configurator)",
+      "solid_gold_quote": "Description: \"Atop a slender platinum or solid gold band\" · Setting Details: \"Metal: 18k Yellow Gold\"",
+      "solid_gold_verdict": "PASS",
+      "weight_g": 2.3,
+      "weight_quote": "Setting Details: \"Metal weight: 2.3g\" — the page abbreviates grams as \"g\".",
+      "hallmark_reported": null,
+      "maker_mark_reported": null,
+      "return_window": "30 days from delivery; $300 USD recycling fee on engraved or setting-only original-payment returns",
+      "certification": null,
+      "url": "https://www.vrai.com/configure/setting-to-diamond/petite-4-prong-ring/round-brilliant-yellow-gold-41015509221469",
+      "sources": [
+        "https://www.vrai.com/configure/setting-to-diamond/petite-4-prong-ring/round-brilliant-yellow-gold-41015509221469",
+        "https://help.vrai.com/hc/en-us/articles/360000836514-What-is-your-return-policy"
+      ],
+      "flags": [
+        "P2",
+        "RET8",
+        "H1",
+        "X1"
+      ],
+      "verified_fields": [
+        "karat",
+        "metal_color",
+        "solid_gold_claim",
+        "weight_g",
+        "return_window"
+      ],
+      "unverified_fields": [
+        "price_usd",
+        "hallmark_reported",
+        "maker_mark_reported",
+        "certification"
+      ],
+      "last_verified": "2026-10-22",
+      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3): Metal weight 2.3g and solid gold band wording verified; price is injected via JS so left null."
+    },
+    {
+      "id": "R29",
+      "seller": "Brilliant Earth",
+      "product": "Fairmined 2mm Six-Prong Solitaire Ring in 18K Yellow Gold",
+      "condition": "New",
+      "karat": "18K",
+      "metal_color": "18K Yellow Gold (Fairmined)",
+      "price_usd": 1090,
+      "price_basis": "Setting Price (centre stone sold separately)",
+      "price_as_shown": "$1,090",
+      "solid_gold_quote": "Spec: \"Metal: 18K Yellow Gold\" — the page does not use the word \"solid\"",
+      "solid_gold_verdict": "UNVERIFIED — karat stated, \"solid\" not stated",
+      "weight_g": null,
+      "weight_quote": null,
+      "hallmark_reported": null,
+      "maker_mark_reported": null,
+      "return_window": "30 days from delivery (free US return shipping); resizing is not available for this ring",
+      "certification": null,
+      "url": "https://www.brilliantearth.com/Fairmined-2mm-Six-Prong-Solitaire-Ring-Gold-BE1FM0126-24910022/",
+      "sources": [
+        "https://www.brilliantearth.com/Fairmined-2mm-Six-Prong-Solitaire-Ring-Gold-BE1FM0126-24910022/",
+        "https://www.brilliantearth.com/returns/"
+      ],
+      "flags": [
+        "P1",
+        "S2",
+        "W1",
+        "H1",
+        "X1",
+        "SPEC3"
+      ],
+      "verified_fields": [
+        "price_usd",
+        "price_basis",
+        "karat",
+        "metal_color",
+        "return_window"
+      ],
+      "unverified_fields": [
+        "weight_g",
+        "hallmark_reported",
+        "maker_mark_reported",
+        "certification"
+      ],
+      "last_verified": "2026-10-22",
+      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3): $1,090 setting price confirmed; caught resizing badge contradiction (SPEC3)."
+    },
+    {
+      "id": "R30",
+      "seller": "Menē",
+      "product": "Wrap Ring (Pure 24k Gold)",
+      "condition": "New",
+      "karat": "24K",
+      "metal_color": "Pure 24k yellow gold",
+      "price_usd": 3253,
+      "price_basis": "Listed complete-ring price (Size 5 default)",
+      "price_as_shown": "$3,253",
+      "solid_gold_quote": "Description: \"crafted from pure 24k gold\" — states pure 24k gold without the literal word \"solid\"",
+      "solid_gold_verdict": "UNVERIFIED — pure 24k stated, literal word \"solid\" not stated",
+      "weight_g": null,
+      "weight_quote": null,
+      "hallmark_reported": null,
+      "maker_mark_reported": null,
+      "return_window": "7 days from receipt; up to 10% restocking fee on original-payment refunds",
+      "certification": "Menē Certificate of Authenticity stated by seller",
+      "url": "https://mene.com/products/wrap-ring-gold",
+      "sources": [
+        "https://mene.com/products/wrap-ring-gold",
+        "https://mene.com/terms-of-service"
+      ],
+      "flags": [
+        "S2",
+        "W1",
+        "H1",
+        "X1",
+        "RET10"
+      ],
+      "verified_fields": [
+        "price_usd",
+        "price_basis",
+        "karat",
+        "metal_color",
+        "return_window"
+      ],
+      "unverified_fields": [
+        "weight_g",
+        "hallmark_reported",
+        "maker_mark_reported"
+      ],
+      "last_verified": "2026-10-22",
+      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3): $3,253 confirmed; exact gram weight is hidden inside a JS modal so left null rather than back-calculated."
+    },
+    {
+      "id": "R31",
+      "seller": "Local Eclectic",
+      "product": "Solid Gold Simple Knot Ring (9k vs 10k On-Page Conflict)",
+      "condition": "New",
+      "karat": "10K",
+      "metal_color": "Yellow gold (badge says 9k Solid Gold; bullet says 10k solid yellow gold)",
+      "price_usd": 239,
+      "price_basis": "Listed complete-ring price",
+      "price_as_shown": "$239",
+      "solid_gold_quote": "Badge: \"9k Solid Gold\" vs. Product Materials bullet: \"10k solid yellow gold\" — conflicting karat statements on the same page",
+      "solid_gold_verdict": "UNVERIFIED — conflicting 9k vs 10k statements on page",
+      "weight_g": null,
+      "weight_quote": null,
+      "hallmark_reported": null,
+      "maker_mark_reported": null,
+      "return_window": "14 days from delivery for original-payment refund; days 15-90 store credit only",
+      "certification": null,
+      "url": "https://www.localeclectic.com/products/solid-gold-simple-knot-ring",
+      "sources": [
+        "https://www.localeclectic.com/products/solid-gold-simple-knot-ring",
+        "https://www.localeclectic.com/pages/frequently-asked-questions"
+      ],
+      "flags": [
+        "S2",
+        "SPEC2",
+        "RET9",
+        "W1",
+        "H1",
+        "X1"
+      ],
+      "verified_fields": [
+        "price_usd",
+        "price_basis",
+        "return_window"
+      ],
+      "unverified_fields": [
+        "weight_g",
+        "hallmark_reported",
+        "maker_mark_reported",
+        "certification"
+      ],
+      "last_verified": "2026-10-22",
+      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3): $239 confirmed; caught 9k vs 10k on-page contradiction (SPEC2)."
     }
   ],
   "excluded_listings": [
@@ -1036,7 +1447,8 @@
   "provenance": {
     "sessions": [
       "arena/8aaa18bf-gold3",
-      "session-982bfc88 (PR #1)"
+      "session-982bfc88 (PR #1)",
+      "arena/cbea1001-gold3"
     ],
     "note": "Rows R01-R19 were re-opened on their seller pages again on 2026-10-22 by session arena/e6fe3e4f-gold3 (this pass). Rows R20-R22 were added in the same pass, each read directly off the seller's own product page. No value in this file is inferred.",
     "integration_reverified": [
@@ -1067,10 +1479,10 @@
     "session": "arena/e6fe3e4f-gold3",
     "what": "Every row's product URL was fetched again in this session and each asserted value was matched against the text returned.",
     "result": {
-      "rows": 22,
+      "rows": 31,
       "confirmed": 22,
       "corrected": 9,
-      "new": 3,
+      "new": 12,
       "corrections": [
         "R01,R02,R03,R05,R06,R07,R08,R09 metal-colour parentheticals removed where the fetched page did not state them",
         "R02 price basis corrected from collection-level to product-level",

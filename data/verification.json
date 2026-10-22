@@ -345,6 +345,105 @@
       ],
       "outcome": "confirmed",
       "findings": "eCFR states \"Displaying title 16, up to date as of 10/21/2026\". The sections this project cites all exist with the titles used: §23.3 gold content, §23.4 vermeil, §23.7 rhodium surface layer, §23.8 multiple precious metals, §23.10 quality marks, §23.18 weight and total weight."
+    },
+    {
+      "id": "V29",
+      "kind": "listing",
+      "label": "Automic Gold — Coffin Ring (Solid 14k Gold)",
+      "url": "https://www.automicgold.com/products/coffin-ring",
+      "rows": [
+        "R23"
+      ],
+      "outcome": "confirmed",
+      "findings": "Fetched 2026-10-22 (session arena/cbea1001-gold3): \"$1,910\", \"Solid 14k gold\", and \"Item Weight: Approximately 6.1g\" confirmed verbatim."
+    },
+    {
+      "id": "V30",
+      "kind": "listing",
+      "label": "Automic Gold — Claddagh Ring (Solid 14k Gold)",
+      "url": "https://www.automicgold.com/products/claddagh-ring",
+      "rows": [
+        "R24"
+      ],
+      "outcome": "confirmed",
+      "findings": "Fetched 2026-10-22 (session arena/cbea1001-gold3): \"$875\", \"Solid 14k gold\", \"Approximately 2.3g\", and \"No returns on engraved rings\" confirmed verbatim."
+    },
+    {
+      "id": "V31",
+      "kind": "listing",
+      "label": "Automic Gold — Gemstone Flower Ring (Solid 14k Gold)",
+      "url": "https://www.automicgold.com/products/gemstone-flower-ring",
+      "rows": [
+        "R25"
+      ],
+      "outcome": "confirmed",
+      "findings": "Fetched 2026-10-22 (session arena/cbea1001-gold3): \"$551\", \"Solid 14k gold\", and \"Approximately 1.4g\" confirmed verbatim."
+    },
+    {
+      "id": "V32",
+      "kind": "listing",
+      "label": "Sarraf.com — 18k Yellow Gold Men's Solitaire Diamond Ring 3/4 ct.",
+      "url": "https://www.sarraf.com/products/18k-yellow-gold-mens-solitaire-diamond-ring-3-4-ct.html",
+      "rows": [
+        "R26"
+      ],
+      "outcome": "confirmed",
+      "findings": "Fetched 2026-10-22 (session arena/cbea1001-gold3): \"Now: US$4,068.00\", \"Material: 18K Solid Gold\", and \"Approximate Metal Weight: 6.30 grams\" confirmed verbatim."
+    },
+    {
+      "id": "V33",
+      "kind": "listing",
+      "label": "Sarraf.com — 14k Yellow Gold Round Cut 8.8mm Wide 1.0ct CZ Engagement Ring",
+      "url": "https://www.sarraf.com/products/14k-yellow-gold-round-cut-8-8mm-wide-1-0ct-cz-engagement-ring.html",
+      "rows": [
+        "R27"
+      ],
+      "outcome": "confirmed",
+      "findings": "Fetched 2026-10-22 (session arena/cbea1001-gold3): \"Now: US$695.00\", \"Material: 14K Solid Gold\", and \"Approximate Metal Weight: 2.50 grams\" confirmed verbatim."
+    },
+    {
+      "id": "V34",
+      "kind": "listing",
+      "label": "VRAI — Petite 4-Prong Solitaire Round Brilliant Engagement Ring (18k Yellow Gold)",
+      "url": "https://www.vrai.com/configure/setting-to-diamond/petite-4-prong-ring/round-brilliant-yellow-gold-41015509221469",
+      "rows": [
+        "R28"
+      ],
+      "outcome": "flagged",
+      "findings": "Fetched 2026-10-22 (session arena/cbea1001-gold3): \"Metal weight: 2.3g\" and \"solid gold band\" confirmed; dollar price is rendered via client-side JS so left null (P2), and official return policy imposes a $300 recycling fee (RET8)."
+    },
+    {
+      "id": "V35",
+      "kind": "listing",
+      "label": "Brilliant Earth — Fairmined 2mm Six-Prong Solitaire Ring in 18K Yellow Gold",
+      "url": "https://www.brilliantearth.com/Fairmined-2mm-Six-Prong-Solitaire-Ring-Gold-BE1FM0126-24910022/",
+      "rows": [
+        "R29"
+      ],
+      "outcome": "flagged",
+      "findings": "Fetched 2026-10-22 (session arena/cbea1001-gold3): \"$1,090\" Setting Price and \"18K Yellow Gold\" confirmed; flagged SPEC3 because page shows 'Free 1-Year Resizing' badge alongside 'resizing is not available for this ring'."
+    },
+    {
+      "id": "V36",
+      "kind": "listing",
+      "label": "Menē — Wrap Ring (Pure 24k Gold)",
+      "url": "https://mene.com/products/wrap-ring-gold",
+      "rows": [
+        "R30"
+      ],
+      "outcome": "flagged",
+      "findings": "Fetched 2026-10-22 (session arena/cbea1001-gold3): \"$3,253\" and \"crafted from pure 24k gold\" confirmed; exact gram weight hidden in JS modal so left null (W1); 7-day return window and up to 10% restocking fee flagged (RET10)."
+    },
+    {
+      "id": "V37",
+      "kind": "listing",
+      "label": "Local Eclectic — Solid Gold Simple Knot Ring",
+      "url": "https://www.localeclectic.com/products/solid-gold-simple-knot-ring",
+      "rows": [
+        "R31"
+      ],
+      "outcome": "flagged",
+      "findings": "Fetched 2026-10-22 (session arena/cbea1001-gold3): \"$239\" confirmed; flagged SPEC2 because page callout states '9k Solid Gold' while bullet list states '10k solid yellow gold', plus 14-day original-payment refund cutoff (RET9)."
     }
   ],
   "discrepancies": [
@@ -403,6 +502,20 @@
       "what": "Costco's official policy lists precious metals as non-refundable.",
       "flag": "RET1",
       "severity": "high"
+    },
+    {
+      "id": "D9",
+      "row": "R31",
+      "what": "Product page callout states '9k Solid Gold' (below US 10K threshold) while bullet list states '10k solid yellow gold', and cash refunds expire after 14 days.",
+      "flag": "SPEC2",
+      "severity": "high"
+    },
+    {
+      "id": "D10",
+      "row": "R29",
+      "what": "Trust badge advertises 'Free 1-Year Resizing' while Product Details states 'resizing is not available for this ring'.",
+      "flag": "SPEC3",
+      "severity": "medium"
     }
   ],
   "not_rechecked": [
@@ -416,10 +529,10 @@
     }
   ],
   "summary": {
-    "urls_opened": 28,
-    "confirmed": 15,
+    "urls_opened": 37,
+    "confirmed": 20,
     "corrected": 8,
-    "flagged": 5,
+    "flagged": 9,
     "removed_values": "7 unsupported metal-option phrases, 1 collection-level price basis",
     "unverifiable_online": [
       "true karat of the actual object (needs XRF/assay)",
@@ -427,7 +540,7 @@
       "hidden repairs on estate pieces",
       "seller complaint history"
     ],
-    "site_defects_fixed": 3
+    "site_defects_fixed": 4
   },
   "site_defects": [
     {
@@ -452,6 +565,14 @@
       "what": "A category intro quoted a \"$6,000+\" threshold that appears in no data file — a prose number presented as fact.",
       "found_by": "Stray-number audit.",
       "fix": "Reworded to a qualitative description; the page now prints only figures that come from data.",
+      "status": "fixed"
+    },
+    {
+      "id": "SD4",
+      "page": "index.html, calculator.html, methodology.html, standards.html, sellers.html, verify.html",
+      "what": "Two footnotes still claimed 'none of the listings publishes a weight' / 'No retailer in this dataset publishes one' after weight-bearing rows were added, and 6 summary/reference tables lacked row-level official https:// source links.",
+      "found_by": "Session arena/cbea1001-gold3 line-by-line review & row-link scanner.",
+      "fix": "Updated prose to distinguish Dataset A (0 published weights) from Dataset B (13 published weights) and added official https:// source links to 100% of <tbody><tr> rows across all 18 root pages.",
       "status": "fixed"
     }
   ]

@@ -43,6 +43,29 @@ jobs:
       - name: Rebuild the verification report
         run: python3 scripts/report_verify.py
 
+      # 6. verify every root HTML <tbody><tr> row carries an https:// official link
+      - name: Enforce official https:// source link on every root HTML table row
+        run: |
+          node -e '
+            const fs = require("fs");
+            let total = 0, missing = 0;
+            for (const f of fs.readdirSync(".").filter(x => x.endsWith(".html")).sort()) {
+              const html = fs.readFileSync(f, "utf8");
+              for (const tb of html.matchAll(/<tbody[^>]*>([\s\S]*?)<\/tbody>/gi)) {
+                for (const tr of tb[1].matchAll(/<tr[^>]*>([\s\S]*?)<\/tr>/gi)) {
+                  total++;
+                  if (!/href=["\x27]https:\/\//i.test(tr[1])) missing++;
+                }
+              }
+            }
+            console.log(`Root HTML table rows: ${total}, missing https:// official links: ${missing}`);
+            if (missing > 0) process.exit(1);
+          '
+
+      # 7. run session-cbea1001 standalone observatory anti-hallucination & link security suite
+      - name: Run session-cbea1001 anti-hallucination & link security suite
+        run: npm --prefix archive/session-cbea1001 test
+
       - name: Keep the reports
         if: always()
         uses: actions/upload-artifact@v4

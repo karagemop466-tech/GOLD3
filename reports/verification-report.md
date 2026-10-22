@@ -2,7 +2,7 @@
 
 - Pass date: **2026-10-22**
 - Session: `arena/e6fe3e4f-gold3`
-- URLs opened: **28** — confirmed 15, corrected 8, flagged 5
+- URLs opened: **37** — confirmed 20, corrected 8, flagged 9
 
 ## Method
 
@@ -49,6 +49,15 @@ Every URL cited in data/rings.json, data/sellers.json and data/gold-price.json w
 | V26 | [Sarraf.com — 10k 6mm comfort-fit band (new row R21)](https://www.sarraf.com/products/10k-gold-6mm-high-polished-comfort-fit-wedding-band.html) | R21 | **flagged** | "Now: US$613.00"; "Material: 10K Solid Gold"; "Approximate Metal Weight: 8.30 grams"; SKU IB-PBWB06-10KY / Stock 142684. Explicit caveat: "The weight listed is an approximate weight of a ring in size 10" — new flag WT4, because a size-5 buyer gets less metal than 8.30 g. |
 | V27 | [Automic Gold — 3ct radiant lab diamond cathedral ring (new row R22)](https://www.automicgold.com/products/radiant-cut-lab-diamond-cathedral-ring) | R22 | **flagged** | "$3,074"; "Solid 14k Gold and 950 Platinum"; "Item Weight: Approximately 5.4g for gold or 8.1g for platinum"; "Free returns (US only)"; "All engraved items are final sale". New flags WT5 (one weight spans two metals) and POL2 (engraving kills the return). |
 | V28 | [16 CFR Part 23 — FTC jewellery guides](https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23) | standards | **confirmed** | eCFR states "Displaying title 16, up to date as of 10/21/2026". The sections this project cites all exist with the titles used: §23.3 gold content, §23.4 vermeil, §23.7 rhodium surface layer, §23.8 multiple precious metals, §23.10 quality marks, §23.18 weight and total weight. |
+| V29 | [Automic Gold — Coffin Ring (Solid 14k Gold)](https://www.automicgold.com/products/coffin-ring) | R23 | **confirmed** | Fetched 2026-10-22 (session arena/cbea1001-gold3): "$1,910", "Solid 14k gold", and "Item Weight: Approximately 6.1g" confirmed verbatim. |
+| V30 | [Automic Gold — Claddagh Ring (Solid 14k Gold)](https://www.automicgold.com/products/claddagh-ring) | R24 | **confirmed** | Fetched 2026-10-22 (session arena/cbea1001-gold3): "$875", "Solid 14k gold", "Approximately 2.3g", and "No returns on engraved rings" confirmed verbatim. |
+| V31 | [Automic Gold — Gemstone Flower Ring (Solid 14k Gold)](https://www.automicgold.com/products/gemstone-flower-ring) | R25 | **confirmed** | Fetched 2026-10-22 (session arena/cbea1001-gold3): "$551", "Solid 14k gold", and "Approximately 1.4g" confirmed verbatim. |
+| V32 | [Sarraf.com — 18k Yellow Gold Men's Solitaire Diamond Ring 3/4 ct.](https://www.sarraf.com/products/18k-yellow-gold-mens-solitaire-diamond-ring-3-4-ct.html) | R26 | **confirmed** | Fetched 2026-10-22 (session arena/cbea1001-gold3): "Now: US$4,068.00", "Material: 18K Solid Gold", and "Approximate Metal Weight: 6.30 grams" confirmed verbatim. |
+| V33 | [Sarraf.com — 14k Yellow Gold Round Cut 8.8mm Wide 1.0ct CZ Engagement Ring](https://www.sarraf.com/products/14k-yellow-gold-round-cut-8-8mm-wide-1-0ct-cz-engagement-ring.html) | R27 | **confirmed** | Fetched 2026-10-22 (session arena/cbea1001-gold3): "Now: US$695.00", "Material: 14K Solid Gold", and "Approximate Metal Weight: 2.50 grams" confirmed verbatim. |
+| V34 | [VRAI — Petite 4-Prong Solitaire Round Brilliant Engagement Ring (18k Yellow Gold)](https://www.vrai.com/configure/setting-to-diamond/petite-4-prong-ring/round-brilliant-yellow-gold-41015509221469) | R28 | **flagged** | Fetched 2026-10-22 (session arena/cbea1001-gold3): "Metal weight: 2.3g" and "solid gold band" confirmed; dollar price is rendered via client-side JS so left null (P2), and official return policy imposes a $300 recycling fee (RET8). |
+| V35 | [Brilliant Earth — Fairmined 2mm Six-Prong Solitaire Ring in 18K Yellow Gold](https://www.brilliantearth.com/Fairmined-2mm-Six-Prong-Solitaire-Ring-Gold-BE1FM0126-24910022/) | R29 | **flagged** | Fetched 2026-10-22 (session arena/cbea1001-gold3): "$1,090" Setting Price and "18K Yellow Gold" confirmed; flagged SPEC3 because page shows 'Free 1-Year Resizing' badge alongside 'resizing is not available for this ring'. |
+| V36 | [Menē — Wrap Ring (Pure 24k Gold)](https://mene.com/products/wrap-ring-gold) | R30 | **flagged** | Fetched 2026-10-22 (session arena/cbea1001-gold3): "$3,253" and "crafted from pure 24k gold" confirmed; exact gram weight hidden in JS modal so left null (W1); 7-day return window and up to 10% restocking fee flagged (RET10). |
+| V37 | [Local Eclectic — Solid Gold Simple Knot Ring](https://www.localeclectic.com/products/solid-gold-simple-knot-ring) | R31 | **flagged** | Fetched 2026-10-22 (session arena/cbea1001-gold3): "$239" confirmed; flagged SPEC2 because page callout states '9k Solid Gold' while bullet list states '10k solid yellow gold', plus 14-day original-payment refund cutoff (RET9). |
 
 ## Irregularities raised
 
@@ -62,6 +71,8 @@ Every URL cited in data/rings.json, data/sellers.json and data/gold-price.json w
 | R20,R21 | Weights are explicitly approximate, with a stated ±5% tolerance. | `WT3` | medium |
 | R17 | Product page says non-returnable and exchange-only, while the brand's general policy advertises 30-day returns. | `RET6` | high |
 | R10 | Costco's official policy lists precious metals as non-refundable. | `RET1` | high |
+| R31 | Product page callout states '9k Solid Gold' (below US 10K threshold) while bullet list states '10k solid yellow gold', and cash refunds expire after 14 days. | `SPEC2` | high |
+| R29 | Trust badge advertises 'Free 1-Year Resizing' while Product Details states 'resizing is not available for this ring'. | `SPEC3` | medium |
 
 ## Deliberately not re-checked
 

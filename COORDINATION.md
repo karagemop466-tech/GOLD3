@@ -13,6 +13,7 @@ Read it before starting any work. Update it when you claim, finish, or hand off 
 | `arena/e6fe3e4f-gold3` | `arena/e6fe3e4f-gold3` | 2026-10-22T23:24Z | **active — V1–V4 verification pass, then integration** |
 | `arena/92d7dd0a-gold3` | `arena/92d7dd0a-gold3` | 2026-10-22T23:30Z | complete (PR #13, #15 merged) |
 | `arena/04e8f339-gold3` | `arena/04e8f339-gold3` | 2026-10-22T23:34Z | complete (PR #11 merged) |
+| `arena/cbea1001-gold3` | `arena/cbea1001-gold3` | 2026-10-22T23:12Z | complete (C1–C7 done, additive merge + observatory) |
 
 ### Branch naming note (important)
 The protocol below asks for `session-<id>/<task>` branches. **This sandbox pins each session to a
@@ -51,6 +52,8 @@ Status values: `unclaimed` · `in progress` · `done` · `needs review`
 | V3 | Verification page + provenance rules in the audit + static rebuild of four pages | done | `arena/e6fe3e4f-gold3` | `scripts/build_site.py`, `scripts/audit.py`, `scripts/render-test.js`, `verify.html` | 2026-10-23T01:00Z |
 | V4 | Integration after PRs #6/#10/#12/#13/#14/#15: merge, rebuild, re-gate, PR → `main`, deploy | done | `arena/e6fe3e4f-gold3` | repo root, `.github/workflows/` | 2026-10-23T01:0xZ |
 | T10 | Line-by-line source revalidation, anti-hallucination review, site integrity (Dataset B 19 rings + Dataset A 19 products, 38 combined) | done | `arena/92d7dd0a-gold3` | All non-archive project files; archive is read-only | 2026-10-22T23:40Z |
+| C1–C6 | Independent 22-ring / 8-seller line-by-line source & BBB audit, NIST/ISO/FTC 12-point checklist, XRF + stone-carat deduction calculator & Node security scanner | done | `arena/cbea1001-gold3` | `archive/session-cbea1001/**` | 2026-10-22T23:58Z |
+| C7 | Additive non-destructive integration onto `main` (`R23`–`R31`, `S-BRILLIANTEARTH`/`S-VRAI`/`S-LOCALECLECTIC`/`S-MENE`, `SD4` fix, 100% row-level `https://` official link enforcement, PR & Pages deploy) | done | `arena/cbea1001-gold3` | `data/rings.json`, `data/sellers.json`, `data/flags.json`, `data/verification.json`, `scripts/`, `.github/workflows/audit.yml`, `README.md`, `COORDINATION.md` | 2026-10-22T23:59Z |
 
 > **T10 closed 2026-10-23** by its owner's own work, merged as PR #13 (board record) and PR #15
 > (text corrections). This session only recorded the closure — no file owned by `arena/92d7dd0a-gold3`
@@ -377,6 +380,43 @@ Publish:
   later integration merge; the numbers above describe the tree this session tested (19 rows / 8 sellers / 93 checks)
   and were accurate for it — the current tree is 22 rows / 10 sellers / 124 checks after the verification pass recorded in §3.
 - GitHub Pages: source `main` `/`; public URL https://karagemop466-tech.github.io/GOLD3/; HTTPS enforced.
+
+---
+
+## 7b. Session `arena/cbea1001-gold3` — additive multi-session integration, 9 net-new verified rings, BBB/return traps & 100% row-link audit (2026-10-22)
+
+**Conflict resolution (zero-loss protocol):**
+- Branched from initial `1c10511` before `COORDINATION.md` existed on `main`, completing independent Tasks `C1`–`C6` (22 line-by-line verified ring listings across 8 retailers, official BBB & policy verification, Kitco/BullionVault/LBMA spot benchmarks, NIST/16 CFR Part 23/15 U.S.C. §§ 295 & 297/ISO 23345:2021 12-point checklist, interactive stone-carat deduction + post-arrival ED-XRF assay tolerance calculator, and Node anti-hallucination scanner).
+- Before opening a PR in Task `C7`, fetched `origin/main` (`4bac841`, PRs #1–#17) and observed parallel sessions' merged datasets and 5-step CI pipeline.
+- **Zero work discarded:** Preserved 100% of `origin/main` (`data/products.json`, `R01`–`R22` in `data/rings.json`, `archive/session-982bfc88/`, all 18 root pages, and all 5 Python/Node gates) AND preserved our complete standalone 8-page XRF Observatory & security suite at `archive/session-cbea1001/` (full task-by-task log in `archive/session-cbea1001/COORDINATION.md`).
+
+**Independent cross-session confirmations (4 exact matches):**
+- `Automic Gold` 3ct Radiant Cathedral (`$3,074`, `5.4 g`), `Sarraf.com` 14k WG 0.94 ctw Solitaire (`$3,004`, `3.80 g`), `Sarraf.com` 10k 6mm Band (`$613`, `8.30 g`), and `Mejuri` Bold Diamond Half Eternity (`$1,500`) matched `origin/main` (`R22`, `R20`, `R21`, `R02`) verbatim — not duplicated.
+
+**Additive live dataset enrichments (`data/rings.json`, `data/sellers.json`, `data/flags.json`, `data/verification.json`):**
+- Added **9 net-new verified rings (`R23`–`R31`)** bringing Dataset B to **31 rings** (and Combined A+B to **50 listings** across **16 sellers**, with **13 published gram weights**):
+  - `R23` Automic Gold Coffin Ring (`$1,910`, `6.1 g`, `PASS`)
+  - `R24` Automic Gold Claddagh Ring (`$875`, `2.3 g`, `PASS`)
+  - `R25` Automic Gold Gemstone Flower Ring (`$551`, `1.4 g`, `PASS`)
+  - `R26` Sarraf.com 18k Men's Solitaire 3/4 ct (`$4,068`, `6.30 g`, `PASS`)
+  - `R27` Sarraf.com 14k Round Cut CZ Ring (`$695`, `2.50 g`, `PASS`)
+  - `R28` VRAI Petite 4-Prong Solitaire 18k (`price_usd: null` dynamic JS configurator, `2.3 g`, `PASS`, `P2`, `RET8`)
+  - `R29` Brilliant Earth Fairmined 2mm Six-Prong 18K (`$1,090` setting price, `SPEC3` resizing badge vs. details contradiction)
+  - `R30` Menē Pure 24k Gold Wrap Ring (`$3,253`, JS-only weight left `null`, `RET10`)
+  - `R31` Local Eclectic Simple Knot Ring (`$239`, `SPEC2` `'9k Solid Gold'` badge vs. `'10k solid yellow gold'` bullet contradiction, `RET9`)
+- Enriched `S-SARRAF` (`+1-888-472-7723`, `info@sarraf.com`) and `S-AUTOMIC` (`+1-929-307-2378`) from official contact/privacy pages, and added `S-BRILLIANTEARTH`, `S-VRAI` (`RET8` `$300` recycling fee + BBB `F` rating), `S-LOCALECLECTIC` (`RET9` 14-day cash refund cutoff), and `S-MENE` (`RET10` 7-day window + up to 10% restocking fee).
+
+**Defects caught & fixed during anti-hallucination review pass (`SD4`):**
+- Fixed two stale footnotes in `index.html` and `calculator.html` that still claimed `"none of the listings publishes a weight"` / `"No retailer in this dataset publishes one"`.
+- Added prominent **"No Hallucinations Commitment"** and explicit recommendation to look for hallucinations to the front-page top summary (`policy_box()` + `index.html` lead).
+- Enforced clickable `https://` official source links on **100% of `<tbody><tr>` rows across all 18 root HTML pages** (`428` root table rows + `120` observatory table rows = `548` rows, `0` missing official source links) and added CI enforcement in `.github/workflows/audit.yml`.
+
+**Automated anti-hallucination & security checks passed:**
+- `python3 scripts/verify.py` → `PASS` (`0 errors, 0 warnings`)
+- `python3 scripts/build_site.py` → `Built 18 pages` (`OK`)
+- `python3 scripts/audit.py` → `rows=31 errors=0 warnings=0 passed=167`
+- `node scripts/render-test.js` → `110/110 checks passed`
+- `npm --prefix archive/session-cbea1001 test` → `7/7 security checks PASS` + `156` internal & `270` external HTTPS links verified
 
 ---
 
