@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "title": "Gold spot price record",
+    "rule": "Only a dated, official quote is stored. Never an estimate, never an average of other sites.",
+    "retrieved": "2026-10-22"
+  },
+  "troy_ounce_grams": 31.1034768,
+  "troy_ounce_grams_note": "1 troy ounce = 31.1034768 grams exactly (defined constant used for all conversions on this site).",
+  "spot": {
+    "id": "spot-2026-10-21",
+    "metal": "gold",
+    "currency": "USD",
+    "unit": "troy ounce",
+    "value_per_oz": 4024.36,
+    "as_of": "2026-10-21",
+    "quote": "\"Gold Spot price — USD /oz — 4,024.36\" and \"Data as of 21 October, 2026\"",
+    "source_name": "World Gold Council — Goldhub, Gold spot prices",
+    "source_url": "https://www.gold.org/goldhub/data/gold-prices",
+    "source_note": "World Gold Council states the page data is provided by ICE Data Services and updated weekly. The LBMA benchmark tables themselves are licence-gated (LBMA and ICE Benchmark Administration), so the WGC-displayed spot figure is the official, publicly quotable reference used here.",
+    "verified_on": "2026-10-22"
+  }
+}
