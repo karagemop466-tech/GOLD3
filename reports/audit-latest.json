@@ -1,0 +1,195 @@
+{
+  "generated": "2026-10-22 23:20 UTC",
+  "checks": [
+    {
+      "id": "A1",
+      "name": "Every entry links to an official seller page",
+      "status": "pass",
+      "detail": "9/9 entries have an official URL and a registered seller.",
+      "evidence": []
+    },
+    {
+      "id": "A2",
+      "name": "No price exists without a quoted, dated source",
+      "status": "pass",
+      "detail": "7 priced entries checked; 0 need attention.",
+      "evidence": []
+    },
+    {
+      "id": "A3",
+      "name": "Karat value appears verbatim in the quoted evidence",
+      "status": "pass",
+      "detail": "9/9 karat values traced to a quote.",
+      "evidence": []
+    },
+    {
+      "id": "A4",
+      "name": "Solid-gold verdicts are backed by the seller's own wording",
+      "status": "pass",
+      "detail": "2 verdicts checked.",
+      "evidence": []
+    },
+    {
+      "id": "A5",
+      "name": "Gram weights come from the seller, never from an estimate",
+      "status": "pass",
+      "detail": "2 weight values checked.",
+      "evidence": []
+    },
+    {
+      "id": "A6",
+      "name": "Every derived figure is reproducible from stored inputs",
+      "status": "pass",
+      "detail": "Melt value = weight_g \u00d7 karat/24 \u00d7 (spot \u00f7 31.1034768). Recomputed for 2 entries.",
+      "evidence": []
+    },
+    {
+      "id": "A7",
+      "name": "Price-drift detector: same item, different recorded prices",
+      "status": "warn",
+      "detail": "4 of 9 entries have more than one recorded price observation.",
+      "evidence": []
+    },
+    {
+      "id": "A8",
+      "name": "No duplicate listings",
+      "status": "pass",
+      "detail": "0 duplicate entries.",
+      "evidence": []
+    },
+    {
+      "id": "A9",
+      "name": "Dead listings are labelled, not silently kept",
+      "status": "info",
+      "detail": "2 dead listing(s) recorded and excluded from recommendations.",
+      "evidence": []
+    },
+    {
+      "id": "A10",
+      "name": "Spot price is dated by an official source",
+      "status": "pass",
+      "detail": "$4,024.36/ozt as of 2026-10-21 (1 day(s) old) \u2014 World Gold Council \u2014 Goldhub, Gold spot prices.",
+      "evidence": []
+    },
+    {
+      "id": "A11",
+      "name": "Every entry carries a recent re-check date",
+      "status": "pass",
+      "detail": "0 entries older than 30 days.",
+      "evidence": []
+    },
+    {
+      "id": "A12",
+      "name": "Price magnitude sanity check",
+      "status": "pass",
+      "detail": "All stored prices fall in a credible range (limit $20,000 per fine gram).",
+      "evidence": []
+    },
+    {
+      "id": "A13",
+      "name": "Every seller has a linked, official return policy",
+      "status": "warn",
+      "detail": "3/7 sellers documented.",
+      "evidence": []
+    },
+    {
+      "id": "A14",
+      "name": "Every link sits on the domain it claims to belong to",
+      "status": "pass",
+      "detail": "9 listing URLs and 7 seller links checked against their own domains.",
+      "evidence": []
+    }
+  ],
+  "findings": [
+    {
+      "severity": "warn",
+      "item": "RS-932728",
+      "field": "price",
+      "message": "More than one price recorded for this item (list-price change, sale price, configuration or a stale index copy) \u2014 the live page value is the one used: $270 on 2026-10-22 (search-engine copy of the same page (stale)), $299 on 2026-10-22 (live product page)",
+      "source": "https://www.ross-simons.com/products/932728"
+    },
+    {
+      "severity": "warn",
+      "item": "TIFFANY-40318275",
+      "field": "price",
+      "message": "More than one price recorded for this item (list-price change, sale price, configuration or a stale index copy) \u2014 the live page value is the one used: $1,540 on 2026-10-22 (search-engine copy of a Tiffany product page (stale)), $1,560 on 2026-10-22 (search-engine copy of a Tiffany 1-carat gold landing page (stale)), $1,600 on 2026-10-22 (live product page), $1,650 on 2026-10-22 (search-engine copy of a Tiffany gold engagement-rings landing page (stale))",
+      "source": "https://www.tiffany.com/engagement/engagement-rings/the-tiffany-setting-engagement-ring-in-18k-yellow-gold-GRP10863/"
+    },
+    {
+      "severity": "warn",
+      "item": "MJ-BDER",
+      "field": "price",
+      "message": "More than one price recorded for this item (list-price change, sale price, configuration or a stale index copy) \u2014 the live page value is the one used: $2,900 on 2026-10-22 (live product page), $3,400 on 2026-10-22 (search-engine copy of the Mejuri engagement-ring collection page (stale))",
+      "source": "https://mejuri.com/products/bold-diamond-eternity-ring"
+    },
+    {
+      "severity": "warn",
+      "item": "CATBIRD-WOODLAND",
+      "field": "price",
+      "message": "More than one price recorded for this item (list-price change, sale price, configuration or a stale index copy) \u2014 the live page value is the one used: $276 on 2026-10-22 (live product page (sale price)), $368 on 2026-10-22 (same live product page (regular price))",
+      "source": "https://www.catbirdnyc.com/woodland-ring.html"
+    },
+    {
+      "severity": "warn",
+      "item": "catbird",
+      "field": "returns",
+      "message": "No official return-policy URL recorded for this seller.",
+      "source": null
+    },
+    {
+      "severity": "warn",
+      "item": "costco",
+      "field": "returns",
+      "message": "No official return-policy URL recorded for this seller.",
+      "source": null
+    },
+    {
+      "severity": "warn",
+      "item": "james-allen",
+      "field": "returns",
+      "message": "No official return-policy URL recorded for this seller.",
+      "source": null
+    },
+    {
+      "severity": "warn",
+      "item": "ross-simons",
+      "field": "returns",
+      "message": "No official return-policy URL recorded for this seller.",
+      "source": null
+    },
+    {
+      "severity": "info",
+      "item": "JA-41515",
+      "field": "availability",
+      "message": "Listing is no longer purchasable (page returned 'not found' / 'not available') \u2014 kept for the record, excluded from the buy list.",
+      "source": null
+    },
+    {
+      "severity": "info",
+      "item": "COSTCO-100423493",
+      "field": "availability",
+      "message": "Listing is no longer purchasable (page returned 'not found' / 'not available') \u2014 kept for the record, excluded from the buy list.",
+      "source": null
+    }
+  ],
+  "summary": {
+    "checks_total": 14,
+    "checks_pass": 11,
+    "checks_warn": 2,
+    "checks_fail": 0,
+    "findings_fail": 0,
+    "findings_warn": 8
+  },
+  "stats": {
+    "items_total": 9,
+    "items_live": 7,
+    "items_snapshot": 0,
+    "items_dead": 2,
+    "with_weight": 2,
+    "with_price": 7,
+    "solid_true": 1,
+    "solid_false": 1,
+    "solid_unstated": 5,
+    "spot_per_gram": 129.3862
+  }
+}
