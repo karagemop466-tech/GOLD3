@@ -429,6 +429,11 @@ Publish:
 - `node scripts/render-test.js` → `110/110 checks passed`
 - `npm --prefix archive/session-cbea1001 test` → `7/7 security checks PASS` + `156` internal & `270` external HTTPS links verified
 
+**Publish & Live GitHub Pages Verification (`arena/cbea1001-gold3`):**
+- **PR Opened & Merged:** PR #27 (`https://github.com/karagemop466-tech/GOLD3/pull/27`) merged to `main` as commit `75d4b67e5213556bb2ffae15d29a28a88b48d416` at `2026-10-22T23:50:38Z`.
+- **Post-Merge CI Gate on `main`:** Workflow run `39874409897` (`Anti-hallucination checks`) completed `success` in 14s across all 8 verification steps.
+- **Live GitHub Pages Deployment Confirmed:** Pages build `1306741334` on commit `75d4b67e5213556bb2ffae15d29a28a88b48d416` completed with `status: "built"` (`error: null`) at `2026-10-22T23:51:06Z` — live at `https://karagemop466-tech.github.io/GOLD3/` and `https://karagemop466-tech.github.io/GOLD3/archive/session-cbea1001/`.
+
 ---
 
 ## 8. Handoff rule
