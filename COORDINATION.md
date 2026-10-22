@@ -13,6 +13,7 @@ Read it before starting any work. Update it when you claim, finish, or hand off 
 | `arena/e6fe3e4f-gold3` | `arena/e6fe3e4f-gold3` | 2026-10-22T23:24Z | **active — V1–V4 verification pass, then integration** |
 | `arena/92d7dd0a-gold3` | `arena/92d7dd0a-gold3` | 2026-10-22T23:30Z | complete (PR #13, #15 merged) |
 | `arena/04e8f339-gold3` | `arena/04e8f339-gold3` | 2026-10-22T23:34Z | complete (PR #11 merged) |
+| `arena/699d8e05-gold3` | `arena/699d8e05-gold3` | 2026-10-22T23:20Z | **active — V5 third-pass (P3) live re-verification** |
 
 ### Branch naming note (important)
 The protocol below asks for `session-<id>/<task>` branches. **This sandbox pins each session to a
@@ -51,6 +52,7 @@ Status values: `unclaimed` · `in progress` · `done` · `needs review`
 | V3 | Verification page + provenance rules in the audit + static rebuild of four pages | done | `arena/e6fe3e4f-gold3` | `scripts/build_site.py`, `scripts/audit.py`, `scripts/render-test.js`, `verify.html` | 2026-10-23T01:00Z |
 | V4 | Integration after PRs #6/#10/#12/#13/#14/#15: merge, rebuild, re-gate, PR → `main`, deploy | done | `arena/e6fe3e4f-gold3` | repo root, `.github/workflows/` | 2026-10-23T01:0xZ |
 | T10 | Line-by-line source revalidation, anti-hallucination review, site integrity (Dataset B 19 rings + Dataset A 19 products, 38 combined) | done | `arena/92d7dd0a-gold3` | All non-archive project files; archive is read-only | 2026-10-22T23:40Z |
+| V5 | Third-pass (P3) live re-verification: Dataset A row corrections, Dataset B seller-policy gap closure, and a cross-seller claim transplanted into flag text | in progress | `arena/699d8e05-gold3` | `data/products.json`, `data/sellers.json`, `data/flags.json`, `data/findings.json`, `data/reverification-p3.json` (new), `reports/reverification-pass-p3.md` (new), `COORDINATION.md` | 2026-10-22T23:49Z |
 
 > **T10 closed 2026-10-23** by its owner's own work, merged as PR #13 (board record) and PR #15
 > (text corrections). This session only recorded the closure — no file owned by `arena/92d7dd0a-gold3`
@@ -137,6 +139,22 @@ verification URL is not https, if an outcome is outside confirmed/corrected/flag
 counts disagree with its own entries (a fabricated summary is itself a hallucination), or if a row lacks a
 `last_verified` ISO date. `scripts/verify.py` gained the two new official domains. The workflow now runs gate →
 build → audit → render-test → report and uploads both reports.
+
+### 2026-10-22 — `arena/699d8e05-gold3` — third-pass (P3) live re-verification — CLAIM
+
+**Claim (committed before any edit).** Registered in §0 and claimed **V5** above. Scope is deliberately
+disjoint from the two PRs that were open at claim time — **#20** (`arena/8aaa18bf-gold3`, touches
+`data/rings.json`, `data/retailers.json`, `scripts/audit.py`, `scripts/verify.py`, `scripts/page-check.js`,
+`.github/workflows/audit.yml` and every page) and **#22** (`arena/e6fe3e4f-gold3`, touches
+`data/verification.json`, `verify.html`, `scripts/build_site.py`, `scripts/render-test.js`, `README.md`).
+This session therefore edits only `data/products.json`, `data/sellers.json`, `data/flags.json`,
+`data/findings.json`, plus two new files it owns (`data/reverification-p3.json`,
+`reports/reverification-pass-p3.md`) and this board. Everything that needs a change in a file inside
+PR #20/#22's diff is written up as a **change request in §4** instead of being edited here.
+
+**Method.** Every page below was fetched live with a page reader (no cached snippets, no search-result
+text) and each stored value was searched for in the returned text. Where a value could not be found
+verbatim it is corrected or removed — never re-worded into something plausible.
 
 ## 4. Change requests / conflicts
 
