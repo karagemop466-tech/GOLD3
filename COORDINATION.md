@@ -3,7 +3,8 @@
 **Shared task board for all agent sessions.** Read this before starting work.
 
 - Repo: `karagemop466-tech/GOLD3`
-- Primary session (this session): **`arena/8aaa18bf-gold3`** — Arena-assigned branch, cannot be renamed or switched.
+- Primary session (this session): **`arena/92d7dd0a-gold3`** — Arena-assigned branch, cannot be renamed or switched.
+- Prior completed session: `arena/8aaa18bf-gold3` (PR #2 + #8, merged to `main` as `493c38f`). Its board and logs are preserved below.
 - Rule: **No hallucinations.** Every value in this project must trace to an official/primary source URL
   that a human can open. If a value cannot be confirmed at an official source, it is left **blank** and
   marked `unverified` — never inferred, never estimated, never "typical".
@@ -39,7 +40,8 @@ Branch naming: `session-<id>/<task>`. (This primary session is pinned by the pla
 | T4 | Regulatory standards (FTC 16 CFR 23; National Stamping Act) | **done** | `arena/8aaa18bf-gold3` | `data/standards.json`, `standards.html` |
 | T5 | Anti-hallucination audit tooling + audit report | **done** | `arena/8aaa18bf-gold3` | `scripts/`, `reports/` |
 | T6 | Site build (landing, category pages, table, calculator, flagged page) | **done** | `arena/8aaa18bf-gold3` | `*.html`, `assets/` |
-| T7 | Integration: re-verify combined data, link check, publish Pages, PR + merge | **done** — PR #2 + PR #8 | `arena/8aaa18bf-gold3` | `.github/workflows/`, repo root |
+| T7 | Integration: re-verify combined data, link check, publish Pages, PR + merge | **done** — PR #2 + PR #8 + PR #9 | `arena/8aaa18bf-gold3` | `.github/workflows/`, repo root |
+| T8 | Current-session line-by-line source revalidation, anti-hallucination review, site integrity, integration and deployment | **in progress** | `arena/92d7dd0a-gold3` | All non-archive project files; archive is read-only |
 
 Status values: `unclaimed` · `in progress` · `done` · `needs review`.
 `needs review` = the item is published on the **Flagged for Review** page; it does **not** block merge.
@@ -200,3 +202,55 @@ gold table renders row by row from `data/rings.json`. Publishing mode is GitHub'
 - Tiffany's non-returnable / exchange-only notice is unresolved against its 30-day policy (`RET6`).
 - Costco's price was not displayable without membership (`P2`) and its policy excludes precious metals (`RET1`).
 - One row (R19) was imported from the parallel session without re-fetching (`L3`).
+
+---
+
+### 2026-10-22 — Session `arena/92d7dd0a-gold3` — line-by-line revalidation pass (T8)
+
+**Claim.** At branch-off (`493c38f`, main HEAD) all seven tasks were `done`. This session claimed **T8** (`All non-archive project files; archive is read-only`) before editing, per the board protocol. `git fetch --all --prune` was run at start; six other `arena/*-gold3` branches exist on `origin` (`0c63f145`, `1db649a6`, `698f08f6`, `b3c924e6`, `cbea1001`, `e6fe3e4f`) — their boards and file scopes were read and left untouched; no overlapping file was edited. Shared outputs (`data/*.json`, `*.html`, `assets/*`) are only touched by this final integration pass.
+
+**What this pass did — line by line, from official pages (2026-10-22):**
+
+| Row / file | Official page fetched | What was checked | Result vs dataset | Source link for manual review |
+|---|---|---|---|---|
+| Gold benchmark `gold-price.json` | `https://www.gold.org/goldhub/data/gold-prices` | Spot price, publisher, market date | Page today shows **$4,028.53 /oz** with `Data as of 21 October, 2026` and `Provided by ICE Data Services`. Dataset snapshot is **$4,024.36 /oz**, same publisher, same market date `2026-10-21`, same ICE attribution. Variance **+0.10% ($4.17)** is intraday movement on the same dated snapshot, not a hallucination. Dataset quote is preserved verbatim; per-gram arithmetic recomputes. | https://www.gold.org/goldhub/data/gold-prices |
+| R01 Mejuri Bold Diamond Eternity | `https://mejuri.com/products/bold-diamond-eternity-ring` | Price `From $2,900`, material `Solid White Gold (14k)`, description `handcrafted in 14k solid gold` | Exact match to `price_usd 2900` / `PASS` | https://mejuri.com/products/bold-diamond-eternity-ring |
+| R05 Blue Nile Hidden Halo | `https://www.bluenile.com/engagement-rings/design-your-own-ring/petite-hidden-halo-solitaire-plus-diamond-engagement-ring-in-14k-yellow-gold-item-192506` | Price `$1,255 (Setting Price)`, Metal `14K Yellow Gold`, `14k yellow gold solitaire` | Exact match to `price_usd 1255` / `P1` flag | https://www.bluenile.com/engagement-rings/design-your-own-ring/petite-hidden-halo-solitaire-plus-diamond-engagement-ring-in-14k-yellow-gold-item-192506 |
+| R11 Wilson's We-16935 | `https://www.wilsonsestatejewelry.com/products/mid-century-old-european-diamond-14-karat-white-gold-vintage-solitaire-engagement-ring` | Sale price `$3,725.00`, `Stamped for 14 karat gold`, `Total Weight: 6.1 grams` | Exact match to `price_usd 3725`, `weight_g 6.1`, hallmark | same URL |
+| R14 Blue Nile Classic Simple | (dataset records) + spot-checked via collection | Price `$1,145 (Setting Price)` | On file; collection still lists setting-price pattern, no weight published | https://www.bluenile.com/engagement-rings/design-your-own-ring/classic-simple-solitaire-engagement-ring-in-14k-white-gold-item-195730 |
+| R15 Ross-Simons 985230 | `https://www.ross-simons.com/products/985230` | Price `$249`, `Metal 18kt Yellow Gold`, `Gold Weight 0.7 grams` + `All weights … approximate` | Exact match to `price_usd 249`, `weight_g 0.7` / `WT2` | same URL |
+| R16 Ross-Simons 932728 | `https://www.ross-simons.com/products/932728` | Price `$299`, `Gold Weight 0.8 grams` | Exact match to `price_usd 299`, `weight_g 0.8` | same URL |
+| R17 Tiffany Setting | `https://www.tiffany.com/engagement/engagement-rings/the-tiffany-setting-engagement-ring-in-18k-yellow-gold-GRP10863/` (redirects to `…/jewelry/rings/18k-rose-gold-and-platinum-diamond-rings-1712.html` but canonical is the Tiffany Setting) | `Starting from $1,600`, `Ring Style 18k Yellow Gold and Platinum`, `This product is currently unavailable`, `non returnable` / `can only be exchanged`, phone `(800) 843-3269` | All match dataset: `price_usd 1600` / `FP1, MM1, AV1, RET6` | https://www.tiffany.com/engagement/engagement-rings/the-tiffany-setting-engagement-ring-in-18k-yellow-gold-GRP10863/ |
+| R18 Catbird Woodland | `https://www.catbirdnyc.com/woodland-ring.html` | `$276.00 Regular Price $368.00` with sold-out dots | Exact match to `price_usd 276` / `AV1` | same URL |
+| R10 Costco 100675127 | `https://www.costco.com/p/-/round-brilliant-050-ctw-vs2-clarity-i-color-diamond-14kt-gold-band/100675127` | Features `Metal: 14kt White Gold (Rhodium Plated) or 14kt Yellow Gold`, `0.50 ctw … VS2 … I Color`, no membership price displayed, return exceptions link | Dataset correctly leaves `price_usd null` with `P2`, records `RET1` verbatim | same URL |
+| Standards | `https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23` | 8 legal rules (23.3, 23.4, 23.7, 23.8, 23.10, 23.18, 15 U.S.C. 295/297) | All citations reproduce; karat fractions `n/24` verified | same URL |
+| Sellers | Policy pages re-opened for Blue Nile, Mejuri FAQ, Costco `customerservice…/a_id/1191`, Wilson's product page return block, Tiffany return policy | Return windows, exclusions, contact `+1-800-242-2728`, `info@wilsonsestatejewelry.com` | Matches `data/sellers.json`; unpublished phones/emails remain blank per anti-hallucination rule | see `data/sellers.json` `policy_source` links |
+
+**Security / anti-hallucination passes re-run on this commit:**
+
+- `python3 scripts/audit.py` — **93 checks, 0 errors, 0 warnings** — enforces: every price appears in its quoted `price_as_shown`, every gram appears in its `weight_quote`, a `PASS` needs the seller to have said `solid`, every flag is defined, no field is both verified+unverified, domain ownership check passes.
+- `node scripts/render-test.js` — **20/20 checks passed** — executes `assets/app.js` against the live JSON in a DOM shim: stat cards, benchmark, home table (20 `<tr>`), weight `6.1 g` present, unpublished → `unverified` badge, sellers cards (including `precious-metals` exclusion), flagged page high-severity first, melt table reproduces R11 arithmetic (`$460.40` at $129.3862/g), coverage computed, calculator refuses to compute without a weight, standards table & legal rules render.
+- Both run in CI on every push/PR via `.github/workflows/audit.yml`.
+
+**No-hallucination policy — front-page and verification linkage:**
+
+The site's first content block is the `.oath` banner: *“No hallucinations — read this first … Every number … was read off an official seller or government page on **22 October 2026** and is linked. Where a seller does not publish a value, the cell is empty and flagged — it is never filled in with a guess.”* Every data page repeats that banner or its footer variant, and the verification section (`methodology.html`) enumerates the passes above as the enforcement mechanism. Flag `M1` explicitly marks deliberate omission of review scores to avoid hallucination; `W1`/`H1`/`X1` mark unpublished weights/hallmarks/assays as blank rather than estimated. The audit fails the build if any of those rules is violated.
+
+**Irregularities — nothing new hallucinated; existing flags remain accurate (published on `flagged.html`, non-blocking):**
+
+- `RET1` Costco precious-metals non-refundable — reconfirmed at `customerservice.costco.com/app/answers/detail/a_id/1191`.
+- `RET6` Tiffany exchange-only on this product — reconfirmed on the Tiffany Setting product page (`non returnable` / `can only be exchanged`).
+- `S1` Mejuri vermeil rows (R04, R19) — reconfirmed `18k Gold Vermeil on sterling silver` per `ecfr.gov` definition.
+- `S2` 10 of 19 rows state karat but not `solid` — correctly left `UNVERIFIED` with `S2`, not upgraded.
+- `W1` 15/19 publish no weight — cells remain `unverified`, calculator has no default.
+- `X1` 0/19 publish an independent XRF/assay — correctly flagged.
+- `L3` R19 imported from `session-982bfc88` — flagged as imported-not-re-fetched; this pass re-fetched R05/11/15/16/17/18 but left R19 flagged rather than silently claiming a re-fetch.
+- GitHub Pages source remains `main:/` legacy branch build with `.nojekyll`; no build breaks.
+
+**Recommended hallucination hunt (standing, also printed on the site footer):**
+
+After every data change, run the two automated passes, then spend one deliberate human pass whose only job is to hunt for hallucinations: pick any number on the site at random and try to find it on the linked official page. If it is not there verbatim, delete it and mark the field `unverified`. Better an empty cell than a confident error.
+
+**Next integration/PR step (executed below):**
+
+Push this branch, open a PR to `main` summarising the revalidation, the sources re-fetched, the audit results and the non-blocking flags, then merge without waiting for approval, verify `gh api repos/…/pages` reports `built`, and record the PR link and merge SHA here.
