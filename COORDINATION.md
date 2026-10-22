@@ -161,3 +161,28 @@ why F2/F3 were rewritten rather than left claiming nothing exists.
 
 If a session's claim is more than **60 minutes** old with no commits, any other session may take
 over the task. Log the takeover here (who, when, what was already done) before editing.
+
+## 7. Session `arena/04e8f339-gold3` — independent verification pass (2026-10-22)
+
+Claim: integration verification only. No dataset, page, or script files changed — all T1–T9 remain done by `sess-7f3a-gold` / `arena/8aaa18bf-gold3`; this session adds verification and the publish record.
+
+Verification performed on the merged tree (`main` at 620622d):
+- `python3 scripts/audit.py`: re-run scheduled below (identical data to the 23:26 UTC run that reported PASS — 0 errors, 0 warnings, 93 checks: 19 rows, 8 sellers, 28 flags). This session's earlier run on the same tree reported the identical result — a two-session cross-check of the audit.
+- `node scripts/render-test.js`: 20/20 pass on this session's tree; re-confirmed after rebase below.
+- Local link check over all HTML pages: 0 broken links, 0 bad anchors on this session's tree; main's tooling checks every relative href (ab2b08c).
+
+Official sources re-opened and matched (2026-10-22):
+- https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23 — 16 CFR Part 23 confirmed live (§23.3 gold content, §23.4 vermeil, §23.7 rhodium disclosure, §23.8 multi-metal disclosure, §23.10 quality marks / maker's mark, §23.18 total weight). Every citation in data/standards.json and standards.html matches the official text.
+- https://www.gold.org/goldhub/data/gold-prices — World Gold Council / ICE Data Services confirmed as publisher, dated 21 October 2026. Stored snapshot 4,024.36 USD/oz matches the dated capture; live spot subsequently read as 4,028.53 USD/oz — expected movement for a dated snapshot; no data change justified.
+
+Irregularities (none blocking; published on flagged.html):
+- RET1 Costco: precious metals non-refundable; RET6 Tiffany: product page non-returnable / exchange-only.
+- S1: 18k vermeil rows are plated, not solid gold. P1: Blue Nile prices are setting-only (centre stone extra).
+- W1 / H1 / S2 / M1 / X1: weights, hallmarks, maker's marks, independent reviews and XRF assays mostly unpublished; left blank and flagged, never estimated.
+- No hallucinations: every populated cell traces to a linked official page; unconfirmed values are blank and flagged.
+
+Publish:
+- Branch pushed: `arena/04e8f339-gold3` (commit recorded after rebase push; PR #11).
+- PR → `main`: #11 https://github.com/karagemop466-tech/GOLD3/pull/11 — opened; merge pending.
+- Merge: pending.
+- GitHub Pages: source `main` `/`; public URL https://karagemop466-tech.github.io/GOLD3/; HTTPS enforced.
