@@ -43,8 +43,8 @@
       <thead><tr><th>#</th><th>Pass</th><th>What it does</th><th>Outcome</th></tr></thead>
       <tbody>
         <tr><td class="num">0</td><td>Scope</td>
-            <td>Read the repo, the coordination board and the checklist; confirm no other session's work existed.</td>
-            <td>Repo held only a stub README at one commit; no conflicts.</td></tr>
+            <td>Read the repo, the coordination board and the checklist before claiming anything.</td>
+            <td>Repo held only a stub README at one commit. A second session had in fact started at the same moment without appearing on the board — see pass 4b and 6.</td></tr>
         <tr><td class="num">1</td><td>Primary-source fetch</td>
             <td>Open each seller's and regulator's own page; capture exact wording, not summaries.</td>
             <td>8 sellers, 19 listings, 8 legal rules, 1 benchmark.</td></tr>
@@ -65,8 +65,20 @@
         <tr><td class="num">5</td><td>Link and build check</td>
             <td>Resolve every local link, verify external sources are https, confirm the site builds.</td>
             <td>Clean.</td></tr>
+        <tr><td class="num">6</td><td>Deployed-page read-back</td>
+            <td>Fetch the published GitHub Pages URL after the merge and compare what the page says against
+              the rows in the dataset.</td>
+            <td>First attempt failed: the repository had leftover page templates whose baked-in counts
+              contradicted the 19-row dataset. Fixed and re-verified — the live page and the data now agree.</td></tr>
       </tbody>
     </table>
+  </div>
+
+  <div class="note warn">
+    <p><strong>Pass 6 is not optional.</strong> Every local check passed while the deployed site was still
+      wrong, because the defect lived in the gap between the repository's pages and its data. A project about
+      not misleading readers has to read back the thing readers actually see. That is now the last step
+      before any release is called done.</p>
   </div>
 
   <div class="note good">
