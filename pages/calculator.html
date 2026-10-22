@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#173c32">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self'; style-src 'self'; connect-src 'self'; img-src 'self'; form-action 'self'">
+  <meta name="description" content="Calculate nominal fine-gold grams from a seller-confirmed gold-only weight and karat, with an optional user-sourced market quote.">
+  <title>Gold Calculator — GOLD3</title>
+  <link rel="stylesheet" href="../assets/site.css">
+  <script src="../assets/app.js" defer></script>
+</head>
+<body data-root=".." data-page="calculator">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Main navigation">
+      <a class="brand" href="../index.html" aria-label="GOLD3 overview"><span class="brand-mark" aria-hidden="true"></span><span class="brand-name">GOLD<span>3</span></span></a>
+      <div class="nav-label">Research board</div>
+      <nav class="side-nav">
+        <a href="../index.html"><span class="nav-number">01</span>Overview</a>
+        <a href="rings.html"><span class="nav-number">02</span>Ring candidates</a>
+        <a href="verify.html"><span class="nav-number">03</span>Checklist &amp; verification</a>
+        <a class="active" href="calculator.html" aria-current="page"><span class="nav-number">04</span>Gold calculator</a>
+        <a href="flagged.html"><span class="nav-number">05</span>Flagged for review</a>
+        <a href="sources.html"><span class="nav-number">06</span>Source library</a>
+      </nav>
+      <div class="sidebar-spacer"></div>
+      <div class="sidebar-note"><strong>No price is prefilled.</strong><p>There is no verified gold-only weight or live market quote for these candidates.</p></div>
+      <div class="sidebar-foot">Research snapshot · <span data-review-date>Oct 22, 2026</span></div>
+    </aside>
+
+    <div class="main-column">
+      <header class="topbar"><div class="breadcrumb">GOLD CONTENT · RAW METAL ESTIMATE</div><div class="topbar-meta"><span class="live-dot" aria-hidden="true"></span>Reviewed <span data-review-date>Oct 22, 2026</span></div></header>
+      <main class="content" id="main">
+        <div class="truth-banner" role="note"><span class="stamp">NO HALLUCINATIONS</span><p><strong>The calculator starts blank on purpose.</strong> It never guesses a ring weight or current gold price. Outputs are arithmetic from your inputs, not a purity test or a retail valuation.</p></div>
+        <div class="page-heading">
+          <div><span class="eyebrow">Category 04 · calculation tool</span><h1>Gold content calculator</h1><p>Estimate nominal fine-gold grams only when you have a seller-confirmed mass of the gold alloy—not the total gemstone ring weight.</p></div>
+          <div class="page-aside">Market quote in project: <strong id="market-quote-status">not populated</strong></div>
+        </div>
+        <p id="data-load-error" class="notice danger" role="alert" hidden></p>
+
+        <div class="notice warning">
+          <span class="notice-icon" aria-hidden="true">!</span>
+          <div><h3>Do not use total ring weight if it includes stones or other materials</h3><p>Ask the seller for gold-only alloy mass in grams. If that number cannot be confirmed, leave the product's raw-gold amount blank. The calculator does not estimate it from photos, dimensions, diamond carats, or a typical-ring range.</p></div>
+        </div>
+
+        <section class="calc-card" aria-labelledby="calc-title">
+          <div class="section-row first-section-row"><div><h2 id="calc-title">Enter a verified input</h2><p>Nothing you enter is saved or sent to a server.</p></div></div>
+          <form id="gold-calculator" autocomplete="off">
+            <div class="calc-grid">
+              <div class="form-field">
+                <label for="alloy-weight">Gold-alloy mass (grams)</label>
+                <input class="form-control" id="alloy-weight" name="alloyWeightG" type="number" min="0" step="0.001" inputmode="decimal" placeholder="Leave blank until verified">
+                <small>Use the gold-only alloy mass, not a ring + diamond total.</small>
+              </div>
+              <div class="form-field">
+                <label for="weight-date">Gold-data source date</label>
+                <input class="form-control" id="weight-date" name="weightDate" type="date">
+                <small>Use the date on a seller record that supports both the mass and selected karat.</small>
+              </div>
+              <div class="form-field">
+                <label for="weight-source">Gold mass &amp; karat source URL</label>
+                <input class="form-control" id="weight-source" name="weightSource" type="url" inputmode="url" placeholder="https://seller.example/product">
+                <small>HTTPS source must support both inputs. Keep any separate private seller messages with your records.</small>
+              </div>
+              <div class="form-field">
+                <label for="karat">Seller-stated karat</label>
+                <select class="form-control" id="karat" name="karat">
+                  <option value="">Select a karat</option>
+                  <option value="10">10K</option>
+                  <option value="12">12K</option>
+                  <option value="14">14K</option>
+                  <option value="18">18K</option>
+                  <option value="22">22K</option>
+                  <option value="24">24K</option>
+                </select>
+                <small>Nominal fraction uses K ÷ 24; the 24K option uses NIST's 99.9% example. Neither proves actual purity.</small>
+              </div>
+              <div class="form-field">
+                <label for="spot-amount">Optional dated gold quote (USD)</label>
+                <input class="form-control" id="spot-amount" name="spotAmount" type="number" min="0" step="0.01" inputmode="decimal" placeholder="No quote prefilled">
+                <small>Enter a quote only if you have a source and quote date.</small>
+              </div>
+              <div class="form-field">
+                <label for="spot-unit">Quote unit</label>
+                <select class="form-control" id="spot-unit" name="spotUnit">
+                  <option value="">Choose a unit</option>
+                  <option value="gram">USD per gram</option>
+                  <option value="troy-ounce">USD per troy ounce</option>
+                </select>
+                <small>For troy ounces, the calculator uses NIST's grams-per-troy-ounce conversion.</small>
+              </div>
+              <div class="form-field">
+                <label for="spot-date">Quote date</label>
+                <input class="form-control" id="spot-date" name="spotDate" type="date">
+                <small>Use the date shown by your selected price source.</small>
+              </div>
+              <div class="form-field">
+                <label for="spot-source">Quote source URL</label>
+                <input class="form-control" id="spot-source" name="spotSource" type="url" inputmode="url" placeholder="https://source.example/price">
+                <small>HTTPS source link required for the optional metal-value calculation. The site does not fetch or verify it.</small>
+              </div>
+            </div>
+            <div class="calc-actions">
+              <button class="button button-dark" type="button" id="calculate-button">Calculate</button>
+              <button class="button button-light" type="reset">Clear inputs</button>
+            </div>
+          </form>
+
+          <div class="calc-results" aria-label="Calculator results">
+            <div class="result-card"><div class="result-label">Nominal fine-gold amount</div><div class="result-value" id="result-fine-gold" aria-live="polite">—</div><div class="result-sub">grams; from user-entered gold-only alloy mass</div></div>
+            <div class="result-card"><div class="result-label">User quote per gram</div><div class="result-value" id="result-price-per-gram" aria-live="polite">—</div><div class="result-sub">converted only when a dated quote is provided</div></div>
+            <div class="result-card"><div class="result-label">Raw-metal arithmetic</div><div class="result-value" id="result-metal-value" aria-live="polite">—</div><div class="result-sub">not ring value, appraisal, or buyback offer</div></div>
+          </div>
+          <p class="calc-status" id="calculator-status" role="status" aria-live="polite">Calculator is blank by design. Provide a seller-confirmed gold-only mass, karat, and dated HTTPS source supporting both before calculating; a dated quote and source are additionally required for raw-metal arithmetic.</p>
+          <div id="quote-source-note" class="source-stack" aria-label="User-entered quote source"></div>
+        </section>
+
+        <div class="section-row"><div><h2>Transparent formulas</h2><p>The purity and market inputs are assumptions supplied by the user, not verified measurements.</p></div></div>
+        <div class="table-wrap">
+          <table aria-label="Calculator formulas and sources">
+            <thead><tr><th scope="col">Output</th><th scope="col">Formula</th><th scope="col">Interpretation</th><th scope="col">Source / caveat</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Nominal fine-gold mass</strong></td><td><code>alloy grams × nominal purity fraction</code><br><code>K ÷ 24; 24K uses 99.9%</code></td><td>Nominal fine-gold amount implied by the selected karat. Assumes the stated karat and gold-only mass are accurate; it does not test the ring or account for tolerances.</td><td><a class="source-link" href="https://www.nist.gov/system/files/documents/2017/05/09/Precious-Metals-Conversion-Information-march2015.pdf" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">NIST precious-metal conversion chart</a></td></tr>
+              <tr><td><strong>USD per gram</strong></td><td><code>USD per troy ounce ÷ 31.1034768</code></td><td>Unit conversion only. It does not supply or verify a market price.</td><td><a class="source-link" href="https://www.nist.gov/system/files/documents/2017/05/09/Precious-Metals-Conversion-Information-march2015.pdf" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">NIST conversion table</a></td></tr>
+              <tr><td><strong>Raw-metal arithmetic</strong></td><td><code>fine-gold grams × user quote per gram</code></td><td>Excludes stones, other metals, labor, retail markup, taxes, and buyer discounts. It is not the ring's retail or resale value.</td><td><a class="source-link" href="https://www.lbma.org.uk/prices-and-data/lbma-gold-price" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">LBMA benchmark context</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="notice top-gap-notice">
+          <span class="notice-icon" aria-hidden="true">i</span>
+          <div><h3>No embedded gold price</h3><p>The LBMA page linked here explains its benchmark and says valuation/pricing use requires a usage licence with ICE Benchmark Administration. GOLD3 does not copy a current quote into the site. NIST's conversion-chart dollar examples are illustrative, not current prices.</p></div>
+        </div>
+
+        <footer class="footer"><span class="last-reviewed">Calculator checked <span data-review-date>Oct 22, 2026</span></span><span><a href="rings.html">Candidate list</a> · <a href="sources.html">Sources</a></span></footer>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

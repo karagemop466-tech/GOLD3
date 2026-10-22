@@ -1,0 +1,13 @@
+{
+  "reviewedOn": "2026-10-22",
+  "goldSpotQuote": {
+    "amount": null,
+    "currency": "USD",
+    "unit": null,
+    "quoteDateTime": null,
+    "status": "not populated",
+    "sourceId": "lbma-price",
+    "reason": "No current quote was verified for this project, and no licensed benchmark value is embedded. The linked LBMA page explains the benchmark and licensing; it is not a price snapshot."
+  },
+  "warning": "Do not treat an example price in a measurement guide as current. No metal value is calculated without a source-dated quote and a verified gold-only weight."
+}

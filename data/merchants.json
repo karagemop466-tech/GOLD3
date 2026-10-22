@@ -1,0 +1,46 @@
+{
+  "reviewedOn": "2026-10-22",
+  "merchants": [
+    {
+      "id": "blue-nile",
+      "name": "Blue Nile",
+      "officialSite": "https://www.bluenile.com/",
+      "contact": {
+        "phone": "+1-800-242-2728",
+        "email": "service@bluenile.com",
+        "sourceId": "bn-contact"
+      },
+      "reputationSignals": [
+        {
+          "sourceId": "bbb-profile",
+          "label": "BBB profile",
+          "summary": "BBB page labels Blue Nile Inc accredited and A+ rated.",
+          "metrics": { "accredited": true, "businessRating": "A+", "checkedOn": "2026-10-22" },
+          "sourceNote": "BBB says its profiles do not verify third-party information, guarantee accuracy, or endorse a business."
+        },
+        {
+          "sourceId": "bbb-complaints",
+          "label": "BBB complaints snapshot",
+          "summary": "BBB displayed 121 complaints in the last 3 years and 23 in the last 12 months when checked on 2026-10-22.",
+          "metrics": { "complaintsLastThreeYears": 121, "complaintsLastTwelveMonths": 23, "checkedOn": "2026-10-22" },
+          "sourceNote": "Complaint counts and records change; a complaint is not a finding that a claim is true."
+        },
+        {
+          "sourceId": "bbb-reviews",
+          "label": "BBB customer reviews snapshot",
+          "summary": "BBB displayed 1 out of 5 stars across 25 customer reviews when checked on 2026-10-22.",
+          "metrics": { "rating": 1, "ratingScale": 5, "reviewCount": 25, "checkedOn": "2026-10-22" },
+          "sourceNote": "This is a separate user-review score, not the BBB business letter rating."
+        },
+        {
+          "sourceId": "trustpilot-bn",
+          "label": "Trustpilot snapshot",
+          "summary": "Trustpilot displayed a 4.0 out of 5 TrustScore across 1,928 reviews when checked on 2026-10-22.",
+          "metrics": { "rating": 4.0, "ratingScale": 5, "reviewCount": 1928, "checkedOn": "2026-10-22" },
+          "sourceNote": "Trustpilot says it does not fact-check individual review claims; this score is not a product-purity guarantee."
+        }
+      ],
+      "reputationAssessment": "Mixed third-party signals. These platforms have different review samples and methods; no combined rating or seller endorsement is inferred. Open the source pages and check them again before purchase."
+    }
+  ]
+}

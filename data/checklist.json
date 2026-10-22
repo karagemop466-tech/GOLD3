@@ -1,0 +1,155 @@
+{
+  "reviewedOn": "2026-10-22",
+  "checks": [
+    {
+      "id": "purity",
+      "requirement": "Karat / purity",
+      "status": "listing claim confirmed; physical purity unverified",
+      "currentEvidence": "All three Blue Nile pages identify the setting as 14K Yellow Gold. This verifies the wording on the seller's pages, not the composition of the delivered ring.",
+      "nextStep": "Preserve the exact listing and ask the seller to confirm the 14K alloy for this stock number in writing; verify independently after delivery.",
+      "sourceIds": [
+        "bn-natural-ring",
+        "bn-lab-ring",
+        "ecfr-gold",
+        "bn-ja-lab-ring"
+      ]
+    },
+    {
+      "id": "solid-unplated",
+      "requirement": "Explicit solid gold; not plated, vermeil, gold-filled, overlay, or gold-tone",
+      "status": "not stated; unverified",
+      "currentEvidence": "The captured listings say 14K Yellow Gold but do not explicitly say solid gold or expressly exclude a coating. FTC guidance says a hollow-center gold-alloy product may mislead consumers unless the hollow center is disclosed, and says such products should not be described as solid.",
+      "nextStep": "Request written composition details for the exact seller stock number, including whether it is hollow and whether any plating/coating or non-gold core is present. Do not infer from the karat label alone.",
+      "sourceIds": [
+        "bn-natural-ring",
+        "bn-lab-ring",
+        "ecfr-gold",
+        "govinfo-ecfr-gold",
+        "bn-ja-lab-ring"
+      ]
+    },
+    {
+      "id": "marks",
+      "requirement": "Karat stamp plus maker/manufacturer mark",
+      "status": "not documented in listing; unverified",
+      "currentEvidence": "No physical mark photo or written mark description was located on any of the three product pages. 16 CFR § 23.10 discusses the trademark/name applied with a precious-metal quality mark.",
+      "nextStep": "Ask for a readable photo of the exact ring's mark(s), then inspect the delivered ring under magnification. A stamp is not a substitute for independent testing.",
+      "sourceIds": [
+        "bn-natural-ring",
+        "bn-lab-ring",
+        "ecfr-quality-mark",
+        "govinfo-quality-mark",
+        "bn-ja-lab-ring"
+      ]
+    },
+    {
+      "id": "weight",
+      "requirement": "Weight in grams",
+      "status": "blank; unverified",
+      "currentEvidence": "None of the three product pages states the ring weight or its gold-only alloy weight in grams.",
+      "nextStep": "Ask for ring weight in grams and ask whether the figure excludes the center stone and other non-gold parts. Never estimate from the images, band width, or diamond carat weight.",
+      "sourceIds": [
+        "bn-natural-ring",
+        "bn-lab-ring",
+        "nist-precious-conversion",
+        "nist-precious-conversion-chart",
+        "bn-ja-lab-ring"
+      ]
+    },
+    {
+      "id": "seller",
+      "requirement": "Seller reputation and real contact information",
+      "status": "contact details found; reputation signals mixed; review required",
+      "currentEvidence": "Blue Nile publishes a customer-service phone and email. BBB and Trustpilot snapshots differ; this dashboard does not endorse the seller.",
+      "nextStep": "Open the current BBB complaint/review pages and Trustpilot page, review the records and responses, and confirm contact details before paying.",
+      "sourceIds": [
+        "bn-contact",
+        "bbb-profile",
+        "bbb-complaints",
+        "bbb-reviews",
+        "trustpilot-bn"
+      ]
+    },
+    {
+      "id": "price",
+      "requirement": "Current retail price compared with gold weight and market value",
+      "status": "retail-page price snapshot verified; gold comparison blank",
+      "currentEvidence": "The product pages displayed USD 3,380 (natural-diamond Petite Solitaire), USD 1,490 (lab-grown Petite Solitaire), and USD 1,810 (lab-grown James Allen collection) on 2026-10-22. All are complete-ring prices including the listed center diamond. Gold-only weight and a dated current quote are not available here.",
+      "nextStep": "Reopen the seller page before purchase. Compare with a market quote only after exact gold-only weight and a dated quote are source-verified; the calculator has no prefilled price.",
+      "sourceIds": [
+        "bn-natural-ring",
+        "bn-lab-ring",
+        "lbma-price",
+        "nist-precious-conversion",
+        "nist-precious-conversion-chart",
+        "bn-ja-lab-ring"
+      ]
+    },
+    {
+      "id": "returns",
+      "requirement": "Return after receiving and inspecting; check resize/custom exclusions",
+      "status": "policy found; XRF/inspection effect unverified",
+      "currentEvidence": "Blue Nile's page describes a 30-day-from-shipment window for eligible, unworn items. It excludes several categories, including custom, personalized, engraved, and post-purchase-resized items.",
+      "nextStep": "Ask in writing whether the exact item can be returned after independent jeweler inspection/XRF and whether your selected size or engraving changes eligibility. Do not wear or resize before verification.",
+      "sourceIds": [
+        "bn-returns",
+        "bn-natural-ring",
+        "bn-lab-ring",
+        "bn-ja-lab-ring"
+      ]
+    },
+    {
+      "id": "payment",
+      "requirement": "Prefer a credit card; avoid irreversible payment",
+      "status": "buyer safeguard; checkout options not fully verified",
+      "currentEvidence": "CFPB guidance describes a written billing-error notice process and timing. It does not guarantee that a card issuer will refund a particular purchase.",
+      "nextStep": "Confirm the card payment method and terms at checkout, save the receipt and product description, and avoid irreversible methods if the seller's verification/return terms remain unresolved.",
+      "sourceIds": [
+        "cfpb-credit",
+        "bn-natural-ring",
+        "bn-lab-ring",
+        "bn-ja-lab-ring"
+      ]
+    },
+    {
+      "id": "documentation",
+      "requirement": "Keep listing, receipt, description, and seller's purity claims",
+      "status": "recommended; no purchase record exists",
+      "currentEvidence": "No purchase has occurred. Product-page URLs and review dates are preserved in this repository; the buyer's receipt and seller correspondence do not exist yet.",
+      "nextStep": "Before paying, save the exact listing, final checkout page, policy text, receipt, and written gold/weight/mark/testing statements.",
+      "sourceIds": [
+        "bn-natural-ring",
+        "bn-lab-ring",
+        "bn-returns",
+        "bn-ja-lab-ring"
+      ]
+    },
+    {
+      "id": "independent-test",
+      "requirement": "Independent jeweler verification before wearing or resizing; ask about XRF or another professional purity test",
+      "status": "recommended process; seller consent and test result unverified",
+      "currentEvidence": "NIST documents XRF alloy analysis, and the London Assay Office lists XRF analysis of gold alloys. The assay office notes the service is usually non-destructive unless heavy plating is used.",
+      "nextStep": "Get seller approval in writing before purchase, then use an independent jeweler or laboratory and ask how the method addresses surface plating, hollow construction, and mixed components. Keep the item unworn and unresized until the return decision is secure.",
+      "sourceIds": [
+        "nist-xrf",
+        "assay-london-xrf",
+        "bn-returns",
+        "bn-ja-lab-ring"
+      ]
+    },
+    {
+      "id": "walk-away",
+      "requirement": "If seller will not permit independent verification or a meaningful return, do not buy",
+      "status": "decision rule; unresolved for these listings",
+      "currentEvidence": "The three product pages and return policy do not explicitly confirm that independent XRF can be performed while maintaining return eligibility.",
+      "nextStep": "Do not treat either listing as cleared unless the seller confirms inspection/testing and return terms in writing. If refused, exclude the listing.",
+      "sourceIds": [
+        "bn-natural-ring",
+        "bn-lab-ring",
+        "bn-returns",
+        "assay-london-xrf",
+        "bn-ja-lab-ring"
+      ]
+    }
+  ]
+}

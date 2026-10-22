@@ -1,0 +1,353 @@
+{
+  "reviewedOn": "2026-10-22",
+  "pricePolicy": "Prices are snapshots read from the seller's own product page on the date shown. They are not a live feed or a promise that the price, size, or inventory is unchanged. Reopen the source before purchase.",
+  "goldValuePolicy": "No ring has a verified gold-only weight, and no current gold quote has been imported. Gold-content and melt-value outputs are not prefilled or estimated.",
+  "qualifyingCandidateCount": 0,
+  "candidates": [
+    {
+      "id": "blue-nile-natural-1ct-14k-yellow",
+      "name": "Round 1 CT Certified Diamond Petite Solitaire Engagement Ring In 14K Yellow Gold",
+      "merchantId": "blue-nile",
+      "category": "Natural diamond",
+      "productUrl": "https://www.bluenile.com/engagement-rings/diamond-preset/round-1-ct-certified-diamond-petite-solitaire-engagement-ring-in-14k-yellow-gold-item-296972",
+      "primarySourceId": "bn-natural-ring",
+      "listingStatus": {
+        "value": "Add to Cart is displayed; exact inventory and ship date depend on selected size.",
+        "sourceId": "bn-natural-ring"
+      },
+      "price": {
+        "amount": 3380,
+        "currency": "USD",
+        "checkedOn": "2026-10-22",
+        "sourceId": "bn-natural-ring",
+        "scope": "Complete ring listing; includes the center diamond, not a gold-only or scrap value."
+      },
+      "metal": {
+        "sellerDescription": {
+          "value": "14K Yellow Gold",
+          "sourceId": "bn-natural-ring"
+        },
+        "karat": {
+          "value": 14,
+          "unit": "K",
+          "sourceId": "bn-natural-ring"
+        },
+        "color": {
+          "value": "Yellow",
+          "sourceId": "bn-natural-ring"
+        },
+        "explicitSolidGoldStatement": {
+          "value": null,
+          "status": "unverified",
+          "note": "The captured product page states 14K Yellow Gold, but does not explicitly state solid gold.",
+          "flagId": "F-002",
+          "sourceId": "bn-natural-ring"
+        },
+        "platingExcluded": {
+          "value": null,
+          "status": "unverified",
+          "note": "The captured product page does not expressly rule out plating or another coating.",
+          "flagId": "F-002",
+          "sourceId": "bn-natural-ring"
+        },
+        "weightGrams": {
+          "value": null,
+          "status": "unverified",
+          "note": "No ring or gold-only weight in grams is stated on the captured product page.",
+          "flagId": "F-001",
+          "sourceId": "bn-natural-ring"
+        },
+        "karatStamp": {
+          "value": null,
+          "status": "unverified",
+          "note": "The product page does not document the physical stamp on the ring.",
+          "flagId": "F-003",
+          "sourceId": "bn-natural-ring"
+        },
+        "makerMark": {
+          "value": null,
+          "status": "unverified",
+          "note": "The product page does not document a maker's/manufacturer's mark on the ring.",
+          "flagId": "F-003",
+          "sourceId": "bn-natural-ring"
+        }
+      },
+      "bandWidthMm": {
+        "value": 1.8,
+        "sourceId": "bn-natural-ring"
+      },
+      "diamond": {
+        "origin": {
+          "value": "Natural diamond",
+          "sourceId": "bn-natural-ring"
+        },
+        "totalCaratWeight": {
+          "value": 1,
+          "unit": "ct. tw.",
+          "precisionNote": "Seller states total carat weights are approximate.",
+          "sourceId": "bn-natural-ring"
+        }
+      },
+      "returnPolicySourceId": "bn-returns",
+      "independentTestPermission": {
+        "value": null,
+        "status": "unverified",
+        "note": "No captured seller statement confirms that independent XRF testing is permitted while preserving return eligibility.",
+        "flagId": "F-006",
+        "sourceId": "bn-returns"
+      },
+      "sellerPaymentCreditCard": {
+        "value": null,
+        "status": "unverified",
+        "note": "The page displays a Blue Nile credit-card financing example; confirm buyer eligibility, available payment methods, and terms at checkout.",
+        "flagId": "F-007",
+        "sourceId": "bn-natural-ring"
+      },
+      "qualificationStatus": "not-cleared",
+      "qualified": false,
+      "flagIds": [
+        "F-001",
+        "F-002",
+        "F-003",
+        "F-004",
+        "F-005",
+        "F-006",
+        "F-007",
+        "F-008",
+        "F-009",
+        "F-011"
+      ],
+      "stockNumber": "501130y14rnd100ctb"
+    },
+    {
+      "id": "blue-nile-lab-1ct-14k-yellow",
+      "name": "Round 1 CT Certified Lab-Grown Diamond Petite Solitaire Engagement Ring In 14K Yellow Gold",
+      "merchantId": "blue-nile",
+      "category": "Lab-grown diamond",
+      "productUrl": "https://www.bluenile.com/engagement-rings/diamond-preset/round-1-ct-certified-lab-grown-diamond-petite-solitaire-engagement-ring-in-14k-yellow-gold-item-296973",
+      "primarySourceId": "bn-lab-ring",
+      "listingStatus": {
+        "value": "Add to Cart is displayed; exact inventory and ship date depend on selected size.",
+        "sourceId": "bn-lab-ring"
+      },
+      "price": {
+        "amount": 1490,
+        "currency": "USD",
+        "checkedOn": "2026-10-22",
+        "sourceId": "bn-lab-ring",
+        "scope": "Complete ring listing; includes the center diamond, not a gold-only or scrap value."
+      },
+      "metal": {
+        "sellerDescription": {
+          "value": "14K Yellow Gold",
+          "sourceId": "bn-lab-ring"
+        },
+        "karat": {
+          "value": 14,
+          "unit": "K",
+          "sourceId": "bn-lab-ring"
+        },
+        "color": {
+          "value": "Yellow",
+          "sourceId": "bn-lab-ring"
+        },
+        "explicitSolidGoldStatement": {
+          "value": null,
+          "status": "unverified",
+          "note": "The captured product page states 14K Yellow Gold, but does not explicitly state solid gold.",
+          "flagId": "F-002",
+          "sourceId": "bn-lab-ring"
+        },
+        "platingExcluded": {
+          "value": null,
+          "status": "unverified",
+          "note": "The captured product page does not expressly rule out plating or another coating.",
+          "flagId": "F-002",
+          "sourceId": "bn-lab-ring"
+        },
+        "weightGrams": {
+          "value": null,
+          "status": "unverified",
+          "note": "No ring or gold-only weight in grams is stated on the captured product page.",
+          "flagId": "F-001",
+          "sourceId": "bn-lab-ring"
+        },
+        "karatStamp": {
+          "value": null,
+          "status": "unverified",
+          "note": "The product page does not document the physical stamp on the ring.",
+          "flagId": "F-003",
+          "sourceId": "bn-lab-ring"
+        },
+        "makerMark": {
+          "value": null,
+          "status": "unverified",
+          "note": "The product page does not document a maker's/manufacturer's mark on the ring.",
+          "flagId": "F-003",
+          "sourceId": "bn-lab-ring"
+        }
+      },
+      "bandWidthMm": {
+        "value": 1.8,
+        "sourceId": "bn-lab-ring"
+      },
+      "diamond": {
+        "origin": {
+          "value": "Lab-grown diamond",
+          "sourceId": "bn-lab-ring"
+        },
+        "totalCaratWeight": {
+          "value": 1,
+          "unit": "ct. tw.",
+          "precisionNote": "Seller states total carat weights are approximate.",
+          "sourceId": "bn-lab-ring"
+        }
+      },
+      "returnPolicySourceId": "bn-returns",
+      "independentTestPermission": {
+        "value": null,
+        "status": "unverified",
+        "note": "No captured seller statement confirms that independent XRF testing is permitted while preserving return eligibility.",
+        "flagId": "F-006",
+        "sourceId": "bn-returns"
+      },
+      "sellerPaymentCreditCard": {
+        "value": null,
+        "status": "unverified",
+        "note": "The page displays a Blue Nile credit-card financing example; confirm buyer eligibility, available payment methods, and terms at checkout.",
+        "flagId": "F-007",
+        "sourceId": "bn-lab-ring"
+      },
+      "qualificationStatus": "not-cleared",
+      "qualified": false,
+      "flagIds": [
+        "F-001",
+        "F-002",
+        "F-003",
+        "F-004",
+        "F-005",
+        "F-006",
+        "F-007",
+        "F-008",
+        "F-009",
+        "F-011"
+      ],
+      "stockNumber": "501130y14rnd100ctl"
+    },
+    {
+      "id": "blue-nile-ja-lab-1ct-14k-yellow",
+      "name": "Round 1 CT Certified Lab-Grown Diamond Claw Prong Flush Fit Solitaire Engagement Ring In 14K Yellow Gold By James Allen",
+      "merchantId": "blue-nile",
+      "category": "Lab-grown diamond · James Allen collection",
+      "productUrl": "https://www.bluenile.com/engagement-rings/diamond-preset/round-1-ct-certified-lab-grown-diamond-claw-prong-flush-fit-solitaire-engagement-ring-in-14k-yellow-gold-by-james-allen-item-314915",
+      "primarySourceId": "bn-ja-lab-ring",
+      "listingStatus": {
+        "value": "Add to Cart is displayed; exact inventory and ship date depend on selected ring size.",
+        "sourceId": "bn-ja-lab-ring"
+      },
+      "price": {
+        "amount": 1810,
+        "currency": "USD",
+        "checkedOn": "2026-10-22",
+        "sourceId": "bn-ja-lab-ring",
+        "scope": "Complete ring listing; includes the center diamond, not a gold-only or scrap value."
+      },
+      "metal": {
+        "sellerDescription": {
+          "value": "14K Yellow Gold",
+          "sourceId": "bn-ja-lab-ring"
+        },
+        "karat": {
+          "value": 14,
+          "unit": "K",
+          "sourceId": "bn-ja-lab-ring"
+        },
+        "color": {
+          "value": "Yellow",
+          "sourceId": "bn-ja-lab-ring"
+        },
+        "explicitSolidGoldStatement": {
+          "value": null,
+          "status": "unverified",
+          "note": "The captured product page states 14K Yellow Gold, but does not explicitly state solid gold.",
+          "flagId": "F-002",
+          "sourceId": "bn-ja-lab-ring"
+        },
+        "platingExcluded": {
+          "value": null,
+          "status": "unverified",
+          "note": "The captured product page does not expressly rule out plating or another coating.",
+          "flagId": "F-002",
+          "sourceId": "bn-ja-lab-ring"
+        },
+        "weightGrams": {
+          "value": null,
+          "status": "unverified",
+          "note": "No ring or gold-only weight in grams is stated on the captured product page.",
+          "flagId": "F-001",
+          "sourceId": "bn-ja-lab-ring"
+        },
+        "karatStamp": {
+          "value": null,
+          "status": "unverified",
+          "note": "The product page does not document the physical stamp on the ring.",
+          "flagId": "F-003",
+          "sourceId": "bn-ja-lab-ring"
+        },
+        "makerMark": {
+          "value": null,
+          "status": "unverified",
+          "note": "The product page does not document a maker's/manufacturer's mark on the ring.",
+          "flagId": "F-003",
+          "sourceId": "bn-ja-lab-ring"
+        }
+      },
+      "bandWidthMm": {
+        "value": 2.0,
+        "sourceId": "bn-ja-lab-ring"
+      },
+      "diamond": {
+        "origin": {
+          "value": "Lab-grown diamond",
+          "sourceId": "bn-ja-lab-ring"
+        },
+        "totalCaratWeight": {
+          "value": 1,
+          "unit": "ct. tw.",
+          "precisionNote": "Seller states total carat weights are approximate.",
+          "sourceId": "bn-ja-lab-ring"
+        }
+      },
+      "returnPolicySourceId": "bn-returns",
+      "independentTestPermission": {
+        "value": null,
+        "status": "unverified",
+        "note": "No captured seller statement confirms that independent XRF testing is permitted while preserving return eligibility.",
+        "flagId": "F-006",
+        "sourceId": "bn-returns"
+      },
+      "sellerPaymentCreditCard": {
+        "value": null,
+        "status": "unverified",
+        "note": "The page displays a Blue Nile credit-card financing example; confirm buyer eligibility, available payment methods, and terms at checkout.",
+        "flagId": "F-007",
+        "sourceId": "bn-ja-lab-ring"
+      },
+      "qualificationStatus": "not-cleared",
+      "qualified": false,
+      "flagIds": [
+        "F-001",
+        "F-002",
+        "F-003",
+        "F-004",
+        "F-005",
+        "F-006",
+        "F-007",
+        "F-008",
+        "F-009",
+        "F-011"
+      ],
+      "stockNumber": "505068y14rnd100ctl"
+    }
+  ]
+}

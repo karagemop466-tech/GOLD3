@@ -1,0 +1,271 @@
+{
+  "reviewedOn": "2026-10-22",
+  "sources": [
+    {
+      "id": "bn-natural-ring",
+      "title": "Round 1 CT Certified Diamond Petite Solitaire Engagement Ring in 14K Yellow Gold",
+      "publisher": "Blue Nile — first-party product listing",
+      "kind": "seller product page",
+      "url": "https://www.bluenile.com/engagement-rings/diamond-preset/round-1-ct-certified-diamond-petite-solitaire-engagement-ring-in-14k-yellow-gold-item-296972",
+      "checkedOn": "2026-10-22",
+      "supports": [
+        "Listing title",
+        "14K yellow gold listing claim",
+        "natural diamond, 1 ct. total weight (seller says approximate)",
+        "Stock Number 501130y14rnd100ctb",
+        "price USD 3,380",
+        "1.80 mm band width",
+        "Add to Cart displayed",
+        "Blue Nile credit-card financing example displayed",
+        "return-policy link on product page",
+        "Page includes unexplained marketing placeholder copy: “Blue Nile value prop TBD”"
+      ],
+      "caveat": "Retailer-page snapshot only. It does not certify the ring's actual alloy, gold-only weight, physical marks, or inventory at checkout. The captured page also displays “Blue Nile value prop TBD”; this is flagged as a copy irregularity, not product evidence."
+    },
+    {
+      "id": "bn-lab-ring",
+      "title": "Round 1 CT Certified Lab-Grown Diamond Petite Solitaire Engagement Ring in 14K Yellow Gold",
+      "publisher": "Blue Nile — first-party product listing",
+      "kind": "seller product page",
+      "url": "https://www.bluenile.com/engagement-rings/diamond-preset/round-1-ct-certified-lab-grown-diamond-petite-solitaire-engagement-ring-in-14k-yellow-gold-item-296973",
+      "checkedOn": "2026-10-22",
+      "supports": [
+        "Listing title",
+        "14K yellow gold listing claim",
+        "lab-grown diamond, 1 ct. total weight (seller says approximate)",
+        "Stock Number 501130y14rnd100ctl",
+        "price USD 1,490",
+        "1.80 mm band width",
+        "Add to Cart displayed",
+        "Blue Nile credit-card financing example displayed",
+        "return-policy link on product page",
+        "Page includes unexplained marketing placeholder copy: “Blue Nile value prop TBD”"
+      ],
+      "caveat": "Retailer-page snapshot only. It does not certify the ring's actual alloy, gold-only weight, physical marks, or inventory at checkout. The captured page also displays “Blue Nile value prop TBD”; this is flagged as a copy irregularity, not product evidence."
+    },
+    {
+      "id": "bn-returns",
+      "title": "Blue Nile 30-Day Money Back Guarantee / Return Policy",
+      "publisher": "Blue Nile — first-party policy",
+      "kind": "seller policy",
+      "url": "https://www.bluenile.com/policies/returns",
+      "checkedOn": "2026-10-22",
+      "supports": [
+        "Eligible items may be returned within 30 days from shipment in original, unworn condition",
+        "Personalized, custom, engraved, resized-after-purchase, clearance, final-sale, and specified program purchases are excluded",
+        "Blue Nile requires original condition and documentation"
+      ],
+      "caveat": "The policy does not expressly say whether third-party XRF testing preserves return eligibility. Confirm in writing for the exact ring before purchase."
+    },
+    {
+      "id": "bn-contact",
+      "title": "Blue Nile contact details",
+      "publisher": "Blue Nile — first-party contact page",
+      "kind": "seller contact page",
+      "url": "https://www.bluenile.com/contact-us",
+      "checkedOn": "2026-10-22",
+      "supports": [
+        "Customer service phone +1-800-242-2728",
+        "Customer service email service@bluenile.com",
+        "Live chat and showroom links"
+      ],
+      "caveat": "Contact details are not an endorsement of the seller or its products."
+    },
+    {
+      "id": "bbb-profile",
+      "title": "Blue Nile Inc — BBB Business Profile",
+      "publisher": "Better Business Bureau (independent third-party profile)",
+      "kind": "independent seller-reputation source",
+      "url": "https://www.bbb.org/us/wa/seattle/profile/jewelry-stores/blue-nile-inc-1296-15026564",
+      "checkedOn": "2026-10-22",
+      "supports": [
+        "BBB profile labels the business accredited and A+ rated",
+        "Business details and BBB contact references"
+      ],
+      "caveat": "BBB says profiles do not verify third-party information, guarantee accuracy, or endorse a business; accreditation/rating is not a product-purity guarantee."
+    },
+    {
+      "id": "bbb-complaints",
+      "title": "Blue Nile Inc — BBB complaints",
+      "publisher": "Better Business Bureau (independent third-party complaint database)",
+      "kind": "independent seller-reputation source",
+      "url": "https://www.bbb.org/us/wa/seattle/profile/jewelry-stores/blue-nile-inc-1296-15026564/complaints",
+      "checkedOn": "2026-10-22",
+      "supports": [
+        "BBB page displayed 121 complaints in the last three years and 23 in the last 12 months on the review date",
+        "Complaint categories and individual complaint records are available on the source page"
+      ],
+      "caveat": "Counts and displayed complaint details can change. BBB notes displayed complaint text may not represent all filings; a complaint is not a finding that a claim is true."
+    },
+    {
+      "id": "bbb-reviews",
+      "title": "Blue Nile Inc — BBB customer reviews",
+      "publisher": "Better Business Bureau (independent third-party review page)",
+      "kind": "independent seller-reputation source",
+      "url": "https://www.bbb.org/us/wa/seattle/profile/jewelry-stores/blue-nile-inc-1296-15026564/customer-reviews",
+      "checkedOn": "2026-10-22",
+      "supports": [
+        "BBB page displayed 1 out of 5 stars, average of 25 customer reviews, on the review date"
+      ],
+      "caveat": "Self-selected platform reviews are not a product inspection or a finding about any particular listing; the page changes over time."
+    },
+    {
+      "id": "trustpilot-bn",
+      "title": "Blue Nile — Trustpilot reviews",
+      "publisher": "Trustpilot (independent third-party review platform)",
+      "kind": "independent seller-reputation source",
+      "url": "https://www.trustpilot.com/review/www.bluenile.com",
+      "checkedOn": "2026-10-22",
+      "supports": [
+        "Trustpilot page displayed a 4.0 out of 5 TrustScore and 1,928 reviews on the review date"
+      ],
+      "caveat": "Trustpilot says it does not fact-check individual review claims; ratings and review counts change and are not a product-purity guarantee."
+    },
+    {
+      "id": "ecfr-gold",
+      "title": "16 CFR § 23.3 — Misrepresentation as to gold content",
+      "publisher": "Electronic Code of Federal Regulations / Federal Trade Commission",
+      "kind": "U.S. government guidance",
+      "url": "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23/section-23.3",
+      "checkedOn": "2026-10-22",
+      "supports": [
+        "Gold-content and karat-fineness claims must not be misrepresented",
+        "A gold alloy description uses a correct karat designation",
+        "The section's hollow-center example says hollow-center gold-alloy products should disclose the hollow center and should not be described as solid"
+      ],
+      "caveat": "The eCFR identifies itself as authoritative but unofficial; the linked GovInfo source is the official published CFR edition. The hollow-center wording is not a blanket statement that every 14K alloy item is hollow."
+    },
+    {
+      "id": "govinfo-ecfr-gold",
+      "title": "Official published CFR, 16 CFR § 23.3",
+      "publisher": "U.S. Government Publishing Office (GovInfo)",
+      "kind": "official published regulation",
+      "url": "https://www.govinfo.gov/content/pkg/CFR-2026-title16-vol1/pdf/CFR-2026-title16-vol1-sec23-3.pdf",
+      "checkedOn": "2026-10-22",
+      "supports": [
+        "Official annual published edition of 16 CFR § 23.3"
+      ],
+      "caveat": "The eCFR notes that an annual published edition may not include the most recent changes applied to the continuously updated eCFR."
+    },
+    {
+      "id": "ecfr-quality-mark",
+      "title": "16 CFR § 23.10 — Additional guidance for the use of quality marks",
+      "publisher": "Electronic Code of Federal Regulations / Federal Trade Commission",
+      "kind": "U.S. government guidance",
+      "url": "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23/section-23.10",
+      "checkedOn": "2026-10-22",
+      "supports": [
+        "Quality-mark guidance",
+        "National Stamping Act statement that a manufacturer/dealer who applies a precious-metal quality mark, or imports an article bearing one, should also apply that person's trademark or name"
+      ],
+      "caveat": "The eCFR identifies itself as authoritative but unofficial; the linked GovInfo source is the official published CFR edition."
+    },
+    {
+      "id": "govinfo-quality-mark",
+      "title": "Official published CFR, 16 CFR § 23.10",
+      "publisher": "U.S. Government Publishing Office (GovInfo)",
+      "kind": "official published regulation",
+      "url": "https://www.govinfo.gov/content/pkg/CFR-2026-title16-vol1/pdf/CFR-2026-title16-vol1-sec23-10.pdf",
+      "checkedOn": "2026-10-22",
+      "supports": [
+        "Official annual published edition of 16 CFR § 23.10"
+      ],
+      "caveat": "The eCFR notes that an annual published edition may not include the most recent changes applied to the continuously updated eCFR."
+    },
+    {
+      "id": "cfpb-credit",
+      "title": "CFPB: How do I dispute a charge on my credit card bill?",
+      "publisher": "Consumer Financial Protection Bureau",
+      "kind": "U.S. government consumer guidance",
+      "url": "https://www.consumerfinance.gov/ask-cfpb/how-do-i-dispute-a-charge-on-my-credit-card-bill-en-61/",
+      "checkedOn": "2026-10-22",
+      "supports": [
+        "CFPB says to contact the card company promptly and send a written billing-error notice within 60 calendar days after the charge appears on the statement to protect the stated rights"
+      ],
+      "caveat": "This is not a guarantee of a refund or a substitute for reading the card agreement; defective-goods disputes can follow a different process."
+    },
+    {
+      "id": "nist-xrf",
+      "title": "NIST publication: Traceability and Uncertainty in Alloy Analysis by Borate Fusion and XRF",
+      "publisher": "National Institute of Standards and Technology",
+      "kind": "U.S. government scientific publication",
+      "url": "https://www.nist.gov/publications/traceability-and-uncertainty-alloy-analysis-borate-fusion-and-xrf",
+      "checkedOn": "2026-10-22",
+      "supports": [
+        "NIST publication documents X-ray fluorescence as an alloy-analysis method and discusses traceability/uncertainty"
+      ],
+      "caveat": "This is a scientific alloy-analysis reference, not a consumer certificate or a jewelry-specific test guarantee."
+    },
+    {
+      "id": "assay-london-xrf",
+      "title": "London Assay Office — X-ray fluorescence spectrometry analysis",
+      "publisher": "The Goldsmiths' Company Assay Office (professional assay office)",
+      "kind": "professional testing-service information",
+      "url": "https://www.assayofficelondon.co.uk/other-services/laboratory-services",
+      "checkedOn": "2026-10-22",
+      "supports": [
+        "The assay office lists XRF compositional analysis for metal alloys including gold",
+        "The office says its XRF analysis is usually non-destructive unless heavy plating has been used"
+      ],
+      "caveat": "This is a UK assay-office service page, not a local Los Angeles service recommendation. Ask an independent local jeweler or laboratory about method, surface limitations, cost, and written results."
+    },
+    {
+      "id": "lbma-price",
+      "title": "LBMA Gold Price — benchmark information",
+      "publisher": "London Bullion Market Association / ICE Benchmark Administration",
+      "kind": "market benchmark methodology",
+      "url": "https://www.lbma.org.uk/prices-and-data/lbma-gold-price",
+      "checkedOn": "2026-10-22",
+      "supports": [
+        "LBMA says ICE Benchmark Administration independently administers the LBMA Gold Price auction platform",
+        "LBMA says uses of the benchmark for valuation/pricing and transactions require an IBA usage licence"
+      ],
+      "caveat": "This page is linked as benchmark-method context only; this project has no live gold-price quote and does not display an LBMA price."
+    },
+    {
+      "id": "nist-precious-conversion",
+      "title": "NIST precious-metals conversion information",
+      "publisher": "National Institute of Standards and Technology, Office of Weights and Measures",
+      "kind": "U.S. government measurement reference",
+      "url": "https://www.nist.gov/pml/owm/metric-si/unit-conversion/precious-metals-conversion-information",
+      "checkedOn": "2026-10-22",
+      "supports": [
+        "NIST's Office of Weights and Measures publishes consumer guidance and links to a precious-metals conversion chart"
+      ],
+      "caveat": "The calculator uses only the linked measurement conversion; no market price is sourced or implied."
+    },
+    {
+      "id": "nist-precious-conversion-chart",
+      "title": "NIST Conversion Factors for Precious Metal Sales chart",
+      "publisher": "National Institute of Standards and Technology, Office of Weights and Measures",
+      "kind": "U.S. government measurement reference",
+      "url": "https://www.nist.gov/system/files/documents/2017/05/09/Precious-Metals-Conversion-Information-march2015.pdf",
+      "checkedOn": "2026-10-22",
+      "supports": [
+        "1 troy ounce = 31.1034768 grams",
+        "NIST's nominal examples relate karat to a fraction of gold content"
+      ],
+      "caveat": "The dollar amounts printed in the chart are examples, not current market prices. The calculator does not import them."
+    },
+    {
+      "id": "bn-ja-lab-ring",
+      "publisher": "Blue Nile (James Allen collection)",
+      "kind": "Retailer product page",
+      "title": "James Allen collection 1 ct lab-grown solitaire listing in 14K yellow gold",
+      "url": "https://www.bluenile.com/engagement-rings/diamond-preset/round-1-ct-certified-lab-grown-diamond-claw-prong-flush-fit-solitaire-engagement-ring-in-14k-yellow-gold-by-james-allen-item-314915",
+      "checkedOn": "2026-10-22",
+      "supports": [
+        "Product title and Stock Number 505068y14rnd100ctl",
+        "14K Yellow Gold seller-page claim",
+        "price USD 1,810",
+        "2.00 mm band width",
+        "round lab-grown diamond, 1 ct. total weight (seller says approximate)",
+        "Add to Cart displayed",
+        "Blue Nile credit-card financing example displayed",
+        "return-policy link on product page",
+        "page includes unexplained marketing placeholder copy: “Blue Nile value prop TBD”"
+      ],
+      "caveat": "Listing is hosted by Blue Nile and identified as the James Allen collection. Price and selected-size availability may change. The page also contains “Blue Nile value prop TBD”; that placeholder is flagged as an irregularity, not evidence about product quality or price."
+    }
+  ]
+}

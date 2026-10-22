@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#173c32">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self'; style-src 'self'; connect-src 'self'; img-src 'self'; form-action 'self'">
+  <meta name="description" content="A source-linked gold engagement ring research dashboard with verified price snapshots, blank unverified fields, a gold-content calculator, and flagged findings.">
+  <title>GOLD3 — Gold Ring Research Dashboard</title>
+  <link rel="stylesheet" href="assets/site.css">
+  <script src="assets/app.js" defer></script>
+</head>
+<body data-root="." data-page="overview">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Main navigation">
+      <a class="brand" href="index.html" aria-label="GOLD3 overview">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-name">GOLD<span>3</span></span>
+      </a>
+      <div class="nav-label">Research board</div>
+      <nav class="side-nav">
+        <a class="active" href="index.html" aria-current="page"><span class="nav-number">01</span>Overview</a>
+        <a href="pages/rings.html"><span class="nav-number">02</span>Ring candidates</a>
+        <a href="pages/verify.html"><span class="nav-number">03</span>Checklist &amp; verification</a>
+        <a href="pages/calculator.html"><span class="nav-number">04</span>Gold calculator</a>
+        <a href="pages/flagged.html"><span class="nav-number">05</span>Flagged for review</a>
+        <a href="pages/sources.html"><span class="nav-number">06</span>Source library</a>
+      </nav>
+      <div class="sidebar-spacer"></div>
+      <div class="sidebar-note">
+        <strong>Blank means unverified.</strong>
+        <p>No estimated weights, guessed metal value, or unsupported purity claims are filled in.</p>
+      </div>
+      <div class="sidebar-foot">Research snapshot · <span data-review-date>Oct 22, 2026</span></div>
+    </aside>
+
+    <div class="main-column">
+      <header class="topbar">
+        <div class="breadcrumb">GOLD ENGAGEMENT RING · RESEARCH</div>
+        <div class="topbar-meta"><span class="live-dot" aria-hidden="true"></span>Snapshot reviewed <span data-review-date>Oct 22, 2026</span></div>
+      </header>
+
+      <main class="content" id="main">
+        <div class="truth-banner" role="note" aria-label="No hallucinations policy">
+          <span class="stamp">NO HALLUCINATIONS</span>
+          <p><strong>Every populated product price is linked to the seller and dated.</strong> Unconfirmed values stay blank and are flagged; a product-page claim is not an independent gold test. Open the source and recheck it before buying.</p>
+        </div>
+
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero-copy">
+            <span class="eyebrow">A careful shortlist, not a sales pitch</span>
+            <h1 id="hero-title">Find the ring.<br><em>Verify the metal.</em></h1>
+            <p>Three retailer listings have been captured below. None has enough published evidence to pass your full gold checklist, so no ring is marked qualified.</p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="pages/rings.html">Review the listings <span aria-hidden="true">→</span></a>
+              <a class="button button-ghost" href="pages/flagged.html">See every open flag</a>
+            </div>
+          </div>
+          <div class="hero-side" aria-label="Research snapshot summary">
+            <div class="hero-side-label">Research snapshot</div>
+            <div class="hero-side-date" id="snapshot-date">Oct 22, 2026</div>
+            <div class="hero-stat-row"><span>Seller-page listings reviewed</span><strong id="hero-candidate-count">3</strong></div>
+            <div class="hero-stat-row"><span>Fully qualified</span><strong id="hero-qualified-count">0</strong></div>
+            <div class="hero-stat-row"><span>Findings &amp; notes</span><strong id="finding-total">11</strong></div>
+          </div>
+        </section>
+
+        <div class="metric-grid" aria-label="Research metrics">
+          <article class="metric-card"><span class="metric-mark" aria-hidden="true"></span><div class="metric-label">Candidate listings</div><div class="metric-value" id="candidate-count">3</div><div class="metric-note">First-party product pages</div></article>
+          <article class="metric-card"><span class="metric-mark" aria-hidden="true"></span><div class="metric-label">Passed every gate</div><div class="metric-value" id="qualified-count">0</div><div class="metric-note">Nothing recommended yet</div></article>
+          <article class="metric-card"><span class="metric-mark" aria-hidden="true"></span><div class="metric-label">Gold-only weight</div><div class="metric-value">—</div><div class="metric-note">Not published in either listing</div></article>
+          <article class="metric-card"><span class="metric-mark" aria-hidden="true"></span><div class="metric-label">Live gold quote</div><div class="metric-value">—</div><div class="metric-note">Not verified; no price invented</div></article>
+        </div>
+
+        <div class="notice warning" id="freshness-warning" hidden>
+          <span class="notice-icon" aria-hidden="true">!</span>
+          <div><h3>Price snapshots age</h3><p data-freshness-copy></p></div>
+        </div>
+        <p id="data-load-error" class="notice danger" role="alert" hidden></p>
+
+        <div class="section-row">
+          <div><h2>Current ring candidates</h2><p>Retail prices include the listed ring and diamond—not the raw gold value.</p></div>
+          <a class="section-link" href="pages/rings.html">Full candidate table →</a>
+        </div>
+        <div class="table-wrap">
+          <table aria-label="Current sourced gold engagement ring candidates">
+            <thead><tr><th scope="col">Product / source</th><th scope="col">Gold listed</th><th scope="col">Retail price snapshot</th><th scope="col">Checklist outcome</th></tr></thead>
+            <tbody id="dashboard-candidate-rows">
+              <tr><td colspan="4" class="empty-state">Loading source-linked listing data…</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="two-column top-gap-large">
+          <section class="panel" aria-labelledby="seller-title">
+            <div class="panel-heading"><div><h2 id="seller-title">Seller research — Blue Nile</h2><p>Independent platforms are separate signals, not endorsements.</p></div><a class="source-link" href="https://www.bluenile.com/contact-us" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">Seller contact</a></div>
+            <div class="panel-body">
+              <p id="merchant-reputation-summary" class="cell-muted">Mixed third-party signals; read each platform's current records. No combined score is inferred.</p>
+              <div class="table-wrap top-gap-small">
+                <table class="table-compact" aria-label="Independent seller reputation signals">
+                  <thead><tr><th scope="col">Platform</th><th scope="col">Snapshot</th><th scope="col">Context</th><th scope="col">Source</th></tr></thead>
+                  <tbody id="reputation-rows"><tr><td colspan="4" class="empty-state">Loading independent sources…</td></tr></tbody>
+                </table>
+              </div>
+              <div class="source-stack top-gap-contact">
+                <span><strong>Phone:</strong> <span id="merchant-contact-phone">+1-800-242-2728</span></span>
+                <span><strong>Email:</strong> <a id="merchant-contact-email" href="mailto:service@bluenile.com">service@bluenile.com</a></span>
+                <a id="merchant-contact-source" class="source-link" href="https://www.bluenile.com/contact-us" target="_blank" rel="noopener noreferrer">Contact source</a>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel" aria-labelledby="no-ring-title">
+            <div class="panel-heading"><div><h2 id="no-ring-title">Why nothing is cleared</h2><p>Missing evidence is not replaced with a guess.</p></div></div>
+            <div class="panel-body">
+              <ul class="evidence-list">
+                <li>None of the three listings gives a gold-only weight in grams.</li>
+                <li>None documents the physical karat stamp and maker's mark.</li>
+                <li>None explicitly states solid gold or excludes plating in the captured copy.</li>
+                <li>Return terms do not say whether independent XRF testing preserves eligibility.</li>
+                <li>No current gold quote is embedded; metal value stays blank.</li>
+              </ul>
+              <div class="notice warning notice-no-bottom">
+                <span class="notice-icon" aria-hidden="true">!</span>
+                <div><h3>Read “solid” precisely</h3><p>FTC guidance addresses disclosure for hollow-center gold-alloy pieces and says such items should not be described as solid. This is not a blanket claim that every 14K ring is hollow. <a href="https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23/section-23.3" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">Read 16 CFR § 23.3</a>.</p></div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div class="section-row">
+          <div><h2>Research tools</h2><p>Work through the same evidence standard on every review pass.</p></div>
+        </div>
+        <div class="three-column">
+          <article class="mini-card"><div class="mini-number">01 / VERIFY</div><h3>Walk the checklist</h3><p>Purity, markings, grams, returns, seller signals, payment, documentation, and independent test plan.</p><p class="mini-card-link"><a class="section-link" href="pages/verify.html">Open verification page →</a></p></article>
+          <article class="mini-card"><div class="mini-number">02 / CALCULATE</div><h3>Gold mass, not a guess</h3><p>Compute nominal fine-gold grams only when you have the seller's gold-only mass and karat.</p><p class="mini-card-link"><a class="section-link" href="pages/calculator.html">Open the calculator →</a></p></article>
+          <article class="mini-card"><div class="mini-number">03 / AUDIT</div><h3>Inspect sources and flags</h3><p>Every table row links to its evidence. Unresolved and time-sensitive items stay visible for review.</p><p class="mini-card-link"><a class="section-link" href="pages/sources.html">Browse the source library →</a></p></article>
+        </div>
+
+        <footer class="footer">
+          <span class="last-reviewed">Research reviewed <span data-review-date>Oct 22, 2026</span> · static snapshot, not a live price feed</span>
+          <span><a href="pages/flagged.html">Flagged for review</a> · <a href="pages/sources.html">Source library</a></span>
+        </footer>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

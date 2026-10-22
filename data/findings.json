@@ -1,0 +1,219 @@
+{
+  "reviewedOn": "2026-10-22",
+  "findings": [
+    {
+      "id": "F-001",
+      "severity": "blocking",
+      "status": "unverified",
+      "title": "No ring weight in grams is published",
+      "finding": "None of the three reviewed product pages states a ring weight or gold-only alloy weight in grams. Do not substitute the diamond-inclusive total ring mass, estimate from band width, or calculate a melt value.",
+      "action": "Ask the seller for the ring's total weight and the gold-only metal weight, both in grams, and obtain the answer in writing. Keep the field blank until a primary source confirms it.",
+      "candidateIds": [
+        "blue-nile-natural-1ct-14k-yellow",
+        "blue-nile-lab-1ct-14k-yellow",
+        "blue-nile-ja-lab-1ct-14k-yellow"
+      ],
+      "sourceIds": [
+        "bn-natural-ring",
+        "bn-lab-ring",
+        "bn-ja-lab-ring"
+      ],
+      "recommendLookingForHallucinations": true
+    },
+    {
+      "id": "F-002",
+      "severity": "blocking",
+      "status": "unverified",
+      "title": "Explicit solid-gold / no-plating statement is absent",
+      "finding": "All three pages state 14K Yellow Gold. The captured product descriptions do not explicitly say solid gold and do not explicitly exclude plated, filled, overlay, vermeil, or gold-tone construction. A karat description alone is not independent physical verification.",
+      "action": "Ask for a written composition disclosure for this exact seller stock number, including whether the band is hollow and whether any surface coating or non-gold core is present. Keep the listing unqualified unless the seller answers and an independent test supports the claim.",
+      "candidateIds": [
+        "blue-nile-natural-1ct-14k-yellow",
+        "blue-nile-lab-1ct-14k-yellow",
+        "blue-nile-ja-lab-1ct-14k-yellow"
+      ],
+      "sourceIds": [
+        "bn-natural-ring",
+        "bn-lab-ring",
+        "ecfr-gold",
+        "bn-ja-lab-ring"
+      ],
+      "recommendLookingForHallucinations": true
+    },
+    {
+      "id": "F-003",
+      "severity": "blocking",
+      "status": "unverified",
+      "title": "Physical karat stamp and maker mark are not documented",
+      "finding": "None of the three product pages documents or clearly photographs the physical karat stamp and the maker's/manufacturer's mark on the ring. The eCFR quality-mark guidance discusses applying the trademark or name when a precious-metal quality mark is applied.",
+      "action": "Ask for a close, readable photo of both marks on the exact item and written confirmation of the marking before purchase. Inspect the ring under magnification and have a professional verify it after delivery.",
+      "candidateIds": [
+        "blue-nile-natural-1ct-14k-yellow",
+        "blue-nile-lab-1ct-14k-yellow",
+        "blue-nile-ja-lab-1ct-14k-yellow"
+      ],
+      "sourceIds": [
+        "bn-natural-ring",
+        "bn-lab-ring",
+        "ecfr-quality-mark",
+        "govinfo-quality-mark",
+        "bn-ja-lab-ring"
+      ],
+      "recommendLookingForHallucinations": true
+    },
+    {
+      "id": "F-004",
+      "severity": "blocking",
+      "status": "unverified",
+      "title": "Gold-value comparison cannot be computed",
+      "finding": "The seller-page retail prices are dated snapshots ($3,380, $1,490, and $1,810), but no gold-only weight is published and this project does not have a dated current market quote. The listed prices include the diamond and ring design; they are not a raw-gold price or scrap value.",
+      "action": "Do not infer or publish a metal-value comparison. Enter a value only after the exact gold-only mass and a dated, source-linked quote have both been verified. The calculator is intentionally blank until then.",
+      "candidateIds": [
+        "blue-nile-natural-1ct-14k-yellow",
+        "blue-nile-lab-1ct-14k-yellow",
+        "blue-nile-ja-lab-1ct-14k-yellow"
+      ],
+      "sourceIds": [
+        "bn-natural-ring",
+        "bn-lab-ring",
+        "lbma-price",
+        "nist-precious-conversion",
+        "nist-precious-conversion-chart",
+        "bn-ja-lab-ring"
+      ],
+      "recommendLookingForHallucinations": true
+    },
+    {
+      "id": "F-005",
+      "severity": "blocking",
+      "status": "needs confirmation",
+      "title": "Return policy has exclusions; post-test return rights are not stated",
+      "finding": "Blue Nile's first-party policy describes returns for eligible items within 30 days from shipment in original, unworn condition. It excludes, among other categories, personalized, custom, engraved, post-purchase-resized, clearance, and final-sale items. It does not expressly state whether independent XRF testing leaves a particular ring eligible for return.",
+      "action": "Before paying, confirm in writing that the exact ring and selected options can be returned after a professional inspection/test, and clarify whether a test, appraisal, or mark inspection affects the unworn/unaltered condition requirement. Do not resize or wear it first.",
+      "candidateIds": [
+        "blue-nile-natural-1ct-14k-yellow",
+        "blue-nile-lab-1ct-14k-yellow",
+        "blue-nile-ja-lab-1ct-14k-yellow"
+      ],
+      "sourceIds": [
+        "bn-returns",
+        "bn-natural-ring",
+        "bn-lab-ring",
+        "bn-ja-lab-ring"
+      ],
+      "recommendLookingForHallucinations": true
+    },
+    {
+      "id": "F-006",
+      "severity": "blocking",
+      "status": "unverified",
+      "title": "Seller permission for independent XRF is not documented",
+      "finding": "The reviewed listing and return policy do not give a product-specific assurance that an independent jeweler may XRF-test the ring while preserving return eligibility. XRF is a documented alloy-analysis method, but a professional test result has method limits: the London Assay Office says its XRF analysis is usually non-destructive unless heavy plating has been used.",
+      "action": "Get written approval from the seller before purchase, use an independent jeweler/lab, request a written result, and ask how the tester accounts for surface coatings and non-uniform components. If XRF alone cannot answer the question, ask the professional about an appropriate confirmatory method and its effect on return eligibility.",
+      "candidateIds": [
+        "blue-nile-natural-1ct-14k-yellow",
+        "blue-nile-lab-1ct-14k-yellow",
+        "blue-nile-ja-lab-1ct-14k-yellow"
+      ],
+      "sourceIds": [
+        "bn-returns",
+        "nist-xrf",
+        "assay-london-xrf",
+        "bn-ja-lab-ring"
+      ],
+      "recommendLookingForHallucinations": true
+    },
+    {
+      "id": "F-007",
+      "severity": "caution",
+      "status": "unverified",
+      "title": "Credit-card acceptance and terms should be confirmed at checkout",
+      "finding": "The product pages show a Blue Nile credit-card financing example, but this review did not confirm the exact payment methods, card issuer terms, or protection applicable to the buyer's selected checkout. CFPB guidance describes specific billing-error notice rights and timing; it is not a guarantee of a refund.",
+      "action": "Prefer a credit card if available, check the card's terms, retain the receipt and listing, and contact the issuer promptly if a billing error arises. Do not treat card protection as a substitute for verifying the item or return terms.",
+      "candidateIds": [
+        "blue-nile-natural-1ct-14k-yellow",
+        "blue-nile-lab-1ct-14k-yellow",
+        "blue-nile-ja-lab-1ct-14k-yellow"
+      ],
+      "sourceIds": [
+        "bn-natural-ring",
+        "bn-lab-ring",
+        "cfpb-credit",
+        "bn-ja-lab-ring"
+      ],
+      "recommendLookingForHallucinations": true
+    },
+    {
+      "id": "F-008",
+      "severity": "review",
+      "status": "needs review",
+      "title": "Third-party seller-reputation signals are mixed",
+      "finding": "On 2026-10-22, BBB displayed an A+ accredited-business profile, 121 complaints over three years and 23 over twelve months, and a separate 1/5 customer-review average from 25 reviews. Trustpilot displayed 4.0/5 from 1,928 reviews. These are different third-party platforms and samples; neither score proves or disproves a specific product claim.",
+      "action": "Read the current complaint and review records yourself before buying. Do not combine the platforms into one score, interpret a complaint as adjudicated fact, or treat accreditation as a gold-purity guarantee.",
+      "candidateIds": [
+        "blue-nile-natural-1ct-14k-yellow",
+        "blue-nile-lab-1ct-14k-yellow",
+        "blue-nile-ja-lab-1ct-14k-yellow"
+      ],
+      "sourceIds": [
+        "bbb-profile",
+        "bbb-complaints",
+        "bbb-reviews",
+        "trustpilot-bn"
+      ],
+      "recommendLookingForHallucinations": true
+    },
+    {
+      "id": "F-009",
+      "severity": "caution",
+      "status": "time-sensitive snapshot",
+      "title": "Price and size availability can change",
+      "finding": "The displayed prices were read from three Blue Nile product pages on 2026-10-22. The pages showed Add to Cart, but the exact ship date requires selecting a ring size. No future price, size availability, or delivery date is guaranteed by this snapshot.",
+      "action": "Open the linked product page immediately before purchase, select the exact size/option, confirm the final checkout total and delivery status, and recheck this project for a newer review date.",
+      "candidateIds": [
+        "blue-nile-natural-1ct-14k-yellow",
+        "blue-nile-lab-1ct-14k-yellow",
+        "blue-nile-ja-lab-1ct-14k-yellow"
+      ],
+      "sourceIds": [
+        "bn-natural-ring",
+        "bn-lab-ring",
+        "bn-ja-lab-ring"
+      ],
+      "recommendLookingForHallucinations": true
+    },
+    {
+      "id": "F-010",
+      "severity": "interpretation",
+      "status": "source context",
+      "title": "Read the FTC 'solid' wording in its actual hollow-center context",
+      "finding": "16 CFR § 23.3 discusses disclosure of hollow-center gold-alloy products and says such hollow-center products should not be described as solid. This specific passage should not be misquoted as saying that every 14K alloy ring is hollow or that every non-hollow 14K gold-alloy item is prohibited from being described as solid.",
+      "action": "Keep the user's written preference for an explicit solid-gold statement, ask whether the exact design is hollow, and avoid making a legal or material claim beyond the source text.",
+      "candidateIds": [],
+      "sourceIds": [
+        "ecfr-gold",
+        "govinfo-ecfr-gold"
+      ],
+      "recommendLookingForHallucinations": true
+    },
+    {
+      "id": "F-011",
+      "severity": "caution",
+      "status": "needs review",
+      "title": "All three listings contain unexplained placeholder copy",
+      "finding": "Each captured Blue Nile product page includes the phrase “Blue Nile value prop TBD” between its price/financing details and metal selection. This odd copy is not treated as evidence about any ring, its quality, or its price.",
+      "action": "Save a screenshot and ask the seller to confirm each exact stock number, final price, metal/diamond specifications, and current listing status before relying on these pages.",
+      "candidateIds": [
+        "blue-nile-natural-1ct-14k-yellow",
+        "blue-nile-lab-1ct-14k-yellow",
+        "blue-nile-ja-lab-1ct-14k-yellow"
+      ],
+      "sourceIds": [
+        "bn-natural-ring",
+        "bn-lab-ring",
+        "bn-ja-lab-ring"
+      ],
+      "recommendLookingForHallucinations": true
+    }
+  ]
+}
