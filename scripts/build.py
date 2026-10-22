@@ -482,8 +482,8 @@ def page_sellers(data, audit, ctx):
         contact_html = "<br>".join(contact) if contact else '<span class="nv">not captured</span>'
         if s.get("contact_url"):
             contact_html += f'<br>{src(s["contact_url"], "contact page")}'
-        ret = e(s.get("returns_summary") or "") or '<span class="nv">not verified yet</span>'
         ret_badge = badge("verified on page", "ok") if s.get("returns_verified") else badge("not verified", "warn")
+        ret = e(s.get("returns_summary") or "") or '<span class="nv">not read yet</span>'
         if s.get("returns_url"):
             ret += f'<br>{src(s["returns_url"], "policy page")}'
         rows.append(f"""<tr>
@@ -819,6 +819,8 @@ every review pass.</p>
     <li><b>Arithmetic must reproduce.</b> Every melt value is recomputed from stored inputs with the published formula,
       and any price below its own melt value is flagged, not published as a deal.</li>
     <li><b>Conflicts are surfaced.</b> Two prices for the same URL are both stored, and the disagreement is flagged.</li>
+    <li><b>Links must sit on their own domain.</b> Every stored URL is checked against the domain it claims to belong to,
+      so a guessed or copy-pasted link cannot pass as evidence. Unverified placeholder URLs were deleted, not kept.</li>
   </ol>
 </div>
 

@@ -30,7 +30,7 @@ Every number on the site was **read from the seller's own product page** and sta
 | `data/sellers.json` | Seller register: contact details, return terms, what is still unverified |
 | `data/standards.json` | Quoted U.S. law: 16 CFR Part 23 (FTC jewellery guides), 15 U.S.C. §§ 294–297 |
 | `data/spot.json` | Dated gold spot price record (World Gold Council / ICE Data Services) |
-| `scripts/audit.py` | 13 no-hallucination + consistency checks → `reports/audit-latest.{md,json}` |
+| `scripts/audit.py` | 14 no-hallucination + consistency checks → `reports/audit-latest.{md,json}` |
 | `scripts/build.py` | Dependency-free site generator + internal link checker |
 | `COORDINATION.md` | Shared task board for parallel agent sessions |
 

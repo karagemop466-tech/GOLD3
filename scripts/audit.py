@@ -18,6 +18,7 @@ import re
 import sys
 from datetime import date, datetime, timezone
 from pathlib import Path
+from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parent.parent
 KARATS = {"10", "14", "18", "22", "24"}
@@ -76,6 +77,7 @@ class Audit:
         self.check_freshness(items)
         self.check_plausibility(items)
         self.check_seller_policies(items, sellers)
+        self.check_url_ownership(items, sellers)
 
         fails = [c for c in self.checks if c["status"] == "fail"]
         warns = [c for c in self.checks if c["status"] == "warn"]
@@ -308,6 +310,36 @@ class Audit:
                     pass
         self.add("A12", "Price magnitude sanity check", "warn" if bad else "pass",
                  f"All stored prices fall in a credible range (limit ${MAX_USD_PER_FINE_GRAM:,.0f} per fine gram).")
+
+    # A14 ------------------------------------------------------------------
+    def check_url_ownership(self, items, sellers):
+        """Every stored link must sit on the domain it claims to belong to.
+        This catches guessed or copy-pasted URLs, which are the quietest kind of invented fact."""
+        def host(u):
+            try:
+                return (urlparse(u).hostname or "").lower().removeprefix("www.")
+            except Exception:
+                return ""
+
+        def owned(u, seller):
+            h, base = host(u), host(seller.get("site") or "")
+            return bool(base) and (h == base or h.endswith("." + base))
+
+        bad = []
+        for i in items:
+            s = sellers.get(i.get("seller"), {})
+            if not owned(i.get("url", ""), s):
+                bad.append(i["id"])
+                self.finding("fail", i["id"], "url", f"{i.get('url')} is not on {s.get('site')}.")
+        for s in sellers.values():
+            for key in ("contact_url", "returns_url", "site"):
+                u = s.get(key)
+                if u and not owned(u, s):
+                    bad.append(s["id"])
+                    self.finding("fail", s["id"], key, f"{u} is not on the seller's own domain ({s.get('site')}).")
+        self.add("A14", "Every link sits on the domain it claims to belong to",
+                 "fail" if bad else "pass",
+                 f"{len(items)} listing URLs and {len(sellers)} seller links checked against their own domains.")
 
     # A13 ------------------------------------------------------------------
     def check_seller_policies(self, items, sellers):
