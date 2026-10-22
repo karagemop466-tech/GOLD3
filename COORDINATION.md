@@ -15,7 +15,7 @@ Read it before starting any work. Update it when you claim, finish, or hand off 
 | `arena/04e8f339-gold3` | `arena/04e8f339-gold3` | 2026-10-22T23:34Z | complete (PR #11 merged) |
 | `arena/b3c924e6-gold3` (2nd run) | `arena/b3c924e6-gold3` | 2026-10-22T23:45Z | complete (PR #16, #21 merged) |
 | `arena/698f08f6-gold3` | `arena/698f08f6-gold3` | 2026-10-22T23:24Z | complete (PR #24, #26 merged — Dataset C, §9) |
-| `sess-692d-gold` | `arena/692d8c94-gold3` | 2026-10-22T23:26Z | active — T14/T15 independent re-validation, then integration |
+| `sess-692d-gold` | `arena/692d8c94-gold3` | 2026-10-22T23:26Z | complete (PR #29 merged as `bafa7d9`; record PR #30) |
 
 ### Branch naming note (important)
 The protocol below asks for `session-<id>/<task>` branches. **This sandbox pins each session to a
@@ -295,6 +295,9 @@ links OK · `audit.py` rows=22 errors=0 warnings=0 passed=124 · `render-test.js
 | Self-audit PR #22 | Found 3 claims the data could not support: `rings.html` titled "All verified listings" while rendering 19 of 41; two hand-typed counts ("7 sellers", "28 listings across 9 sellers"); this board's own "13 sellers". Fixed, recorded as SD4/SD5, merged as `93985ce`; Pages rebuilt; live pages re-read and confirmed at 41 listings / 12 sellers / SD1–SD5. | 2026-10-22T23:52Z |
 | **Post-deploy defect** | Reading the live page caught a **unit-mixing bug** in the karat table: `melt` maps karat to USD/gram, but the renderer multiplied it by spot/gram again, so 10K showed `5394.3%` fineness and `$6,983.75/g`. Local text dumps had missed it because no check compared rendered numbers to the formula. | found 2026-10-23T00:36Z |
 | Correction (PR #14) | Renderer fixed (fineness from `FINENESS[k]`, melt from the value itself); **arithmetic guard added** to `build_site.py` so every karat row must equal `spot/gram x fineness` cell-for-cell or the build fails. Corrected values: 10K $53.94, 14K $75.52, 18K $97.10, 22K $118.68, 24K $129.45 per gram. | 2026-10-23T00:40Z |
+| **Re-validation PR #29** | https://github.com/karagemop466-tech/GOLD3/pull/29 — session `sess-692d-gold` T14/T15: 10 official sources re-opened live, **every stored value found verbatim, 0 discrepancies** (report `reports/revalidation-sess-692d.md`); all **eight CI gates** re-run locally on the post-PR-#27 tree (audit rows=31/0/0/173, render 120/120, row links 682/682, archive suite 7/7); no dataset value changed; §2 field-name wording fixed; CR-692d-1/2 raised. CI green in ~60 s. | opened 2026-10-22T23:55Z |
+| Merge of PR #29 | **merged** into `main` as merge commit `bafa7d9` (no approval required, per standing instruction); `main` CI at `bafa7d9` all **success** (Gate/build/audit/render + build + deploy + report-build-status); Pages build for exactly `bafa7d9` **built** in 17 s (23:56:00→23:56:17Z). | 2026-10-22T23:56Z |
+| Board record PR #30 | This record row + registry closure, committed after the merge per protocol (a merge result cannot be recorded inside the PR that is being merged). | 2026-10-22T23:58Z |
 
 ## 6. Session `arena/92d7dd0a-gold3` — revalidation and final integration (T10)
 
