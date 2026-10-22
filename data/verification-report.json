@@ -393,13 +393,14 @@
     "n_weight_published": 0,
     "n_hallmark_stated": 0,
     "n_retailers": 5,
-    "n_other_items": 9,
-    "n_other_live": 7,
-    "n_other_dead": 2,
-    "n_other_weight": 2,
-    "n_combined": 28,
-    "n_weight_published_total": 2,
-    "n_sellers_total": 9
+    "n_other_items": 19,
+    "n_other_excluded": 5,
+    "n_other_priced": 18,
+    "n_other_weight": 4,
+    "n_other_hallmark": 3,
+    "n_combined": 38,
+    "n_weight_published_total": 4,
+    "n_sellers_total": 10
   },
   "findings": [
     {
@@ -410,12 +411,12 @@
     {
       "id": "F2",
       "severity": "high",
-      "title": "Almost no retailer publishes a usable ring weight - and the one exception is 'approximate'"
+      "title": "Only {n_weight_published_total} of {n_combined} listings publish a weight - none from this pass's five retailers"
     },
     {
       "id": "F3",
       "severity": "high",
-      "title": "None of the five retailers in this pass states a hallmark / maker's-mark policy"
+      "title": "None of this pass's five retailers states a hallmark or maker's-mark policy"
     },
     {
       "id": "F4",
@@ -455,7 +456,7 @@
     {
       "id": "F11",
       "severity": "low",
-      "title": "18K prices are only recorded for Blue Nile settings"
+      "title": "In this pass, 18K prices exist only for Blue Nile settings"
     },
     {
       "id": "F12",
@@ -464,8 +465,10 @@
     }
   ],
   "parallel_dataset": {
-    "items": 9,
-    "live": 7
+    "items": 19,
+    "excluded": 5,
+    "priced": 18,
+    "weights": 4
   },
   "errors": [],
   "warnings": [],

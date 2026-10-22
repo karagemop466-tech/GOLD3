@@ -34,18 +34,17 @@
 </div>
 
 <div class="grid cols-4" style="margin-bottom:18px">
-  <div class="kpi"><div class="label">Listings on site</div><div class="value">28</div><div class="sub">A: 19 &middot; B: 9</div></div>
-  <div class="kpi"><div class="label">Live listings</div><div class="value">26</div><div class="sub">2 dead links kept for the record</div></div>
-  <div class="kpi"><div class="label">Sellers covered</div><div class="value">9</div><div class="sub">across both passes</div></div>
-  <div class="kpi"><div class="label">Weights published</div><div class="value">2</div><div class="sub">both approximate (Ross-Simons)</div></div>
+  <div class="kpi"><div class="label">Listings on site</div><div class="value">38</div><div class="sub">A: 19 &middot; B: 19</div></div>
+  <div class="kpi"><div class="label">Priced listings</div><div class="value">37</div><div class="sub">5 more excluded and documented</div></div>
+  <div class="kpi"><div class="label">Sellers covered</div><div class="value">10</div><div class="sub">across both passes</div></div>
+  <div class="kpi"><div class="label">Weights published</div><div class="value">4</div><div class="sub">of 38 listings - see F2</div></div>
 </div>
 
 <div class="warn-box" style="margin-bottom:16px">
-  <strong>What "A" and "B" mean.</strong> Dataset A records each price with a verbatim quote and a capture date, and is checked by
-  <span class="mono">scripts/verify.py</span>. Dataset B was captured by the parallel session with its own evidence field per listing and its own audit
-  (<span class="mono">reports/audit-latest.md</span>); it is reproduced here unchanged and is not re-vouched for by Dataset A. Two dead links
-  (a James Allen URL that now redirects to Blue Nile, and a Costco page that returns 404) are kept and labelled rather than deleted - a listing that
-  disappeared is itself useful information.
+  <strong>What "A" and "B" mean.</strong> Dataset A (this session) records every price with a verbatim quote and a capture date, and is gated by
+  <span class="mono">scripts/verify.py</span>. Dataset B (parallel session <span class="mono">8aaa18bf</span>) records a per-field quote for the karat,
+  the solid-gold claim, the weight and the hallmark, plus a flag legend and an audit report. Both are shown unchanged; neither is re-vouched for by the
+  other. Dataset B&rsquo;s own excluded look-alikes are listed separately below, with the reason and the facts its session verified.
 </div>
 
 <div class="toolbar" data-table-toolbar="combined-table">
@@ -275,104 +274,232 @@
           <td><a href="https://mejuri.com/collections/rings" target="_blank" rel="noopener">source</a></td>
         </tr><tr>
           <td><span class="badge info">B</span></td>
-          <td>Blue Nile<span class="sub"><span class="badge good">live</span></span></td>
-          <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/classic-simple-solitaire-engagement-ring-in-14k-white-gold-item-195730" target="_blank" rel="noopener">Classic Simple Solitaire Engagement Ring in 14k White Gold</a></td>
-          <td>14K</td>
-          <td><span class="badge warn">Not stated</span></td>
-          <td class="num">$1,145<span class="sub">setting</span></td>
-          <td><span class="badge neutral">not published</span></td>
-          <td>2026-10-22</td>
-          <td><div class="chips"><span class="badge warn">Setting Price Only</span><span class="badge warn">Weight Not Published</span><span class="badge warn">Solid Not Stated</span><span class="badge neutral">+1</span></div></td>
-          <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/classic-simple-solitaire-engagement-ring-in-14k-white-gold-item-195730" target="_blank" rel="noopener">source</a></td>
-        </tr><tr>
-          <td><span class="badge info">B</span></td>
-          <td>Ross-Simons<span class="sub"><span class="badge good">live</span></span></td>
-          <td><a href="https://www.ross-simons.com/products/985230" target="_blank" rel="noopener">2mm 18kt Yellow Gold Polished Ring</a></td>
-          <td>18K</td>
-          <td><span class="badge warn">Not stated</span></td>
-          <td class="num">$249<span class="sub">full</span></td>
-          <td>0.7 g<span class="sub">approximate</span></td>
-          <td>2026-10-22</td>
-          <td><div class="chips"><span class="badge warn">Weight Is Approximate</span><span class="badge warn">Solid Not Stated</span><span class="badge warn">Very Light Band</span></div></td>
-          <td><a href="https://www.ross-simons.com/products/985230" target="_blank" rel="noopener">source</a></td>
-        </tr><tr>
-          <td><span class="badge info">B</span></td>
-          <td>Ross-Simons<span class="sub"><span class="badge good">live</span></span></td>
-          <td><a href="https://www.ross-simons.com/products/932728" target="_blank" rel="noopener">Italian 14kt Yellow Gold Diamond-Cut Ring</a></td>
-          <td>14K</td>
-          <td><span class="badge warn">Not stated</span></td>
-          <td class="num">$299<span class="sub">full</span></td>
-          <td>0.8 g<span class="sub">approximate</span></td>
-          <td>2026-10-22</td>
-          <td><div class="chips"><span class="badge warn">Weight Is Approximate</span><span class="badge warn">Price Drift</span><span class="badge warn">Solid Not Stated</span><span class="badge neutral">+1</span></div></td>
-          <td><a href="https://www.ross-simons.com/products/932728" target="_blank" rel="noopener">source</a></td>
-        </tr><tr>
-          <td><span class="badge info">B</span></td>
-          <td>Mejuri<span class="sub"><span class="badge good">live</span></span></td>
-          <td><a href="https://mejuri.com/products/duet-mixed-ring" target="_blank" rel="noopener">Duet Mixed Ring (18k Gold Vermeil and Sterling Silver)</a></td>
-          <td>18K</td>
-          <td><span class="badge bad">Excluded</span></td>
-          <td class="num">$178<span class="sub">full</span></td>
-          <td><span class="badge neutral">not published</span></td>
-          <td>2026-10-22</td>
-          <td><div class="chips"><span class="badge warn">Not Solid Gold</span><span class="badge bad">Vermeil</span><span class="badge warn">Karat Is Plating Not Core</span></div></td>
-          <td><a href="https://mejuri.com/products/duet-mixed-ring" target="_blank" rel="noopener">source</a></td>
-        </tr><tr>
-          <td><span class="badge info">B</span></td>
-          <td>Tiffany &amp; Co.<span class="sub"><span class="badge good">live</span></span></td>
-          <td><a href="https://www.tiffany.com/engagement/engagement-rings/the-tiffany-setting-engagement-ring-in-18k-yellow-gold-GRP10863/" target="_blank" rel="noopener">The Tiffany® Setting Engagement Ring in 18k Yellow Gold</a></td>
-          <td>18K</td>
-          <td><span class="badge warn">Not stated</span></td>
-          <td class="num">$1,600<span class="sub">from</span></td>
-          <td><span class="badge neutral">not published</span></td>
-          <td>2026-10-22</td>
-          <td><div class="chips"><span class="badge warn">From Price</span><span class="badge warn">Weight Not Published</span><span class="badge warn">Mixed Metals</span><span class="badge neutral">+2</span></div></td>
-          <td><a href="https://www.tiffany.com/engagement/engagement-rings/the-tiffany-setting-engagement-ring-in-18k-yellow-gold-GRP10863/" target="_blank" rel="noopener">source</a></td>
-        </tr><tr>
-          <td><span class="badge info">B</span></td>
-          <td>Mejuri<span class="sub"><span class="badge good">live</span></span></td>
+          <td>Mejuri</td>
           <td><a href="https://mejuri.com/products/bold-diamond-eternity-ring" target="_blank" rel="noopener">Bold Diamond Eternity Ring</a></td>
           <td>14K</td>
           <td><span class="badge good">Stated</span></td>
-          <td class="num">$2,900<span class="sub">from</span></td>
+          <td class="num">$2,900<span class="sub">From — varies by size, metal colour and stone</span></td>
           <td><span class="badge neutral">not published</span></td>
           <td>2026-10-22</td>
-          <td><div class="chips"><span class="badge warn">From Price</span><span class="badge warn">Weight Not Published</span><span class="badge warn">Rhodium Plated</span><span class="badge neutral">+1</span></div></td>
+          <td><div class="chips"><span class="badge bad">Weight not published</span><span class="badge bad">Hallmark and/or maker&#x27;s mark not published</span><span class="badge warn">Independent review research not completed</span></div></td>
           <td><a href="https://mejuri.com/products/bold-diamond-eternity-ring" target="_blank" rel="noopener">source</a></td>
         </tr><tr>
           <td><span class="badge info">B</span></td>
-          <td>Catbird<span class="sub"><span class="badge good">live</span></span></td>
+          <td>Mejuri</td>
+          <td><a href="https://mejuri.com/collections/milestone-rings" target="_blank" rel="noopener">Bold Diamond Half Eternity Ring</a></td>
+          <td>14K</td>
+          <td><span class="badge good">Stated</span></td>
+          <td class="num">$1,500<span class="sub">Listed price on collection page</span></td>
+          <td><span class="badge neutral">not published</span></td>
+          <td>2026-10-22</td>
+          <td><div class="chips"><span class="badge bad">Weight not published</span><span class="badge bad">Hallmark and/or maker&#x27;s mark not published</span><span class="badge warn">Independent review research not completed</span><span class="badge neutral">+1</span></div></td>
+          <td><a href="https://mejuri.com/collections/milestone-rings" target="_blank" rel="noopener">source</a></td>
+        </tr><tr>
+          <td><span class="badge info">B</span></td>
+          <td>Mejuri</td>
+          <td><a href="https://mejuri.com/collections/milestone-rings" target="_blank" rel="noopener">Slim Diamond Eternity Band</a></td>
+          <td>14K</td>
+          <td><span class="badge good">Stated</span></td>
+          <td class="num">$648<span class="sub">From — varies by size</span></td>
+          <td><span class="badge neutral">not published</span></td>
+          <td>2026-10-22</td>
+          <td><div class="chips"><span class="badge bad">Weight not published</span><span class="badge bad">Hallmark and/or maker&#x27;s mark not published</span><span class="badge warn">Independent review research not completed</span><span class="badge neutral">+1</span></div></td>
+          <td><a href="https://mejuri.com/collections/milestone-rings" target="_blank" rel="noopener">source</a></td>
+        </tr><tr>
+          <td><span class="badge info">B</span></td>
+          <td>Mejuri</td>
+          <td><a href="https://mejuri.com/products/aurora-lab-grown-sapphire-eternity-ring" target="_blank" rel="noopener">Aurora Lab Grown Sapphire Eternity Ring</a></td>
+          <td>18K (plating layer only)</td>
+          <td><span class="badge bad">Excluded</span></td>
+          <td class="num">$228<span class="sub">Listed price</span></td>
+          <td><span class="badge neutral">not published</span></td>
+          <td>2026-10-22</td>
+          <td><div class="chips"><span class="badge bad">&quot;18k&quot; in the name, but not solid gold</span><span class="badge bad">Weight not published</span><span class="badge bad">Hallmark and/or maker&#x27;s mark not published</span></div></td>
+          <td><a href="https://mejuri.com/products/aurora-lab-grown-sapphire-eternity-ring" target="_blank" rel="noopener">source</a></td>
+        </tr><tr>
+          <td><span class="badge info">B</span></td>
+          <td>Blue Nile</td>
+          <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/petite-hidden-halo-solitaire-plus-diamond-engagement-ring-in-14k-yellow-gold-item-192506" target="_blank" rel="noopener">Petite Hidden Halo Solitaire Plus Diamond Engagement Ring</a></td>
+          <td>14K</td>
+          <td><span class="badge warn">Not stated</span></td>
+          <td class="num">$1,255<span class="sub">Setting price only — centre stone sold separately</span></td>
+          <td><span class="badge neutral">not published</span></td>
+          <td>2026-10-22</td>
+          <td><div class="chips"><span class="badge bad">Price is the setting only</span><span class="badge bad">Weight not published</span><span class="badge bad">Hallmark and/or maker&#x27;s mark not published</span><span class="badge neutral">+1</span></div></td>
+          <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/petite-hidden-halo-solitaire-plus-diamond-engagement-ring-in-14k-yellow-gold-item-192506" target="_blank" rel="noopener">source</a></td>
+        </tr><tr>
+          <td><span class="badge info">B</span></td>
+          <td>Blue Nile</td>
+          <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/petite-solitaire-engagement-ring-in-14k-yellow-gold-item-195639" target="_blank" rel="noopener">Petite Solitaire Engagement Ring</a></td>
+          <td>14K</td>
+          <td><span class="badge warn">Not stated</span></td>
+          <td class="num">$1,000<span class="sub">Setting price only — centre stone sold separately</span></td>
+          <td><span class="badge neutral">not published</span></td>
+          <td>2026-10-22</td>
+          <td><div class="chips"><span class="badge bad">Price is the setting only</span><span class="badge bad">Weight not published</span><span class="badge bad">Hallmark and/or maker&#x27;s mark not published</span><span class="badge neutral">+2</span></div></td>
+          <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/petite-solitaire-engagement-ring-in-14k-yellow-gold-item-195639" target="_blank" rel="noopener">source</a></td>
+        </tr><tr>
+          <td><span class="badge info">B</span></td>
+          <td>Blue Nile (James Allen collection)</td>
+          <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/criss-cross-solitaire-engagement-ring-in-18k-yellow-gold-by-james-allen-item-311132" target="_blank" rel="noopener">Criss Cross Solitaire Engagement Ring</a></td>
+          <td>18K</td>
+          <td><span class="badge warn">Not stated</span></td>
+          <td class="num">$2,320<span class="sub">Setting price only — centre stone sold separately</span></td>
+          <td><span class="badge neutral">not published</span></td>
+          <td>2026-10-22</td>
+          <td><div class="chips"><span class="badge bad">Price is the setting only</span><span class="badge bad">Weight not published</span><span class="badge bad">Hallmark and/or maker&#x27;s mark not published</span><span class="badge neutral">+2</span></div></td>
+          <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/criss-cross-solitaire-engagement-ring-in-18k-yellow-gold-by-james-allen-item-311132" target="_blank" rel="noopener">source</a></td>
+        </tr><tr>
+          <td><span class="badge info">B</span></td>
+          <td>Blue Nile</td>
+          <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/floral-marquise-diamond-engagement-ring-in-18k-white-gold-item-203738" target="_blank" rel="noopener">Floral Marquise Diamond Engagement Ring</a></td>
+          <td>18K</td>
+          <td><span class="badge warn">Not stated</span></td>
+          <td class="num">$2,210<span class="sub">Setting price only — centre stone sold separately</span></td>
+          <td><span class="badge neutral">not published</span></td>
+          <td>2026-10-22</td>
+          <td><div class="chips"><span class="badge bad">Price is the setting only</span><span class="badge bad">Weight not published</span><span class="badge bad">Hallmark and/or maker&#x27;s mark not published</span><span class="badge neutral">+2</span></div></td>
+          <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/floral-marquise-diamond-engagement-ring-in-18k-white-gold-item-203738" target="_blank" rel="noopener">source</a></td>
+        </tr><tr>
+          <td><span class="badge info">B</span></td>
+          <td>Blue Nile</td>
+          <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/riviera-pave-diamond-engagement-ring-in-14k-white-gold-1-6-ct-tw-item-195326" target="_blank" rel="noopener">Riviera Pavé Diamond Engagement Ring (1/6 ct. tw.)</a></td>
+          <td>14K</td>
+          <td><span class="badge warn">Not stated</span></td>
+          <td class="num">$1,500<span class="sub">Setting price only — centre stone sold separately</span></td>
+          <td><span class="badge neutral">not published</span></td>
+          <td>2026-10-22</td>
+          <td><div class="chips"><span class="badge bad">Price is the setting only</span><span class="badge bad">Weight not published</span><span class="badge bad">Hallmark and/or maker&#x27;s mark not published</span><span class="badge neutral">+2</span></div></td>
+          <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/riviera-pave-diamond-engagement-ring-in-14k-white-gold-1-6-ct-tw-item-195326" target="_blank" rel="noopener">source</a></td>
+        </tr><tr>
+          <td><span class="badge info">B</span></td>
+          <td>Costco</td>
+          <td><a href="https://www.costco.com/p/-/round-brilliant-050-ctw-vs2-clarity-i-color-diamond-14kt-gold-band/100675127" target="_blank" rel="noopener">Round Brilliant 0.50 ctw VS2 Clarity, I Color Diamond 14kt Gold Band</a></td>
+          <td>14K</td>
+          <td><span class="badge warn">Not stated</span></td>
+          <td class="num"><span class="badge neutral">no price</span><span class="sub">No price was displayed on the product page as fetched</span></td>
+          <td><span class="badge neutral">not published</span></td>
+          <td>2026-10-22</td>
+          <td><div class="chips"><span class="badge warn">Price not displayed on the page</span><span class="badge bad">Return policy excludes precious metals</span><span class="badge bad">Weight not published</span><span class="badge neutral">+2</span></div></td>
+          <td><a href="https://www.costco.com/p/-/round-brilliant-050-ctw-vs2-clarity-i-color-diamond-14kt-gold-band/100675127" target="_blank" rel="noopener">source</a></td>
+        </tr><tr>
+          <td><span class="badge info">B</span></td>
+          <td>Wilson&#x27;s Estate Jewelry</td>
+          <td><a href="https://www.wilsonsestatejewelry.com/products/mid-century-old-european-diamond-14-karat-white-gold-vintage-solitaire-engagement-ring" target="_blank" rel="noopener">Mid-Century Old European Diamond 14 Karat White Gold Vintage Solitaire Engagement Ring</a></td>
+          <td>14K</td>
+          <td><span class="badge warn">Not stated</span></td>
+          <td class="num">$3,725<span class="sub">Sale price</span></td>
+          <td>6.1 g<span class="sub">incl. stone</span></td>
+          <td>2026-10-22</td>
+          <td><div class="chips"><span class="badge warn">&quot;Solid&quot; is not stated by the seller</span><span class="badge bad">Very short return window</span><span class="badge warn">Weight includes the stones</span><span class="badge neutral">+2</span></div></td>
+          <td><a href="https://www.wilsonsestatejewelry.com/products/mid-century-old-european-diamond-14-karat-white-gold-vintage-solitaire-engagement-ring" target="_blank" rel="noopener">source</a></td>
+        </tr><tr>
+          <td><span class="badge info">B</span></td>
+          <td>Wilson&#x27;s Estate Jewelry</td>
+          <td><a href="https://www.wilsonsestatejewelry.com/products/art-deco-old-mine-cut-diamond-18-karat-white-gold-antique-lotus-engagement-ring-gia" target="_blank" rel="noopener">Art Deco Old Mine Cut Diamond 18 Karat White Gold Antique Lotus Engagement Ring</a></td>
+          <td>18K</td>
+          <td><span class="badge warn">Not stated</span></td>
+          <td class="num">$5,350<span class="sub">Sale price</span></td>
+          <td>2.2 g<span class="sub">incl. stone</span></td>
+          <td>2026-10-22</td>
+          <td><div class="chips"><span class="badge warn">&quot;Solid&quot; is not stated by the seller</span><span class="badge bad">Very short return window</span><span class="badge warn">Weight includes the stones</span><span class="badge neutral">+1</span></div></td>
+          <td><a href="https://www.wilsonsestatejewelry.com/products/art-deco-old-mine-cut-diamond-18-karat-white-gold-antique-lotus-engagement-ring-gia" target="_blank" rel="noopener">source</a></td>
+        </tr><tr>
+          <td><span class="badge info">B</span></td>
+          <td>Wilson&#x27;s Estate Jewelry</td>
+          <td><a href="https://www.wilsonsestatejewelry.com/products/bailey-banks-biddle-art-deco-diamond-enamel-19-karat-white-gold-vintage-fanning-engagement-ring" target="_blank" rel="noopener">Bailey Banks &amp; Biddle Art Deco Diamond Enamel 19 Karat White Gold Vintage Fanning Engagement Ring</a></td>
+          <td>19K</td>
+          <td><span class="badge warn">Not stated</span></td>
+          <td class="num">$2,850<span class="sub">Sale price</span></td>
+          <td><span class="badge neutral">not published</span></td>
+          <td>2026-10-22</td>
+          <td><div class="chips"><span class="badge warn">&quot;Solid&quot; is not stated by the seller</span><span class="badge warn">Unusual karat / not gold throughout</span><span class="badge bad">Weight not published</span><span class="badge neutral">+2</span></div></td>
+          <td><a href="https://www.wilsonsestatejewelry.com/products/bailey-banks-biddle-art-deco-diamond-enamel-19-karat-white-gold-vintage-fanning-engagement-ring" target="_blank" rel="noopener">source</a></td>
+        </tr><tr>
+          <td><span class="badge info">B</span></td>
+          <td>Blue Nile</td>
+          <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/classic-simple-solitaire-engagement-ring-in-14k-white-gold-item-195730" target="_blank" rel="noopener">Classic Simple Solitaire Engagement Ring</a></td>
+          <td>14K</td>
+          <td><span class="badge warn">Not stated</span></td>
+          <td class="num">$1,145<span class="sub">Setting price only — centre stone sold separately</span></td>
+          <td><span class="badge neutral">not published</span></td>
+          <td>2026-10-22</td>
+          <td><div class="chips"><span class="badge bad">Price is the setting only</span><span class="badge warn">Rhodium-plated surface on white gold</span><span class="badge bad">Weight not published</span><span class="badge neutral">+2</span></div></td>
+          <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/classic-simple-solitaire-engagement-ring-in-14k-white-gold-item-195730" target="_blank" rel="noopener">source</a></td>
+        </tr><tr>
+          <td><span class="badge info">B</span></td>
+          <td>Ross-Simons</td>
+          <td><a href="https://www.ross-simons.com/products/985230" target="_blank" rel="noopener">2mm 18kt Yellow Gold Polished Ring</a></td>
+          <td>18K</td>
+          <td><span class="badge warn">Not stated</span></td>
+          <td class="num">$249<span class="sub">Listed price (in stock, sizes 5-10)</span></td>
+          <td>0.7 g</td>
+          <td>2026-10-22</td>
+          <td><div class="chips"><span class="badge warn">Weight is explicitly approximate</span><span class="badge warn">Very light band</span><span class="badge warn">&quot;Solid&quot; is not stated by the seller</span><span class="badge neutral">+3</span></div></td>
+          <td><a href="https://www.ross-simons.com/products/985230" target="_blank" rel="noopener">source</a></td>
+        </tr><tr>
+          <td><span class="badge info">B</span></td>
+          <td>Ross-Simons</td>
+          <td><a href="https://www.ross-simons.com/products/932728" target="_blank" rel="noopener">Italian 14kt Yellow Gold Diamond-Cut Ring</a></td>
+          <td>14K</td>
+          <td><span class="badge warn">Not stated</span></td>
+          <td class="num">$299<span class="sub">Listed price (in stock, sizes 5-10)</span></td>
+          <td>0.8 g</td>
+          <td>2026-10-22</td>
+          <td><div class="chips"><span class="badge warn">Weight is explicitly approximate</span><span class="badge warn">Very light band</span><span class="badge warn">&quot;Solid&quot; is not stated by the seller</span><span class="badge neutral">+4</span></div></td>
+          <td><a href="https://www.ross-simons.com/products/932728" target="_blank" rel="noopener">source</a></td>
+        </tr><tr>
+          <td><span class="badge info">B</span></td>
+          <td>Tiffany &amp; Co.</td>
+          <td><a href="https://www.tiffany.com/engagement/engagement-rings/the-tiffany-setting-engagement-ring-in-18k-yellow-gold-GRP10863/" target="_blank" rel="noopener">The Tiffany® Setting Engagement Ring in 18k Yellow Gold</a></td>
+          <td>18K</td>
+          <td><span class="badge warn">Not stated</span></td>
+          <td class="num">$1,600<span class="sub">Starting from — 0.20 ct configuration shown</span></td>
+          <td><span class="badge neutral">not published</span></td>
+          <td>2026-10-22</td>
+          <td><div class="chips"><span class="badge bad">Product page says the item is non-returnable</span><span class="badge warn">&quot;Starting from&quot; price</span><span class="badge warn">Two metals in one ring</span><span class="badge neutral">+5</span></div></td>
+          <td><a href="https://www.tiffany.com/engagement/engagement-rings/the-tiffany-setting-engagement-ring-in-18k-yellow-gold-GRP10863/" target="_blank" rel="noopener">source</a></td>
+        </tr><tr>
+          <td><span class="badge info">B</span></td>
+          <td>Catbird</td>
           <td><a href="https://www.catbirdnyc.com/woodland-ring.html" target="_blank" rel="noopener">Woodland Ring in 14K Gold (Sofia Zakia for Catbird)</a></td>
           <td>14K</td>
           <td><span class="badge warn">Not stated</span></td>
-          <td class="num">$276<span class="sub">full</span></td>
+          <td class="num">$276<span class="sub">Sale price (regular $368)</span></td>
           <td><span class="badge neutral">not published</span></td>
           <td>2026-10-22</td>
-          <td><div class="chips"><span class="badge warn">Sale Price</span><span class="badge warn">Weight Not Published</span><span class="badge warn">Solid Not Stated</span><span class="badge neutral">+1</span></div></td>
+          <td><div class="chips"><span class="badge warn">Availability unclear or unavailable</span><span class="badge warn">&quot;Solid&quot; is not stated by the seller</span><span class="badge bad">Weight not published</span><span class="badge neutral">+3</span></div></td>
           <td><a href="https://www.catbirdnyc.com/woodland-ring.html" target="_blank" rel="noopener">source</a></td>
         </tr><tr>
           <td><span class="badge info">B</span></td>
-          <td>James Allen<span class="sub"><span class="badge bad">dead link</span></span></td>
-          <td><a href="https://www.jamesallen.com/engagement-rings/solitaire/14k-yellow-gold-15mm-comfort-fit-engagement-ring-item-41515" target="_blank" rel="noopener">Comfort Fit Solitaire Engagement Ring In 14K Yellow Gold (James Allen item 41515)</a></td>
-          <td>—</td>
-          <td><span class="badge warn">Not stated</span></td>
-          <td class="num"><span class="badge neutral">no price</span><span class="sub">dead listing</span></td>
+          <td>Mejuri</td>
+          <td><a href="https://mejuri.com/products/duet-mixed-ring" target="_blank" rel="noopener">Duet Mixed Ring (18k Gold Vermeil and Sterling Silver)</a></td>
+          <td>18K (plating layer only)</td>
+          <td><span class="badge bad">Excluded</span></td>
+          <td class="num">$178<span class="sub">Listed price</span></td>
           <td><span class="badge neutral">not published</span></td>
           <td>2026-10-22</td>
-          <td><div class="chips"><span class="badge warn">Dead Listing</span><span class="badge warn">Redirects To Blue Nile</span></div></td>
-          <td><a href="https://www.jamesallen.com/engagement-rings/solitaire/14k-yellow-gold-15mm-comfort-fit-engagement-ring-item-41515" target="_blank" rel="noopener">source</a></td>
-        </tr><tr>
-          <td><span class="badge info">B</span></td>
-          <td>Costco<span class="sub"><span class="badge bad">dead link</span></span></td>
-          <td><a href="https://www.costco.com/4mm-diamond-cut-wedding-ring-14kt-gold.product.100423493.html" target="_blank" rel="noopener">4mm Comfort Fit Diamond Cut 14kt Gold Wedding Band</a></td>
-          <td>—</td>
-          <td><span class="badge warn">Not stated</span></td>
-          <td class="num"><span class="badge neutral">no price</span><span class="sub">dead listing</span></td>
-          <td><span class="badge neutral">not published</span></td>
-          <td>2026-10-22</td>
-          <td><div class="chips"><span class="badge warn">Dead Listing</span></div></td>
-          <td><a href="https://www.costco.com/4mm-diamond-cut-wedding-ring-14kt-gold.product.100423493.html" target="_blank" rel="noopener">source</a></td>
+          <td><div class="chips"><span class="badge bad">&quot;18k&quot; in the name, but not solid gold</span><span class="badge warn">Imported from the prior session, not re-fetched in the integration pass</span><span class="badge bad">Weight not published</span><span class="badge neutral">+1</span></div></td>
+          <td><a href="https://mejuri.com/products/duet-mixed-ring" target="_blank" rel="noopener">source</a></td>
         </tr></tbody>
+  </table>
+</div>
+
+<h2>Dataset B &mdash; look-alikes it excluded</h2>
+<div class="table-wrap">
+  <table>
+    <thead><tr><th>Item</th><th>Why it is not in the comparison</th><th>Facts verified by that pass</th><th>Source</th></tr></thead>
+    <tbody><tr><td><a href="https://www.wilsonsestatejewelry.com/products/contemporary-0-92-ctw-diamond-14-karat-white-gold-engagement-ring-gia" target="_blank" rel="noopener">Contemporary 0.92 CTW Diamond 14 Karat White Gold Engagement Ring GIA (Wilson&#x27;s, Stock We-9330)</a></td>
+        <td>Listed as SOLD OUT — no price obtainable, therefore excluded from the price comparison</td><td class="small">Stamped 14k; with maker&#x27;s mark; Total weight 2.3 grams; GIA Diamond Dossier 5221406268</td>
+        <td><a href="https://www.wilsonsestatejewelry.com/products/contemporary-0-92-ctw-diamond-14-karat-white-gold-engagement-ring-gia" target="_blank" rel="noopener">source</a></td></tr><tr><td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/french-pave-diamond-engagement-ring-in-platinum-1-4-ct-tw-item-195271" target="_blank" rel="noopener">Blue Nile French Pavé Diamond Engagement Ring in Platinum ($2,150 setting price)</a></td>
+        <td>Platinum, not gold — outside the project scope</td><td class="small">Nothing further could be confirmed on a live page.</td>
+        <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/french-pave-diamond-engagement-ring-in-platinum-1-4-ct-tw-item-195271" target="_blank" rel="noopener">source</a></td></tr><tr><td><a href="https://www.jamesallen.com/engagement-rings/solitaire/14k-white-gold-knife-edge-solitaire-engagement-ring-item-17152" target="_blank" rel="noopener">Blue Nile / James Allen &#x27;14k white gold knife-edge solitaire item 17152&#x27;</a></td>
+        <td>URL redirected to an unrelated product (a diamond pendant) when fetched — listing could not be verified as described</td><td class="small">Nothing further could be confirmed on a live page.</td>
+        <td><a href="https://www.jamesallen.com/engagement-rings/solitaire/14k-white-gold-knife-edge-solitaire-engagement-ring-item-17152" target="_blank" rel="noopener">source</a></td></tr><tr><td><a href="https://www.jamesallen.com/engagement-rings/solitaire/14k-yellow-gold-15mm-comfort-fit-engagement-ring-item-41515" target="_blank" rel="noopener">Comfort Fit Solitaire Engagement Ring in 14K Yellow Gold (James Allen item 41515)</a></td>
+        <td>Dead listing — the URL redirected to bluenile.com and the item is shown as sold out. No James Allen price was ever recorded, and a cached figure was deliberately discarded rather than quoted.</td><td class="small">Nothing further could be confirmed on a live page.</td>
+        <td><a href="https://www.jamesallen.com/engagement-rings/solitaire/14k-yellow-gold-15mm-comfort-fit-engagement-ring-item-41515" target="_blank" rel="noopener">source</a></td></tr><tr><td><a href="https://www.costco.com/4mm-diamond-cut-wedding-ring-14kt-gold.product.100423493.html" target="_blank" rel="noopener">4mm Comfort Fit Diamond Cut 14kt Gold Wedding Band (Costco item 100423493)</a></td>
+        <td>Dead listing — the page returns Page Not Found / Product Not Available. A cached gram weight existed but could not be confirmed on a live page, so nothing was recorded.</td><td class="small">Nothing further could be confirmed on a live page.</td>
+        <td><a href="https://www.costco.com/4mm-diamond-cut-wedding-ring-14kt-gold.product.100423493.html" target="_blank" rel="noopener">source</a></td></tr></tbody>
   </table>
 </div>
 
@@ -382,7 +509,8 @@
   <ul class="small">
     <li><a href="sellers.html">Seller register</a> &mdash; 7 sellers with contact and return evidence</li>
     <li><a href="standards.html">Standards &amp; law reference</a> &mdash; its 16 CFR / 15 U.S.C. reading</li>
-    <li><a href="method.html">Method</a> &mdash; how that pass verified data</li>
+    <li><a href="methodology.html">Methodology</a> &mdash; the parallel pass&rsquo;s verification protocol</li>
+    <li><a href="analysis.html">Analysis</a> &mdash; its findings and price-per-gram work</li>
     <li><a href="reports/audit-latest.md">Audit report</a> &mdash; machine output from its no-hallucination audit</li>
   </ul>
 </div>
@@ -394,8 +522,11 @@
   <p class="small"><strong>Agree:</strong> "solid gold" is rarely stated on listings. Both passes independently flagged it as the norm rather than the exception.</p>
   <p class="small"><strong>Differ:</strong> weight publication. Dataset A's five retailers publish none; Dataset B found Ross-Simons publishing
   approximate gram weights. That is why finding F2 is now scoped to "this pass" and reports the combined figure separately.</p>
-  <p class="small"><strong>Differ:</strong> coverage. Dataset B includes Tiffany, Costco, James Allen and Ross-Simons, which Dataset A did not open;
-  Dataset A includes Aurate and Ring Concierge, which Dataset B did not.</p>
+  <p class="small"><strong>Differ:</strong> coverage. Dataset B includes Tiffany, Costco, James Allen, Ross-Simons and Wilson&rsquo;s Estate Jewelry, which
+  Dataset A did not open; Dataset A includes Aurate and Ring Concierge, which Dataset B did not.</p>
+  <p class="small"><strong>Differ:</strong> hallmark and weight reporting. Dataset B records hallmark/maker&rsquo;s-mark observations and four published
+  weights (two of them total item weights that include the stone); Dataset A records none. Both are correct about their own sources &mdash; which is exactly
+  why the columns are kept apart and labelled.</p>
 </div>
 
 </main>

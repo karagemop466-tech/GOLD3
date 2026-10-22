@@ -51,6 +51,8 @@ OFFICIAL_DOMAINS = {
     "goldprice.org", "www.goldprice.org",
     "www.lbma.org.uk", "lbma.org.uk",
     "www.trustpilot.com", "trustpilot.com",
+    "www.wilsonsestatejewelry.com", "wilsonsestatejewelry.com",
+    "customerservice.costco.com",
     "www.costco.com", "costco.com",
     "www.jamesallen.com", "jamesallen.com",
     "www.ross-simons.com", "ross-simons.com",
@@ -90,9 +92,13 @@ def is_https(url: str | None) -> bool:
 
 
 def domain_ok(url: str | None) -> bool:
+    """Official https host, or a subdomain of one (e.g. customerservice.costco.com)."""
     if not is_https(url):
         return False
-    return urlparse(url).netloc.lower() in OFFICIAL_DOMAINS
+    host = urlparse(url).netloc.lower().split(":")[0]
+    if host.startswith("www."):
+        host = host[4:]
+    return any(host == d or host.endswith("." + d) for d in OFFICIAL_DOMAINS)
 
 
 def parse_date(value: str | None) -> date | None:
@@ -368,44 +374,63 @@ def main() -> int:
             err(f"product {p.get('id')}: contains an unsourced/approximate marker")
 
     # ------------------------------- parallel-pass dataset (data/rings.json)
-    other_items = []
+    other_items, other_excluded = [], []
     rings_path = DATA / "rings.json"
     if rings_path.exists():
         rings_doc = load("rings.json")
         sellers_doc = load("sellers.json")
-        other_sellers = {s.get("id"): s for s in sellers_doc.get("sellers", [])}
-        if len(rings_doc.get("items", [])) < 5:
+        seller_names = {x.get("name") for x in sellers_doc.get("sellers", [])}
+        items = rings_doc.get("rings") or rings_doc.get("items") or []
+        other_excluded = rings_doc.get("excluded_listings") or []
+        if len(items) < 5:
             err("rings.json: parallel dataset unexpectedly small")
-        for it in rings_doc.get("items", []):
+        for it in items:
             iid = it.get("id", "?")
-            for field in ("id", "seller", "title", "url", "checked", "flags"):
+            for field in ("id", "seller", "url", "karat", "flags", "solid_gold_verdict"):
                 if not it.get(field):
                     err(f"rings.json[{iid}]: missing {field}")
-            if it.get("check") == "live" and not it.get("karat"):
-                err(f"rings.json[{iid}]: live item without karat")
+            if not (it.get("product") or it.get("title")):
+                err(f"rings.json[{iid}]: missing product name")
+            seller_label = it.get("seller") or ""
+            label_ok = seller_label in seller_names
+            if not label_ok and "(" in seller_label:
+                base, _, rest = seller_label.partition("(")
+                inner = rest.rstrip(")").replace(" collection", "").strip()
+                label_ok = base.strip() in seller_names or inner in seller_names
+            if not label_ok:
+                err(f"rings.json[{iid}]: seller '{seller_label}' not in sellers.json")
             if not domain_ok(it.get("url")):
                 err(f"rings.json[{iid}]: url not an allowed official domain")
-            if it.get("seller") not in other_sellers:
-                err(f"rings.json[{iid}]: unknown seller '{it.get('seller')}'")
-            if it.get("check") == "live":
-                if not isinstance(it.get("price"), (int, float)) or it["price"] <= 0:
-                    err(f"rings.json[{iid}]: live item without a positive price")
-                if not it.get("price_type"):
-                    err(f"rings.json[{iid}]: live item without price_type")
-                if not it.get("ev"):
-                    err(f"rings.json[{iid}]: live item without an evidence block")
+            srcs = it.get("sources") or []
+            if not srcs:
+                err(f"rings.json[{iid}]: no source URLs recorded")
+            for u in srcs:
+                if not domain_ok(u):
+                    err(f"rings.json[{iid}]: source not on an allowed domain -> {u}")
+            price = it.get("price_usd") if it.get("price_usd") is not None else it.get("price")
+            if price is None:
+                if not it.get("flags"):
+                    err(f"rings.json[{iid}]: no price and no flag explaining why")
+            elif not isinstance(price, (int, float)) or price <= 0:
+                err(f"rings.json[{iid}]: non-positive price")
             else:
-                if it.get("price") is not None:
-                    warn(f"rings.json[{iid}]: non-live item carries a price")
-                if "dead-listing" not in " ".join(it.get("flags", [])):
-                    err(f"rings.json[{iid}]: non-live item must carry a dead-listing flag")
-            if it.get("weight_g") is not None:
-                ev_blob = json.dumps(it.get("ev") or {}, ensure_ascii=False).lower()
-                if "weight" not in ev_blob and "g" not in ev_blob:
-                    err(f"rings.json[{iid}]: weight present without evidence")
-            if it.get("solid") is True and "solid" not in json.dumps(it.get("ev") or {}).lower():
-                err(f"rings.json[{iid}]: claims solid without evidence")
+                shown = str(it.get("price_as_shown") or "")
+                flat = f"{price:,.0f}"
+                if shown and flat not in shown and f"{price:g}" not in shown:
+                    err(f"rings.json[{iid}]: price {flat} does not appear in price_as_shown '{shown}'")
+            if it.get("weight_g") is not None and not it.get("weight_quote"):
+                err(f"rings.json[{iid}]: weight without a weight quote")
+            if str(it.get("solid_gold_verdict", "")).startswith("PASS") and not it.get("solid_gold_quote"):
+                err(f"rings.json[{iid}]: PASS verdict without a solid-gold quote")
             other_items.append(it)
+        for x in other_excluded:
+            for field in ("reason", "product", "url"):
+                if not x.get(field):
+                    err(f"rings.json[excluded]: missing {field}")
+            if "verified_facts" in x and not x.get("verified_facts"):
+                err("rings.json[excluded]: empty verified_facts (omit the key instead)")
+            if not domain_ok(x.get("url")):
+                err(f"rings.json[excluded]: url not official -> {x.get('url')}")
     else:
         warn("data/rings.json not found - parallel dataset not integrated")
 
@@ -424,13 +449,16 @@ def main() -> int:
         "n_hallmark_stated": len([r for r in retailers if r.get("hallmark_stated")]),
         "n_retailers": len(retailers),
         "n_other_items": len(other_items),
-        "n_other_live": len([i for i in other_items if i.get("check") == "live"]),
-        "n_other_dead": len([i for i in other_items if i.get("check") != "live"]),
+        "n_other_excluded": len(other_excluded),
+        "n_other_priced": len([i for i in other_items
+                               if i.get("price_usd") is not None or i.get("price") is not None]),
         "n_other_weight": len([i for i in other_items if i.get("weight_g") is not None]),
+        "n_other_hallmark": len([i for i in other_items if i.get("hallmark_reported")]),
         "n_combined": len(products) + len(other_items),
         "n_weight_published_total": len([p for p in products if p.get("weight_g") is not None])
                                     + len([i for i in other_items if i.get("weight_g") is not None]),
-        "n_sellers_total": len(retailer_ids) + len({i.get("seller") for i in other_items} - retailer_ids),
+        "n_sellers_total": len({r.get("name") for r in retailers}
+                               | {i.get("seller") for i in other_items}),
     }
     if metrics["n_solid_gold"] + metrics["n_excluded"] != metrics["n_products"]:
         err("metrics: gold + excluded does not equal total products - every product must be either a "
@@ -479,7 +507,13 @@ def main() -> int:
         "derived_benchmarks": report_rows,
         "metrics": metrics,
         "findings": [{"id": f.get("id"), "severity": f.get("severity"), "title": f.get("title")} for f in findings],
-        "parallel_dataset": {"items": len(other_items), "live": len([i for i in other_items if i.get("check") == "live"])},
+        "parallel_dataset": {
+            "items": len(other_items),
+            "excluded": len(other_excluded),
+            "priced": len([i for i in other_items
+                           if i.get("price_usd") is not None or i.get("price") is not None]),
+            "weights": len([i for i in other_items if i.get("weight_g") is not None]),
+        },
         "errors": ERRORS,
         "warnings": WARNINGS,
         "notes": NOTES,

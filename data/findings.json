@@ -14,22 +14,22 @@
     {
       "id": "F2",
       "severity": "high",
-      "title": "Almost no retailer publishes a usable ring weight - and the one exception is 'approximate'",
-      "detail": "In this pass's five retailers, {n_weight_published} of {n_solid_gold} gold listings state the finished ring weight in grams. Across the combined dataset ({n_combined} listings, {n_sellers_total} sellers), only {n_weight_published_total} publish a weight - both are Ross-Simons bands (0.7 g and 0.8 g), and Ross-Simons qualifies its figures as approximate. Aurate's product feed does contain a numeric 'weight' field, but it is undocumented, repeats across variants and is never described as the finished item weight, so it was deliberately not used. Without a stated weight you cannot compute how much gold you are buying, only what the price implies.",
-      "evidence": "This pass: {n_weight_published} of {n_solid_gold} listings state a weight. Combined: {n_weight_published_total} of {n_combined}, both flagged approximate by the seller.",
+      "title": "Only {n_weight_published_total} of {n_combined} listings publish a weight - none from this pass's five retailers",
+      "detail": "Within this pass, {n_weight_published} of {n_solid_gold} gold listings state the finished ring weight in grams. Across the combined dataset ({n_combined} listings, {n_sellers_total} sellers) the figure rises to {n_weight_published_total}, and even those are not directly usable: two are Ross-Simons bands whose figures the seller labels approximate, and two are Wilson's Estate Jewelry rings whose own weight quote says the number is the total item weight including the diamond. So no listing in the combined dataset publishes a clean gold-only weight. Aurate's product feed does carry an undocumented numeric 'weight' field, but it repeats across variants and is never described as the finished item weight, so it was deliberately not used.",
+      "evidence": "This pass: {n_weight_published} of {n_solid_gold} listings state a weight. Combined: {n_weight_published_total} of {n_combined} - two flagged approximate by the seller, two stated as total weight including the stone.",
       "source": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring.js",
       "product": null,
-      "action": "Email the retailer and ask for the finished ring weight in grams, in writing, before paying. A legitimate seller can provide it."
+      "action": "Ask the seller in writing for the gold-only weight in grams before paying, and keep the reply. Never substitute a total item weight (which includes the stone) for a gold weight - the difference can be a large share of the metal."
     },
     {
       "id": "F3",
       "severity": "high",
-      "title": "None of the five retailers in this pass states a hallmark / maker's-mark policy",
-      "detail": "Under 15 U.S.C. 297, a quality mark such as '14K' must be accompanied by the manufacturer's or dealer's trademark or name. None of the five retailers publishes a hallmark policy on the pages checked, so there is no written confirmation that the karat stamp will be accompanied by a maker's mark.",
-      "evidence": "{n_hallmark_stated} of {n_retailers} retailer profiles contain a hallmark statement; all five records carry hallmark_stated = null.",
+      "title": "None of this pass's five retailers states a hallmark or maker's-mark policy",
+      "detail": "Under 15 U.S.C. 297, a quality mark such as '14K' must be accompanied by the manufacturer's or dealer's trademark or name. None of this pass's five retailers publishes a hallmark policy on the pages checked. A parallel pass did record hallmark observations on {n_other_hallmark} of its {n_other_items} listings, which proves stamps can be documented when a seller photographs or states them - but the policy itself is still not promised in writing anywhere in this dataset.",
+      "evidence": "This pass: 0 of 5 retailer policy pages mention a hallmark or maker's mark. Combined: {n_other_hallmark} of {n_combined} listings state an observed hallmark.",
       "source": "https://www.law.cornell.edu/uscode/text/15/297",
       "product": null,
-      "action": "After delivery, photograph the inside of the band and confirm both a karat stamp and a maker's mark before wearing or resizing."
+      "action": "Before paying, ask for a close-up photograph of the inside of the band showing both the karat stamp and the maker's mark, and have the ring XRF-tested or inspected on arrival."
     },
     {
       "id": "F4",
@@ -104,8 +104,8 @@
     {
       "id": "F11",
       "severity": "low",
-      "title": "18K prices are only recorded for Blue Nile settings",
-      "detail": "Aurate sells 18k versions of every ring in this dataset, but its collection page shows a single 'From' price that reflects the 14k option. No 18k Aurate price was captured, so none is shown. Only two 18K listings (both Blue Nile settings, centre stone excluded) have a verified price.",
+      "title": "In this pass, 18K prices exist only for Blue Nile settings",
+      "detail": "Aurate sells 18k versions of the rings in this dataset, but its collection page shows a single 'From' price that reflects the 14k option. No 18k Aurate price was captured, so none is shown. Only two 18K listings in this pass (both Blue Nile settings, centre stone excluded) have a verified price. The parallel dataset contributes further 18K rows (Tiffany, Ross-Simons, Wilson's) on its own evidence.",
       "evidence": "Aurate collection page shows 'From' prices only; 18k pricing requires selecting the variant, which was not captured.",
       "source": "https://auratenewyork.com/collections/engagement-rings",
       "product": null,

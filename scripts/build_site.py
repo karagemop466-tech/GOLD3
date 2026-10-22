@@ -121,13 +121,21 @@ for f in findings_doc["findings"]:
     FINDINGS.append(json.loads(blob))
 
 RINGS_PATH = DATA / "rings.json"
-OTHER_ITEMS = []
-OTHER_SELLERS = {}
+OTHER_ITEMS, OTHER_EXCLUDED, OTHER_SELLERS, FLAG_LEGEND = [], [], {}, {}
+RINGS_RETRIEVED = ""
 if RINGS_PATH.exists():
-    OTHER_ITEMS = json.loads(RINGS_PATH.read_text(encoding="utf-8")).get("items", [])
-    sellers_path = DATA / "sellers.json"
-    if sellers_path.exists():
-        OTHER_SELLERS = {x["id"]: x for x in json.loads(sellers_path.read_text(encoding="utf-8")).get("sellers", [])}
+    _rings_doc = json.loads(RINGS_PATH.read_text(encoding="utf-8"))
+    OTHER_ITEMS = _rings_doc.get("rings") or _rings_doc.get("items") or []
+    OTHER_EXCLUDED = _rings_doc.get("excluded_listings") or []
+    RINGS_RETRIEVED = _rings_doc.get("retrieved_utc") or ""
+    _sellers_path = DATA / "sellers.json"
+    if _sellers_path.exists():
+        _sd = json.loads(_sellers_path.read_text(encoding="utf-8"))
+        OTHER_SELLERS = {x.get("name"): x for x in _sd.get("sellers", [])}
+        OTHER_SELLERS.update({x.get("id"): x for x in _sd.get("sellers", [])})
+    _flags_path = DATA / "flags.json"
+    if _flags_path.exists():
+        FLAG_LEGEND = {f["id"]: f for f in json.loads(_flags_path.read_text(encoding="utf-8")).get("flags", [])}
 
 GOLD = [p for p in PRODUCTS if (p.get("purity") or "").upper().startswith(("10", "14", "18"))]
 EXCLUDED = [p for p in PRODUCTS if "excluded" in p.get("categories", [])]
@@ -449,41 +457,48 @@ At {money(SPOT,2)}/oz, one gram of pure gold is {money(SPOT_GRAM,2)}. Calculated
 def build_combined() -> str:
     def other_row(it):
         seller = OTHER_SELLERS.get(it.get("seller"), {})
-        seller_name = seller.get("name") or it.get("seller")
-        dead = it.get("check") != "live"
+        seller_name = seller.get("name") or it.get("seller") or "-"
+        title = it.get("product") or it.get("title") or "-"
+        price = it.get("price_usd") if it.get("price_usd") is not None else it.get("price")
+        basis = it.get("price_basis") or it.get("price_type") or "-"
+        verdict = str(it.get("solid_gold_verdict") or "")
         solid = it.get("solid")
-        if solid is True:
+        if verdict.startswith("PASS") or solid is True:
             sb = '<span class="badge good">Stated</span>'
-        elif solid is False:
+        elif verdict.startswith("FAIL") or solid is False:
             sb = '<span class="badge bad">Excluded</span>'
         else:
             sb = '<span class="badge warn">Not stated</span>'
-        price = money(it["price"]) if isinstance(it.get("price"), (int, float)) else '<span class="badge neutral">no price</span>'
-        basis = e(it.get("price_type") or ("dead listing" if dead else "—"))
+        price_html = money(price) if isinstance(price, (int, float)) else '<span class="badge neutral">no price</span>'
         if it.get("weight_g") is not None:
-            approx = "weight-is-approximate" in (it.get("flags") or [])
-            weight = f'{it["weight_g"]:g} g' + ('<span class="sub">approximate</span>' if approx else '')
+            approx = "approximate" in (it.get("weight_quote") or "").lower()
+            incl = "includes" in (it.get("weight_quote") or "").lower()
+            weight = f'{it["weight_g"]:g} g' + ('<span class="sub">approx.</span>' if approx else '') + ('<span class="sub">incl. stone</span>' if incl else '')
         else:
             weight = '<span class="badge neutral">not published</span>'
-        chips = "".join(
-            f'<span class="badge {"bad" if "not-solid" in f or "vermeil" in f else "warn"}">{e(f.replace("-", " ").title())}</span>'
-            for f in (it.get("flags") or [])[:3]
-        )
+        chips = ""
+        for fid in (it.get("flags") or [])[:3]:
+            leg = FLAG_LEGEND.get(fid)
+            label = leg["label"] if leg else str(fid)
+            sev = (leg or {}).get("severity", "")
+            cls = "bad" if sev == "high" else "warn"
+            chips += f'<span class="badge {cls}">{e(label)}</span>'
         extra = len(it.get("flags") or []) - 3
         if extra > 0:
             chips += f'<span class="badge neutral">+{extra}</span>'
-        status = '<span class="badge bad">dead link</span>' if dead else '<span class="badge good">live</span>'
+        checked = it.get("checked") or RINGS_RETRIEVED or "-"
+        src = it.get("url")
         return f"""<tr>
           <td><span class="badge info">B</span></td>
-          <td>{e(seller_name)}<span class="sub">{status}</span></td>
-          <td><a href="{e(it['url'])}" target="_blank" rel="noopener">{e(it['title'])}</a></td>
-          <td>{e(it.get('karat') or '—')}</td>
+          <td>{e(seller_name)}</td>
+          <td><a href="{e(src)}" target="_blank" rel="noopener">{e(title)}</a></td>
+          <td>{e(it.get('karat') or '-')}</td>
           <td>{sb}</td>
-          <td class="num">{price}<span class="sub">{basis}</span></td>
+          <td class="num">{price_html}<span class="sub">{e(basis)}</span></td>
           <td>{weight}</td>
-          <td>{e(it.get('checked') or '—')}</td>
+          <td>{e(str(checked)[:10])}</td>
           <td><div class="chips">{chips}</div></td>
-          <td><a href="{e(it['url'])}" target="_blank" rel="noopener">source</a></td>
+          <td><a href="{e(src)}" target="_blank" rel="noopener">source</a></td>
         </tr>"""
 
     def mine_row(p):
@@ -503,10 +518,15 @@ def build_combined() -> str:
         </tr>"""
 
     rows = "".join(mine_row(p) for p in PRODUCTS) + "".join(other_row(i) for i in OTHER_ITEMS)
-    live = len(PRODUCTS) + len([i for i in OTHER_ITEMS if i.get("check") == "live"])
-    dead = len([i for i in OTHER_ITEMS if i.get("check") != "live"])
+    live_a = len(PRODUCTS)
+    live_b = METRICS["n_other_priced"]
     weights = METRICS["n_weight_published_total"]
     sellers = METRICS["n_sellers_total"]
+    excl_rows = "".join(
+        f"""<tr><td><a href="{e(x['url'])}" target="_blank" rel="noopener">{e(x['product'])}</a></td>
+        <td>{e(x['reason'])}</td><td class="small">{e(x.get('verified_facts') or 'Nothing further could be confirmed on a live page.')}</td>
+        <td><a href="{e(x['url'])}" target="_blank" rel="noopener">source</a></td></tr>"""
+        for x in OTHER_EXCLUDED)
 
     body = f"""
 {policy_box()}
@@ -519,17 +539,16 @@ def build_combined() -> str:
 
 <div class="grid cols-4" style="margin-bottom:18px">
   <div class="kpi"><div class="label">Listings on site</div><div class="value">{len(PRODUCTS) + len(OTHER_ITEMS)}</div><div class="sub">A: {len(PRODUCTS)} &middot; B: {len(OTHER_ITEMS)}</div></div>
-  <div class="kpi"><div class="label">Live listings</div><div class="value">{live}</div><div class="sub">{dead} dead links kept for the record</div></div>
+  <div class="kpi"><div class="label">Priced listings</div><div class="value">{live_a + live_b}</div><div class="sub">{len(OTHER_EXCLUDED)} more excluded and documented</div></div>
   <div class="kpi"><div class="label">Sellers covered</div><div class="value">{sellers}</div><div class="sub">across both passes</div></div>
-  <div class="kpi"><div class="label">Weights published</div><div class="value">{weights}</div><div class="sub">both approximate (Ross-Simons)</div></div>
+  <div class="kpi"><div class="label">Weights published</div><div class="value">{weights}</div><div class="sub">of {len(PRODUCTS) + len(OTHER_ITEMS)} listings - see F2</div></div>
 </div>
 
 <div class="warn-box" style="margin-bottom:16px">
-  <strong>What "A" and "B" mean.</strong> Dataset A records each price with a verbatim quote and a capture date, and is checked by
-  <span class="mono">scripts/verify.py</span>. Dataset B was captured by the parallel session with its own evidence field per listing and its own audit
-  (<span class="mono">reports/audit-latest.md</span>); it is reproduced here unchanged and is not re-vouched for by Dataset A. Two dead links
-  (a James Allen URL that now redirects to Blue Nile, and a Costco page that returns 404) are kept and labelled rather than deleted - a listing that
-  disappeared is itself useful information.
+  <strong>What "A" and "B" mean.</strong> Dataset A (this session) records every price with a verbatim quote and a capture date, and is gated by
+  <span class="mono">scripts/verify.py</span>. Dataset B (parallel session <span class="mono">8aaa18bf</span>) records a per-field quote for the karat,
+  the solid-gold claim, the weight and the hallmark, plus a flag legend and an audit report. Both are shown unchanged; neither is re-vouched for by the
+  other. Dataset B&rsquo;s own excluded look-alikes are listed separately below, with the reason and the facts its session verified.
 </div>
 
 <div class="toolbar" data-table-toolbar="combined-table">
@@ -552,13 +571,22 @@ def build_combined() -> str:
   </table>
 </div>
 
+<h2>Dataset B &mdash; look-alikes it excluded</h2>
+<div class="table-wrap">
+  <table>
+    <thead><tr><th>Item</th><th>Why it is not in the comparison</th><th>Facts verified by that pass</th><th>Source</th></tr></thead>
+    <tbody>{excl_rows}</tbody>
+  </table>
+</div>
+
 <h2>Preserved pages from the parallel pass</h2>
 <div class="card">
   <p class="small">The parallel session's own pages are kept in the repository and remain reachable, unchanged:</p>
   <ul class="small">
     <li><a href="sellers.html">Seller register</a> &mdash; 7 sellers with contact and return evidence</li>
     <li><a href="standards.html">Standards &amp; law reference</a> &mdash; its 16 CFR / 15 U.S.C. reading</li>
-    <li><a href="method.html">Method</a> &mdash; how that pass verified data</li>
+    <li><a href="methodology.html">Methodology</a> &mdash; the parallel pass&rsquo;s verification protocol</li>
+    <li><a href="analysis.html">Analysis</a> &mdash; its findings and price-per-gram work</li>
     <li><a href="reports/audit-latest.md">Audit report</a> &mdash; machine output from its no-hallucination audit</li>
   </ul>
 </div>
@@ -570,8 +598,11 @@ def build_combined() -> str:
   <p class="small"><strong>Agree:</strong> "solid gold" is rarely stated on listings. Both passes independently flagged it as the norm rather than the exception.</p>
   <p class="small"><strong>Differ:</strong> weight publication. Dataset A's five retailers publish none; Dataset B found Ross-Simons publishing
   approximate gram weights. That is why finding F2 is now scoped to "this pass" and reports the combined figure separately.</p>
-  <p class="small"><strong>Differ:</strong> coverage. Dataset B includes Tiffany, Costco, James Allen and Ross-Simons, which Dataset A did not open;
-  Dataset A includes Aurate and Ring Concierge, which Dataset B did not.</p>
+  <p class="small"><strong>Differ:</strong> coverage. Dataset B includes Tiffany, Costco, James Allen, Ross-Simons and Wilson&rsquo;s Estate Jewelry, which
+  Dataset A did not open; Dataset A includes Aurate and Ring Concierge, which Dataset B did not.</p>
+  <p class="small"><strong>Differ:</strong> hallmark and weight reporting. Dataset B records hallmark/maker&rsquo;s-mark observations and four published
+  weights (two of them total item weights that include the stone); Dataset A records none. Both are correct about their own sources &mdash; which is exactly
+  why the columns are kept apart and labelled.</p>
 </div>
 """
     return page("combined.html", "Combined dataset", body,
