@@ -13,6 +13,7 @@ Read it before starting any work. Update it when you claim, finish, or hand off 
 | `arena/e6fe3e4f-gold3` | `arena/e6fe3e4f-gold3` | 2026-10-22T23:24Z | **active — V1–V4 verification pass, then integration** |
 | `arena/92d7dd0a-gold3` | `arena/92d7dd0a-gold3` | 2026-10-22T23:30Z | complete (PR #13, #15 merged) |
 | `arena/04e8f339-gold3` | `arena/04e8f339-gold3` | 2026-10-22T23:34Z | complete (PR #11 merged) |
+| `arena/b3c924e6-gold3` (2nd run) | `arena/b3c924e6-gold3` | 2026-10-22T23:45Z | complete (PR #16, #21 merged) |
 
 ### Branch naming note (important)
 The protocol below asks for `session-<id>/<task>` branches. **This sandbox pins each session to a
@@ -274,6 +275,8 @@ links OK · `audit.py` rows=22 errors=0 warnings=0 passed=124 · `render-test.js
 | Live verification | `combined.html` served with 38 rows / 10 sellers / 4 weights; `index.html` verified at origin (`origin/main` carries this branch's page). GitHub's CDN may serve the previous page for up to ~10 min after a build. | 2026-10-22T23:30Z |
 | **Verification pass PR #17** | https://github.com/karagemop466-tech/GOLD3/pull/17 — 28 sources re-opened (15 confirmed / 8 corrected / 5 flagged), 3 weight-bearing listings added, 3 site defects fixed, 5-step CI gate green (13 s) | 2026-10-22T23:35Z |
 | Merge of PR #17 | **merged** into `main` as `4bac841`; Pages rebuilt in 52 s at exactly that commit (`status: built`, HTTPS enforced) | 2026-10-22T23:36Z |
+| Board PR #19 | Recorded the PR #17 merge + deploy and closed V4; merged as `1443c10`; Pages rebuilt (24 s) | 2026-10-22T23:40Z |
+| Self-audit PR #22 | Found 3 claims the data could not support: `rings.html` titled "All verified listings" while rendering 19 of 41; two hand-typed counts ("7 sellers", "28 listings across 9 sellers"); this board's own "13 sellers". Fixed, recorded as SD4/SD5, merged as `93985ce`; Pages rebuilt; live pages re-read and confirmed at 41 listings / 12 sellers / SD1–SD5. | 2026-10-22T23:52Z |
 | **Post-deploy defect** | Reading the live page caught a **unit-mixing bug** in the karat table: `melt` maps karat to USD/gram, but the renderer multiplied it by spot/gram again, so 10K showed `5394.3%` fineness and `$6,983.75/g`. Local text dumps had missed it because no check compared rendered numbers to the formula. | found 2026-10-23T00:36Z |
 | Correction (PR #14) | Renderer fixed (fineness from `FINENESS[k]`, melt from the value itself); **arithmetic guard added** to `build_site.py` so every karat row must equal `spot/gram x fineness` cell-for-cell or the build fails. Corrected values: 10K $53.94, 14K $75.52, 18K $97.10, 22K $118.68, 24K $129.45 per gram. | 2026-10-23T00:40Z |
 
