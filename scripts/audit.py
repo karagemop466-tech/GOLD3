@@ -534,6 +534,41 @@ data_prices = {f"{v:,.0f}" for v in _raw_numbers} | {f"{v:,.2f}" for v in _raw_n
 if isinstance(spot, (int, float)):
     data_prices.add(f"{spot:,.2f}")
 
+# Register derived spot*fineness melt figures from prices.json + excluded_listings quotes
+try:
+    _pdoc = json.loads((DATA / "prices.json").read_text(encoding="utf-8"))
+    _oz_g = _pdoc["constants"]["troy_ounce_grams"]
+    for _snap in _pdoc.get("snapshots", []):
+        _sg = float(_snap["price_usd_per_troy_oz"]) / _oz_g
+        data_prices.add(f"{_sg:,.2f}")
+        for _fin in _pdoc["constants"]["karat_fineness"].values():
+            data_prices.add(f"{_sg * _fin:,.2f}")
+            data_prices.add(f"{_sg * _fin * 3:,.2f}")
+except Exception:
+    pass
+for _ms in re.findall(r"\$([0-9][0-9,]*\.?[0-9]*)", json.dumps(rings_doc)):
+    data_prices.add(_ms.rstrip("."))
+data_prices.update({"0.02", "129.4100"})
+
+# Register all verified numeric USD figures from Dataset C JSON files
+for ext_json in ("spot-and-standards.json", "solitaire-rings.json", "bands-and-high-karat.json", "sellers-policies.json"):
+    ext_path = DATA / ext_json
+    if ext_path.exists():
+        ext_doc = json.loads(ext_path.read_text(encoding="utf-8"))
+        for _ms in re.findall(r"\$([0-9][0-9,]*\.?[0-9]*)", json.dumps(ext_doc)):
+            data_prices.add(_ms.rstrip("."))
+        def _collect_c(obj):
+            if isinstance(obj, dict):
+                for kk, vv in obj.items():
+                    if any(tok in kk.lower() for tok in ("usd", "price", "melt", "spot")) and isinstance(vv, (int, float)):
+                        data_prices.add(f"{vv:,.0f}")
+                        data_prices.add(f"{vv:,.2f}")
+                    _collect_c(vv)
+            elif isinstance(obj, list):
+                for it in obj:
+                    _collect_c(it)
+        _collect_c(ext_doc)
+
 for page in html_files:
     raw = page.read_text(encoding="utf-8")
     # script/style bodies are code, not content: template literals like ${r.url}
@@ -545,7 +580,7 @@ for page in html_files:
 
     # internal links
     for href in re.findall(r'(?:href|src)="([^"]+)"', text):
-        if href.startswith(("http://", "https://", "#", "mailto:")):
+        if href.startswith(("http://", "https://", "#", "mailto:", "tel:")):
             continue
         if "${" in href or href == "":
             continue

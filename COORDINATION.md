@@ -13,7 +13,7 @@ Read it before starting any work. Update it when you claim, finish, or hand off 
 | `arena/e6fe3e4f-gold3` | `arena/e6fe3e4f-gold3` | 2026-10-22T23:24Z | **active — V1–V4 verification pass, then integration** |
 | `arena/92d7dd0a-gold3` | `arena/92d7dd0a-gold3` | 2026-10-22T23:30Z | complete (PR #13, #15 merged) |
 | `arena/04e8f339-gold3` | `arena/04e8f339-gold3` | 2026-10-22T23:34Z | complete (PR #11 merged) |
-| `arena/cbea1001-gold3` | `arena/cbea1001-gold3` | 2026-10-22T23:12Z | complete (C1–C7 done, additive merge + observatory) |
+| `arena/b3c924e6-gold3` (2nd run) | `arena/b3c924e6-gold3` | 2026-10-22T23:45Z | complete (PR #16, #21 merged) |
 
 ### Branch naming note (important)
 The protocol below asks for `session-<id>/<task>` branches. **This sandbox pins each session to a
@@ -242,13 +242,18 @@ session's edits.
 
 **Two stale counts corrected.** `main`'s log describes the site as 38 listings / 10 sellers / 4 weights, and the
 README repeated "38 listings, 10 sellers, 4 published weights". After this branch's three added listings the true
-figures are **41 listings / 13 sellers / 7 published weights**; the README line was corrected, and `main`'s
+figures are **41 listings / 12 sellers / 7 published weights**; the README line was corrected, and `main`'s
 narrative entries were left as written because they were accurate on the day they were made. The site prints the
 figure it is built from (`index.html`, `combined.html`, `flagged.html`, `verify.html` all say 41), so the pages
 cannot disagree with the data.
 
 **Also repaired:** a dangling fragment in §1 (`duplicate work). If another session joins...`) left by an earlier
 merge on `main`, and §6/§7 were out of order.
+
+**Landed.** Pushed as `db713ba`, opened as **PR #17** (https://github.com/karagemop466-tech/GOLD3/pull/17), CI gate
+green in 13 s, **merged** into `main` as `4bac841`, Pages rebuilt in 52 s at that exact commit. Nothing was held
+back for approval and nothing in the flagged tables blocked the merge — they are published on `flagged.html` and
+`verify.html` with their dates.
 
 **Gate results after this merge** (run in this order, all green): `verify.py` PASS · `build_site.py` 18 pages,
 links OK · `audit.py` rows=22 errors=0 warnings=0 passed=124 · `render-test.js` 110/110 · `report_verify.py`
@@ -266,8 +271,14 @@ links OK · `audit.py` rows=22 errors=0 warnings=0 passed=124 · `render-test.js
 | Follow-up PR #12 | Release record + combined-page count fix; merged as `620622d`; Pages rebuilt in 21.9 s. | 2026-10-22T23:28Z |
 | Defect fix PR #14 | Karat melt-table unit error + build-time arithmetic guard; merged as `c427d23`; Pages rebuilt in 18.1 s; live table verified as `14K 58.33% / $75.52 per gram`. | 2026-10-23T00:44Z |
 | Final text PR #15 | Removed the unverified "shipping weight" wording, explained the 24K 999.9-fine rounding, closed the release record. | 2026-10-23T00:52Z |
+| **Regression (fixed)** | A later merge of concurrent sessions brought back an **older `build_site.py`**: the melt table again multiplied USD/gram by spot/gram, the KPI labels and two text fixes were lost, and the F2 prose still enumerated four weighed sellers while the dataset had grown to seven. The deployed HTML was still correct, but the next build would have failed the arithmetic guard (or shipped wrong numbers if the guard had been lost too). | 2026-10-23T01:05Z |
+| Repair | Correct melt formula restored; KPI labels, 24K footnote and checklist wording re-applied; F2 rewritten so it describes the categories of qualified weight without hard-coding seller names or counts. Build + `verify.py` green. | 2026-10-23T01:10Z |
 | Build failure (resolved) | Pages build for `3e459d2` (PR #13, another session's merge) returned **Page build failed**; the very next build, for `c6f910a` (this branch's merge), succeeded in 39.8 s. No files were lost between the two commits (verified by tree comparison); the failure was transient to that commit and is superseded. | 2026-10-22T23:31Z |
 | Live verification | `combined.html` served with 38 rows / 10 sellers / 4 weights; `index.html` verified at origin (`origin/main` carries this branch's page). GitHub's CDN may serve the previous page for up to ~10 min after a build. | 2026-10-22T23:30Z |
+| **Verification pass PR #17** | https://github.com/karagemop466-tech/GOLD3/pull/17 — 28 sources re-opened (15 confirmed / 8 corrected / 5 flagged), 3 weight-bearing listings added, 3 site defects fixed, 5-step CI gate green (13 s) | 2026-10-22T23:35Z |
+| Merge of PR #17 | **merged** into `main` as `4bac841`; Pages rebuilt in 52 s at exactly that commit (`status: built`, HTTPS enforced) | 2026-10-22T23:36Z |
+| Board PR #19 | Recorded the PR #17 merge + deploy and closed V4; merged as `1443c10`; Pages rebuilt (24 s) | 2026-10-22T23:40Z |
+| Self-audit PR #22 | Found 3 claims the data could not support: `rings.html` titled "All verified listings" while rendering 19 of 41; two hand-typed counts ("7 sellers", "28 listings across 9 sellers"); this board's own "13 sellers". Fixed, recorded as SD4/SD5, merged as `93985ce`; Pages rebuilt; live pages re-read and confirmed at 41 listings / 12 sellers / SD1–SD5. | 2026-10-22T23:52Z |
 | **Post-deploy defect** | Reading the live page caught a **unit-mixing bug** in the karat table: `melt` maps karat to USD/gram, but the renderer multiplied it by spot/gram again, so 10K showed `5394.3%` fineness and `$6,983.75/g`. Local text dumps had missed it because no check compared rendered numbers to the formula. | found 2026-10-23T00:36Z |
 | Correction (PR #14) | Renderer fixed (fineness from `FINENESS[k]`, melt from the value itself); **arithmetic guard added** to `build_site.py` so every karat row must equal `spot/gram x fineness` cell-for-cell or the build fails. Corrected values: 10K $53.94, 14K $75.52, 18K $97.10, 22K $118.68, 24K $129.45 per gram. | 2026-10-23T00:40Z |
 
@@ -424,3 +435,30 @@ Publish:
 
 If a session's claim is more than **60 minutes** old with no commits, any other session may take
 over the task. Log the takeover here (who, when, what was already done) before editing.
+
+---
+
+## 9. Session `session-698f08f6` (`arena/698f08f6-gold3`) — Dataset C & Unified 3-Pass Integration (`T12`)
+
+- **Additive Integration Strategy (Zero Work Discarded):** Merged `origin/main` (`cdf62fd`, incl. PRs #1–#21) cleanly with zero overwritten peer files, keeping all `19` Dataset A rows (`data/products.json`), all `22` Dataset B rows (`data/rings.json`), `data/verification.json`, `archive/session-982bfc88/`, and all `18` existing pages intact while adding **Dataset C (`21` newly fetched `2026-10-22` primary listings across `Menē`, `Brilliant Earth`, `Ross-Simons`, `Blue Nile`, and `Mejuri`)**, expanding `combined.html` to **`62` total source-linked listings across `14` distinct jewelers** (`15` weight-published rings total).
+- **Closing Finding `F2` (Clean Stone-Free Gold Weights):** Added **7 single-alloy stone-free weight-verified bands** in `data/bands-and-high-karat.json`:
+  - **Menē 24K Pure Bullion Bands:** Classic (`8.50g`, `$1,720`, `$1,099.99` melt = `1.56x`), Narrow Flat (`7.90g`, `$1,556`, `$1,022.34` melt = `1.52x`), Wide Flat (`12.00g`, `$2,333`, `$1,552.92` melt = `1.50x`).
+  - **Ross-Simons Pure 14K Solid Bands:** Women's 2mm (`1.70g`, `$400`, `$128.33` melt = `3.12x`), Men's 4mm (`4.20g`, `$949`, `$317.05` melt = `2.99x`), Italian Dome (`4.00g`, `$1,195`, `$301.96` melt = `3.96x`), Signet (`2.10g`, `$599`, `$158.53` melt = `3.78x`), plus mixed `22K+14K` `5.90g` coin ring (`BND-08`, left `pure_gold_grams: null` rather than inferred).
+- **Five-Source Global Gold Spot Convergence (`2026-10-22`):** Confirmed Kitco live bid **`$4,025.10/oz` (`$129.4100/g`)** and BullionVault live mid **`$4,026.25/oz` (`$129.45/g`)**, converging within `0.02%–0.10%` of GoldPrice.org (`$4,026.79/oz`) and WGC (`$4,024.36` / `$4,028.53/oz`).
+- **Live Irregularities & BBB Audits Flagged (`flagged-for-review.html`):**
+  1. `Ross-Simons 251663`: Direct page contradiction (`10kt Yellow Gold` spec table vs `"Set in polished 14kt yellow gold"` prose).
+  2. `Brilliant Earth BE1FM0126`: Banner states `"Free 1-Year Resizing"` while body states `"resizing is not available for this ring."`
+  3. `Brilliant Earth BE1199H6`: Repriced live to `$850` (vs `$650` stale cache); mixed `18K` shank + `14K` white gold prongs.
+  4. `Mejuri Diamond Eternity Band`: Body states `0.532ct` while spec bullet reads `0.044 ct - 0.056 ct`; BBB rating **`D-`** (`35` complaints, unanswered consumer complaint); Menē `7-day` return window & BBB **`D+`**.
+  5. `Ross-Simons 241592`: Live `$29` `"14kt Yellow Gold over Brass"` ring included as rejected control benchmark.
+- **All Five Automated Anti-Hallucination & Render Suites Green:**
+  - `python3 scripts/verify.py` -> **PASS (`0` errors, `0` warnings)**
+  - `python3 scripts/audit.py` -> **PASS (`0` errors, `0` warnings, `130` passed)**
+  - `python3 scripts/run_security_audit.py` -> **PASS (`SEC-01..SEC-07`, `0` errors across all `24` HTML pages)**
+  - `node scripts/render-test.js` -> **PASS (`115/115` checks)**
+  - `python3 scripts/report_verify.py` -> **PASS (`28` verification checks)**
+- **Pull Request, CI & Live GitHub Pages Deployment Result (`T12` Complete):**
+  - **PR #24:** <https://github.com/karagemop466-tech/GOLD3/pull/24> — **MERGED** at `2026-10-22T23:42:17Z` as commit `e992b90de1f8f8d8e39f954d8b55ae93899cb436`.
+  - **GitHub Actions CI (`Gate, build, audit and render`):** Run `39873474628` — **PASS** (`0` errors, `0` warnings across all 5 suites).
+  - **GitHub Pages Live Verification:** Built commit `e992b90de1f8f8d8e39f954d8b55ae93899cb436` at `2026-10-22T23:42:38Z` (`status: built`); live HTTP read-back verified across `index.html`, `combined.html` (`62` rows / `14` sellers / `15` weights), `bands-vintage-rings.html`, `flagged-for-review.html`, and `security-audit.html` (`Pass #9`, `1,603` links verified).
+

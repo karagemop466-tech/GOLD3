@@ -1,10 +1,10 @@
 # Anti-hallucination audit report
 
-- Run: 2026-10-22 23:45 UTC
+- Run: 2026-10-22 23:48 UTC
 - Rows audited: **31**
 - Sellers audited: **14**
 - Flag definitions: **40**
-- Result: **PASS** — 0 error(s), 0 warning(s), 167 check(s) passed
+- Result: **PASS** — 0 error(s), 0 warning(s), 173 check(s) passed
 
 ## What this pass is looking for
 
@@ -182,17 +182,23 @@ None.
 - [links] 14k.html: local links resolved
 - [links] 18k.html: local links resolved
 - [links] analysis.html: local links resolved
+- [links] bands-vintage-rings.html: local links resolved
 - [links] calculator.html: local links resolved
+- [links] checklist-standards.html: local links resolved
 - [links] checklist.html: local links resolved
 - [links] combined.html: local links resolved
 - [links] excluded.html: local links resolved
+- [links] flagged-for-review.html: local links resolved
 - [links] flagged.html: local links resolved
 - [links] index.html: local links resolved
 - [links] lab-grown.html: local links resolved
 - [links] methodology.html: local links resolved
 - [links] retailers.html: local links resolved
 - [links] rings.html: local links resolved
+- [links] security-audit.html: local links resolved
+- [links] sellers-policies.html: local links resolved
 - [links] sellers.html: local links resolved
+- [links] solitaire-settings.html: local links resolved
 - [links] sources.html: local links resolved
 - [links] standards.html: local links resolved
 - [links] under-1000.html: local links resolved

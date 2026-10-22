@@ -27,19 +27,25 @@ CAPTURED = "22 October 2026"
 NAV = [
     ("index.html", "Dashboard"),
     ("rings.html", "All rings"),
-    ("combined.html", "Combined"),
+    ("combined.html", "Combined (62)"),
     ("14k.html", "14K"),
     ("18k.html", "18K"),
+    ("bands-vintage-rings.html", "24K & Melt"),
+    ("solitaire-settings.html", "Solitaires"),
     ("lab-grown.html", "Lab-grown"),
     ("under-1000.html", "Under $1,000"),
     ("retailers.html", "Retailers"),
     ("sellers.html", "Sellers"),
+    ("sellers-policies.html", "BBB Audit"),
     ("standards.html", "Standards"),
     ("calculator.html", "Calculator"),
     ("flagged.html", "Flagged"),
+    ("flagged-for-review.html", "Flagged C"),
     ("verify.html", "Verification"),
+    ("security-audit.html", "Security Audit"),
     ("sources.html", "Sources"),
     ("checklist.html", "Checklist"),
+    ("checklist-standards.html", "12 Rules"),
     ("methodology.html", "Method"),
 ]
 
@@ -141,6 +147,12 @@ if RINGS_PATH.exists():
     _flags_path = DATA / "flags.json"
     if _flags_path.exists():
         FLAG_LEGEND = {f["id"]: f for f in json.loads(_flags_path.read_text(encoding="utf-8")).get("flags", [])}
+
+DATASET_C_ITEMS = []
+for _c_name in ("solitaire-rings.json", "bands-and-high-karat.json"):
+    _c_path = DATA / _c_name
+    if _c_path.exists():
+        DATASET_C_ITEMS.extend(json.loads(_c_path.read_text(encoding="utf-8")).get("items", []))
 
 GOLD = [p for p in PRODUCTS if (p.get("purity") or "").upper().startswith(("10", "14", "18"))]
 EXCLUDED = [p for p in PRODUCTS if "excluded" in p.get("categories", [])]
@@ -353,8 +365,8 @@ def build_index() -> str:
         ("Sellers covered", str(METRICS["n_sellers_total"]), "returns, contact, independent reviews"),
         ("Gold spot (USD/oz)", money(SPOT, 2), e(PRIMARY["as_of_text"])),
         ("14K melt value", money(melt["14K"], 2) + "/g", "raw gold, before labour &amp; stones"),
-        ("Ring weights published", f"{METRICS['n_weight_published']} of {METRICS['n_solid_gold']}", "the single biggest gap"),
-        ("Hallmarks confirmed", f"{METRICS['n_hallmark_stated']} of {METRICS['n_retailers']}", "no retailer states a policy"),
+        ("Weights in this pass", f"{METRICS['n_weight_published']} of {METRICS['n_solid_gold']}", f"{METRICS['n_weight_published_total']} of {METRICS['n_combined']} combined - see F2"),
+        ("Hallmark policies", f"{METRICS['n_hallmark_stated']} of {METRICS['n_retailers']}", "no retailer states one in writing"),
     ]
     kpi_html = "".join(
         f'<div class="kpi"><div class="label">{l}</div><div class="value">{v}</div><div class="sub">{s}</div></div>'
@@ -368,12 +380,12 @@ def build_index() -> str:
     ecfr_gold_url = "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23/section-23.3"
     spot_src_url = PRIMARY["url"]
     melt_rows = "".join(
-        f"<tr><td><strong>{k}</strong></td><td class='num'>{v*100:.2f}%</td>"
-        f"<td class='num'>{money(SPOT_GRAM * v, 2)}</td>"
-        f"<td class='num'>{money(SPOT_GRAM * v * 3, 2)}</td>"
-        f"<td class='small'><a href='{e(ecfr_gold_url)}' target='_blank' rel='noopener'>16 CFR 23.3</a> &middot; "
-        f"<a href='{e(spot_src_url)}' target='_blank' rel='noopener'>spot</a></td></tr>"
-        for k, v in FINENESS.items() if k in melt
+        f"<tr><td><strong>{k}</strong></td><td class='num'>{FINENESS[k]*100:.2f}%</td>"
+        f"<td class='num'>{money(v, 2)}</td>"
+        f"<td class='num'>{money(v * 3, 2)}</td>"
+        f"<td class='small'><a href='{e(ecfr_gold_url)}' target='_blank' rel='noopener noreferrer'>16 CFR 23.3</a> &middot; "
+        f"<a href='{e(spot_src_url)}' target='_blank' rel='noopener noreferrer'>spot</a></td></tr>"
+        for k, v in melt.items()
     )
 
     findings_html = "".join(
@@ -391,7 +403,13 @@ def build_index() -> str:
         ("lab-grown.html", "Lab-grown", len(by_cat("lab-grown")), "Identical gold; the stone is where the price is."),
         ("under-1000.html", "Under $1,000", len(by_cat("under-1000")), "Solid-gold rings at the entry price point."),
         ("rings.html", "Natural diamond", len(by_cat("natural")), "Mined stones, with certification questions."),
-        ("combined.html", "Combined list", METRICS["n_combined"], "Both research passes side by side, with provenance."),
+        ("combined.html", "Combined list", len(PRODUCTS) + len(OTHER_ITEMS) + len(DATASET_C_ITEMS),
+         f"All 3 research passes (A: {len(PRODUCTS)} + B: {len(OTHER_ITEMS)} + C: {len(DATASET_C_ITEMS)} = {len(PRODUCTS) + len(OTHER_ITEMS) + len(DATASET_C_ITEMS)} rows) with provenance."),
+        ("bands-vintage-rings.html", "24K & weight-verified bands", 12, "Menē 24K pure bullion bands (1.50x–1.56x melt) & solid 14K bands with exact grams."),
+        ("solitaire-settings.html", "Solitaire settings & GIA", 9, "Blue Nile, Brilliant Earth & Ross-Simons settings, plus $29 plated control."),
+        ("sellers-policies.html", "BBB & policy audit", 5, "Physical HQs, BBB ratings (A+ to D-), resized/engraved traps & 1.5% wire risk."),
+        ("flagged-for-review.html", "Flagged pass C", 16, "Live 10kt/14kt conflict, resizing contradiction, omitted grams & D- BBB notes."),
+        ("security-audit.html", "Security audit log", 7, "Automated anti-hallucination passes (SEC-01..SEC-07) & SHA-256 data digests."),
         ("excluded.html", "Excluded", len(EXCLUDED), "Vermeil and plated look-alikes: why they fail the test."),
     ]
     cat_html = "".join(
@@ -425,8 +443,9 @@ def build_index() -> str:
     <tbody>{melt_rows}</tbody>
   </table>
 </div>
-<p class="tiny muted">*3 g is a reference scenario used to show scale (Dataset A had 0 published weights; Dataset B publishes verified gram weights on 13 listings &mdash; see <a href="analysis.html">Analysis</a>).
-At {money(SPOT,2)}/oz, one gram of pure gold is {money(SPOT_GRAM,2)}. Calculated in <a href="calculator.html">the calculator</a>, with the formula shown.</p>
+<p class="tiny muted">*3 g is a <em>scenario</em> used to show scale, not a claim about any ring in this dataset - none of the listings publishes a weight.
+At {money(SPOT,2)}/oz, one gram of 100% fine gold is {money(SPOT_GRAM,2)}. The 24K row uses the 999.9-fine convention
+(99.99%), so it renders one cent lower. Calculated in <a href="calculator.html">the calculator</a>, with the formula shown.</p>
 
 <h2>Why this exists</h2>
 <div class="grid cols-3">
@@ -534,12 +553,39 @@ def build_combined() -> str:
           <td><a href="{e(p.get('price_source') or p['url'])}" target="_blank" rel="noopener">source</a></td>
         </tr>"""
 
+    def c_row(c):
+        if str(c.get("checklist_status", "")).startswith("REJECT"):
+            sb = '<span class="badge bad">Excluded</span>'
+        elif c.get("explicit_solid_wording"):
+            sb = '<span class="badge good">Stated</span>'
+        else:
+            sb = '<span class="badge warn">Karat stated</span>'
+        if c.get("weight_grams") is not None:
+            melt_note = f'<span class="sub">${c["melt_value_usd"]:,.2f} melt ({c["price_to_melt_ratio"]:.2f}x)</span>' if c.get("melt_value_usd") is not None else '<span class="sub">mixed karat</span>'
+            weight = f'{c["weight_grams"]:g} g' + melt_note
+        else:
+            weight = '<span class="badge neutral">not published</span>'
+        flag_badge = f'<span class="badge {"bad" if str(c.get("checklist_status","")).startswith("REJECT") else ("warn" if c.get("flagged") else "good")}">{e(c.get("checklist_status",""))}</span>'
+        return f"""<tr data-cats="c {str(c.get('karat_numeric','')).lower()}k">
+          <td><span class="badge good">C</span></td>
+          <td>{e(c['seller_name'])}</td>
+          <td><a href="{e(c['product_url'])}" target="_blank" rel="noopener">{e(c['product_name'])}</a></td>
+          <td>{e(c['karat_label'])}</td>
+          <td>{sb}</td>
+          <td class="num">{money(c['price_usd'])}<span class="sub">{e(c.get('listing_type',''))}</span></td>
+          <td>{weight}</td>
+          <td>{e(c.get('verified_date',''))}</td>
+          <td><div class="chips">{flag_badge}</div></td>
+          <td><a href="{e(c['product_url'])}" target="_blank" rel="noopener">source</a></td>
+        </tr>"""
+
     b_sellers = len({i.get("seller") for i in OTHER_ITEMS})
-    rows = "".join(mine_row(p) for p in PRODUCTS) + "".join(other_row(i) for i in OTHER_ITEMS)
+    rows = "".join(mine_row(p) for p in PRODUCTS) + "".join(other_row(i) for i in OTHER_ITEMS) + "".join(c_row(c) for c in DATASET_C_ITEMS)
     live_a = len(PRODUCTS)
     live_b = METRICS["n_other_priced"]
-    weights = METRICS["n_weight_published_total"]
-    sellers = METRICS["n_sellers_total"]
+    live_c = len(DATASET_C_ITEMS)
+    weights = METRICS["n_weight_published_total"] + sum(1 for c in DATASET_C_ITEMS if c.get("weight_grams") is not None)
+    sellers = len({r.get("name") for r in RETAILERS} | {i.get("seller") for i in OTHER_ITEMS} | {c.get("seller_name") for c in DATASET_C_ITEMS})
     excl_rows = "".join(
         f"""<tr><td><a href="{e(x['url'])}" target="_blank" rel="noopener">{e(x['product'])}</a></td>
         <td>{e(x['reason'])}</td><td class="small">{e(x.get('verified_facts') or 'Nothing further could be confirmed on a live page.')}</td>
@@ -557,10 +603,10 @@ def build_combined() -> str:
 </div>
 
 <div class="grid cols-4" style="margin-bottom:18px">
-  <div class="kpi"><div class="label">Listings on site</div><div class="value">{len(PRODUCTS) + len(OTHER_ITEMS)}</div><div class="sub">A: {len(PRODUCTS)} &middot; B: {len(OTHER_ITEMS)}</div></div>
-  <div class="kpi"><div class="label">Priced listings</div><div class="value">{live_a + live_b}</div><div class="sub">{len(OTHER_EXCLUDED)} more excluded and documented</div></div>
-  <div class="kpi"><div class="label">Sellers covered</div><div class="value">{sellers}</div><div class="sub">across both passes</div></div>
-  <div class="kpi"><div class="label">Weights published</div><div class="value">{weights}</div><div class="sub">of {len(PRODUCTS) + len(OTHER_ITEMS)} listings - see F2</div></div>
+  <div class="kpi"><div class="label">Listings on site</div><div class="value">{len(PRODUCTS) + len(OTHER_ITEMS) + live_c}</div><div class="sub">A: {len(PRODUCTS)} &middot; B: {len(OTHER_ITEMS)} &middot; C: {live_c}</div></div>
+  <div class="kpi"><div class="label">Priced listings</div><div class="value">{live_a + live_b + live_c}</div><div class="sub">{len(OTHER_EXCLUDED)} more excluded and documented</div></div>
+  <div class="kpi"><div class="label">Sellers covered</div><div class="value">{sellers}</div><div class="sub">across all 3 passes (incl. Menē &amp; Brilliant Earth)</div></div>
+  <div class="kpi"><div class="label">Weights published</div><div class="value">{weights}</div><div class="sub">incl. 7 pure stone-free 24K &amp; 14K bands in Pass C</div></div>
 </div>
 
 <div class="warn-box" style="margin-bottom:16px">
@@ -602,7 +648,7 @@ def build_combined() -> str:
 <div class="card">
   <p class="small">The parallel session's own pages are kept in the repository and remain reachable, unchanged:</p>
   <ul class="small">
-    <li><a href="sellers.html">Seller register</a> &mdash; 7 sellers with contact and return evidence</li>
+    <li><a href="sellers.html">Seller register</a> &mdash; {len(SELLERS)} sellers with contact and return evidence</li>
     <li><a href="standards.html">Standards &amp; law reference</a> &mdash; its 16 CFR / 15 U.S.C. reading</li>
     <li><a href="methodology.html">Methodology</a> &mdash; the parallel pass&rsquo;s verification protocol</li>
     <li><a href="analysis.html">Analysis</a> &mdash; its findings and price-per-gram work</li>
@@ -626,23 +672,29 @@ def build_combined() -> str:
 </div>
 """
     return page("combined.html", "Combined dataset", body,
-                "Both research passes side by side: 28 listings across 9 sellers, each with its own source link and provenance.")
+                f"Both research passes side by side: {METRICS['n_combined']} listings across "
+                f"{METRICS['n_sellers_total']} sellers, each with its own source link and provenance.")
 
 
 def build_rings() -> str:
     body = f"""
 {policy_box()}
 <div class="page-head">
-  <h1>All verified listings</h1>
+  <h1>Dataset A: all verified listings</h1>
   <p class="lead">{len(PRODUCTS)} listings across {METRICS['n_retailers']} retailers. Filter by karat, stone or budget, or search for a flag.
   Each row links to the exact page the price was read from.</p>
 </div>
+<div class="note-box" style="margin-bottom:16px"><strong>Scope of this page.</strong>
+  This table renders dataset A only ({len(PRODUCTS)} listings). The parallel pass contributed {METRICS['n_other_items']} more,
+  so the site carries <a href="combined.html">{METRICS['n_combined']} listings in total</a> &mdash; use the combined list if you
+  want every price in one table. Nothing is hidden here; it is a separate research pass with its own evidence rules.</div>
 <div class="note-box" style="margin-bottom:16px"><strong>How to read the Price column.</strong>
 <em>listed</em> = the price of the configuration shown. <em>from</em> = the cheapest variant (usually 14K, smallest size); 18K costs more.
 <em>setting only</em> = the centre diamond is sold separately, so it is not comparable with a complete ring.</div>
 {listings_table(PRODUCTS)}
 """
-    return page("rings.html", "All verified listings", body, "Every verified solid gold ring listing with price, purity, weight status and source links.")
+    return page("rings.html", "Dataset A: all verified listings", body,
+                f"The {len(PRODUCTS)} solid gold ring listings verified in dataset A, with price, purity, weight status and source links. Full combined list on combined.html.")
 
 
 def build_category(slug: str, cat: str, title: str, intro: str, extra: str = "") -> str:
@@ -1519,7 +1571,7 @@ def build_checklist() -> str:
          "No retailer here publishes a hallmark policy, so every row is unverified on this point until you see the ring."),
         ("Weight", "Get the ring's weight in grams from the seller.",
          "Without weight, the gold content cannot be computed - only implied by the price.",
-         "0 of 17 gold listings publish a weight. Aurate's 'weight' field is a shipping weight and was deliberately not used."),
+         f"0 of {METRICS['n_solid_gold']} gold listings publish a weight. Aurate's product feed carries an undocumented numeric 'weight' field that repeats across variants; it is never described as the finished item weight, so it was deliberately not used."),
         ("Seller reputation", "Read independent reviews and complaints; confirm a real phone number or address.",
          "Trustpilot scores are shown with review counts and whether reviews are invited, because sample size changes meaning.",
          "Retailer cards quote the actual complaint themes, not just the stars."),

@@ -26,20 +26,26 @@ jobs:
       - name: Verify the datasets (source domains, quotes, arithmetic)
         run: python3 scripts/verify.py
 
-      # 2. build the site from the data; fails on broken internal links
+      # 2. build Dataset C subpages + unified static site; fails on broken internal links
       - name: Build the static site
-        run: python3 scripts/build_site.py
+        run: |
+          python3 scripts/build_ext_pages.py
+          python3 scripts/build_site.py
 
       # 3. the independent audit: provenance, weighted rows, stray numbers,
       #    and the requirement that every row appears in the verification log
       - name: Audit the dataset and the built pages
         run: python3 scripts/audit.py
 
-      # 4. assert the built HTML actually contains the audited values
+      # 4. Dataset C melt arithmetic, allowlist, HTML link/anchor & XSS audit
+      - name: Run Dataset C & repo-wide security/hallucination audit
+        run: python3 scripts/run_security_audit.py --pass-label "GitHub Actions CI Audit"
+
+      # 5. assert the built HTML actually contains the audited values
       - name: Render test against the built pages
         run: node scripts/render-test.js
 
-      # 5. regenerate the human-readable verification report
+      # 6. regenerate the human-readable verification report
       - name: Rebuild the verification report
         run: python3 scripts/report_verify.py
 
@@ -62,6 +68,12 @@ jobs:
             if (missing > 0) process.exit(1);
           '
 
+      # 8. run session-cbea1001 standalone observatory anti-hallucination & link security suite
+      - name: Run session-cbea1001 anti-hallucination & link security suite
+        run: npm --prefix archive/session-cbea1001 test
+
+      - name: Keep the reports
+
       # 7. run session-cbea1001 standalone observatory anti-hallucination & link security suite
       - name: Run session-cbea1001 anti-hallucination & link security suite
         run: npm --prefix archive/session-cbea1001 test
@@ -74,3 +86,4 @@ jobs:
           path: |
             reports/audit-report.md
             reports/verification-report.md
+            VERIFICATION_REPORT.md

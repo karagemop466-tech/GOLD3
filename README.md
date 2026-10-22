@@ -9,7 +9,7 @@ It publishes as a static site on GitHub Pages and is generated entirely from mac
 > **blank** and marked **unverified** — it is never estimated, inferred, or filled in to make a row
 > look complete. **Recommendation:** actively look for hallucinations on every review pass by clicking the official source link on every row, re-checking live prices/weights before buying, and running all automated security checks below.
 
-**Captured:** 22 October 2026 · **50 listings across both passes** (19 + 31) · **16 sellers** · **13 published weights** · **Live Site:** https://karagemop466-tech.github.io/GOLD3/ (plus standalone XRF & Stone-Carat Deduction Observatory at https://karagemop466-tech.github.io/GOLD3/archive/session-cbea1001/)
+**Captured:** 22 October 2026 · **41 listings across both passes** (19 + 22) · **12 sellers** · **7 published weights**
 
 ---
 
@@ -79,7 +79,7 @@ surviving datasets are published rather than one being discarded:
 `scripts/verify.py` gates **both**. For Dataset B it checks official-domain sources, a per-listing source list, that the
 numeric price appears inside `price_as_shown`, that any weight carries a weight quote, that a `PASS` solid-gold verdict
 carries a quote, and that each excluded look-alike states a reason and an official URL. Combined metrics land in
-`data/verification-report.json` (50 listings, 16 sellers, 13 published weights).
+`data/verification-report.json` (41 listings, 12 sellers, 7 published weights).
 
 `combined.html` shows both sets with an A/B badge so nothing is misattributed. Dataset B's own pages
 (`sellers.html`, `standards.html`, `methodology.html`, `analysis.html`, `verify.html`) are generated from the same
