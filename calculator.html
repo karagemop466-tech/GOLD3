@@ -93,7 +93,7 @@ A premium far above melt is normal for retail jewellery; a price <em>below</em> 
     function f(x,d){return (isFinite(x)?x:0).toLocaleString(undefined,{minimumFractionDigits:d,maximumFractionDigits:d})}
     $('r-fine').textContent = fine? f(fine,3)+' g' : '—';
     $('r-melt').textContent = melt? '$'+f(melt,2) : '—';
-    $('r-perg').textContent = g? '$'+f(perg*g/g,2)+' of gold per gram of ring ('+(k/24*100).toFixed(2)+'% fine)' : '—';
+    $('r-perg').textContent = g? '$'+f(perg*(k/24),2)+' of gold per gram of ring ('+(k/24*100).toFixed(2)+'% fine)' : '—';
     if(paid && melt){
       var x=paid/melt, share=melt/paid*100;
       $('r-x').textContent='×'+f(x,2)+'  ('+(x>=1?'+':'')+f((x-1)*100,0)+'% vs melt)';
