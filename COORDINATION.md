@@ -247,6 +247,11 @@ cannot disagree with the data.
 **Also repaired:** a dangling fragment in §1 (`duplicate work). If another session joins...`) left by an earlier
 merge on `main`, and §6/§7 were out of order.
 
+**Landed.** Pushed as `db713ba`, opened as **PR #17** (https://github.com/karagemop466-tech/GOLD3/pull/17), CI gate
+green in 13 s, **merged** into `main` as `4bac841`, Pages rebuilt in 52 s at that exact commit. Nothing was held
+back for approval and nothing in the flagged tables blocked the merge — they are published on `flagged.html` and
+`verify.html` with their dates.
+
 **Gate results after this merge** (run in this order, all green): `verify.py` PASS · `build_site.py` 18 pages,
 links OK · `audit.py` rows=22 errors=0 warnings=0 passed=124 · `render-test.js` 110/110 · `report_verify.py`
 28 checks written.
@@ -263,8 +268,12 @@ links OK · `audit.py` rows=22 errors=0 warnings=0 passed=124 · `render-test.js
 | Follow-up PR #12 | Release record + combined-page count fix; merged as `620622d`; Pages rebuilt in 21.9 s. | 2026-10-22T23:28Z |
 | Defect fix PR #14 | Karat melt-table unit error + build-time arithmetic guard; merged as `c427d23`; Pages rebuilt in 18.1 s; live table verified as `14K 58.33% / $75.52 per gram`. | 2026-10-23T00:44Z |
 | Final text PR #15 | Removed the unverified "shipping weight" wording, explained the 24K 999.9-fine rounding, closed the release record. | 2026-10-23T00:52Z |
+| **Regression (fixed)** | A later merge of concurrent sessions brought back an **older `build_site.py`**: the melt table again multiplied USD/gram by spot/gram, the KPI labels and two text fixes were lost, and the F2 prose still enumerated four weighed sellers while the dataset had grown to seven. The deployed HTML was still correct, but the next build would have failed the arithmetic guard (or shipped wrong numbers if the guard had been lost too). | 2026-10-23T01:05Z |
+| Repair | Correct melt formula restored; KPI labels, 24K footnote and checklist wording re-applied; F2 rewritten so it describes the categories of qualified weight without hard-coding seller names or counts. Build + `verify.py` green. | 2026-10-23T01:10Z |
 | Build failure (resolved) | Pages build for `3e459d2` (PR #13, another session's merge) returned **Page build failed**; the very next build, for `c6f910a` (this branch's merge), succeeded in 39.8 s. No files were lost between the two commits (verified by tree comparison); the failure was transient to that commit and is superseded. | 2026-10-22T23:31Z |
 | Live verification | `combined.html` served with 38 rows / 10 sellers / 4 weights; `index.html` verified at origin (`origin/main` carries this branch's page). GitHub's CDN may serve the previous page for up to ~10 min after a build. | 2026-10-22T23:30Z |
+| **Verification pass PR #17** | https://github.com/karagemop466-tech/GOLD3/pull/17 — 28 sources re-opened (15 confirmed / 8 corrected / 5 flagged), 3 weight-bearing listings added, 3 site defects fixed, 5-step CI gate green (13 s) | 2026-10-22T23:35Z |
+| Merge of PR #17 | **merged** into `main` as `4bac841`; Pages rebuilt in 52 s at exactly that commit (`status: built`, HTTPS enforced) | 2026-10-22T23:36Z |
 | **Post-deploy defect** | Reading the live page caught a **unit-mixing bug** in the karat table: `melt` maps karat to USD/gram, but the renderer multiplied it by spot/gram again, so 10K showed `5394.3%` fineness and `$6,983.75/g`. Local text dumps had missed it because no check compared rendered numbers to the formula. | found 2026-10-23T00:36Z |
 | Correction (PR #14) | Renderer fixed (fineness from `FINENESS[k]`, melt from the value itself); **arithmetic guard added** to `build_site.py` so every karat row must equal `spot/gram x fineness` cell-for-cell or the build fails. Corrected values: 10K $53.94, 14K $75.52, 18K $97.10, 22K $118.68, 24K $129.45 per gram. | 2026-10-23T00:40Z |
 
