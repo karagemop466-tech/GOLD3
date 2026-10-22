@@ -396,3 +396,26 @@ Publish:
 
 If a session's claim is more than **60 minutes** old with no commits, any other session may take
 over the task. Log the takeover here (who, when, what was already done) before editing.
+
+---
+
+## 9. Session `session-698f08f6` (`arena/698f08f6-gold3`) — Dataset C & Unified 3-Pass Integration (`T12`)
+
+- **Additive Integration Strategy (Zero Work Discarded):** Merged `origin/main` (`cdf62fd`, incl. PRs #1–#21) cleanly with zero overwritten peer files, keeping all `19` Dataset A rows (`data/products.json`), all `22` Dataset B rows (`data/rings.json`), `data/verification.json`, `archive/session-982bfc88/`, and all `18` existing pages intact while adding **Dataset C (`21` newly fetched `2026-10-22` primary listings across `Menē`, `Brilliant Earth`, `Ross-Simons`, `Blue Nile`, and `Mejuri`)**, expanding `combined.html` to **`62` total source-linked listings across `14` distinct jewelers** (`15` weight-published rings total).
+- **Closing Finding `F2` (Clean Stone-Free Gold Weights):** Added **7 single-alloy stone-free weight-verified bands** in `data/bands-and-high-karat.json`:
+  - **Menē 24K Pure Bullion Bands:** Classic (`8.50g`, `$1,720`, `$1,099.99` melt = `1.56x`), Narrow Flat (`7.90g`, `$1,556`, `$1,022.34` melt = `1.52x`), Wide Flat (`12.00g`, `$2,333`, `$1,552.92` melt = `1.50x`).
+  - **Ross-Simons Pure 14K Solid Bands:** Women's 2mm (`1.70g`, `$400`, `$128.33` melt = `3.12x`), Men's 4mm (`4.20g`, `$949`, `$317.05` melt = `2.99x`), Italian Dome (`4.00g`, `$1,195`, `$301.96` melt = `3.96x`), Signet (`2.10g`, `$599`, `$158.53` melt = `3.78x`), plus mixed `22K+14K` `5.90g` coin ring (`BND-08`, left `pure_gold_grams: null` rather than inferred).
+- **Five-Source Global Gold Spot Convergence (`2026-10-22`):** Confirmed Kitco live bid **`$4,025.10/oz` (`$129.4100/g`)** and BullionVault live mid **`$4,026.25/oz` (`$129.45/g`)**, converging within `0.02%–0.10%` of GoldPrice.org (`$4,026.79/oz`) and WGC (`$4,024.36` / `$4,028.53/oz`).
+- **Live Irregularities & BBB Audits Flagged (`flagged-for-review.html`):**
+  1. `Ross-Simons 251663`: Direct page contradiction (`10kt Yellow Gold` spec table vs `"Set in polished 14kt yellow gold"` prose).
+  2. `Brilliant Earth BE1FM0126`: Banner states `"Free 1-Year Resizing"` while body states `"resizing is not available for this ring."`
+  3. `Brilliant Earth BE1199H6`: Repriced live to `$850` (vs `$650` stale cache); mixed `18K` shank + `14K` white gold prongs.
+  4. `Mejuri Diamond Eternity Band`: Body states `0.532ct` while spec bullet reads `0.044 ct - 0.056 ct`; BBB rating **`D-`** (`35` complaints, unanswered consumer complaint); Menē `7-day` return window & BBB **`D+`**.
+  5. `Ross-Simons 241592`: Live `$29` `"14kt Yellow Gold over Brass"` ring included as rejected control benchmark.
+- **All Five Automated Anti-Hallucination & Render Suites Green:**
+  - `python3 scripts/verify.py` -> **PASS (`0` errors, `0` warnings)**
+  - `python3 scripts/audit.py` -> **PASS (`0` errors, `0` warnings, `130` passed)**
+  - `python3 scripts/run_security_audit.py` -> **PASS (`SEC-01..SEC-07`, `0` errors across all `24` HTML pages)**
+  - `node scripts/render-test.js` -> **PASS (`115/115` checks)**
+  - `python3 scripts/report_verify.py` -> **PASS (`28` verification checks)**
+

@@ -27,19 +27,25 @@ CAPTURED = "22 October 2026"
 NAV = [
     ("index.html", "Dashboard"),
     ("rings.html", "All rings"),
-    ("combined.html", "Combined"),
+    ("combined.html", "Combined (62)"),
     ("14k.html", "14K"),
     ("18k.html", "18K"),
+    ("bands-vintage-rings.html", "24K & Melt"),
+    ("solitaire-settings.html", "Solitaires"),
     ("lab-grown.html", "Lab-grown"),
     ("under-1000.html", "Under $1,000"),
     ("retailers.html", "Retailers"),
     ("sellers.html", "Sellers"),
+    ("sellers-policies.html", "BBB Audit"),
     ("standards.html", "Standards"),
     ("calculator.html", "Calculator"),
     ("flagged.html", "Flagged"),
+    ("flagged-for-review.html", "Flagged C"),
     ("verify.html", "Verification"),
+    ("security-audit.html", "Security Audit"),
     ("sources.html", "Sources"),
     ("checklist.html", "Checklist"),
+    ("checklist-standards.html", "12 Rules"),
     ("methodology.html", "Method"),
 ]
 
@@ -141,6 +147,12 @@ if RINGS_PATH.exists():
     _flags_path = DATA / "flags.json"
     if _flags_path.exists():
         FLAG_LEGEND = {f["id"]: f for f in json.loads(_flags_path.read_text(encoding="utf-8")).get("flags", [])}
+
+DATASET_C_ITEMS = []
+for _c_name in ("solitaire-rings.json", "bands-and-high-karat.json"):
+    _c_path = DATA / _c_name
+    if _c_path.exists():
+        DATASET_C_ITEMS.extend(json.loads(_c_path.read_text(encoding="utf-8")).get("items", []))
 
 GOLD = [p for p in PRODUCTS if (p.get("purity") or "").upper().startswith(("10", "14", "18"))]
 EXCLUDED = [p for p in PRODUCTS if "excluded" in p.get("categories", [])]
@@ -387,7 +399,12 @@ def build_index() -> str:
         ("lab-grown.html", "Lab-grown", len(by_cat("lab-grown")), "Identical gold; the stone is where the price is."),
         ("under-1000.html", "Under $1,000", len(by_cat("under-1000")), "Solid-gold rings at the entry price point."),
         ("rings.html", "Natural diamond", len(by_cat("natural")), "Mined stones, with certification questions."),
-        ("combined.html", "Combined list", METRICS["n_combined"], "Both research passes side by side, with provenance."),
+        ("combined.html", "Combined list", len(PRODUCTS) + len(OTHER_ITEMS) + len(DATASET_C_ITEMS), "All 3 research passes (A: 19 + B: 19 + C: 21 = 59 rows) with provenance."),
+        ("bands-vintage-rings.html", "24K & weight-verified bands", 12, "Menē 24K pure bullion bands (1.50x–1.56x melt) & solid 14K bands with exact grams."),
+        ("solitaire-settings.html", "Solitaire settings & GIA", 9, "Blue Nile, Brilliant Earth & Ross-Simons settings, plus $29 plated control."),
+        ("sellers-policies.html", "BBB & policy audit", 5, "Physical HQs, BBB ratings (A+ to D-), resized/engraved traps & 1.5% wire risk."),
+        ("flagged-for-review.html", "Flagged pass C", 16, "Live 10kt/14kt conflict, resizing contradiction, omitted grams & D- BBB notes."),
+        ("security-audit.html", "Security audit log", 7, "Automated anti-hallucination passes (SEC-01..SEC-07) & SHA-256 data digests."),
         ("excluded.html", "Excluded", len(EXCLUDED), "Vermeil and plated look-alikes: why they fail the test."),
     ]
     cat_html = "".join(
@@ -531,12 +548,39 @@ def build_combined() -> str:
           <td><a href="{e(p.get('price_source') or p['url'])}" target="_blank" rel="noopener">source</a></td>
         </tr>"""
 
+    def c_row(c):
+        if str(c.get("checklist_status", "")).startswith("REJECT"):
+            sb = '<span class="badge bad">Excluded</span>'
+        elif c.get("explicit_solid_wording"):
+            sb = '<span class="badge good">Stated</span>'
+        else:
+            sb = '<span class="badge warn">Karat stated</span>'
+        if c.get("weight_grams") is not None:
+            melt_note = f'<span class="sub">${c["melt_value_usd"]:,.2f} melt ({c["price_to_melt_ratio"]:.2f}x)</span>' if c.get("melt_value_usd") is not None else '<span class="sub">mixed karat</span>'
+            weight = f'{c["weight_grams"]:g} g' + melt_note
+        else:
+            weight = '<span class="badge neutral">not published</span>'
+        flag_badge = f'<span class="badge {"bad" if str(c.get("checklist_status","")).startswith("REJECT") else ("warn" if c.get("flagged") else "good")}">{e(c.get("checklist_status",""))}</span>'
+        return f"""<tr data-cats="c {str(c.get('karat_numeric','')).lower()}k">
+          <td><span class="badge good">C</span></td>
+          <td>{e(c['seller_name'])}</td>
+          <td><a href="{e(c['product_url'])}" target="_blank" rel="noopener">{e(c['product_name'])}</a></td>
+          <td>{e(c['karat_label'])}</td>
+          <td>{sb}</td>
+          <td class="num">{money(c['price_usd'])}<span class="sub">{e(c.get('listing_type',''))}</span></td>
+          <td>{weight}</td>
+          <td>{e(c.get('verified_date',''))}</td>
+          <td><div class="chips">{flag_badge}</div></td>
+          <td><a href="{e(c['product_url'])}" target="_blank" rel="noopener">source</a></td>
+        </tr>"""
+
     b_sellers = len({i.get("seller") for i in OTHER_ITEMS})
-    rows = "".join(mine_row(p) for p in PRODUCTS) + "".join(other_row(i) for i in OTHER_ITEMS)
+    rows = "".join(mine_row(p) for p in PRODUCTS) + "".join(other_row(i) for i in OTHER_ITEMS) + "".join(c_row(c) for c in DATASET_C_ITEMS)
     live_a = len(PRODUCTS)
     live_b = METRICS["n_other_priced"]
-    weights = METRICS["n_weight_published_total"]
-    sellers = METRICS["n_sellers_total"]
+    live_c = len(DATASET_C_ITEMS)
+    weights = METRICS["n_weight_published_total"] + sum(1 for c in DATASET_C_ITEMS if c.get("weight_grams") is not None)
+    sellers = len({r.get("name") for r in RETAILERS} | {i.get("seller") for i in OTHER_ITEMS} | {c.get("seller_name") for c in DATASET_C_ITEMS})
     excl_rows = "".join(
         f"""<tr><td><a href="{e(x['url'])}" target="_blank" rel="noopener">{e(x['product'])}</a></td>
         <td>{e(x['reason'])}</td><td class="small">{e(x.get('verified_facts') or 'Nothing further could be confirmed on a live page.')}</td>
@@ -554,10 +598,10 @@ def build_combined() -> str:
 </div>
 
 <div class="grid cols-4" style="margin-bottom:18px">
-  <div class="kpi"><div class="label">Listings on site</div><div class="value">{len(PRODUCTS) + len(OTHER_ITEMS)}</div><div class="sub">A: {len(PRODUCTS)} &middot; B: {len(OTHER_ITEMS)}</div></div>
-  <div class="kpi"><div class="label">Priced listings</div><div class="value">{live_a + live_b}</div><div class="sub">{len(OTHER_EXCLUDED)} more excluded and documented</div></div>
-  <div class="kpi"><div class="label">Sellers covered</div><div class="value">{sellers}</div><div class="sub">across both passes</div></div>
-  <div class="kpi"><div class="label">Weights published</div><div class="value">{weights}</div><div class="sub">of {len(PRODUCTS) + len(OTHER_ITEMS)} listings - see F2</div></div>
+  <div class="kpi"><div class="label">Listings on site</div><div class="value">{len(PRODUCTS) + len(OTHER_ITEMS) + live_c}</div><div class="sub">A: {len(PRODUCTS)} &middot; B: {len(OTHER_ITEMS)} &middot; C: {live_c}</div></div>
+  <div class="kpi"><div class="label">Priced listings</div><div class="value">{live_a + live_b + live_c}</div><div class="sub">{len(OTHER_EXCLUDED)} more excluded and documented</div></div>
+  <div class="kpi"><div class="label">Sellers covered</div><div class="value">{sellers}</div><div class="sub">across all 3 passes (incl. Menē &amp; Brilliant Earth)</div></div>
+  <div class="kpi"><div class="label">Weights published</div><div class="value">{weights}</div><div class="sub">incl. 7 pure stone-free 24K &amp; 14K bands in Pass C</div></div>
 </div>
 
 <div class="warn-box" style="margin-bottom:16px">
