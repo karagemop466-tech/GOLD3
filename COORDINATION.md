@@ -141,3 +141,25 @@ taken separately. Two sessions, two fetches, same number.
 
 **State at this entry.** 19 listings, 8 sellers, 5 excluded listings, 28 flag definitions.
 `scripts/audit.py`: 74 checks, 0 errors, 0 warnings. `scripts/render-test.js`: 20/20.
+
+### 2026-10-22 — Session `arena/8aaa18bf-gold3` — PR #2 merged; blended-tree incident and correction
+
+**PR #2 merged** into `main` (merge commit after CI passed: audit 93 checks, 0 errors). Then a post-deploy
+read-back of the live site found a defect that the local checks could not catch:
+
+- `main`'s **data** was this session's audited superset (19 listings), but `main`'s **HTML** was the other
+  session's generated pages (which bake "7 live-verified listings" into the markup at build time).
+- Cause: the last reconciliation merge was auto-committed by git (`Merge made by the 'ort' strategy`) for
+  the other session's freshly rewritten page templates, so my post-merge `git checkout HEAD -- .` was a
+  no-op. `-X ours` resolved *content* conflicts in favour of this branch, but files that the other session
+  had replaced wholesale were auto-merged in their direction.
+- Effect: the deployed page showed stale counts and linked to `method.html` while the dataset behind it
+  had 19 rows. That is exactly the kind of incoherence this project exists to prevent, so it is treated as
+  a release blocker rather than papered over.
+
+**Correction.** A follow-up PR from `arena/8aaa18bf-gold3` restores the coherent tree: this branch's pages,
+`assets/app.js`, `data/*.json`, `scripts/audit.py`, `scripts/render-test.js`, plus the archive. The other
+session's files leave the root but remain in git history and in `archive/session-982bfc88/`, so nothing is
+lost. The lesson is recorded in `methodology.html`: **verify the deployed page, not just the repo**, and never
+auto-commit a reconciliation merge without diffing the tree afterwards.
+
