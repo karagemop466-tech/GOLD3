@@ -1,6 +1,6 @@
 # No-hallucination audit
 
-Generated: **2026-10-22 23:20 UTC**  
+Generated: **2026-10-22 23:21 UTC**  
 Dataset: 9 entries (7 live-verified, 0 index-snapshot, 2 dead)
 
 **Result: 11 passed · 2 warnings · 0 failed**
