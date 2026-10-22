@@ -1,0 +1,23 @@
+{
+  "as_of_market_date": "2026-10-21",
+  "retrieved_utc": "2026-10-22",
+  "price_usd_per_troy_ounce": 4024.36,
+  "instrument": "Gold spot price, USD per troy ounce",
+  "source": {
+    "publisher": "World Gold Council — Goldhub",
+    "url": "https://www.gold.org/goldhub/data/gold-prices",
+    "data_provider": "ICE Data Services (stated on page)",
+    "quote": "Gold Spot price / USD / oz — 4,024.36 — Data as of 21 October, 2026"
+  },
+  "troy_ounce_in_grams": 31.1034768,
+  "notes": [
+    "This is the spot price quoted by the World Gold Council, sourced from ICE Data Services. It is NOT the LBMA Gold Price benchmark.",
+    "The LBMA Gold Price benchmark cannot be reproduced here: LBMA's official page states its historical tables moved to the MyLBMA Portal and that a licence from ICE Benchmark Administration (IBA) is required to view/redistribute the data. Verified at https://www.lbma.org.uk/prices-and-data/lbma-precious-metal-prices",
+    "Spot price is a wholesale, unallocated-metal price. A retail ring is priced at spot + fabrication + stones + margin, so melt value is a floor, not a fair retail price.",
+    "Per-gram value is computed in the site at request time (price ÷ 31.1034768) and is never stored as a rounded constant."
+  ],
+  "unverified_or_flagged": [
+    "Spot price moves continuously; the value above is a dated snapshot, not a live quote.",
+    "No premium/discount or dealer buy-back rate is asserted anywhere in this project, because none was verified."
+  ]
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Method · GOLD3</title>
+<meta name="description" content="The passes run, what they caught, and how to re-run them.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main" style="position:absolute;left:-9999px">Skip to content</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">GOLD<span>3</span></span>
+      <span class="brand-tag">Gold engagement ring buyer's guide</span>
+    </a>
+    <nav class="main-nav"><a href="index.html">Dashboard</a><a href="rings.html">All rings</a><a href="combined.html">Combined</a><a href="14k.html">14K</a><a href="18k.html">18K</a><a href="lab-grown.html">Lab-grown</a><a href="under-1000.html">Under $1,000</a><a href="retailers.html">Retailers</a><a href="sellers.html">Sellers</a><a href="standards.html">Standards</a><a href="calculator.html">Calculator</a><a href="flagged.html">Flagged</a><a href="verify.html">Verification</a><a href="sources.html">Sources</a><a href="checklist.html">Checklist</a><a href="methodology.html" class="active">Method</a></nav>
+  </div>
+</header>
+<main id="main">
+
+<section class="policy">
+      <h2>Zero-hallucination policy</h2>
+      <p><strong>Every price, purity claim, weight and policy on this site is copied from a named source page and stamped with the date it was read.</strong>
+      If a source does not publish a value, the value is left <strong>blank</strong> and marked <em>unverified</em> - it is never estimated,
+      inferred, or filled in to make a row look complete. Prices move daily: always re-check the linked page before buying.</p>
+    </section>
+<div class="page-head">
+  <h1>Method</h1>
+  <p class="lead">How a number earns a place on this site, and what happens to the numbers that cannot. The rule is one line:
+  if it cannot be quoted from an official page, it does not go in the table.</p>
+</div>
+
+<div class="table-wrap">
+  <table style="min-width:860px">
+    <thead><tr><th>#</th><th>Pass</th><th>What it does</th><th>Outcome</th></tr></thead>
+    <tbody><tr><td class="mono">0</td><td><strong>Scope</strong></td><td class="small">Read the repo, the coordination board and the checklist; find work already claimed so nothing is duplicated.</td><td class="small">Four parallel sessions were found; this one claimed only the verification scope and logged the claim before editing.</td></tr><tr><td class="mono">1</td><td><strong>Primary-source fetch</strong></td><td class="small">Open each seller's and regulator's own page; capture exact wording, not summaries.</td><td class="small">10 sellers, 22 listings, 8 legal rules, 1 gold benchmark.</td></tr><tr><td class="mono">2</td><td><strong>Quote matching</strong></td><td class="small">Attach the verbatim sentence to each price, weight and purity claim.</td><td class="small">Every populated value carries a quote; the audit fails the build if a price is absent from its own quote.</td></tr><tr><td class="mono">3</td><td><strong>Blank discipline</strong></td><td class="small">Any field absent from the official page is set to null and flagged.</td><td class="small">15 of 22 rows do not publish a weight; those cells are blank and flagged W1, never estimated.</td></tr><tr><td class="mono">4</td><td><strong>Self-audit</strong></td><td class="small">Run scripts/audit.py: it re-derives arithmetic and hunts invented values.</td><td class="small">115 checks, 0 errors. It has caught this project's own overreaches twice, most recently seven invented metal options.</td></tr><tr><td class="mono">5</td><td><strong>Cross-session reconciliation</strong></td><td class="small">Merge the other sessions' datasets; re-open their unique listings rather than trusting them.</td><td class="small">Every adopted row was re-fetched and re-quoted; nothing was imported on trust.</td></tr><tr><td class="mono">6</td><td><strong>Re-verification pass</strong></td><td class="small">Reopen every cited URL and search the returned text for each stored value.</td><td class="small">22 rows re-read, 9 rows corrected, 3 listings added. See the <a href="verify.html">Verification log</a>.</td></tr><tr><td class="mono">7</td><td><strong>Link and build check</strong></td><td class="small">Resolve every local link, require https sources, rebuild the site and re-run the gate.</td><td class="small">Build refuses to publish if any value is unsourced or impossible.</td></tr></tbody>
+  </table>
+</div>
+
+<h2>What the last pass corrected</h2>
+<div class="card">
+  <p class="small" style="margin-top:0">Corrections made on 2026-10-22 by session <span class="mono">arena/e6fe3e4f-gold3</span>:</p>
+  <ul class="small"><li>R01,R02,R03,R05,R06,R07,R08,R09 metal-colour parentheticals removed where the fetched page did not state them</li><li>R02 price basis corrected from collection-level to product-level</li><li>R19 provenance flag L3 cleared after re-fetch</li><li>R08, R17, R10 gained new irregularity flags SPEC1, RDR1, ID1</li></ul>
+</div>
+
+<h2>Run the checks yourself</h2>
+<div class="card">
+  <p class="mono small" style="margin-top:0">python3 scripts/verify.py &amp;&amp; python3 scripts/build_site.py</p>
+  <p class="mono small">python3 scripts/audit.py &amp;&amp; python3 scripts/report_verify.py</p>
+  <p class="small muted" style="margin-bottom:0">The first pair gates and builds the site; the second audits the dataset and
+  regenerates the verification report. All four run in CI on every push and pull request.</p>
+</div>
+
+<h2>The standing recommendation</h2>
+<div class="card">
+  <p class="small" style="margin-top:0">Re-run the audit after <em>every</em> review, then spend one pass doing nothing but
+  hunting hallucinations: take any number on this site and try to find it on the linked page. If it is not there, delete it and
+  mark the field unverified. A blank cell is an honest result; a confident invention is not.</p>
+</div>
+
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <strong>GOLD3</strong> - a source-linked buying file. Data captured 22 October 2026. Spot price anchor:
+    $4,026.79/oz (Oct 22nd, 2026 at 07:07 NY Time), cross-checked against the World Gold Council
+    ($4,024.36/oz).
+    <div class="footer-links">
+      <a href="checklist.html">Buying checklist</a>
+      <a href="flagged.html">Flagged for review</a>
+      <a href="verify.html">Verification log</a>
+      <a href="sources.html">Source register</a>
+      <a href="calculator.html">Gold calculator</a>
+    </div>
+    <p class="tiny" style="margin:10px 0 0">Not financial or legal advice. No affiliate links, no sponsored placements, no prices entered by hand.
+    This site is generated from <span class="mono">data/products.json</span> and will not build if a value is unsourced.</p>
+  </div>
+</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>

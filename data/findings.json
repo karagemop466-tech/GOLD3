@@ -1,0 +1,125 @@
+{
+  "note": "Editorial findings raised during verification. Each one is either (a) a direct contradiction observed on an official page, (b) a derived count from this dataset, or (c) a policy limitation. Every finding carries a source URL. Severity: high = could cost you money; medium = needs an answer before buying; low = informational.",
+  "findings": [
+    {
+      "id": "F1",
+      "severity": "high",
+      "title": "Blue Nile's 18K ring page contradicts itself on the metal",
+      "detail": "The title and specification block of the Floral Marquise ring say '18K White Gold' / 'Metal: 18K White Gold'. The Product Details paragraph on the very same page says the ring is 'artfully crafted from warmly lustrous 14k yellow gold'. Both statements cannot be true. This is the clearest proof in the dataset that a karat claim on a product page is not verification.",
+      "evidence": "Title: 'Floral Marquise Diamond Engagement Ring in 18k White Gold' · Spec: 'Metal 18K White Gold' · Product Details: 'artfully crafted from warmly lustrous 14k yellow gold'",
+      "source": "https://www.bluenile.com/engagement-rings/design-your-own-ring/floral-marquise-diamond-engagement-ring-in-18k-white-gold-item-203738",
+      "product": "bluenile-floral-marquise-18k-wg",
+      "action": "Ask Blue Nile in writing which metal the ring is made from before ordering, and confirm the karat on the invoice."
+    },
+    {
+      "id": "F2",
+      "severity": "high",
+      "title": "Only {n_weight_published_total} of {n_combined} listings publish a weight - none from this pass's five retailers",
+      "detail": "Within this pass, {n_weight_published} of {n_solid_gold} gold listings state the finished ring weight in grams. Across the combined dataset ({n_combined} listings, {n_sellers_total} sellers) the figure rises to {n_weight_published_total}, and even those are not directly usable: two are Ross-Simons bands whose figures the seller labels approximate, and two are Wilson's Estate Jewelry rings whose own weight quote says the number is the total item weight including the diamond. So no listing in the combined dataset publishes a clean gold-only weight. Aurate's product feed does carry an undocumented numeric 'weight' field, but it repeats across variants and is never described as the finished item weight, so it was deliberately not used.",
+      "evidence": "This pass: {n_weight_published} of {n_solid_gold} listings state a weight. Combined: {n_weight_published_total} of {n_combined} - two flagged approximate by the seller, two stated as total weight including the stone.",
+      "source": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring.js",
+      "product": null,
+      "action": "Ask the seller in writing for the gold-only weight in grams before paying, and keep the reply. Never substitute a total item weight (which includes the stone) for a gold weight - the difference can be a large share of the metal."
+    },
+    {
+      "id": "F3",
+      "severity": "high",
+      "title": "None of this pass's five retailers states a hallmark or maker's-mark policy",
+      "detail": "Under 15 U.S.C. 297, a quality mark such as '14K' must be accompanied by the manufacturer's or dealer's trademark or name. None of this pass's five retailers publishes a hallmark policy on the pages checked. A parallel pass did record hallmark observations on {n_other_hallmark} of its {n_other_items} listings, which proves stamps can be documented when a seller photographs or states them - but the policy itself is still not promised in writing anywhere in this dataset.",
+      "evidence": "This pass: 0 of 5 retailer policy pages mention a hallmark or maker's mark. Combined: {n_other_hallmark} of {n_combined} listings state an observed hallmark.",
+      "source": "https://www.law.cornell.edu/uscode/text/15/297",
+      "product": null,
+      "action": "Before paying, ask for a close-up photograph of the inside of the band showing both the karat stamp and the maker's mark, and have the ring XRF-tested or inspected on arrival."
+    },
+    {
+      "id": "F4",
+      "severity": "medium",
+      "title": "{n_solid_gold_null} of {n_solid_gold} listings never use the word 'solid'",
+      "detail": "The checklist requires the listing itself to say solid gold. {n_solid_gold_null} of the {n_solid_gold} solid-gold listings (five Blue Nile settings and two Ring Concierge rings) state a karat but never use the word 'solid'. Seven more rely on a brand-level policy rather than the listing. Mejuri states 'solid gold' in both of its listings, and Catbird carries 'Solid' in the product name.",
+      "evidence": "Listings with solid_gold = null: {n_solid_gold_null}. Listings with solid_gold = true stated only at brand level: {n_solid_gold_brand}. Listings stating solid gold on the listing: {n_solid_gold_listing}.",
+      "source": "https://www.bluenile.com/engagement-rings/design-your-own-ring/petite-solitaire-engagement-ring-in-14k-yellow-gold-item-195639",
+      "product": null,
+      "action": "Get the words 'solid 14k gold' (or 18k) into the order confirmation or an email before paying."
+    },
+    {
+      "id": "F5",
+      "severity": "medium",
+      "title": "Ring Concierge's Trustpilot score is based on 7 reviews and an unclaimed profile",
+      "detail": "The 2.7 score is not statistically meaningful with 7 reviews, and Trustpilot itself notes the company has not invited customers, so the reviews 'may not be representative'. The written complaints are still worth reading: a late delivery pushing an order past the 30-day return window, and a warranty claim refused as wear and tear.",
+      "evidence": "'7 reviews · TrustScore 2.7 · Unclaimed profile' and 'hasn't invited their customers, so reviews may not be representative'",
+      "source": "https://www.trustpilot.com/review/ringconcierge.com",
+      "product": null,
+      "action": "Treat the score as low-confidence. Ask for the return-window start date in writing, and keep delivery records."
+    },
+    {
+      "id": "F6",
+      "severity": "medium",
+      "title": "Ring Concierge advertises a lifetime warranty while its refund policy says 3 years",
+      "detail": "The site banner and product pages say 'LIFETIME WARRANTY' / 'Complimentary Lifetime Warranty', but the Refund policy page states: 'We guarantee our pieces for 3 years from the date of purchase against manufacturer defects.' Which term governs is not stated.",
+      "evidence": "Banner: 'LIFETIME WARRANTY' · Refund policy: 'We guarantee our pieces for 3 years from the date of purchase against manufacturer defects.'",
+      "source": "https://ringconcierge.com/policies/refund-policy",
+      "product": null,
+      "action": "Ask for the written warranty terms before purchase."
+    },
+    {
+      "id": "F7",
+      "severity": "medium",
+      "title": "Blue Nile excludes resized rings from returns and limits free returns to two per year",
+      "detail": "The 30-day money-back guarantee lists 'items resized after initial purchase' as ineligible for return or exchange, and allows only 'two complimentary returns per customer, per year'. Resizing before you inspect the ring can therefore forfeit your return right.",
+      "evidence": "'items resized after initial purchase ... are not eligible for return or exchange' · 'Two complimentary returns are allowed per customer, per year.'",
+      "source": "https://www.bluenile.com/policies/returns",
+      "product": null,
+      "action": "Inspect and have the ring independently tested BEFORE any resizing."
+    },
+    {
+      "id": "F8",
+      "severity": "medium",
+      "title": "Short return windows: Aurate 15 days, Catbird 20 days (plus a $9 fee)",
+      "detail": "Two retailers fall well below a 30-day inspection window. Aurate allows 15 days from fulfilment for domestic orders (21 days international), and Catbird allows 20 days from delivery with a $9 return-shipping charge deducted from the refund. International Catbird sales are final.",
+      "evidence": "Aurate: '15-day return window starting from the day your item gets fulfilled' · Catbird: 'within 20 days of the date your package was delivered ... An $9 charge for return shipping will be deducted'",
+      "source": "https://www.catbirdnyc.com/returns",
+      "product": null,
+      "action": "Book the independent jeweller appointment before the ring arrives, so testing happens inside the window."
+    },
+    {
+      "id": "F9",
+      "severity": "medium",
+      "title": "Ring Concierge rings mix two metals - a single karat claim cannot cover the whole ring",
+      "detail": "The listings describe a yellow-gold band with platinum prongs. A '14k' claim describes the band, not the setting holding the stone, so a purity check of one part does not verify the other.",
+      "evidence": "Product image description: '2 carat Oval Diamond Engagement Ring in Yellow Gold Whisper Thin Hidden Halo band with Platinum Prongs'",
+      "source": "https://ringconcierge.com/products/2-08-oval-lab-diamond-in-whisper-thina-hidden-halo",
+      "product": "ringconcierge-2-08-oval-lab-whisper-thin",
+      "action": "Ask which parts are gold and which are platinum, and get both tested."
+    },
+    {
+      "id": "F10",
+      "severity": "low",
+      "title": "Mejuri's dedicated returns page could not be read, so its policy is quoted from the product page",
+      "detail": "Mejuri's FAQ is rendered client-side; /faq returned no policy text and /faq/returns returned a 404 page. The 30-day return statement used here is the one printed in the 'Shipping, Returns & Warranty' section of the Diamonds Band product page, which is an official Mejuri page.",
+      "evidence": "'We offer free 30-day returns & exchanges starting from the day the shipment is delivered or picked up in-store.'",
+      "source": "https://mejuri.com/products/diamonds-band?Material=Solid+Yellow+Gold+%2814k%29&Stone=Natural+Diamond",
+      "product": "mejuri-diamonds-band",
+      "action": "Ask Mejuri support to confirm the return window for your specific order in writing."
+    },
+    {
+      "id": "F11",
+      "severity": "low",
+      "title": "In this pass, 18K prices exist only for Blue Nile settings",
+      "detail": "Aurate sells 18k versions of the rings in this dataset, but its collection page shows a single 'From' price that reflects the 14k option. No 18k Aurate price was captured, so none is shown. Only two 18K listings in this pass (both Blue Nile settings, centre stone excluded) have a verified price. The parallel dataset contributes further 18K rows (Tiffany, Ross-Simons, Wilson's) on its own evidence.",
+      "evidence": "Aurate collection page shows 'From' prices only; 18k pricing requires selecting the variant, which was not captured.",
+      "source": "https://auratenewyork.com/collections/engagement-rings",
+      "product": null,
+      "action": "Select the 18k variant on the product page to see the real 18k price before comparing."
+    },
+    {
+      "id": "F12",
+      "severity": "low",
+      "title": "Two independent spot-price sources agree to within 0.06%",
+      "detail": "GoldPrice.org showed $4,026.79/oz (22 Oct 2026, 07:07 NY time) and the World Gold Council showed $4,024.36/oz (data as of 21 Oct 2026). The $2.43 gap is consistent with normal movement between the two timestamps, which gives reasonable confidence in the price anchor used for every calculation here.",
+      "evidence": "GoldPrice.org $4,026.79/oz · World Gold Council $4,024.36/oz · difference $2.43 (0.060%)",
+      "source": "https://www.gold.org/goldhub/data/gold-prices",
+      "product": null,
+      "action": "None - this is a control check, not a problem."
+    }
+  ]
+}
