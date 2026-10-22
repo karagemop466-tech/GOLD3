@@ -427,7 +427,7 @@
       "hidden repairs on estate pieces",
       "seller complaint history"
     ],
-    "site_defects_fixed": 3
+    "site_defects_fixed": 5
   },
   "site_defects": [
     {
@@ -453,6 +453,24 @@
       "found_by": "Stray-number audit.",
       "fix": "Reworded to a qualitative description; the page now prints only figures that come from data.",
       "status": "fixed"
+    },
+    {
+      "id": "SD4",
+      "severity": "medium",
+      "page": "rings.html,14k.html,18k.html,14k.html",
+      "what": "The page was titled 'All verified listings' and its description said 'every verified solid gold ring listing', but it renders dataset A only (19 of the 41 listings the site carries). A reader could reasonably think the other 22 do not exist. Why it matters: An over-broad claim about completeness is a correctness problem even when every rendered value is sourced.",
+      "fix": "Retitled 'Dataset A: all verified listings' and added a scope box stating the count it renders and linking the combined list of 41. Guard: render-test.js asserts the scope box and both counts are present on rings.html.",
+      "status": "fixed",
+      "found_by": "This session's own defect hunt: after every data change the site is re-read looking for claims it cannot support — here, a title promising more than the page renders, and two counts typed by hand."
+    },
+    {
+      "id": "SD5",
+      "severity": "low",
+      "page": "index.html,combined.html",
+      "what": "Two counts were typed into the generator as prose and never recomputed: a link list said '7 sellers' and the combined page's description said '28 listings across 9 sellers'. The site actually carries 41 listings across 12 sellers. Why it matters: Hand-typed counts are the same class of error as a hand-typed price: they drift silently as data is added and no source is ever checked.",
+      "fix": "Both strings now interpolate the computed METRICS values; they cannot drift again. Guard: A grep for a digit followed by ' listings'/' sellers' in scripts/build_site.py must return no literal counts outside f-strings (checked in this pass by hand; audit.py re-derives the totals from data).",
+      "status": "fixed",
+      "found_by": "This session's own defect hunt: after every data change the site is re-read looking for claims it cannot support — here, a title promising more than the page renders, and two counts typed by hand."
     }
   ]
 }

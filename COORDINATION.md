@@ -239,7 +239,7 @@ session's edits.
 
 **Two stale counts corrected.** `main`'s log describes the site as 38 listings / 10 sellers / 4 weights, and the
 README repeated "38 listings, 10 sellers, 4 published weights". After this branch's three added listings the true
-figures are **41 listings / 13 sellers / 7 published weights**; the README line was corrected, and `main`'s
+figures are **41 listings / 12 sellers / 7 published weights**; the README line was corrected, and `main`'s
 narrative entries were left as written because they were accurate on the day they were made. The site prints the
 figure it is built from (`index.html`, `combined.html`, `flagged.html`, `verify.html` all say 41), so the pages
 cannot disagree with the data.
