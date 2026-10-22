@@ -156,6 +156,8 @@ why F2/F3 were rewritten rather than left claiming nothing exists.
 | Merge | **merged** — squash-free merge commit `8d384f3` | 2026-10-22T23:27:04Z |
 | GitHub Pages deploy | **built**, source `main` `/`, HTTPS enforced. Public URL https://karagemop466-tech.github.io/GOLD3/ | 2026-10-22T23:27:05Z (19 s) |
 | Live verification | `combined.html` served with 38 rows / 10 sellers / 4 weights; `index.html` verified at origin (`origin/main` carries this branch's page). GitHub's CDN may serve the previous page for up to ~10 min after a build. | 2026-10-22T23:30Z |
+| **Post-deploy defect** | Reading the live page caught a **unit-mixing bug** in the karat table: `melt` maps karat to USD/gram, but the renderer multiplied it by spot/gram again, so 10K showed `5394.3%` fineness and `$6,983.75/g`. Local text dumps had missed it because no check compared rendered numbers to the formula. | found 2026-10-23T00:36Z |
+| Correction | Renderer fixed (fineness from `FINENESS[k]`, melt from the value itself); **arithmetic guard added** to `build_site.py` so every karat row must equal `spot/gram x fineness` cell-for-cell or the build fails. Corrected values: 10K $53.94, 14K $75.52, 18K $97.10, 22K $118.68, 24K $129.45 per gram. | 2026-10-23T00:40Z |
 
 ## 6. Handoff rule
 
