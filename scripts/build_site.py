@@ -517,6 +517,7 @@ def build_combined() -> str:
           <td><a href="{e(p.get('price_source') or p['url'])}" target="_blank" rel="noopener">source</a></td>
         </tr>"""
 
+    b_sellers = len({i.get("seller") for i in OTHER_ITEMS})
     rows = "".join(mine_row(p) for p in PRODUCTS) + "".join(other_row(i) for i in OTHER_ITEMS)
     live_a = len(PRODUCTS)
     live_b = METRICS["n_other_priced"]
@@ -533,8 +534,9 @@ def build_combined() -> str:
 <div class="page-head">
   <h1>Combined dataset &mdash; both research passes</h1>
   <p class="lead">Two agent sessions researched this repo independently on the same day. Rather than discard either, both datasets are published here,
-  side by side, with their own source links and provenance. <strong>Dataset A</strong> is this session's 19 listings with verbatim price quotes
-  (5 retailers). <strong>Dataset B</strong> is the parallel session's 9 listings (7 sellers), including Costco, James Allen, Ross-Simons and Tiffany &amp; Co.</p>
+  side by side, with their own source links and provenance. <strong>Dataset A</strong> is this session's {len(PRODUCTS)} listings with verbatim price quotes
+  ({len(RETAILERS)} retailers). <strong>Dataset B</strong> is the parallel session's {len(OTHER_ITEMS)} listings plus {len(OTHER_EXCLUDED)} documented
+  look-alikes ({b_sellers} sellers), including Costco, James Allen, Ross-Simons, Tiffany &amp; Co. and Wilson's Estate Jewelry.</p>
 </div>
 
 <div class="grid cols-4" style="margin-bottom:18px">

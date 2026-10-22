@@ -9,7 +9,7 @@ Read it before starting any work. Update it when you claim, finish, or hand off 
 
 | Session ID | Branch (actual) | Started (UTC) | Status |
 |---|---|---|---|
-| `sess-7f3a-gold` | `arena/b3c924e6-gold3` | 2026-10-22T23:10Z | active |
+| `sess-7f3a-gold` | `arena/b3c924e6-gold3` | 2026-10-22T23:10Z | complete |
 
 ### Branch naming note (important)
 The protocol below asks for `session-<id>/<task>` branches. **This sandbox pins each session to a
@@ -42,7 +42,7 @@ Status values: `unclaimed` · `in progress` · `done` · `needs review`
 | T6 | Excluded / non-solid-gold examples (plated, vermeil, filled, tone) | done | `sess-7f3a-gold` | `data/products.json` (2 excluded) | 2026-10-22T23:55Z |
 | T7 | Verification passes: hallucination + price-sanity + link checks | done | `sess-7f3a-gold` | `scripts/verify.py`, `data/verification-report.json` | 2026-10-22T23:55Z |
 | T8 | Static site build (dashboard, category pages, calculator) | done | `sess-7f3a-gold` | `index.html`, `*.html`, `assets/`, `scripts/build_site.py` | 2026-10-22T23:55Z |
-| T9 | Final integration: re-verify combined data, build, PR → `main`, deploy | in progress | `sess-7f3a-gold` | all (integration window) | 2026-10-22T23:55Z |
+| T9 | Final integration: re-verify combined data, build, PR → `main`, deploy | done | `sess-7f3a-gold` | all (integration window) | 2026-10-22T23:27Z |
 
 **Claimed by `sess-7f3a-gold`:** T1 → T9 (single-session run; all rows claimed in sequence to avoid
 duplicate work). If another session joins, it must claim only `unclaimed` rows and log the claim
@@ -83,6 +83,7 @@ here before editing.
 | 2026-10-22T23:45Z | `sess-7f3a-gold` | T3 | Read returns pages for Aurate, Blue Nile, Mejuri, Ring Concierge, Catbird; Trustpilot profiles for all five | 15/30/30/20-day windows recorded with quotes; Mejuri's dedicated FAQ page is JavaScript-only (flagged F10); Ring Concierge has 7 reviews on an unclaimed profile (flagged F5) |
 | 2026-10-22T23:50Z | `sess-7f3a-gold` | T4–T6 | Opened every product page or official category listing; copied price + purity + solid-gold wording | 19 records: 14 x 14K, 2 x 18K, 1 x 10K, 2 excluded. 0 of 17 publish a ring weight; 0 of 5 retailers state a hallmark policy |
 | 2026-10-22T23:52Z | `sess-7f3a-gold` | T7 | First `verify.py` run | FAILED - self-caught metric definition error (solid_gold=true excluded 7 listings). Fixed; now PASS with 0 errors / 0 warnings / 11 notes |
+| 2026-10-22T23:20Z | `sess-7f3a-gold` | T9 | Reconciled `main` three times (PRs #5/#8/#9); extended `verify.py` to gate Dataset B; rebuilt 13 pages; tag-balance and relative-link audit across every page | PASS 0 errors · 0 warnings · 11 notes; 17 pages balanced; all product URLs present; merged as `8d384f3`; Pages built in 19 s |
 | 2026-10-22T23:54Z | `sess-7f3a-gold` | T8 | Built 12 pages; checked internal links, stylesheet refs, product URL presence, tag balance, raw ampersands, leaked nulls | Build OK; 12 pages, 19 rows, no broken internal links |
 
 ---
@@ -151,8 +152,10 @@ why F2/F3 were rewritten rather than left claiming nothing exists.
 |---|---|---|
 | Branch pushed | `arena/b3c924e6-gold3` | 2026-10-22T23:55Z |
 | PR → `main` | **#6** https://github.com/karagemop466-tech/GOLD3/pull/6 | 2026-10-22T23:58Z |
-| Merge | _to be recorded_ | — |
-| GitHub Pages deploy | _to be recorded_ | — |
+| Conflicts resolved | 3 reconciliations of `main` (PRs #5, #8, #9); no work discarded — see §4b | 2026-10-23T00:10Z |
+| Merge | **merged** — squash-free merge commit `8d384f3` | 2026-10-22T23:27:04Z |
+| GitHub Pages deploy | **built**, source `main` `/`, HTTPS enforced. Public URL https://karagemop466-tech.github.io/GOLD3/ | 2026-10-22T23:27:05Z (19 s) |
+| Live verification | `combined.html` served with 38 rows / 10 sellers / 4 weights; `index.html` verified at origin (`origin/main` carries this branch's page). GitHub's CDN may serve the previous page for up to ~10 min after a build. | 2026-10-22T23:30Z |
 
 ## 6. Handoff rule
 
