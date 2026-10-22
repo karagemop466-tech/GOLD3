@@ -23,8 +23,8 @@
 | **C2** | Official gold spot benchmark price & US federal purity/hallmark/XRF standards verification | `done` | `arena/cbea1001-gold3` | `data/gold-benchmark.json`, `data/purity-standards.json` |
 | **C3** | Official gold engagement ring product listings collection & line-by-line verification | `done` | `arena/cbea1001-gold3` | `data/rings.json` |
 | **C4** | Seller reputation, contact info, return policies (custom/resized exclusions), payment protection & XRF inspection verification | `done` | `arena/cbea1001-gold3` | `data/sellers.json` |
-| **C5** | Anti-hallucination security scanner, raw gold / melt math verifier, blank-cell enforcement & link checker | `in progress` | `arena/cbea1001-gold3` | `package.json`, `scripts/security-check.mjs`, `scripts/verify-links.mjs`, `data/flagged-items.json`, `data/audit-report.json` |
-| **C6** | GitHub Pages dashboard landing page, category subpages, interactive gold weight/melt calculator & Flagged for Review page | `unclaimed` | — | `.nojekyll`, `index.html`, `rings.html`, `calculator.html`, `sellers.html`, `checklist.html`, `analysis.html`, `security-audit.html`, `flagged.html`, `assets/styles.css`, `assets/app.js` |
+| **C5** | Anti-hallucination security scanner, raw gold / melt math verifier, blank-cell enforcement & link checker | `done` | `arena/cbea1001-gold3` | `package.json`, `scripts/security-check.mjs`, `scripts/verify-links.mjs`, `data/flagged-items.json`, `data/audit-report.json` |
+| **C6** | GitHub Pages dashboard landing page, category subpages, interactive gold weight/melt calculator & Flagged for Review page | `in progress` | `arena/cbea1001-gold3` | `.nojekyll`, `index.html`, `rings.html`, `calculator.html`, `sellers.html`, `checklist.html`, `analysis.html`, `security-audit.html`, `flagged.html`, `assets/styles.css`, `assets/app.js` |
 | **C7** | Final integration session: merge/sync check against `origin/main`, full line-by-line re-verification pass, CI workflow, PR creation & merge, live GitHub Pages deployment check | `unclaimed` | — | `.github/workflows/verify.yml`, `README.md`, `COORDINATION.md` |
 
 ---
@@ -84,5 +84,11 @@
   - `SELLER-BLUENILE`: Official return clock starts on **shipment date** (not delivery date), and resizing after initial purchase voids return eligibility (`bluenile.com/policies/returns`).
   - `SELLER-AUTOMIC`: BBB main profile shows `A+` while BBB `/overview-of-bbb-ratings` subpage displays `NR`.
 - **Claimed Task C5 (`in progress`):** Scope `package.json`, `scripts/security-check.mjs`, `scripts/verify-links.mjs`, `data/flagged-items.json`, `data/audit-report.json`.
+
+### 2026-10-22 — Session `arena/cbea1001-gold3` — Completed Task C5 & Claimed Task C6
+- **Task C5 Completed (`done`):** Built zero-dependency Node.js anti-hallucination security scanner (`scripts/security-check.mjs`), link/anchor/asset verifier (`scripts/verify-links.mjs`), `package.json` scripts, generated `data/flagged-items.json` (`33` flagged/needs-review items with official URLs), and produced `data/audit-report.json`.
+- **Automated Security & Hallucination Pass #1 Result:** `PASS (7/7 checks)` across `89` JSON records and `114` official HTTPS links (`SEC-01` through `SEC-07`), confirming 100% blank-cell (`null`) enforcement on unconfirmed fields, exact NIST `31.1034768 g/oz t` raw-gold melt math, vermeil/9K trap disqualification, and live HTTP 200 status on GitHub source URLs.
+- **Claimed Task C6 (`in progress`):** Scope `.nojekyll`, `index.html`, `rings.html`, `calculator.html`, `sellers.html`, `checklist.html`, `analysis.html`, `security-audit.html`, `flagged.html`, `assets/styles.css`, `assets/app.js`.
+
 
 
