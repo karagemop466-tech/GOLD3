@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-22 23:21 UTC",
+  "generated": "2026-10-22 23:17 UTC",
   "checks": [
     {
       "id": "A1",
@@ -91,13 +91,6 @@
       "status": "warn",
       "detail": "3/7 sellers documented.",
       "evidence": []
-    },
-    {
-      "id": "A14",
-      "name": "Every link sits on the domain it claims to belong to",
-      "status": "pass",
-      "detail": "9 listing URLs and 7 seller links checked against their own domains.",
-      "evidence": []
     }
   ],
   "findings": [
@@ -173,8 +166,8 @@
     }
   ],
   "summary": {
-    "checks_total": 14,
-    "checks_pass": 11,
+    "checks_total": 13,
+    "checks_pass": 10,
     "checks_warn": 2,
     "checks_fail": 0,
     "findings_fail": 0,

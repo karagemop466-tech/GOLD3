@@ -1,8 +1,8 @@
 {
   "broken": 0,
   "bad_anchors": 0,
-  "internal_total": 97,
-  "anchors": 12,
+  "internal_total": 95,
+  "anchors": 10,
   "pages": [
     "index.html",
     "rings.html",

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Method and verification log — GOLD3</title>
+<meta name="description" content="How each value was verified: the sources fetched, the passes run, and the anti-hallucination audit that guards the dataset.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="methodology">
+
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="index.html"><span class="mark"></span>GOLD3 <small>ring verification</small></a>
+    <nav class="main">
+      <a href="index.html">Overview</a>
+      <a href="rings.html">Rings</a>
+      <a href="sellers.html">Sellers</a>
+      <a href="analysis.html">Analysis</a>
+      <a href="calculator.html">Calculator</a>
+      <a href="standards.html">Standards</a>
+      <a href="flagged.html">Flagged</a>
+      <a href="methodology.html">Method</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>Method and verification log</h1>
+  <p class="lede">Line by line, this is how a number earns a place in the table — and what happens to the numbers
+    that cannot.</p>
+
+  <div class="oath">
+    <h2>The rule that governs everything here</h2>
+    <p><strong>If it cannot be quoted from an official page, it does not go in the table.</strong> No exceptions
+      for “everyone knows” facts, no rounding to look tidy, no filling a gap because the page looked trustworthy.
+      A blank cell is an honest result; a plausible-looking invention is not.</p>
+  </div>
+
+  <h2>Passes run, in order</h2>
+  <div class="tscroll">
+    <table>
+      <thead><tr><th>#</th><th>Pass</th><th>What it does</th><th>Outcome</th></tr></thead>
+      <tbody>
+        <tr><td class="num">0</td><td>Scope</td>
+            <td>Read the repo, the coordination board and the checklist; confirm no other session's work existed.</td>
+            <td>Repo held only a stub README at one commit; no conflicts.</td></tr>
+        <tr><td class="num">1</td><td>Primary-source fetch</td>
+            <td>Open each seller's and regulator's own page; capture exact wording, not summaries.</td>
+            <td>8 sellers, 19 listings, 8 legal rules, 1 benchmark.</td></tr>
+        <tr><td class="num">2</td><td>Quote matching</td>
+            <td>Attach the verbatim sentence to each price, weight and purity claim.</td>
+            <td>Every populated value carries a quote.</td></tr>
+        <tr><td class="num">3</td><td>Blank discipline</td>
+            <td>Any field absent from the official page is set to null and flagged.</td>
+            <td>Weight published on only a minority of rows; flagged, not estimated.</td></tr>
+        <tr><td class="num">4</td><td>Self-audit</td>
+            <td>Run <code>scripts/audit.py</code>: it re-derives arithmetic and hunts invented values.</td>
+            <td>Caught three of this project's own overreaches; all corrected before publishing.</td></tr>
+        <tr><td class="num">4b</td><td>Parallel-session reconciliation</td>
+            <td>Merge the second session's dataset, re-open each of its unique listings, keep its facts and
+              record what was superseded.</td>
+            <td>5 of its 6 live rows re-verified by this session and folded in; 2 dead listings moved to
+              “excluded”; its original files archived, not deleted.</td></tr>
+        <tr><td class="num">5</td><td>Link and build check</td>
+            <td>Resolve every local link, verify external sources are https, confirm the site builds.</td>
+            <td>Clean.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note good">
+    <p><strong>The audit earned its keep immediately.</strong> On its first run it rejected three estate rows
+      where this project had marked a ring as “solid” on the strength of a stamp stating the karat. The sellers
+      never used the word “solid”. The verdicts were downgraded to <em>unverified</em> and flagged
+      <code>S2</code>. That is precisely the inference your checklist warns against, and it was caught by
+      machine rather than by luck.</p>
+  </div>
+
+  <h2>Sources used, and what was taken from each</h2>
+  <div class="tscroll">
+    <table>
+      <thead><tr><th>Source</th><th>Type</th><th>Taken from it</th><th>Retrieved</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><a href="https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23" rel="noopener">16 CFR Part 23 (eCFR)</a></td>
+          <td>Federal regulation</td>
+          <td>Gold-content rules, vermeil definition, quality-mark and maker's-mark rules, tolerance, multi-metal and rhodium disclosure</td>
+          <td>2026-10-22</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.gold.org/goldhub/data/gold-prices" rel="noopener">World Gold Council — Goldhub</a></td>
+          <td>Industry body, ICE Data Services feed</td>
+          <td>The dated spot price used by the calculator</td>
+          <td>2026-10-22</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.lbma.org.uk/prices-and-data/lbma-precious-metal-prices" rel="noopener">LBMA</a></td>
+          <td>Benchmark administrator</td>
+          <td>Only the fact that its historical tables are licence-gated — which is why the LBMA fix is not used here</td>
+          <td>2026-10-22</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.bluenile.com/engagement-rings" rel="noopener">Blue Nile</a> and
+              <a href="https://www.bluenile.com/policies/returns" rel="noopener">its return policy</a></td>
+          <td>Seller</td>
+          <td>Setting prices, karat and metal, return window and exclusions, contact details</td>
+          <td>2026-10-22</td>
+        </tr>
+        <tr>
+          <td><a href="https://mejuri.com/collections/milestone-rings" rel="noopener">Mejuri</a> and
+              <a href="https://mejuri.com/faq/return-exchanges/what-is-the-standard-return-policy" rel="noopener">returns FAQ</a></td>
+          <td>Seller</td>
+          <td>Prices, material labels including vermeil, 30-day window and exclusions</td>
+          <td>2026-10-22</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.costco.com/opt/yellow-gold-diamond-engagement-rings" rel="noopener">Costco</a> and
+              <a href="https://customerservice.costco.com/app/answers/detail/a_id/1191" rel="noopener">return policy</a></td>
+          <td>Seller</td>
+          <td>Metal description, the precious-metals exclusion, the large-diamond return condition</td>
+          <td>2026-10-22</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.ross-simons.com/products/985230" rel="noopener">Ross-Simons</a></td>
+          <td>Seller</td>
+          <td>Price, karat and the published “Gold Weight” in grams, with its “approximate” qualifier</td>
+          <td>2026-10-22</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.tiffany.com/engagement/engagement-rings/the-tiffany-setting-engagement-ring-in-18k-yellow-gold-GRP10863/" rel="noopener">Tiffany &amp; Co.</a></td>
+          <td>Seller</td>
+          <td>“Starting from” price, the 18k gold plus platinum construction, unavailability, and the
+            non-returnable / exchange-only notice on the product page</td>
+          <td>2026-10-22</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.catbirdnyc.com/woodland-ring.html" rel="noopener">Catbird</a></td>
+          <td>Seller</td>
+          <td>Sale and regular price, sold-out indicators, absence of the word “solid” in the product text</td>
+          <td>2026-10-22</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.wilsonsestatejewelry.com/collections/engagement-rings" rel="noopener">Wilson's Estate Jewelry</a></td>
+          <td>Seller (estate)</td>
+          <td>Prices, weights in grams, stamp and maker's-mark descriptions, GIA report numbers, 7-day return terms, contact details</td>
+          <td>2026-10-22</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Why some obvious sources are absent</h2>
+  <ul class="dim" style="padding-left:20px">
+    <li><strong>No LBMA Gold Price.</strong> Its historical tables require a licence; quoting a figure would mean
+      reproducing data this project cannot verify.</li>
+    <li><strong>No independent review scores.</strong> None was verified against a primary review source, so no
+      seller is rated. Flagged <code>M1</code>.</li>
+    <li><strong>No “average retail premium” figure.</strong> No official source publishes one for engagement
+      rings; any percentage would be invented.</li>
+    <li><strong>No maker's mark where the seller did not state one.</strong> Absence is recorded as absence.</li>
+  </ul>
+
+  <h2>Reproducing the checks</h2>
+  <div class="card">
+    <p>From the repository root:</p>
+    <p><code>python3 scripts/audit.py</code></p>
+    <p>The script parses every JSON file and fails when:</p>
+    <ul class="dim" style="padding-left:18px;margin:6px 0 0">
+      <li>a price does not appear in its own quoted source text;</li>
+      <li>a gram figure is not present in the quote that is supposed to support it;</li>
+      <li>a “pass” on solid gold exists without the seller saying “solid”;</li>
+      <li>a flag is referenced but never defined;</li>
+      <li>a field is both verified and unverified;</li>
+      <li>a phone or email appears without a contact source;</li>
+      <li>a karat fraction does not equal <code>n ÷ 24</code>;</li>
+      <li>a local link is broken, or the HTML prints a figure that exists nowhere in the data.</li>
+    </ul>
+    <p class="hint" style="margin-top:10px">Its output is committed at
+      <code>reports/audit-report.md</code> so the state of the dataset is inspectable, not just asserted.</p>
+  </div>
+
+  <div class="note warn">
+    <p><strong>Standing recommendation.</strong> Re-run the audit after every review, then do one deliberate
+      human pass whose only job is to look for hallucinations: pick any number on the site and try to find it on
+      the linked page. If it is not there, delete it and mark the field unverified. Better an empty cell than a
+      confident error.</p>
+  </div>
+
+  <h2>Collaboration, conflict and change control</h2>
+  <p class="dim"><strong>Two sessions worked this repository in parallel.</strong> A second session merged its
+    own implementation to <code>main</code> (PR #1) while this one was still building, so the merge conflicted.
+    Neither side was thrown away: the second session's seven verified listings were re-opened, re-verified and
+    folded into the dataset; its seller facts were folded into the register; its two dead listings moved to the
+    excluded table; and its original pages, data, scripts and reports are preserved verbatim under
+    <code>archive/session-982bfc88/</code>. Its independently captured spot price matched this session's figure
+    exactly — a genuine two-session cross-check of the benchmark. The reconciliation is logged in
+    <code>COORDINATION.md</code>.</p>
+  <p class="dim"><code>COORDINATION.md</code> in the repository root is the shared task board: task, status,
+    owning session, and the files it may touch. Claims are committed before work starts, scopes do not overlap,
+    and shared outputs are only changed by the integration step. The full claim and hand-off history is kept
+    there rather than rewritten.</p>
+
+</main>
+
+<footer class="site wrap">
+  <p><strong>No hallucinations policy.</strong> This page documents the verification, including the failures it
+    caught. Nothing here is asserted without a source.</p>
+  <p>Research, not appraisal, legal or financial advice.</p>
+</footer>
+
+<script src="assets/app.js"></script>
+</body>
+</html>

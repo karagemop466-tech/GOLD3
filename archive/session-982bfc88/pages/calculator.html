@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculator · GOLD3</title>
+<meta name="description" content="Verified, source-linked research on solid gold engagement rings: karat, gram weight, melt value, seller policies and every flagged irregularity.">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='11' fill='%23d9b45b'/></svg>">
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site"><div class="wrap">
+  <a class="brand" href="index.html"><span class="dot"></span>GOLD3 <small>Gold engagement ring research</small></a>
+  <nav class="main"><a href="index.html">Dashboard</a><a href="rings.html">Ring list</a><a href="sellers.html">Sellers</a><a href="standards.html">Rules &amp; law</a><a href="calculator.html" aria-current="page">Calculator</a><a href="flagged.html">Flagged for review</a><a href="method.html">Method &amp; audit</a></nav>
+</div></header>
+<main id="main"><div class="wrap">
+
+<p class="eyebrow">Do the maths</p>
+<h1>Gold value calculator</h1>
+<p class="lead">Enter the ring's weight and karat, and the calculator tells you how many grams of fine gold it
+contains, what that gold is worth at spot, and — if you enter the asking price — what percentage of the price is
+gold. Nothing here is stored or sent anywhere; it runs in your browser.</p>
+
+<div class="grid g2">
+  <div class="card">
+    <h3>Inputs</h3>
+    <div class="grid g2" style="gap:12px">
+      <div class="field"><label for="w">Ring weight</label>
+        <input type="number" id="w" value="4" min="0" step="0.01" inputmode="decimal"></div>
+      <div class="field"><label for="unit">Unit</label>
+        <select id="unit"><option value="g">grams</option><option value="ozt">troy ounces</option><option value="dwt">pennyweight (dwt)</option></select></div>
+      <div class="field"><label for="k">Karat</label>
+        <select id="k"><option value="10">10K</option><option value="14" selected>14K</option><option value="18">18K</option><option value="22">22K</option><option value="24">24K</option></select></div>
+      <div class="field"><label for="spot">Spot price (USD / troy oz)</label>
+        <input type="number" id="spot" value="4024.36" step="0.01" inputmode="decimal"></div>
+      <div class="field"><label for="paid">Asking price (optional)</label>
+        <input type="number" id="paid" placeholder="e.g. 1450" step="1" inputmode="decimal"></div>
+      <div class="field"><label for="preset">Load a measured weight</label>
+        <select id="preset"><option value="">— dataset entries with a published weight —</option><option value="0.7|18">RS-985230 — 2mm 18kt Yellow Gold Polished Ring (0.7 g, 18K)</option><option value="0.8|14">RS-932728 — Italian 14kt Yellow Gold Diamond-Cut Ring (0.8 g, 14K)</option></select></div>
+    </div>
+    <p class="sub" style="margin:10px 0 0">Spot default: $4,024.36/ozt as of 2026-10-21 —
+    <a class="srclink" href="https://www.gold.org/goldhub/data/gold-prices" rel="noopener nofollow" target="_blank">World Gold Council — Goldhub, Gold spot prices ↗</a>. Edit it to your own quote if you have a fresher one.</p>
+  </div>
+  <div class="card result">
+    <h3>Result</h3>
+    <p class="sub" style="margin:0">Fine gold in the ring</p>
+    <p class="big" id="r-fine">—</p>
+    <p class="sub" style="margin:0">Melt value at spot</p>
+    <p class="big" id="r-melt" style="color:var(--gold)">—</p>
+    <hr style="margin:16px 0">
+    <p class="sub" style="margin:0">Gold value per gram of the ring</p>
+    <p id="r-perg">—</p>
+    <p class="sub" style="margin:0">Asking price ÷ melt value</p>
+    <p id="r-x">—</p>
+    <p class="sub" style="margin:0">Share of the price that is gold</p>
+    <p id="r-share">—</p>
+    <p class="sub" id="r-msg" style="margin:14px 0 0"></p>
+  </div>
+</div>
+
+<div class="note warn"><p><b>What this calculator cannot tell you:</b> the value of the diamonds, the workmanship,
+the brand, or whether the ring is genuinely the karat it claims. It only values the gold you told it about.
+A premium far above melt is normal for retail jewellery; a price <em>below</em> melt is a red flag, not a bargain.</p></div>
+
+<h2>Raw gold amounts by karat</h2>
+<p>At $4,024.36/ozt, one gram of alloy is worth this much in fine gold:</p>
+<div class="tablewrap"><table><thead><tr><th>Karat</th><th class="num">Fine gold</th><th class="num">Gold value per gram of alloy</th></tr></thead>
+<tbody><tr><td><b>10K</b></td><td class='num'>41.67%</td><td class='num'>$53.91</td></tr><tr><td><b>14K</b></td><td class='num'>58.33%</td><td class='num'>$75.48</td></tr><tr><td><b>18K</b></td><td class='num'>75.00%</td><td class='num'>$97.04</td></tr><tr><td><b>22K</b></td><td class='num'>91.67%</td><td class='num'>$118.60</td></tr><tr><td><b>24K</b></td><td class='num'>100.00%</td><td class='num'>$129.39</td></tr></tbody></table></div>
+<p class="sub">Formulas: <code>fine_g = weight_g × karat ÷ 24</code> · <code>melt = fine_g × (spot ÷ 31.1034768)</code> ·
+<code>premium = (price − melt) ÷ melt</code> · 1 dwt = 1.55517384 g.</p>
+
+</div></main>
+<footer class="site"><div class="wrap">
+  <p><strong>GOLD3</strong> — an independent, source-linked buying file for solid gold engagement rings.
+  Every price on this site was read from the seller's own product page on the date shown; where a value could not be
+  confirmed it is left blank and listed on the <a href="flagged.html">Flagged for review</a> page.</p>
+  <p>This site is research, not legal, financial or appraisal advice. A karat stamp is a claim, not a test.
+  Have any ring verified by an independent jeweller before wearing or resizing it.</p>
+</div></footer>
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  var OZG=31.1034768, DWT=1.55517384;
+  function calc(){
+    var w=parseFloat($('w').value), u=$('unit').value;
+    var k=parseFloat($('k').value), spot=parseFloat($('spot').value);
+    var paid=parseFloat($('paid').value);
+    var g = isNaN(w)?0:(u==='g'?w:(u==='ozt'?w*OZG:w*DWT));
+    var fine=g*k/24, perg=spot/OZG, melt=fine*perg;
+    function f(x,d){return (isFinite(x)?x:0).toLocaleString(undefined,{minimumFractionDigits:d,maximumFractionDigits:d})}
+    $('r-fine').textContent = fine? f(fine,3)+' g' : '—';
+    $('r-melt').textContent = melt? '$'+f(melt,2) : '—';
+    $('r-perg').textContent = g? '$'+f(perg*g/g,2)+' of gold per gram of ring ('+(k/24*100).toFixed(2)+'% fine)' : '—';
+    if(paid && melt){
+      var x=paid/melt, share=melt/paid*100;
+      $('r-x').textContent='×'+f(x,2)+'  ('+(x>=1?'+':'')+f((x-1)*100,0)+'% vs melt)';
+      $('r-share').textContent=f(share,1)+'%';
+      var m=$('r-msg');
+      if(x<1){m.className='sub';m.style.color='var(--bad)';m.textContent='Below melt value of its own stated gold. That is arithmetic that cannot be true for a new solid-gold ring — verify the weight, the karat, or the seller.'}
+      else if(x>6){m.className='sub';m.style.color='var(--warn)';m.textContent='A premium of more than 6× the gold value. Normal for brand/setting-heavy pieces, but it means you are paying for the design, not the metal.'}
+      else {m.className='sub';m.style.color='var(--muted)';m.textContent='Within the usual retail range above melt.'}
+    } else { $('r-x').textContent='—'; $('r-share').textContent='—'; $('r-msg').textContent=''; }
+  }
+  ['w','unit','k','spot','paid'].forEach(function(id){$(id).addEventListener('input',calc);$(id).addEventListener('change',calc)});
+  $('preset').addEventListener('change',function(){
+    if(!this.value) return;
+    var p=this.value.split('|'); $('w').value=p[0]; $('unit').value='g'; $('k').value=p[1]; calc();
+  });
+  calc();
+})();
+</script>
+</body>
+</html>

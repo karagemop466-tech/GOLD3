@@ -1,81 +1,95 @@
-# GOLD3 — solid gold engagement ring research
+# GOLD3 — verified gold engagement rings
 
-**Live site: https://karagemop466-tech.github.io/GOLD3/**
+A source-verified workbench for buying a **solid gold engagement ring** online: 19 listings across 8 sellers.
 
-A source-linked buying file for solid gold engagement rings. Each listing records the karat, the stated
-gold weight, the price and the seller's return terms **with the exact quote and the date it was read**,
-then computes what the gold in the ring is actually worth at the current spot price.
+**No hallucinations.** Every number on the site is traceable to a linked official page, retrieved
+**22 October 2026**. Where a seller does not publish a value, the cell is blank, marked
+`unverified`, and listed on the Flagged for Review page. Nothing is estimated, averaged, or
+carried over from "typical" industry practice.
+
+Live site: **https://karagemop466-tech.github.io/GOLD3/**
 
 ---
 
-## Rule 0 — no hallucinated prices, ever
-
-Every number on the site was **read from the seller's own product page** and stamped with the date it was read.
-
-- If a seller does not publish a value, the table shows `—` and the item is listed on the
-  [Flagged for review](https://karagemop466-tech.github.io/GOLD3/flagged.html) page. Nothing is estimated,
-  averaged, inferred from a photo, or copied from a search-engine snippet.
-- A value seen in a search-engine copy of a page is recorded as an *observation* only — it is never used as the price.
-  That rule already caught a real discrepancy: Ross-Simons item 932728 showed **$270** in the cached copy and
-  **$299** on the live page.
-- `scripts/audit.py` re-checks all of this after every review pass and **fails the build** if a value has no
-  quoted source. Warnings are published, not hidden.
-
-## What is in the repo
+## What is in here
 
 | Path | What it is |
 |---|---|
-| `index.html` … `method.html` | The generated static site (GitHub Pages, no build step on the server) |
-| `data/rings.json` | The ring dataset — one object per listing, each field with its evidence quote |
-| `data/sellers.json` | Seller register: contact details, return terms, what is still unverified |
-| `data/standards.json` | Quoted U.S. law: 16 CFR Part 23 (FTC jewellery guides), 15 U.S.C. §§ 294–297 |
-| `data/spot.json` | Dated gold spot price record (World Gold Council / ICE Data Services) |
-| `scripts/audit.py` | 14 no-hallucination + consistency checks → `reports/audit-latest.{md,json}` |
-| `scripts/build.py` | Dependency-free site generator + internal link checker |
-| `COORDINATION.md` | Shared task board for parallel agent sessions |
+| `index.html` | Dashboard landing page. The no-hallucination policy is the first thing on it. |
+| `rings.html` | Every verified listing: price, karat, weight, solid-gold verdict, stamp, returns, flags, sources. Filterable. |
+| `sellers.html` | Return windows and exclusions, contact details, disclosure practices per seller. |
+| `analysis.html` | Coverage of each requirement, and melt value vs asking price for rows that publish a weight. |
+| `calculator.html` | Fine-gold content and melt value from a weight you supply and the dated spot price. |
+| `standards.html` | The FTC jewellery guides and National Stamping Act rules the checklist rests on, with citations. |
+| `flagged.html` | Everything unconfirmed or irregular, with severity, remedy and source. |
+| `methodology.html` | The passes run, the sources used, and what the audit caught. |
+| `data/gold-price.json` | The dated benchmark, with publisher, quote and caveats. |
+| `data/rings.json` | The 19 listing rows, each with verbatim quotes and source URLs. |
+| `data/sellers.json` | Seller policy and contact facts. |
+| `data/standards.json` | Karat fineness table and legal rules with citations. |
+| `data/flags.json` | Flag definitions: what was found, why it matters, what to do. |
+| `scripts/audit.py` | The anti-hallucination audit. |
+| `reports/audit-report.md` | Output of the last audit run. |
+| `archive/session-982bfc88/` | The parallel session's original site, data, scripts and reports, preserved verbatim. |
+| `scripts/render-test.js` | Runs every page's table against the real JSON in a DOM shim (20 checks). |
+| `COORDINATION.md` | Shared task board for parallel agent sessions. |
 
-Rebuild everything:
+## Run the checks
 
 ```bash
-python3 scripts/audit.py    # audit only, prints the report
-python3 scripts/build.py    # regenerates every page from data/*.json, then link-checks
+python3 scripts/audit.py          # exits non-zero on any error
+node scripts/render-test.js       # renders every page against the real JSON
 ```
 
-No third-party packages. Python 3.9+.
+Both run in CI (`.github/workflows/audit.yml`) on every push and pull request. The site is published
+by GitHub Pages from the `main` branch root, so a merge to `main` goes live directly.
 
-## Pages
+The audit fails when a price does not appear in its own quoted source text, when a gram figure is
+not present in its supporting quote, when a "solid gold" pass was awarded without the seller saying
+"solid", when a flag is referenced but undefined, when a field is both verified and unverified, when
+contact details appear without a source, when a karat fraction does not equal `n ÷ 24`, or when the
+HTML prints a dollar figure that exists nowhere in the data.
 
-- **Dashboard** — the no-hallucination pledge, headline numbers, and what the data already shows.
-- **Ring list** — live-verified listings only, with fine-gold grams, melt value, premium vs melt and flags, plus an
-  evidence appendix quoting the seller's wording for every field.
-- **Sellers** — who publishes a gram weight, what their return rules actually say, what is still unknown.
-- **Rules & law** — the FTC jewellery guides and the Stamping Act, quoted, plus raw gold value by karat.
-- **Calculator** — weight + karat + spot → fine gold grams, melt value, and the markup you are being asked to pay.
-- **Flagged for review** — every blank field, conflicting price and dead listing, with sources.
-- **Method & audit** — the protocol, the latest automated audit run and the build's link-check results.
+## View the site locally
 
-## Current findings (2026-10-22)
+```bash
+python3 -m http.server 8000
+# then open http://localhost:8000/
+```
 
-1. **Most sellers do not publish the ring's gram weight** — only 2 of 7 live-verified listings do
-   (both Ross-Simons). Without it you cannot check the gold value before buying. This is the single biggest gap
-   against the checklist, and it is why the audit treats a missing weight as data, not as a rounding problem.
-2. **"Setting price" is not a price.** Blue Nile's $1,145 and James Allen's figures exclude the centre diamond,
-   so they are never compared to a melt value on this site.
-3. **A karat stamp is not a test.** 15 U.S.C. § 295 allows the real fineness to sit 3/1000 below the stamp
-   (7/1000 when solder is included), and § 297(b) is the legal basis for requiring a maker's mark next to the karat.
-4. **Prices move and listings die.** James Allen product URLs now redirect to Blue Nile with "sold out"; two Costco
-   URLs return "Page Not Found". Dead listings are kept for the record and excluded from recommendations.
-5. **Vermeil is everywhere in gold-looking jewellery.** Mejuri's "18k gold vermeil" is a 2.5-micron gold layer over
-   sterling silver — the exact threshold in 16 CFR § 23.4. It is in the dataset as the counter-example.
+The pages read `data/*.json` over HTTP, so serve them rather than opening the files directly.
 
-## Sources used
+## Headline findings
 
-- 16 CFR Part 23 — Guides for the Jewelry, Precious Metals, and Pewter Industries (eCFR, read 2026-10-22)
-- 15 U.S.C. § 294, § 295, § 297 — National Gold and Silver Stamping Act (Cornell LII, read 2026-10-22)
-- World Gold Council, Goldhub gold spot prices (USD 4,024.36/ozt as of 2026-10-21)
-- Blue Nile, Ross-Simons, Mejuri, Tiffany & Co., Catbird product and policy pages (read 2026-10-22)
+1. **Nobody publishes an independent assay.** Zero sellers in this study publish a per-item XRF scan
+   or assay. The karat is always the seller's own claim, at most backed by a stamp — exactly the gap
+   the checklist warns about.
+2. **"18k" can mean a coating.** One listing with "18k" in its name is 18k gold *vermeil*: a gold
+   layer over sterling silver, per 16 CFR 23.4.
+3. **A headline price may be the setting only.** One major retailer prices the setting separately
+   from the centre diamond.
+4. **One retailer's return policy excludes precious metals** — which fails the return requirement
+   outright, whatever the price.
+5. **Weights are the exception.** Estate jewellers and one catalogue retailer publish grams; even then the
+   figure is *total* item weight or explicitly approximate, so a melt calculation from it is an upper bound.
+6. **A luxury product page can override the glossy policy.** One flagship ring is declared non-returnable and
+   exchange-only on its own product page, even though the same brand advertises a 30-day return policy.
 
-## Not advice
+## Two sessions, one dataset
 
-Research, not an appraisal, not legal or financial advice. Confirm the price on the seller's page yourself before
-buying, and have an independent jeweller weigh and test the ring before you wear or resize it.
+A second agent session merged its own implementation to `main` (PR #1) while this one was building. Nothing
+was discarded: its seven verified listings were re-opened, re-verified and folded in, its seller facts merged,
+its two dead listings moved to the excluded table, and its original files preserved verbatim under
+`archive/session-982bfc88/`. See `COORDINATION.md` for the reconciliation log.
+
+## Standing recommendation
+
+Re-run the audit after every review, then do one deliberate human pass whose only job is to hunt for
+hallucinations: pick any number on the site and try to find it on the linked page. If it is not
+there, delete it and mark the field unverified. Better an empty cell than a confident error.
+
+## Scope and disclaimer
+
+Research, not appraisal, legal or financial advice. Listings, prices and policies change without
+notice — re-check the linked source before buying. Every ring still needs independent verification
+(XRF or assay) after delivery, before it is worn or resized.

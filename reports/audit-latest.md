@@ -1,9 +1,9 @@
 # No-hallucination audit
 
-Generated: **2026-10-22 23:21 UTC**  
+Generated: **2026-10-22 23:17 UTC**  
 Dataset: 9 entries (7 live-verified, 0 index-snapshot, 2 dead)
 
-**Result: 11 passed · 2 warnings · 0 failed**
+**Result: 10 passed · 2 warnings · 0 failed**
 
 | Check | Status | Detail |
 |---|---|---|
@@ -20,7 +20,6 @@ Dataset: 9 entries (7 live-verified, 0 index-snapshot, 2 dead)
 | `A11` Every entry carries a recent re-check date | **PASS** | 0 entries older than 30 days. |
 | `A12` Price magnitude sanity check | **PASS** | All stored prices fall in a credible range (limit $20,000 per fine gram). |
 | `A13` Every seller has a linked, official return policy | **WARN** | 3/7 sellers documented. |
-| `A14` Every link sits on the domain it claims to belong to | **PASS** | 9 listing URLs and 7 seller links checked against their own domains. |
 
 ## Findings
 

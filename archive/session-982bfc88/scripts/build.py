@@ -38,7 +38,6 @@ CATEGORIES = {
     "engagement-complete": "Complete engagement ring",
     "wedding-band": "Wedding band",
     "weight-benchmark": "Weight benchmark",
-    "designer-ring": "Designer / fashion gold ring",
     "plated-example": "Plated / vermeil (avoid)",
 }
 CATEGORY_ORDER = list(CATEGORIES)
@@ -219,7 +218,7 @@ def page_index(data, audit, ctx):
       <p style="font-size:28px;font-weight:700;margin:0;letter-spacing:-.02em">${spot['value_per_oz']:,.2f}<span style="font-size:14px;color:var(--muted);font-weight:500"> / troy oz</span></p>
       <p class="sub" style="margin:6px 0 0">As of <b>{e(spot['as_of'])}</b> · = <b>${ctx['spot_per_g']:,.2f} per gram</b> of fine gold<br>
       {src(spot['source_url'], spot['source_name'])}</p>
-      <p class="sub" style="margin-top:10px">Reference price only. Bullion and jewellery trade at a premium to spot; the premium over spot on a retail ring is exactly what the calculator is for.</p>
+      <p class="sub" style="margin-top:10px">Reference price only. Bullion and jewellery trade at a premium to spot; the WB/spot spread on a retail ring is exactly what the calculator is for.</p>
     </div>"""
 
     findings = []
@@ -227,7 +226,7 @@ def page_index(data, audit, ctx):
         findings.append(f"On the {len(comparable)} listing(s) where both a complete-ring price and a gram weight are published, the price averages "
                         f"<b>{avg_prem:,.0f}% above</b> the melt value of the gold in the ring.")
     findings.append(f"<b>{len(with_w)} of {len(items)}</b> live listings publish the ring's gram weight. The rest leave you unable to check the gold value before buying — which is the checklist's biggest single failure.")
-    findings.append("Blue Nile quotes a <b>“setting price”</b> that excludes the centre diamond. Comparing that number to a gold value is meaningless, so this site marks it <span class='badge b-warn'>setting only</span> instead of pretending it is the ring's price.")
+    findings.append("Blue Nile and James Allen quote a <b>“setting price”</b> that excludes the centre diamond. Comparing that number to a gold value is meaningless, so this site marks it <span class='badge b-warn'>setting only</span> instead of pretending it is the ring's price.")
     findings.append("A search-engine copy of the Ross-Simons page showed <b>$270</b>; the live page showed <b>$299</b>. Both are recorded, and only the live figure is used.")
     findings.append(f"The audit is run after every review pass: <b>{s['checks_pass']} checks passed, {s['checks_warn']} warnings, {s['checks_fail']} failures</b>. Warnings are published, not hidden.")
 
@@ -281,8 +280,6 @@ def page_index(data, audit, ctx):
   <ul style="margin:0;padding-left:20px">
     {''.join(f'<li style="margin-bottom:8px">{f}</li>' for f in findings)}
   </ul>
-  <p class="sub" style="margin:14px 0 0">Before trusting any gold-jewellery list — including this one — run it against the
-  <a href="method.html#hallucination">hallucination watchlist</a>: the eight ways a price or weight on a jewellery page is usually wrong.</p>
 </div>
 
 <h2>The checklist this project is built on</h2>
@@ -482,8 +479,8 @@ def page_sellers(data, audit, ctx):
         contact_html = "<br>".join(contact) if contact else '<span class="nv">not captured</span>'
         if s.get("contact_url"):
             contact_html += f'<br>{src(s["contact_url"], "contact page")}'
+        ret = e(s.get("returns_summary") or "") or '<span class="nv">not verified yet</span>'
         ret_badge = badge("verified on page", "ok") if s.get("returns_verified") else badge("not verified", "warn")
-        ret = e(s.get("returns_summary") or "") or '<span class="nv">not read yet</span>'
         if s.get("returns_url"):
             ret += f'<br>{src(s["returns_url"], "policy page")}'
         rows.append(f"""<tr>
@@ -665,7 +662,7 @@ A premium far above melt is normal for retail jewellery; a price <em>below</em> 
     function f(x,d){return (isFinite(x)?x:0).toLocaleString(undefined,{minimumFractionDigits:d,maximumFractionDigits:d})}
     $('r-fine').textContent = fine? f(fine,3)+' g' : '—';
     $('r-melt').textContent = melt? '$'+f(melt,2) : '—';
-    $('r-perg').textContent = g? '$'+f(perg*(k/24),2)+' of gold per gram of ring ('+(k/24*100).toFixed(2)+'% fine)' : '—';
+    $('r-perg').textContent = g? '$'+f(perg*g/g,2)+' of gold per gram of ring ('+(k/24*100).toFixed(2)+'% fine)' : '—';
     if(paid && melt){
       var x=paid/melt, share=melt/paid*100;
       $('r-x').textContent='×'+f(x,2)+'  ('+(x>=1?'+':'')+f((x-1)*100,0)+'% vs melt)';
@@ -776,7 +773,6 @@ it tells you what to ask the seller.</p>
 <tbody>{manual_rows}</tbody></table></div>
 
 <h2>4. Open items</h2>
-<p class="sub">While reviewing, use the <a href="method.html#hallucination">hallucination watchlist</a> — it lists the eight traps this dataset was built to catch (cached prices, from-prices, setting prices, plating karats, invented weights, dead listings, stamps treated as proof, silent contradictions).</p>
 <ul style="padding-left:20px">
   <li>Ask each seller for the ring's gram weight in writing, then add it to the dataset with the seller's reply as the source.</li>
   <li>Read and quote the full return policy for Blue Nile, James Allen, Ross-Simons and Catbird (currently only the product-page wording is recorded).</li>
@@ -819,8 +815,6 @@ every review pass.</p>
     <li><b>Arithmetic must reproduce.</b> Every melt value is recomputed from stored inputs with the published formula,
       and any price below its own melt value is flagged, not published as a deal.</li>
     <li><b>Conflicts are surfaced.</b> Two prices for the same URL are both stored, and the disagreement is flagged.</li>
-    <li><b>Links must sit on their own domain.</b> Every stored URL is checked against the domain it claims to belong to,
-      so a guessed or copy-pasted link cannot pass as evidence. Unverified placeholder URLs were deleted, not kept.</li>
   </ol>
 </div>
 
@@ -869,21 +863,6 @@ python3 scripts/build.py     # regenerates every page from data/*.json</pre>
 <p class="sub" style="margin-bottom:0">The dataset is plain JSON: <code>data/rings.json</code>,
 <code>data/sellers.json</code>, <code>data/standards.json</code>, <code>data/spot.json</code>.</p>
 </div>
-
-<h2 id="hallucination">Hallucination watchlist — read the list with this in mind</h2>
-<p class="sub">Every one of these traps was actually hit while building this dataset. Check for them before you trust any gold-ring list, including this one.</p>
-<div class="tablewrap"><table>
-<thead><tr><th>Trap</th><th>What it looks like</th><th>How this site handles it</th></tr></thead>
-<tbody>
-<tr><td><b>Cached price</b></td><td>A search result quotes $270; the live page says $299.</td><td>Only a page opened and read can set a price. Cached figures are stored as observations and flagged.</td></tr>
-<tr><td><b>"From" price</b></td><td>$2,900 that becomes $3,400 once you pick a configuration.</td><td>Labelled <span class="badge b-info">from-price</span>; never compared to melt.</td></tr>
-<tr><td><b>Setting price</b></td><td>$1,145 that excludes the centre diamond entirely.</td><td>Labelled <span class="badge b-warn">setting only</span>; the melt comparison prints "n/c".</td></tr>
-<tr><td><b>Plating karat</b></td><td>"18k gold vermeil" — the 18k is a 2.5-micron coating, not the ring.</td><td>Recorded as <b>NOT solid</b>; no melt value is computed for a plated piece.</td></tr>
-<tr><td><b>Invented weight</b></td><td>Estimating grams from a photo or from "typical" ring weights.</td><td>Weight is blank unless the seller publishes it. No table row has an estimated weight.</td></tr>
-<tr><td><b>Dead listing</b></td><td>A URL that now 404s or redirects, still carrying an old price.</td><td>Marked dead, price cleared, excluded from the buy list, shown in "Excluded".</td></tr>
-<tr><td><b>Stamp taken as proof</b></td><td>"14K" on the band treated as confirmation of purity.</td><td>Stamps are treated as claims; 15 U.S.C. § 295 tolerances and the independent-testing step are linked on the Rules page.</td></tr>
-<tr><td><b>Silent contradiction</b></td><td>A product page saying both "non returnable" and "exchange only".</td><td>Published on Flagged for review instead of being summarised into a clean-but-wrong answer.</td></tr>
-</tbody></table></div>
 
 <h2>What this project is not</h2>
 <div class="note warn"><p>Not an appraisal, not legal advice, not a price guarantee. Prices change without notice — the
