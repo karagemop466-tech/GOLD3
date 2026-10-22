@@ -49,7 +49,7 @@ jobs:
       - name: Rebuild the verification report
         run: python3 scripts/report_verify.py
 
-      # 6. verify every root HTML <tbody><tr> row carries an https:// official link
+      # 7. verify every root HTML <tbody><tr> row carries an https:// official link
       - name: Enforce official https:// source link on every root HTML table row
         run: |
           node -e '
@@ -69,12 +69,6 @@ jobs:
           '
 
       # 8. run session-cbea1001 standalone observatory anti-hallucination & link security suite
-      - name: Run session-cbea1001 anti-hallucination & link security suite
-        run: npm --prefix archive/session-cbea1001 test
-
-      - name: Keep the reports
-
-      # 7. run session-cbea1001 standalone observatory anti-hallucination & link security suite
       - name: Run session-cbea1001 anti-hallucination & link security suite
         run: npm --prefix archive/session-cbea1001 test
 
