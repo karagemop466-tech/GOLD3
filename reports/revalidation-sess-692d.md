@@ -105,6 +105,33 @@ post-correction tree and finds it clean.
   re-checking during or after the sale may see different numbers. This is the documented snapshot
   behaviour, not drift in the data.
 
+## 4b. Addendum — suites re-run on the post-PR-#27 tree (Dataset D merged mid-pass)
+
+While this pass was being written, `main` advanced from `70746aa` to `75d4b67` (PR #27,
+`arena/cbea1001-gold3`: Dataset D — rings R23–R31, 4 new sellers, XRF observatory, an 8th CI gate).
+All eight gates were re-run locally on the rebased tree (`75d4b67` + this session's commit):
+
+| Gate | Result |
+|---|---|
+| 1 `verify.py` | PASS — 0 errors, 0 warnings |
+| 2 `build_ext_pages.py` + `build_site.py` | exit 0 — links/stylesheets/product URLs OK |
+| 3 `audit.py` | PASS — **rows=31**, 0 errors, 0 warnings, 173 checks |
+| 4 `run_security_audit.py` | PASS — SEC-01…SEC-07, 0 errors, 24 pages |
+| 5 `render-test.js` | PASS — 120/120 |
+| 6 `report_verify.py` | PASS — 37 checks |
+| 7 root-HTML row-link enforcement | PASS — **682/682 rows** carry an official `https://` link, 0 missing |
+| 8 `npm --prefix archive/session-cbea1001 test` | PASS — 7/7 checks + link verifier (156 internal, 270 external) |
+
+- **N6 — mis-attributed pass records (change request, not fixed here).** `scripts/run_security_audit.py`
+  line 438 hardcodes `"session_id": "session-698f08f6"` into every audit-log entry it appends, regardless of
+  which session runs it. This pass's local run was therefore recorded under another session's id; the run
+  artifacts were **reverted instead of committed** so the log does not carry a false attribution. Logged as a
+  change request in `COORDINATION.md` §4 — the fix (derive the id from the environment or a CLI flag) belongs
+  to whoever next owns that script.
+- Run-artifact churn from gates 2/4/6 (timestamps, "Pass #N" counter, appended log entries) was reverted
+  after inspection: `data_file_sha256` values in `verification/sources-manifest.json` were unchanged, i.e.
+  **no content drift** — same finding as N2, now also true of the Dataset-D tree.
+
 ## 5. Standing recommendation (unchanged, re-endorsed)
 
 After every review: re-run all five suites, then spend one deliberate pass hunting hallucinations — take
