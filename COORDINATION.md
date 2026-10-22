@@ -159,9 +159,12 @@ why F2/F3 were rewritten rather than left claiming nothing exists.
 | Conflicts resolved | 3 reconciliations of `main` (PRs #5, #8, #9); no work discarded — see §4b | 2026-10-23T00:10Z |
 | Merge | **merged** — squash-free merge commit `8d384f3` | 2026-10-22T23:27:04Z |
 | GitHub Pages deploy | **built**, source `main` `/`, HTTPS enforced. Public URL https://karagemop466-tech.github.io/GOLD3/ | 2026-10-22T23:27:05Z (19 s) |
+| Follow-up PR #12 | Release record + combined-page count fix; merged as `620622d`; Pages rebuilt in 21.9 s. | 2026-10-22T23:28Z |
+| Defect fix PR #14 | Karat melt-table unit error + build-time arithmetic guard; merged as `c427d23`; Pages rebuilt in 18.1 s; live table verified as `14K 58.33% / $75.52 per gram`. | 2026-10-23T00:44Z |
+| Final text PR #15 | Removed the unverified "shipping weight" wording, explained the 24K 999.9-fine rounding, closed the release record. | 2026-10-23T00:52Z |
 | Live verification | `combined.html` served with 38 rows / 10 sellers / 4 weights; `index.html` verified at origin (`origin/main` carries this branch's page). GitHub's CDN may serve the previous page for up to ~10 min after a build. | 2026-10-22T23:30Z |
 | **Post-deploy defect** | Reading the live page caught a **unit-mixing bug** in the karat table: `melt` maps karat to USD/gram, but the renderer multiplied it by spot/gram again, so 10K showed `5394.3%` fineness and `$6,983.75/g`. Local text dumps had missed it because no check compared rendered numbers to the formula. | found 2026-10-23T00:36Z |
-| Correction | Renderer fixed (fineness from `FINENESS[k]`, melt from the value itself); **arithmetic guard added** to `build_site.py` so every karat row must equal `spot/gram x fineness` cell-for-cell or the build fails. Corrected values: 10K $53.94, 14K $75.52, 18K $97.10, 22K $118.68, 24K $129.45 per gram. | 2026-10-23T00:40Z |
+| Correction (PR #14) | Renderer fixed (fineness from `FINENESS[k]`, melt from the value itself); **arithmetic guard added** to `build_site.py` so every karat row must equal `spot/gram x fineness` cell-for-cell or the build fails. Corrected values: 10K $53.94, 14K $75.52, 18K $97.10, 22K $118.68, 24K $129.45 per gram. | 2026-10-23T00:40Z |
 
 
 ---
