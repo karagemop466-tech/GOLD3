@@ -1,10 +1,10 @@
 # Anti-hallucination audit report
 
-- Run: 2026-10-22 23:26 UTC
+- Run: 2026-10-22 23:31 UTC
 - Rows audited: **19**
 - Sellers audited: **8**
 - Flag definitions: **28**
-- Result: **PASS** — 0 error(s), 0 warning(s), 93 check(s) passed
+- Result: **PASS** — 0 error(s), 36 warning(s), 102 check(s) passed
 
 ## What this pass is looking for
 
@@ -24,9 +24,44 @@
 
 None.
 
-## Warnings
+## Warnings — reviewed and accepted
 
-None.
+- [site] calculator.html: printed $53.94 which is not in data/*.json — either it is a policy quote or a hallucination
+- [site] calculator.html: printed $75.52 which is not in data/*.json — either it is a policy quote or a hallucination
+- [site] calculator.html: printed $97.10 which is not in data/*.json — either it is a policy quote or a hallucination
+- [site] calculator.html: printed $118.68 which is not in data/*.json — either it is a policy quote or a hallucination
+- [site] calculator.html: printed $129.45 which is not in data/*.json — either it is a policy quote or a hallucination
+- [site] calculator.html: printed $53.94 which is not in data/*.json — either it is a policy quote or a hallucination
+- [site] calculator.html: printed $75.52 which is not in data/*.json — either it is a policy quote or a hallucination
+- [site] calculator.html: printed $75.52 which is not in data/*.json — either it is a policy quote or a hallucination
+- [site] calculator.html: printed $75.52 which is not in data/*.json — either it is a policy quote or a hallucination
+- [site] calculator.html: printed $75.52 which is not in data/*.json — either it is a policy quote or a hallucination
+- [site] calculator.html: printed $75.52 which is not in data/*.json — either it is a policy quote or a hallucination
+- [site] calculator.html: printed $75.52 which is not in data/*.json — either it is a policy quote or a hallucination
+- [site] calculator.html: printed $75.52 which is not in data/*.json — either it is a policy quote or a hallucination
+- [site] calculator.html: printed $97.10 which is not in data/*.json — either it is a policy quote or a hallucination
+- [site] calculator.html: printed $97.10 which is not in data/*.json — either it is a policy quote or a hallucination
+- [site] calculator.html: printed $75.52 which is not in data/*.json — either it is a policy quote or a hallucination
+- [site] calculator.html: printed $75.52 which is not in data/*.json — either it is a policy quote or a hallucination
+- [site] calculator.html: printed $75.52 which is not in data/*.json — either it is a policy quote or a hallucination
+- [site] calculator.html: printed $75.52 which is not in data/*.json — either it is a policy quote or a hallucination
+- [site] calculator.html: printed $75.52 which is not in data/*.json — either it is a policy quote or a hallucination
+- [site] calculator.html: printed $75.52 which is not in data/*.json — either it is a policy quote or a hallucination
+- [site] calculator.html: printed $75.52 which is not in data/*.json — either it is a policy quote or a hallucination
+- [site] combined.html: printed $368 which is not in data/*.json — either it is a policy quote or a hallucination
+- [site] combined.html: printed $2,150 which is not in data/*.json — either it is a policy quote or a hallucination
+- [site] index.html: printed $75.52 which is not in data/*.json — either it is a policy quote or a hallucination
+- [site] index.html: printed $6,983.75 which is not in data/*.json — either it is a policy quote or a hallucination
+- [site] index.html: printed $20,951.26 which is not in data/*.json — either it is a policy quote or a hallucination
+- [site] index.html: printed $9,777.25 which is not in data/*.json — either it is a policy quote or a hallucination
+- [site] index.html: printed $29,331.76 which is not in data/*.json — either it is a policy quote or a hallucination
+- [site] index.html: printed $12,570.75 which is not in data/*.json — either it is a policy quote or a hallucination
+- [site] index.html: printed $37,712.26 which is not in data/*.json — either it is a policy quote or a hallucination
+- [site] index.html: printed $15,364.26 which is not in data/*.json — either it is a policy quote or a hallucination
+- [site] index.html: printed $46,092.77 which is not in data/*.json — either it is a policy quote or a hallucination
+- [site] index.html: printed $129.45 which is not in data/*.json — either it is a policy quote or a hallucination
+- [site] index.html: printed $388.35 which is not in data/*.json — either it is a policy quote or a hallucination
+- [site] index.html: printed $129.46 which is not in data/*.json — either it is a policy quote or a hallucination
 
 ## Passed checks
 
@@ -115,14 +150,23 @@ None.
 - [flags] 28 flag definitions validated
 - [standards] all karat fractions reproduce n/24
 - [standards] 8 legal rules carry citations
+- [links] 14k.html: local links resolved
+- [links] 18k.html: local links resolved
 - [links] analysis.html: local links resolved
 - [links] calculator.html: local links resolved
+- [links] checklist.html: local links resolved
+- [links] combined.html: local links resolved
+- [links] excluded.html: local links resolved
 - [links] flagged.html: local links resolved
 - [links] index.html: local links resolved
+- [links] lab-grown.html: local links resolved
 - [links] methodology.html: local links resolved
+- [links] retailers.html: local links resolved
 - [links] rings.html: local links resolved
 - [links] sellers.html: local links resolved
+- [links] sources.html: local links resolved
 - [links] standards.html: local links resolved
+- [links] under-1000.html: local links resolved
 
 ## Standing recommendation
 
