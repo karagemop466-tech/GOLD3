@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gold value calculator · GOLD3</title>
+<meta name="description" content="Calculate the melt value of a gold ring at today&#x27;s spot price, and see the break-even weight implied by an asking price.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main" style="position:absolute;left:-9999px">Skip to content</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">GOLD<span>3</span></span>
+      <span class="brand-tag">Gold engagement ring buyer's guide</span>
+    </a>
+    <nav class="main-nav"><a href="index.html">Dashboard</a><a href="rings.html">All rings</a><a href="14k.html">14K</a><a href="18k.html">18K</a><a href="lab-grown.html">Lab-grown</a><a href="retailers.html">Retailers</a><a href="calculator.html" class="active">Calculator</a><a href="flagged.html">Flagged</a><a href="sources.html">Sources</a><a href="checklist.html">Checklist</a></nav>
+  </div>
+</header>
+<main id="main">
+
+<section class="policy">
+      <h2>Zero-hallucination policy</h2>
+      <p><strong>Every price, purity claim, weight and policy on this site is copied from a named source page and stamped with the date it was read.</strong>
+      If a source does not publish a value, the value is left <strong>blank</strong> and marked <em>unverified</em> - it is never estimated,
+      inferred, or filled in to make a row look complete. Prices move daily: always re-check the linked page before buying.</p>
+    </section>
+<div class="page-head">
+  <h1>Gold value calculator</h1>
+  <p class="lead">Work out what the gold in a ring is actually worth at the captured spot price, and what an asking price implies about the metal.
+  The calculator never guesses a ring's weight: you supply it, or the result is meaningless.</p>
+</div>
+
+<div class="calc">
+  <form class="card" id="gold-calc" autocomplete="off">
+    <h3 style="margin-top:0">Inputs</h3>
+    <div class="field">
+      <label for="calc-spot">Gold spot price (USD per troy ounce)</label>
+      <input type="number" id="calc-spot" value="4026.79" step="0.01" min="0">
+      <p class="tiny muted" style="margin:4px 0 0">Pre-filled with the 22 October 2026 snapshot: $4,026.79/oz (Oct 22nd, 2026 at 07:07 NY Time).
+      Change it to test another price.</p>
+    </div>
+    <div class="field">
+      <label for="calc-karat">Karat</label>
+      <select id="calc-karat">
+        <option value="10K">10K (41.7% gold)</option>
+        <option value="14K" selected>14K (58.3% gold)</option>
+        <option value="18K">18K (75.0% gold)</option>
+        <option value="22K">22K (91.7% gold)</option>
+        <option value="24K">24K (99.99% gold)</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="calc-grams">Ring weight (grams)</label>
+      <input type="number" id="calc-grams" value="3" step="0.1" min="0">
+      <p class="tiny muted" style="margin:4px 0 0">Use the seller's stated weight. No retailer in this dataset publishes one.</p>
+    </div>
+    <div class="field">
+      <label for="calc-price">Asking price (USD) &mdash; optional</label>
+      <input type="number" id="calc-price" value="" step="1" min="0" placeholder="e.g. 1500">
+    </div>
+  </form>
+
+  <div>
+    <div class="result-grid">
+      <div class="result"><div class="label">Spot / gram</div><div class="value" id="out-spot-gram">—</div><div class="note">pure gold</div></div>
+      <div class="result"><div class="label">Melt / gram</div><div class="value" id="out-melt-gram">—</div><div class="note" id="out-purity">—</div></div>
+      <div class="result"><div class="label">Gold value of the ring</div><div class="value" id="out-melt-value">—</div><div class="note">weight × melt per gram</div></div>
+      <div class="result"><div class="label">Break-even weight</div><div class="value" id="out-implied">—</div><div class="note">price ÷ melt per gram</div></div>
+      <div class="result"><div class="label">Price ÷ gold value</div><div class="value" id="out-ratio">—</div><div class="note">the retail multiple</div></div>
+      <div class="result"><div class="label">Premium over gold</div><div class="value" id="out-premium">—</div><div class="note">price − gold value</div></div>
+    </div>
+    <div class="verdict" id="out-verdict"></div>
+    <div class="note-box" style="margin-top:14px">
+      <strong>What "break-even weight" means.</strong> It is the grams of gold the asking price would buy at spot. It is <em>not</em> the ring's weight.
+      If a $1,500 14K ring has a break-even weight of 19.9 g, that means the ring would have to weigh 19.9 g for its gold alone to be worth $1,500 -
+      a typical 2–4 g ring contains far less, and the rest of the price is the stone, the labour and the margin.
+    </div>
+  </div>
+</div>
+
+<h2>The formula, in full</h2>
+<div class="card">
+  <p class="mono">spot_per_gram = spot_usd_per_troy_oz ÷ 31.1034768</p>
+  <p class="mono">melt_per_gram(karat) = spot_per_gram × (karat ÷ 24)</p>
+  <p class="mono">gold_value = melt_per_gram(karat) × ring_weight_grams</p>
+  <p class="mono">break_even_weight = asking_price ÷ melt_per_gram(karat)</p>
+  <p class="small muted" style="margin-top:10px">1 troy ounce = 31.1034768 g exactly. Fineness = karat ÷ 24, so 14K = 58.333% and 18K = 75.000%.
+  This is the pure-metal content used for valuation; it is not a hallmark tolerance (see 15 U.S.C. 295 for that).</p>
+</div>
+
+<h2>Melt value per gram, by karat</h2>
+<div class="table-wrap">
+  <table style="min-width:520px">
+    <thead><tr><th>Karat</th><th class="num">Fineness</th><th class="num">Melt value per gram at $4,026.79/oz</th></tr></thead>
+    <tbody><tr><td><strong>10K</strong></td><td class='num'>41.67%</td><td class='num'>$53.94</td></tr><tr><td><strong>14K</strong></td><td class='num'>58.33%</td><td class='num'>$75.52</td></tr><tr><td><strong>18K</strong></td><td class='num'>75.00%</td><td class='num'>$97.10</td></tr><tr><td><strong>22K</strong></td><td class='num'>91.67%</td><td class='num'>$118.68</td></tr><tr><td><strong>24K</strong></td><td class='num'>99.99%</td><td class='num'>$129.45</td></tr></tbody>
+  </table>
+</div>
+
+<h2>Break-even weight for every listing (derived)</h2>
+<p class="small">Sorted by price. This is the calculator applied to each recorded price - a derived benchmark, never a claim about the ring's real weight.</p>
+<div class="table-wrap">
+  <table style="min-width:720px">
+    <thead><tr><th>Listing</th><th>Karat</th><th class="num">Price</th><th class="num">Melt / g</th><th class="num">Break-even weight</th></tr></thead>
+    <tbody><tr>
+          <td><a href="rings.html#p-mejuri-stacker-ring-10k">Mejuri</a><span class="sub">mejuri-stacker-ring-10k</span></td>
+          <td>10K</td><td class="num">$138</td>
+          <td class="num">$53.94</td>
+          <td class="num">2.56 g</td>
+        </tr><tr>
+          <td><a href="rings.html#p-catbird-classic-half-round-2mm">Catbird</a><span class="sub">catbird-classic-half-round-2mm</span></td>
+          <td>14K</td><td class="num">$550</td>
+          <td class="num">$75.52</td>
+          <td class="num">7.28 g</td>
+        </tr><tr>
+          <td><a href="rings.html#p-mejuri-diamonds-band">Mejuri</a><span class="sub">mejuri-diamonds-band</span></td>
+          <td>14K</td><td class="num">$648</td>
+          <td class="num">$75.52</td>
+          <td class="num">8.58 g</td>
+        </tr><tr>
+          <td><a href="rings.html#p-bluenile-petite-solitaire-14k-yg">Blue Nile</a><span class="sub">bluenile-petite-solitaire-14k-yg</span></td>
+          <td>14K</td><td class="num">$1,000</td>
+          <td class="num">$75.52</td>
+          <td class="num">13.24 g</td>
+        </tr><tr>
+          <td><a href="rings.html#p-bluenile-petite-hidden-halo-14k-yg">Blue Nile</a><span class="sub">bluenile-petite-hidden-halo-14k-yg</span></td>
+          <td>14K</td><td class="num">$1,255</td>
+          <td class="num">$75.52</td>
+          <td class="num">16.62 g</td>
+        </tr><tr>
+          <td><a href="rings.html#p-aurate-1ct-round-lgd-bezel">Aurate New York</a><span class="sub">aurate-1ct-round-lgd-bezel</span></td>
+          <td>14K</td><td class="num">$1,498</td>
+          <td class="num">$75.52</td>
+          <td class="num">19.84 g</td>
+        </tr><tr>
+          <td><a href="rings.html#p-bluenile-riviera-pave-14k-wg">Blue Nile</a><span class="sub">bluenile-riviera-pave-14k-wg</span></td>
+          <td>14K</td><td class="num">$1,500</td>
+          <td class="num">$75.52</td>
+          <td class="num">19.86 g</td>
+        </tr><tr>
+          <td><a href="rings.html#p-aurate-2ct-emerald-lgd-bezel">Aurate New York</a><span class="sub">aurate-2ct-emerald-lgd-bezel</span></td>
+          <td>14K</td><td class="num">$1,968</td>
+          <td class="num">$75.52</td>
+          <td class="num">26.06 g</td>
+        </tr><tr>
+          <td><a href="rings.html#p-bluenile-floral-marquise-18k-wg">Blue Nile</a><span class="sub">bluenile-floral-marquise-18k-wg</span></td>
+          <td>18K</td><td class="num">$2,210</td>
+          <td class="num">$97.10</td>
+          <td class="num">22.76 g</td>
+        </tr><tr>
+          <td><a href="rings.html#p-bluenile-criss-cross-18k-yg">Blue Nile (By James Allen)</a><span class="sub">bluenile-criss-cross-18k-yg</span></td>
+          <td>18K</td><td class="num">$2,320</td>
+          <td class="num">$97.10</td>
+          <td class="num">23.89 g</td>
+        </tr><tr>
+          <td><a href="rings.html#p-aurate-3ct-pear-lgd-bezel">Aurate New York</a><span class="sub">aurate-3ct-pear-lgd-bezel</span></td>
+          <td>14K</td><td class="num">$2,498</td>
+          <td class="num">$75.52</td>
+          <td class="num">33.08 g</td>
+        </tr><tr>
+          <td><a href="rings.html#p-aurate-2ct-emerald-lgd-solitaire">Aurate New York</a><span class="sub">aurate-2ct-emerald-lgd-solitaire</span></td>
+          <td>14K</td><td class="num">$2,638</td>
+          <td class="num">$75.52</td>
+          <td class="num">34.93 g</td>
+        </tr><tr>
+          <td><a href="rings.html#p-aurate-2ct-round-lgd-solitaire">Aurate New York</a><span class="sub">aurate-2ct-round-lgd-solitaire</span></td>
+          <td>14K</td><td class="num">$2,858</td>
+          <td class="num">$75.52</td>
+          <td class="num">37.84 g</td>
+        </tr><tr>
+          <td><a href="rings.html#p-aurate-2ct-oval-lgd-solitaire">Aurate New York</a><span class="sub">aurate-2ct-oval-lgd-solitaire</span></td>
+          <td>14K</td><td class="num">$2,858</td>
+          <td class="num">$75.52</td>
+          <td class="num">37.84 g</td>
+        </tr><tr>
+          <td><a href="rings.html#p-aurate-3ct-oval-lgd-solitaire">Aurate New York</a><span class="sub">aurate-3ct-oval-lgd-solitaire</span></td>
+          <td>14K</td><td class="num">$3,958</td>
+          <td class="num">$75.52</td>
+          <td class="num">52.41 g</td>
+        </tr><tr>
+          <td><a href="rings.html#p-ringconcierge-2-08-oval-lab-whisper-thin">Ring Concierge</a><span class="sub">ringconcierge-2-08-oval-lab-whisper-thin</span></td>
+          <td>14K</td><td class="num">$6,038</td>
+          <td class="num">$75.52</td>
+          <td class="num">79.95 g</td>
+        </tr><tr>
+          <td><a href="rings.html#p-ringconcierge-2-72-round-lab-whisper-thin">Ring Concierge</a><span class="sub">ringconcierge-2-72-round-lab-whisper-thin</span></td>
+          <td>14K</td><td class="num">$7,268</td>
+          <td class="num">$75.52</td>
+          <td class="num">96.24 g</td>
+        </tr></tbody>
+  </table>
+</div>
+<p class="tiny muted">Read this as a sanity check, not a valuation. A $6,038 ring with a break-even weight of ~80 g is telling you the price is
+driven by the stone and the brand, not by the gold. No listing here prices below the melt value of a plausible ring weight, so none triggers
+the "too cheap to be solid gold" alarm - the risk in this set is overpaying, not fake metal at a bargain price.</p>
+
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <strong>GOLD3</strong> - a source-linked buying file. Data captured 22 October 2026. Spot price anchor:
+    $4,026.79/oz (Oct 22nd, 2026 at 07:07 NY Time), cross-checked against the World Gold Council
+    ($4,024.36/oz).
+    <div class="footer-links">
+      <a href="checklist.html">Buying checklist</a>
+      <a href="flagged.html">Flagged for review</a>
+      <a href="sources.html">Source register</a>
+      <a href="calculator.html">Gold calculator</a>
+    </div>
+    <p class="tiny" style="margin:10px 0 0">Not financial or legal advice. No affiliate links, no sponsored placements, no prices entered by hand.
+    This site is generated from <span class="mono">data/products.json</span> and will not build if a value is unsourced.</p>
+  </div>
+</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>
