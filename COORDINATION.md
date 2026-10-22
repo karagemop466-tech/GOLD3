@@ -102,3 +102,20 @@ engraving excluded). Ross-Simons, Catbird, James Allen, Costco: **not verified**
 5. Two Costco URLs are dead; the gram weights visible in search copies were **not** copied into the dataset.
 6. 5 of 7 live listings never use the word "solid" — recorded as `null`, not upgraded to "solid gold".
 7. Only 2 of 7 live listings publish a gram weight (both Ross-Simons) — the checklist's biggest open gap.
+
+### 2026-10-22 23:5x UTC — session-982bfc88 — release record
+
+| Item | Result |
+|---|---|
+| PR #1 → `main` | https://github.com/karagemop466-tech/GOLD3/pull/1 — **merged** (merge commit `38ff035`) |
+| PR #3 → `main` (polish + hallucination watchlist) | https://github.com/karagemop466-tech/GOLD3/pull/3 — **merged** (merge commit `6bf9615`) |
+| GitHub Pages | **built** — https://karagemop466-tech.github.io/GOLD3/ (source `main:/`, HTTPS enforced) |
+| Live verification | `index.html`, `rings.html`, `method.html`, `calculator.html` fetched from the Pages URL and read back; all content present, all internal links resolving |
+
+**One defect found and fixed during live verification:** the calculator's "gold value per gram of the ring" line
+printed the fine-gold price ($129.39/g) instead of the alloy price ($75.48/g for 14K). Caught by reading the
+deployed page, not by the audit — the audit only checks stored data, not JavaScript. Fixed in the next commit and
+re-deployed. This is recorded because it is exactly the class of error this project is built to avoid.
+
+T9 (final integration) is `done`. T10–T13 remain `needs review` and are published on `flagged.html`; they do not
+block the merge, per the project rules.
