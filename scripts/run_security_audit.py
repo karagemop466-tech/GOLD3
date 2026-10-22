@@ -85,6 +85,10 @@ TRUSTED_OFFICIAL_DOMAINS = {
     "jamesallen.com",
     "www.tiffany.com",
     "tiffany.com",
+    "www.sarraf.com",
+    "sarraf.com",
+    "automicgold.com",
+    "www.automicgold.com",
     "github.com",
     "karagemop466-tech.github.io",
 }

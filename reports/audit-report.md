@@ -1,10 +1,10 @@
 # Anti-hallucination audit report
 
-- Run: 2026-10-22 23:38 UTC
-- Rows audited: **19**
-- Sellers audited: **8**
-- Flag definitions: **28**
-- Result: **PASS** — 0 error(s), 0 warning(s), 108 check(s) passed
+- Run: 2026-10-22 23:41 UTC
+- Rows audited: **22**
+- Sellers audited: **10**
+- Flag definitions: **35**
+- Result: **PASS** — 0 error(s), 0 warning(s), 130 check(s) passed
 
 ## What this pass is looking for
 
@@ -35,6 +35,7 @@ None.
 - [files] data/sellers.json present
 - [files] data/standards.json present
 - [files] data/flags.json present
+- [files] data/verification.json present
 - [gold-price] spot price present: 4024.36 USD/oz
 - [gold-price] source is the World Gold Council (gold.org)
 - [gold-price] per-gram value reproduces: $129.3862/g (computed, not stored)
@@ -85,6 +86,18 @@ None.
 - [sources] R19: 2 official source link(s)
 - [price] R19: $178 matches its quoted source text
 - [solid] R19: FAIL backed by plating/vermeil evidence
+- [sources] R20: 1 official source link(s)
+- [price] R20: $3,004 matches its quoted source text
+- [weight] R20: 3.8 g traced to a quoted seller statement
+- [solid] R20: PASS backed by a quote containing 'solid'
+- [sources] R21: 1 official source link(s)
+- [price] R21: $613 matches its quoted source text
+- [weight] R21: 8.3 g traced to a quoted seller statement
+- [solid] R21: PASS backed by a quote containing 'solid'
+- [sources] R22: 1 official source link(s)
+- [price] R22: $3,074 matches its quoted source text
+- [weight] R22: 5.4 g traced to a quoted seller statement
+- [solid] R22: PASS backed by a quote containing 'solid'
 - [sellers] S-BN: Blue Nile checked
 - [sellers] S-MJ: Mejuri checked
 - [sellers] S-CO: Costco checked
@@ -93,6 +106,8 @@ None.
 - [sellers] S-TI: Tiffany & Co. checked
 - [sellers] S-CB: Catbird checked
 - [sellers] S-JA: James Allen checked
+- [sellers] S-SARRAF: Sarraf.com checked
+- [sellers] S-AUTOMIC: Automic Gold checked
 - [domain] R01: mejuri.com belongs to mejuri.com
 - [domain] R02: mejuri.com belongs to mejuri.com
 - [domain] R03: mejuri.com belongs to mejuri.com
@@ -112,9 +127,15 @@ None.
 - [domain] R17: tiffany.com belongs to tiffany.com
 - [domain] R18: catbirdnyc.com belongs to catbirdnyc.com
 - [domain] R19: mejuri.com belongs to mejuri.com
-- [flags] 28 flag definitions validated
+- [domain] R20: sarraf.com belongs to sarraf.com
+- [domain] R21: sarraf.com belongs to sarraf.com
+- [domain] R22: automicgold.com belongs to automicgold.com
+- [verify] all 22 rows appear in the verification log
+- [verify] summary counts recomputed from the entries and match
+- [flags] 35 flag definitions validated
 - [standards] all karat fractions reproduce n/24
 - [standards] 8 legal rules carry citations
+- [site] verify.html present
 - [links] 14k.html: local links resolved
 - [links] 18k.html: local links resolved
 - [links] analysis.html: local links resolved
@@ -138,6 +159,7 @@ None.
 - [links] sources.html: local links resolved
 - [links] standards.html: local links resolved
 - [links] under-1000.html: local links resolved
+- [links] verify.html: local links resolved
 
 ## Standing recommendation
 

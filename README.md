@@ -9,7 +9,7 @@ It publishes as a static site on GitHub Pages and is generated entirely from mac
 > **blank** and marked **unverified** — it is never estimated, inferred, or filled in to make a row
 > look complete. Prices move daily; always re-check the linked page before buying.
 
-**Captured:** 22 October 2026 · **38 listings across both passes** · **10 sellers** · **4 published weights**
+**Captured:** 22 October 2026 · **41 listings across both passes** (19 + 22) · **13 sellers** · **7 published weights**
 
 ---
 
@@ -26,6 +26,11 @@ It publishes as a static site on GitHub Pages and is generated entirely from mac
 | `flagged.html` | Every irregularity and unverified cell, with evidence and the action to close it |
 | `sources.html` | Full source register with verbatim quotes and read dates |
 | `checklist.html` | The twelve-point buying checklist, each item tied to law or policy |
+| `verify.html` | The verification log: every source URL reopened, what it confirmed, corrected or deleted, plus the defects found on this site and fixed |
+| `sellers.html` | Seller register from the parallel dataset: return terms, exclusions, contact evidence, disclosure practice |
+| `standards.html` | Karat arithmetic and the federal jewellery rules quoted with citations |
+| `methodology.html` | The passes run in order, and how to re-run every check |
+| `analysis.html` | Coverage of the checklist plus melt value versus asking price for rows that publish a weight |
 
 ## Data files (single source of truth)
 
@@ -37,6 +42,28 @@ It publishes as a static site on GitHub Pages and is generated entirely from mac
 | `data/prices.json` | Dated gold spot snapshots + the physical constants used |
 | `data/findings.json` | Editorial findings, each with a source and a required action |
 | `data/verification-report.json` | Machine-generated audit: metrics, derived benchmarks, errors |
+| `data/verification.json` | The re-verification log: one entry per source URL, with outcome and what the page actually printed |
+
+## Run every check
+
+```bash
+python3 scripts/verify.py         # gate: source domains, quotes must contain their price, arithmetic
+python3 scripts/build_site.py     # build the static site; fails on broken internal links
+python3 scripts/audit.py          # independent audit: provenance, stray numbers, verification coverage
+node scripts/render-test.js       # assert the built HTML contains the audited values
+python3 scripts/report_verify.py  # regenerate reports/verification-report.md from data/
+```
+
+All five run in CI on every push and pull request (`.github/workflows/audit.yml`). The site is generated, so
+editing HTML by hand is pointless: change `data/*.json` or `scripts/build_site.py`, then rebuild.
+
+## What the last verification pass changed
+
+Every cited URL in the parallel dataset was reopened on 22 October 2026 and each stored value was searched for
+in the page text. Outcome: **15 confirmed, 8 corrected, 5 flagged**, three listings added (Sarraf ×2, Automic
+Gold), and seven metal-option phrases **deleted** because the fetched pages never printed them. The log is on
+`verify.html`; the defects it found on this site (a dashboard table that squared the melt value, four pages
+whose renderer no longer existed, one invented prose threshold) are recorded there too, with the fix.
 
 ## Two datasets, one site
 
@@ -45,18 +72,18 @@ surviving datasets are published rather than one being discarded:
 
 | Set | File | Rows | Sellers | Evidence model |
 |---|---|---|---|---|
-| **A** (`sess-7f3a-gold`) | `data/products.json` | 19 (17 gold + 2 excluded) | Aurate, Blue Nile, Catbird, Mejuri, Ring Concierge | Verbatim price quote + capture date per row |
-| **B** (parallel session `8aaa18bf`) | `data/rings.json` | 19 rings + 5 excluded look-alikes | Blue Nile, Catbird, Costco, James Allen, Mejuri, Ross-Simons, Tiffany, Wilson's Estate Jewelry | Per-field quote for karat, solid-gold claim, weight, hallmark, plus a flag legend |
-| **C** (`session-698f08f6`) | `data/solitaire-rings.json`, `data/bands-and-high-karat.json`, `data/sellers-policies.json`, `data/spot-and-standards.json` | 21 listings (incl. 7 pure stone-free 24K & 14K weight-verified bands + `$29` plated control) | Menē, Brilliant Earth, Ross-Simons, Blue Nile, Mejuri (+ official BBB HQ profiles) | Verbatim primary excerpts, exact NIST pure-gold melt ratios (`1.50x–3.96x`), BBB `A+`/`D+`/`D-` audit, dedicated subpages (`bands-vintage-rings.html`, `solitaire-settings.html`, `sellers-policies.html`, `checklist-standards.html`, `flagged-for-review.html`, `security-audit.html`) |
+| **A** (this session) | `data/products.json` | 19 (17 gold + 2 excluded) | Aurate, Blue Nile, Catbird, Mejuri, Ring Concierge | Verbatim price quote + capture date per row |
+| **B** (parallel session `8aaa18bf`) | `data/rings.json` | 22 rings + 5 excluded look-alikes | Blue Nile, Catbird, Costco, James Allen, Mejuri, Ross-Simons, Tiffany, Wilson's Estate Jewelry, Sarraf, Automic Gold | Per-field quote for karat, solid-gold claim, weight, hallmark, plus a flag legend |
 
 `scripts/verify.py` gates **both**. For Dataset B it checks official-domain sources, a per-listing source list, that the
 numeric price appears inside `price_as_shown`, that any weight carries a weight quote, that a `PASS` solid-gold verdict
 carries a quote, and that each excluded look-alike states a reason and an official URL. Combined metrics land in
-`data/verification-report.json` (38 listings, 10 sellers, 4 published weights).
+`data/verification-report.json` (41 listings, 13 sellers, 7 published weights).
 
 `combined.html` shows both sets with an A/B badge so nothing is misattributed. Dataset B's own pages
-(`sellers.html`, `standards.html`, `methodology.html`, `analysis.html`) and the earlier session's archive under
-`archive/session-982bfc88/` are preserved unchanged.
+(`sellers.html`, `standards.html`, `methodology.html`, `analysis.html`, `verify.html`) are generated from the same
+JSON by `scripts/build_site.py` - never hand-edited - and the earlier session's archive under
+`archive/session-982bfc88/` is preserved unchanged.
 
 ## Build and verify
 

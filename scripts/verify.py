@@ -57,6 +57,8 @@ OFFICIAL_DOMAINS = {
     "www.jamesallen.com", "jamesallen.com",
     "www.ross-simons.com", "ross-simons.com",
     "www.tiffany.com", "tiffany.com",
+    "www.sarraf.com", "sarraf.com",
+    "www.automicgold.com", "automicgold.com",
 }
 
 ERRORS: list[str] = []

@@ -1,4 +1,4 @@
-name: Anti-hallucination audit
+name: Anti-hallucination checks
 
 on:
   push:
@@ -10,8 +10,8 @@ permissions:
   contents: read
 
 jobs:
-  audit:
-    name: Audit data and site (All 4 Gates)
+  gate:
+    name: Gate, build, audit and render
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -21,19 +21,40 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
-      - name: Gate 1 — Verify Dataset A + B integrity & spot cross-check
+
+      # 1. the data gate: refuses to pass if a value is unsourced or impossible
+      - name: Verify the datasets (source domains, quotes, arithmetic)
         run: python3 scripts/verify.py
-      - name: Gate 2 — Audit Dataset B + repo-wide links & stray USD figures
+
+      # 2. build Dataset C subpages + unified static site; fails on broken internal links
+      - name: Build the static site
+        run: |
+          python3 scripts/build_ext_pages.py
+          python3 scripts/build_site.py
+
+      # 3. the independent audit: provenance, weighted rows, stray numbers,
+      #    and the requirement that every row appears in the verification log
+      - name: Audit the dataset and the built pages
         run: python3 scripts/audit.py
-      - name: Gate 3 — Audit Dataset C (24K/14K melt math, allowlist, HTML links & XSS)
-        run: python3 scripts/run_security_audit.py --pass-label "GitHub Actions CI Multi-Suite Audit"
-      - name: Gate 4 — Render-test all static & interactive views
+
+      # 4. Dataset C melt arithmetic, allowlist, HTML link/anchor & XSS audit
+      - name: Run Dataset C & repo-wide security/hallucination audit
+        run: python3 scripts/run_security_audit.py --pass-label "GitHub Actions CI Audit"
+
+      # 5. assert the built HTML actually contains the audited values
+      - name: Render test against the built pages
         run: node scripts/render-test.js
-      - name: Keep the audit reports
+
+      # 6. regenerate the human-readable verification report
+      - name: Rebuild the verification report
+        run: python3 scripts/report_verify.py
+
+      - name: Keep the reports
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: audit-report
+          name: verification-reports
           path: |
             reports/audit-report.md
+            reports/verification-report.md
             VERIFICATION_REPORT.md

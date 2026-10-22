@@ -246,13 +246,76 @@
       "source": null
     },
     {
-      "id": "L3",
+      "id": "SPEC1",
+      "severity": "medium",
+      "label": "Seller page contradicts itself on metal/karat",
+      "what": "The listing title and spec table say 18K White Gold, while the same page's product description says the ring is \"crafted from warmly lustrous 14k yellow gold\".",
+      "why_it_matters": "If the seller's own page cannot agree with itself about the metal, the karat stamp is the only thing left to trust — and that is exactly what your checklist says not to rely on alone.",
+      "action": "Ask the seller in writing which alloy the ring is made in and get the answer on the product page or by email. Have the metal tested (XRF) on arrival before accepting it.",
+      "source": "https://www.bluenile.com/engagement-rings/design-your-own-ring/floral-marquise-diamond-engagement-ring-in-18k-white-gold-item-203738"
+    },
+    {
+      "id": "RDR1",
       "severity": "low",
-      "label": "Imported from the prior session, not re-fetched in the integration pass",
-      "what": "This row came from the parallel session's dataset and its page was not re-opened during the integration merge.",
-      "why_it_matters": "The quote was captured from the official page on the same date, but it was not independently re-read in this pass.",
-      "action": "Open the linked page and re-confirm before buying.",
-      "source": null
+      "label": "Product URL redirects to a different product path",
+      "what": "The linked Tiffany URL redirects to a different product path (/jewelry/rings/18k-rose-gold-and-platinum-diamond-rings-1712.html). The page served there still shows The Tiffany Setting in 18k yellow gold, so the facts were verified, but the link is not stable.",
+      "why_it_matters": "A redirect can silently land a buyer on a different product later. A dead or drifting link is how a stale price becomes an invented one.",
+      "action": "Re-open the link before buying and confirm the title, price and metal on the page you land on.",
+      "source": "https://www.tiffany.com/policy/return-policy.html"
+    },
+    {
+      "id": "ID1",
+      "severity": "low",
+      "label": "Identifier on the page differs from the identifier in the URL",
+      "what": "The Costco URL ends in /100675127, while the page that loads shows \"Item 1596365\". The product title matched, so the row is kept, but the two identifiers disagree.",
+      "why_it_matters": "If you quote an item number to Costco or to a card issuer in a dispute, the wrong one can void your complaint trail.",
+      "action": "Use the item number printed on the page (1596365) and keep a dated screenshot of it next to the URL.",
+      "source": "https://www.costco.com/p/-/round-brilliant-050-ctw-vs2-clarity-i-color-diamond-14kt-gold-band/100675127"
+    },
+    {
+      "id": "WT3",
+      "severity": "medium",
+      "label": "Published weight is explicitly approximate",
+      "what": "The seller publishes a gram weight but qualifies it. Sarraf states an accuracy of ± 5%; Ross-Simons states that all weights and measurements are approximate.",
+      "why_it_matters": "A tolerance turns a precise-looking melt calculation into a range. Presenting the midpoint as fact would overstate the precision of the number.",
+      "action": "Treat any melt figure from this weight as an estimate within the seller's stated tolerance, and confirm the actual weight on a jeweller's scale after delivery.",
+      "source": "https://www.sarraf.com/products/14k-white-gold-solitaire-ring-0-94-ctw.html"
+    },
+    {
+      "id": "WT4",
+      "severity": "medium",
+      "label": "Weight published for a reference size, not the size you order",
+      "what": "Sarraf states: \"The weight listed is an approximate weight of a ring in size 10\". The ring is sold in sizes 3 to 16.",
+      "why_it_matters": "Metal weight changes with ring size. Using the size-10 figure for a size 5 ring overstates its gold content.",
+      "action": "Ask for the weight of the exact size you intend to buy, or weigh the delivered ring before arguing about value.",
+      "source": "https://www.sarraf.com/products/10k-gold-6mm-high-polished-comfort-fit-wedding-band.html"
+    },
+    {
+      "id": "WT5",
+      "severity": "medium",
+      "label": "One weight covers more than one metal option",
+      "what": "Automic Gold states \"Approximately 5.4g for gold or 8.1g for platinum\" — one line covering two metals with different densities.",
+      "why_it_matters": "If you order the platinum version, the gold figure is the wrong number, and vice versa. A single value read out of context becomes a false claim.",
+      "action": "Quote the metal alongside the weight whenever you rely on it, and check the delivered ring's weight.",
+      "source": "https://www.automicgold.com/products/radiant-cut-lab-diamond-cathedral-ring"
+    },
+    {
+      "id": "RET7",
+      "severity": "low",
+      "label": "Return window exists but is conditional and short-fused",
+      "what": "Sarraf accepts returns within 30 days of receipt, but damaged or used items do not qualify and orders past 30 days are refused. A cancelled order is charged a 3% card-processing fee (Wilson's terms state the same fee structure).",
+      "why_it_matters": "A return right you cannot practically use is not protection. Waiting past the window, or wearing the ring once, can end it.",
+      "action": "Inspect on arrival, keep the packaging untouched, and start the return in writing inside the window if anything fails verification.",
+      "source": "https://www.sarraf.com/products/14k-white-gold-solitaire-ring-0-94-ctw.html"
+    },
+    {
+      "id": "POL2",
+      "severity": "low",
+      "label": "Engraving makes the item final sale",
+      "what": "The product page states that engraved items are final sale, and engraving is offered as an option at checkout.",
+      "why_it_matters": "A free or cheap engraving can quietly remove the return right that the rest of the policy advertises.",
+      "action": "Decline engraving until the ring has been independently verified, or accept that the purchase becomes non-returnable.",
+      "source": "https://www.automicgold.com/products/radiant-cut-lab-diamond-cathedral-ring"
     }
   ]
 }

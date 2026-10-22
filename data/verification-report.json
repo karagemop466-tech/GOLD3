@@ -393,14 +393,14 @@
     "n_weight_published": 0,
     "n_hallmark_stated": 0,
     "n_retailers": 5,
-    "n_other_items": 19,
+    "n_other_items": 22,
     "n_other_excluded": 5,
-    "n_other_priced": 18,
-    "n_other_weight": 4,
+    "n_other_priced": 21,
+    "n_other_weight": 7,
     "n_other_hallmark": 3,
-    "n_combined": 38,
-    "n_weight_published_total": 4,
-    "n_sellers_total": 10
+    "n_combined": 41,
+    "n_weight_published_total": 7,
+    "n_sellers_total": 12
   },
   "findings": [
     {
@@ -465,10 +465,10 @@
     }
   ],
   "parallel_dataset": {
-    "items": 19,
+    "items": 22,
     "excluded": 5,
-    "priced": 18,
-    "weights": 4
+    "priced": 21,
+    "weights": 7
   },
   "errors": [],
   "warnings": [],

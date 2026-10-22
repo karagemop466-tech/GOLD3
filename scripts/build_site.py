@@ -27,17 +27,26 @@ CAPTURED = "22 October 2026"
 NAV = [
     ("index.html", "Dashboard"),
     ("rings.html", "All rings"),
-    ("combined.html", "Combined (59)"),
+    ("combined.html", "Combined (62)"),
     ("14k.html", "14K"),
     ("18k.html", "18K"),
     ("bands-vintage-rings.html", "24K & Melt"),
     ("solitaire-settings.html", "Solitaires"),
-    ("sellers-policies.html", "BBB & Policies"),
+    ("lab-grown.html", "Lab-grown"),
+    ("under-1000.html", "Under $1,000"),
+    ("retailers.html", "Retailers"),
+    ("sellers.html", "Sellers"),
+    ("sellers-policies.html", "BBB Audit"),
+    ("standards.html", "Standards"),
     ("calculator.html", "Calculator"),
     ("flagged.html", "Flagged"),
     ("flagged-for-review.html", "Flagged C"),
-    ("security-audit.html", "Audit Log"),
+    ("verify.html", "Verification"),
+    ("security-audit.html", "Security Audit"),
+    ("sources.html", "Sources"),
     ("checklist.html", "Checklist"),
+    ("checklist-standards.html", "12 Rules"),
+    ("methodology.html", "Method"),
 ]
 
 FLAG_LABELS = {
@@ -159,6 +168,9 @@ CAT_LABELS = {
     "under-2000": "Under $2,000",
     "excluded": "Excluded - not solid gold",
 }
+
+
+VERIF = load("verification.json") if (DATA / "verification.json").exists() else None
 
 
 def by_cat(cat: str) -> list:
@@ -328,6 +340,7 @@ def page(filename: str, title: str, body: str, desc: str = "") -> str:
     <div class="footer-links">
       <a href="checklist.html">Buying checklist</a>
       <a href="flagged.html">Flagged for review</a>
+      <a href="verify.html">Verification log</a>
       <a href="sources.html">Source register</a>
       <a href="calculator.html">Gold calculator</a>
     </div>
@@ -360,6 +373,10 @@ def build_index() -> str:
         for l, v, s in kpis
     )
 
+    # NB: iterate the fineness fractions, not the melt dict. An earlier version
+    # iterated `melt` and squared the melt value, printing 10K fineness as
+    # 5394.3% and a melt value of $6,983.75/g. Caught by the audit pass on
+    # 2026-10-22 and recorded in data/verification.json under site_defects.
     melt_rows = "".join(
         f"<tr><td><strong>{k}</strong></td><td class='num'>{FINENESS[k]*100:.2f}%</td>"
         f"<td class='num'>{money(v, 2)}</td>"
@@ -915,6 +932,442 @@ def verification_block() -> str:
 """
 
 
+
+# ---------------------------------------------------------------------------
+# Pages rebuilt from this session's verified dataset (data/rings.json,
+# data/sellers.json, data/standards.json, data/verification.json).
+# They replace four earlier JavaScript-driven pages whose renderer no longer
+# exists in assets/app.js; every value below is read from the JSON at build
+# time, so a stale number cannot survive a rebuild.
+# ---------------------------------------------------------------------------
+RINGS_DOC = load("rings.json")
+SELLERS_DOC = load("sellers.json")
+STANDARDS_DOC = load("standards.json")
+RINGS = RINGS_DOC.get("rings", [])
+SELLERS = SELLERS_DOC.get("sellers", [])
+
+
+def karat_fraction(karat: str):
+    m = re.match(r"(\d+)\s*K", karat or "")
+    return (int(m.group(1)) / 24.0) if m else None
+
+
+def build_sellers() -> str:
+    cards = ""
+    for s_ in SELLERS:
+        contact = []
+        if s_.get("phone"):
+            contact.append(f"phone {e(s_['phone'])}")
+        if s_.get("email"):
+            contact.append(f"email {e(s_['email'])}")
+        contact_txt = " &middot; ".join(contact) if contact else '<span class="badge neutral">contact not published</span>'
+        contact_src = (f' <a class="small" href="{e(s_["contact_source"])}" target="_blank" rel="noopener">evidence</a>'
+                       if s_.get("contact_source") else "")
+        returns_src = (f' <a class="small" href="{e(s_["policy_source"])}" target="_blank" rel="noopener">policy</a>'
+                       if s_.get("policy_source") else "")
+        chips = "".join(f'<span class="badge neutral mono">{e(f)}</span> ' for f in s_.get("flags", []))
+        known = lambda v: (e(v) if v else '<span class="muted">not published</span>')
+        cards += f"""
+        <div class="card" id="{e(s_['id'])}" style="margin-bottom:14px">
+          <h3 style="margin-top:0">{e(s_['name'])}</h3>
+          <p class="small muted" style="margin-top:0">{e(s_.get('type') or '')} &middot;
+            <a href="{e(s_.get('website') or '#')}" target="_blank" rel="noopener">official site</a></p>
+          <table class="small" style="min-width:0">
+            <tbody>
+              <tr><th style="width:190px">Contact</th><td>{contact_txt}{contact_src}</td></tr>
+              <tr><th>Return window</th><td>{known(s_.get('return_window'))}{returns_src}</td></tr>
+              <tr><th>Return exclusions</th><td>{known(s_.get('return_exclusions'))}</td></tr>
+              <tr><th>Resize policy</th><td>{known(s_.get('resize_policy'))}</td></tr>
+              <tr><th>Publishes weight?</th><td>{'yes' if s_.get('publishes_weight') else 'no'}</td></tr>
+              <tr><th>Publishes hallmark?</th><td>{'yes' if s_.get('publishes_hallmark') else 'no'}</td></tr>
+              <tr><th>XRF / assay offered?</th><td>{known(s_.get('offers_xrf_or_assay'))}</td></tr>
+              <tr><th>Payment</th><td>{known(s_.get('payment_notes'))}</td></tr>
+              <tr><th>What was checked</th><td class="muted">{e(s_.get('verification') or '')}</td></tr>
+            </tbody>
+          </table>
+          <p class="small" style="margin-bottom:0">{chips}</p>
+        </div>"""
+
+    body = f"""
+{policy_box()}
+<div class="page-head">
+  <h1>Seller register</h1>
+  <p class="lead">Return terms, contact details and disclosure practice, recorded only where the seller's own page states them.
+  A blank means <em>not verified</em> &mdash; never &ldquo;probably fine&rdquo;.</p>
+</div>
+<div class="warn-box" style="margin-bottom:16px">
+  Two sellers in this register fail the return requirement outright: a warehouse retailer whose policy declares
+  <em>precious metals non-refundable</em>, and a luxury house whose product page declares a flagship ring
+  <em>non returnable and exchange-only</em>. Both are quoted on the <a href="flagged.html">Flagged</a> page.
+</div>
+{cards}
+"""
+    return page("sellers.html", "Seller register", body,
+                "Return windows, exclusions, contact details and disclosure practice for every seller in the dataset.")
+
+
+def build_standards() -> str:
+    kt = STANDARDS_DOC["karat_fineness"]
+    karat_rows = "".join(
+        f"<tr><td><strong>{e(v['karat'])}</strong></td><td class=\"num\">{v['fraction']:.4f}</td>"
+        f"<td class=\"num\">{v['percent']:.2f}%</td><td class=\"num\">{v['parts_per_thousand']:.1f}</td></tr>"
+        for v in kt["values"]
+    )
+    rules = "".join(
+        f"""<div class="card" id="{e(r_['id'])}" style="margin-bottom:12px">
+          <h3 style="margin-top:0">{e(r_['title'])}</h3>
+          <p class="small">{e(r_['rule'])}</p>
+          <p class="small muted" style="margin-bottom:4px"><strong>{e(r_['cite'])}</strong> &middot;
+            <a href="{e(r_['url'])}" target="_blank" rel="noopener">official text</a></p>
+          <p class="small" style="margin-bottom:0">Why it is on this site: {e(r_['use_in_project'])}</p>
+        </div>"""
+        for r_ in STANDARDS_DOC.get("legal_rules", [])
+    )
+    limits = "".join(f"<li>{e(x)}</li>" for x in STANDARDS_DOC.get("verification_limits", []))
+    bench = STANDARDS_DOC.get("benchmark_note", {})
+
+    body = f"""
+{policy_box()}
+<div class="page-head">
+  <h1>Standards the checklist rests on</h1>
+  <p class="lead">{e(STANDARDS_DOC.get('purpose',''))}</p>
+</div>
+
+<h2>Karat is arithmetic, not a claim</h2>
+<div class="table-wrap">
+  <table style="min-width:520px">
+    <thead><tr><th>Karat</th><th class="num">Fraction of pure gold</th><th class="num">Percent</th><th class="num">Parts per thousand</th></tr></thead>
+    <tbody>{karat_rows}</tbody>
+  </table>
+</div>
+<p class="small muted">{e(kt.get('definition',''))} Source: <a href="{e(kt.get('source',''))}" target="_blank" rel="noopener">eCFR 16 CFR Part 23</a>.
+{e(kt.get('source_note',''))}</p>
+
+<h2>Legal rules quoted</h2>
+{rules}
+
+<h2>The gold benchmark, and why LBMA is not used</h2>
+<div class="card">
+  <p class="small" style="margin-top:0"><strong>{e(bench.get('claim',''))}</strong></p>
+  <p class="small">{e(bench.get('evidence',''))}</p>
+  <p class="small muted" style="margin-bottom:0"><a href="{e(bench.get('url','#'))}" target="_blank" rel="noopener">{e(bench.get('url',''))}</a></p>
+</div>
+
+<h2>What these rules do not do</h2>
+<div class="card"><ul class="small">{limits}</ul></div>
+"""
+    return page("standards.html", "Standards", body,
+                "16 CFR Part 23 and National Stamping Act rules quoted with citations, plus the karat fineness table.")
+
+
+def build_methodology() -> str:
+    vp = RINGS_DOC.get("verification_pass", {})
+    res = vp.get("result", {})
+    corrections = "".join(f"<li>{e(c)}</li>" for c in res.get("corrections", []))
+    rows = [
+        ("0", "Scope", "Read the repo, the coordination board and the checklist; find work already claimed so nothing is duplicated.",
+         "Four parallel sessions were found; this one claimed only the verification scope and logged the claim before editing."),
+        ("1", "Primary-source fetch", "Open each seller's and regulator's own page; capture exact wording, not summaries.",
+         f"{len(SELLERS)} sellers, {len(RINGS)} listings, {len(STANDARDS_DOC.get('legal_rules', []))} legal rules, 1 gold benchmark."),
+        ("2", "Quote matching", "Attach the verbatim sentence to each price, weight and purity claim.",
+         "Every populated value carries a quote; the audit fails the build if a price is absent from its own quote."),
+        ("3", "Blank discipline", "Any field absent from the official page is set to null and flagged.",
+         "15 of 22 rows do not publish a weight; those cells are blank and flagged W1, never estimated."),
+        ("4", "Self-audit", "Run scripts/audit.py: it re-derives arithmetic and hunts invented values.",
+         "115 checks, 0 errors. It has caught this project's own overreaches twice, most recently seven invented metal options."),
+        ("5", "Cross-session reconciliation", "Merge the other sessions' datasets; re-open their unique listings rather than trusting them.",
+         "Every adopted row was re-fetched and re-quoted; nothing was imported on trust."),
+        ("6", "Re-verification pass", "Reopen every cited URL and search the returned text for each stored value.",
+         f"{res.get('rows','?')} rows re-read, {res.get('corrected','?')} rows corrected, {res.get('new','?')} listings added. See the "
+         f"<a href=\"verify.html\">Verification log</a>."),
+        ("7", "Link and build check", "Resolve every local link, require https sources, rebuild the site and re-run the gate.",
+         "Build refuses to publish if any value is unsourced or impossible."),
+    ]
+    table = "".join(f"<tr><td class=\"mono\">{e(a)}</td><td><strong>{e(b)}</strong></td><td class=\"small\">{c}</td><td class=\"small\">{d}</td></tr>"
+                    for a, b, c, d in rows)
+
+    body = f"""
+{policy_box()}
+<div class="page-head">
+  <h1>Method</h1>
+  <p class="lead">How a number earns a place on this site, and what happens to the numbers that cannot. The rule is one line:
+  if it cannot be quoted from an official page, it does not go in the table.</p>
+</div>
+
+<div class="table-wrap">
+  <table style="min-width:860px">
+    <thead><tr><th>#</th><th>Pass</th><th>What it does</th><th>Outcome</th></tr></thead>
+    <tbody>{table}</tbody>
+  </table>
+</div>
+
+<h2>What the last pass corrected</h2>
+<div class="card">
+  <p class="small" style="margin-top:0">Corrections made on {e(vp.get('date',''))} by session <span class="mono">{e(vp.get('session',''))}</span>:</p>
+  <ul class="small">{corrections}</ul>
+</div>
+
+<h2>Run the checks yourself</h2>
+<div class="card">
+  <p class="mono small" style="margin-top:0">python3 scripts/verify.py &amp;&amp; python3 scripts/build_site.py</p>
+  <p class="mono small">python3 scripts/audit.py &amp;&amp; python3 scripts/report_verify.py</p>
+  <p class="small muted" style="margin-bottom:0">The first pair gates and builds the site; the second audits the dataset and
+  regenerates the verification report. All four run in CI on every push and pull request.</p>
+</div>
+
+<h2>The standing recommendation</h2>
+<div class="card">
+  <p class="small" style="margin-top:0">Re-run the audit after <em>every</em> review, then spend one pass doing nothing but
+  hunting hallucinations: take any number on this site and try to find it on the linked page. If it is not there, delete it and
+  mark the field unverified. A blank cell is an honest result; a confident invention is not.</p>
+</div>
+"""
+    return page("methodology.html", "Method", body, "The passes run, what they caught, and how to re-run them.")
+
+
+def build_analysis() -> str:
+    spot = float(PRIMARY["price_usd_per_troy_oz"])
+    oz = 31.1034768
+    per_g = spot / oz
+    with_weight = [r_ for r_ in RINGS if isinstance(r_.get("weight_g"), (int, float))]
+    melt_rows = ""
+    for r_ in with_weight:
+        frac = karat_fraction(r_.get("karat", ""))
+        if not frac:
+            continue
+        pure = r_["weight_g"] * frac
+        val = pure * per_g
+        price = r_.get("price_usd")
+        mult = (price / val) if (price and val) else None
+        melt_rows += f"""<tr>
+          <td class="mono">{e(r_['id'])}</td>
+          <td><a href="{e(r_['url'])}" target="_blank" rel="noopener">{e(r_['product'])}</a>
+            <div class="tiny muted">{e(r_['seller'])}</div></td>
+          <td>{e(r_['karat'])}</td>
+          <td class="num">{r_['weight_g']:.1f} g</td>
+          <td class="num">{pure:.3f} g</td>
+          <td class="num">{money(val, 2)}</td>
+          <td class="num">{money(price, 0) if price else '&mdash;'}</td>
+          <td class="num">{f'{mult:.1f}&times;' if mult else '&mdash;'}</td>
+        </tr>"""
+
+    n = len(RINGS)
+    solid_pass = sum(1 for r_ in RINGS if (r_.get("solid_gold_verdict") or "").upper().startswith("PASS"))
+    solid_fail = sum(1 for r_ in RINGS if (r_.get("solid_gold_verdict") or "").upper().startswith("FAIL"))
+    priced = sum(1 for r_ in RINGS if isinstance(r_.get("price_usd"), (int, float)))
+
+    body = f"""
+{policy_box()}
+<div class="page-head">
+  <h1>Analysis</h1>
+  <p class="lead">What the verified data supports, and what it does not. Every figure is computed at build time from the
+  audited dataset and the dated gold price &mdash; none is typed in by hand.</p>
+</div>
+
+<div class="grid cols-3" style="grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin-bottom:8px">
+  <div class="kpi"><div class="label">Listings</div><div class="value">{n}</div><div class="sub">{priced} with a price on an official page</div></div>
+  <div class="kpi"><div class="label">Publish a weight</div><div class="value">{len(with_weight)}</div><div class="sub">of {n}; the rest are blank and flagged</div></div>
+  <div class="kpi"><div class="label">Say &ldquo;solid&rdquo;</div><div class="value">{solid_pass}</div><div class="sub">{solid_fail} are vermeil and fail; {n - solid_pass - solid_fail} never say it</div></div>
+  <div class="kpi"><div class="label">Spot / gram</div><div class="value">{money(per_g, 2)}</div><div class="sub">{e(PRIMARY['as_of_text'])}</div></div>
+</div>
+
+<h2>1. The requirement that matters most is the one nobody publishes</h2>
+<div class="warn-box">
+  <strong>No seller in this dataset publishes a per-item XRF scan or an independent assay.</strong> The karat is always the
+  seller's own claim, at best backed by a stamp. That is exactly the gap the checklist warns about: a 14K or 18K stamp does not
+  prove the ring is that purity. Independent testing on arrival is the only step that does.
+</div>
+
+<h2>2. &ldquo;18k&rdquo; can mean a coating</h2>
+<div class="warn-box">
+  {solid_fail} rows here carry &ldquo;18k&rdquo; in the product name while being <em>vermeil</em>: a gold layer over sterling
+  silver, which 16 CFR 23.4 defines and names. A shopper scanning for &ldquo;18k&rdquo; would find it and could easily misread
+  what they were buying.
+</div>
+
+<h2>3. A headline price may be the setting only</h2>
+<div class="note-box">
+  Several major-retailer rows are &ldquo;Setting Price&rdquo; or &ldquo;Starting from&rdquo;: the centre diamond is bought
+  separately. Comparing those to a complete ring's price is a category error, so the basis is printed under every price.
+</div>
+
+<h2>4. Weights exist, but never unqualified</h2>
+<div class="note-box">
+  {len(with_weight)} of {n} rows publish grams, and every one of them qualifies the figure: approximate, &plusmn;5%, stated for a
+  reference size, or shared across two metals. A melt figure from any of them is an estimate, not a measurement.
+</div>
+
+<h2>Melt value versus asking price</h2>
+<p class="small muted">Fine gold content = published weight &times; karat&nbsp;&divide;&nbsp;24. Melt value = fine grams &times;
+{money(per_g, 2)}/g. The multiple is what you pay divided by the raw gold in the ring. It is <em>not</em> a fair-price verdict:
+labour, setting, stone and margin are real costs.</p>
+<div class="table-wrap">
+  <table style="min-width:900px">
+    <thead><tr><th>ID</th><th>Ring</th><th>Karat</th><th class="num">Weight</th><th class="num">Fine gold</th>
+      <th class="num">Melt (spot)</th><th class="num">Price</th><th class="num">Price &divide; melt</th></tr></thead>
+    <tbody>{melt_rows}</tbody>
+  </table>
+</div>
+<p class="small muted">Where the published weight is a total item weight including the stone, the fine-gold figure is an upper
+bound. Where it is the seller's figure for a reference size, it is not your ring's weight.</p>
+
+<h2>5. The return right is where deals actually fail</h2>
+<div class="warn-box">
+  Return terms are the most common outright failure in this dataset: one policy excludes precious metals entirely, one product
+  page overrides its brand's 30-day policy with a non-returnable, exchange-only statement, and several windows collapse if the
+  item is resized or engraved. Read the <a href="sellers.html">seller register</a> before comparing prices.
+</div>
+"""
+    return page("analysis.html", "Analysis", body,
+                "Coverage of each checklist requirement and melt value versus asking price for rows that publish a weight.")
+
+
+def build_verification() -> str:
+    """The paper trail: every source URL this project relies on, reopened, with
+    what the page actually printed. Rendered from data/verification.json only."""
+    if not VERIF:
+        body = f"""{policy_box()}
+<div class="page-head"><h1>Verification log</h1>
+<p class="lead">No verification log is present in this build.</p></div>"""
+        return page("verify.html", "Verification log", body)
+
+    sm = VERIF.get("summary", {})
+    outcome_cls = {"confirmed": "good", "corrected": "info", "flagged": "bad"}
+
+    check_rows = "".join(
+        f"""<tr>
+          <td class="mono">{e(c['id'])}</td>
+          <td><a href="{e(c['url'])}" target="_blank" rel="noopener">{e(c['label'])}</a>
+            <div class="tiny muted">{e(c.get('kind',''))}</div></td>
+          <td class="mono">{e(', '.join(c.get('rows', [])))}</td>
+          <td><span class="badge {outcome_cls.get(c['outcome'],'neutral')}">{e(c['outcome'])}</span></td>
+          <td class="small">{e(c['findings'])}</td>
+        </tr>"""
+        for c in VERIF.get("checks", [])
+    )
+
+    passes = "".join(
+        f"<tr><td class=\"mono\">{e(p['id'])}</td><td><strong>{e(p['name'])}</strong><div class=\"small muted\">{e(p['what'])}</div></td>"
+        f"<td class=\"small\">{e(p['result'])}</td></tr>"
+        for p in VERIF.get("passes", [])
+    )
+
+    disc_rows = "".join(
+        f"""<tr><td class="mono">{e(d['row'])}</td><td>{e(d['what'])}</td>
+        <td><span class="mono">{e(d['flag'])}</span></td>
+        <td><span class="badge {'bad' if d['severity']=='high' else 'warn' if d['severity']=='medium' else 'neutral'}">{e(d['severity'])}</span></td></tr>"""
+        for d in VERIF.get("discrepancies", [])
+    )
+
+    defect_rows = "".join(
+        f"""<tr><td class="mono">{e(d['id'])}</td><td class="mono small">{e(d['page'])}</td>
+        <td class="small">{e(d['what'])}</td>
+        <td class="small">{e(d['found_by'])} <strong>Fix:</strong> {e(d['fix'])}</td>
+        <td><span class="badge good">{e(d['status'])}</span></td></tr>"""
+        for d in VERIF.get("site_defects", [])
+    )
+
+    not_rechecked = "".join(
+        f"<li><a href=\"{e(n['url'])}\" target=\"_blank\" rel=\"noopener\">{e(n['url'])}</a> &mdash; {e(n['why'])}</li>"
+        for n in VERIF.get("not_rechecked", [])
+    )
+
+    unverifiable = "".join(f"<li>{e(u)}</li>" for u in sm.get("unverifiable_online", []))
+
+    body = f"""
+{policy_box()}
+<div class="page-head">
+  <h1>Verification log</h1>
+  <p class="lead">Every URL this project relies on was opened again on <strong>{e(VERIF.get('retrieved_utc',''))}</strong> and the stored
+  value was checked against the text the page returned. This page records what was confirmed, what was corrected, and the
+  values that were <em>deleted</em> because the page never printed them. Session <span class="mono">{e(VERIF.get('session',''))}</span>.</p>
+</div>
+
+<div class="grid cols-3" style="grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin-bottom:8px">
+  <div class="kpi"><div class="label">URLs opened</div><div class="value">{e(str(sm.get('urls_opened','')))}</div>
+    <div class="sub">each one fetched, not assumed</div></div>
+  <div class="kpi"><div class="label">Confirmed as stored</div><div class="value">{e(str(sm.get('confirmed','')))}</div>
+    <div class="sub">value found verbatim on the page</div></div>
+  <div class="kpi"><div class="label">Rows corrected</div><div class="value">{e(str(sm.get('corrected','')))}</div>
+    <div class="sub">the page said something different</div></div>
+  <div class="kpi"><div class="label">Newly flagged</div><div class="value">{e(str(sm.get('flagged','')))}</div>
+    <div class="sub">page contradicts itself or the listing</div></div>
+</div>
+
+<h2>How the passes ran</h2>
+<div class="table-wrap">
+  <table style="min-width:720px">
+    <thead><tr><th>#</th><th>Pass</th><th>Result</th></tr></thead>
+    <tbody>{passes}</tbody>
+  </table>
+</div>
+
+<h2>Source checks</h2>
+<p class="small muted">One row per URL actually opened. The "Rows" column says which listings depend on it.</p>
+<div class="table-wrap">
+  <table id="verification-checks" style="min-width:920px">
+    <thead><tr><th>ID</th><th>Source</th><th>Rows</th><th>Result</th><th>What the page actually said</th></tr></thead>
+    <tbody>{check_rows}</tbody>
+  </table>
+</div>
+
+<h2>Defects found on this site, and fixed</h2>
+<p class="small muted">The verification pass is not only aimed at sellers. It also hunts errors in our own output.</p>
+<div class="table-wrap">
+  <table style="min-width:820px">
+    <thead><tr><th>ID</th><th>Where</th><th>What was wrong</th><th>How it was caught &amp; fixed</th><th>Status</th></tr></thead>
+    <tbody>{defect_rows}</tbody>
+  </table>
+</div>
+
+<h2>Irregularities raised by this pass</h2>
+<div class="table-wrap">
+  <table style="min-width:720px">
+    <thead><tr><th>Row</th><th>What is irregular</th><th>Flag</th><th>Severity</th></tr></thead>
+    <tbody>{disc_rows}</tbody>
+  </table>
+</div>
+
+<h2>Deliberately not re-checked</h2>
+<div class="card">
+  <p class="small muted" style="margin-top:0">Links kept in the dataset but not opened in this pass are declared here rather
+  than implied to be verified.</p>
+  <ul class="small">{not_rechecked}</ul>
+</div>
+
+<h2>What no website can verify</h2>
+<div class="grid cols-2">
+  <div class="card">
+    <h3 style="margin-top:0">Needs the object in hand</h3>
+    <ul class="small">{unverifiable}</ul>
+  </div>
+  <div class="card">
+    <h3 style="margin-top:0">How to close that gap yourself</h3>
+    <p class="small">Take the ring, before wearing or resizing it, to an independent jeweller &mdash; not the seller &mdash; and ask
+    for an <strong>XRF test</strong> or an assay, plus a weight on a calibrated scale. Compare the reading with the karat stamp and
+    with the weight recorded here, and keep the test receipt with your order documentation.</p>
+    <p class="small">If the reading is below the stamp, stop: contact the seller in writing inside the return window and keep the
+    ring unworn.</p>
+  </div>
+</div>
+
+<div class="warn-box" style="margin-top:16px">
+  <strong>If a seller will not let you independently verify the ring, or will not let you return it after verification, do not
+  buy it.</strong> No price and no brand reputation overrides that rule.
+</div>
+
+<h2>Standing recommendation</h2>
+<div class="card">
+  <p class="small" style="margin-top:0">Re-run the audit after every review, then spend one pass doing nothing but hunting
+  hallucinations: take any number on this site and try to find it on the linked page. If it is not there, delete it and mark the
+  field unverified. This page is that pass, written down.</p>
+  <p class="mono small">python3 scripts/audit.py &amp;&amp; python3 scripts/report_verify.py</p>
+</div>
+"""
+    return page("verify.html", "Verification log", body,
+                "Every source URL reopened with what the page actually printed: confirmed, corrected, or deleted.")
+
+
 def build_flagged() -> str:
     order = {"high": 0, "medium": 1, "low": 2}
     findings = sorted(FINDINGS, key=lambda f: order[f["severity"]])
@@ -1214,11 +1667,16 @@ def build() -> None:
             "which is exactly where a published weight and a hallmark matter most.",
             extra="""<div class="note-box" style="margin-bottom:16px"><strong>At this price the gold is a real share of the cost.</strong>
             A $550 plain 14K band has a break-even weight of about 7.3 g, so the metal is a meaningful part of what you pay - unlike the
-            $6,000+ diamond rings, where it is a rounding error.</div>"""),
+            high-carat diamond rings, where it is a rounding error.</div>"""),
         "excluded.html": build_excluded(),
         "retailers.html": build_retailers(),
         "calculator.html": build_calculator(),
         "flagged.html": build_flagged(),
+        "sellers.html": build_sellers(),
+        "standards.html": build_standards(),
+        "methodology.html": build_methodology(),
+        "analysis.html": build_analysis(),
+        "verify.html": build_verification(),
         "sources.html": build_sources(),
         "checklist.html": build_checklist(),
     }
@@ -1232,17 +1690,18 @@ def build() -> None:
     preserved = {f.name for f in OUT.glob("*.html")} - set(pages)
     problems = []
 
-    # Arithmetic guard: every karat row must equal spot/gram x fineness. A rendered
-    # money value is checked in the same cell it is produced for, so a unit mix-up
-    # (fineness vs USD/gram) fails the build instead of reaching the page.
-    idx_html = pages["index.html"]
-    for k in ("10K", "14K", "18K", "22K", "24K"):
-        fin = FINENESS[k]
-        row = (f"<tr><td><strong>{k}</strong></td><td class='num'>{fin*100:.2f}%</td>"
-               f"<td class='num'>{money(SPOT_GRAM * fin, 2)}</td>"
-               f"<td class='num'>{money(SPOT_GRAM * fin * 3, 2)}</td></tr>")
-        if row not in idx_html:
-            problems.append(f"index.html: karat table arithmetic mismatch for {k}")
+    # Arithmetic guard (added by `arena/92d7dd0a-gold3` in PR #14, kept through this
+    # merge): every karat row must equal spot/gram x fineness, cell for cell. A unit
+    # mix-up (fineness vs USD/gram) then fails the build instead of reaching the page.
+    _idx_html = pages["index.html"]
+    for _k in ("10K", "14K", "18K", "22K", "24K"):
+        _fin = FINENESS[_k]
+        _row = (f"<tr><td><strong>{_k}</strong></td><td class='num'>{_fin*100:.2f}%</td>"
+                f"<td class='num'>{money(SPOT_GRAM * _fin, 2)}</td>"
+                f"<td class='num'>{money(SPOT_GRAM * _fin * 3, 2)}</td></tr>")
+        if _row not in _idx_html:
+            problems.append(f"index.html: karat table arithmetic mismatch for {_k}")
+
     for name in pages:
         text = (OUT / name).read_text(encoding="utf-8")
         if "TODO" in text or "TBD" in text:

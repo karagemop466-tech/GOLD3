@@ -26,6 +26,7 @@ NAV_ITEMS = [
     ("calculator.html", "Gold Calculator", False),
     ("flagged-for-review.html", "Flagged C (16)", True),
     ("flagged.html", "Flagged A+B", True),
+    ("verify.html", "Verify Log", False),
     ("security-audit.html", "Security Passes", False),
 ]
 
