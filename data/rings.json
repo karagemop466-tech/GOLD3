@@ -37,9 +37,18 @@
         "price": "$1,145(Setting Price)"
       },
       "observations": [
-        {"on": "2026-10-22", "price": 1145.0, "via": "live product page"}
+        {
+          "on": "2026-10-22",
+          "price": 1145.0,
+          "via": "live product page"
+        }
       ],
-      "flags": ["setting-price-only", "weight-not-published", "solid-not-stated", "rhodium-plated"],
+      "flags": [
+        "setting-price-only",
+        "weight-not-published",
+        "solid-not-stated",
+        "rhodium-plated"
+      ],
       "notes": "Setting only: the centre diamond is selected separately, so $1,145 buys the metal work and side stones, not a finished ring. The page states a rhodium finish on the 14K white gold — the kind of surface plating 16 CFR § 23.7 says must be disclosed. Gram weight is not published anywhere on the page."
     },
     {
@@ -65,9 +74,17 @@
         "price": "$249"
       },
       "observations": [
-        {"on": "2026-10-22", "price": 249.0, "via": "live product page"}
+        {
+          "on": "2026-10-22",
+          "price": 249.0,
+          "via": "live product page"
+        }
       ],
-      "flags": ["weight-is-approximate", "solid-not-stated", "very-light-band"],
+      "flags": [
+        "weight-is-approximate",
+        "solid-not-stated",
+        "very-light-band"
+      ],
       "notes": "A 2 mm 18K band listed at 0.7 g. That is a genuinely thin band — the seller qualifies it with \"All weights and measurements are approximate\". It is the clearest available demonstration of why gram weight matters: at 0.7 g the gold is worth roughly a quarter of the asking price, and a 0.7 g 18K ring will not wear like a 4 g one."
     },
     {
@@ -93,10 +110,23 @@
         "price": "$299"
       },
       "observations": [
-        {"on": "2026-10-22", "price": 299.0, "via": "live product page"},
-        {"on": "2026-10-22", "price": 270.0, "via": "search-engine copy of the same page (stale)"}
+        {
+          "on": "2026-10-22",
+          "price": 299.0,
+          "via": "live product page"
+        },
+        {
+          "on": "2026-10-22",
+          "price": 270.0,
+          "via": "search-engine copy of the same page (stale)"
+        }
       ],
-      "flags": ["weight-is-approximate", "price-drift", "solid-not-stated", "not-an-engagement-ring"],
+      "flags": [
+        "weight-is-approximate",
+        "price-drift",
+        "solid-not-stated",
+        "not-an-engagement-ring"
+      ],
       "notes": "A weight benchmark rather than an engagement ring. Ross-Simons publishes the gram weight, which almost nobody else in this dataset does. The same URL showed $270 in a search-engine copy and $299 on the live page — the live figure is used, and both observations are stored so the discrepancy stays visible."
     },
     {
@@ -121,9 +151,17 @@
         "price": "$178"
       },
       "observations": [
-        {"on": "2026-10-22", "price": 178.0, "via": "live product page"}
+        {
+          "on": "2026-10-22",
+          "price": 178.0,
+          "via": "live product page"
+        }
       ],
-      "flags": ["NOT-SOLID-GOLD", "vermeil", "karat-is-plating-not-core"],
+      "flags": [
+        "NOT-SOLID-GOLD",
+        "vermeil",
+        "karat-is-plating-not-core"
+      ],
       "notes": "Kept in the dataset on purpose, as the counter-example. \"18k gold vermeil\" describes a 2.5-micron gold layer over sterling silver — the same threshold 16 CFR § 23.4 sets for the word vermeil. The 18K describes the coating, not the ring. A listing like this is what the checklist says to walk away from when you are shopping for a solid gold engagement ring."
     },
     {
@@ -149,12 +187,34 @@
         "price": "Starting from $1,600 —"
       },
       "observations": [
-        {"on": "2026-10-22", "price": 1600.0, "via": "live product page"},
-        {"on": "2026-10-22", "price": 1540.0, "via": "search-engine copy of a Tiffany product page (stale)"},
-        {"on": "2026-10-22", "price": 1560.0, "via": "search-engine copy of a Tiffany 1-carat gold landing page (stale)"},
-        {"on": "2026-10-22", "price": 1650.0, "via": "search-engine copy of a Tiffany gold engagement-rings landing page (stale)"}
+        {
+          "on": "2026-10-22",
+          "price": 1600.0,
+          "via": "live product page"
+        },
+        {
+          "on": "2026-10-22",
+          "price": 1540.0,
+          "via": "search-engine copy of a Tiffany product page (stale)"
+        },
+        {
+          "on": "2026-10-22",
+          "price": 1560.0,
+          "via": "search-engine copy of a Tiffany 1-carat gold landing page (stale)"
+        },
+        {
+          "on": "2026-10-22",
+          "price": 1650.0,
+          "via": "search-engine copy of a Tiffany gold engagement-rings landing page (stale)"
+        }
       ],
-      "flags": ["from-price", "weight-not-published", "mixed-metals", "availability-unavailable", "return-terms-ambiguous"],
+      "flags": [
+        "from-price",
+        "weight-not-published",
+        "mixed-metals",
+        "availability-unavailable",
+        "return-terms-ambiguous"
+      ],
       "notes": "Two metals in one ring: an 18k yellow gold band with a platinum head, which is exactly the case 16 CFR § 23.8 addresses (metals listed by relative weight). \"Starting from $1,600\" is the 0.20 ct configuration shown on the page. The page also showed \"This product is currently unavailable\", and displayed both a \"non returnable\" and an \"exchange only\" notice — while Tiffany's own return policy page says 30-day returns for eligible merchandise. The notices were not resolved, so they are flagged rather than summarised."
     },
     {
@@ -179,17 +239,30 @@
         "price": "From$2,900"
       },
       "observations": [
-        {"on": "2026-10-22", "price": 2900.0, "via": "live product page"},
-        {"on": "2026-10-22", "price": 3400.0, "via": "search-engine copy of the Mejuri engagement-ring collection page (stale)"}
+        {
+          "on": "2026-10-22",
+          "price": 2900.0,
+          "via": "live product page"
+        },
+        {
+          "on": "2026-10-22",
+          "price": 3400.0,
+          "via": "search-engine copy of the Mejuri engagement-ring collection page (stale)"
+        }
       ],
-      "flags": ["from-price", "weight-not-published", "rhodium-plated", "engraving-not-returnable"],
+      "flags": [
+        "from-price",
+        "weight-not-published",
+        "rhodium-plated",
+        "engraving-not-returnable"
+      ],
       "notes": "One of the few listings that says solid in the seller's own words: \"handcrafted in 14k solid gold\". The price is a floor — the collection page quoted $3,400 for another configuration, so the $2,900 'from' figure is recorded with that caveat. Returns: free 30 days, but engraving is excluded."
     },
     {
       "id": "CATBIRD-WOODLAND",
       "seller": "catbird",
       "title": "Woodland Ring in 14K Gold (Sofia Zakia for Catbird)",
-      "category": "engagement-complete",
+      "category": "designer-ring",
       "url": "https://www.catbirdnyc.com/woodland-ring.html",
       "checked": "2026-10-22",
       "check": "live",
@@ -207,10 +280,23 @@
         "price": "$276.00 Regular Price $368.00"
       },
       "observations": [
-        {"on": "2026-10-22", "price": 276.0, "via": "live product page (sale price)"},
-        {"on": "2026-10-22", "price": 368.0, "via": "same live product page (regular price)"}
+        {
+          "on": "2026-10-22",
+          "price": 276.0,
+          "via": "live product page (sale price)"
+        },
+        {
+          "on": "2026-10-22",
+          "price": 368.0,
+          "via": "same live product page (regular price)"
+        }
       ],
-      "flags": ["sale-price", "weight-not-published", "solid-not-stated", "availability-unclear"],
+      "flags": [
+        "sale-price",
+        "weight-not-published",
+        "solid-not-stated",
+        "availability-unclear"
+      ],
       "notes": "A designer piece sold at a discount: $276 from a $368 list price, so the price it was reduced from is recorded too. The word solid appears elsewhere on Catbird's site, but not in the product text captured for this ring — so the solid-gold field stays blank instead of being assumed. Marked-down and stock pages on this site also showed sold-out badges, so availability needs re-checking before ordering."
     },
     {
@@ -227,9 +313,18 @@
       "weight_g": null,
       "price": null,
       "price_type": null,
-      "ev": {"karat": null, "color": null, "solid": null, "weight": null, "price": null},
+      "ev": {
+        "karat": null,
+        "color": null,
+        "solid": null,
+        "weight": null,
+        "price": null
+      },
       "observations": [],
-      "flags": ["dead-listing", "redirects-to-blue-nile"],
+      "flags": [
+        "dead-listing",
+        "redirects-to-blue-nile"
+      ],
       "notes": "This jamesallen.com product URL redirected to bluenile.com and the item is listed as \"This popular style is sold out\", with the banner \"James Allen is Now Part of Blue Nile\". No James Allen price was ever recorded, so the $660 seen in a search-engine copy was deliberately thrown away."
     },
     {
@@ -246,9 +341,17 @@
       "weight_g": null,
       "price": null,
       "price_type": null,
-      "ev": {"karat": null, "color": null, "solid": null, "weight": null, "price": null},
+      "ev": {
+        "karat": null,
+        "color": null,
+        "solid": null,
+        "weight": null,
+        "price": null
+      },
       "observations": [],
-      "flags": ["dead-listing"],
+      "flags": [
+        "dead-listing"
+      ],
       "notes": "The URL returns \"Page Not Found!\"; a sibling Costco product returned \"Product Not Available\". Costco does publish gram weights (2.25 g at size 5 for a 4 mm band per the search-engine copy) but that figure could not be confirmed on a live page, so nothing was recorded."
     }
   ]
