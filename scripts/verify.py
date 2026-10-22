@@ -51,6 +51,10 @@ OFFICIAL_DOMAINS = {
     "goldprice.org", "www.goldprice.org",
     "www.lbma.org.uk", "lbma.org.uk",
     "www.trustpilot.com", "trustpilot.com",
+    "www.costco.com", "costco.com",
+    "www.jamesallen.com", "jamesallen.com",
+    "www.ross-simons.com", "ross-simons.com",
+    "www.tiffany.com", "tiffany.com",
 }
 
 ERRORS: list[str] = []
@@ -363,6 +367,48 @@ def main() -> int:
         if suspicious.search(blob):
             err(f"product {p.get('id')}: contains an unsourced/approximate marker")
 
+    # ------------------------------- parallel-pass dataset (data/rings.json)
+    other_items = []
+    rings_path = DATA / "rings.json"
+    if rings_path.exists():
+        rings_doc = load("rings.json")
+        sellers_doc = load("sellers.json")
+        other_sellers = {s.get("id"): s for s in sellers_doc.get("sellers", [])}
+        if len(rings_doc.get("items", [])) < 5:
+            err("rings.json: parallel dataset unexpectedly small")
+        for it in rings_doc.get("items", []):
+            iid = it.get("id", "?")
+            for field in ("id", "seller", "title", "url", "checked", "flags"):
+                if not it.get(field):
+                    err(f"rings.json[{iid}]: missing {field}")
+            if it.get("check") == "live" and not it.get("karat"):
+                err(f"rings.json[{iid}]: live item without karat")
+            if not domain_ok(it.get("url")):
+                err(f"rings.json[{iid}]: url not an allowed official domain")
+            if it.get("seller") not in other_sellers:
+                err(f"rings.json[{iid}]: unknown seller '{it.get('seller')}'")
+            if it.get("check") == "live":
+                if not isinstance(it.get("price"), (int, float)) or it["price"] <= 0:
+                    err(f"rings.json[{iid}]: live item without a positive price")
+                if not it.get("price_type"):
+                    err(f"rings.json[{iid}]: live item without price_type")
+                if not it.get("ev"):
+                    err(f"rings.json[{iid}]: live item without an evidence block")
+            else:
+                if it.get("price") is not None:
+                    warn(f"rings.json[{iid}]: non-live item carries a price")
+                if "dead-listing" not in " ".join(it.get("flags", [])):
+                    err(f"rings.json[{iid}]: non-live item must carry a dead-listing flag")
+            if it.get("weight_g") is not None:
+                ev_blob = json.dumps(it.get("ev") or {}, ensure_ascii=False).lower()
+                if "weight" not in ev_blob and "g" not in ev_blob:
+                    err(f"rings.json[{iid}]: weight present without evidence")
+            if it.get("solid") is True and "solid" not in json.dumps(it.get("ev") or {}).lower():
+                err(f"rings.json[{iid}]: claims solid without evidence")
+            other_items.append(it)
+    else:
+        warn("data/rings.json not found - parallel dataset not integrated")
+
     # --------------------------------------------------- computed metrics + findings
     solid = [p for p in products if p.get("solid_gold") is True]
     gold_listings = [p for p in products if (p.get("purity") or "").upper().startswith(("10", "14", "18"))]
@@ -377,6 +423,14 @@ def main() -> int:
         "n_weight_published": len([p for p in products if p.get("weight_g") is not None]),
         "n_hallmark_stated": len([r for r in retailers if r.get("hallmark_stated")]),
         "n_retailers": len(retailers),
+        "n_other_items": len(other_items),
+        "n_other_live": len([i for i in other_items if i.get("check") == "live"]),
+        "n_other_dead": len([i for i in other_items if i.get("check") != "live"]),
+        "n_other_weight": len([i for i in other_items if i.get("weight_g") is not None]),
+        "n_combined": len(products) + len(other_items),
+        "n_weight_published_total": len([p for p in products if p.get("weight_g") is not None])
+                                    + len([i for i in other_items if i.get("weight_g") is not None]),
+        "n_sellers_total": len(retailer_ids) + len({i.get("seller") for i in other_items} - retailer_ids),
     }
     if metrics["n_solid_gold"] + metrics["n_excluded"] != metrics["n_products"]:
         err("metrics: gold + excluded does not equal total products - every product must be either a "
@@ -425,6 +479,7 @@ def main() -> int:
         "derived_benchmarks": report_rows,
         "metrics": metrics,
         "findings": [{"id": f.get("id"), "severity": f.get("severity"), "title": f.get("title")} for f in findings],
+        "parallel_dataset": {"items": len(other_items), "live": len([i for i in other_items if i.get("check") == "live"])},
         "errors": ERRORS,
         "warnings": WARNINGS,
         "notes": NOTES,

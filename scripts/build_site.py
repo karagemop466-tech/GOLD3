@@ -27,6 +27,7 @@ CAPTURED = "22 October 2026"
 NAV = [
     ("index.html", "Dashboard"),
     ("rings.html", "All rings"),
+    ("combined.html", "Combined"),
     ("14k.html", "14K"),
     ("18k.html", "18K"),
     ("lab-grown.html", "Lab-grown"),
@@ -118,6 +119,15 @@ for f in findings_doc["findings"]:
     if re.search(r"\{[a-z_]+\}", blob):
         sys.exit(f"Unresolved placeholder in finding {f['id']}")
     FINDINGS.append(json.loads(blob))
+
+RINGS_PATH = DATA / "rings.json"
+OTHER_ITEMS = []
+OTHER_SELLERS = {}
+if RINGS_PATH.exists():
+    OTHER_ITEMS = json.loads(RINGS_PATH.read_text(encoding="utf-8")).get("items", [])
+    sellers_path = DATA / "sellers.json"
+    if sellers_path.exists():
+        OTHER_SELLERS = {x["id"]: x for x in json.loads(sellers_path.read_text(encoding="utf-8")).get("sellers", [])}
 
 GOLD = [p for p in PRODUCTS if (p.get("purity") or "").upper().startswith(("10", "14", "18"))]
 EXCLUDED = [p for p in PRODUCTS if "excluded" in p.get("categories", [])]
@@ -322,8 +332,8 @@ def build_index() -> str:
     melt = {k: SPOT_GRAM * v for k, v in FINENESS.items() if k in ("10K", "14K", "18K", "22K", "24K")}
 
     kpis = [
-        ("Verified listings", str(len(PRODUCTS)), f"{METRICS['n_solid_gold']} gold &middot; {METRICS['n_excluded']} excluded"),
-        ("Retailers profiled", str(METRICS["n_retailers"]), "returns, contact, independent reviews"),
+        ("Listings on site", str(METRICS['n_combined']), f"{len(PRODUCTS)} this pass &middot; {METRICS['n_other_items']} parallel pass"),
+        ("Sellers covered", str(METRICS["n_sellers_total"]), "returns, contact, independent reviews"),
         ("Gold spot (USD/oz)", money(SPOT, 2), e(PRIMARY["as_of_text"])),
         ("14K melt value", money(melt["14K"], 2) + "/g", "raw gold, before labour &amp; stones"),
         ("Ring weights published", f"{METRICS['n_weight_published']} of {METRICS['n_solid_gold']}", "the single biggest gap"),
@@ -356,6 +366,7 @@ def build_index() -> str:
         ("lab-grown.html", "Lab-grown", len(by_cat("lab-grown")), "Identical gold; the stone is where the price is."),
         ("under-1000.html", "Under $1,000", len(by_cat("under-1000")), "Solid-gold rings at the entry price point."),
         ("rings.html", "Natural diamond", len(by_cat("natural")), "Mined stones, with certification questions."),
+        ("combined.html", "Combined list", METRICS["n_combined"], "Both research passes side by side, with provenance."),
         ("excluded.html", "Excluded", len(EXCLUDED), "Vermeil and plated look-alikes: why they fail the test."),
     ]
     cat_html = "".join(
@@ -367,7 +378,7 @@ def build_index() -> str:
 {policy_box()}
 <div class="page-head">
   <h1>A gold engagement ring you can actually verify</h1>
-  <p class="lead">{len(PRODUCTS)} listings and {METRICS['n_retailers']} retailers checked line by line against their own pages, the US jewellery-marking
+  <p class="lead">{METRICS['n_combined']} listings across {METRICS['n_sellers_total']} sellers - {len(PRODUCTS)} verified in this pass and {METRICS['n_other_items']} in a parallel pass - checked line by line against their own pages, the US jewellery-marking
   regulations and the gold price captured on 22 October 2026. Every row links to the page it came from. Where a seller publishes nothing, the cell is empty
   and the row is flagged - because a blank is honest and a guess is not.</p>
 </div>
@@ -432,6 +443,139 @@ At {money(SPOT,2)}/oz, one gram of pure gold is {money(SPOT_GRAM,2)}. Calculated
 """
     return page("index.html", "Verified gold engagement ring research", body,
                 "Source-linked, zero-hallucination research on solid gold engagement rings: verified prices, retailer return policies, and a gold-value calculator.")
+
+
+
+def build_combined() -> str:
+    def other_row(it):
+        seller = OTHER_SELLERS.get(it.get("seller"), {})
+        seller_name = seller.get("name") or it.get("seller")
+        dead = it.get("check") != "live"
+        solid = it.get("solid")
+        if solid is True:
+            sb = '<span class="badge good">Stated</span>'
+        elif solid is False:
+            sb = '<span class="badge bad">Excluded</span>'
+        else:
+            sb = '<span class="badge warn">Not stated</span>'
+        price = money(it["price"]) if isinstance(it.get("price"), (int, float)) else '<span class="badge neutral">no price</span>'
+        basis = e(it.get("price_type") or ("dead listing" if dead else "—"))
+        if it.get("weight_g") is not None:
+            approx = "weight-is-approximate" in (it.get("flags") or [])
+            weight = f'{it["weight_g"]:g} g' + ('<span class="sub">approximate</span>' if approx else '')
+        else:
+            weight = '<span class="badge neutral">not published</span>'
+        chips = "".join(
+            f'<span class="badge {"bad" if "not-solid" in f or "vermeil" in f else "warn"}">{e(f.replace("-", " ").title())}</span>'
+            for f in (it.get("flags") or [])[:3]
+        )
+        extra = len(it.get("flags") or []) - 3
+        if extra > 0:
+            chips += f'<span class="badge neutral">+{extra}</span>'
+        status = '<span class="badge bad">dead link</span>' if dead else '<span class="badge good">live</span>'
+        return f"""<tr>
+          <td><span class="badge info">B</span></td>
+          <td>{e(seller_name)}<span class="sub">{status}</span></td>
+          <td><a href="{e(it['url'])}" target="_blank" rel="noopener">{e(it['title'])}</a></td>
+          <td>{e(it.get('karat') or '—')}</td>
+          <td>{sb}</td>
+          <td class="num">{price}<span class="sub">{basis}</span></td>
+          <td>{weight}</td>
+          <td>{e(it.get('checked') or '—')}</td>
+          <td><div class="chips">{chips}</div></td>
+          <td><a href="{e(it['url'])}" target="_blank" rel="noopener">source</a></td>
+        </tr>"""
+
+    def mine_row(p):
+        r = R_BY_ID.get(p["retailer"], {})
+        dead = False
+        return f"""<tr>
+          <td><span class="badge gold">A</span></td>
+          <td>{e(r.get('name', p['retailer']))}<span class="sub"><span class="badge good">live</span></span></td>
+          <td><a href="{e(p['url'])}" target="_blank" rel="noopener">{e(p['name'])}</a></td>
+          <td>{e(p['purity'])}</td>
+          <td>{solid_badge(p)}</td>
+          <td class="num">{money(p['price'])}<span class="sub">{e(p.get('price_type',''))}</span></td>
+          <td>{weight_cell(p)}</td>
+          <td>{e(p.get('price_captured_on',''))}</td>
+          <td>{flags_cell(p)}</td>
+          <td><a href="{e(p.get('price_source') or p['url'])}" target="_blank" rel="noopener">source</a></td>
+        </tr>"""
+
+    rows = "".join(mine_row(p) for p in PRODUCTS) + "".join(other_row(i) for i in OTHER_ITEMS)
+    live = len(PRODUCTS) + len([i for i in OTHER_ITEMS if i.get("check") == "live"])
+    dead = len([i for i in OTHER_ITEMS if i.get("check") != "live"])
+    weights = METRICS["n_weight_published_total"]
+    sellers = METRICS["n_sellers_total"]
+
+    body = f"""
+{policy_box()}
+<div class="page-head">
+  <h1>Combined dataset &mdash; both research passes</h1>
+  <p class="lead">Two agent sessions researched this repo independently on the same day. Rather than discard either, both datasets are published here,
+  side by side, with their own source links and provenance. <strong>Dataset A</strong> is this session's 19 listings with verbatim price quotes
+  (5 retailers). <strong>Dataset B</strong> is the parallel session's 9 listings (7 sellers), including Costco, James Allen, Ross-Simons and Tiffany &amp; Co.</p>
+</div>
+
+<div class="grid cols-4" style="margin-bottom:18px">
+  <div class="kpi"><div class="label">Listings on site</div><div class="value">{len(PRODUCTS) + len(OTHER_ITEMS)}</div><div class="sub">A: {len(PRODUCTS)} &middot; B: {len(OTHER_ITEMS)}</div></div>
+  <div class="kpi"><div class="label">Live listings</div><div class="value">{live}</div><div class="sub">{dead} dead links kept for the record</div></div>
+  <div class="kpi"><div class="label">Sellers covered</div><div class="value">{sellers}</div><div class="sub">across both passes</div></div>
+  <div class="kpi"><div class="label">Weights published</div><div class="value">{weights}</div><div class="sub">both approximate (Ross-Simons)</div></div>
+</div>
+
+<div class="warn-box" style="margin-bottom:16px">
+  <strong>What "A" and "B" mean.</strong> Dataset A records each price with a verbatim quote and a capture date, and is checked by
+  <span class="mono">scripts/verify.py</span>. Dataset B was captured by the parallel session with its own evidence field per listing and its own audit
+  (<span class="mono">reports/audit-latest.md</span>); it is reproduced here unchanged and is not re-vouched for by Dataset A. Two dead links
+  (a James Allen URL that now redirects to Blue Nile, and a Costco page that returns 404) are kept and labelled rather than deleted - a listing that
+  disappeared is itself useful information.
+</div>
+
+<div class="toolbar" data-table-toolbar="combined-table">
+  <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="a">Dataset A</button>
+  <button class="filter-btn" data-filter="b">Dataset B</button>
+  <button class="filter-btn" data-filter="14k">14K</button>
+  <button class="filter-btn" data-filter="18k">18K</button>
+  <input type="search" placeholder="Search seller, ring or flag…" aria-label="Search combined listings">
+  <span class="small muted" data-count></span>
+</div>
+
+<div class="table-wrap">
+  <table id="combined-table">
+    <thead><tr>
+      <th>Set</th><th>Seller</th><th>Ring</th><th>Karat</th><th>Solid gold</th>
+      <th class="num">Price</th><th>Weight</th><th>Checked</th><th>Flags</th><th>Source</th>
+    </tr></thead>
+    <tbody>{rows}</tbody>
+  </table>
+</div>
+
+<h2>Preserved pages from the parallel pass</h2>
+<div class="card">
+  <p class="small">The parallel session's own pages are kept in the repository and remain reachable, unchanged:</p>
+  <ul class="small">
+    <li><a href="sellers.html">Seller register</a> &mdash; 7 sellers with contact and return evidence</li>
+    <li><a href="standards.html">Standards &amp; law reference</a> &mdash; its 16 CFR / 15 U.S.C. reading</li>
+    <li><a href="method.html">Method</a> &mdash; how that pass verified data</li>
+    <li><a href="reports/audit-latest.md">Audit report</a> &mdash; machine output from its no-hallucination audit</li>
+  </ul>
+</div>
+
+<h2>Where the two passes agree - and where they don't</h2>
+<div class="card">
+  <p class="small"><strong>Agree:</strong> the gold spot anchor. Dataset B records the World Gold Council figure of $4,024.36/oz (21 Oct 2026);
+  Dataset A uses GoldPrice.org at $4,026.79/oz (22 Oct 2026) and lists the World Gold Council figure as its cross-check. The two are 0.06% apart.</p>
+  <p class="small"><strong>Agree:</strong> "solid gold" is rarely stated on listings. Both passes independently flagged it as the norm rather than the exception.</p>
+  <p class="small"><strong>Differ:</strong> weight publication. Dataset A's five retailers publish none; Dataset B found Ross-Simons publishing
+  approximate gram weights. That is why finding F2 is now scoped to "this pass" and reports the combined figure separately.</p>
+  <p class="small"><strong>Differ:</strong> coverage. Dataset B includes Tiffany, Costco, James Allen and Ross-Simons, which Dataset A did not open;
+  Dataset A includes Aurate and Ring Concierge, which Dataset B did not.</p>
+</div>
+"""
+    return page("combined.html", "Combined dataset", body,
+                "Both research passes side by side: 28 listings across 9 sellers, each with its own source link and provenance.")
 
 
 def build_rings() -> str:
@@ -967,6 +1111,7 @@ def build() -> None:
     pages = {
         "index.html": build_index(),
         "rings.html": build_rings(),
+        "combined.html": build_combined(),
         "14k.html": build_category(
             "14k", "14k", "14K solid gold rings",
             "14K is 58.3% gold. It is the hardest-wearing karat commonly sold in the US and the price point most listings sit at. "
@@ -1007,6 +1152,9 @@ def build() -> None:
         (OUT / name).write_text(content, encoding="utf-8")
 
     # ------------------------------------------------------------ build checks
+    # Pages produced by the parallel pass are preserved verbatim and are valid
+    # link targets even though this script does not render them.
+    preserved = {f.name for f in OUT.glob("*.html")} - set(pages)
     problems = []
     for name in pages:
         text = (OUT / name).read_text(encoding="utf-8")
@@ -1014,7 +1162,7 @@ def build() -> None:
             problems.append(f"{name}: contains TODO/TBD")
         for href in re.findall(r'href="([^"#:]+\.html)[^"]*"', text):
             base = href.split("?")[0]
-            if base not in pages:
+            if base not in pages and base not in preserved:
                 problems.append(f"{name}: broken internal link -> {href}")
         if "assets/style.css" not in text:
             problems.append(f"{name}: missing stylesheet")

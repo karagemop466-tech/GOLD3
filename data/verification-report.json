@@ -392,7 +392,14 @@
     "n_solid_gold_listing": 3,
     "n_weight_published": 0,
     "n_hallmark_stated": 0,
-    "n_retailers": 5
+    "n_retailers": 5,
+    "n_other_items": 9,
+    "n_other_live": 7,
+    "n_other_dead": 2,
+    "n_other_weight": 2,
+    "n_combined": 28,
+    "n_weight_published_total": 2,
+    "n_sellers_total": 9
   },
   "findings": [
     {
@@ -403,12 +410,12 @@
     {
       "id": "F2",
       "severity": "high",
-      "title": "No retailer in this set publishes the ring's weight in grams"
+      "title": "Almost no retailer publishes a usable ring weight - and the one exception is 'approximate'"
     },
     {
       "id": "F3",
       "severity": "high",
-      "title": "No retailer in this set states a hallmark / maker's-mark policy"
+      "title": "None of the five retailers in this pass states a hallmark / maker's-mark policy"
     },
     {
       "id": "F4",
@@ -456,6 +463,10 @@
       "title": "Two independent spot-price sources agree to within 0.06%"
     }
   ],
+  "parallel_dataset": {
+    "items": 9,
+    "live": 7
+  },
   "errors": [],
   "warnings": [],
   "notes": [

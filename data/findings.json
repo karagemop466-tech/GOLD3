@@ -14,9 +14,9 @@
     {
       "id": "F2",
       "severity": "high",
-      "title": "No retailer in this set publishes the ring's weight in grams",
-      "detail": "All {n_solid_gold} solid-gold listings were checked. None states the actual weight of the finished ring. Aurate's product feed does contain a numeric 'weight' field, but it is undocumented, is repeated identically across variants of the same design, and is never described as the finished item weight - so it was deliberately not used. Without a stated weight you cannot compute how much gold you are buying, only what the price implies.",
-      "evidence": "{n_weight_published} of {n_solid_gold} solid-gold listings contained a stated ring weight in grams.",
+      "title": "Almost no retailer publishes a usable ring weight - and the one exception is 'approximate'",
+      "detail": "In this pass's five retailers, {n_weight_published} of {n_solid_gold} gold listings state the finished ring weight in grams. Across the combined dataset ({n_combined} listings, {n_sellers_total} sellers), only {n_weight_published_total} publish a weight - both are Ross-Simons bands (0.7 g and 0.8 g), and Ross-Simons qualifies its figures as approximate. Aurate's product feed does contain a numeric 'weight' field, but it is undocumented, repeats across variants and is never described as the finished item weight, so it was deliberately not used. Without a stated weight you cannot compute how much gold you are buying, only what the price implies.",
+      "evidence": "This pass: {n_weight_published} of {n_solid_gold} listings state a weight. Combined: {n_weight_published_total} of {n_combined}, both flagged approximate by the seller.",
       "source": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring.js",
       "product": null,
       "action": "Email the retailer and ask for the finished ring weight in grams, in writing, before paying. A legitimate seller can provide it."
@@ -24,7 +24,7 @@
     {
       "id": "F3",
       "severity": "high",
-      "title": "No retailer in this set states a hallmark / maker's-mark policy",
+      "title": "None of the five retailers in this pass states a hallmark / maker's-mark policy",
       "detail": "Under 15 U.S.C. 297, a quality mark such as '14K' must be accompanied by the manufacturer's or dealer's trademark or name. None of the five retailers publishes a hallmark policy on the pages checked, so there is no written confirmation that the karat stamp will be accompanied by a maker's mark.",
       "evidence": "{n_hallmark_stated} of {n_retailers} retailer profiles contain a hallmark statement; all five records carry hallmark_stated = null.",
       "source": "https://www.law.cornell.edu/uscode/text/15/297",
