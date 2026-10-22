@@ -21,8 +21,8 @@
 |---|---|---|---|---|
 | **C1** | Repository review (`README.md`, commit history, GitHub Pages config, remote branch audit) & baseline irregularity logging | `done` | `arena/cbea1001-gold3` | `COORDINATION.md`, `data/repo-audit.json` |
 | **C2** | Official gold spot benchmark price & US federal purity/hallmark/XRF standards verification | `done` | `arena/cbea1001-gold3` | `data/gold-benchmark.json`, `data/purity-standards.json` |
-| **C3** | Official gold engagement ring product listings collection & line-by-line verification | `in progress` | `arena/cbea1001-gold3` | `data/rings.json` |
-| **C4** | Seller reputation, contact info, return policies (custom/resized exclusions), payment protection & XRF inspection verification | `unclaimed` | — | `data/sellers.json` |
+| **C3** | Official gold engagement ring product listings collection & line-by-line verification | `done` | `arena/cbea1001-gold3` | `data/rings.json` |
+| **C4** | Seller reputation, contact info, return policies (custom/resized exclusions), payment protection & XRF inspection verification | `in progress` | `arena/cbea1001-gold3` | `data/sellers.json` |
 | **C5** | Anti-hallucination security scanner, raw gold / melt math verifier, blank-cell enforcement & link checker | `unclaimed` | — | `package.json`, `scripts/security-check.mjs`, `scripts/verify-links.mjs`, `data/flagged-items.json`, `data/audit-report.json` |
 | **C6** | GitHub Pages dashboard landing page, category subpages, interactive gold weight/melt calculator & Flagged for Review page | `unclaimed` | — | `.nojekyll`, `index.html`, `rings.html`, `calculator.html`, `sellers.html`, `checklist.html`, `analysis.html`, `security-audit.html`, `flagged.html`, `assets/styles.css`, `assets/app.js` |
 | **C7** | Final integration session: merge/sync check against `origin/main`, full line-by-line re-verification pass, CI workflow, PR creation & merge, live GitHub Pages deployment check | `unclaimed` | — | `.github/workflows/verify.yml`, `README.md`, `COORDINATION.md` |
@@ -59,3 +59,19 @@
   - `https://www.iso.org/standard/75272.html` (ISO 23345:2021) & `https://www.iso.org/standard/75771.html` (ISO 11426:2021)
 - **Irregularities Logged:** None in statutory/benchmark sources; noted critical ISO 23345:2021 technical caveat that ED-XRF alone is unsuitable for thickly coated items without paired weight/density checks.
 - **Claimed Task C3 (`in progress`):** Scope `data/rings.json`.
+
+### 2026-10-22 — Session `arena/cbea1001-gold3` — Completed Task C3 & Claimed Task C4
+- **Task C3 Completed (`done`):** Fetched and verified 22 live official ring product listings (`RING-01` through `RING-22`) across 7 major US/North American jewelry retailers (`Automic Gold`, `Sarraf.com`, `VRAI`, `Blue Nile`, `Brilliant Earth`, `Mejuri`, `Local Eclectic`, and `Menē`) on `2026-10-22` and wrote `data/rings.json`.
+- **No-Hallucinations Enforcement:**
+  - Verified exact published gram weights on 10 listings (`Automic Gold` `1.4g–6.1g`, `Sarraf.com` `2.50g–8.30g`, `VRAI` `2.30g–2.86g`).
+  - Left `weight_grams` blank (`null`) and flagged `unverified` across 12 listings (`Blue Nile`, `Brilliant Earth`, `Mejuri`, `Local Eclectic`, and `Menē` static HTML where weight is inside a JS drawer).
+  - Left `price_usd` blank (`null`) and flagged `unverified` on `VRAI` configurator endpoints (`RING-09`, `RING-10`) because live static HTML renders price client-side only (refused to copy cached search-snippet prices).
+  - Left `hallmark_online_stated` blank (`null`) across all 22 rows because no retailer published verbatim interior karat + trademark stamp strings online (requiring post-arrival physical hallmark inspection per `15 U.S.C. § 297`).
+- **Real-World Irregularities Discovered & Logged (`needs review`):**
+  - `RING-13` (`Blue Nile` Stock `501290y`, `$1,375`): Live H1/spec state `18K Yellow Gold`, while Product Details body states `"14k yellow gold engagement ring"`; `claimed_karat` left `null` (`unverified`).
+  - `RING-21` (`Local Eclectic` `Solid Gold Simple Knot Ring`, `$239`): Live material callout badge states `"9k Solid Gold"` (below traditional US `10K` karat-gold floor under `16 CFR § 23.3(b)`), while bullet text states `"10k solid yellow gold"`; `claimed_karat` left `null` and disqualified.
+  - `RING-22` (`Mejuri` `Daily Stacker Ring`, `$118`, `18k Gold Vermeil`): Disqualified control case whose live copy contains the substring `"18k solid gold"` inside `"a thick layer of 18k solid gold plated on 91% recycled sterling silver"`.
+  - `RING-07` (`Sarraf.com` Stock `151105`, `$695`): Copy calls 14K alloy `"Solid and Pure 14k Yellow Gold"` (`16 CFR § 23.3` reserves unqualified/pure gold for 24K).
+  - `RING-14` (`Brilliant Earth` `BE1FM0126-18KY`, `$1,090`): Displays `"Free 1-Year Resizing"` trust badge alongside Product Details exclusion `"resizing is not available for this ring"`, plus UI unit bug `"Band Width: 2 ct. tw."`.
+- **Claimed Task C4 (`in progress`):** Scope `data/sellers.json`.
+
