@@ -1,6 +1,6 @@
 # Anti-hallucination audit report
 
-- Run: 2026-10-22 23:25 UTC
+- Run: 2026-10-22 23:26 UTC
 - Rows audited: **19**
 - Sellers audited: **8**
 - Flag definitions: **28**
