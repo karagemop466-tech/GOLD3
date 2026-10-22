@@ -1,0 +1,122 @@
+{
+  "retrieved_utc": "2026-10-22",
+  "purpose": "The rules the checklist is built on. Each entry quotes or cites an official source so a reader can check it. Nothing here is industry folklore.",
+  "karat_fineness": {
+    "definition": "Karat is parts of pure gold in 24. 18K = 18/24, 14K = 14/24, 10K = 10/24. These are arithmetic identities from the karat definition, not estimates.",
+    "values": [
+      {
+        "karat": "24K",
+        "fraction": 1.0,
+        "percent": 100.0,
+        "parts_per_thousand": 1000
+      },
+      {
+        "karat": "22K",
+        "fraction": 0.9166667,
+        "percent": 91.67,
+        "parts_per_thousand": 916.7
+      },
+      {
+        "karat": "19K",
+        "fraction": 0.7916667,
+        "percent": 79.17,
+        "parts_per_thousand": 791.7
+      },
+      {
+        "karat": "18K",
+        "fraction": 0.75,
+        "percent": 75.0,
+        "parts_per_thousand": 750
+      },
+      {
+        "karat": "14K",
+        "fraction": 0.5833333,
+        "percent": 58.33,
+        "parts_per_thousand": 583.3
+      },
+      {
+        "karat": "10K",
+        "fraction": 0.4166667,
+        "percent": 41.67,
+        "parts_per_thousand": 416.7
+      }
+    ],
+    "source": "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23",
+    "source_note": "16 CFR 23.3(c)(1) sets out how karat fineness may be marked and described on gold-alloy products."
+  },
+  "legal_rules": [
+    {
+      "id": "L1",
+      "title": "A karat mark must accompany the word 'gold' properly, and be equally conspicuous",
+      "rule": "The word 'Gold' may describe an alloy only when immediately preceded by a correct karat designation of at least equal conspicuousness (e.g. '14 Karat Gold', '14K').",
+      "cite": "16 CFR 23.3(c)(1)",
+      "url": "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23",
+      "use_in_project": "Explains why '14k' alone is a quality mark, and why unqualified 'gold' is itself misleading."
+    },
+    {
+      "id": "L2",
+      "title": "Hollow items may NOT be called solid",
+      "rule": "A product composed of gold alloy that contains a hollow centre or interior may mislead unless the hollowness is disclosed next to the word 'Gold'. Such products 'should not be marked or described as solid or as being solidly of gold'.",
+      "cite": "16 CFR 23.3(c)(1)",
+      "url": "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23",
+      "use_in_project": "This is why the project demands the word 'solid', and why a karat stamp alone cannot prove solid construction."
+    },
+    {
+      "id": "L3",
+      "title": "Vermeil is a silver base with a gold coating",
+      "rule": "An item may be marked 'vermeil' only if it is a base of sterling silver coated on all significant surfaces with gold or gold alloy of not less than 10 karat, of reasonable durability, and at least 2.5 microns thick.",
+      "cite": "16 CFR 23.4(b)",
+      "url": "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23",
+      "use_in_project": "Row R04 is 18k vermeil. '18k' there describes the coating, not the body of the ring."
+    },
+    {
+      "id": "L4",
+      "title": "Quality marks must carry the maker's name or trademark",
+      "rule": "The National Stamping Act provides that anyone applying a quality mark indicating gold or silver must also apply to the article the trademark or name of that person. 16 CFR 23.10 restates this under 'Disclosure of identity of manufacturers, processors, or distributors'.",
+      "cite": "16 CFR 23.10 · 15 U.S.C. 297",
+      "url": "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23",
+      "use_in_project": "The checklist's requirement for a maker's mark is a legal requirement on the maker, not a nicety. It is also how you trace who stands behind the stamp."
+    },
+    {
+      "id": "L5",
+      "title": "Assay tolerances",
+      "rule": "Under the National Stamping Act, gold articles containing no solder may deviate by 3 parts per thousand; articles containing solder by 7 parts per thousand.",
+      "cite": "16 CFR 23.3 footnote 32 · 15 U.S.C. 295",
+      "url": "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23",
+      "use_in_project": "Sets the tolerance a jeweller's assay should be judged against."
+    },
+    {
+      "id": "L6",
+      "title": "Multi-metal items must disclose relative quantities",
+      "rule": "It is deceptive to misrepresent the relative quantity of each precious metal in a product containing more than one; metals should be listed in order of relative weight from greatest to least.",
+      "cite": "16 CFR 23.8",
+      "url": "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23",
+      "use_in_project": "Relevant to two-tone and gold-plus-platinum estate rings, and to rhodium-plated white gold, where only the surface is a different metal."
+    },
+    {
+      "id": "L7",
+      "title": "Rhodium plating must be disclosed",
+      "rule": "It is deceptive to fail to disclose a surface-layer application of rhodium on products marked or described as precious metal.",
+      "cite": "16 CFR 23.7",
+      "url": "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23",
+      "use_in_project": "White gold is routinely rhodium plated. That is a surface layer, not the body metal, and it wears off."
+    },
+    {
+      "id": "L8",
+      "title": "Total weight must not be misrepresented",
+      "rule": "It is deceptive to misrepresent the weight or 'total weight' of an industry product.",
+      "cite": "16 CFR 23.18",
+      "url": "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23",
+      "use_in_project": "Justifies the WT1 flag: 'total weight' includes stones and must not be treated as gold weight."
+    }
+  ],
+  "benchmark_note": {
+    "claim": "The LBMA Gold Price is the global benchmark, but its historical tables require a licence.",
+    "evidence": "LBMA's official page states the historical tabulated data has moved to the MyLBMA Portal and that a licence from ICE Benchmark Administration is required to view it.",
+    "url": "https://www.lbma.org.uk/prices-and-data/lbma-precious-metal-prices"
+  },
+  "verification_limits": [
+    "These sources define what sellers and makers must do. They do not certify any individual ring in this dataset.",
+    "No government or standards body publishes a per-item purity certificate for a retail ring. Only an assay or XRF test on the actual item does that."
+  ]
+}

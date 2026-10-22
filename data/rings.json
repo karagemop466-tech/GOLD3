@@ -1,0 +1,585 @@
+{
+  "retrieved_utc": "2026-10-22",
+  "scope": "Gold engagement / eternity rings currently listed for sale by sellers whose own product or collection page was fetched and quoted during this session.",
+  "rules_applied": [
+    "price_usd is filled ONLY from the price shown on the cited official page on the retrieval date.",
+    "weight_g is filled ONLY when the cited page states a weight in grams. Otherwise it is null and flagged W1.",
+    "solid_gold_claim holds a verbatim quote. No verdict is issued without a quote.",
+    "hallmark_reported / maker_mark_reported are filled ONLY from the seller's own description of the stamp.",
+    "No field is ever inferred from karat, price, photo, or 'typical' industry practice."
+  ],
+  "rings": [
+    {
+      "id": "R01",
+      "seller": "Mejuri",
+      "product": "Bold Diamond Eternity Ring",
+      "condition": "New",
+      "karat": "14K",
+      "metal_color": "Solid white gold (also offered in yellow gold)",
+      "price_usd": 2900,
+      "price_basis": "From — varies by size, metal colour and stone",
+      "price_as_shown": "From $2,900",
+      "solid_gold_quote": "Material: \"Solid White Gold (14k)\" · Description: \"a bold ring handcrafted in 14k solid gold featuring as many as 23 round brilliant cut diamonds\"",
+      "solid_gold_verdict": "PASS",
+      "weight_g": null,
+      "weight_quote": null,
+      "hallmark_reported": null,
+      "maker_mark_reported": null,
+      "return_window": "30 days (US, free) — engraved items non-returnable",
+      "certification": null,
+      "url": "https://mejuri.com/products/bold-diamond-eternity-ring",
+      "sources": [
+        "https://mejuri.com/products/bold-diamond-eternity-ring",
+        "https://mejuri.com/faq/return-exchanges/what-is-the-standard-return-policy"
+      ],
+      "flags": [
+        "W1",
+        "H1",
+        "M1"
+      ],
+      "verified_fields": [
+        "price_usd",
+        "karat",
+        "metal_color",
+        "solid_gold_claim",
+        "return_window"
+      ],
+      "unverified_fields": [
+        "weight_g",
+        "hallmark_reported",
+        "maker_mark_reported",
+        "certification"
+      ]
+    },
+    {
+      "id": "R02",
+      "seller": "Mejuri",
+      "product": "Bold Diamond Half Eternity Ring",
+      "condition": "New",
+      "karat": "14K",
+      "metal_color": "Yellow gold (white gold also listed)",
+      "price_usd": 1500,
+      "price_basis": "Listed price on collection page",
+      "price_as_shown": "$1,500",
+      "solid_gold_quote": "Collection listing: \"Bold Diamond Half Eternity Ring $1,500 14k Yellow Gold, Natural Diamond\" · Listing image text: \"handcrafted 14k solid gold ring with seven round cut diamonds\"",
+      "solid_gold_verdict": "PASS (listing-level)",
+      "weight_g": null,
+      "weight_quote": null,
+      "hallmark_reported": null,
+      "maker_mark_reported": null,
+      "return_window": "30 days (US, free) — engraved items non-returnable",
+      "certification": null,
+      "url": "https://mejuri.com/collections/milestone-rings",
+      "sources": [
+        "https://mejuri.com/collections/milestone-rings",
+        "https://mejuri.com/faq/return-exchanges/what-is-the-standard-return-policy"
+      ],
+      "flags": [
+        "W1",
+        "H1",
+        "M1",
+        "L1"
+      ],
+      "verified_fields": [
+        "price_usd",
+        "karat",
+        "return_window"
+      ],
+      "unverified_fields": [
+        "weight_g",
+        "hallmark_reported",
+        "maker_mark_reported",
+        "certification"
+      ]
+    },
+    {
+      "id": "R03",
+      "seller": "Mejuri",
+      "product": "Slim Diamond Eternity Band",
+      "condition": "New",
+      "karat": "14K",
+      "metal_color": "Solid white gold (yellow gold also listed)",
+      "price_usd": 648,
+      "price_basis": "From — varies by size",
+      "price_as_shown": "From $648",
+      "solid_gold_quote": "Collection listing: \"Slim Diamond Eternity Band From $648 ... Solid White Gold (14k), Natural Diamond\"",
+      "solid_gold_verdict": "PASS (listing-level)",
+      "weight_g": null,
+      "weight_quote": null,
+      "hallmark_reported": null,
+      "maker_mark_reported": null,
+      "return_window": "30 days (US, free) — engraved items non-returnable",
+      "certification": null,
+      "url": "https://mejuri.com/collections/milestone-rings",
+      "sources": [
+        "https://mejuri.com/collections/milestone-rings",
+        "https://mejuri.com/faq/return-exchanges/what-is-the-standard-return-policy"
+      ],
+      "flags": [
+        "W1",
+        "H1",
+        "M1",
+        "L1"
+      ],
+      "verified_fields": [
+        "price_usd",
+        "karat",
+        "return_window"
+      ],
+      "unverified_fields": [
+        "weight_g",
+        "hallmark_reported",
+        "maker_mark_reported",
+        "certification"
+      ]
+    },
+    {
+      "id": "R04",
+      "seller": "Mejuri",
+      "product": "Aurora Lab Grown Sapphire Eternity Ring",
+      "condition": "New",
+      "karat": "18K (plating layer only)",
+      "metal_color": "18k gold vermeil on sterling silver",
+      "price_usd": 228,
+      "price_basis": "Listed price",
+      "price_as_shown": "$228",
+      "solid_gold_quote": "Material: \"18k Gold Vermeil, Lab Grown White Sapphire\" · Seller's spec: \"our vermeil is a thick layer of 18k solid gold on sterling silver ... plated on 91% recycled sterling silver\"",
+      "solid_gold_verdict": "FAIL — vermeil, not solid gold",
+      "weight_g": null,
+      "weight_quote": null,
+      "hallmark_reported": null,
+      "maker_mark_reported": null,
+      "return_window": "30 days (US, free) — engraved items non-returnable",
+      "certification": null,
+      "url": "https://mejuri.com/products/aurora-lab-grown-sapphire-eternity-ring",
+      "sources": [
+        "https://mejuri.com/products/aurora-lab-grown-sapphire-eternity-ring",
+        "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23"
+      ],
+      "flags": [
+        "S1",
+        "W1",
+        "H1"
+      ],
+      "verified_fields": [
+        "price_usd",
+        "karat",
+        "solid_gold_claim",
+        "return_window"
+      ],
+      "unverified_fields": [
+        "weight_g",
+        "hallmark_reported",
+        "maker_mark_reported",
+        "certification"
+      ]
+    },
+    {
+      "id": "R05",
+      "seller": "Blue Nile",
+      "product": "Petite Hidden Halo Solitaire Plus Diamond Engagement Ring",
+      "condition": "New",
+      "karat": "14K",
+      "metal_color": "Yellow gold (white/rose gold & platinum also offered)",
+      "price_usd": 1255,
+      "price_basis": "Setting price only — centre stone sold separately",
+      "price_as_shown": "$1,255 (Setting Price)",
+      "solid_gold_quote": "Product detail: \"Metal: 14K Yellow Gold\" · \"Width: 1.60mm\" — the page does not use the word \"solid\"",
+      "solid_gold_verdict": "UNVERIFIED — karat stated, \"solid\" not stated",
+      "weight_g": null,
+      "weight_quote": null,
+      "hallmark_reported": null,
+      "maker_mark_reported": null,
+      "return_window": "30 days — resized/custom/engraved excluded",
+      "certification": null,
+      "url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/petite-hidden-halo-solitaire-plus-diamond-engagement-ring-in-14k-yellow-gold-item-192506",
+      "sources": [
+        "https://www.bluenile.com/engagement-rings/design-your-own-ring/petite-hidden-halo-solitaire-plus-diamond-engagement-ring-in-14k-yellow-gold-item-192506",
+        "https://www.bluenile.com/policies/returns"
+      ],
+      "flags": [
+        "P1",
+        "W1",
+        "H1",
+        "S2"
+      ],
+      "verified_fields": [
+        "price_usd",
+        "price_basis",
+        "karat",
+        "metal_color",
+        "return_window"
+      ],
+      "unverified_fields": [
+        "weight_g",
+        "solid_gold_claim",
+        "hallmark_reported",
+        "maker_mark_reported"
+      ]
+    },
+    {
+      "id": "R06",
+      "seller": "Blue Nile",
+      "product": "Petite Solitaire Engagement Ring",
+      "condition": "New",
+      "karat": "14K",
+      "metal_color": "Yellow gold (white/rose gold & platinum also offered)",
+      "price_usd": 1000,
+      "price_basis": "Setting price only — centre stone sold separately",
+      "price_as_shown": "$1,000 (Setting Price)",
+      "solid_gold_quote": "Listing title: \"Petite Solitaire Engagement Ring in 14k Yellow Gold\" — the listing does not use the word \"solid\"",
+      "solid_gold_verdict": "UNVERIFIED — karat stated, \"solid\" not stated",
+      "weight_g": null,
+      "weight_quote": null,
+      "hallmark_reported": null,
+      "maker_mark_reported": null,
+      "return_window": "30 days — resized/custom/engraved excluded",
+      "certification": null,
+      "url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/petite-solitaire-engagement-ring-in-14k-yellow-gold-item-195639",
+      "sources": [
+        "https://www.bluenile.com/engagement-rings",
+        "https://www.bluenile.com/policies/returns",
+        "https://www.bluenile.com/engagement-rings/design-your-own-ring/petite-solitaire-engagement-ring-in-14k-yellow-gold-item-195639"
+      ],
+      "flags": [
+        "P1",
+        "W1",
+        "H1",
+        "S2",
+        "L2"
+      ],
+      "verified_fields": [
+        "price_usd",
+        "price_basis",
+        "karat",
+        "return_window"
+      ],
+      "unverified_fields": [
+        "weight_g",
+        "solid_gold_claim",
+        "hallmark_reported",
+        "maker_mark_reported"
+      ]
+    },
+    {
+      "id": "R07",
+      "seller": "Blue Nile (James Allen collection)",
+      "product": "Criss Cross Solitaire Engagement Ring",
+      "condition": "New",
+      "karat": "18K",
+      "metal_color": "Yellow gold (white/rose gold & platinum also offered)",
+      "price_usd": 2320,
+      "price_basis": "Setting price only — centre stone sold separately",
+      "price_as_shown": "$2,320 (Setting Price)",
+      "solid_gold_quote": "Listing title: \"Criss Cross Solitaire Engagement Ring In 18K Yellow Gold By James Allen\" — the listing does not use the word \"solid\"",
+      "solid_gold_verdict": "UNVERIFIED — karat stated, \"solid\" not stated",
+      "weight_g": null,
+      "weight_quote": null,
+      "hallmark_reported": null,
+      "maker_mark_reported": null,
+      "return_window": "30 days — resized/custom/engraved excluded",
+      "certification": null,
+      "url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/criss-cross-solitaire-engagement-ring-in-18k-yellow-gold-by-james-allen-item-311132",
+      "sources": [
+        "https://www.bluenile.com/engagement-rings",
+        "https://www.bluenile.com/policies/returns",
+        "https://www.bluenile.com/engagement-rings/design-your-own-ring/criss-cross-solitaire-engagement-ring-in-18k-yellow-gold-by-james-allen-item-311132"
+      ],
+      "flags": [
+        "P1",
+        "W1",
+        "H1",
+        "S2",
+        "L2"
+      ],
+      "verified_fields": [
+        "price_usd",
+        "price_basis",
+        "karat",
+        "return_window"
+      ],
+      "unverified_fields": [
+        "weight_g",
+        "solid_gold_claim",
+        "hallmark_reported",
+        "maker_mark_reported"
+      ]
+    },
+    {
+      "id": "R08",
+      "seller": "Blue Nile",
+      "product": "Floral Marquise Diamond Engagement Ring",
+      "condition": "New",
+      "karat": "18K",
+      "metal_color": "White gold (yellow/rose gold & platinum also offered)",
+      "price_usd": 2210,
+      "price_basis": "Setting price only — centre stone sold separately",
+      "price_as_shown": "$2,210 (Setting Price)",
+      "solid_gold_quote": "Listing title: \"Floral Marquise Diamond Engagement Ring in 18k White Gold\" — the listing does not use the word \"solid\"",
+      "solid_gold_verdict": "UNVERIFIED — karat stated, \"solid\" not stated",
+      "weight_g": null,
+      "weight_quote": null,
+      "hallmark_reported": null,
+      "maker_mark_reported": null,
+      "return_window": "30 days — resized/custom/engraved excluded",
+      "certification": null,
+      "url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/floral-marquise-diamond-engagement-ring-in-18k-white-gold-item-203738",
+      "sources": [
+        "https://www.bluenile.com/engagement-rings",
+        "https://www.bluenile.com/policies/returns",
+        "https://www.bluenile.com/engagement-rings/design-your-own-ring/floral-marquise-diamond-engagement-ring-in-18k-white-gold-item-203738"
+      ],
+      "flags": [
+        "P1",
+        "W1",
+        "H1",
+        "S2",
+        "L2"
+      ],
+      "verified_fields": [
+        "price_usd",
+        "price_basis",
+        "karat",
+        "return_window"
+      ],
+      "unverified_fields": [
+        "weight_g",
+        "solid_gold_claim",
+        "hallmark_reported",
+        "maker_mark_reported"
+      ]
+    },
+    {
+      "id": "R09",
+      "seller": "Blue Nile",
+      "product": "Riviera Pavé Diamond Engagement Ring (1/6 ct. tw.)",
+      "condition": "New",
+      "karat": "14K",
+      "metal_color": "White gold (yellow/rose gold & platinum also offered)",
+      "price_usd": 1500,
+      "price_basis": "Setting price only — centre stone sold separately",
+      "price_as_shown": "$1,500 (Setting Price)",
+      "solid_gold_quote": "Listing title: \"Riviera Pavé Diamond Engagement Ring in 14k White Gold (1/6 ct. tw.)\" — the listing does not use the word \"solid\"",
+      "solid_gold_verdict": "UNVERIFIED — karat stated, \"solid\" not stated",
+      "weight_g": null,
+      "weight_quote": null,
+      "hallmark_reported": null,
+      "maker_mark_reported": null,
+      "return_window": "30 days — resized/custom/engraved excluded",
+      "certification": null,
+      "url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/riviera-pave-diamond-engagement-ring-in-14k-white-gold-1-6-ct-tw-item-195326",
+      "sources": [
+        "https://www.bluenile.com/engagement-rings",
+        "https://www.bluenile.com/policies/returns",
+        "https://www.bluenile.com/engagement-rings/design-your-own-ring/riviera-pave-diamond-engagement-ring-in-14k-white-gold-1-6-ct-tw-item-195326"
+      ],
+      "flags": [
+        "P1",
+        "W1",
+        "H1",
+        "S2",
+        "L2"
+      ],
+      "verified_fields": [
+        "price_usd",
+        "price_basis",
+        "karat",
+        "return_window"
+      ],
+      "unverified_fields": [
+        "weight_g",
+        "solid_gold_claim",
+        "hallmark_reported",
+        "maker_mark_reported"
+      ]
+    },
+    {
+      "id": "R10",
+      "seller": "Costco",
+      "product": "Round Brilliant 0.50 ctw VS2 Clarity, I Color Diamond 14kt Gold Band",
+      "condition": "New",
+      "karat": "14K",
+      "metal_color": "Yellow gold (white gold, rhodium plated, also offered)",
+      "price_usd": null,
+      "price_basis": "No price was displayed on the product page as fetched",
+      "price_as_shown": "(no price displayed)",
+      "solid_gold_quote": "Features: \"Metal: 14kt White Gold (Rhodium Plated) or 14kt Yellow Gold\" — the page does not use the word \"solid\"",
+      "solid_gold_verdict": "UNVERIFIED — karat stated, \"solid\" not stated",
+      "weight_g": null,
+      "weight_quote": null,
+      "hallmark_reported": null,
+      "maker_mark_reported": null,
+      "return_window": "Return policy states: precious metals are non-refundable",
+      "certification": "None stated; diamonds described as \"natural and untreated\"",
+      "url": "https://www.costco.com/p/-/round-brilliant-050-ctw-vs2-clarity-i-color-diamond-14kt-gold-band/100675127",
+      "sources": [
+        "https://www.costco.com/p/-/round-brilliant-050-ctw-vs2-clarity-i-color-diamond-14kt-gold-band/100675127",
+        "https://customerservice.costco.com/app/answers/detail/a_id/1191"
+      ],
+      "flags": [
+        "P2",
+        "RET1",
+        "W1",
+        "H1",
+        "S2"
+      ],
+      "verified_fields": [
+        "karat",
+        "metal_color",
+        "return_window"
+      ],
+      "unverified_fields": [
+        "price_usd",
+        "weight_g",
+        "solid_gold_claim",
+        "hallmark_reported",
+        "maker_mark_reported"
+      ]
+    },
+    {
+      "id": "R11",
+      "seller": "Wilson's Estate Jewelry",
+      "product": "Mid-Century Old European Diamond 14 Karat White Gold Vintage Solitaire Engagement Ring",
+      "condition": "Estate / vintage (1950s), sold as is",
+      "karat": "14K",
+      "metal_color": "White gold",
+      "price_usd": 3725,
+      "price_basis": "Sale price",
+      "price_as_shown": "Sale price $3,725.00",
+      "solid_gold_quote": "Seller's listing: \"Stamped for 14 karat gold\" · \"Total Weight: 6.1 grams\"",
+      "solid_gold_verdict": "UNVERIFIED — seller attests the karat by stamp, but does not use the word \"solid\"",
+      "weight_g": 6.1,
+      "weight_quote": "Total Weight: 6.1 grams (total item weight — includes the 0.78 ct diamond, so gold-only weight is lower)",
+      "hallmark_reported": "Stamped for 14 karat gold",
+      "maker_mark_reported": null,
+      "return_window": "7 calendar days to request; 3 days to ship back",
+      "certification": null,
+      "url": "https://www.wilsonsestatejewelry.com/products/mid-century-old-european-diamond-14-karat-white-gold-vintage-solitaire-engagement-ring",
+      "sources": [
+        "https://www.wilsonsestatejewelry.com/products/mid-century-old-european-diamond-14-karat-white-gold-vintage-solitaire-engagement-ring"
+      ],
+      "flags": [
+        "S2",
+        "RET2",
+        "WT1",
+        "M1",
+        "X1"
+      ],
+      "verified_fields": [
+        "price_usd",
+        "karat",
+        "metal_color",
+        "weight_g",
+        "hallmark_reported",
+        "return_window",
+        "solid_gold_claim"
+      ],
+      "unverified_fields": [
+        "maker_mark_reported",
+        "certification"
+      ]
+    },
+    {
+      "id": "R12",
+      "seller": "Wilson's Estate Jewelry",
+      "product": "Art Deco Old Mine Cut Diamond 18 Karat White Gold Antique Lotus Engagement Ring",
+      "condition": "Estate / antique (1920s), sold as is",
+      "karat": "18K",
+      "metal_color": "White gold",
+      "price_usd": 5350,
+      "price_basis": "Sale price",
+      "price_as_shown": "Sale price $5,350.00",
+      "solid_gold_quote": "Seller's listing: \"Stamped for 18 karat gold\" · \"With partial maker's mark for Hedges & Co.\" · \"Total Weight: 2.2 grams\"",
+      "solid_gold_verdict": "UNVERIFIED — seller attests the karat by stamp, but does not use the word \"solid\"",
+      "weight_g": 2.2,
+      "weight_quote": "Total Weight: 2.2 grams (total item weight — includes the 1.02 ct diamond, so gold-only weight is lower)",
+      "hallmark_reported": "Stamped for 18 karat gold",
+      "maker_mark_reported": "Partial maker's mark for Hedges & Co.",
+      "return_window": "7 calendar days to request; 3 days to ship back",
+      "certification": "GIA Diamond Dossier 2215945495",
+      "url": "https://www.wilsonsestatejewelry.com/products/art-deco-old-mine-cut-diamond-18-karat-white-gold-antique-lotus-engagement-ring-gia",
+      "sources": [
+        "https://www.wilsonsestatejewelry.com/products/art-deco-old-mine-cut-diamond-18-karat-white-gold-antique-lotus-engagement-ring-gia"
+      ],
+      "flags": [
+        "S2",
+        "RET2",
+        "WT1",
+        "X1"
+      ],
+      "verified_fields": [
+        "price_usd",
+        "karat",
+        "metal_color",
+        "weight_g",
+        "hallmark_reported",
+        "maker_mark_reported",
+        "return_window",
+        "certification",
+        "solid_gold_claim"
+      ],
+      "unverified_fields": []
+    },
+    {
+      "id": "R13",
+      "seller": "Wilson's Estate Jewelry",
+      "product": "Bailey Banks & Biddle Art Deco Diamond Enamel 19 Karat White Gold Vintage Fanning Engagement Ring",
+      "condition": "Estate / antique (Art Deco), sold as is",
+      "karat": "19K",
+      "metal_color": "White gold with matte black enamel",
+      "price_usd": 2850,
+      "price_basis": "Sale price",
+      "price_as_shown": "Sale price $2,850.00",
+      "solid_gold_quote": "Seller's listing: \"Stamped for 19 karat gold\" · \"Signed with maker's mark for Bailey Banks & Biddle\"",
+      "solid_gold_verdict": "UNVERIFIED — seller attests the karat by stamp, but does not use the word \"solid\"",
+      "weight_g": null,
+      "weight_quote": null,
+      "hallmark_reported": "Stamped for 19 karat gold",
+      "maker_mark_reported": "Signed with maker's mark for Bailey Banks & Biddle",
+      "return_window": "7 calendar days to request; 3 days to ship back",
+      "certification": null,
+      "url": "https://www.wilsonsestatejewelry.com/products/bailey-banks-biddle-art-deco-diamond-enamel-19-karat-white-gold-vintage-fanning-engagement-ring",
+      "sources": [
+        "https://www.wilsonsestatejewelry.com/products/bailey-banks-biddle-art-deco-diamond-enamel-19-karat-white-gold-vintage-fanning-engagement-ring"
+      ],
+      "flags": [
+        "S2",
+        "K1",
+        "W1",
+        "X1",
+        "RET2"
+      ],
+      "verified_fields": [
+        "price_usd",
+        "karat",
+        "metal_color",
+        "hallmark_reported",
+        "maker_mark_reported",
+        "return_window"
+      ],
+      "unverified_fields": [
+        "weight_g",
+        "certification",
+        "solid_gold_claim"
+      ]
+    }
+  ],
+  "excluded_listings": [
+    {
+      "reason": "Listed as SOLD OUT — no price obtainable, therefore excluded from the price comparison",
+      "product": "Contemporary 0.92 CTW Diamond 14 Karat White Gold Engagement Ring GIA (Wilson's, Stock We-9330)",
+      "url": "https://www.wilsonsestatejewelry.com/products/contemporary-0-92-ctw-diamond-14-karat-white-gold-engagement-ring-gia",
+      "verified_facts": "Stamped 14k; with maker's mark; Total weight 2.3 grams; GIA Diamond Dossier 5221406268"
+    },
+    {
+      "reason": "Platinum, not gold — outside the project scope",
+      "product": "Blue Nile French Pavé Diamond Engagement Ring in Platinum ($2,150 setting price)",
+      "url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/french-pave-diamond-engagement-ring-in-platinum-1-4-ct-tw-item-195271"
+    },
+    {
+      "reason": "URL redirected to an unrelated product (a diamond pendant) when fetched — listing could not be verified as described",
+      "product": "Blue Nile / James Allen '14k white gold knife-edge solitaire item 17152'",
+      "url": "https://www.jamesallen.com/engagement-rings/solitaire/14k-white-gold-knife-edge-solitaire-engagement-ring-item-17152"
+    }
+  ]
+}

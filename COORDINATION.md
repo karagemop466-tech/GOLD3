@@ -33,13 +33,13 @@ Branch naming: `session-<id>/<task>`. (This primary session is pinned by the pla
 
 | ID | Task | Status | Owner | File scope |
 |----|------|--------|-------|-----------|
-| T1 | Verified gold benchmark price (spot) with date + source | in progress | `arena/8aaa18bf-gold3` | `data/gold-price.json`, `data/sources.json` |
-| T2 | Verified ring listings (price, karat, metal, solid-gold claim, weight) | unclaimed | — | `data/rings.json` |
-| T3 | Seller verification (return policy, payment, hallmark/maker-mark, contact) | unclaimed | — | `data/sellers.json` |
-| T4 | Regulatory standards (FTC 16 CFR 23 quality marks; hallmark law) | unclaimed | — | `data/standards.json`, `docs/methodology.md` |
-| T5 | Anti-hallucination audit tooling + audit report | unclaimed | — | `scripts/`, `reports/` |
-| T6 | Site build (landing, category pages, table, calculator, flagged page) | unclaimed | — | `index.html`, `rings.html`, `sellers.html`, `analysis.html`, `flagged.html`, `methodology.html`, `assets/` |
-| T7 | Integration: re-verify combined data, link check, publish Pages, PR + merge | unclaimed | — | `.github/workflows/`, `data/*.json`, repo root |
+| T1 | Verified gold benchmark price (spot) with date + source | **done** | `arena/8aaa18bf-gold3` | `data/gold-price.json` |
+| T2 | Verified ring listings (price, karat, metal, solid-gold claim, weight) | **done** | `arena/8aaa18bf-gold3` | `data/rings.json` |
+| T3 | Seller verification (return policy, payment, hallmark/maker-mark, contact) | **done** | `arena/8aaa18bf-gold3` | `data/sellers.json`, `data/flags.json` |
+| T4 | Regulatory standards (FTC 16 CFR 23; National Stamping Act) | **done** | `arena/8aaa18bf-gold3` | `data/standards.json`, `standards.html` |
+| T5 | Anti-hallucination audit tooling + audit report | **done** | `arena/8aaa18bf-gold3` | `scripts/`, `reports/` |
+| T6 | Site build (landing, category pages, table, calculator, flagged page) | **done** | `arena/8aaa18bf-gold3` | `*.html`, `assets/` |
+| T7 | Integration: re-verify combined data, link check, publish Pages, PR + merge | in progress | `arena/8aaa18bf-gold3` | `.github/workflows/`, repo root |
 
 Status values: `unclaimed` · `in progress` · `done` · `needs review`.
 `needs review` = the item is published on the **Flagged for Review** page; it does **not** block merge.
@@ -58,3 +58,41 @@ Status values: `unclaimed` · `in progress` · `done` · `needs review`.
   never publish **ring metal weight in grams**, and almost never publish a per-item XRF assay. Those
   cells stay blank + flagged `unverified` by design. The melt-value calculator therefore takes weight
   as a **user input**, not a fabricated default.
+
+### 2026-10-22 — Session `arena/8aaa18bf-gold3` — T1-T6 done, T7 in progress
+
+**Single-session note.** No other session claimed any task; every row above was claimed and completed
+by this session, so there are no conflicting scopes and no hand-offs to resolve.
+
+**Sources used (all opened and quoted this session, 2026-10-22)**
+- 16 CFR Part 23 — FTC jewellery guides, via eCFR (gold content, vermeil, quality marks, tolerances).
+- 15 U.S.C. 294-297 — National Stamping Act (maker's mark duty), cited through 16 CFR 23.10.
+- World Gold Council Goldhub — spot price, USD 4,024.36/oz, market date 2026-10-21.
+- LBMA — verified only that its historical tables are licence-gated (so the LBMA fix is not used).
+- Blue Nile: engagement-ring listing, one product page, return-policy page.
+- Mejuri: engagement-rings collection, two product pages, standard-return-policy FAQ.
+- Costco: yellow-gold engagement-ring listing, one product page, official return-policy answer.
+- Wilson's Estate Jewelry: engagement-rings collection, three product pages.
+
+**Verification performed**
+- 13 listings across 4 sellers; each price copied from the seller's own page and stored with its
+  verbatim basis ("Setting Price", "Sale price", "From").
+- `scripts/audit.py` — 55 checks, 0 errors, 0 warnings. It caught three self-overreaches: estate rows
+  marked "solid" on the strength of a stamp stating the karat, where the seller never used the word
+  "solid". Those were downgraded to `UNVERIFIED` and flagged `S2`. Report: `reports/audit-report.md`.
+- `scripts/render-test.js` — 20/20 render checks; the R11 melt figure reproduces the arithmetic
+  exactly, and the calculator refuses to produce a number without a user-supplied weight.
+
+**Irregularities flagged (published on flagged.html, non-blocking)**
+- `RET1` Costco's official policy: "Precious metals are non-refundable" — fails the return requirement.
+- `S1` A mainstream listing named "18k" is 18k gold **vermeil** over sterling silver.
+- `P1` Blue Nile prices shown are **setting only**; the centre stone is extra.
+- `RET2` Wilson's estate return window is 7 days to request and 3 days to ship back.
+- `W1` Weight in grams is unpublished on 10 of 13 rows; never estimated.
+- `X1` No seller publishes a per-item XRF scan or assay.
+- `M1` Independent review scores deliberately not asserted (not verified against a primary source).
+- Excluded listings are recorded, including a James Allen URL that redirected to an unrelated pendant.
+
+**Standing recommendation** (also on the site): re-run the audit after every review, then spend one
+pass doing nothing but looking for hallucinations — take any number and try to find it on the linked
+page. If it is not there, delete it and mark the field unverified.

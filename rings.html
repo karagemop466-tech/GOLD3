@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rings — GOLD3 verified table</title>
+<meta name="description" content="Every verified gold engagement ring row: price, karat, gram weight, solid-gold verdict, stamp, return terms and source link.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="rings">
+
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="index.html"><span class="mark"></span>GOLD3 <small>ring verification</small></a>
+    <nav class="main">
+      <a href="index.html">Overview</a>
+      <a href="rings.html">Rings</a>
+      <a href="sellers.html">Sellers</a>
+      <a href="analysis.html">Analysis</a>
+      <a href="calculator.html">Calculator</a>
+      <a href="standards.html">Standards</a>
+      <a href="flagged.html">Flagged</a>
+      <a href="methodology.html">Method</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>Verified listings</h1>
+  <p class="lede">Each row is one ring currently listed by a seller whose own page was opened and quoted.
+    A blank cell means the seller did not publish that value — it is not a zero and not a guess.</p>
+
+  <div class="note">
+    <p><strong>How to read the columns.</strong> <em>Price</em> is what the seller printed, with its basis
+      (a Blue Nile figure is the setting only; a Wilson's figure is a sale price).
+      <em>Weight</em> is only filled where the seller stated grams; hover the badge to see the quoted text.
+      <em>Solid gold?</em> passes only when the seller used the word “solid”.</p>
+  </div>
+
+  <div class="tablebar">
+    <input type="search" id="f-search" placeholder="Search seller, model, karat…" aria-label="Search rows">
+    <select id="f-seller" aria-label="Filter by seller"><option value="">All sellers</option></select>
+    <select id="f-solid" aria-label="Filter by solid-gold verdict">
+      <option value="">Any solid-gold verdict</option>
+      <option value="pass">Confirmed solid (seller said so)</option>
+      <option value="unverified">Unverified</option>
+      <option value="fail">Fails — plated / vermeil</option>
+    </select>
+    <select id="f-weight" aria-label="Filter by weight availability">
+      <option value="">Any weight status</option>
+      <option value="yes">Weight published</option>
+      <option value="no">Weight not published</option>
+    </select>
+    <span class="hint" id="f-count"></span>
+  </div>
+
+  <div class="tscroll"><table id="rings-table"><tbody><tr><td class="empty">Loading verified rows…</td></tr></tbody></table></div>
+
+  <h2>What is missing from these listings, and why it is blank</h2>
+  <div class="grid cols-2">
+    <div class="card">
+      <h3>Weight</h3>
+      <p>Brand-new rings from large retailers almost never state a metal weight in grams. Without a weight,
+        a price-per-gram test is impossible, so those cells stay empty and carry flag <code>W1</code>.</p>
+      <p class="hint">Estate jewellers do publish grams — and also publish the stamp and maker's mark — which is
+        why they dominate the rows that can actually be analysed.</p>
+    </div>
+    <div class="card">
+      <h3>Hallmark and maker's mark</h3>
+      <p>Online listings rarely photograph the inside of the band. A karat claim with no maker's mark is
+        incomplete under the National Stamping Act, so it is flagged <code>H1</code> rather than assumed.</p>
+      <p class="hint"><a href="standards.html">Read the rule →</a></p>
+    </div>
+  </div>
+
+  <h2>Rows deliberately excluded</h2>
+  <p class="dim">Excluding a listing is a decision, so it is recorded rather than silently dropped.</p>
+  <div class="tscroll">
+    <table>
+      <thead><tr><th>Listing</th><th>Why it is not in the table</th><th>Source</th></tr></thead>
+      <tbody id="excluded-body">
+        <tr><td colspan="3" class="empty">Loading…</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</main>
+
+<footer class="site wrap">
+  <p><strong>No hallucinations policy.</strong> Prices and weights are copied from linked official pages,
+    dated 22 October 2026. Blank means unverified.</p>
+  <p>Re-check every source before buying; listings change without notice.</p>
+</footer>
+
+<script src="assets/app.js"></script>
+<script>
+  // render the excluded-listings table from the same audited JSON
+  document.addEventListener("DOMContentLoaded", async () => {
+    try {
+      const res = await fetch("data/rings.json", { cache: "no-cache" });
+      const doc = await res.json();
+      const body = document.getElementById("excluded-body");
+      const rows = doc.excluded_listings || [];
+      body.innerHTML = rows.length
+        ? rows.map(r => `<tr>
+            <td>${r.product}</td>
+            <td>${r.reason}${r.verified_facts ? `<span class="sub">Verified anyway: ${r.verified_facts}</span>` : ""}</td>
+            <td class="src"><a href="${r.url}" rel="noopener">official page</a></td>
+          </tr>`).join("")
+        : '<tr><td colspan="3" class="empty">None recorded.</td></tr>';
+    } catch (e) {
+      document.getElementById("excluded-body").innerHTML =
+        '<tr><td colspan="3" class="empty">Could not load excluded listings.</td></tr>';
+    }
+  });
+</script>
+</body>
+</html>

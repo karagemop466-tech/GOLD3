@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Analysis — GOLD3</title>
+<meta name="description" content="Coverage of each buying requirement across the verified dataset, and melt value versus asking price where a gram weight is actually published.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="analysis">
+
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="index.html"><span class="mark"></span>GOLD3 <small>ring verification</small></a>
+    <nav class="main">
+      <a href="index.html">Overview</a>
+      <a href="rings.html">Rings</a>
+      <a href="sellers.html">Sellers</a>
+      <a href="analysis.html">Analysis</a>
+      <a href="calculator.html">Calculator</a>
+      <a href="standards.html">Standards</a>
+      <a href="flagged.html">Flagged</a>
+      <a href="methodology.html">Method</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>Analysis</h1>
+  <p class="lede">What the verified data actually supports, and what it does not. Every figure below is
+    computed in your browser from the audited dataset — none is typed in by hand.</p>
+
+  <h2>1. Coverage: how much of your checklist is even answerable online</h2>
+  <div class="card" id="coverage"><p class="dim">Calculating…</p></div>
+  <p class="hint" style="margin-top:10px">Counts update from <code>data/rings.json</code>. They are computed,
+    so they cannot drift out of step with the table.</p>
+
+  <div class="note bad">
+    <p><strong>Finding 1 — the requirement that matters most is the one nobody publishes.</strong>
+      Zero sellers in this study publish a per-item XRF scan or an independent assay. The karat is always the
+      seller's own claim, at most supported by a stamp. That is precisely the situation your checklist warns
+      about: a stamp does not prove purity.</p>
+  </div>
+
+  <div class="note warn">
+    <p><strong>Finding 2 — “18k” can mean a coating.</strong> The cheapest ring in this dataset priced with
+      “18k” in its name is 18k gold vermeil: a gold layer over sterling silver. 16 CFR 23.4 defines vermeil
+      exactly that way, and the seller's own specification says the 18k gold is a plating layer. A shopper
+      searching for “18k” would find it and could easily misread what they were buying.</p>
+  </div>
+
+  <div class="note warn">
+    <p><strong>Finding 3 — the headline price is often not the ring's price.</strong> One major retailer shows
+      a “Setting Price”. The centre diamond is sold separately, so the number in the table understates the cost
+      of a complete ring. Comparing it with a complete ring's price would be a category error.</p>
+  </div>
+
+  <div class="note">
+    <p><strong>Finding 4 — weight is an estate-jewellery habit, not a retail one.</strong> The only sellers
+      publishing grams are estate dealers, who also publish the stamp and, often, the maker's mark. For new
+      rings you must ask for the weight in writing. This is why so many cells on the
+      <a href="rings.html">Rings</a> page are blank.</p>
+  </div>
+
+  <h2>2. Melt value versus asking price</h2>
+  <p class="dim">Only rows that publish both a price and a gram weight can appear here. Melt value is the raw
+    gold content valued at the dated spot price. It is <strong>not</strong> a fair price for a ring.</p>
+
+  <div class="tscroll">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th><th>Ring</th><th>Karat</th><th>Weight (g)</th>
+          <th>Fine gold (g)</th><th>Melt value</th><th>Asking</th>
+          <th>Melt ÷ asking</th><th>Asking per fine gram</th>
+        </tr>
+      </thead>
+      <tbody id="melt-body"><tr><td colspan="9" class="empty">Loading…</td></tr></tbody>
+    </table>
+  </div>
+
+  <div class="note warn" style="margin-top:14px">
+    <p><strong>Read the melt ratio with care.</strong> A low ratio is normal and not evidence of a scam: a ring's
+      price includes the diamond, the setting, the craftsmanship, the brand and the retailer's margin. Melt value
+      is a <em>floor</em>, the number a refiner might pay for the metal alone.</p>
+    <p>Equally, a high ratio is not proof of a bargain — it can mean the karat is overstated or the weight is
+      mostly stones. And because the published weight is total item weight, the melt column is an
+      <strong>upper bound</strong>, not the gold content. The stones weight something and contain no gold.</p>
+  </div>
+
+  <h2>3. Worked example, using only quoted facts</h2>
+  <div class="card">
+    <h3>Row R11 — 14K estate solitaire, published weight</h3>
+    <p>The seller states &ldquo;Stamped for 14 karat gold&rdquo; and &ldquo;Total Weight: 6.1 grams&rdquo;.
+      Applying 14/24 gives the fine-gold content; multiplying by the dated spot price per gram gives the melt
+      value. Both steps are arithmetic on quoted numbers, and the calculator on this site performs them live
+      with your own inputs.</p>
+    <p class="hint">What that arithmetic cannot tell you: how much of the 6.1 g is the 0.78 ct diamond, whether
+      the stamp is genuine, or whether the 14K claim is accurate. For those, see
+      <a href="methodology.html">Method</a>.</p>
+    <p><a href="calculator.html">Open the calculator →</a></p>
+  </div>
+
+  <h2>4. What would change these conclusions</h2>
+  <div class="grid cols-2">
+    <div class="card">
+      <h3>Evidence that would upgrade a row</h3>
+      <ul class="dim" style="margin:6px 0 0;padding-left:18px">
+        <li>A written weight in grams from the seller</li>
+        <li>A photograph of the stamp showing karat plus maker's mark</li>
+        <li>A written statement that the item is solid gold and not hollow</li>
+        <li>An XRF reading or assay certificate from a third party</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Evidence that would disqualify a row</h3>
+      <ul class="dim" style="margin:6px 0 0;padding-left:18px">
+        <li>“Vermeil”, “plated”, “filled”, “overlay” or “tone” anywhere in the spec</li>
+        <li>A hollow centre described as solid — barred by 16 CFR 23.3(c)(1)</li>
+        <li>A return policy that excludes precious metals or resized items</li>
+        <li>Refusal to allow independent testing before the window closes</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>5. Honest limitations of this dataset</h2>
+  <ul class="dim" style="padding-left:20px">
+    <li>It is a small, deliberately curated sample, not a market census. Prices are dated snapshots.</li>
+    <li>Retail listings rotate constantly; a row may be sold out by the time you read it.</li>
+    <li>Weights, where shown, are total item weights that include stones.</li>
+    <li>No row has been physically examined. Nothing here is an appraisal.</li>
+    <li>Independent reviews were not verified, so no seller is rated on this site.</li>
+  </ul>
+
+</main>
+
+<footer class="site wrap">
+  <p><strong>No hallucinations policy.</strong> All derived figures are computed live from audited inputs,
+    displayed to two decimals, and reproducible with the calculator.</p>
+  <p>Spot price source: World Gold Council, dated on the <a href="index.html">Overview</a> page.</p>
+</footer>
+
+<script src="assets/app.js"></script>
+</body>
+</html>

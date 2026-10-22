@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GOLD3 — verified gold engagement rings</title>
+<meta name="description" content="A source-verified comparison of solid-gold engagement rings: price, karat, weight, hallmark and return policy, with every unconfirmed value left blank and flagged.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="home">
+
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="index.html"><span class="mark"></span>GOLD3 <small>ring verification</small></a>
+    <nav class="main">
+      <a href="index.html">Overview</a>
+      <a href="rings.html">Rings</a>
+      <a href="sellers.html">Sellers</a>
+      <a href="analysis.html">Analysis</a>
+      <a href="calculator.html">Calculator</a>
+      <a href="standards.html">Standards</a>
+      <a href="flagged.html">Flagged</a>
+      <a href="methodology.html">Method</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <h1>Solid-gold engagement rings, checked against the seller's own pages</h1>
+    <p class="lede">Every number on this site was read off an official seller or government page on
+      <strong>22 October 2026</strong> and is linked. Where a seller does not publish a value, the cell is
+      empty and flagged — it is never filled in with a guess.</p>
+  </section>
+
+  <section class="oath">
+    <h2>No hallucinations — read this first</h2>
+    <p><strong>This project does not invent prices, weights, purities, or reviews.</strong> A figure appears
+      here only if it can be traced to a page you can open yourself. Anything unconfirmed is shown as
+      <span class="badge b-neutral">unverified</span> and listed on the
+      <a href="flagged.html">Flagged for Review</a> page. When in doubt, the value is blank — not estimated.</p>
+    <ul>
+      <li><strong>Prices</strong> are copied from the seller's official page, dated, and linked. No price is
+        averaged, projected, or carried over from an earlier visit.</li>
+      <li><strong>Weights</strong> are copied from the seller's own written statement in grams. No weight is
+        inferred from karat, ring size, photo, or "typical" practice.</li>
+      <li><strong>Purity</strong> is only ever the seller's claim, quoted verbatim. No seller in this study
+        publishes an independent assay, so every row still needs XRF testing after delivery.</li>
+      <li><strong>Reputation</strong> is not scored. No star rating is asserted, because no rating was
+        verified against a primary review source.</li>
+      <li><strong>Derived numbers</strong> (per-gram gold value, melt value, price per pure gram) are computed
+        in your browser from the audited spot price and the quoted weight — never stored as a rounded claim.</li>
+    </ul>
+    <p class="hint" style="margin-top:10px">An automated audit re-checks these rules on every change:
+      <code>python3 scripts/audit.py</code>. It fails the build if a price lacks its quoted source text,
+      if a gram figure is not present in its own quote, or if a "pass" verdict was reached without the
+      seller actually saying “solid”.</p>
+  </section>
+
+  <h2>At a glance</h2>
+  <div class="grid cols-4" id="stats">
+    <div class="card stat"><span class="n">…</span><span class="k">loading</span></div>
+  </div>
+
+  <div class="grid cols-2" style="margin-top:14px">
+    <div class="card">
+      <h3>Gold benchmark used for every calculation</h3>
+      <div id="spot"><p class="dim">Loading the audited benchmark…</p></div>
+      <p class="hint" style="margin-top:10px">The LBMA Gold Price is the global benchmark, but its historical
+        tables are licence-gated, so this site uses the World Gold Council's published spot price instead and
+        says so. Spot is a wholesale number; a retail ring costs more than its gold.</p>
+    </div>
+    <div class="card">
+      <h3>What this project is, and is not</h3>
+      <p>It is a <strong>verification workbench</strong>: a small set of real, currently listed gold rings, each
+        row tied to its seller's page, with the gaps made visible.</p>
+      <p>It is <strong>not</strong> a price-comparison engine across thousands of SKUs, and it is not an
+        appraisal. It cannot tell you a specific ring is genuinely 14K — only a jeweller with an XRF gun or an
+        assay can, after delivery.</p>
+      <p class="hint">Start with <a href="rings.html">Rings</a>, then read
+        <a href="flagged.html">Flagged for Review</a> before you consider buying anything.</p>
+    </div>
+  </div>
+
+  <h2>The checklist, and how far each item can be proven online</h2>
+  <ul class="check">
+    <li><span class="ico">①</span><span class="txt"><strong>Confirm the karat</strong>
+      <span>Printed on the seller's page for every row. Higher karat means more gold: 24K is pure, 18K is 75%,
+      14K is 58.3%, 10K is 41.7%. <a href="standards.html">Fineness table →</a></span></span></li>
+    <li><span class="ico">②</span><span class="txt"><strong>Confirm “solid gold”, not plating</strong>
+      <span>The single most important word to look for. One row here is 18k <em>vermeil</em> — a gold layer over
+      sterling silver — and would fool a shopper scanning for “18k”.
+      <a href="flagged.html">See flag S1 →</a></span></span></li>
+    <li><span class="ico">③</span><span class="txt"><strong>Hallmark plus maker's mark</strong>
+      <span>Federal rules require a quality mark on gold to be accompanied by the maker's name or trademark.
+      Almost no online listing shows either. <a href="standards.html">Legal basis →</a></span></span></li>
+    <li><span class="ico">④</span><span class="txt"><strong>Weight in grams</strong>
+      <span>Only estate jewellers publish it in this study. Everywhere else it is blank and flagged, because a
+      weight you cannot source is a number you invented.</span></span></li>
+    <li><span class="ico">⑤</span><span class="txt"><strong>Seller reputation and real contact details</strong>
+      <span>Phone and email are recorded only where the seller publishes them. Independent review scores are
+      deliberately left empty rather than fabricated.</span></span></li>
+    <li><span class="ico">⑥</span><span class="txt"><strong>Price versus gold value</strong>
+      <span>Computed live in the <a href="calculator.html">calculator</a> and in
+      <a href="analysis.html">Analysis</a> — but only for rows that publish a weight.</span></span></li>
+    <li><span class="ico">⑦</span><span class="txt"><strong>A return path that survives inspection</strong>
+      <span>Return windows, exclusions on resized and engraved items, and a policy that declares precious metals
+      non-refundable. <a href="sellers.html">Compare sellers →</a></span></span></li>
+    <li><span class="ico">⑧</span><span class="txt"><strong>Pay by credit card</strong>
+      <span>Noted where a seller hints at irreversible methods such as bank wire.
+      <a href="flagged.html">See flag RET3 →</a></span></span></li>
+    <li><span class="ico">⑨</span><span class="txt"><strong>Keep the documentation</strong>
+      <span>Listings, receipts and certificates. Some return paths depend on you still holding the grading
+      report. <a href="flagged.html">See flag RET5 →</a></span></span></li>
+    <li><span class="ico">⑩</span><span class="txt"><strong>Independent verification on arrival</strong>
+      <span>XRF or a professional assay, before wearing or resizing. This is the step no website can do for
+      you, and the only step that actually proves purity.</span></span></li>
+  </ul>
+
+  <div class="note warn">
+    <p><strong>Two findings worth your attention before you shop.</strong></p>
+    <p>A large warehouse retailer's own return policy states that <em>precious metals are non-refundable</em> —
+      which fails the return requirement outright. And one mainstream listing priced at the entry level is
+      18k gold <em>vermeil</em>, where the “18k” describes a plating layer over sterling silver, not the body
+      of the ring. Both are quoted with links on the <a href="flagged.html">Flagged for Review</a> page.</p>
+  </div>
+
+  <h2>All verified rows</h2>
+  <p class="dim">The full table lives on <a href="rings.html">Rings</a>, with filters. This is the same data,
+    compactly.</p>
+  <div class="tscroll"><table id="home-table"><tbody><tr><td class="empty">Loading verified rows…</td></tr></tbody></table></div>
+
+  <h2>Where to go next</h2>
+  <div class="grid cols-3">
+    <div class="card"><h3><a href="rings.html">Rings</a></h3>
+      <p>Every listing with price, karat, weight, stamp, return terms, flags and source links.</p></div>
+    <div class="card"><h3><a href="sellers.html">Sellers</a></h3>
+      <p>Return windows and exclusions, contact details, and whether each seller publishes weight or a maker's mark.</p></div>
+    <div class="card"><h3><a href="analysis.html">Analysis</a></h3>
+      <p>Coverage of each requirement, and melt value versus asking price for the rows that state a weight.</p></div>
+    <div class="card"><h3><a href="calculator.html">Calculator</a></h3>
+      <p>Type a weight, pick a karat, get fine-gold content and melt value at the dated spot price.</p></div>
+    <div class="card"><h3><a href="standards.html">Standards</a></h3>
+      <p>The FTC jewellery guides and National Stamping Act rules this checklist rests on, quoted with citations.</p></div>
+    <div class="card"><h3><a href="flagged.html">Flagged for Review</a></h3>
+      <p>Everything unconfirmed or irregular, with severity, what to do, and the source.</p></div>
+  </div>
+
+</main>
+
+<footer class="site wrap">
+  <p><strong>No hallucinations policy.</strong> Every value is traceable to a linked official page retrieved
+    22 October 2026. Unconfirmed values are blank and flagged, never estimated.</p>
+  <p>Prices and policies change without notice. Re-check the linked source before buying.
+    This site is research, not appraisal, legal or financial advice.</p>
+  <p>Data: <code>data/*.json</code> · Audit: <code>scripts/audit.py</code> ·
+    Run the audit after every review and look specifically for numbers no source prints.</p>
+</footer>
+
+<script src="assets/app.js"></script>
+</body>
+</html>

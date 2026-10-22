@@ -1,0 +1,159 @@
+{
+  "retrieved_utc": "2026-10-22",
+  "legend": "Every flag below is attached to at least one row and is shown on the Flagged for Review page. A flag is not proof of wrongdoing — it marks something a buyer cannot confirm from the seller's own page and must resolve before paying.",
+  "flags": [
+    {
+      "id": "W1",
+      "severity": "high",
+      "label": "Weight not published",
+      "what": "The seller's page does not state the ring's metal weight in grams, so melt value cannot be computed and the price-per-gram test cannot be applied.",
+      "why_it_matters": "Your checklist requires the weight before purchase. Without it, any price-per-gram figure would be an invention.",
+      "action": "Ask the seller in writing for the weight in grams (and whether it is gold-only or total item weight). Keep the reply.",
+      "source": null
+    },
+    {
+      "id": "H1",
+      "severity": "high",
+      "label": "Hallmark and/or maker's mark not published",
+      "what": "The page does not describe the stamp inside the band or the manufacturer's mark.",
+      "why_it_matters": "National Stamping Act (15 U.S.C. 297), summarised in 16 CFR 23.10, requires a quality mark on gold to be accompanied by the maker's trademark or name. A karat stamp with no maker's mark is incomplete.",
+      "action": "Ask for a close-up photo of the stamp before purchase; verify both the karat and the maker's mark.",
+      "source": "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23"
+    },
+    {
+      "id": "S1",
+      "severity": "high",
+      "label": "\"18k\" in the name, but not solid gold",
+      "what": "The piece is 18k gold vermeil: a gold layer over a sterling silver base. The seller's own spec says the 18k gold is a plating layer on recycled sterling silver.",
+      "why_it_matters": "16 CFR 23.4 defines vermeil as a sterling silver base plated with gold of a stated thickness. A buyer scanning for \"18k\" could reasonably assume solid gold.",
+      "action": "Do not treat this as a solid-gold ring. If solid gold is required, exclude it.",
+      "source": "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23"
+    },
+    {
+      "id": "S2",
+      "severity": "medium",
+      "label": "\"Solid\" is not stated by the seller",
+      "what": "The seller states the karat (e.g. 14K / 18K) but never uses the word \"solid\".",
+      "why_it_matters": "Your checklist requires the listing to say solid gold explicitly. A karat alone does not rule out hollow construction, plating over base metal, or a two-metal build.",
+      "action": "Get written confirmation that the item is solid 14k/18k gold throughout, and that it is not hollow.",
+      "source": "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23"
+    },
+    {
+      "id": "P1",
+      "severity": "high",
+      "label": "Price is the setting only",
+      "what": "The figure shown is Blue Nile's \"Setting Price\". The centre diamond is priced separately, so the delivered ring costs more than the number in this table.",
+      "why_it_matters": "Comparing a setting price against a complete ring's price is an apples-to-oranges comparison. Any price-per-gram or melt test done on the setting price alone is meaningless.",
+      "action": "Add a centre stone to the builder and record the all-in total before comparing.",
+      "source": "https://www.bluenile.com/engagement-rings"
+    },
+    {
+      "id": "P2",
+      "severity": "medium",
+      "label": "Price not displayed on the page",
+      "what": "The product page as fetched showed no price for this item.",
+      "why_it_matters": "No price means no comparison is possible, and no price was invented to fill the gap.",
+      "action": "Check the price while signed in, or at a warehouse, and record it with the date and a screenshot.",
+      "source": "https://www.costco.com/p/-/round-brilliant-050-ctw-vs2-clarity-i-color-diamond-14kt-gold-band/100675127"
+    },
+    {
+      "id": "RET1",
+      "severity": "high",
+      "label": "Return policy excludes precious metals",
+      "what": "Costco's official return policy lists \"Precious metals are non-refundable\".",
+      "why_it_matters": "This conflicts directly with your requirement that you can return the ring after inspecting it. Gold jewellery is a precious metal.",
+      "action": "Confirm in writing, for this specific item, whether a return is possible before buying. If not, this deal fails your checklist.",
+      "source": "https://customerservice.costco.com/app/answers/detail/a_id/1191"
+    },
+    {
+      "id": "RET2",
+      "severity": "high",
+      "label": "Very short return window",
+      "what": "Wilson's requires contact within 7 calendar days of delivery, then the item must be shipped back within 3 calendar days of receiving the return label. Items are sold \"as is\". Cancelled orders are not refunded the 3% card processing fee.",
+      "why_it_matters": "An independent jeweller's assay or XRF test usually needs an appointment. A 7-day window can expire before verification is possible — the exact failure mode your checklist warns about.",
+      "action": "Line up the appraiser before delivery, or negotiate the return window in writing.",
+      "source": "https://www.wilsonsestatejewelry.com/products/art-deco-old-mine-cut-diamond-18-karat-white-gold-antique-lotus-engagement-ring-gia"
+    },
+    {
+      "id": "RET3",
+      "severity": "medium",
+      "label": "Bank wire accepted as a payment method",
+      "what": "Blue Nile's return policy refers to refunds being issued back via bank wire or ACH, which means bank wire is an accepted way to pay.",
+      "why_it_matters": "Your checklist prefers a credit card for purchase protection and warns against irreversible payment methods. A wire is money you cannot claw back through a chargeback.",
+      "action": "Pay by credit card even if a wire discount is offered.",
+      "source": "https://www.bluenile.com/policies/returns"
+    },
+    {
+      "id": "RET4",
+      "severity": "medium",
+      "label": "Engraving voids the return",
+      "what": "Mejuri and Blue Nile both exclude engraved or personalised items from returns. Mejuri adds that free engraving is optional but makes the item non-returnable.",
+      "why_it_matters": "A free engraving can quietly convert a returnable ring into a final sale — exactly the exclusion your checklist tells you to look for.",
+      "action": "Skip engraving until after the ring has been inspected and verified.",
+      "source": "https://mejuri.com/faq/return-exchanges/what-is-the-standard-return-policy"
+    },
+    {
+      "id": "RET5",
+      "severity": "medium",
+      "label": "Large-diamond return is a credit memo, not a refund",
+      "what": "For diamonds of 1.00 ct or larger, Costco requires all original IGI/GIA paperwork and issues a jewellery credit memo after its own gemologist inspects the stone.",
+      "why_it_matters": "A credit memo is store credit, not money back. It also assumes you kept the certificate — so documentation retention is part of your return path.",
+      "action": "Keep every certificate and appraisal with the receipt from day one.",
+      "source": "https://customerservice.costco.com/app/answers/detail/a_id/1191"
+    },
+    {
+      "id": "WT1",
+      "severity": "medium",
+      "label": "Weight includes the stones",
+      "what": "The published weight is \"total weight\" of the finished ring, diamonds included. Gold-only weight is lower, so a melt calculation using this number is an upper bound, not the gold content.",
+      "why_it_matters": "Using total item weight as gold weight systematically overstates melt value — a classic way an otherwise honest calculator produces a wrong number.",
+      "action": "Ask for the mounting weight excluding stones, or accept that the melt figure is a ceiling.",
+      "source": null
+    },
+    {
+      "id": "X1",
+      "severity": "high",
+      "label": "No independent assay or XRF result",
+      "what": "No seller in this study publishes a per-item XRF scan or an independent assay. The karat is the seller's own statement, backed at most by a stamp.",
+      "why_it_matters": "Your checklist's key point: a stamp proves nothing by itself. Every row here still needs post-delivery verification by an independent jeweller.",
+      "action": "Commission XRF or assay on arrival, before wearing or resizing.",
+      "source": null
+    },
+    {
+      "id": "K1",
+      "severity": "medium",
+      "label": "Unusual karat / not gold throughout",
+      "what": "This piece is stamped 19 karat — uncommon in the US market — and carries black enamel inlay, so part of the item is not gold.",
+      "why_it_matters": "19K is 79.17% gold by definition, but an unusual fineness deserves an assay rather than trust. Enamel also means the item is not gold throughout.",
+      "action": "Have the fineness assayed; treat the enamel areas as non-gold in any value estimate.",
+      "source": "https://www.wilsonsestatejewelry.com/products/bailey-banks-biddle-art-deco-diamond-enamel-19-karat-white-gold-vintage-fanning-engagement-ring"
+    },
+    {
+      "id": "L1",
+      "severity": "low",
+      "label": "Verified at listing level only",
+      "what": "Price and material were taken from the seller's collection/listing page; the individual product page was not re-fetched in this session.",
+      "why_it_matters": "Collection pages can lag product pages. The figure is official but less durable.",
+      "action": "Open the product page and re-confirm price before buying.",
+      "source": "https://mejuri.com/collections/milestone-rings"
+    },
+    {
+      "id": "L2",
+      "severity": "low",
+      "label": "Product page not individually fetched",
+      "what": "The row's price comes from Blue Nile's official engagement-ring listing, which displays \"Setting Price\" next to each item.",
+      "why_it_matters": "The listing is an official source, but an individual item page is stronger evidence and may carry extra exclusions.",
+      "action": "Open the item page and re-confirm price, metal and exclusions before buying.",
+      "source": "https://www.bluenile.com/engagement-rings"
+    },
+    {
+      "id": "M1",
+      "severity": "low",
+      "label": "Independent review research not completed",
+      "what": "Independent third-party reviews/complaints were not verified against a primary review source in this session, so no reputation score is asserted.",
+      "why_it_matters": "Your checklist requires independent review research. Inventing a rating would be a hallucination, so this is left open.",
+      "action": "Check BBB, Trustpilot and state AG complaint databases before buying.",
+      "source": null
+    }
+  ]
+}

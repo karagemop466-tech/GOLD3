@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flagged for Review — GOLD3</title>
+<meta name="description" content="Everything unconfirmed or irregular in the gold ring dataset, with severity, recommended action and source links.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="flagged">
+
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="index.html"><span class="mark"></span>GOLD3 <small>ring verification</small></a>
+    <nav class="main">
+      <a href="index.html">Overview</a>
+      <a href="rings.html">Rings</a>
+      <a href="sellers.html">Sellers</a>
+      <a href="analysis.html">Analysis</a>
+      <a href="calculator.html">Calculator</a>
+      <a href="standards.html">Standards</a>
+      <a href="flagged.html">Flagged</a>
+      <a href="methodology.html">Method</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>Flagged for Review</h1>
+  <p class="lede">This is the honest edge of the dataset. Nothing here is hidden behind a green tick: if a value
+    could not be confirmed from an official source, it is listed below with the remedy.</p>
+
+  <div class="note">
+    <p><strong>Reading the severities.</strong> <span class="badge b-bad">high</span> means it can cost you money
+      or defeat your verification plan. <span class="badge b-warn">medium</span> means it changes how you should
+      interpret the price or weight. <span class="badge b-neutral">low</span> means the evidence is official but
+      thinner than ideal, or a manual step is outstanding.</p>
+    <p class="hint">Flags do not block publication of this site. They are the reason the site exists.</p>
+  </div>
+
+  <div id="flags-list"><p class="dim">Loading flags…</p></div>
+
+  <h2>Summary of what remains unverified</h2>
+  <div class="grid cols-2">
+    <div class="card">
+      <h3>Cannot be closed by any website</h3>
+      <ul class="dim" style="padding-left:18px;margin:6px 0 0">
+        <li>Whether a specific ring's gold is genuinely the stated karat — needs XRF or assay on the object.</li>
+        <li>Whether a stamp is authentic rather than applied later.</li>
+        <li>Whether an estate piece has hidden repairs, solder or a replaced shank.</li>
+        <li>A seller's real-world reputation, service history and complaint record.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Closed by asking the seller, in writing</h3>
+      <ul class="dim" style="padding-left:18px;margin:6px 0 0">
+        <li>The weight in grams, and whether it excludes stones.</li>
+        <li>Confirmation that the item is solid gold and not hollow.</li>
+        <li>A photo of the stamp showing karat and maker's mark.</li>
+        <li>Whether the return window still applies after resizing or engraving.</li>
+        <li>Whether they will accept an independent test within the window.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note bad" style="margin-top:16px">
+    <p><strong>If a seller will not let you independently verify the ring, or will not let you return it after
+      verification, do not buy it.</strong> That is your own rule, it is the correct one, and no price justifies
+      overriding it.</p>
+  </div>
+
+</main>
+
+<footer class="site wrap">
+  <p><strong>No hallucinations policy.</strong> Every flag links to the evidence that produced it, or states
+    plainly that no source exists because the information was never published.</p>
+  <p>Re-run <code>python3 scripts/audit.py</code> after any data change and look for values no source prints.</p>
+</footer>
+
+<script src="assets/app.js"></script>
+</body>
+</html>
