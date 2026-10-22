@@ -1,0 +1,333 @@
+{
+  "generated_at_utc": "2026-10-22T23:24:31Z",
+  "data_file_sha256": {
+    "bands-and-high-karat.json": "fd6b7c175980cfad74b34145c03e2632e809c6a94de48ef399b96c55d8ea333c",
+    "sellers-policies.json": "372689ba815fb011c15b17e52773385718f972b174023f8bd67e01bc10d27ea6",
+    "solitaire-rings.json": "1b0d493a2835471df5bf8610622bf2f668a0c2d62e7961c112d46591ae19f769",
+    "spot-and-standards.json": "77a3ff10db7fe885bc1f51eece4311fa6a62034f73ce2292d2e4bf1841b9a5ed"
+  },
+  "unique_official_urls_count": 52,
+  "official_sources": [
+    {
+      "url": "https://mejuri.com/",
+      "referenced_by": [
+        "Seller SEL-MEJURI Site"
+      ]
+    },
+    {
+      "url": "https://mejuri.com/faq/payment/what-payment-methods-do-you-accept",
+      "referenced_by": [
+        "Seller SEL-MEJURI Payments"
+      ]
+    },
+    {
+      "url": "https://mejuri.com/faq/return-exchanges/what-is-the-standard-return-policy",
+      "referenced_by": [
+        "Seller SEL-MEJURI Returns"
+      ]
+    },
+    {
+      "url": "https://mejuri.com/shop/products/2mm-smooth-band?Material=Solid+Yellow+Gold+%2814k%29",
+      "referenced_by": [
+        "Ring BND-12 Product Page"
+      ]
+    },
+    {
+      "url": "https://mejuri.com/shop/products/3mm-bold-diamond-eternity-band?Material=Solid+Yellow+Gold+%2814k%29&Stone=Natural+Diamond",
+      "referenced_by": [
+        "Ring BND-09 Product Page"
+      ]
+    },
+    {
+      "url": "https://mejuri.com/shop/products/diamond-eternity-band?Material=Solid+Yellow+Gold+%2814k%29&Stone=Natural+Diamond",
+      "referenced_by": [
+        "Ring BND-10 Product Page"
+      ]
+    },
+    {
+      "url": "https://mejuri.com/shop/products/diamonds-band?Material=Solid+Yellow+Gold+%2814k%29&Stone=Natural+Diamond",
+      "referenced_by": [
+        "Ring BND-11 Product Page"
+      ]
+    },
+    {
+      "url": "https://mene.com/",
+      "referenced_by": [
+        "Seller SEL-MENE Site"
+      ]
+    },
+    {
+      "url": "https://mene.com/bands/gold",
+      "referenced_by": [
+        "Ring BND-01 Weight Page",
+        "Ring BND-02 Weight Page",
+        "Ring BND-03 Weight Page"
+      ]
+    },
+    {
+      "url": "https://mene.com/collections/bands-gold",
+      "referenced_by": [
+        "Ring BND-02 Product Page",
+        "Ring BND-03 Product Page"
+      ]
+    },
+    {
+      "url": "https://mene.com/customer-care?hcUrl=%2Fen-US%2Farticles%2Freturns-319505",
+      "referenced_by": [
+        "Seller SEL-MENE Returns"
+      ]
+    },
+    {
+      "url": "https://mene.com/products/mene-classic-band-gold",
+      "referenced_by": [
+        "Ring BND-01 Product Page"
+      ]
+    },
+    {
+      "url": "https://mene.com/terms-of-service",
+      "referenced_by": [
+        "Seller SEL-MENE Payments"
+      ]
+    },
+    {
+      "url": "https://uscode.house.gov/view.xhtml?path=%2Fprelim%40title15%2Fchapter8&edition=prelim",
+      "referenced_by": [
+        "Karat Row (14K Solid Gold (U.S. Fractional 14/24))",
+        "Karat Row (18K Solid Gold)",
+        "Standard STD-01"
+      ]
+    },
+    {
+      "url": "https://www.bbb.org/ca/on/ontario/profile/jewelry-designers/mene-inc-0107-1413670",
+      "referenced_by": [
+        "Seller SEL-MENE BBB"
+      ]
+    },
+    {
+      "url": "https://www.bbb.org/ca/on/toronto/profile/jewelry-manufacturers/mejuri-0107-1370644",
+      "referenced_by": [
+        "Seller SEL-MEJURI BBB"
+      ]
+    },
+    {
+      "url": "https://www.bbb.org/us/ca/san-francisco/profile/diamond/brilliant-earth-llc-1116-154721",
+      "referenced_by": [
+        "Seller SEL-BRILLIANTEARTH BBB"
+      ]
+    },
+    {
+      "url": "https://www.bbb.org/us/ri/cranston/profile/jewelry-stores/ross-simons-0021-105000",
+      "referenced_by": [
+        "Seller SEL-ROSSSIMONS BBB"
+      ]
+    },
+    {
+      "url": "https://www.bbb.org/us/wa/seattle/profile/jewelry-stores/blue-nile-inc-1296-15026564",
+      "referenced_by": [
+        "Seller SEL-BLUENILE BBB"
+      ]
+    },
+    {
+      "url": "https://www.bluenile.com/",
+      "referenced_by": [
+        "Seller SEL-BLUENILE Site"
+      ]
+    },
+    {
+      "url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/classic-four-prong-solitaire-engagement-ring-in-18k-yellow-gold-item-194158",
+      "referenced_by": [
+        "Ring SOL-01 Product Page"
+      ]
+    },
+    {
+      "url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/petite-solitaire-engagement-ring-in-14k-yellow-gold-item-195639",
+      "referenced_by": [
+        "Ring SOL-03 Product Page"
+      ]
+    },
+    {
+      "url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/wide-band-solitaire-engagement-ring-in-18k-yellow-gold-5mm-item-195063",
+      "referenced_by": [
+        "Ring SOL-02 Product Page"
+      ]
+    },
+    {
+      "url": "https://www.bluenile.com/policies/returns",
+      "referenced_by": [
+        "Seller SEL-BLUENILE Returns"
+      ]
+    },
+    {
+      "url": "https://www.bluenile.com/policies/us-payment-methods",
+      "referenced_by": [
+        "Seller SEL-BLUENILE Payments"
+      ]
+    },
+    {
+      "url": "https://www.brilliantearth.com/",
+      "referenced_by": [
+        "Seller SEL-BRILLIANTEARTH Site"
+      ]
+    },
+    {
+      "url": "https://www.brilliantearth.com/30-Day-Returns/",
+      "referenced_by": [
+        "Seller SEL-BRILLIANTEARTH Returns"
+      ]
+    },
+    {
+      "url": "https://www.brilliantearth.com/Fairmined-2mm-Six-Prong-Solitaire-Ring-Gold-BE1FM0126-24910022/",
+      "referenced_by": [
+        "Ring SOL-05 Product Page"
+      ]
+    },
+    {
+      "url": "https://www.brilliantearth.com/Peyton-4mm-Solitaire-Ring-Gold-BE12148-23884915/",
+      "referenced_by": [
+        "Ring SOL-04 Product Page"
+      ]
+    },
+    {
+      "url": "https://www.brilliantearth.com/Six-Prong-Petite-Comfort-Fit-1.5mm-Solitaire-Ring-Gold-BE1199H6-1912137/",
+      "referenced_by": [
+        "Ring SOL-06 Product Page"
+      ]
+    },
+    {
+      "url": "https://www.brilliantearth.com/flexible-payment-options/",
+      "referenced_by": [
+        "Seller SEL-BRILLIANTEARTH Payments"
+      ]
+    },
+    {
+      "url": "https://www.bullionvault.com/gold-price-chart.do",
+      "referenced_by": [
+        "Spot Gold Cross-Check"
+      ]
+    },
+    {
+      "url": "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23",
+      "referenced_by": [
+        "Karat Row (10K Solid Gold (U.S. Minimum Karat Gold))",
+        "Karat Row (9K Gold (Below U.S. 10K Threshold))",
+        "Standard STD-02"
+      ]
+    },
+    {
+      "url": "https://www.gia.edu/bench-tip-use-the-touchstone-method-for-testing-purity-karat-gold",
+      "referenced_by": [
+        "Standard STD-06"
+      ]
+    },
+    {
+      "url": "https://www.gia.edu/gems-gemology/summer-2025-lab-notes-gold-plated-gold0",
+      "referenced_by": [
+        "Standard STD-05"
+      ]
+    },
+    {
+      "url": "https://www.gia.edu/gems-gemology/winter-2024-chemical-analysis",
+      "referenced_by": [
+        "Standard STD-04"
+      ]
+    },
+    {
+      "url": "https://www.gov.uk/government/publications/hallmarking-guidance-notes/hallmarking-is-the-law-guidance-summary",
+      "referenced_by": [
+        "Karat Row (14K Solid Gold (European / Plumb 585))",
+        "Standard STD-03"
+      ]
+    },
+    {
+      "url": "https://www.kitco.com/price/precious-metals",
+      "referenced_by": [
+        "Spot Gold Primary"
+      ]
+    },
+    {
+      "url": "https://www.legislation.gov.uk/ukpga/1973/43",
+      "referenced_by": [
+        "Karat Row (22K Solid Gold)",
+        "Karat Row (24K Fine Gold (999 / Pure Reference))"
+      ]
+    },
+    {
+      "url": "https://www.nist.gov/pml/owm/metric-si/unit-conversion/precious-metals-conversion-information",
+      "referenced_by": [
+        "NIST Constant (NIST Office of Weights and Measures \u2014 Conversion Factors for Precious Metal Sales)"
+      ]
+    },
+    {
+      "url": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9",
+      "referenced_by": [
+        "NIST Constant (NIST Special Publication 811, Appendix B.9 \u2014 Factors for Units Listed by Kind of Quantity (Mass))"
+      ]
+    },
+    {
+      "url": "https://www.ross-simons.com/",
+      "referenced_by": [
+        "Seller SEL-ROSSSIMONS Site"
+      ]
+    },
+    {
+      "url": "https://www.ross-simons.com/pages/payment-options",
+      "referenced_by": [
+        "Seller SEL-ROSSSIMONS Payments"
+      ]
+    },
+    {
+      "url": "https://www.ross-simons.com/pages/returns-exchanges",
+      "referenced_by": [
+        "Seller SEL-ROSSSIMONS Returns"
+      ]
+    },
+    {
+      "url": "https://www.ross-simons.com/products/241592",
+      "referenced_by": [
+        "Ring SOL-09 Product Page"
+      ]
+    },
+    {
+      "url": "https://www.ross-simons.com/products/251663",
+      "referenced_by": [
+        "Ring SOL-08 Product Page"
+      ]
+    },
+    {
+      "url": "https://www.ross-simons.com/products/571212",
+      "referenced_by": [
+        "Ring BND-05 Product Page"
+      ]
+    },
+    {
+      "url": "https://www.ross-simons.com/products/571221",
+      "referenced_by": [
+        "Ring BND-04 Product Page"
+      ]
+    },
+    {
+      "url": "https://www.ross-simons.com/products/823796",
+      "referenced_by": [
+        "Ring BND-06 Product Page"
+      ]
+    },
+    {
+      "url": "https://www.ross-simons.com/products/964717",
+      "referenced_by": [
+        "Ring BND-07 Product Page"
+      ]
+    },
+    {
+      "url": "https://www.ross-simons.com/products/990022",
+      "referenced_by": [
+        "Ring SOL-07 Product Page"
+      ]
+    },
+    {
+      "url": "https://www.ross-simons.com/products/993085",
+      "referenced_by": [
+        "Ring BND-08 Product Page"
+      ]
+    }
+  ]
+}
