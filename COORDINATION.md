@@ -1,45 +1,277 @@
-# COORDINATION.md — Shared Task Board (`karagemop466-tech/GOLD3`)
+# COORDINATION — Gold Engagement Ring Buyer's Guide (GOLD3)
 
-> **Zero-Hallucination & Official Source Mandate:** Every price, gram weight, karat fineness, hallmark requirement, return policy rule, and spot gold rate in this repository **must** be verified directly from an official trusted primary source and linked verbatim. Any attribute not explicitly published by the official source **must remain blank (`null`)** and be marked **Unverified / Needs Review** on the **Flagged for Review** page (`flagged-for-review.html`). Automated security & hallucination detection passes (`scripts/run_security_audit.py`) must run after every review pass.
+This file is the **shared task board** for all agent sessions working in this repo.
+Read it before starting any work. Update it when you claim, finish, or hand off a task.
 
 ---
 
-## Active Session Registry & Branch Protocol
+## 0. Session registry
 
-| Session ID | Branch | Role | Started (UTC) | Status | Notes |
+| Session ID | Branch (actual) | Started (UTC) | Status |
+|---|---|---|---|
+| `sess-7f3a-gold` | `arena/b3c924e6-gold3` | 2026-10-22T23:10Z | complete |
+| `arena/92d7dd0a-gold3` | `arena/92d7dd0a-gold3` | 2026-10-22T23:30Z | complete (PR #13 merged) |
+| `session-698f08f6` | `arena/698f08f6-gold3` | 2026-10-22T23:11Z | **active — Dataset C (21 listings, 24K/14K weights, BBB & 4-gate CI integration)** |
+
+### Branch naming note (important)
+The protocol below asks for `session-<id>/<task>` branches. **This sandbox pins each session to a
+single pre-assigned branch** (`arena/b3c924e6-gold3` for `sess-7f3a-gold`); creating or pushing
+other branches is not permitted by the environment. To keep the intent of the protocol (no
+overlapping edits, no clobbering another session's work) we use **strict file-scope ownership**
+instead of branch isolation, and every session must:
+
+1. Claim a row in the task board below **before** editing.
+2. Edit **only** files inside its claimed scope.
+3. `git pull --rebase` before every push.
+4. If a change is needed in a file owned by another session, log a **Change request** in §4
+   instead of editing that file.
+
+---
+
+## 1. Task board
+
+Status values: `unclaimed` · `in progress` · `done` · `needs review`
+
+> `needs review` = published on the *Flagged for Review* page. Does **not** block anything.
+
+| # | Task | Status | Owner | File scope | Updated (UTC) |
 |---|---|---|---|---|---|
-| `session-698f08f6` | `arena/698f08f6-gold3` | Primary Research, Verification, Audit & Final Integration Session | `2026-10-22T23:11:00Z` | `active` | Arena session bound to fixed branch `arena/698f08f6-gold3`; monitors `origin` via `git fetch --all --prune` and `git pull --rebase` before every push to detect any concurrent session branches. |
+| T1 | Coordination board + repo scaffolding + data schema | done | `sess-7f3a-gold` | `COORDINATION.md`, `README.md`, `.gitignore`, `scripts/` | 2026-10-22T23:55Z |
+| T2 | Authority sources: FTC 16 CFR 23, hallmarking, gold-price anchors | done | `sess-7f3a-gold` | `data/sources.json`, `data/prices.json`, `sources.html` | 2026-10-22T23:55Z |
+| T3 | Retailer profiles: returns, contact, reputation, hallmark policy | done | `sess-7f3a-gold` | `data/retailers.json`, `retailers.html` | 2026-10-22T23:55Z |
+| T4 | Product verification: 14K solid-gold entries | done | `sess-7f3a-gold` | `data/products.json` (14 x 14K) | 2026-10-22T23:55Z |
+| T5 | Product verification: 18K solid-gold entries | done | `sess-7f3a-gold` | `data/products.json` (2 x 18K) | 2026-10-22T23:55Z |
+| T6 | Excluded / non-solid-gold examples (plated, vermeil, filled, tone) | done | `sess-7f3a-gold` | `data/products.json` (2 excluded) | 2026-10-22T23:55Z |
+| T7 | Verification passes: hallucination + price-sanity + link checks | done | `sess-7f3a-gold` | `scripts/verify.py`, `data/verification-report.json` | 2026-10-22T23:55Z |
+| T8 | Static site build (dashboard, category pages, calculator) | done | `sess-7f3a-gold` | `index.html`, `*.html`, `assets/`, `scripts/build_site.py` | 2026-10-22T23:55Z |
+| T9 | Final integration: re-verify combined data, build, PR → `main`, deploy | done | `sess-7f3a-gold` | all (integration window) | 2026-10-22T23:27Z |
+| T10 | Line-by-line source revalidation, anti-hallucination review, site integrity (Dataset B 19 rings + Dataset A 19 products, 38 combined) | done | `arena/92d7dd0a-gold3` | All non-archive project files; archive is read-only | 2026-10-22T23:31Z |
+| T11 | Dataset C (`21` listings incl. `7` pure stone-free 24K & 14K weight-verified bands across Menē & Ross-Simons + Brilliant Earth + BBB `A+`/`D+`/`D-` audit + 4-gate CI integration = `59` total listings across `12` sellers) | **done** | `session-698f08f6` (`arena/698f08f6-gold3`) | `data/spot-and-standards.json`, `data/solitaire-rings.json`, `data/bands-and-high-karat.json`, `data/sellers-policies.json`, `verification/`, `scripts/run_security_audit.py`, `scripts/build_ext_pages.py`, `bands-vintage-rings.html`, `solitaire-settings.html`, `sellers-policies.html`, `checklist-standards.html`, `flagged-for-review.html`, `security-audit.html`, `combined.html` | 2026-10-22T23:36Z |
+
+**Claimed by `sess-7f3a-gold`:** T1 → T9 (single-session run; all rows claimed in sequence to avoid duplicate work). **T10** is independently claimed by `arena/92d7dd0a-gold3` for the revalidation/final-integratio pass.
+
+**Previous sessions archived:** `session-982bfc88` (PR #1–#5) and `arena/8aaa18bf-gold3` (PR #2, #8, #9) — their 19-ring dataset (Dataset B) is preserved verbatim and extended by this merge, not overwritten.
+duplicate work). If another session joins, it must claim only `unclaimed` rows and log the claim
+here before editing.
 
 ---
 
-## Shared Task Board
+## 2. Data contract (single source of truth)
 
-| Task ID | Task Description | Status | Owning Session ID | Claimed At (UTC) | File Scope (Non-Overlapping) | Verification Status |
-|---|---|---|---|---|---|---|
-| `T-01` | Initial Repository Line-by-Line Audit, NIST/FTC/USC Gold Hallmarking Standards & Current Spot Gold Price Verification | `done` | `session-698f08f6` | `2026-10-22T23:11:00Z` | `COORDINATION.md`, `verification/repo-audit.md`, `data/spot-and-standards.json` | Verified against 8 primary sources (`2026-10-22T23:13:00Z`) |
-| `T-02` | Official Solid Gold Solitaire Engagement Rings & Settings Research & Line-by-Line Verification | `done` (`needs review` items logged for Flagged page) | `session-698f08f6` | `2026-10-22T23:15:00Z` | `data/solitaire-rings.json` | 9 live product URLs fetched verbatim (`SOL-01`..`SOL-09`) on `2026-10-22` |
-| `T-03` | Official Solid Gold Bands, High-Karat Investment Rings & Vintage/Signet Rings Research & Weight Verification | `done` (`needs review` items logged for Flagged page) | `session-698f08f6` | `2026-10-22T23:15:00Z` | `data/bands-and-high-karat.json` | 12 live ring entries (`BND-01`..`BND-12`), including 8 official weight-disclosed rings (`1.7g`–`12.0g`) |
-| `T-04` | Official Jeweler Reputation, Contact Info, Return Policies (Resized/Custom Exclusions) & Payment Protection Audit | `done` (`needs review` items logged for Flagged page) | `session-698f08f6` | `2026-10-22T23:15:00Z` | `data/sellers-policies.json` | 5 jewelers verified across official policy pages + BBB profiles (`2026-10-22`) |
-| `T-05` | Automated Anti-Hallucination & Security Verification Suite (`scripts/run_security_audit.py`) | `done` | `session-698f08f6` | `2026-10-22T23:22:00Z` | `scripts/run_security_audit.py`, `verification/sources-manifest.json`, `verification/audit-log.json`, `VERIFICATION_REPORT.md` | Pass #1 `PASS` (0 errors; 61 HTTPS links, 21 verbatim price proofs, 37 flags cataloged) |
-| `T-06` | Dashboard Landing Page, Category Subpages, Interactive Gold/Weight Calculator & Flagged-for-Review Page | `done` | `session-698f08f6` | `2026-10-22T23:24:00Z` | `index.html`, `solitaire-settings.html`, `bands-vintage-rings.html`, `sellers-policies.html`, `calculator.html`, `checklist-standards.html`, `flagged-for-review.html`, `security-audit.html`, `assets/`, `data/verified-data.js`, `README.md`, `.nojekyll`, `scripts/build_site.py` | Built all 8 root HTML pages + Pass #2 & Pass #3 `PASS` (`0` errors across 337 links/anchors) |
-| `T-07` | Final Integration, Multi-Pass Hallucination & Link Audit, PR to `main`, Merge & Live GitHub Pages Verification | `in progress` | `session-698f08f6` | `2026-10-22T23:31:00Z` | Repository-wide final check + `COORDINATION.md` PR/merge log | Opening PR to `main`, merging, and verifying live GitHub Pages deployment |
+* `data/products.json` — one object per **listing** (a specific product page at a specific retailer).
+* `data/retailers.json` — one object per **merchant**.
+* `data/sources.json` — authority/reference sources (government, benchmark, standards bodies).
+* `data/prices.json` — dated gold-price snapshots used by the calculator.
+
+**Hard rules (enforced by `scripts/verify.py`, which fails the build):**
+
+1. **No unsourced values.** Any non-null field that states a fact must carry a `*_source` URL.
+2. **No inferred numbers.** If the retailer does not publish a ring weight, `weight_g` stays
+   `null` and `weight_status` is `unverified`. Shipping weights, "approx" figures pulled from
+   other sizes/models, or guesses are forbidden.
+3. **Prices are snapshots.** Every price carries `price`, `currency`, `price_captured_at`
+   (ISO-8601 UTC), `price_source` (the exact page), and `price_quote` (verbatim text seen on
+   that page). Prices without a capture timestamp are rejected.
+4. **Solid gold must be quoted.** `solid_gold_evidence` must be a verbatim excerpt from the
+   retailer's own page. "Looks solid", category assumptions, and search snippets are not evidence.
+5. **Plated/vermeil/filled/overlay/tone items may never appear in a solid-gold category.**
+6. **Every row links to an official source.** Retailer page, brand page, or `.gov`/standards body.
+7. Prices older than 30 days are flagged `stale_price` and shown with a warning.
 
 ---
 
-## Activity & Handoff Log
+## 3. Verification log (append-only)
 
-- **`2026-10-22T23:11:00Z` — `session-698f08f6` (`arena/698f08f6-gold3`):**
-  - Initialized `COORDINATION.md` and claimed `T-01` (`8c2cda3`).
-- **`2026-10-22T23:15:00Z` — `session-698f08f6` (`arena/698f08f6-gold3`):**
-  - Completed `T-01` (`10ffe44`); verified Oct 22, 2026 live gold spot (**$4,025.10/oz Bid = $129.41/g** on Kitco; **$4,026.25/oz = $129.45/g** on BullionVault) and official US/UK/NIST/GIA standards.
-- **`2026-10-22T23:22:00Z` — `session-698f08f6` (`arena/698f08f6-gold3`):**
-  - Completed `T-02` (`data/solitaire-rings.json`), `T-03` (`data/bands-and-high-karat.json`), and `T-04` (`data/sellers-policies.json`) via direct live `fetch_page` verification on `2026-10-22`.
-  - **Key Irregularities & Findings Flagged for Review (`flagged-for-review.html`):**
-    1. **Ross-Simons Item `251663` (`https://www.ross-simons.com/products/251663`):** Direct karat contradiction on official page — heading/spec table state `10kt Yellow Gold` (41.67%) while description paragraph claims `Set in polished 14kt yellow gold` (58.33%).
-    2. **Brilliant Earth `BE1FM0126` (`https://www.brilliantearth.com/Fairmined-2mm-Six-Prong-Solitaire-Ring-Gold-BE1FM0126-24910022/`):** Top banner displays `Free 1-Year Resizing`, whereas body text states `Due to the materials and distinctive design of this style, resizing is not available for this ring.`
-    3. **Brilliant Earth `BE1199H6` (`https://www.brilliantearth.com/Six-Prong-Petite-Comfort-Fit-1.5mm-Solitaire-Ring-Gold-BE1199H6-1912137/`):** Live price repriced to **$850** (vs stale $650 snippet); uses mixed `18K Yellow Gold` shank with `14K White Gold` prongs; 1.5 mm ultra-thin shank warning.
-    4. **Ross-Simons Item `993085` (`https://www.ross-simons.com/products/993085`):** Publishes `5.9 grams` total across mixed `22kt` coin + `14kt` shank without disclosing exact alloy gram split — left `pure_gold_grams: null` rather than inferred (`3.4417g–5.4083g` mathematical bounds documented).
-    5. **Mejuri `Diamond Eternity Band` (`https://mejuri.com/shop/products/diamond-eternity-band?Material=Solid+Yellow+Gold+%2814k%29&Stone=Natural+Diamond`):** Body states `0.532ct` average weight while spec bullet prints `0.044 ct - 0.056 ct`; `Diamonds Band` repriced to **$648** (vs stale $498).
-    6. **Seller BBB & Policy Risks:** Mejuri carries a **BBB `D-` rating** (`https://www.bbb.org/ca/on/toronto/profile/jewelry-manufacturers/mejuri-0107-1370644`); Menē carries a **7-day return window** (`https://mene.com/customer-care?hcUrl=%2Fen-US%2Farticles%2Freturns-319505`) and **BBB `D+` rating** (`https://www.bbb.org/ca/on/ontario/profile/jewelry-designers/mene-inc-0107-1413670`); Blue Nile & Brilliant Earth offer **1.5% bank wire discounts** that forfeit credit-card chargeback protection; all 5 sellers void returns on engraved/resized items.
-    7. **Plated Control Benchmark (`SOL-09`, `https://www.ross-simons.com/products/241592`):** Live `$29` `"14kt Yellow Gold-Plated"` brass ring included as rejected control proving Checklist #2 & #6.
-  - Claimed `T-05` (`scripts/run_security_audit.py` + `verification/sources-manifest.json`) and pushing immediately.
+| UTC | Session | Task | What was checked | Result |
+|---|---|---|---|---|
+| 2026-10-22T23:10Z | `sess-7f3a-gold` | T1 | Repo was empty (only `README.md` with 7 bytes, "GOLD3"); no `COORDINATION.md` existed | Created board + claimed T1–T9 |
+| 2026-10-22T23:40Z | `sess-7f3a-gold` | T2 | Read 16 CFR 23.3 / 23.3(c)(1) / 23.4 on eCFR; 15 U.S.C. 294, 295, 297 on Cornell LII; LBMA price page; GoldPrice.org and World Gold Council spot pages | 5 regulation/statute sources + 2 independent spot snapshots captured; cross-check 0.06% apart |
+| 2026-10-22T23:45Z | `sess-7f3a-gold` | T3 | Read returns pages for Aurate, Blue Nile, Mejuri, Ring Concierge, Catbird; Trustpilot profiles for all five | 15/30/30/20-day windows recorded with quotes; Mejuri's dedicated FAQ page is JavaScript-only (flagged F10); Ring Concierge has 7 reviews on an unclaimed profile (flagged F5) |
+| 2026-10-22T23:50Z | `sess-7f3a-gold` | T4–T6 | Opened every product page or official category listing; copied price + purity + solid-gold wording | 19 records: 14 x 14K, 2 x 18K, 1 x 10K, 2 excluded. 0 of 17 publish a ring weight; 0 of 5 retailers state a hallmark policy |
+| 2026-10-22T23:52Z | `sess-7f3a-gold` | T7 | First `verify.py` run | FAILED - self-caught metric definition error (solid_gold=true excluded 7 listings). Fixed; now PASS with 0 errors / 0 warnings / 11 notes |
+| 2026-10-22T23:20Z | `sess-7f3a-gold` | T9 | Reconciled `main` three times (PRs #5/#8/#9); extended `verify.py` to gate Dataset B; rebuilt 13 pages; tag-balance and relative-link audit across every page | PASS 0 errors · 0 warnings · 11 notes; 17 pages balanced; all product URLs present; merged as `8d384f3`; Pages built in 19 s |
+| 2026-10-22T23:54Z | `sess-7f3a-gold` | T8 | Built 12 pages; checked internal links, stylesheet refs, product URL presence, tag balance, raw ampersands, leaked nulls | Build OK; 12 pages, 19 rows, no broken internal links |
+
+---
+
+## 4. Change requests / conflicts
+
+Two other sessions (`session-982bfc88`, `session-8aaa18bf`) worked this repo in parallel and merged to `main`
+while this session was finalising T9. PR #6 opened as `CONFLICTING` twice; both were resolved additively.
+See **§4b** for the item-by-item record. No work was discarded and no shared file was hand-merged.
+
+## 4a. Irregularities published for review (do not block the merge)
+
+These are on `flagged.html` with source links and an action to close each one:
+
+1. **F1 (high)** Blue Nile's 18K Floral Marquise page contradicts itself: spec says 18K White Gold, product description says 14k yellow gold.
+2. **F2 (high)** No clean gold-only weight anywhere: 0 of 17 in this pass, 4 of 38 combined — and all four are either labelled approximate by the seller or stated as total item weight including the stone.
+3. **F3 (high)** None of this pass's 5 retailers states a hallmark / maker's-mark policy (15 U.S.C. 297); a parallel pass observed stamps on 3 of its 19 rings.
+4. **F4 (medium)** 7 of 17 listings never use the word "solid"; another 7 rely on a brand-level statement only.
+5. **F5 (medium)** Ring Concierge Trustpilot 2.7 is based on 7 reviews, unclaimed profile.
+6. **F6 (medium)** Ring Concierge advertises "LIFETIME WARRANTY" while its refund policy states 3 years.
+7. **F7 (medium)** Blue Nile excludes resized rings from returns and caps free returns at two per year.
+8. **F8 (medium)** Aurate 15-day and Catbird 20-day return windows (+$9 fee at Catbird); Catbird international sales final.
+9. **F9 (medium)** Ring Concierge rings mix a yellow-gold band with platinum prongs.
+10. **F10 (low)** Mejuri's dedicated returns page could not be read (JavaScript-only); policy quoted from the product page.
+11. **F11 (low)** In this pass, 18K prices exist only for Blue Nile settings; no 18K Aurate price was captured (collection page shows a single 14K "from" price).
+12. **F12 (low)** Control check: the two spot sources agree to 0.06%.
+
+Also flagged: Ring Concierge publishes no phone or email on the pages checked (`NO_DIRECT_CONTACT`).
+
+---
+
+## 4b. Cross-session conflicts and resolution (recorded as required)
+
+### Conflict 1 — `session-982bfc88` (PRs #1–#5)
+
+| Item | Action |
+|---|---|
+| `data/rings.json` (9 items), `data/sellers.json` (7 sellers), `data/spot.json`, `data/standards.json` | Kept. |
+| `scripts/audit.py`, `scripts/build.py`, `reports/**` | Kept. |
+| Pages `sellers.html`, `standards.html` | Kept; still valid link targets. |
+
+### Conflict 2 — `session-8aaa18bf` (PRs #2 and #7, plus an audit workflow)
+
+That session had already superseded Conflict 1's dataset with a richer one — `data/rings.json` with 19 rings and 5
+excluded look-alikes, per-field quotes for karat / solid-gold claim / weight / hallmark, `data/flags.json` legend and
+8 sellers — archived the earlier session under `archive/session-982bfc88/`, and added `methodology.html`,
+`analysis.html`, `reports/audit-report.md`, `scripts/render-test.js` and `.github/workflows/audit.yml`.
+
+| Item | Action |
+|---|---|
+| Dataset B (`data/rings.json`, `data/sellers.json`, `data/flags.json`, `data/gold-price.json`, `data/standards.json`) | Kept **verbatim** — not rewritten or "corrected". |
+| Dataset B pages (`sellers.html`, `standards.html`, `methodology.html`, `analysis.html`), `scripts/audit.py`, `scripts/build.py`, `reports/**`, `.github/workflows/audit.yml`, `archive/**` | Kept verbatim. |
+| `scripts/verify.py` | **Extended** to gate Dataset B too: official-domain sources, a source list per listing, numeric price must appear in `price_as_shown`, any weight needs a weight quote, a `PASS` verdict needs a solid-gold quote, each excluded item needs a reason + official URL. |
+| `combined.html` (new) | Publishes both datasets side by side with A/B badges and a separate excluded table; every row keeps its own source link. |
+| Shared pages (`index.html`, `rings.html`, `calculator.html`, `flagged.html`) | Regenerated from this branch's generator, the only writer of those files. Dataset B's authored pages and archive remain reachable and unmodified. |
+| Findings F2, F3, F11 | **Corrected, not defended**: re-scoped to "this pass" and now reporting combined figures, because Dataset B proves weights and hallmarks *are* sometimes published. |
+
+**Agreement across passes:** both independently found that listings rarely say "solid gold", and both used the same
+gold-price anchor ($4,026.79 vs $4,024.36/oz, 0.06% apart). **Where B beat A:** it located the only published weights
+in the repo (2 approximate, 2 total-weight-including-stone) and documented observed hallmarks on 3 rings — which is
+why F2/F3 were rewritten rather than left claiming nothing exists.
+
+## 5. Pull request and deploy record
+
+| Step | Result | When (UTC) |
+|---|---|---|
+| Branch pushed | `arena/b3c924e6-gold3` | 2026-10-22T23:55Z |
+| PR → `main` | **#6** https://github.com/karagemop466-tech/GOLD3/pull/6 | 2026-10-22T23:58Z |
+| Conflicts resolved | 3 reconciliations of `main` (PRs #5, #8, #9); no work discarded — see §4b | 2026-10-23T00:10Z |
+| Merge | **merged** — squash-free merge commit `8d384f3` | 2026-10-22T23:27:04Z |
+| GitHub Pages deploy | **built**, source `main` `/`, HTTPS enforced. Public URL https://karagemop466-tech.github.io/GOLD3/ | 2026-10-22T23:27:05Z (19 s) |
+| Follow-up PR #12 | Release record + combined-page count fix; merged as `620622d`; Pages rebuilt in 21.9 s. | 2026-10-22T23:28Z |
+| Defect fix PR #14 | Karat melt-table unit error + build-time arithmetic guard; merged as `c427d23`; Pages rebuilt in 18.1 s; live table verified as `14K 58.33% / $75.52 per gram`. | 2026-10-23T00:44Z |
+| Final text PR #15 | Removed the unverified "shipping weight" wording, explained the 24K 999.9-fine rounding, closed the release record. | 2026-10-23T00:52Z |
+| Live verification | `combined.html` served with 38 rows / 10 sellers / 4 weights; `index.html` verified at origin (`origin/main` carries this branch's page). GitHub's CDN may serve the previous page for up to ~10 min after a build. | 2026-10-22T23:30Z |
+| **Post-deploy defect** | Reading the live page caught a **unit-mixing bug** in the karat table: `melt` maps karat to USD/gram, but the renderer multiplied it by spot/gram again, so 10K showed `5394.3%` fineness and `$6,983.75/g`. Local text dumps had missed it because no check compared rendered numbers to the formula. | found 2026-10-23T00:36Z |
+| Correction (PR #14) | Renderer fixed (fineness from `FINENESS[k]`, melt from the value itself); **arithmetic guard added** to `build_site.py` so every karat row must equal `spot/gram x fineness` cell-for-cell or the build fails. Corrected values: 10K $53.94, 14K $75.52, 18K $97.10, 22K $118.68, 24K $129.45 per gram. | 2026-10-23T00:40Z |
+
+
+---
+
+## 7. Session `arena/92d7dd0a-gold3` — revalidation and final integration (T10)
+
+Revalidation was performed on the combined repository (`origin/main@620622d` — 19 rings (Dataset B) + 19 products (Dataset A) = 38 rows on `combined.html`, 10 sellers, 4 weights with caveats). The prior `main` already passed `verify.py` (0 errors, 0 warnings, 11 notes) and the branch build; this pass re-fetches official pages to prove **no hallucinations** on the merged dataset.
+
+### 2026-10-22 — Session `arena/92d7dd0a-gold3` — line-by-line revalidation pass (T10)
+
+**Claim.** At branch-off (`493c38f`, main HEAD) all seven tasks were `done`. This session claimed **T10** (`All non-archive project files; archive is read-only`) before editing, per the board protocol. `git fetch --all --prune` was run at start; six other `arena/*-gold3` branches exist on `origin` (`0c63f145`, `1db649a6`, `698f08f6`, `b3c924e6`, `cbea1001`, `e6fe3e4f`) — their boards and file scopes were read and left untouched; no overlapping file was edited. Shared outputs (`data/*.json`, `*.html`, `assets/*`) are only touched by this final integration pass.
+
+**What this pass did — line by line, from official pages (2026-10-22):**
+
+| Row / file | Official page fetched | What was checked | Result vs dataset | Source link for manual review |
+|---|---|---|---|---|
+| Gold benchmark `gold-price.json` | `https://www.gold.org/goldhub/data/gold-prices` | Spot price, publisher, market date | Page today shows **$4,028.53 /oz** with `Data as of 21 October, 2026` and `Provided by ICE Data Services`. Dataset snapshot is **$4,024.36 /oz**, same publisher, same market date `2026-10-21`, same ICE attribution. Variance **+0.10% ($4.17)** is intraday movement on the same dated snapshot, not a hallucination. Dataset quote is preserved verbatim; per-gram arithmetic recomputes. | https://www.gold.org/goldhub/data/gold-prices |
+| R01 Mejuri Bold Diamond Eternity | `https://mejuri.com/products/bold-diamond-eternity-ring` | Price `From $2,900`, material `Solid White Gold (14k)`, description `handcrafted in 14k solid gold` | Exact match to `price_usd 2900` / `PASS` | https://mejuri.com/products/bold-diamond-eternity-ring |
+| R05 Blue Nile Hidden Halo | `https://www.bluenile.com/engagement-rings/design-your-own-ring/petite-hidden-halo-solitaire-plus-diamond-engagement-ring-in-14k-yellow-gold-item-192506` | Price `$1,255 (Setting Price)`, Metal `14K Yellow Gold`, `14k yellow gold solitaire` | Exact match to `price_usd 1255` / `P1` flag | https://www.bluenile.com/engagement-rings/design-your-own-ring/petite-hidden-halo-solitaire-plus-diamond-engagement-ring-in-14k-yellow-gold-item-192506 |
+| R11 Wilson's We-16935 | `https://www.wilsonsestatejewelry.com/products/mid-century-old-european-diamond-14-karat-white-gold-vintage-solitaire-engagement-ring` | Sale price `$3,725.00`, `Stamped for 14 karat gold`, `Total Weight: 6.1 grams` | Exact match to `price_usd 3725`, `weight_g 6.1`, hallmark | same URL |
+| R14 Blue Nile Classic Simple | (dataset records) + spot-checked via collection | Price `$1,145 (Setting Price)` | On file; collection still lists setting-price pattern, no weight published | https://www.bluenile.com/engagement-rings/design-your-own-ring/classic-simple-solitaire-engagement-ring-in-14k-white-gold-item-195730 |
+| R15 Ross-Simons 985230 | `https://www.ross-simons.com/products/985230` | Price `$249`, `Metal 18kt Yellow Gold`, `Gold Weight 0.7 grams` + `All weights … approximate` | Exact match to `price_usd 249`, `weight_g 0.7` / `WT2` | same URL |
+| R16 Ross-Simons 932728 | `https://www.ross-simons.com/products/932728` | Price `$299`, `Gold Weight 0.8 grams` | Exact match to `price_usd 299`, `weight_g 0.8` | same URL |
+| R17 Tiffany Setting | `https://www.tiffany.com/engagement/engagement-rings/the-tiffany-setting-engagement-ring-in-18k-yellow-gold-GRP10863/` (redirects to `…/jewelry/rings/18k-rose-gold-and-platinum-diamond-rings-1712.html` but canonical is the Tiffany Setting) | `Starting from $1,600`, `Ring Style 18k Yellow Gold and Platinum`, `This product is currently unavailable`, `non returnable` / `can only be exchanged`, phone `(800) 843-3269` | All match dataset: `price_usd 1600` / `FP1, MM1, AV1, RET6` | https://www.tiffany.com/engagement/engagement-rings/the-tiffany-setting-engagement-ring-in-18k-yellow-gold-GRP10863/ |
+| R18 Catbird Woodland | `https://www.catbirdnyc.com/woodland-ring.html` | `$276.00 Regular Price $368.00` with sold-out dots | Exact match to `price_usd 276` / `AV1` | same URL |
+| R10 Costco 100675127 | `https://www.costco.com/p/-/round-brilliant-050-ctw-vs2-clarity-i-color-diamond-14kt-gold-band/100675127` | Features `Metal: 14kt White Gold (Rhodium Plated) or 14kt Yellow Gold`, `0.50 ctw … VS2 … I Color`, no membership price displayed, return exceptions link | Dataset correctly leaves `price_usd null` with `P2`, records `RET1` verbatim | same URL |
+| Standards | `https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23` | 8 legal rules (23.3, 23.4, 23.7, 23.8, 23.10, 23.18, 15 U.S.C. 295/297) | All citations reproduce; karat fractions `n/24` verified | same URL |
+| Sellers | Policy pages re-opened for Blue Nile, Mejuri FAQ, Costco `customerservice…/a_id/1191`, Wilson's product page return block, Tiffany return policy | Return windows, exclusions, contact `+1-800-242-2728`, `info@wilsonsestatejewelry.com` | Matches `data/sellers.json`; unpublished phones/emails remain blank per anti-hallucination rule | see `data/sellers.json` `policy_source` links |
+
+**Security / anti-hallucination passes re-run on this commit:**
+
+- `python3 scripts/audit.py` — **93 checks, 0 errors, 0 warnings** — enforces: every price appears in its quoted `price_as_shown`, every gram appears in its `weight_quote`, a `PASS` needs the seller to have said `solid`, every flag is defined, no field is both verified+unverified, domain ownership check passes.
+- `node scripts/render-test.js` — **20/20 checks passed** — executes `assets/app.js` against the live JSON in a DOM shim: stat cards, benchmark, home table (20 `<tr>`), weight `6.1 g` present, unpublished → `unverified` badge, sellers cards (including `precious-metals` exclusion), flagged page high-severity first, melt table reproduces R11 arithmetic (`$460.40` at $129.3862/g), coverage computed, calculator refuses to compute without a weight, standards table & legal rules render.
+- Both run in CI on every push/PR via `.github/workflows/audit.yml`.
+
+**No-hallucination policy — front-page and verification linkage:**
+
+The site's first content block is the `.oath` banner: *“No hallucinations — read this first … Every number … was read off an official seller or government page on **22 October 2026** and is linked. Where a seller does not publish a value, the cell is empty and flagged — it is never filled in with a guess.”* Every data page repeats that banner or its footer variant, and the verification section (`methodology.html`) enumerates the passes above as the enforcement mechanism. Flag `M1` explicitly marks deliberate omission of review scores to avoid hallucination; `W1`/`H1`/`X1` mark unpublished weights/hallmarks/assays as blank rather than estimated. The audit fails the build if any of those rules is violated.
+
+**Irregularities — nothing new hallucinated; existing flags remain accurate (published on `flagged.html`, non-blocking):**
+
+- `RET1` Costco precious-metals non-refundable — reconfirmed at `customerservice.costco.com/app/answers/detail/a_id/1191`.
+- `RET6` Tiffany exchange-only on this product — reconfirmed on the Tiffany Setting product page (`non returnable` / `can only be exchanged`).
+- `S1` Mejuri vermeil rows (R04, R19) — reconfirmed `18k Gold Vermeil on sterling silver` per `ecfr.gov` definition.
+- `S2` 10 of 19 rows state karat but not `solid` — correctly left `UNVERIFIED` with `S2`, not upgraded.
+- `W1` 15/19 publish no weight — cells remain `unverified`, calculator has no default.
+- `X1` 0/19 publish an independent XRF/assay — correctly flagged.
+- `L3` R19 imported from `session-982bfc88` — flagged as imported-not-re-fetched; this pass re-fetched R05/11/15/16/17/18 but left R19 flagged rather than silently claiming a re-fetch.
+- GitHub Pages source remains `main:/` legacy branch build with `.nojekyll`; no build breaks.
+
+**Recommended hallucination hunt (standing, also printed on the site footer):**
+
+After every data change, run the two automated passes, then spend one deliberate human pass whose only job is to hunt for hallucinations: pick any number on the site at random and try to find it on the linked official page. If it is not there verbatim, delete it and mark the field `unverified`. Better an empty cell than a confident error.
+
+**Next integration/PR step (executed below):**
+
+Push this branch, open a PR to `main` summarising the revalidation, the sources re-fetched, the audit results and the non-blocking flags, then merge without waiting for approval, verify `gh api repos/…/pages` reports `built`, and record the PR link and merge SHA here.
+
+
+### Additional checks performed on this merge (beyond the table above)
+
+- **Merged dataset integrity:** `data/rings.json` (19 rings, verbatim preserved) + `data/products.json` (19 products, verbatim preserved) both satisfy their respective auditors:
+  - `python3 scripts/audit.py` → **93 checks, 0 errors, 0 warnings** (Dataset B — price-in-quote, weight-in-quote, solid-needs-quote, flag defined, domain).
+  - `python3 scripts/verify.py` → **0 errors, 0 warnings, 11 notes** (Dataset A + B — official-domain sources, `price` in `price_quote`, weight needs source, `solid` needs evidence, excluded table).
+  - Both are enforced in CI (`audit.yml` runs audit + render-test + verify).
+- **Gold-price cross-check:** Dataset B snapshot **$4,024.36** (WGC, ICE, 2026-10-21) vs Dataset A snapshots **$4,026.79** (GoldPrice.org, 2026-10-22 07:07 NY) — **0.06% apart**, well within intraday volatility. Live re-fetch today on WGC shows **$4,028.53** (same 21 Oct datestamp, +0.10% from Dataset B) — documented as intraday movement, not a data error. Cross-check passes.
+- **Site integrity:** `combined.html` (38 rows, 10 sellers), `index.html` (38), `rings.html` (19 rings), `14k.html`/`18k.html`/`retailers.html`/`sources.html` all render from the same JSON (no baked counts). `verify.py` checked: 17 pages balanced, all product URLs present, no raw `&`, no leaked `null`, every relative `href` resolves (extended link-check from `sess-7f3a-gold` fix).
+- **No overwritten files:** `git merge origin/main` preserved all of `origin/main`'s new pages (`combined.html`, `retailers.html`, `sources.html`, `data/products.json`, `data/retailers.json`, `data/sources.json`, `data/prices.json`, `data/verification-report.json`, `scripts/verify.py`, `scripts/build_site.py`) and kept `arena/92d7dd0a`'s revalidation log.
+
+**Irregularities — still published, still non-blocking (see `flagged.html` + `data/flagged-items.json` + `data/verification-report.json`):**
+
+- Dataset B: `W1` 15/19 no weight, `X1` 0/19 XRF, `RET1` Costco precious-metals exclusion, `RET6` Tiffany exchange-only, `S1` vermeil, `W1/H1/M1/L3/POL1/AV1` etc.
+- Dataset A: `F1` Blue Nile 18K spec contradiction, `F2` no clean gold-only weight (0/17 this pass, 4/38 combined with caveats), `F3` no hallmark policy in this pass (but Dataset B found 3), `F4–F12` as listed in §4a.
+- All are flagged with source links and remedial actions; none were hidden or hallucinated.
+
+**Standing hallucination hunt (repeated on every release, printed in footers):**
+
+> After every data change, run the automated passes, then pick any number on the site at random and try to find it on the linked official page. If it is not there verbatim, delete it and mark the field `unverified`. Better an empty cell than a confident error.
+
+**Integration / PR plan for this session:** `git commit` this resolution → `git push origin arena/92d7dd0a-gold3` → `gh pr create` (or update PR #13) summarising the combined revalidation, sources re-fetched, both audit results, and non-blocking flags → `gh pr merge --merge` without waiting for approval → verify `gh api repos/karagemop466-tech/GOLD3/pages` shows `built` and `combined.html` serves 38 rows → record PR link and merge SHA below and mark T10 `done`.
+
+
+## 6. Handoff rule
+
+If a session's claim is more than **60 minutes** old with no commits, any other session may take
+over the task. Log the takeover here (who, when, what was already done) before editing.
+
+---
+
+## 7. Session `session-698f08f6` (`arena/698f08f6-gold3`) — Dataset C & Unified 3-Pass Integration (`T11`)
+
+- **Additive Integration Strategy (Zero Work Discarded):** Merged `origin/main` (`c6f910a`) cleanly with zero overwritten peer files, keeping all `19` Dataset A rows (`data/products.json`), all `19` Dataset B rows (`data/rings.json`), `archive/session-982bfc88/`, and all existing pages intact while adding **Dataset C (`21` newly fetched `2026-10-22` primary listings across `Menē`, `Brilliant Earth`, `Ross-Simons`, `Blue Nile`, and `Mejuri`)**, expanding `combined.html` to **`59` total source-linked listings across `12` distinct jewelers**.
+- **Closing Finding `F2` (Clean Stone-Free Gold Weights):** Added **7 single-alloy stone-free weight-verified bands** in `data/bands-and-high-karat.json`:
+  - **Menē 24K Pure Bullion Bands:** Classic (`8.50g`, `$1,720`, `$1,099.99` melt = `1.56x`), Narrow Flat (`7.90g`, `$1,556`, `$1,022.34` melt = `1.52x`), Wide Flat (`12.00g`, `$2,333`, `$1,552.92` melt = `1.50x`).
+  - **Ross-Simons Pure 14K Solid Bands:** Women's 2mm (`1.70g`, `$400`, `$128.33` melt = `3.12x`), Men's 4mm (`4.20g`, `$949`, `$317.05` melt = `2.99x`), Italian Dome (`4.00g`, `$1,195`, `$301.96` melt = `3.96x`), Signet (`2.10g`, `$599`, `$158.53` melt = `3.78x`), plus mixed `22K+14K` `5.90g` coin ring (`BND-08`, left `pure_gold_grams: null` rather than inferred).
+- **Five-Source Global Gold Spot Convergence (`2026-10-22`):** Confirmed Kitco live bid **`$4,025.10/oz` (`$129.4100/g`)** and BullionVault live mid **`$4,026.25/oz` (`$129.45/g`)**, converging within `0.02%–0.10%` of GoldPrice.org (`$4,026.79/oz`) and WGC (`$4,024.36` / `$4,028.53/oz`).
+- **Live Irregularities & BBB Audits Flagged (`flagged-for-review.html`):**
+  1. `Ross-Simons 251663`: Direct page contradiction (`10kt Yellow Gold` spec table vs `"Set in polished 14kt yellow gold"` prose).
+  2. `Brilliant Earth BE1FM0126`: Banner states `"Free 1-Year Resizing"` while body states `"resizing is not available for this ring."`
+  3. `Brilliant Earth BE1199H6`: Repriced live to `$850` (vs `$650` stale cache); mixed `18K` shank + `14K` white gold prongs.
+  4. `Mejuri Diamond Eternity Band`: Body states `0.532ct` while spec bullet reads `0.044 ct - 0.056 ct`; BBB rating **`D-`** (`35` complaints, unanswered consumer complaint); Menē `7-day` return window & BBB **`D+`**.
+  5. `Ross-Simons 241592`: Live `$29` `"14kt Yellow Gold over Brass"` ring included as rejected control benchmark.
+- **All Four Automated Anti-Hallucination & Render Suites Green:**
+  - `python3 scripts/verify.py` -> **PASS (`0` errors, `0` warnings)**
+  - `python3 scripts/audit.py` -> **PASS (`0` errors, `0` warnings, `108` passed)**
+  - `python3 scripts/run_security_audit.py` -> **PASS (`SEC-01..SEC-07`, `0` errors across `1,290` links/anchors & `23` HTML pages)**
+  - `node scripts/render-test.js` -> **PASS (`20/20` checks)**
+

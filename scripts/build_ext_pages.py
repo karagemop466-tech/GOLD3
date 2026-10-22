@@ -17,14 +17,16 @@ DATA_DIR = ROOT / "data"
 VERIF_DIR = ROOT / "verification"
 
 NAV_ITEMS = [
-    ("index.html", "Overview & Summary", False),
-    ("checklist-standards.html", "12-Point Checklist & Standards", False),
-    ("solitaire-settings.html", "Solitaire Settings (9)", False),
-    ("bands-vintage-rings.html", "Solid Gold & 24K Bands (12)", False),
-    ("sellers-policies.html", "Sellers, Returns & Payments (5)", False),
-    ("calculator.html", "Gold & Melt Calculator", False),
-    ("flagged-for-review.html", "Flagged for Review (16)", True),
-    ("security-audit.html", "Security & Hallucination Audit", False),
+    ("index.html", "Main Dashboard", False),
+    ("combined.html", "All 59 Combined Rows", False),
+    ("checklist-standards.html", "12-Point Checklist", False),
+    ("solitaire-settings.html", "Solitaires (9)", False),
+    ("bands-vintage-rings.html", "24K & Solid Bands (12)", False),
+    ("sellers-policies.html", "BBB & Policy Audit (5)", False),
+    ("calculator.html", "Gold Calculator", False),
+    ("flagged-for-review.html", "Flagged C (16)", True),
+    ("flagged.html", "Flagged A+B", True),
+    ("security-audit.html", "Security Passes", False),
 ]
 
 
@@ -54,7 +56,7 @@ def render_shell(active_file: str, title: str, body_html: str, spot_bench: dict,
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{esc(title)} — GOLD3 Verified Engagement Ring Research</title>
-  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="assets/gold3-ext.css">
 </head>
 <body>
   <div class="spot-topbar">
@@ -107,7 +109,7 @@ def render_shell(active_file: str, title: str, body_html: str, spot_bench: dict,
   </footer>
 
   <script src="data/verified-data.js"></script>
-  <script src="assets/app.js"></script>
+  <script src="assets/gold3-calc.js"></script>
 </body>
 </html>
 """
@@ -682,6 +684,7 @@ def build_all() -> None:
       </p>
     </section>
     {render_mandate_banner(compact=True)}
+    {render_calculator_section(bench['spot_bid_usd_per_troy_oz'], include_presets=True)}
     {render_ring_table_block(
         "Solid Gold Bands, 24K Rings & Vintage/Signet Styles — Line-by-Line Table",
         "Exact pure gold grams and melt values are shown for all 7 single-karat weight-published rings; mixed-karat and weight-omitted items remain strictly blank (Unverified).",
@@ -977,12 +980,10 @@ def build_all() -> None:
     """
 
     pages = [
-        ("index.html", "Overview & Verified Summary", index_body),
         ("checklist-standards.html", "12-Point Buyer Checklist & Legal Standards", checklist_body),
         ("solitaire-settings.html", "Solitaire Engagement Settings & Diamond Rings", solitaire_body),
         ("bands-vintage-rings.html", "Solid Gold Bands, 24K Rings & Vintage Styles", bands_body),
         ("sellers-policies.html", "Seller Reputation, Return Policies & Payment Protection", sellers_body),
-        ("calculator.html", "Gold Purity, Gram Weight & Melt Value Calculator", calc_body),
         ("flagged-for-review.html", "Flagged for Review — Unverified & Irregular Listings", flagged_body),
         ("security-audit.html", "Security & Anti-Hallucination Verification Log", security_body),
     ]

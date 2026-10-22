@@ -1,0 +1,489 @@
+{
+  "generated_on": "2026-10-22",
+  "spot": {
+    "primary": {
+      "id": "goldprice-org-2026-10-22",
+      "publisher": "GoldPrice.org",
+      "url": "https://goldprice.org/",
+      "metal": "gold",
+      "price_usd_per_troy_oz": 4026.79,
+      "as_of_text": "Oct 22nd, 2026 at 07:07 NY Time",
+      "captured_on": "2026-10-22",
+      "role": "primary",
+      "quote": "Spot Gold Price: USD 4,026.79 / Ounce | Spot Silver Price: USD 54.63 / Ounce Oct 22nd, 2026 at 07:07 NY Time"
+    },
+    "cross_check": {
+      "primary_usd_per_oz": 4026.79,
+      "cross_usd_per_oz": 4024.36,
+      "difference_usd": 2.43,
+      "difference_percent": 0.0603,
+      "within_tolerance": true
+    },
+    "usd_per_gram": 129.4643
+  },
+  "counts": {
+    "products": 19,
+    "retailers": 5,
+    "sources": 10,
+    "errors": 0,
+    "warnings": 0
+  },
+  "derived_benchmarks": [
+    {
+      "id": "aurate-2ct-round-lgd-solitaire",
+      "brand": "Aurate New York",
+      "price": 2858.0,
+      "purity": "14K",
+      "solid_gold": true,
+      "flags": [
+        "SOLID_NOT_ON_LISTING",
+        "PRICE_FROM_LOWEST_VARIANT",
+        "WEIGHT_NOT_PUBLISHED",
+        "HALLMARK_NOT_STATED"
+      ],
+      "derived": {
+        "karat": "14K",
+        "melt_usd_per_gram": 75.52,
+        "implied_gold_weight_g_for_price_to_equal_melt": 37.84,
+        "note": "DERIVED BENCHMARK ONLY - this is not the ring's weight. It is the grams of that karat the price would buy at spot."
+      }
+    },
+    {
+      "id": "aurate-2ct-emerald-lgd-solitaire",
+      "brand": "Aurate New York",
+      "price": 2638.0,
+      "purity": "14K",
+      "solid_gold": true,
+      "flags": [
+        "SOLID_NOT_ON_LISTING",
+        "PRICE_FROM_LOWEST_VARIANT",
+        "WEIGHT_NOT_PUBLISHED",
+        "HALLMARK_NOT_STATED"
+      ],
+      "derived": {
+        "karat": "14K",
+        "melt_usd_per_gram": 75.52,
+        "implied_gold_weight_g_for_price_to_equal_melt": 34.93,
+        "note": "DERIVED BENCHMARK ONLY - this is not the ring's weight. It is the grams of that karat the price would buy at spot."
+      }
+    },
+    {
+      "id": "aurate-1ct-round-lgd-bezel",
+      "brand": "Aurate New York",
+      "price": 1498.0,
+      "purity": "14K",
+      "solid_gold": true,
+      "flags": [
+        "SOLID_NOT_ON_LISTING",
+        "PRICE_FROM_LOWEST_VARIANT",
+        "WEIGHT_NOT_PUBLISHED",
+        "HALLMARK_NOT_STATED"
+      ],
+      "derived": {
+        "karat": "14K",
+        "melt_usd_per_gram": 75.52,
+        "implied_gold_weight_g_for_price_to_equal_melt": 19.84,
+        "note": "DERIVED BENCHMARK ONLY - this is not the ring's weight. It is the grams of that karat the price would buy at spot."
+      }
+    },
+    {
+      "id": "aurate-2ct-emerald-lgd-bezel",
+      "brand": "Aurate New York",
+      "price": 1968.0,
+      "purity": "14K",
+      "solid_gold": true,
+      "flags": [
+        "SOLID_NOT_ON_LISTING",
+        "PRICE_FROM_LOWEST_VARIANT",
+        "WEIGHT_NOT_PUBLISHED",
+        "HALLMARK_NOT_STATED"
+      ],
+      "derived": {
+        "karat": "14K",
+        "melt_usd_per_gram": 75.52,
+        "implied_gold_weight_g_for_price_to_equal_melt": 26.06,
+        "note": "DERIVED BENCHMARK ONLY - this is not the ring's weight. It is the grams of that karat the price would buy at spot."
+      }
+    },
+    {
+      "id": "aurate-2ct-oval-lgd-solitaire",
+      "brand": "Aurate New York",
+      "price": 2858.0,
+      "purity": "14K",
+      "solid_gold": true,
+      "flags": [
+        "SOLID_NOT_ON_LISTING",
+        "PRICE_FROM_LOWEST_VARIANT",
+        "WEIGHT_NOT_PUBLISHED",
+        "HALLMARK_NOT_STATED"
+      ],
+      "derived": {
+        "karat": "14K",
+        "melt_usd_per_gram": 75.52,
+        "implied_gold_weight_g_for_price_to_equal_melt": 37.84,
+        "note": "DERIVED BENCHMARK ONLY - this is not the ring's weight. It is the grams of that karat the price would buy at spot."
+      }
+    },
+    {
+      "id": "aurate-3ct-oval-lgd-solitaire",
+      "brand": "Aurate New York",
+      "price": 3958.0,
+      "purity": "14K",
+      "solid_gold": true,
+      "flags": [
+        "SOLID_NOT_ON_LISTING",
+        "PRICE_FROM_LOWEST_VARIANT",
+        "WEIGHT_NOT_PUBLISHED",
+        "HALLMARK_NOT_STATED"
+      ],
+      "derived": {
+        "karat": "14K",
+        "melt_usd_per_gram": 75.52,
+        "implied_gold_weight_g_for_price_to_equal_melt": 52.41,
+        "note": "DERIVED BENCHMARK ONLY - this is not the ring's weight. It is the grams of that karat the price would buy at spot."
+      }
+    },
+    {
+      "id": "aurate-3ct-pear-lgd-bezel",
+      "brand": "Aurate New York",
+      "price": 2498.0,
+      "purity": "14K",
+      "solid_gold": true,
+      "flags": [
+        "SOLID_NOT_ON_LISTING",
+        "PRICE_FROM_LOWEST_VARIANT",
+        "WEIGHT_NOT_PUBLISHED",
+        "HALLMARK_NOT_STATED"
+      ],
+      "derived": {
+        "karat": "14K",
+        "melt_usd_per_gram": 75.52,
+        "implied_gold_weight_g_for_price_to_equal_melt": 33.08,
+        "note": "DERIVED BENCHMARK ONLY - this is not the ring's weight. It is the grams of that karat the price would buy at spot."
+      }
+    },
+    {
+      "id": "bluenile-petite-solitaire-14k-yg",
+      "brand": "Blue Nile",
+      "price": 1000.0,
+      "purity": "14K",
+      "solid_gold": null,
+      "flags": [
+        "SETTING_PRICE_ONLY",
+        "SOLID_NOT_STATED",
+        "WEIGHT_NOT_PUBLISHED",
+        "HALLMARK_NOT_STATED"
+      ],
+      "derived": {
+        "karat": "14K",
+        "melt_usd_per_gram": 75.52,
+        "implied_gold_weight_g_for_price_to_equal_melt": 13.24,
+        "note": "DERIVED BENCHMARK ONLY - this is not the ring's weight. It is the grams of that karat the price would buy at spot."
+      }
+    },
+    {
+      "id": "bluenile-petite-hidden-halo-14k-yg",
+      "brand": "Blue Nile",
+      "price": 1255.0,
+      "purity": "14K",
+      "solid_gold": null,
+      "flags": [
+        "SETTING_PRICE_ONLY",
+        "SOLID_NOT_STATED",
+        "PRICE_NOT_RECONFIRMED",
+        "WEIGHT_NOT_PUBLISHED",
+        "HALLMARK_NOT_STATED"
+      ],
+      "derived": {
+        "karat": "14K",
+        "melt_usd_per_gram": 75.52,
+        "implied_gold_weight_g_for_price_to_equal_melt": 16.62,
+        "note": "DERIVED BENCHMARK ONLY - this is not the ring's weight. It is the grams of that karat the price would buy at spot."
+      }
+    },
+    {
+      "id": "bluenile-riviera-pave-14k-wg",
+      "brand": "Blue Nile",
+      "price": 1500.0,
+      "purity": "14K",
+      "solid_gold": null,
+      "flags": [
+        "SETTING_PRICE_ONLY",
+        "SOLID_NOT_STATED",
+        "PRICE_NOT_RECONFIRMED",
+        "WEIGHT_NOT_PUBLISHED",
+        "HALLMARK_NOT_STATED"
+      ],
+      "derived": {
+        "karat": "14K",
+        "melt_usd_per_gram": 75.52,
+        "implied_gold_weight_g_for_price_to_equal_melt": 19.86,
+        "note": "DERIVED BENCHMARK ONLY - this is not the ring's weight. It is the grams of that karat the price would buy at spot."
+      }
+    },
+    {
+      "id": "bluenile-floral-marquise-18k-wg",
+      "brand": "Blue Nile",
+      "price": 2210.0,
+      "purity": "18K",
+      "solid_gold": null,
+      "flags": [
+        "DESCRIPTION_CONTRADICTION",
+        "SETTING_PRICE_ONLY",
+        "SOLID_NOT_STATED",
+        "WEIGHT_NOT_PUBLISHED",
+        "HALLMARK_NOT_STATED"
+      ],
+      "derived": {
+        "karat": "18K",
+        "melt_usd_per_gram": 97.1,
+        "implied_gold_weight_g_for_price_to_equal_melt": 22.76,
+        "note": "DERIVED BENCHMARK ONLY - this is not the ring's weight. It is the grams of that karat the price would buy at spot."
+      }
+    },
+    {
+      "id": "bluenile-criss-cross-18k-yg",
+      "brand": "Blue Nile (By James Allen)",
+      "price": 2320.0,
+      "purity": "18K",
+      "solid_gold": null,
+      "flags": [
+        "SETTING_PRICE_ONLY",
+        "SOLID_NOT_STATED",
+        "PRICE_NOT_RECONFIRMED",
+        "WEIGHT_NOT_PUBLISHED",
+        "HALLMARK_NOT_STATED"
+      ],
+      "derived": {
+        "karat": "18K",
+        "melt_usd_per_gram": 97.1,
+        "implied_gold_weight_g_for_price_to_equal_melt": 23.89,
+        "note": "DERIVED BENCHMARK ONLY - this is not the ring's weight. It is the grams of that karat the price would buy at spot."
+      }
+    },
+    {
+      "id": "mejuri-diamonds-band",
+      "brand": "Mejuri",
+      "price": 648.0,
+      "purity": "14K",
+      "solid_gold": true,
+      "flags": [
+        "WEIGHT_NOT_PUBLISHED",
+        "HALLMARK_NOT_STATED",
+        "ENGRAVING_NOT_RETURNABLE"
+      ],
+      "derived": {
+        "karat": "14K",
+        "melt_usd_per_gram": 75.52,
+        "implied_gold_weight_g_for_price_to_equal_melt": 8.58,
+        "note": "DERIVED BENCHMARK ONLY - this is not the ring's weight. It is the grams of that karat the price would buy at spot."
+      }
+    },
+    {
+      "id": "mejuri-stacker-ring-10k",
+      "brand": "Mejuri",
+      "price": 138.0,
+      "purity": "10K",
+      "solid_gold": true,
+      "flags": [
+        "PRICE_NOT_RECONFIRMED",
+        "WEIGHT_NOT_PUBLISHED",
+        "HALLMARK_NOT_STATED",
+        "NOT_ENGAGEMENT_RING"
+      ],
+      "derived": {
+        "karat": "10K",
+        "melt_usd_per_gram": 53.94,
+        "implied_gold_weight_g_for_price_to_equal_melt": 2.56,
+        "note": "DERIVED BENCHMARK ONLY - this is not the ring's weight. It is the grams of that karat the price would buy at spot."
+      }
+    },
+    {
+      "id": "ringconcierge-2-08-oval-lab-whisper-thin",
+      "brand": "Ring Concierge",
+      "price": 6038.0,
+      "purity": "14K",
+      "solid_gold": null,
+      "flags": [
+        "SOLID_NOT_STATED",
+        "PURITY_NOT_IN_BODY_TEXT",
+        "MIXED_METAL",
+        "MADE_TO_ORDER",
+        "WEIGHT_NOT_PUBLISHED",
+        "HALLMARK_NOT_STATED"
+      ],
+      "derived": {
+        "karat": "14K",
+        "melt_usd_per_gram": 75.52,
+        "implied_gold_weight_g_for_price_to_equal_melt": 79.95,
+        "note": "DERIVED BENCHMARK ONLY - this is not the ring's weight. It is the grams of that karat the price would buy at spot."
+      }
+    },
+    {
+      "id": "ringconcierge-2-72-round-lab-whisper-thin",
+      "brand": "Ring Concierge",
+      "price": 7268.0,
+      "purity": "14K",
+      "solid_gold": null,
+      "flags": [
+        "SOLID_NOT_STATED",
+        "PURITY_NOT_IN_BODY_TEXT",
+        "MIXED_METAL",
+        "PRICE_NOT_RECONFIRMED",
+        "WEIGHT_NOT_PUBLISHED",
+        "HALLMARK_NOT_STATED"
+      ],
+      "derived": {
+        "karat": "14K",
+        "melt_usd_per_gram": 75.52,
+        "implied_gold_weight_g_for_price_to_equal_melt": 96.24,
+        "note": "DERIVED BENCHMARK ONLY - this is not the ring's weight. It is the grams of that karat the price would buy at spot."
+      }
+    },
+    {
+      "id": "catbird-classic-half-round-2mm",
+      "brand": "Catbird",
+      "price": 550.0,
+      "purity": "14K",
+      "solid_gold": true,
+      "flags": [
+        "PURITY_FROM_IMAGE_TEXT",
+        "WEIGHT_NOT_PUBLISHED",
+        "HALLMARK_NOT_STATED",
+        "RETURN_SHIPPING_FEE"
+      ],
+      "derived": {
+        "karat": "14K",
+        "melt_usd_per_gram": 75.52,
+        "implied_gold_weight_g_for_price_to_equal_melt": 7.28,
+        "note": "DERIVED BENCHMARK ONLY - this is not the ring's weight. It is the grams of that karat the price would buy at spot."
+      }
+    },
+    {
+      "id": "mejuri-dome-figure-vermeil",
+      "brand": "Mejuri",
+      "price": 158.0,
+      "purity": "vermeil (sterling silver base, gold plated)",
+      "solid_gold": false,
+      "flags": [
+        "NOT_SOLID_GOLD"
+      ],
+      "derived": {}
+    },
+    {
+      "id": "mejuri-dome-figure-sterling",
+      "brand": "Mejuri",
+      "price": 138.0,
+      "purity": "sterling silver (no gold)",
+      "solid_gold": false,
+      "flags": [
+        "NO_GOLD"
+      ],
+      "derived": {}
+    }
+  ],
+  "metrics": {
+    "n_products": 19,
+    "n_solid_gold": 17,
+    "n_excluded": 2,
+    "n_solid_gold_stated": 10,
+    "n_solid_gold_null": 7,
+    "n_solid_gold_brand": 7,
+    "n_solid_gold_listing": 3,
+    "n_weight_published": 0,
+    "n_hallmark_stated": 0,
+    "n_retailers": 5,
+    "n_other_items": 19,
+    "n_other_excluded": 5,
+    "n_other_priced": 18,
+    "n_other_weight": 4,
+    "n_other_hallmark": 3,
+    "n_combined": 38,
+    "n_weight_published_total": 4,
+    "n_sellers_total": 10
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "severity": "high",
+      "title": "Blue Nile's 18K ring page contradicts itself on the metal"
+    },
+    {
+      "id": "F2",
+      "severity": "high",
+      "title": "Only {n_weight_published_total} of {n_combined} listings publish a weight - none from this pass's five retailers"
+    },
+    {
+      "id": "F3",
+      "severity": "high",
+      "title": "None of this pass's five retailers states a hallmark or maker's-mark policy"
+    },
+    {
+      "id": "F4",
+      "severity": "medium",
+      "title": "{n_solid_gold_null} of {n_solid_gold} listings never use the word 'solid'"
+    },
+    {
+      "id": "F5",
+      "severity": "medium",
+      "title": "Ring Concierge's Trustpilot score is based on 7 reviews and an unclaimed profile"
+    },
+    {
+      "id": "F6",
+      "severity": "medium",
+      "title": "Ring Concierge advertises a lifetime warranty while its refund policy says 3 years"
+    },
+    {
+      "id": "F7",
+      "severity": "medium",
+      "title": "Blue Nile excludes resized rings from returns and limits free returns to two per year"
+    },
+    {
+      "id": "F8",
+      "severity": "medium",
+      "title": "Short return windows: Aurate 15 days, Catbird 20 days (plus a $9 fee)"
+    },
+    {
+      "id": "F9",
+      "severity": "medium",
+      "title": "Ring Concierge rings mix two metals - a single karat claim cannot cover the whole ring"
+    },
+    {
+      "id": "F10",
+      "severity": "low",
+      "title": "Mejuri's dedicated returns page could not be read, so its policy is quoted from the product page"
+    },
+    {
+      "id": "F11",
+      "severity": "low",
+      "title": "In this pass, 18K prices exist only for Blue Nile settings"
+    },
+    {
+      "id": "F12",
+      "severity": "low",
+      "title": "Two independent spot-price sources agree to within 0.06%"
+    }
+  ],
+  "parallel_dataset": {
+    "items": 19,
+    "excluded": 5,
+    "priced": 18,
+    "weights": 4
+  },
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "spot cross-check OK: $4,026.79 vs $4,024.36 (0.060% apart)",
+    "retailer aurate: 15-day return window (below the 30-day reference used in the checklist)",
+    "retailer ring-concierge: Trustpilot sample is only 7 reviews - low confidence",
+    "retailer catbird: 20-day return window (below the 30-day reference used in the checklist)",
+    "product bluenile-petite-solitaire-14k-yg: listing does not state solid gold - flagged for review",
+    "product bluenile-petite-hidden-halo-14k-yg: listing does not state solid gold - flagged for review",
+    "product bluenile-riviera-pave-14k-wg: listing does not state solid gold - flagged for review",
+    "product bluenile-floral-marquise-18k-wg: listing does not state solid gold - flagged for review",
+    "product bluenile-criss-cross-18k-yg: listing does not state solid gold - flagged for review",
+    "product ringconcierge-2-08-oval-lab-whisper-thin: listing does not state solid gold - flagged for review",
+    "product ringconcierge-2-72-round-lab-whisper-thin: listing does not state solid gold - flagged for review"
+  ],
+  "result": "PASS"
+}

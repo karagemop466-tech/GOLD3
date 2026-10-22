@@ -1,0 +1,45 @@
+{
+  "policy": "Every price in this file is a dated snapshot copied from the cited source page. Nothing here is estimated or averaged silently. The primary snapshot is used for all calculations and is displayed with its source timestamp.",
+  "constants": {
+    "troy_ounce_grams": 31.1034768,
+    "troy_ounce_grams_note": "Exact definition: 1 troy ounce = 31.1034768 grams.",
+    "karat_fineness": {
+      "10K": 0.4166666667,
+      "14K": 0.5833333333,
+      "18K": 0.75,
+      "22K": 0.9166666667,
+      "24K": 0.9999
+    },
+    "karat_note": "Fineness computed as karat / 24. 14K = 14/24 = 0.58333 (583.3 parts per thousand). Some countries stamp 585; the US statutory tolerance is in 15 U.S.C. 295 (see sources)."
+  },
+  "snapshots": [
+    {
+      "id": "goldprice-org-2026-10-22",
+      "publisher": "GoldPrice.org",
+      "url": "https://goldprice.org/",
+      "metal": "gold",
+      "price_usd_per_troy_oz": 4026.79,
+      "as_of_text": "Oct 22nd, 2026 at 07:07 NY Time",
+      "captured_on": "2026-10-22",
+      "role": "primary",
+      "quote": "Spot Gold Price: USD 4,026.79 / Ounce | Spot Silver Price: USD 54.63 / Ounce Oct 22nd, 2026 at 07:07 NY Time"
+    },
+    {
+      "id": "world-gold-council-2026-10-21",
+      "publisher": "World Gold Council (Goldhub), market data by ICE Data Services",
+      "url": "https://www.gold.org/goldhub/data/gold-prices",
+      "metal": "gold",
+      "price_usd_per_troy_oz": 4024.36,
+      "as_of_text": "Data as of 21 October, 2026",
+      "captured_on": "2026-10-22",
+      "role": "cross-check",
+      "quote": "Gold Spot price USD /oz 4,024.36 ... Data as of 21 October, 2026"
+    }
+  ],
+  "cross_check": {
+    "difference_usd_per_oz": 2.43,
+    "difference_percent": 0.0604,
+    "note": "The two independent snapshots differ by 0.06%, which is consistent with normal intraday movement between the two timestamps. Calculations use the primary (GoldPrice.org) snapshot; the World Gold Council figure is shown next to it so the reader can see the spread.",
+    "benchmark_note": "The LBMA Gold Price is the global benchmark, set twice daily by ICE Benchmark Administration. LBMA states that real-time and historical benchmark data require an IBA licence and that the public tables have moved behind the MyLBMA portal, so no LBMA figure is reproduced here. Source: https://www.lbma.org.uk/prices-and-data/lbma-precious-metal-prices"
+  }
+}

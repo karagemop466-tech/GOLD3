@@ -1,0 +1,39 @@
+name: Anti-hallucination audit
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    name: Audit data and site (All 4 Gates)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Gate 1 — Verify Dataset A + B integrity & spot cross-check
+        run: python3 scripts/verify.py
+      - name: Gate 2 — Audit Dataset B + repo-wide links & stray USD figures
+        run: python3 scripts/audit.py
+      - name: Gate 3 — Audit Dataset C (24K/14K melt math, allowlist, HTML links & XSS)
+        run: python3 scripts/run_security_audit.py --pass-label "GitHub Actions CI Multi-Suite Audit"
+      - name: Gate 4 — Render-test all static & interactive views
+        run: node scripts/render-test.js
+      - name: Keep the audit reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: audit-report
+          path: |
+            reports/audit-report.md
+            VERIFICATION_REPORT.md

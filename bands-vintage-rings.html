@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Solid Gold Bands, 24K Rings &amp; Vintage Styles — GOLD3 Verified Engagement Ring Research</title>
-  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="assets/gold3-ext.css">
 </head>
 <body>
   <div class="spot-topbar">
@@ -18,7 +18,7 @@
       </div>
       <div>
         Security &amp; Hallucination Suite:
-        <strong>Pass #3 — PASS (0 errors)</strong>
+        <strong>Pass #5 — PASS (0 errors)</strong>
         &bull; <a href="security-audit.html">View Audit Log</a>
       </div>
     </div>
@@ -33,7 +33,7 @@
         </a>
       </div>
       <nav class="nav-links" aria-label="Primary Navigation">
-        <a href="index.html">Overview &amp; Summary</a><a href="checklist-standards.html">12-Point Checklist &amp; Standards</a><a href="solitaire-settings.html">Solitaire Settings (9)</a><a href="bands-vintage-rings.html" class="active">Solid Gold &amp; 24K Bands (12)</a><a href="sellers-policies.html">Sellers, Returns &amp; Payments (5)</a><a href="calculator.html">Gold &amp; Melt Calculator</a><a href="flagged-for-review.html" class="nav-flag">Flagged for Review (16)</a><a href="security-audit.html">Security &amp; Hallucination Audit</a>
+        <a href="index.html">Main Dashboard</a><a href="combined.html">All 59 Combined Rows</a><a href="checklist-standards.html">12-Point Checklist</a><a href="solitaire-settings.html">Solitaires (9)</a><a href="bands-vintage-rings.html" class="active">24K &amp; Solid Bands (12)</a><a href="sellers-policies.html">BBB &amp; Policy Audit (5)</a><a href="calculator.html">Gold Calculator</a><a href="flagged-for-review.html" class="nav-flag">Flagged C (16)</a><a href="flagged.html" class="nav-flag">Flagged A+B</a><a href="security-audit.html">Security Passes</a>
       </nav>
     </div>
   </header>
@@ -57,6 +57,99 @@
         <strong>blank (<code>&mdash; Unverified</code>)</strong> and logged on <a href="flagged-for-review.html"><strong>Flagged for Review</strong></a>.
         Always run <code>python3 scripts/run_security_audit.py</code> after every review pass and actively check primary links to look for hallucinations or live price drift.
       </p>
+    </section>
+    
+    <section class="section-card" id="melt-calculator">
+      <div class="section-header">
+        <div>
+          <h2>Interactive Gold Purity, Gram Weight &amp; Raw Melt Value Calculator</h2>
+          <p>Convert grams, pennyweights (dwt), or troy ounces into exact pure 24K gold content, live melt value, and automatic below-melt scam alerts.</p>
+        </div>
+        <a href="calculator.html" class="source-btn">Open Full Calculator &amp; Karat Table</a>
+      </div>
+      
+      <div>
+        <strong style="font-size:0.84rem; display:block; margin-bottom:0.4rem;">Load a Live-Verified Catalog Ring into Calculator:</strong>
+        <div class="preset-row">
+          <button type="button" class="preset-btn" data-preset="1" data-karat="24K" data-weight="12.0" data-gem="0" data-price="2333">Menē 24K Wide Band (12.0g &bull; $2,333 &bull; 1.50x Melt)</button>
+          <button type="button" class="preset-btn" data-preset="1" data-karat="24K" data-weight="8.5" data-gem="0" data-price="1720">Menē 24K Classic Band (8.5g &bull; $1,720 &bull; 1.56x Melt)</button>
+          <button type="button" class="preset-btn" data-preset="1" data-karat="14K" data-weight="4.2" data-gem="0" data-price="949">Ross-Simons 14K 4mm Band (4.2g &bull; $949 &bull; 2.99x Melt)</button>
+          <button type="button" class="preset-btn" data-preset="1" data-karat="14K" data-weight="1.7" data-gem="0" data-price="400">Ross-Simons 14K 2mm Band (1.7g &bull; $400 &bull; 3.12x Melt)</button>
+          <button type="button" class="preset-btn" data-preset="1" data-karat="14K" data-weight="4.0" data-gem="0" data-price="199">Simulated Below-Melt Scam Alert (4.0g 14K @ $199)</button>
+          <button type="button" class="preset-btn" data-preset="1" data-karat="PLATED" data-weight="3.0" data-gem="0" data-price="29">Ross-Simons Plated Control ($29 &bull; 0g Solid Core)</button>
+        </div>
+      </div>
+      <div class="calc-layout">
+        <form class="calc-form" id="gold-calc-form" onsubmit="return false;">
+          <div class="field-group">
+            <label for="calc-karat">1. Ring Metal Purity / Stamp (Checklist #1 &amp; #2)</label>
+            <select id="calc-karat">
+              <option value="24K">24K Pure Gold (99.95% / Hallmark 999)</option>
+              <option value="22K">22K Gold (91.67% / Hallmark 916)</option>
+              <option value="21K">21K Gold (87.50% / Hallmark 875)</option>
+              <option value="18K">18K Solid Gold (75.00% / Hallmark 750)</option>
+              <option value="14K" selected>14K Solid Gold (58.33% / Hallmark 585)</option>
+              <option value="10K">10K Solid Gold — US Minimum (41.67% / Hallmark 417)</option>
+              <option value="9K">9K Gold — UK Hallmarked Minimum (37.50% / Hallmark 375)</option>
+              <option value="PLATED">Gold-Plated / Vermeil / Gold-Filled (0% Solid Gold Core)</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label for="calc-weight">2. Total Ring Weight (Checklist #4 — Request from Seller if Omitted)</label>
+            <div style="display:flex; gap:0.5rem;">
+              <input id="calc-weight" type="number" step="0.01" min="0" value="4.20" style="flex:1;">
+              <select id="calc-unit" style="width:165px;">
+                <option value="g" selected>Grams (g)</option>
+                <option value="dwt">Pennyweights (dwt)</option>
+                <option value="ozt">Troy Ounces (ozt)</option>
+              </select>
+            </div>
+          </div>
+          <div class="field-group">
+            <label for="calc-gem-ct">3. Optional Gemstone Carat Deduction (GIA exact: 1.00 ct = 0.20 g)</label>
+            <input id="calc-gem-ct" type="number" step="0.01" min="0" value="0">
+          </div>
+          <div class="field-group">
+            <label for="calc-spot-oz">4. Live 24K Spot Gold Benchmark ($ USD / Troy Oz — Verified 2026-10-22)</label>
+            <input id="calc-spot-oz" type="number" step="0.10" min="0" value="4025.10">
+          </div>
+          <div class="field-group">
+            <label for="calc-ask-price">5. Seller Asking Price ($ USD — Checklist #6 Scam / Markup Check)</label>
+            <input id="calc-ask-price" type="number" step="1" min="0" value="949">
+          </div>
+        </form>
+
+        <div class="calc-results" aria-live="polite">
+          <h3 style="margin:0 0 0.7rem; font-size:1.05rem;">Live Intrinsic Gold &amp; Markup Breakdown</h3>
+          <div class="calc-result-row">
+            <span>24K Spot Benchmark per Gram (<code>Spot &divide; 31.1034768</code>)</span>
+            <strong id="out-spot-gram" class="num">$129.41 / g (24K)</strong>
+          </div>
+          <div class="calc-result-row">
+            <span>Net Gold Alloy Weight (after stone deduction)</span>
+            <strong id="out-net-alloy" class="num">4.200 g</strong>
+          </div>
+          <div class="calc-result-row">
+            <span>Pure 24K Gold Content (Grams)</span>
+            <strong id="out-pure-grams" class="num">2.4500 g pure Au</strong>
+          </div>
+          <div class="calc-result-row">
+            <span>Pure 24K Gold Content (Troy Ounces)</span>
+            <strong id="out-pure-oz" class="num">0.0788 troy oz</strong>
+          </div>
+          <div class="calc-result-row">
+            <span><strong>Exact Raw Gold Melt Value ($ USD)</strong></span>
+            <span id="out-melt-usd" class="calc-big num">$317.05</span>
+          </div>
+          <div class="calc-result-row">
+            <span>Retail Asking Price vs. Raw Gold Melt</span>
+            <strong id="out-markup" class="num">2.99x melt (33.4% intrinsic gold value)</strong>
+          </div>
+          <div id="out-verdict" class="verdict-box badge-ok">
+            NORMAL FINE RETAIL RANGE (2.99x melt): Consistent with verified traditional 14K solid gold retail bands.
+          </div>
+        </div>
+      </div>
     </section>
     
     <section class="section-card" id="verified-catalog">
@@ -485,6 +578,6 @@
   </footer>
 
   <script src="data/verified-data.js"></script>
-  <script src="assets/app.js"></script>
+  <script src="assets/gold3-calc.js"></script>
 </body>
 </html>

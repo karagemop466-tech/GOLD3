@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Standards — GOLD3 legal basis</title>
+<meta name="description" content="The FTC jewellery guides, the National Stamping Act and the karat fineness table that this ring checklist is built on, quoted with citations.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="standards">
+
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="index.html"><span class="mark"></span>GOLD3 <small>ring verification</small></a>
+    <nav class="main">
+      <a href="index.html">Overview</a>
+      <a href="rings.html">Rings</a>
+      <a href="sellers.html">Sellers</a>
+      <a href="analysis.html">Analysis</a>
+      <a href="calculator.html">Calculator</a>
+      <a href="standards.html">Standards</a>
+      <a href="flagged.html">Flagged</a>
+      <a href="methodology.html">Method</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>Standards the checklist rests on</h1>
+  <p class="lede">Your requirements are not folklore — most are codified in US federal rules. This page quotes
+    the governing text so the checklist can be defended, and so a seller's wording can be read against it.</p>
+
+  <div class="note">
+    <p><strong>Primary source.</strong> 16 CFR Part 23 — <em>Guides for the Jewelry, Precious Metals, and Pewter
+      Industries</em>, published by the Federal Trade Commission, in the electronic Code of Federal Regulations.
+      The maker's-mark rule traces to the National Stamping Act, 15 U.S.C. 294–297.</p>
+    <p class="hint"><a href="https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23" rel="noopener">Open
+      the official text (eCFR)</a> · retrieved 22 October 2026. The eCFR is authoritative but unofficial; the
+      Federal Register is the official print.</p>
+  </div>
+
+  <h2>Karat, fineness, and why the arithmetic is not an opinion</h2>
+  <p class="dim">Karat is a fraction of 24. The percentages below are computed from that definition — they are
+    identities, so they can be checked by hand.</p>
+  <div class="tscroll">
+    <table>
+      <thead><tr><th>Karat</th><th>Gold content</th><th>Parts per thousand</th><th>Exact fraction</th></tr></thead>
+      <tbody id="karat-body"><tr><td colspan="4" class="empty">Loading…</td></tr></tbody>
+    </table>
+  </div>
+  <p class="hint">The audit script re-derives each row as <code>n ÷ 24</code> and fails if a stored value does
+    not reproduce. That is how the table is prevented from drifting into invented numbers.</p>
+
+  <h2>The specific rules that drive the flags on this site</h2>
+  <div id="rules-list"><p class="dim">Loading citations…</p></div>
+
+  <h2>Reading a seller's wording against the rules</h2>
+  <div class="tscroll">
+    <table>
+      <thead><tr><th>What the listing says</th><th>What it may actually mean</th><th>Rule</th></tr></thead>
+      <tbody>
+        <tr><td>“18k Gold Vermeil”</td>
+            <td>Sterling silver body with a gold coating at least 2.5 microns thick. Not solid gold.</td>
+            <td>16 CFR 23.4(b)</td></tr>
+        <tr><td>“14k Yellow Gold” (karat only)</td>
+            <td>A gold alloy of that fineness. Does not by itself rule out a hollow interior.</td>
+            <td>16 CFR 23.3(c)(1)</td></tr>
+        <tr><td>“14K Solid Gold” on a hollow ring</td>
+            <td>Improper. Hollow items should not be described as solid.</td>
+            <td>16 CFR 23.3(c)(1)</td></tr>
+        <tr><td>“White gold”</td>
+            <td>Gold alloy, usually rhodium plated on the surface; the plating wears.</td>
+            <td>16 CFR 23.7</td></tr>
+        <tr><td>“Gold plated” / “gold filled”</td>
+            <td>A coating or mechanically bonded layer, with minimum-thickness conditions.</td>
+            <td>16 CFR 23.3(b), (c)</td></tr>
+        <tr><td>A karat stamp alone</td>
+            <td>Incomplete unless the maker's trademark or name is also applied.</td>
+            <td>15 U.S.C. 297 · 16 CFR 23.10</td></tr>
+        <tr><td>“Total weight”</td>
+            <td>Weight of the whole item, stones included — not gold weight.</td>
+            <td>16 CFR 23.18</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Assay tolerance</h2>
+  <p class="dim">When an independent jeweller tests your ring, the result is judged against a tolerance, not a
+    perfect number: three parts per thousand for gold parts without solder, seven parts per thousand where
+    solder is present. Cited at 16 CFR 23.3, footnote 32, referencing 15 U.S.C. 295.</p>
+
+  <div class="note warn">
+    <p><strong>What these rules do not do.</strong> They govern how sellers and makers may <em>describe</em> an
+      item. They do not certify any individual ring. No government body issues a purity certificate for a retail
+      ring — only an assay or XRF test on the actual object does that.</p>
+  </div>
+
+</main>
+
+<footer class="site wrap">
+  <p><strong>No hallucinations policy.</strong> Citations verified against the electronic Code of Federal
+    Regulations on 22 October 2026. Quotations are short and attributed.</p>
+  <p>Not legal advice. Consult a lawyer or a qualified appraiser for a specific dispute.</p>
+</footer>
+
+<script src="assets/app.js"></script>
+</body>
+</html>
