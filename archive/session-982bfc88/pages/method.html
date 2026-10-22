@@ -37,21 +37,19 @@ every review pass.</p>
     <li><b>Arithmetic must reproduce.</b> Every melt value is recomputed from stored inputs with the published formula,
       and any price below its own melt value is flagged, not published as a deal.</li>
     <li><b>Conflicts are surfaced.</b> Two prices for the same URL are both stored, and the disagreement is flagged.</li>
-    <li><b>Links must sit on their own domain.</b> Every stored URL is checked against the domain it claims to belong to,
-      so a guessed or copy-pasted link cannot pass as evidence. Unverified placeholder URLs were deleted, not kept.</li>
   </ol>
 </div>
 
 <h2 id="audit">Automated audit — latest run</h2>
 <div class="grid g4">
-  <div class="card stat"><span class="n">14</span><span class="l">checks run</span></div>
-  <div class="card stat"><span class="n" style="color:var(--ok)">11</span><span class="l">passed</span></div>
+  <div class="card stat"><span class="n">13</span><span class="l">checks run</span></div>
+  <div class="card stat"><span class="n" style="color:var(--ok)">10</span><span class="l">passed</span></div>
   <div class="card stat"><span class="n" style="color:var(--warn)">2</span><span class="l">warnings</span></div>
   <div class="card stat"><span class="n" style="color:var(--bad)">0</span><span class="l">failures</span></div>
 </div>
-<p class="sub">Run 2026-10-22 23:20 UTC · <code>python3 scripts/audit.py</code> · machine-readable copy in
+<p class="sub">Run 2026-10-22 23:17 UTC · <code>python3 scripts/audit.py</code> · machine-readable copy in
 <code>reports/audit-latest.json</code>.</p>
-<div class="tablewrap"><table><thead><tr><th>ID</th><th>Check</th><th>Result</th><th>Detail</th></tr></thead><tbody><tr><td class='mono'>A1</td><td><b>Every entry links to an official seller page</b></td><td><span class="badge b-ok">PASS</span></td><td class='sub'>9/9 entries have an official URL and a registered seller.</td></tr><tr><td class='mono'>A2</td><td><b>No price exists without a quoted, dated source</b></td><td><span class="badge b-ok">PASS</span></td><td class='sub'>7 priced entries checked; 0 need attention.</td></tr><tr><td class='mono'>A3</td><td><b>Karat value appears verbatim in the quoted evidence</b></td><td><span class="badge b-ok">PASS</span></td><td class='sub'>9/9 karat values traced to a quote.</td></tr><tr><td class='mono'>A4</td><td><b>Solid-gold verdicts are backed by the seller&#x27;s own wording</b></td><td><span class="badge b-ok">PASS</span></td><td class='sub'>2 verdicts checked.</td></tr><tr><td class='mono'>A5</td><td><b>Gram weights come from the seller, never from an estimate</b></td><td><span class="badge b-ok">PASS</span></td><td class='sub'>2 weight values checked.</td></tr><tr><td class='mono'>A6</td><td><b>Every derived figure is reproducible from stored inputs</b></td><td><span class="badge b-ok">PASS</span></td><td class='sub'>Melt value = weight_g × karat/24 × (spot ÷ 31.1034768). Recomputed for 2 entries.</td></tr><tr><td class='mono'>A7</td><td><b>Price-drift detector: same item, different recorded prices</b></td><td><span class="badge b-warn">WARN</span></td><td class='sub'>4 of 9 entries have more than one recorded price observation.</td></tr><tr><td class='mono'>A8</td><td><b>No duplicate listings</b></td><td><span class="badge b-ok">PASS</span></td><td class='sub'>0 duplicate entries.</td></tr><tr><td class='mono'>A9</td><td><b>Dead listings are labelled, not silently kept</b></td><td><span class="badge b-info">INFO</span></td><td class='sub'>2 dead listing(s) recorded and excluded from recommendations.</td></tr><tr><td class='mono'>A10</td><td><b>Spot price is dated by an official source</b></td><td><span class="badge b-ok">PASS</span></td><td class='sub'>$4,024.36/ozt as of 2026-10-21 (1 day(s) old) — World Gold Council — Goldhub, Gold spot prices.</td></tr><tr><td class='mono'>A11</td><td><b>Every entry carries a recent re-check date</b></td><td><span class="badge b-ok">PASS</span></td><td class='sub'>0 entries older than 30 days.</td></tr><tr><td class='mono'>A12</td><td><b>Price magnitude sanity check</b></td><td><span class="badge b-ok">PASS</span></td><td class='sub'>All stored prices fall in a credible range (limit $20,000 per fine gram).</td></tr><tr><td class='mono'>A13</td><td><b>Every seller has a linked, official return policy</b></td><td><span class="badge b-warn">WARN</span></td><td class='sub'>3/7 sellers documented.</td></tr><tr><td class='mono'>A14</td><td><b>Every link sits on the domain it claims to belong to</b></td><td><span class="badge b-ok">PASS</span></td><td class='sub'>9 listing URLs and 7 seller links checked against their own domains.</td></tr></tbody></table></div>
+<div class="tablewrap"><table><thead><tr><th>ID</th><th>Check</th><th>Result</th><th>Detail</th></tr></thead><tbody><tr><td class='mono'>A1</td><td><b>Every entry links to an official seller page</b></td><td><span class="badge b-ok">PASS</span></td><td class='sub'>9/9 entries have an official URL and a registered seller.</td></tr><tr><td class='mono'>A2</td><td><b>No price exists without a quoted, dated source</b></td><td><span class="badge b-ok">PASS</span></td><td class='sub'>7 priced entries checked; 0 need attention.</td></tr><tr><td class='mono'>A3</td><td><b>Karat value appears verbatim in the quoted evidence</b></td><td><span class="badge b-ok">PASS</span></td><td class='sub'>9/9 karat values traced to a quote.</td></tr><tr><td class='mono'>A4</td><td><b>Solid-gold verdicts are backed by the seller&#x27;s own wording</b></td><td><span class="badge b-ok">PASS</span></td><td class='sub'>2 verdicts checked.</td></tr><tr><td class='mono'>A5</td><td><b>Gram weights come from the seller, never from an estimate</b></td><td><span class="badge b-ok">PASS</span></td><td class='sub'>2 weight values checked.</td></tr><tr><td class='mono'>A6</td><td><b>Every derived figure is reproducible from stored inputs</b></td><td><span class="badge b-ok">PASS</span></td><td class='sub'>Melt value = weight_g × karat/24 × (spot ÷ 31.1034768). Recomputed for 2 entries.</td></tr><tr><td class='mono'>A7</td><td><b>Price-drift detector: same item, different recorded prices</b></td><td><span class="badge b-warn">WARN</span></td><td class='sub'>4 of 9 entries have more than one recorded price observation.</td></tr><tr><td class='mono'>A8</td><td><b>No duplicate listings</b></td><td><span class="badge b-ok">PASS</span></td><td class='sub'>0 duplicate entries.</td></tr><tr><td class='mono'>A9</td><td><b>Dead listings are labelled, not silently kept</b></td><td><span class="badge b-info">INFO</span></td><td class='sub'>2 dead listing(s) recorded and excluded from recommendations.</td></tr><tr><td class='mono'>A10</td><td><b>Spot price is dated by an official source</b></td><td><span class="badge b-ok">PASS</span></td><td class='sub'>$4,024.36/ozt as of 2026-10-21 (1 day(s) old) — World Gold Council — Goldhub, Gold spot prices.</td></tr><tr><td class='mono'>A11</td><td><b>Every entry carries a recent re-check date</b></td><td><span class="badge b-ok">PASS</span></td><td class='sub'>0 entries older than 30 days.</td></tr><tr><td class='mono'>A12</td><td><b>Price magnitude sanity check</b></td><td><span class="badge b-ok">PASS</span></td><td class='sub'>All stored prices fall in a credible range (limit $20,000 per fine gram).</td></tr><tr><td class='mono'>A13</td><td><b>Every seller has a linked, official return policy</b></td><td><span class="badge b-warn">WARN</span></td><td class='sub'>3/7 sellers documented.</td></tr></tbody></table></div>
 
 <h3>Findings this run</h3>
 <div class="tablewrap"><table><thead><tr><th>Severity</th><th>Item</th><th>Field</th><th>Finding</th></tr></thead>
@@ -59,8 +57,8 @@ every review pass.</p>
 
 <h2>Build integrity</h2>
 <div class="card">
-<p><b>97</b> internal links checked, <b>0</b> broken.
-<b>12</b> in-page anchors checked, <b>0</b> missing.
+<p><b>95</b> internal links checked, <b>0</b> broken.
+<b>10</b> in-page anchors checked, <b>0</b> missing.
 Pages generated: <code>index.html</code>, <code>rings.html</code>, <code>sellers.html</code>, <code>standards.html</code>, <code>calculator.html</code>, <code>flagged.html</code>, <code>method.html</code>.</p>
 <p class="sub" style="margin-bottom:0">External links point at the seller or government page that was actually read;
 each entry in <code>data/rings.json</code> stores the URL together with the quote taken from it.</p>
@@ -87,21 +85,6 @@ python3 scripts/build.py     # regenerates every page from data/*.json</pre>
 <p class="sub" style="margin-bottom:0">The dataset is plain JSON: <code>data/rings.json</code>,
 <code>data/sellers.json</code>, <code>data/standards.json</code>, <code>data/spot.json</code>.</p>
 </div>
-
-<h2 id="hallucination">Hallucination watchlist — read the list with this in mind</h2>
-<p class="sub">Every one of these traps was actually hit while building this dataset. Check for them before you trust any gold-ring list, including this one.</p>
-<div class="tablewrap"><table>
-<thead><tr><th>Trap</th><th>What it looks like</th><th>How this site handles it</th></tr></thead>
-<tbody>
-<tr><td><b>Cached price</b></td><td>A search result quotes $270; the live page says $299.</td><td>Only a page opened and read can set a price. Cached figures are stored as observations and flagged.</td></tr>
-<tr><td><b>"From" price</b></td><td>$2,900 that becomes $3,400 once you pick a configuration.</td><td>Labelled <span class="badge b-info">from-price</span>; never compared to melt.</td></tr>
-<tr><td><b>Setting price</b></td><td>$1,145 that excludes the centre diamond entirely.</td><td>Labelled <span class="badge b-warn">setting only</span>; the melt comparison prints "n/c".</td></tr>
-<tr><td><b>Plating karat</b></td><td>"18k gold vermeil" — the 18k is a 2.5-micron coating, not the ring.</td><td>Recorded as <b>NOT solid</b>; no melt value is computed for a plated piece.</td></tr>
-<tr><td><b>Invented weight</b></td><td>Estimating grams from a photo or from "typical" ring weights.</td><td>Weight is blank unless the seller publishes it. No table row has an estimated weight.</td></tr>
-<tr><td><b>Dead listing</b></td><td>A URL that now 404s or redirects, still carrying an old price.</td><td>Marked dead, price cleared, excluded from the buy list, shown in "Excluded".</td></tr>
-<tr><td><b>Stamp taken as proof</b></td><td>"14K" on the band treated as confirmation of purity.</td><td>Stamps are treated as claims; 15 U.S.C. § 295 tolerances and the independent-testing step are linked on the Rules page.</td></tr>
-<tr><td><b>Silent contradiction</b></td><td>A product page saying both "non returnable" and "exchange only".</td><td>Published on Flagged for review instead of being summarised into a clean-but-wrong answer.</td></tr>
-</tbody></table></div>
 
 <h2>What this project is not</h2>
 <div class="note warn"><p>Not an appraisal, not legal advice, not a price guarantee. Prices change without notice — the

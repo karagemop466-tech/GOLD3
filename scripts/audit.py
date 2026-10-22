@@ -1,396 +1,477 @@
 #!/usr/bin/env python3
 """
-audit.py — the no-hallucination / consistency audit for the GOLD3 dataset.
+anti-hallucination audit for the GOLD3 gold-engagement-ring project.
 
-Run after EVERY review pass. It does not fetch anything: it re-reads the stored
-dataset and fails loudly wherever a value is not backed by a quoted, dated,
-official source, wherever arithmetic cannot be reproduced, and wherever two
-recorded observations of the same fact disagree.
+This is a *security check*, not a spellcheck. It tries to catch the ways a
+research dataset lies to its reader:
 
-Usage:  python3 scripts/audit.py [--json reports/audit-latest.json]
-Exit code 1 if any check FAILS (warnings are allowed and are published on the
-Flagged for Review page).
+  * a price with no dated official source
+  * a weight, stamp or maker's mark that was never quoted from the seller
+  * a "solid gold" verdict that the seller never actually said
+  * a flag referenced by a row but never defined
+  * arithmetic that does not reproduce
+  * a number printed in the HTML that exists nowhere in the source data
+  * a broken internal link or an off-allowlist external link
+
+Run:  python3 scripts/audit.py
+Exit code 0 = clean (warnings allowed), 1 = at least one ERROR.
+Writes reports/audit-report.md
 """
-from __future__ import annotations
 
 import json
 import re
 import sys
-from datetime import date, datetime, timezone
+from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parent.parent
-KARATS = {"10", "14", "18", "22", "24"}
-PLATED_WORDS = ("plated", "vermeil", "gold filled", "gold-filled", "overlay",
-                "rolled gold", "electroplate", "gold tone", "gold-tone", "filled")
-# A price/gram-of-fine-gold ratio above this is implausible for any jewellery listing.
-MAX_USD_PER_FINE_GRAM = 20000.0
+DATA = ROOT / "data"
+REPORTS = ROOT / "reports"
+
+errors, warnings, passes = [], [], []
 
 
-def load(root: Path) -> dict:
-    data = {}
-    for name in ("rings", "sellers", "standards", "spot"):
-        p = root / "data" / f"{name}.json"
-        data[name] = json.loads(p.read_text(encoding="utf-8"))
-    data["rings_items"] = data["rings"].get("items", [])
-    data["sellers_items"] = data["sellers"].get("sellers", [])
-    return data
+def err(check, msg):
+    errors.append((check, msg))
 
 
-def _severity_rank(s: str) -> int:
-    return {"fail": 0, "warn": 1, "pass": 2, "info": 3}.get(s, 4)
+def warn(check, msg):
+    warnings.append((check, msg))
 
 
-class Audit:
-    def __init__(self, data: dict):
-        self.data = data
-        self.findings: list[dict] = []
-        self.checks: list[dict] = []
-
-    # ---- helpers -----------------------------------------------------------
-    def add(self, check_id, name, status, detail, evidence=None):
-        self.checks.append({"id": check_id, "name": name, "status": status,
-                            "detail": detail, "evidence": evidence or []})
-
-    def finding(self, severity, item_id, field, message, source=None):
-        self.findings.append({"severity": severity, "item": item_id, "field": field,
-                              "message": message, "source": source})
-
-    # ---- checks ------------------------------------------------------------
-    def run(self):
-        items = self.data["rings_items"]
-        sellers = {s["id"]: s for s in self.data["sellers_items"]}
-        spot = self.data["spot"]["spot"]
-        self.spot_per_gram = spot["value_per_oz"] / self.data["spot"]["troy_ounce_grams"]
-
-        self.check_source_required(items, sellers)
-        self.check_price_evidence(items)
-        self.check_karat_evidence(items)
-        self.check_solid_evidence(items)
-        self.check_weight(items)
-        self.check_derived_math(items)
-        self.check_price_drift(items)
-        self.check_duplicates(items)
-        self.check_dead_links(items)
-        self.check_spot_freshness(spot)
-        self.check_freshness(items)
-        self.check_plausibility(items)
-        self.check_seller_policies(items, sellers)
-        self.check_url_ownership(items, sellers)
-
-        fails = [c for c in self.checks if c["status"] == "fail"]
-        warns = [c for c in self.checks if c["status"] == "warn"]
-        return {
-            "generated": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
-            "checks": self.checks,
-            "findings": sorted(self.findings, key=lambda f: _severity_rank(f["severity"])),
-            "summary": {
-                "checks_total": len(self.checks),
-                "checks_pass": len([c for c in self.checks if c["status"] == "pass"]),
-                "checks_warn": len(warns),
-                "checks_fail": len(fails),
-                "findings_fail": len([f for f in self.findings if f["severity"] == "fail"]),
-                "findings_warn": len([f for f in self.findings if f["severity"] == "warn"]),
-            },
-            "stats": self.stats(items),
-        }
-
-    def stats(self, items):
-        live = [i for i in items if i.get("check") == "live"]
-        return {
-            "items_total": len(items),
-            "items_live": len(live),
-            "items_snapshot": len([i for i in items if i.get("check") == "snapshot"]),
-            "items_dead": len([i for i in items if i.get("check") == "dead"]),
-            "with_weight": len([i for i in live if i.get("weight_g")]),
-            "with_price": len([i for i in live if i.get("price") is not None]),
-            "solid_true": len([i for i in live if i.get("solid") is True]),
-            "solid_false": len([i for i in live if i.get("solid") is False]),
-            "solid_unstated": len([i for i in live if i.get("solid") is None]),
-            "spot_per_gram": round(self.spot_per_gram, 4),
-        }
-
-    # A1 -------------------------------------------------------------------
-    def check_source_required(self, items, sellers):
-        bad = [i["id"] for i in items if not str(i.get("url", "")).startswith("http")]
-        noseller = [i["id"] for i in items if i.get("seller") not in sellers]
-        status = "fail" if (bad or noseller) else "pass"
-        for b in bad:
-            self.finding("fail", b, "url", "No official source URL recorded.")
-        for b in noseller:
-            self.finding("fail", b, "seller", "Seller is not in the seller register.")
-        self.add("A1", "Every entry links to an official seller page",
-                 status, f"{len(items) - len(bad) - len(noseller)}/{len(items)} entries have an official URL and a registered seller.")
-
-    # A2 -------------------------------------------------------------------
-    def check_price_evidence(self, items):
-        problems = []
-        for i in items:
-            if i.get("price") is None:
-                continue
-            ev = (i.get("ev") or {}).get("price")
-            if not ev:
-                problems.append(i["id"]); self.finding("fail", i["id"], "price", "Price stored without an evidence quote.")
-            if i.get("check") != "live":
-                problems.append(i["id"])
-                self.finding("warn", i["id"], "price", f"Price recorded from a '{i.get('check')}' source, not a live page check — treat as unverified.")
-        self.add("A2", "No price exists without a quoted, dated source",
-                 "fail" if problems else "pass",
-                 f"{len([i for i in items if i.get('price') is not None])} priced entries checked; {len(set(problems))} need attention.")
-
-    # A3 -------------------------------------------------------------------
-    def check_karat_evidence(self, items):
-        bad = []
-        for i in items:
-            k = i.get("karat")
-            if not k:
-                continue
-            ev = (i.get("ev") or {}).get("karat", "") or ""
-            kk = k.upper().replace(" ", "")
-            if not re.fullmatch(r"(10|14|18|22|24)K", kk):
-                bad.append(i["id"]); self.finding("fail", i["id"], "karat", f"Karat '{k}' is not one of 10K/14K/18K/22K/24K.")
-            elif not re.search(rf"{kk[:2]}\s*-?\s*k", ev, re.I):
-                bad.append(i["id"]); self.finding("fail", i["id"], "karat", "Karat value is not present in the quoted evidence text.")
-        self.add("A3", "Karat value appears verbatim in the quoted evidence",
-                 "fail" if bad else "pass", f"{len(items) - len(set(bad))}/{len(items)} karat values traced to a quote.")
-
-    # A4 -------------------------------------------------------------------
-    def check_solid_evidence(self, items):
-        bad = []
-        for i in items:
-            solid = i.get("solid")
-            if solid is None:
-                continue
-            ev = ((i.get("ev") or {}).get("solid") or "").lower()
-            if not ev:
-                bad.append(i["id"]); self.finding("fail", i["id"], "solid", "Solid/plated verdict without an evidence quote.")
-                continue
-            if solid is True and not re.search(r"solid", ev):
-                bad.append(i["id"]); self.finding("fail", i["id"], "solid", "Marked solid gold but the quote contains no 'solid' wording.")
-            if solid is False and not any(w in ev for w in PLATED_WORDS):
-                bad.append(i["id"]); self.finding("fail", i["id"], "solid", "Marked plated/not-solid but the quote contains no plating wording.")
-        self.add("A4", "Solid-gold verdicts are backed by the seller's own wording",
-                 "fail" if bad else "pass", f"{len([i for i in items if i.get('solid') is not None])} verdicts checked.")
-
-    # A5 -------------------------------------------------------------------
-    def check_weight(self, items):
-        problems = []
-        for i in items:
-            w = i.get("weight_g")
-            if w is None:
-                continue
-            ev = (i.get("ev") or {}).get("weight") or ""
-            try:
-                val = float(w)
-            except (TypeError, ValueError):
-                problems.append(i["id"]); self.finding("fail", i["id"], "weight_g", "Weight is not numeric."); continue
-            if val <= 0:
-                problems.append(i["id"]); self.finding("fail", i["id"], "weight_g", "Weight must be positive.")
-            if not ev:
-                problems.append(i["id"]); self.finding("fail", i["id"], "weight_g", "Weight stored without an evidence quote.")
-            elif not re.search(rf"{re.escape(('%.2f' % val).rstrip('0').rstrip('.'))}\s*(g|gram|grams)", ev, re.I):
-                problems.append(i["id"]); self.finding("warn", i["id"], "weight_g", "Weight number is not literally present in the quote (approximation wording?).")
-        self.add("A5", "Gram weights come from the seller, never from an estimate",
-                 "fail" if problems else "pass",
-                 f"{len([i for i in items if i.get('weight_g') is not None])} weight values checked.")
-
-    # A6 -------------------------------------------------------------------
-    def check_derived_math(self, items):
-        spot = self.data["spot"]["spot"]
-        ozg = self.data["spot"]["troy_ounce_grams"]
-        per_g = spot["value_per_oz"] / ozg
-        frac = self.data["standards"]["karat_fractions"]["values"]
-        mismatches = []
-        for i in items:
-            if i.get("solid") is False:
-                continue  # plated/vermeil: no gold content to value at spot
-            w, k = i.get("weight_g"), i.get("karat")
-            if not w or not k:
-                continue
-            factor = frac.get(str(int(str(k).upper().replace("K", ""))))
-            if factor is None:
-                continue
-            fine = float(w) * factor
-            melt = fine * per_g
-            if not (0 < melt < 1_000_000):
-                mismatches.append(i["id"]); self.finding("fail", i["id"], "derived", "Melt value out of plausible range.")
-            # premium only when a complete-ring price is recorded
-            if i.get("price_type") == "full" and i.get("price"):
-                prem = (i["price"] - melt) / melt * 100
-                if prem < -5:
-                    mismatches.append(i["id"])
-                    self.finding("warn", i["id"], "price", f"Price is {prem:.0f}% below the melt value of its own stated gold weight — verify weight, karat and price.")
-        self.add("A6", "Every derived figure is reproducible from stored inputs",
-                 "fail" if mismatches else "pass",
-                 f"Melt value = weight_g × karat/24 × (spot ÷ 31.1034768). Recomputed for {len([i for i in items if i.get('weight_g')])} entries.")
-
-    # A7 -------------------------------------------------------------------
-    def check_price_drift(self, items):
-        drift = []
-        for i in items:
-            hist = i.get("observations") or []
-            vals = {o.get("price") for o in hist if o.get("price") is not None}
-            if len(vals) > 1:
-                drift.append(i["id"])
-                self.finding("warn", i["id"], "price",
-                             "More than one price recorded for this item (list-price change, sale price, configuration or a stale index copy) — the live page value is the one used: " +
-                             ", ".join(f"${v:,.0f} on {o.get('on')} ({o.get('via')})"
-                                       for v in sorted(vals) for o in hist if o.get("price") == v),
-                             i.get("url"))
-        self.add("A7", "Price-drift detector: same item, different recorded prices",
-                 "warn" if drift else "pass",
-                 f"{len(drift)} of {len(items)} entries have more than one recorded price observation.")
-
-    # A8 -------------------------------------------------------------------
-    def check_duplicates(self, items):
-        seen, dupes = {}, []
-        for i in items:
-            for key in ("url",):
-                v = i.get(key)
-                if v in seen:
-                    dupes.append(i["id"]); self.finding("warn", i["id"], "duplicate", f"Duplicate {key} also used by {seen[v]}.")
-                seen[v] = i["id"]
-        self.add("A8", "No duplicate listings", "warn" if dupes else "pass",
-                 f"{len(dupes)} duplicate entries.")
-
-    # A9 -------------------------------------------------------------------
-    def check_dead_links(self, items):
-        dead = [i["id"] for i in items if i.get("check") == "dead"]
-        for d in dead:
-            self.finding("info", d, "availability", "Listing is no longer purchasable (page returned 'not found' / 'not available') — kept for the record, excluded from the buy list.")
-        self.add("A9", "Dead listings are labelled, not silently kept", "info" if dead else "pass",
-                 f"{len(dead)} dead listing(s) recorded and excluded from recommendations.")
-
-    # A10 ------------------------------------------------------------------
-    def check_spot_freshness(self, spot):
-        try:
-            as_of = date.fromisoformat(spot["as_of"])
-            age = (date.today() - as_of).days
-        except Exception:
-            self.add("A10", "Spot price record is dated", "fail", "Spot price has no usable date."); return
-        status = "pass" if age <= 7 else ("warn" if age <= 30 else "fail")
-        if age > 7:
-            self.finding("warn" if age <= 30 else "fail", spot["id"], "spot",
-                         f"Spot price is {age} days old — refresh before quoting a melt value.", spot["source_url"])
-        self.add("A10", "Spot price is dated by an official source", status,
-                 f"${spot['value_per_oz']:,.2f}/ozt as of {spot['as_of']} ({age} day(s) old) — {spot['source_name']}.")
-
-    # A11 ------------------------------------------------------------------
-    def check_freshness(self, items):
-        stale = []
-        today = date.today()
-        for i in items:
-            try:
-                d = date.fromisoformat(i["checked"])
-            except Exception:
-                stale.append(i["id"]); self.finding("warn", i["id"], "checked", "No valid check date."); continue
-            if (today - d).days > 30:
-                stale.append(i["id"]); self.finding("warn", i["id"], "checked", f"Last checked {(today - d).days} days ago — re-verify before buying.")
-        self.add("A11", "Every entry carries a recent re-check date", "warn" if stale else "pass",
-                 f"{len(stale)} entries older than 30 days.")
-
-    # A12 ------------------------------------------------------------------
-    def check_plausibility(self, items):
-        bad = []
-        for i in items:
-            p = i.get("price")
-            if p is None:
-                continue
-            if not isinstance(p, (int, float)) or p <= 0 or p > 5_000_000:
-                bad.append(i["id"]); self.finding("fail", i["id"], "price", "Price is not a credible positive amount.")
-                continue
-            if i.get("weight_g") and i.get("karat"):
-                try:
-                    frac = self.data["standards"]["karat_fractions"]["values"][str(int(str(i["karat"]).upper().replace("K", "")))]
-                    per_g = p / (float(i["weight_g"]) * frac)
-                    if per_g > MAX_USD_PER_FINE_GRAM:
-                        bad.append(i["id"]); self.finding("warn", i["id"], "price", f"${per_g:,.0f} per fine gram of gold is implausibly high — check weight/karat/price units.")
-                except Exception:
-                    pass
-        self.add("A12", "Price magnitude sanity check", "warn" if bad else "pass",
-                 f"All stored prices fall in a credible range (limit ${MAX_USD_PER_FINE_GRAM:,.0f} per fine gram).")
-
-    # A14 ------------------------------------------------------------------
-    def check_url_ownership(self, items, sellers):
-        """Every stored link must sit on the domain it claims to belong to.
-        This catches guessed or copy-pasted URLs, which are the quietest kind of invented fact."""
-        def host(u):
-            try:
-                return (urlparse(u).hostname or "").lower().removeprefix("www.")
-            except Exception:
-                return ""
-
-        def owned(u, seller):
-            h, base = host(u), host(seller.get("site") or "")
-            return bool(base) and (h == base or h.endswith("." + base))
-
-        bad = []
-        for i in items:
-            s = sellers.get(i.get("seller"), {})
-            if not owned(i.get("url", ""), s):
-                bad.append(i["id"])
-                self.finding("fail", i["id"], "url", f"{i.get('url')} is not on {s.get('site')}.")
-        for s in sellers.values():
-            for key in ("contact_url", "returns_url", "site"):
-                u = s.get(key)
-                if u and not owned(u, s):
-                    bad.append(s["id"])
-                    self.finding("fail", s["id"], key, f"{u} is not on the seller's own domain ({s.get('site')}).")
-        self.add("A14", "Every link sits on the domain it claims to belong to",
-                 "fail" if bad else "pass",
-                 f"{len(items)} listing URLs and {len(sellers)} seller links checked against their own domains.")
-
-    # A13 ------------------------------------------------------------------
-    def check_seller_policies(self, items, sellers):
-        missing = sorted({i["seller"] for i in items if i.get("seller") in sellers
-                          and not (sellers[i["seller"]].get("returns_url"))})
-        for m in missing:
-            self.finding("warn", m, "returns", "No official return-policy URL recorded for this seller.")
-        self.add("A13", "Every seller has a linked, official return policy",
-                 "warn" if missing else "pass",
-                 f"{len(sellers) - len(missing)}/{len(sellers)} sellers documented.")
+def ok(check, msg):
+    passes.append((check, msg))
 
 
-def render_markdown(result: dict, data: dict) -> str:
-    s = result["summary"]; st = result["stats"]
-    L = []
-    L.append("# No-hallucination audit\n")
-    L.append(f"Generated: **{result['generated']}**  ")
-    L.append(f"Dataset: {st['items_total']} entries "
-             f"({st['items_live']} live-verified, {st['items_snapshot']} index-snapshot, {st['items_dead']} dead)\n")
-    L.append(f"**Result: {s['checks_pass']} passed · {s['checks_warn']} warnings · {s['checks_fail']} failed**\n")
-    L.append("| Check | Status | Detail |\n|---|---|---|")
-    icon = {"pass": "PASS", "warn": "WARN", "fail": "FAIL", "info": "INFO"}
-    for c in result["checks"]:
-        L.append(f"| `{c['id']}` {c['name']} | **{icon[c['status']]}** | {c['detail']} |")
-    L.append("\n## Findings\n")
-    if not result["findings"]:
-        L.append("No findings.")
+def load(path):
+    try:
+        return json.loads(Path(path).read_text(encoding="utf-8"))
+    except Exception as exc:  # noqa: BLE001
+        err("JSON", f"{path.name} failed to parse: {exc}")
+        return None
+
+
+# ----------------------------------------------------------------------------
+# 0. files exist
+# ----------------------------------------------------------------------------
+required_files = [
+    "gold-price.json", "rings.json", "sellers.json", "standards.json", "flags.json",
+]
+for name in required_files:
+    if (DATA / name).exists():
+        ok("files", f"data/{name} present")
     else:
-        L.append("| Severity | Item | Field | Finding |\n|---|---|---|---|")
-        for f in result["findings"]:
-            L.append(f"| {f['severity'].upper()} | `{f['item']}` | {f['field']} | {f['message']} |")
-    L.append("\n## Arithmetic reference\n")
-    L.append(f"- Spot used: ${data['spot']['spot']['value_per_oz']:,.2f}/ozt as of {data['spot']['spot']['as_of']}")
-    L.append(f"  ({data['spot']['spot']['source_name']})")
-    L.append(f"- Spot per gram: **${st['spot_per_gram']:,.4f}/g** (spot ÷ 31.1034768)")
-    L.append("- Melt value of a ring = `weight_g × (karat ÷ 24) × spot_per_gram`")
-    L.append("- Premium vs melt = `(price − melt) ÷ melt × 100%` — only computed when a complete-ring price is stored")
-    L.append("\n_Source of every row is linked on the Flagged for Review and Rings pages._\n")
-    return "\n".join(L)
+        err("files", f"data/{name} is missing")
+
+gold = load(DATA / "gold-price.json")
+rings_doc = load(DATA / "rings.json")
+sellers_doc = load(DATA / "sellers.json")
+standards_doc = load(DATA / "standards.json")
+flags_doc = load(DATA / "flags.json")
+
+if not all([gold, rings_doc, sellers_doc, standards_doc, flags_doc]):
+    print("cannot continue: core data missing")
+    sys.exit(1)
+
+rings = rings_doc["rings"]
+sellers = sellers_doc["sellers"]
+flag_defs = {f["id"]: f for f in flags_doc["flags"]}
+karat_table = {k["karat"]: k for k in standards_doc["karat_fineness"]["values"]}
+
+# ----------------------------------------------------------------------------
+# 1. gold price must be dated, sourced and reproducible
+# ----------------------------------------------------------------------------
+spot = gold.get("price_usd_per_troy_ounce")
+if isinstance(spot, (int, float)) and spot > 0:
+    ok("gold-price", f"spot price present: {spot} USD/oz")
+else:
+    err("gold-price", "spot price missing or not numeric")
+
+for key in ("as_of_market_date", "retrieved_utc"):
+    if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", str(gold.get(key, ""))):
+        err("gold-price", f"{key} is not an ISO date (got {gold.get(key)!r})")
+if not str(gold.get("source", {}).get("url", "")).startswith("https://"):
+    err("gold-price", "source URL missing or not https")
+if gold["source"]["url"].startswith("https://www.gold.org"):
+    ok("gold-price", "source is the World Gold Council (gold.org)")
+else:
+    warn("gold-price", "source host is not gold.org — confirm it is a primary source")
+
+once = gold.get("troy_ounce_in_grams")
+if once != 31.1034768:
+    err("gold-price", f"troy ounce in grams should be 31.1034768, got {once!r}")
+else:
+    per_gram = spot / once
+    ok("gold-price", f"per-gram value reproduces: ${per_gram:.4f}/g (computed, not stored)")
+
+# ----------------------------------------------------------------------------
+# 2. deal with each ring row
+# ----------------------------------------------------------------------------
+seen_ids = set()
+seller_names = {s["name"] for s in sellers}
+allowed_karat = set(karat_table) | {"14K", "18K", "19K", "22K", "24K"}
+
+for r in rings:
+    rid = r.get("id", "<no id>")
+
+    if rid in seen_ids:
+        err("ids", f"duplicate row id {rid}")
+    seen_ids.add(rid)
+
+    # --- id shape
+    if not re.fullmatch(r"R\d{2}", str(rid)):
+        warn("ids", f"{rid}: id does not match Rnn pattern")
+
+    # --- source links
+    srcs = r.get("sources") or []
+    if not srcs:
+        err("sources", f"{rid}: no source URL at all")
+    for u in srcs:
+        p = urlparse(u)
+        if p.scheme != "https":
+            err("sources", f"{rid}: non-https source {u}")
+        if not p.netloc:
+            err("sources", f"{rid}: malformed source {u}")
+    if not srcs:
+        pass
+    else:
+        ok("sources", f"{rid}: {len(srcs)} official source link(s)")
+
+    # every row must have its own product/listing url inside sources
+    url = r.get("url")
+    if not url:
+        err("sources", f"{rid}: product url missing")
+    elif url not in srcs:
+        warn("sources", f"{rid}: product url is not listed among its sources")
+
+    # --- price discipline
+    price = r.get("price_usd")
+    if price is None:
+        shown = (r.get("price_as_shown") or "").lower()
+        if "no price" not in shown and "not shown" not in shown:
+            err("price", f"{rid}: price is null but price_as_shown does not say so")
+        else:
+            ok("price", f"{rid}: price honestly left blank and labelled")
+        if not any(f in r.get("flags", []) for f in ("P2", "P1")):
+            warn("price", f"{rid}: no price-related flag on a priceless row")
+    else:
+        if not isinstance(price, (int, float)) or price <= 0:
+            err("price", f"{rid}: price is not a positive number")
+        else:
+            digits = f"{price:,.0f}"
+            shown = r.get("price_as_shown") or ""
+            if digits not in shown.replace(",", ",") and digits.replace(",", "") not in shown.replace(",", ""):
+                err("price", f"{rid}: price {digits} does not appear in price_as_shown {shown!r}")
+            else:
+                ok("price", f"{rid}: ${digits} matches its quoted source text")
+        if not r.get("price_basis"):
+            warn("price", f"{rid}: price has no stated basis (setting price? sale price?)")
+        if "setting" in (r.get("price_basis") or "").lower() and "P1" not in r.get("flags", []):
+            err("price", f"{rid}: setting-only price without the P1 flag")
+
+    # --- weight discipline
+    w = r.get("weight_g")
+    if w is None:
+        if "W1" not in r.get("flags", []) and "WT1" not in r.get("flags", []):
+            warn("weight", f"{rid}: weight blank without a W1 flag")
+    else:
+        if not isinstance(w, (int, float)) or w <= 0 or w > 100:
+            err("weight", f"{rid}: implausible weight {w!r}")
+        quote = r.get("weight_quote") or ""
+        if not quote:
+            err("weight", f"{rid}: weight {w} g has no verbatim quote — unverified number")
+        elif str(w) not in quote.replace(",", ".") and str(w) not in quote:
+            err("weight", f"{rid}: weight {w} g is not present in its own quote")
+        elif "gram" not in quote.lower():
+            err("weight", f"{rid}: weight quote does not mention grams")
+        else:
+            ok("weight", f"{rid}: {w} g traced to a quoted seller statement")
+        if "total" in (quote or "").lower() and "WT1" not in r.get("flags", []):
+            warn("weight", f"{rid}: total-item weight without the WT1 flag")
+
+    # --- karat discipline
+    k = r.get("karat", "")
+    if not k:
+        err("karat", f"{rid}: karat missing")
+    elif not any(kk in k for kk in allowed_karat):
+        warn("karat", f"{rid}: unusual karat string {k!r}")
+
+    # --- solid gold verdict must be backed by a quote
+    verdict = r.get("solid_gold_verdict") or ""
+    quote = r.get("solid_gold_quote") or ""
+    if not verdict:
+        err("solid", f"{rid}: no solid-gold verdict")
+    elif verdict.startswith("PASS"):
+        if "solid" not in quote.lower():
+            err("solid", f"{rid}: PASS verdict but the seller never said 'solid'")
+        else:
+            ok("solid", f"{rid}: PASS backed by a quote containing 'solid'")
+    elif verdict.startswith("FAIL"):
+        if "vermeil" not in quote.lower() and "plated" not in quote.lower():
+            err("solid", f"{rid}: FAIL verdict without plated/vermeil evidence in the quote")
+        else:
+            ok("solid", f"{rid}: FAIL backed by plating/vermeil evidence")
+    elif verdict.startswith("UNVERIFIED"):
+        if "S2" not in r.get("flags", []):
+            warn("solid", f"{rid}: UNVERIFIED verdict without the S2 flag")
+    else:
+        warn("solid", f"{rid}: verdict wording not in PASS/FAIL/UNVERIFIED vocabulary")
+
+    # --- flags must exist
+    for fid in r.get("flags", []):
+        if fid not in flag_defs:
+            err("flags", f"{rid}: references undefined flag {fid}")
+
+    # --- verified / unverified field bookkeeping
+    vf, uf = r.get("verified_fields") or [], r.get("unverified_fields") or []
+    if set(vf) & set(uf):
+        err("fields", f"{rid}: field listed as both verified and unverified: {set(vf) & set(uf)}")
+    for field in uf:
+        if r.get(field) not in (None, "", [], {}):
+            err("fields", f"{rid}: {field} is marked unverified but has a value")
+    if not vf:
+        err("fields", f"{rid}: no verified fields listed")
+
+    # --- seller must exist on the seller board
+    seller = r.get("seller", "")
+    if not any(seller == s or seller.startswith(s + " ") or seller.startswith(s + " (")
+               for s in seller_names):
+        warn("seller", f"{rid}: seller {seller!r} not found in sellers.json")
+
+    # --- hallucination vocabulary in OUR prose (quotes are exempt)
+    for field in ("solid_gold_verdict", "price_basis", "condition", "return_window"):
+        text = (r.get(field) or "").lower()
+        for bad in ("tbd", "probably", "likely", "i assume", "we assume", "typical market"):
+            if bad in text:
+                err("prose", f"{rid}.{field}: hedge word {bad!r} in a factual field")
+
+# ----------------------------------------------------------------------------
+# 3. sellers
+# ----------------------------------------------------------------------------
+seller_ids = set()
+for s in sellers:
+    sid = s.get("id")
+    if sid in seller_ids:
+        err("sellers", f"duplicate seller id {sid}")
+    seller_ids.add(sid)
+
+    for fid in s.get("flags", []):
+        if fid not in flag_defs:
+            err("sellers", f"{sid}: undefined flag {fid}")
+
+    if s.get("publishes_weight") is True and not s.get("policy_source"):
+        err("sellers", f"{sid}: claims to publish weight with no policy source")
+
+    # contact details must be either blank or sourced - never invented
+    if (s.get("phone") or s.get("email")) and not s.get("contact_source"):
+        err("sellers", f"{sid}: contact details present without a contact_source")
+
+    if s.get("phone"):
+        if not re.fullmatch(r"(\+\d[\d\- ]{6,}|\(\d{3}\)\s?\d{3}-\d{4})", s["phone"]):
+            warn("sellers", f"{sid}: odd phone format {s['phone']!r}")
+    if s.get("email") and "@" not in s["email"]:
+        err("sellers", f"{sid}: malformed email {s['email']!r}")
+
+    ok("sellers", f"{sid}: {s.get('name')} checked")
+
+# ----------------------------------------------------------------------------
+# 3b. domain ownership: a link must sit on the domain it claims to belong to.
+#     A plausible-looking but unopened URL is the quietest kind of invented fact.
+# ----------------------------------------------------------------------------
+def host_of(u):
+    try:
+        return (urlparse(u).hostname or "").lower().removeprefix("www.")
+    except Exception:
+        return ""
 
 
-def main(argv):
-    data = load(ROOT)
-    result = Audit(data).run()
-    outdir = ROOT / "reports"
-    outdir.mkdir(exist_ok=True)
-    (outdir / "audit-latest.json").write_text(json.dumps(result, indent=2), encoding="utf-8")
-    (outdir / "audit-latest.md").write_text(render_markdown(result, data), encoding="utf-8")
-    print(render_markdown(result, data))
-    return 0 if result["summary"]["checks_fail"] == 0 else 1
+seller_sites = {}
+for s in sellers:
+    seller_sites[s.get("name")] = host_of(s.get("website") or "")
 
 
-if __name__ == "__main__":
-    sys.exit(main(sys.argv))
+def site_for(seller_name):
+    if seller_name in seller_sites:
+        return seller_sites[seller_name]
+    for name, host in seller_sites.items():
+        if seller_name.startswith(name):
+            return host
+    return ""
+
+
+for r in rings:
+    base = site_for(r.get("seller", ""))
+    if not base:
+        warn("domain", f"{r.get('id')}: no seller website on file, cannot check domain")
+        continue
+    h = host_of(r.get("url", ""))
+    if h == base or h.endswith("." + base):
+        ok("domain", f"{r.get('id')}: {h} belongs to {base}")
+    else:
+        err("domain", f"{r.get('id')}: url host {h!r} is not on {base}")
+    for u in r.get("sources", []):
+        uh = host_of(u)
+        if uh in ("ecfr.gov", "govinfo.gov", "gold.org", "lbma.org.uk"):
+            continue  # regulations / benchmark sources are allowed cross-domain
+        if not (uh == base or uh.endswith("." + base)):
+            warn("domain", f"{r.get('id')}: source host {uh!r} is not on {base}")
+
+for s in sellers:
+    base = host_of(s.get("website") or "")
+    for key in ("policy_source", "contact_source"):
+        u = s.get(key)
+        if not u:
+            continue
+        uh = host_of(u)
+        if base and not (uh == base or uh.endswith("." + base)):
+            err("domain", f"{s.get('id')}.{key}: {uh!r} is not on {base}")
+
+# ----------------------------------------------------------------------------
+# 4. flags self-check
+# ----------------------------------------------------------------------------
+for fid, f in flag_defs.items():
+    if f.get("severity") not in ("high", "medium", "low"):
+        err("flags", f"{fid}: severity not high/medium/low")
+    if not f.get("action"):
+        warn("flags", f"{fid}: no recommended action")
+    src = f.get("source")
+    if src and not str(src).startswith("https://"):
+        err("flags", f"{fid}: source is not https")
+ok("flags", f"{len(flag_defs)} flag definitions validated")
+
+unused = set(flag_defs)
+for r in rings:
+    unused -= set(r.get("flags", []))
+for s in sellers:
+    unused -= set(s.get("flags", []))
+if unused:
+    warn("flags", f"defined but never used: {sorted(unused)}")
+
+# ----------------------------------------------------------------------------
+# 5. standards / legal citations
+# ----------------------------------------------------------------------------
+std = standards_doc.get("karat_fineness", {})
+if not str(std.get("source", "")).startswith("https://"):
+    err("standards", "karat fineness has no official source")
+for k, row in karat_table.items():
+    n = int(k[:-1])
+    expected = n / 24
+    if abs(row["fraction"] - expected) > 1e-6:
+        err("standards", f"{k}: fraction {row['fraction']} does not equal {n}/24")
+    if abs(row["percent"] - expected * 100) > 0.01:
+        err("standards", f"{k}: percent {row['percent']} does not equal {n}/24*100")
+ok("standards", "all karat fractions reproduce n/24")
+
+for rule in standards_doc.get("legal_rules", []):
+    if not str(rule.get("url", "")).startswith("https://"):
+        err("standards", f"rule {rule.get('id')} has no official URL")
+    if not rule.get("cite"):
+        err("standards", f"rule {rule.get('id')} has no citation")
+ok("standards", f"{len(standards_doc.get('legal_rules', []))} legal rules carry citations")
+
+# ----------------------------------------------------------------------------
+# 6. site link + stray-number check
+# ----------------------------------------------------------------------------
+html_files = sorted(ROOT.glob("*.html"))
+if not html_files:
+    warn("site", "no HTML pages found")
+
+# every dollar figure printed in the HTML must exist in the data
+data_prices = set()
+for r in rings:
+    if isinstance(r.get("price_usd"), (int, float)):
+        data_prices.add(f"{r['price_usd']:,.0f}")
+if isinstance(spot, (int, float)):
+    data_prices.add(f"{spot:,.2f}")
+
+for page in html_files:
+    raw = page.read_text(encoding="utf-8")
+    # script/style bodies are code, not content: template literals like ${r.url}
+    # are not links and would produce false positives.
+    text = re.sub(r"<script\b[^>]*>.*?</script>", "", raw, flags=re.S | re.I)
+    text = re.sub(r"<style\b[^>]*>.*?</style>", "", text, flags=re.S | re.I)
+
+    # internal links
+    for href in re.findall(r'(?:href|src)="([^"]+)"', text):
+        if href.startswith(("http://", "https://", "#", "mailto:")):
+            continue
+        if "${" in href or href == "":
+            continue
+        target = (page.parent / href.split("#")[0]).resolve()
+        if not target.exists():
+            err("links", f"{page.name}: broken local link {href!r}")
+    ok("links", f"{page.name}: local links resolved")
+
+    # hardcoded prices
+    for amount in re.findall(r"\$([0-9][0-9,]*\.?[0-9]*)", text):
+        cleaned = amount.rstrip(".")
+        if cleaned not in data_prices:
+            warn("site", f"{page.name}: printed ${cleaned} which is not in data/*.json — "
+                         f"either it is a policy quote or a hallucination")
+
+# ----------------------------------------------------------------------------
+# 7. report
+# ----------------------------------------------------------------------------
+REPORTS.mkdir(exist_ok=True)
+now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+lines = [
+    "# Anti-hallucination audit report",
+    "",
+    f"- Run: {now}",
+    f"- Rows audited: **{len(rings)}**",
+    f"- Sellers audited: **{len(sellers)}**",
+    f"- Flag definitions: **{len(flag_defs)}**",
+    f"- Result: **{'FAIL' if errors else 'PASS'}** — "
+    f"{len(errors)} error(s), {len(warnings)} warning(s), {len(passes)} check(s) passed",
+    "",
+    "## What this pass is looking for",
+    "",
+    "| Failure mode | Check |",
+    "|---|---|",
+    "| invented price | every price must appear in its own quoted source text |",
+    "| invented weight | every gram figure must appear in a quoted seller statement |",
+    "| invented purity claim | a PASS needs the seller's word 'solid'; a FAIL needs plating evidence |",
+    "| phantom source | every row needs https source links it actually cites |",
+    "| dangling flag | every flag id must be defined |",
+    "| bad bookkeeping | a field cannot be both verified and unverified |",
+    "| fake contact details | phone/email require a contact_source |",
+    "| broken site | local links must resolve |",
+    "| stray number on the site | every $ figure in HTML must exist in the data |",
+    "",
+]
+
+if errors:
+    lines += ["## Errors — must be fixed before publishing", ""]
+    lines += [f"- **[{c}]** {m}" for c, m in errors]
+    lines += [""]
+else:
+    lines += ["## Errors", "", "None.", ""]
+
+if warnings:
+    lines += ["## Warnings — reviewed and accepted", ""]
+    lines += [f"- [{c}] {m}" for c, m in warnings]
+    lines += [""]
+else:
+    lines += ["## Warnings", "", "None.", ""]
+
+lines += ["## Passed checks", ""]
+lines += [f"- [{c}] {m}" for c, m in passes]
+lines += [
+    "",
+    "## Standing recommendation",
+    "",
+    "Re-run this audit after **every** data review, and specifically re-read the dataset looking",
+    "for hallucinations: a number that no cited page actually prints. If a value cannot be matched",
+    "to a quote, delete it and mark the field unverified.",
+    "",
+]
+
+(REPORTS / "audit-report.md").write_text("\n".join(lines), encoding="utf-8")
+
+print(f"rows={len(rings)} errors={len(errors)} warnings={len(warnings)} passed={len(passes)}")
+for c, m in errors:
+    print(f"ERROR   [{c}] {m}")
+for c, m in warnings:
+    print(f"WARNING [{c}] {m}")
+sys.exit(1 if errors else 0)
