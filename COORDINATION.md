@@ -3,7 +3,8 @@
 **Shared task board for all agent sessions.** Read this before starting work.
 
 - Repo: `karagemop466-tech/GOLD3`
-- Primary session (this session): **`arena/8aaa18bf-gold3`** — Arena-assigned branch, cannot be renamed or switched.
+- Original primary session: **`arena/8aaa18bf-gold3`** — completed the implementation recorded below.
+- Current integration/revalidation session: **`arena/0c63f145-gold3`** — Arena-assigned branch, cannot be renamed or switched.
 - Rule: **No hallucinations.** Every value in this project must trace to an official/primary source URL
   that a human can open. If a value cannot be confirmed at an official source, it is left **blank** and
   marked `unverified` — never inferred, never estimated, never "typical".
@@ -26,6 +27,9 @@
 
 Branch naming: `session-<id>/<task>`. (This primary session is pinned by the platform to
 `arena/8aaa18bf-gold3`, so it works there; its file scopes are still disjoint per task below.)
+The current session is likewise pinned to `arena/0c63f145-gold3`; platform instructions prohibit creating or
+switching branches, so T8 uses that assigned branch. All earlier tasks were `done` when T8 was claimed, making
+this the final integration/revalidation pass. The archive is historical evidence and will not be rewritten.
 
 ---
 
@@ -40,6 +44,7 @@ Branch naming: `session-<id>/<task>`. (This primary session is pinned by the pla
 | T5 | Anti-hallucination audit tooling + audit report | **done** | `arena/8aaa18bf-gold3` | `scripts/`, `reports/` |
 | T6 | Site build (landing, category pages, table, calculator, flagged page) | **done** | `arena/8aaa18bf-gold3` | `*.html`, `assets/` |
 | T7 | Integration: re-verify combined data, link check, publish Pages, PR + merge | **done** — PR #2 + PR #8 | `arena/8aaa18bf-gold3` | `.github/workflows/`, repo root |
+| T8 | Current-session line-by-line source revalidation, anti-hallucination review, site integrity, integration and deployment | **in progress** | `arena/0c63f145-gold3` | All non-archive project files; archive is read-only |
 
 Status values: `unclaimed` · `in progress` · `done` · `needs review`.
 `needs review` = the item is published on the **Flagged for Review** page; it does **not** block merge.
@@ -200,3 +205,10 @@ gold table renders row by row from `data/rings.json`. Publishing mode is GitHub'
 - Tiffany's non-returnable / exchange-only notice is unresolved against its 30-day policy (`RET6`).
 - Costco's price was not displayable without membership (`P2`) and its policy excludes precious metals (`RET1`).
 - One row (R19) was imported from the parallel session without re-fetching (`L3`).
+
+### 2026-10-22 — Session `arena/0c63f145-gold3` — rebase conflict resolved additively
+- PR #9 merged while T8 was starting. `git pull --rebase origin main` replayed the already-pushed T8 claim
+  onto the new `main` and conflicted only on the T7 status line in this file.
+- Resolution preserves PR #9's `done — PR #2 + PR #8` status and adds the separate T8 claim. No other file
+  conflicted; no work was discarded. PR #6 from `arena/b3c924e6-gold3` is open and touches many of the same
+  files, so T8 will not merge or edit that branch; its independent proposal is left for its owner.
