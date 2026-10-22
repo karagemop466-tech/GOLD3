@@ -3,7 +3,8 @@
 **Shared task board for all agent sessions.** Read this before starting work.
 
 - Repo: `karagemop466-tech/GOLD3`
-- Primary session (this session): **`arena/8aaa18bf-gold3`** — Arena-assigned branch, cannot be renamed or switched.
+- Primary session (2026-10-22, first pass): **`arena/8aaa18bf-gold3`** — merged as PR #2.
+- **Current session (2026-10-22, verification pass): `arena/e6fe3e4f-gold3`** — Arena-assigned branch, cannot be renamed or switched.
 - Rule: **No hallucinations.** Every value in this project must trace to an official/primary source URL
   that a human can open. If a value cannot be confirmed at an official source, it is left **blank** and
   marked `unverified` — never inferred, never estimated, never "typical".
@@ -40,6 +41,11 @@ Branch naming: `session-<id>/<task>`. (This primary session is pinned by the pla
 | T5 | Anti-hallucination audit tooling + audit report | **done** | `arena/8aaa18bf-gold3` | `scripts/`, `reports/` |
 | T6 | Site build (landing, category pages, table, calculator, flagged page) | **done** | `arena/8aaa18bf-gold3` | `*.html`, `assets/` |
 | T7 | Integration: re-verify combined data, link check, publish Pages, PR + merge | **done** | `arena/8aaa18bf-gold3` | `.github/workflows/`, repo root |
+
+| T8 | Live re-verification of every published row and source URL (hallucination hunt) | **in progress** | `arena/e6fe3e4f-gold3` | `data/verification.json`, `reports/verify-*` |
+| T9 | Extend dataset with independently re-verified weight-bearing listings | **in progress** | `arena/e6fe3e4f-gold3` | `data/rings.json`, `data/sellers.json` |
+| T10 | Verification page + nav + audit rules for provenance | **in progress** | `arena/e6fe3e4f-gold3` | `verify.html`, `assets/`, `scripts/`, `*.html` (nav block only) |
+| T11 | Integration + PR + merge + Pages confirmation (this branch) | **in progress** | `arena/e6fe3e4f-gold3` | repo root, `.github/workflows/` |
 
 Status values: `unclaimed` · `in progress` · `done` · `needs review`.
 `needs review` = the item is published on the **Flagged for Review** page; it does **not** block merge.
@@ -141,3 +147,21 @@ taken separately. Two sessions, two fetches, same number.
 
 **State at this entry.** 19 listings, 8 sellers, 5 excluded listings, 28 flag definitions.
 `scripts/audit.py`: 74 checks, 0 errors, 0 warnings. `scripts/render-test.js`: 20/20.
+
+### 2026-10-22 — Session `arena/e6fe3e4f-gold3` — CLAIM (T8, T9, T10, T11)
+
+- Read this board before starting. `main` at `26d5ecf` already contains PRs #1–#7 (all merged).
+- **PR #6** from `arena/b3c924e6-gold3` is still **open** and overlaps the whole site. This session does **not**
+  force-merge or rewrite that branch. It works only on the files listed in T8–T11 and will note the handoff
+  so that session can rebase if it still wants to land. Nothing of theirs is deleted.
+- Other live branches seen: `arena/1db649a6-gold3` (claim doc only), `arena/698f08f6-gold3` (data, alternate
+  schema), `arena/cbea1001-gold3` (22 listings, alternate schema, includes sellers not in `main`).
+  None were merged into `main`. **This session does not bulk-import alternate-schema rows.** Anything adopted
+  from them is re-fetched from the seller's own page first, and provenance is recorded per row.
+- Claimed scope (disjoint from every other branch's live scope):
+  - `data/verification.json` (new), `reports/verify-latest.{json,md}` (new)
+  - `data/rings.json`, `data/sellers.json`, `data/flags.json` (extend + add provenance/verification stamps)
+  - `verify.html` (new), `assets/app.js` + `assets/style.css` (additive), nav block only in existing pages
+  - `scripts/verify_sources.py` (new), `scripts/audit.py` (add rules), `README.md`
+- Method for this pass: every URL in the dataset is fetched again; every asserted value is matched against the
+  fetched text. A value that cannot be found verbatim is removed and marked `unverified`, not softened.
