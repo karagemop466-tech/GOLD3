@@ -115,6 +115,11 @@ def shell(title: str, body: str, current: str, extra_head: str = "", extra_js: s
 # --------------------------------------------------------------------------- #
 def derive(item, ctx):
     d = {"fine_g": None, "melt": None, "premium_pct": None, "comparable": False, "price_per_fine_g": None}
+    if item.get("solid") is False:
+        # A vermeil / plated piece has no meaningful "gold content" to value at spot:
+        # only a micron-thin layer is gold. Never compute a melt value for it.
+        d["not_solid"] = True
+        return d
     w, k = item.get("weight_g"), item.get("karat")
     if w and k:
         try:
@@ -331,6 +336,9 @@ def row_for(item, ctx):
         melt_cell = money(d["melt"])
         prem = d["premium_pct"]
         prem_cell = f'<span style="color:{"var(--bad)" if prem > 150 else "var(--muted)"}">+{prem:,.0f}%</span>'
+    elif d.get("not_solid"):
+        melt_cell = '<span class="nv" title="Plated/vermeil ring: the gold is a micron layer, so there is no gold content to value">n/v</span>'
+        prem_cell = '<span class="nv">n/v</span>'
     elif d["melt"] is not None:
         melt_cell = money(d["melt"])
         prem_cell = '<span class="nv" title="Price is not a complete-ring price">n/c</span>'
@@ -574,7 +582,7 @@ see <a href="#std-tolerance">15 U.S.C. § 295</a> above.</p>
   <a href="flagged.html">Flagged for review</a> page.</p>
 </div>
 """
-    return shell("Rules &amp; law", body, "standards.html")
+    return shell("Rules & law", body, "standards.html")
 
 
 def page_calculator(data, audit, ctx):
@@ -861,7 +869,7 @@ python3 scripts/build.py     # regenerates every page from data/*.json</pre>
 date on every row is the only thing that makes it honest. Before buying, confirm the price on the seller's page
 yourself, and before wearing the ring, have an independent jeweller test and weigh it.</p></div>
 """
-    return shell("Method &amp; audit", body, "method.html")
+    return shell("Method & audit", body, "method.html")
 
 
 # --------------------------------------------------------------------------- #

@@ -201,6 +201,8 @@ class Audit:
         frac = self.data["standards"]["karat_fractions"]["values"]
         mismatches = []
         for i in items:
+            if i.get("solid") is False:
+                continue  # plated/vermeil: no gold content to value at spot
             w, k = i.get("weight_g"), i.get("karat")
             if not w or not k:
                 continue
@@ -230,7 +232,7 @@ class Audit:
             if len(vals) > 1:
                 drift.append(i["id"])
                 self.finding("warn", i["id"], "price",
-                             "Conflicting prices recorded for the same item: " +
+                             "More than one price recorded for this item (list-price change, sale price, configuration or a stale index copy) — the live page value is the one used: " +
                              ", ".join(f"${v:,.0f} on {o.get('on')} ({o.get('via')})"
                                        for v in sorted(vals) for o in hist if o.get("price") == v),
                              i.get("url"))
