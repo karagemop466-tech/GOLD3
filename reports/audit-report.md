@@ -1,10 +1,10 @@
 # Anti-hallucination audit report
 
-- Run: 2026-10-22 23:33 UTC
+- Run: 2026-10-22 23:34 UTC
 - Rows audited: **19**
 - Sellers audited: **8**
 - Flag definitions: **28**
-- Result: **PASS** — 0 error(s), 0 warning(s), 102 check(s) passed
+- Result: **PASS** — 0 error(s), 0 warning(s), 103 check(s) passed
 
 ## What this pass is looking for
 
@@ -115,6 +115,7 @@ None.
 - [flags] 28 flag definitions validated
 - [standards] all karat fractions reproduce n/24
 - [standards] 8 legal rules carry citations
+- [domain] 19 rows: product links sit on the seller's own domain
 - [links] 14k.html: local links resolved
 - [links] 18k.html: local links resolved
 - [links] analysis.html: local links resolved

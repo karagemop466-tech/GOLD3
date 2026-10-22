@@ -377,6 +377,46 @@ html_files = sorted(ROOT.glob("*.html"))
 if not html_files:
     warn("site", "no HTML pages found")
 
+# ----------------------------------------------------------------------------
+# domain ownership: a row's product link must live on the seller's own site
+# ----------------------------------------------------------------------------
+CROSS_DOMAIN_OK = {  # sources that legitimately sit off the seller's domain
+    "ecfr.gov", "govinfo.gov", "gold.org", "lbma.org.uk", "ftc.gov", "congress.gov",
+}
+
+
+def _host(url: str) -> str:
+    from urllib.parse import urlparse
+
+    h = (urlparse(url or "").hostname or "").lower()
+    return h[4:] if h.startswith("www.") else h
+
+
+seller_by_name = {(s.get("name") or "").strip().lower(): s for s in sellers}
+for r in rings:
+    rid = r.get("id", "?")
+    # rows may qualify the seller ("Blue Nile (James Allen collection)"), so match on the
+    # longest registered seller name contained in the row's seller string.
+    _raw = (r.get("seller") or "").strip().lower()
+    _hits = [k for k in seller_by_name if k and k in _raw]
+    seller = seller_by_name[max(_hits, key=len)] if _hits else {}
+    site_host = _host(seller.get("website") or seller.get("site") or "")
+    row_host = _host(r.get("url", ""))
+    if not site_host:
+        warn("domain", f"{rid}: no seller site recorded - ownership cannot be checked")
+    elif not row_host:
+        err("domain", f"{rid}: no product URL")
+    elif row_host != site_host and not row_host.endswith("." + site_host):
+        err("domain", f"{rid}: product link on {row_host} but the seller's site is {site_host}")
+    for src in r.get("sources") or []:
+        h = _host(src)
+        if not h:
+            err("domain", f"{rid}: malformed source URL {src!r}")
+        elif h != site_host and h not in CROSS_DOMAIN_OK and not h.endswith("." + site_host):
+            warn("domain", f"{rid}: source on {h} - confirm this is an official page")
+
+ok("domain", f"{len(rings)} rows: product links sit on the seller's own domain")
+
 # Every dollar figure printed in the HTML must be traceable to the data - either a stored
 # value or a value this project derives from it (melt = spot/gram x fineness). The set
 # therefore covers all of data/*.json, not just rings.json, and admits the derived melt
