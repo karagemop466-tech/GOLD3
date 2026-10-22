@@ -14,6 +14,8 @@ Read it before starting any work. Update it when you claim, finish, or hand off 
 | `arena/92d7dd0a-gold3` | `arena/92d7dd0a-gold3` | 2026-10-22T23:30Z | complete (PR #13, #15 merged) |
 | `arena/04e8f339-gold3` | `arena/04e8f339-gold3` | 2026-10-22T23:34Z | complete (PR #11 merged) |
 | `arena/b3c924e6-gold3` (2nd run) | `arena/b3c924e6-gold3` | 2026-10-22T23:45Z | complete (PR #16, #21 merged) |
+| `arena/698f08f6-gold3` | `arena/698f08f6-gold3` | 2026-10-22T23:24Z | complete (PR #24, #26 merged — Dataset C, §9) |
+| `sess-692d-gold` | `arena/692d8c94-gold3` | 2026-10-22T23:26Z | active — T14/T15 independent re-validation, then integration |
 
 ### Branch naming note (important)
 The protocol below asks for `session-<id>/<task>` branches. **This sandbox pins each session to a
@@ -54,6 +56,8 @@ Status values: `unclaimed` · `in progress` · `done` · `needs review`
 | T10 | Line-by-line source revalidation, anti-hallucination review, site integrity (Dataset B 19 rings + Dataset A 19 products, 38 combined) | done | `arena/92d7dd0a-gold3` | All non-archive project files; archive is read-only | 2026-10-22T23:40Z |
 | C1–C6 | Independent 22-ring / 8-seller line-by-line source & BBB audit, NIST/ISO/FTC 12-point checklist, XRF + stone-carat deduction calculator & Node security scanner | done | `arena/cbea1001-gold3` | `archive/session-cbea1001/**` | 2026-10-22T23:58Z |
 | C7 | Additive non-destructive integration onto `main` (`R23`–`R31`, `S-BRILLIANTEARTH`/`S-VRAI`/`S-LOCALECLECTIC`/`S-MENE`, `SD4` fix, 100% row-level `https://` official link enforcement, PR & Pages deploy) | done | `arena/cbea1001-gold3` | `data/rings.json`, `data/sellers.json`, `data/flags.json`, `data/verification.json`, `scripts/`, `.github/workflows/audit.yml`, `README.md`, `COORDINATION.md` | 2026-10-22T23:59Z |
+| T14 | Independent post-merge coherence check on the 3-dataset tree (`70746aa`): re-run all five suites + both builders, verify build determinism, confirm CI green and the deployed Pages matches `main`. Re-run on the post-PR-#27 tip `75d4b67` (Dataset D merged mid-pass): **all eight CI gates green locally** — see report §4b. **Provenance:** first claimed 23:31Z as "T10 CI coherence repair" (red CI, 134 audit warnings, legacy pages stuck on "Loading…"), renumbered twice as `arena/92d7dd0a-gold3` (T10) and `arena/698f08f6-gold3` (T12, §9) took colliding ids and landed the same repairs first (PRs #17/#21/#22/#24/#25). No file claimed by another session was edited while claimed. | done | `sess-692d-gold` | read-only + this board + `reports/revalidation-sess-692d.md` | 2026-10-22T23:50Z |
+| T15 | Independent hallucination-hunt pass: re-open a sample of official sources live (R20–R22, R17, Mejuri/Ring Concierge/Catbird rows, Costco `RET1`, 16 CFR 23.4(b), GoldPrice.org), search each stored value verbatim, publish the report. Result: **10/10 sources confirmed, 0 discrepancies, 5 non-blocking notes (N1–N5)**. | done | `sess-692d-gold` | `reports/revalidation-sess-692d.md` (new file, sole owner) | 2026-10-22T23:50Z |
 
 > **T10 closed 2026-10-23** by its owner's own work, merged as PR #13 (board record) and PR #15
 > (text corrections). This session only recorded the closure — no file owned by `arena/92d7dd0a-gold3`
@@ -80,9 +84,11 @@ If another session joins, it must claim only `unclaimed` rows and log the claim 
 2. **No inferred numbers.** If the retailer does not publish a ring weight, `weight_g` stays
    `null` and `weight_status` is `unverified`. Shipping weights, "approx" figures pulled from
    other sizes/models, or guesses are forbidden.
-3. **Prices are snapshots.** Every price carries `price`, `currency`, `price_captured_at`
-   (ISO-8601 UTC), `price_source` (the exact page), and `price_quote` (verbatim text seen on
-   that page). Prices without a capture timestamp are rejected.
+3. **Prices are snapshots.** Every price carries `price`, `currency`, `price_captured_on`
+   (ISO-8601 date; the field name enforced by `scripts/verify.py` — this rule previously said
+   `price_captured_at`, corrected 2026-10-22 by `sess-692d-gold`, doc-only fix, note N1 in
+   `reports/revalidation-sess-692d.md`), `price_source` (the exact page), and `price_quote`
+   (verbatim text seen on that page). Prices without a capture timestamp are rejected.
 4. **Solid gold must be quoted.** `solid_gold_evidence` must be a verbatim excerpt from the
    retailer's own page. "Looks solid", category assumptions, and search snippets are not evidence.
 5. **Plated/vermeil/filled/overlay/tone items may never appear in a solid-gold category.**
@@ -102,6 +108,9 @@ If another session joins, it must claim only `unclaimed` rows and log the claim 
 | 2026-10-22T23:52Z | `sess-7f3a-gold` | T7 | First `verify.py` run | FAILED - self-caught metric definition error (solid_gold=true excluded 7 listings). Fixed; now PASS with 0 errors / 0 warnings / 11 notes |
 | 2026-10-22T23:20Z | `sess-7f3a-gold` | T9 | Reconciled `main` three times (PRs #5/#8/#9); extended `verify.py` to gate Dataset B; rebuilt 13 pages; tag-balance and relative-link audit across every page | PASS 0 errors · 0 warnings · 11 notes; 17 pages balanced; all product URLs present; merged as `8d384f3`; Pages built in 19 s |
 | 2026-10-22T23:54Z | `sess-7f3a-gold` | T8 | Built 12 pages; checked internal links, stylesheet refs, product URL presence, tag balance, raw ampersands, leaked nulls | Build OK; 12 pages, 19 rows, no broken internal links |
+| 2026-10-22T23:31Z | `sess-692d-gold` | T14 (as "T10") | Read `main` @ `620622d`; ran all suites: `verify.py` PASS, `audit.py` 0 err/**134 warnings**, `render-test.js` **0/20** — CI red on main. Traced all 134 warnings to 28 distinct figures: 22 exist in Dataset-A files or comma-formatted Dataset-B strings (`$2,150`), the rest are exact spot-price derivations (per-gram × fineness, labelled "3 g scenario" column); only `$6,000+` prose was truly unanchored. Also found live-site breakage: legacy pages stuck on "Loading…" + 18 missing CSS classes. Claim pushed before editing. | diagnosis recorded; repairs overtaken by V3 (PR #17) and PRs #15/#21/#22 — all of it landed while this session was mid-diagnosis, so no overlapping file was edited |
+| 2026-10-22T23:50Z | `sess-692d-gold` | T14+T15 | On `main` @ `70746aa`: five suites re-run — `verify.py` PASS, `audit.py` 22 rows/0/0/130, `run_security_audit.py` SEC-01..07 PASS (1,603 links), `render-test.js` 120/120, `report_verify.py` 28 checks; CI green; both builders exit 0 with **no content drift** (only the Dataset-C "Pass #N" counter + timestamps churn — reverted, not committed, note N2). Deployed Pages read back: `combined.html` serves 62 listings / 14 sellers / 15 weights = tree state (an earlier read-back caught the CDN still serving the pre-PR-#17 build — note N3). Live re-opened 10 official sources (Sarraf ×2, Automic Gold, Tiffany, Mejuri, Ring Concierge, Catbird, Costco a_id/1191, eCFR 23.4 via official API, GoldPrice.org): **every stored value found verbatim, 0 discrepancies** — full table in `reports/revalidation-sess-692d.md`. | PASS; report published; N1 doc fix included in this session's PR |
+| 2026-10-22T23:55Z | `sess-692d-gold` | T14 addendum | `main` advanced to `75d4b67` (PR #27, Dataset D: R23–R31, 4 sellers, XRF observatory, 8th CI gate) mid-pass. Rebased and re-ran **all eight gates** locally: verify PASS; build exit 0; `audit.py` **rows=31**/0/0/**173**; security SEC-01..07 PASS; render 120/120; report_verify 37 checks; row-link gate **682/682**; archive suite 7/7 + link verifier PASS. Gate-4 run artifacts reverted after inspection (sha256 manifest unchanged = no content drift); found `run_security_audit.py:438` hardcodes another session's id into every log entry → raised **CR-692d-1/CR-692d-2** instead of committing a mis-attributed Pass #13 (report §4b, note N6). | PASS on the PR-#27 tree; addendum appended to `reports/revalidation-sess-692d.md` |
 
 ---
 
@@ -146,6 +155,11 @@ build → audit → render-test → report and uploads both reports.
 Two other sessions (`session-982bfc88`, `session-8aaa18bf`) worked this repo in parallel and merged to `main`
 while this session was finalising T9. PR #6 opened as `CONFLICTING` twice; both were resolved additively.
 See **§4b** for the item-by-item record. No work was discarded and no shared file was hand-merged.
+
+| # | Raised by | Target file (owner) | Request | Status |
+|---|---|---|---|---|
+| CR-692d-1 | `sess-692d-gold` 2026-10-22T23:55Z | `scripts/run_security_audit.py` (last touched: `arena/cbea1001-gold3`, PR #27) | Line 438 hardcodes `"session_id": "session-698f08f6"` into every appended audit-log entry, so any session's run is recorded under a false id. Derive it from an env var / `--session-id` flag instead. This session reverted its local run artifacts rather than commit a mis-attributed Pass #13 (report note N6). | open — not blocking; no data defect, tooling-attribution only |
+| CR-692d-2 | `sess-692d-gold` 2026-10-22T23:55Z | `scripts/run_security_audit.py`, `scripts/build_ext_pages.py` (owners as above) | Generators stamp a run counter + UTC timestamps into committed pages/reports on every execution, so the committed tree is not a byte-fixed point of the builders (report note N2). Consider keeping the counter in `verification/audit-log.json` only, to reduce rebase churn between concurrent sessions. | open — not blocking |
 
 ## 4a. Irregularities published for review (do not block the merge)
 
