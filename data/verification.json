@@ -426,6 +426,33 @@
       "authenticity of a stamp",
       "hidden repairs on estate pieces",
       "seller complaint history"
-    ]
-  }
+    ],
+    "site_defects_fixed": 3
+  },
+  "site_defects": [
+    {
+      "id": "SD1",
+      "page": "index.html",
+      "what": "The dashboard's 'gold value by karat' table squared the melt value: it iterated the melt dict as if it were the fineness table, so 10K printed 5394.3% fineness and $6,983.75/g instead of 41.67% and $53.94/g.",
+      "found_by": "This session's audit pass, when the stray-number check flagged $6,983.75 as appearing nowhere in the data.",
+      "fix": "The table now iterates the fineness fractions from data/prices.json. Rendered values are recomputed and asserted in scripts/render-test.js.",
+      "status": "fixed"
+    },
+    {
+      "id": "SD2",
+      "page": "sellers.html, analysis.html, standards.html, methodology.html",
+      "what": "These four pages still loaded assets/app.js and expected table renderers (initSellers, initAnalysis, initStandards) that no longer exist in the merged app.js, so their data sections could never populate.",
+      "found_by": "This session, while checking what the merge from main actually shipped.",
+      "fix": "All four pages are now generated statically from data/sellers.json, data/rings.json and data/standards.json by scripts/build_site.py, with no client-side dependency. Declared in the build so a regenerate cannot reintroduce it.",
+      "status": "fixed"
+    },
+    {
+      "id": "SD3",
+      "page": "under-1000.html",
+      "what": "A category intro quoted a \"$6,000+\" threshold that appears in no data file — a prose number presented as fact.",
+      "found_by": "Stray-number audit.",
+      "fix": "Reworded to a qualitative description; the page now prints only figures that come from data.",
+      "status": "fixed"
+    }
+  ]
 }

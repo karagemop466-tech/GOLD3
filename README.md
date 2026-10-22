@@ -1,108 +1,129 @@
-# GOLD3 — verified gold engagement rings
+# GOLD3 — Gold Engagement Ring Buyer's Guide
 
-A source-verified workbench for buying a **solid gold engagement ring** online: 22 listings across 10 sellers.
+A verified, source-linked research project for buying a **solid gold engagement ring** online.
+It publishes as a static site on GitHub Pages and is generated entirely from machine-readable data.
 
-**No hallucinations.** Every number on the site is traceable to a linked official page, retrieved
-**22 October 2026**. Where a seller does not publish a value, the cell is blank, marked
-`unverified`, and listed on the Flagged for Review page. Nothing is estimated, averaged, or
-carried over from "typical" industry practice.
+> ## Zero-hallucination policy
+> **Every price, purity claim, weight and policy on this site is copied from a named source page and
+> stamped with the date it was read.** If a source does not publish a value, the value is left
+> **blank** and marked **unverified** — it is never estimated, inferred, or filled in to make a row
+> look complete. Prices move daily; always re-check the linked page before buying.
 
-Live site: **https://karagemop466-tech.github.io/GOLD3/**
+**Captured:** 22 October 2026 · **41 listings across both passes** (19 + 22) · **13 sellers** · **7 published weights**
 
 ---
 
-## What is in here
+## What is on the site
 
-| Path | What it is |
+| Page | Contents |
 |---|---|
-| `index.html` | Dashboard landing page. The no-hallucination policy is the first thing on it. |
-| `rings.html` | Every verified listing: price, karat, weight, solid-gold verdict, stamp, returns, flags, sources. Filterable. |
-| `sellers.html` | Return windows and exclusions, contact details, disclosure practices per seller. |
-| `analysis.html` | Coverage of each requirement, and melt value vs asking price for rows that publish a weight. |
-| `calculator.html` | Fine-gold content and melt value from a weight you supply and the dated spot price. |
-| `standards.html` | The FTC jewellery guides and National Stamping Act rules the checklist rests on, with citations. |
-| `verify.html` | The verification log: every source URL reopened, what was confirmed, what was corrected, what was deleted. |
-| `flagged.html` | Everything unconfirmed or irregular, with severity, remedy and source. |
-| `methodology.html` | The passes run, the sources used, and what the audit caught. |
-| `data/gold-price.json` | The dated benchmark, with publisher, quote and caveats. |
-| `data/rings.json` | The 22 listing rows, each with verbatim quotes and source URLs. |
-| `data/sellers.json` | Seller policy and contact facts. |
-| `data/standards.json` | Karat fineness table and legal rules with citations. |
-| `data/flags.json` | Flag definitions: what was found, why it matters, what to do. |
-| `scripts/audit.py` | The anti-hallucination audit. |
-| `scripts/report_verify.py` | Renders `data/verification.json` into `reports/verification-report.md`. |
-| `reports/audit-report.md` | Output of the last audit run. |
-| `archive/session-982bfc88/` | The parallel session's original site, data, scripts and reports, preserved verbatim. |
-| `scripts/render-test.js` | Runs every page's table against the real JSON in a DOM shim (24 checks). |
-| `COORDINATION.md` | Shared task board for parallel agent sessions. |
+| `index.html` | Dashboard: zero-hallucination policy, key numbers, top findings, category links |
+| `rings.html` | Every listing, filterable by karat / stone / budget, each with a source link |
+| `14k.html`, `18k.html`, `lab-grown.html`, `under-1000.html` | Category views with gap counts |
+| `excluded.html` | Vermeil and silver look-alikes, with the regulation that defines why they fail |
+| `retailers.html` | Return windows, exclusions, contact details, Trustpilot scores **with sample sizes** |
+| `calculator.html` | Melt value, break-even weight, price ÷ gold-value multiple, formula shown |
+| `flagged.html` | Every irregularity and unverified cell, with evidence and the action to close it |
+| `sources.html` | Full source register with verbatim quotes and read dates |
+| `checklist.html` | The twelve-point buying checklist, each item tied to law or policy |
+| `verify.html` | The verification log: every source URL reopened, what it confirmed, corrected or deleted, plus the defects found on this site and fixed |
+| `sellers.html` | Seller register from the parallel dataset: return terms, exclusions, contact evidence, disclosure practice |
+| `standards.html` | Karat arithmetic and the federal jewellery rules quoted with citations |
+| `methodology.html` | The passes run in order, and how to re-run every check |
+| `analysis.html` | Coverage of the checklist plus melt value versus asking price for rows that publish a weight |
 
-## Run the checks
+## Data files (single source of truth)
 
-```bash
-python3 scripts/audit.py          # exits non-zero on any error
-python3 scripts/report_verify.py  # rebuilds the verification report from data/
-node scripts/render-test.js       # renders every page against the real JSON
-```
+| Path | Purpose |
+|---|---|
+| `data/products.json` | One record per listing: price, purity, evidence quote, sources, flags |
+| `data/retailers.json` | Merchant policies, contact, review data, flags |
+| `data/sources.json` | Authority sources (16 CFR Part 23, 15 U.S.C. 294–297, LBMA, gold price) |
+| `data/prices.json` | Dated gold spot snapshots + the physical constants used |
+| `data/findings.json` | Editorial findings, each with a source and a required action |
+| `data/verification-report.json` | Machine-generated audit: metrics, derived benchmarks, errors |
+| `data/verification.json` | The re-verification log: one entry per source URL, with outcome and what the page actually printed |
 
-Both run in CI (`.github/workflows/audit.yml`) on every push and pull request. The site is published
-by GitHub Pages from the `main` branch root, so a merge to `main` goes live directly.
-
-The audit fails when a price does not appear in its own quoted source text, when a gram figure is
-not present in its supporting quote, when a "solid gold" pass was awarded without the seller saying
-"solid", when a flag is referenced but undefined, when a field is both verified and unverified, when
-contact details appear without a source, when a karat fraction does not equal `n ÷ 24`, or when the
-HTML prints a dollar figure that exists nowhere in the data.
-
-## View the site locally
+## Run every check
 
 ```bash
-python3 -m http.server 8000
-# then open http://localhost:8000/
+python3 scripts/verify.py         # gate: source domains, quotes must contain their price, arithmetic
+python3 scripts/build_site.py     # build the static site; fails on broken internal links
+python3 scripts/audit.py          # independent audit: provenance, stray numbers, verification coverage
+node scripts/render-test.js       # assert the built HTML contains the audited values
+python3 scripts/report_verify.py  # regenerate reports/verification-report.md from data/
 ```
 
-The pages read `data/*.json` over HTTP, so serve them rather than opening the files directly.
+All five run in CI on every push and pull request (`.github/workflows/audit.yml`). The site is generated, so
+editing HTML by hand is pointless: change `data/*.json` or `scripts/build_site.py`, then rebuild.
 
-## Headline findings
+## What the last verification pass changed
 
-1. **Nobody publishes an independent assay.** Zero sellers in this study publish a per-item XRF scan
-   or assay. The karat is always the seller's own claim, at most backed by a stamp — exactly the gap
-   the checklist warns about.
-2. **"18k" can mean a coating.** One listing with "18k" in its name is 18k gold *vermeil*: a gold
-   layer over sterling silver, per 16 CFR 23.4.
-3. **A headline price may be the setting only.** One major retailer prices the setting separately
-   from the centre diamond.
-4. **One retailer's return policy excludes precious metals** — which fails the return requirement
-   outright, whatever the price.
-5. **Weights are the exception, and always qualified.** Seven of 22 rows publish grams. Even those are
-   approximate (±5%), stated for a *reference size* (Sarraf's 8.30 g is a size-10 ring), or shared across two
-   metals (Automic's 5.4 g gold / 8.1 g platinum). A melt calculation from any of them is an estimate.
-6. **A page can contradict itself.** One 18K white-gold listing describes the same ring as "crafted from warmly
-   lustrous 14k yellow gold" in its own description — which is why the audit asks for the stamp, not the copy.
-7. **A luxury product page can override the glossy policy.** One flagship ring is declared non-returnable and
-   exchange-only on its own product page, even though the same brand advertises a 30-day return policy.
+Every cited URL in the parallel dataset was reopened on 22 October 2026 and each stored value was searched for
+in the page text. Outcome: **15 confirmed, 8 corrected, 5 flagged**, three listings added (Sarraf ×2, Automic
+Gold), and seven metal-option phrases **deleted** because the fetched pages never printed them. The log is on
+`verify.html`; the defects it found on this site (a dashboard table that squared the melt value, four pages
+whose renderer no longer existed, one invented prose threshold) are recorded there too, with the fix.
 
-## Two sessions, one dataset
+## Two datasets, one site
 
-A second agent session merged its own implementation to `main` (PR #1) while this one was building. Nothing
-was discarded: its seven verified listings were re-opened, re-verified and folded in, its seller facts merged,
-its two dead listings moved to the excluded table, and its original files preserved verbatim under
-`archive/session-982bfc88/`. See `COORDINATION.md` for the reconciliation log.
+Two agent sessions researched this repository on the same day, plus a third that merged an earlier draft. Both
+surviving datasets are published rather than one being discarded:
 
-## What the second pass changed
+| Set | File | Rows | Sellers | Evidence model |
+|---|---|---|---|---|
+| **A** (this session) | `data/products.json` | 19 (17 gold + 2 excluded) | Aurate, Blue Nile, Catbird, Mejuri, Ring Concierge | Verbatim price quote + capture date per row |
+| **B** (parallel session `8aaa18bf`) | `data/rings.json` | 22 rings + 5 excluded look-alikes | Blue Nile, Catbird, Costco, James Allen, Mejuri, Ross-Simons, Tiffany, Wilson's Estate Jewelry, Sarraf, Automic Gold | Per-field quote for karat, solid-gold claim, weight, hallmark, plus a flag legend |
 
-Every cited URL was reopened on 22 October 2026 and each stored value was searched for in the page text. The
-result: 17 URLs confirmed, 6 rows corrected, 5 newly flagged, 3 listings added. Seven metal-option phrases
-("white/rose gold & platinum also offered") were **deleted** because the fetched pages never printed them.
-The full record is on `verify.html` and in `data/verification.json`.
+`scripts/verify.py` gates **both**. For Dataset B it checks official-domain sources, a per-listing source list, that the
+numeric price appears inside `price_as_shown`, that any weight carries a weight quote, that a `PASS` solid-gold verdict
+carries a quote, and that each excluded look-alike states a reason and an official URL. Combined metrics land in
+`data/verification-report.json` (38 listings, 10 sellers, 4 published weights).
 
-## Standing recommendation
+`combined.html` shows both sets with an A/B badge so nothing is misattributed. Dataset B's own pages
+(`sellers.html`, `standards.html`, `methodology.html`, `analysis.html`) and the earlier session's archive under
+`archive/session-982bfc88/` are preserved unchanged.
 
-Re-run the audit after every review, then do one deliberate human pass whose only job is to hunt for
-hallucinations: pick any number on the site and try to find it on the linked page. If it is not
-there, delete it and mark the field unverified. Better an empty cell than a confident error.
+## Build and verify
 
-## Scope and disclaimer
+```bash
+python3 scripts/verify.py       # must print PASS - exits 1 on any error
+python3 scripts/build_site.py   # refuses to build unless the report says PASS
+```
 
-Research, not appraisal, legal or financial advice. Listings, prices and policies change without
-notice — re-check the linked source before buying. Every ring still needs independent verification
-(XRF or assay) after delivery, before it is worn or resized.
+`build_site.py` also fails on broken internal links, missing product URLs, or `TODO` markers.
+
+### What `verify.py` actually checks
+
+1. Every populated factual field carries a source URL on a recognised official domain (https only).
+2. Every price has a currency, a capture date, a source page, and a **verbatim quote**.
+3. **The recorded price must literally appear inside that quote** — this is the transcription /
+   hallucination check. `$2,858` in the data must match `From $2,858` on the page.
+4. Unpublished values stay `null` (`weight_g`, `carat`, `hallmark`) — a value without a source is an error.
+5. Purity matches the category: a 14K page cannot contain an 18K ring.
+6. Plated / vermeil / silver items can only exist in the `excluded` category.
+7. A "solid gold" claim without a verbatim retailer excerpt is an error.
+8. **Price-vs-melt sanity:** computes the break-even weight for every price. A price below the melt
+   value of 0.5 g of its own karat is rejected as impossible; under 1.5 g raises a warning.
+9. Prices older than 30 days are flagged stale.
+10. Two independent gold spot sources must agree within 2%.
+11. Findings must have a severity, an official source, an action, and only known placeholders.
+12. Metric arithmetic must reconcile (gold + excluded = total; status buckets sum correctly).
+
+## Verification status and limits
+
+* **Verified:** each price/policy quote was read from the retailer's own page on 22 Oct 2026.
+* **Cross-checked:** gold spot from GoldPrice.org ($4,026.79/oz) and the World Gold Council
+  ($4,024.36/oz) — 0.06% apart.
+* **Not verified, deliberately blank:** finished ring weights (0 of 17), hallmarks (0 of 5 retailers),
+  per-retailer payment methods, and 18K Aurate prices.
+* **Known limitation:** this sandbox has no outbound HTTP except a small allowlist, so there is no
+  automated nightly link-checker. Every URL in the dataset was opened during the research pass and
+  is recorded with its read date. Re-verify by opening the links.
+* **Not advice:** no affiliate links, no sponsored placements, no endorsements. A listing appears
+  because it could be verified, not because it is recommended.
+
+## Multi-session coordination
+
+Read `COORDINATION.md` before editing. Claim a task, respect file scopes, log sources and
+verification performed, and record any irregularity you could not close.

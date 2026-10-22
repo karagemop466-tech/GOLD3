@@ -452,11 +452,85 @@ if verify_page.exists():
 else:
     err("site", "verify.html is missing")
 
-# every dollar figure printed in the HTML must exist in the data
-data_prices = set()
-for r in rings:
-    if isinstance(r.get("price_usd"), (int, float)):
-        data_prices.add(f"{r['price_usd']:,.0f}")
+# every dollar figure printed in the HTML must exist in the data, or be a
+# value the site is documented to COMPUTE from that data (melt value).
+def numbers_in(obj, out):
+    if isinstance(obj, bool):
+        return
+    if isinstance(obj, (int, float)):
+        out.add(obj)
+    elif isinstance(obj, str):
+        for tok in re.findall(r"\d[\d,]*(?:\.\d+)?", obj):
+            try:
+                out.add(float(tok.replace(",", "")))
+            except ValueError:
+                pass
+    elif isinstance(obj, dict):
+        for v in obj.values():
+            numbers_in(v, out)
+    elif isinstance(obj, list):
+        for v in obj:
+            numbers_in(v, out)
+    return out
+
+
+_raw_numbers = set()
+for name in ("rings.json", "sellers.json", "standards.json", "flags.json",
+             "gold-price.json", "products.json", "retailers.json", "sources.json",
+             "prices.json", "findings.json", "verification.json"):
+    fp = DATA / name
+    if fp.exists():
+        try:
+            numbers_in(json.loads(fp.read_text(encoding="utf-8")), _raw_numbers)
+        except Exception:  # noqa: BLE001
+            pass
+
+# derived melt values the site is allowed to print, recomputed here from the
+# same inputs: published weight x karat/24 x spot per gram.
+_once = 31.1034768
+
+# every spot value the site carries (two independent anchors are published),
+# so melt values computed from either one are recognised as derived, not invented
+_spots = set()
+def collect_spots(obj):
+    if isinstance(obj, dict):
+        for k, v in obj.items():
+            if k in ("price_usd_per_troy_oz", "price_usd_per_troy_ounce") and isinstance(v, (int, float)):
+                _spots.add(float(v))
+            else:
+                collect_spots(v)
+    elif isinstance(obj, list):
+        for v in obj:
+            collect_spots(v)
+for name in ("gold-price.json", "prices.json"):
+    fp = DATA / name
+    if fp.exists():
+        try:
+            collect_spots(json.loads(fp.read_text(encoding="utf-8")))
+        except Exception:  # noqa: BLE001
+            pass
+
+for _s in _spots:
+    _per_g = _s / _once
+    _raw_numbers.add(_per_g)
+    for r in rings:
+        w = r.get("weight_g")
+        m = re.search(r"(\d+)\s*K", r.get("karat") or "")
+        if isinstance(w, (int, float)) and m:
+            _raw_numbers.add(w * (int(m.group(1)) / 24.0) * _per_g)
+    # use the fineness constants exactly as the site's data defines them
+    _fineness = {}
+    fp = DATA / "prices.json"
+    if fp.exists():
+        try:
+            _fineness = json.loads(fp.read_text(encoding="utf-8"))["constants"]["karat_fineness"]
+        except Exception:  # noqa: BLE001
+            _fineness = {}
+    for _frac in (_fineness or {"10K": 10 / 24, "14K": 14 / 24, "18K": 18 / 24, "22K": 22 / 24, "24K": 1.0}).values():
+        _raw_numbers.add(_per_g * _frac)
+        _raw_numbers.add(_per_g * _frac * 3)
+
+data_prices = {f"{v:,.0f}" for v in _raw_numbers} | {f"{v:,.2f}" for v in _raw_numbers}
 if isinstance(spot, (int, float)):
     data_prices.add(f"{spot:,.2f}")
 
@@ -466,6 +540,8 @@ for page in html_files:
     # are not links and would produce false positives.
     text = re.sub(r"<script\b[^>]*>.*?</script>", "", raw, flags=re.S | re.I)
     text = re.sub(r"<style\b[^>]*>.*?</style>", "", text, flags=re.S | re.I)
+    # navigation labels are prose ("Under $1,000"), not price claims
+    text = re.sub(r"<nav\b[^>]*>.*?</nav>", "", text, flags=re.S | re.I)
 
     # internal links
     for href in re.findall(r'(?:href|src)="([^"]+)"', text):

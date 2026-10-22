@@ -3,116 +3,355 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Verification log — GOLD3</title>
-<meta name="description" content="Every source URL in this project reopened and re-read on 22 October 2026, with what was confirmed, what was corrected and what was deleted for lack of evidence.">
+<title>Verification log · GOLD3</title>
+<meta name="description" content="Every source URL reopened with what the page actually printed: confirmed, corrected, or deleted.">
 <link rel="stylesheet" href="assets/style.css">
 </head>
-<body data-page="verify">
-
-<header class="site">
-  <div class="wrap bar">
-    <a class="brand" href="index.html"><span class="mark"></span>GOLD3 <small>ring verification</small></a>
-    <nav class="main">
-      <a href="index.html">Overview</a>
-      <a href="rings.html">Rings</a>
-      <a href="sellers.html">Sellers</a>
-      <a href="analysis.html">Analysis</a>
-      <a href="calculator.html">Calculator</a>
-      <a href="standards.html">Standards</a>
-      <a href="verify.html">Verification</a>
-      <a href="flagged.html">Flagged</a>
-      <a href="methodology.html">Method</a>
-    </nav>
+<body>
+<a class="skip" href="#main" style="position:absolute;left:-9999px">Skip to content</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">GOLD<span>3</span></span>
+      <span class="brand-tag">Gold engagement ring buyer's guide</span>
+    </a>
+    <nav class="main-nav"><a href="index.html">Dashboard</a><a href="rings.html">All rings</a><a href="combined.html">Combined</a><a href="14k.html">14K</a><a href="18k.html">18K</a><a href="lab-grown.html">Lab-grown</a><a href="under-1000.html">Under $1,000</a><a href="retailers.html">Retailers</a><a href="sellers.html">Sellers</a><a href="standards.html">Standards</a><a href="calculator.html">Calculator</a><a href="flagged.html">Flagged</a><a href="verify.html" class="active">Verification</a><a href="sources.html">Sources</a><a href="checklist.html">Checklist</a><a href="methodology.html">Method</a></nav>
   </div>
 </header>
+<main id="main">
 
-<main class="wrap">
+<section class="policy">
+      <h2>Zero-hallucination policy</h2>
+      <p><strong>Every price, purity claim, weight and policy on this site is copied from a named source page and stamped with the date it was read.</strong>
+      If a source does not publish a value, the value is left <strong>blank</strong> and marked <em>unverified</em> - it is never estimated,
+      inferred, or filled in to make a row look complete. Prices move daily: always re-check the linked page before buying.</p>
+    </section>
+<div class="page-head">
+  <h1>Verification log</h1>
+  <p class="lead">Every URL this project relies on was opened again on <strong>2026-10-22</strong> and the stored
+  value was checked against the text the page returned. This page records what was confirmed, what was corrected, and the
+  values that were <em>deleted</em> because the page never printed them. Session <span class="mono">arena/e6fe3e4f-gold3</span>.</p>
+</div>
 
-  <section class="hero">
-    <h1>Verification log</h1>
-    <p class="lede">This page is the paper trail. Every URL the dataset relies on was opened again on
-      <strong>22 October 2026</strong> and the stored value was checked against the text the page returned.
-      What was confirmed, what was corrected, and what was deleted is listed below — including the values that
-      were removed because the seller's page never printed them.</p>
-  </section>
+<div class="grid cols-3" style="grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin-bottom:8px">
+  <div class="kpi"><div class="label">URLs opened</div><div class="value">28</div>
+    <div class="sub">each one fetched, not assumed</div></div>
+  <div class="kpi"><div class="label">Confirmed as stored</div><div class="value">15</div>
+    <div class="sub">value found verbatim on the page</div></div>
+  <div class="kpi"><div class="label">Rows corrected</div><div class="value">8</div>
+    <div class="sub">the page said something different</div></div>
+  <div class="kpi"><div class="label">Newly flagged</div><div class="value">5</div>
+    <div class="sub">page contradicts itself or the listing</div></div>
+</div>
 
-  <section class="oath">
-    <h2>No hallucinations — the rule this page enforces</h2>
-    <p><strong>If a number is not on the linked page, it does not belong in the dataset.</strong> A value found
-      only on a search result, a cached copy, or a "typical" price list is treated as invented. When a seller
-      does not publish a value, the cell stays blank and carries an <span class="badge b-neutral">unverified</span>
-      badge. Better an empty cell than a confident error.</p>
-    <ul>
-      <li><strong>Confirmed</strong> — the value was found verbatim on the page on the date shown.</li>
-      <li><strong>Corrected</strong> — the value was on the page but the row described it wrongly, so the row was fixed.</li>
-      <li><strong>Flagged</strong> — the page contradicts itself, or the listing cannot be safely bought as described.</li>
-      <li><strong>Deleted</strong> — the page did not support the claim at all, so the claim was removed rather than softened.</li>
-    </ul>
-    <p class="hint" style="margin-top:10px">Re-run <code>python3 scripts/audit.py</code> after any change, then repeat
-      the hallucination pass by hand: pick any number on the site and try to find it on the linked page.</p>
-  </section>
+<h2>How the passes ran</h2>
+<div class="table-wrap">
+  <table style="min-width:720px">
+    <thead><tr><th>#</th><th>Pass</th><th>Result</th></tr></thead>
+    <tbody><tr><td class="mono">P1</td><td><strong>Fact pass</strong><div class="small muted">For every row, each stored number and quote was searched for in the freshly fetched page text.</div></td><td class="small">22/22 rows re-read; 9 rows corrected; 3 rows added.</td></tr><tr><td class="mono">P2</td><td><strong>Request pass</strong><div class="small muted">Checked that every row&#x27;s product URL returns the product it claims to be — not a redirect to something else, not a sold-out placeholder, not a dead link.</div></td><td class="small">1 redirect (R17), 1 sold-out/back-order state (R18), 1 identifier mismatch (R10), 0 dead links.</td></tr><tr><td class="mono">P3</td><td><strong>Internet pass</strong><div class="small muted">Each cited URL was opened rather than trusted: host checked against the seller&#x27;s own domain, and the exact wording quoted.</div></td><td class="small">28 URLs opened; 0 unreachable; 0 off-domain citations.</td></tr><tr><td class="mono">P4</td><td><strong>Hallucination pass</strong><div class="small muted">Deliberately hostile re-read: any figure that felt plausible but was not literally on the page was removed. This is what caught the &#x27;white/rose gold &amp; platinum also offered&#x27; phrases on five Blue Nile rows and two Mejuri rows.</div></td><td class="small">7 metal-option claims deleted; 1 price basis corrected; 1 temporary provenance flag retired.</td></tr></tbody>
+  </table>
+</div>
 
-  <div class="grid cols-4" id="vstats" style="margin-top:6px">
-    <div class="card stat"><span class="n">…</span><span class="k">loading</span></div>
-  </div>
+<h2>Source checks</h2>
+<p class="small muted">One row per URL actually opened. The "Rows" column says which listings depend on it.</p>
+<div class="table-wrap">
+  <table id="verification-checks" style="min-width:920px">
+    <thead><tr><th>ID</th><th>Source</th><th>Rows</th><th>Result</th><th>What the page actually said</th></tr></thead>
+    <tbody><tr>
+          <td class="mono">V01</td>
+          <td><a href="https://www.gold.org/goldhub/data/gold-prices" target="_blank" rel="noopener">Gold spot price used by every calculation</a>
+            <div class="tiny muted">benchmark</div></td>
+          <td class="mono">spot</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">Page printed &quot;4,024.36&quot; USD/oz with &quot;Data as of 21 October, 2026&quot; and the ICE Data Services attribution. The stored 4,024.36 and the market date match exactly.</td>
+        </tr><tr>
+          <td class="mono">V02</td>
+          <td><a href="https://mejuri.com/products/bold-diamond-eternity-ring" target="_blank" rel="noopener">Mejuri — Bold Diamond Eternity Ring</a>
+            <div class="tiny muted">listing</div></td>
+          <td class="mono">R01</td>
+          <td><span class="badge info">corrected</span></td>
+          <td class="small">&quot;From $2,900&quot;; Material &quot;Solid White Gold (14k)&quot;; description &quot;handcrafted in 14k solid gold featuring as many as 23 round brilliant cut diamonds&quot;. No gram weight anywhere on the page. The row&#x27;s &quot;(also offered in yellow gold)&quot; parenthetical is not on the page and was deleted.</td>
+        </tr><tr>
+          <td class="mono">V03</td>
+          <td><a href="https://mejuri.com/products/bold-diamond-half-eternity-ring" target="_blank" rel="noopener">Mejuri — Bold Diamond Half Eternity Ring</a>
+            <div class="tiny muted">listing</div></td>
+          <td class="mono">R02</td>
+          <td><span class="badge info">corrected</span></td>
+          <td class="small">&quot;$1,500&quot;; &quot;Solid Yellow Gold (14k)&quot;; &quot;14k solid gold&quot;. Confirmed, but the row had been priced off the collection page; the basis was corrected to product-level and the quote replaced. Page also shows &quot;Only a few left&quot;.</td>
+        </tr><tr>
+          <td class="mono">V04</td>
+          <td><a href="https://mejuri.com/collections/milestone-rings" target="_blank" rel="noopener">Mejuri — Slim Diamond Eternity Band (collection listing)</a>
+            <div class="tiny muted">listing</div></td>
+          <td class="mono">R03</td>
+          <td><span class="badge info">corrected</span></td>
+          <td class="small">Collection grid printed &quot;Slim Diamond Eternity Band From $648 Solid White Gold (14k), Natural Diamond&quot;. The product page itself was not opened, so the row stays listing-level, and the &quot;(yellow gold also listed)&quot; parenthetical was deleted because this page does not list it.</td>
+        </tr><tr>
+          <td class="mono">V05</td>
+          <td><a href="https://mejuri.com/products/aurora-lab-grown-sapphire-eternity-ring" target="_blank" rel="noopener">Mejuri — Aurora Lab Grown Sapphire Eternity Ring</a>
+            <div class="tiny muted">listing</div></td>
+          <td class="mono">R04</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">&quot;$228&quot;; Material &quot;18k Gold Vermeil, Lab Grown White Sapphire&quot;; seller&#x27;s own spec: &quot;a thick layer of 18k solid gold plated on 91% recycled sterling silver&quot;. Vermeil, so it fails the solid-gold test.</td>
+        </tr><tr>
+          <td class="mono">V06</td>
+          <td><a href="https://mejuri.com/products/duet-mixed-ring" target="_blank" rel="noopener">Mejuri — Duet Mixed Ring</a>
+            <div class="tiny muted">listing</div></td>
+          <td class="mono">R19</td>
+          <td><span class="badge info">corrected</span></td>
+          <td class="small">&quot;$178&quot;; &quot;18k Gold Vermeil, Sterling Silver&quot;. Verified live this pass, so the temporary L3 provenance flag was removed and price_usd moved into the verified set.</td>
+        </tr><tr>
+          <td class="mono">V07</td>
+          <td><a href="https://mejuri.com/faq/return-exchanges/what-is-the-standard-return-policy" target="_blank" rel="noopener">Mejuri — standard return policy</a>
+            <div class="tiny muted">policy</div></td>
+          <td class="mono">R01, R02, R03, R04, R19</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">&quot;free 30-day returns for customers in the US ...&quot;; non-returnable list includes &quot;Engraved and monogrammed products&quot; and final-sale items. Product pages add that engraving is &quot;not eligible for returns&quot;.</td>
+        </tr><tr>
+          <td class="mono">V08</td>
+          <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/petite-hidden-halo-solitaire-plus-diamond-engagement-ring-in-14k-yellow-gold-item-192506" target="_blank" rel="noopener">Blue Nile — Petite Hidden Halo Solitaire Plus (item 192506)</a>
+            <div class="tiny muted">listing</div></td>
+          <td class="mono">R05</td>
+          <td><span class="badge info">corrected</span></td>
+          <td class="small">&quot;$1,255 (Setting Price)&quot;; &quot;Metal Type: 14K Yellow Gold&quot;; Stock 502250y14. The stored claim that white/rose gold and platinum are &quot;also offered&quot; is not on the page, so that parenthetical was deleted.</td>
+        </tr><tr>
+          <td class="mono">V09</td>
+          <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/petite-solitaire-engagement-ring-in-14k-yellow-gold-item-195639" target="_blank" rel="noopener">Blue Nile — Petite Solitaire (item 195639)</a>
+            <div class="tiny muted">listing</div></td>
+          <td class="mono">R06</td>
+          <td><span class="badge info">corrected</span></td>
+          <td class="small">&quot;$1,000 (Setting Price)&quot;; &quot;Metal Type: 14K Yellow Gold&quot;; Stock 501130y14. Same unsupported metal-options parenthetical removed.</td>
+        </tr><tr>
+          <td class="mono">V10</td>
+          <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/criss-cross-solitaire-engagement-ring-in-18k-yellow-gold-by-james-allen-item-311132" target="_blank" rel="noopener">Blue Nile — Criss Cross Solitaire by James Allen (item 311132)</a>
+            <div class="tiny muted">listing</div></td>
+          <td class="mono">R07</td>
+          <td><span class="badge info">corrected</span></td>
+          <td class="small">&quot;$2,320 (Setting Price)&quot;; &quot;Metal Type: 18K Yellow Gold&quot;; Stock 505032y. Metal-options parenthetical removed.</td>
+        </tr><tr>
+          <td class="mono">V11</td>
+          <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/floral-marquise-diamond-engagement-ring-in-18k-white-gold-item-203738" target="_blank" rel="noopener">Blue Nile — Floral Marquise (item 203738)</a>
+            <div class="tiny muted">listing</div></td>
+          <td class="mono">R08</td>
+          <td><span class="badge bad">flagged</span></td>
+          <td class="small">&quot;$2,210 (Setting Price)&quot;; &quot;Metal Type: 18K White Gold&quot;; &quot;Rhodium Finish: Yes&quot;; Stock 502820w. The product description on the same page says the ring is &quot;artfully crafted from warmly lustrous 14k yellow gold&quot; — a direct self-contradiction. New flag SPEC1. The unsupported metal-options parenthetical on this row was also deleted.</td>
+        </tr><tr>
+          <td class="mono">V12</td>
+          <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/riviera-pave-diamond-engagement-ring-in-14k-white-gold-1-6-ct-tw-item-195326" target="_blank" rel="noopener">Blue Nile — Riviera Pavé (item 195326)</a>
+            <div class="tiny muted">listing</div></td>
+          <td class="mono">R09</td>
+          <td><span class="badge info">corrected</span></td>
+          <td class="small">&quot;$1,500 (Setting Price)&quot;; &quot;Metal Type: 14K White Gold&quot;; &quot;Rhodium Finish: Yes&quot;; Stock 501590w14. Metal-options parenthetical removed.</td>
+        </tr><tr>
+          <td class="mono">V13</td>
+          <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/classic-simple-solitaire-engagement-ring-in-14k-white-gold-item-195730" target="_blank" rel="noopener">Blue Nile — Classic Simple Solitaire (item 195730)</a>
+            <div class="tiny muted">listing</div></td>
+          <td class="mono">R14</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">&quot;$1,145 (Setting Price)&quot;; &quot;Metal Type: 14K White Gold&quot;; &quot;Rhodium Finish: Yes&quot;; Stock 502120w14. Matches the 2026-10-22 integration record exactly.</td>
+        </tr><tr>
+          <td class="mono">V14</td>
+          <td><a href="https://www.bluenile.com/policies/returns" target="_blank" rel="noopener">Blue Nile — return policy</a>
+            <div class="tiny muted">policy</div></td>
+          <td class="mono">R05, R06, R07, R08, R09, R14</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">&quot;within 30 days from the shipment date for a full refund or exchange&quot;; exclusions include &quot;Personalized jewelry, custom orders, engraved items, items resized after initial purchase ... clearance items and &#x27;Final Sale&#x27; items&quot;; &quot;Two complimentary returns are allowed per customer, per year&quot;; one free resize within 6 months if the design permits.</td>
+        </tr><tr>
+          <td class="mono">V15</td>
+          <td><a href="https://www.costco.com/p/-/round-brilliant-050-ctw-vs2-clarity-i-color-diamond-14kt-gold-band/100675127" target="_blank" rel="noopener">Costco — 0.50 ctw diamond 14kt band</a>
+            <div class="tiny muted">listing</div></td>
+          <td class="mono">R10</td>
+          <td><span class="badge bad">flagged</span></td>
+          <td class="small">No price is displayed on the page as fetched, so the row&#x27;s price stays blank. &quot;Metal: 14kt White Gold ( Rhodium Plated ) or 14kt Yellow Gold&quot;. No gram weight. The page prints &quot;Item 1596365&quot; while the URL ends in 100675127 — new flag ID1.</td>
+        </tr><tr>
+          <td class="mono">V16</td>
+          <td><a href="https://customerservice.costco.com/app/answers/detail/a_id/1191" target="_blank" rel="noopener">Costco — official return policy answer (Document ID CU2573, version 18.0, published 10/02/2025)</a>
+            <div class="tiny muted">policy</div></td>
+          <td class="mono">R10</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">Under the satisfaction guarantee&#x27;s exceptions: &quot;Precious metals are non-refundable.&quot; That is what makes this listing fail your return requirement.</td>
+        </tr><tr>
+          <td class="mono">V17</td>
+          <td><a href="https://www.wilsonsestatejewelry.com/products/mid-century-old-european-diamond-14-karat-white-gold-vintage-solitaire-engagement-ring" target="_blank" rel="noopener">Wilson&#x27;s Estate Jewelry — Mid-Century Old European solitaire</a>
+            <div class="tiny muted">listing</div></td>
+          <td class="mono">R11</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">&quot;Sale price$3,725.00&quot;; &quot;Stamped for 14 karat gold&quot;; &quot;Total Weight: 6.1 grams&quot;; Stock We-16935. No maker&#x27;s mark is stated on this page.</td>
+        </tr><tr>
+          <td class="mono">V18</td>
+          <td><a href="https://www.wilsonsestatejewelry.com/products/art-deco-old-mine-cut-diamond-18-karat-white-gold-antique-lotus-engagement-ring-gia" target="_blank" rel="noopener">Wilson&#x27;s Estate Jewelry — Art Deco Lotus (GIA)</a>
+            <div class="tiny muted">listing</div></td>
+          <td class="mono">R12</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">&quot;Sale price$5,350.00&quot;; &quot;Stamped for 18 karat gold&quot;; &quot;With partial maker&#x27;s mark for Hedges &amp; Co.&quot;; &quot;Total Weight: 2.2 grams&quot;; GIA Dossier 2215945495; Stock We-17036.</td>
+        </tr><tr>
+          <td class="mono">V19</td>
+          <td><a href="https://www.wilsonsestatejewelry.com/products/bailey-banks-biddle-art-deco-diamond-enamel-19-karat-white-gold-vintage-fanning-engagement-ring" target="_blank" rel="noopener">Wilson&#x27;s Estate Jewelry — Bailey Banks &amp; Biddle 19K</a>
+            <div class="tiny muted">listing</div></td>
+          <td class="mono">R13</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">&quot;Sale price$2,850.00&quot;; &quot;Stamped for 19 karat gold&quot;; signed with a maker&#x27;s mark for Bailey Banks &amp; Biddle. No gram weight is stated on the page, so the cell stays blank.</td>
+        </tr><tr>
+          <td class="mono">V20</td>
+          <td><a href="https://www.ross-simons.com/products/985230" target="_blank" rel="noopener">Ross-Simons — 2mm 18kt polished ring</a>
+            <div class="tiny muted">listing</div></td>
+          <td class="mono">R15</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">&quot;$249&quot;, sizes 5-10 all &quot;In-Stock&quot;; spec block: &quot;Metal 18kt Yellow Gold&quot;, &quot;Gold Weight 0.7 grams&quot;, plus &quot;All weights and measurements are approximate.&quot;</td>
+        </tr><tr>
+          <td class="mono">V21</td>
+          <td><a href="https://www.ross-simons.com/products/932728" target="_blank" rel="noopener">Ross-Simons — Italian 14kt diamond-cut ring</a>
+            <div class="tiny muted">listing</div></td>
+          <td class="mono">R16</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">&quot;$299&quot;, sizes 5-10 all &quot;In-Stock&quot;; &quot;Metal 14kt Yellow Gold&quot;, &quot;Gold Weight 0.8 grams&quot;; page offers a 14kt white gold alternative (item 932726).</td>
+        </tr><tr>
+          <td class="mono">V22</td>
+          <td><a href="https://www.tiffany.com/engagement/engagement-rings/the-tiffany-setting-engagement-ring-in-18k-yellow-gold-GRP10863/" target="_blank" rel="noopener">Tiffany &amp; Co. — The Tiffany Setting in 18k yellow gold</a>
+            <div class="tiny muted">listing</div></td>
+          <td class="mono">R17</td>
+          <td><span class="badge bad">flagged</span></td>
+          <td class="small">&quot;Starting from $1,600&quot;; &quot;Ring Style 18k Yellow Gold and Platinum&quot;; &quot;Availability: This product is currently unavailable&quot;; &quot;this item is non returnable&quot; and &quot;this item can only be exchanged&quot;. The URL redirected to /jewelry/rings/18k-rose-gold-and-platinum-diamond-rings-1712.html — new flag RDR1.</td>
+        </tr><tr>
+          <td class="mono">V23</td>
+          <td><a href="https://www.tiffany.com/policy/return-policy.html" target="_blank" rel="noopener">Tiffany &amp; Co. — return policy</a>
+            <div class="tiny muted">policy</div></td>
+          <td class="mono">R17</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">General policy: &quot;Products are accepted for credit or exchange in the U.S. within 30 days of purchase&quot;, with &quot;Personalized, altered, or engraved items are not eligible&quot;. It does not override the product page&#x27;s own non-returnable statement, which is the narrower and controlling note for this ring.</td>
+        </tr><tr>
+          <td class="mono">V24</td>
+          <td><a href="https://www.catbirdnyc.com/woodland-ring.html" target="_blank" rel="noopener">Catbird — Woodland Ring (Sofia Zakia)</a>
+            <div class="tiny muted">listing</div></td>
+          <td class="mono">R18</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">&quot;$276.00 Regular Price$368.00&quot;, title &quot;Woodland Ring in 14K Gold&quot;. Sold-out / waitlist badges are rendered on the page. No return policy and no gram weight on the page read.</td>
+        </tr><tr>
+          <td class="mono">V25</td>
+          <td><a href="https://www.sarraf.com/products/14k-white-gold-solitaire-ring-0-94-ctw.html" target="_blank" rel="noopener">Sarraf.com — 14k white gold solitaire 0.94 ctw (new row R20)</a>
+            <div class="tiny muted">listing</div></td>
+          <td class="mono">R20</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">&quot;Now: US$3,004.00&quot; (MSRP US$11,683.00, Was US$3,513.00); &quot;Material: 14K Solid Gold&quot;; &quot;Approximate Metal Weight: 3.80 grams&quot;; SKU 238401-102 / Stock 147370; return clause of 30 days on the same page. The page also states the weight carries a ±5% tolerance.</td>
+        </tr><tr>
+          <td class="mono">V26</td>
+          <td><a href="https://www.sarraf.com/products/10k-gold-6mm-high-polished-comfort-fit-wedding-band.html" target="_blank" rel="noopener">Sarraf.com — 10k 6mm comfort-fit band (new row R21)</a>
+            <div class="tiny muted">listing</div></td>
+          <td class="mono">R21</td>
+          <td><span class="badge bad">flagged</span></td>
+          <td class="small">&quot;Now: US$613.00&quot;; &quot;Material: 10K Solid Gold&quot;; &quot;Approximate Metal Weight: 8.30 grams&quot;; SKU IB-PBWB06-10KY / Stock 142684. Explicit caveat: &quot;The weight listed is an approximate weight of a ring in size 10&quot; — new flag WT4, because a size-5 buyer gets less metal than 8.30 g.</td>
+        </tr><tr>
+          <td class="mono">V27</td>
+          <td><a href="https://www.automicgold.com/products/radiant-cut-lab-diamond-cathedral-ring" target="_blank" rel="noopener">Automic Gold — 3ct radiant lab diamond cathedral ring (new row R22)</a>
+            <div class="tiny muted">listing</div></td>
+          <td class="mono">R22</td>
+          <td><span class="badge bad">flagged</span></td>
+          <td class="small">&quot;$3,074&quot;; &quot;Solid 14k Gold and 950 Platinum&quot;; &quot;Item Weight: Approximately 5.4g for gold or 8.1g for platinum&quot;; &quot;Free returns (US only)&quot;; &quot;All engraved items are final sale&quot;. New flags WT5 (one weight spans two metals) and POL2 (engraving kills the return).</td>
+        </tr><tr>
+          <td class="mono">V28</td>
+          <td><a href="https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23" target="_blank" rel="noopener">16 CFR Part 23 — FTC jewellery guides</a>
+            <div class="tiny muted">regulation</div></td>
+          <td class="mono">standards</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">eCFR states &quot;Displaying title 16, up to date as of 10/21/2026&quot;. The sections this project cites all exist with the titles used: §23.3 gold content, §23.4 vermeil, §23.7 rhodium surface layer, §23.8 multiple precious metals, §23.10 quality marks, §23.18 weight and total weight.</td>
+        </tr></tbody>
+  </table>
+</div>
 
-  <h2>Source checks</h2>
-  <p class="dim">One row per URL that was actually opened. The "rows" column says which listings depend on it.</p>
-  <div class="tscroll card" style="padding:0">
-    <table id="verify-table">
-      <thead><tr>
-        <th>ID</th><th>Source</th><th>Depends</th><th>Result</th><th>What the page actually said</th>
-      </tr></thead>
-      <tbody><tr><td colspan="5" class="dim" style="padding:18px">Loading the verification log…</td></tr></tbody>
-    </table>
-  </div>
+<h2>Defects found on this site, and fixed</h2>
+<p class="small muted">The verification pass is not only aimed at sellers. It also hunts errors in our own output.</p>
+<div class="table-wrap">
+  <table style="min-width:820px">
+    <thead><tr><th>ID</th><th>Where</th><th>What was wrong</th><th>How it was caught &amp; fixed</th><th>Status</th></tr></thead>
+    <tbody><tr><td class="mono">SD1</td><td class="mono small">index.html</td>
+        <td class="small">The dashboard&#x27;s &#x27;gold value by karat&#x27; table squared the melt value: it iterated the melt dict as if it were the fineness table, so 10K printed 5394.3% fineness and $6,983.75/g instead of 41.67% and $53.94/g.</td>
+        <td class="small">This session&#x27;s audit pass, when the stray-number check flagged $6,983.75 as appearing nowhere in the data. <strong>Fix:</strong> The table now iterates the fineness fractions from data/prices.json. Rendered values are recomputed and asserted in scripts/render-test.js.</td>
+        <td><span class="badge good">fixed</span></td></tr><tr><td class="mono">SD2</td><td class="mono small">sellers.html, analysis.html, standards.html, methodology.html</td>
+        <td class="small">These four pages still loaded assets/app.js and expected table renderers (initSellers, initAnalysis, initStandards) that no longer exist in the merged app.js, so their data sections could never populate.</td>
+        <td class="small">This session, while checking what the merge from main actually shipped. <strong>Fix:</strong> All four pages are now generated statically from data/sellers.json, data/rings.json and data/standards.json by scripts/build_site.py, with no client-side dependency. Declared in the build so a regenerate cannot reintroduce it.</td>
+        <td><span class="badge good">fixed</span></td></tr><tr><td class="mono">SD3</td><td class="mono small">under-1000.html</td>
+        <td class="small">A category intro quoted a &quot;$6,000+&quot; threshold that appears in no data file — a prose number presented as fact.</td>
+        <td class="small">Stray-number audit. <strong>Fix:</strong> Reworded to a qualitative description; the page now prints only figures that come from data.</td>
+        <td><span class="badge good">fixed</span></td></tr></tbody>
+  </table>
+</div>
 
-  <h2>Irregularities raised by this pass</h2>
-  <p class="dim">These are on the <a href="flagged.html">Flagged for Review</a> page too, with an action for each.</p>
-  <div class="tscroll card" style="padding:0">
-    <table id="disc-table">
-      <thead><tr><th>Row</th><th>What is irregular</th><th>Flag</th><th>Severity</th></tr></thead>
-      <tbody><tr><td colspan="4" class="dim" style="padding:18px">Loading…</td></tr></tbody>
-    </table>
-  </div>
+<h2>Irregularities raised by this pass</h2>
+<div class="table-wrap">
+  <table style="min-width:720px">
+    <thead><tr><th>Row</th><th>What is irregular</th><th>Flag</th><th>Severity</th></tr></thead>
+    <tbody><tr><td class="mono">R08</td><td>Title/spec say 18K White Gold; the same page&#x27;s description says 14k yellow gold.</td>
+        <td><span class="mono">SPEC1</span></td>
+        <td><span class="badge warn">medium</span></td></tr><tr><td class="mono">R17</td><td>Product URL redirects to a different product path; page content still matches the ring.</td>
+        <td><span class="mono">RDR1</span></td>
+        <td><span class="badge neutral">low</span></td></tr><tr><td class="mono">R10</td><td>URL ends in 100675127, page prints &quot;Item 1596365&quot;.</td>
+        <td><span class="mono">ID1</span></td>
+        <td><span class="badge neutral">low</span></td></tr><tr><td class="mono">R21</td><td>8.30 g is stated to be the weight of a size 10 ring, while sizes 3-16 are sold.</td>
+        <td><span class="mono">WT4</span></td>
+        <td><span class="badge warn">medium</span></td></tr><tr><td class="mono">R22</td><td>One weight line covers both 14k gold (5.4 g) and platinum (8.1 g).</td>
+        <td><span class="mono">WT5</span></td>
+        <td><span class="badge warn">medium</span></td></tr><tr><td class="mono">R20,R21</td><td>Weights are explicitly approximate, with a stated ±5% tolerance.</td>
+        <td><span class="mono">WT3</span></td>
+        <td><span class="badge warn">medium</span></td></tr><tr><td class="mono">R17</td><td>Product page says non-returnable and exchange-only, while the brand&#x27;s general policy advertises 30-day returns.</td>
+        <td><span class="mono">RET6</span></td>
+        <td><span class="badge bad">high</span></td></tr><tr><td class="mono">R10</td><td>Costco&#x27;s official policy lists precious metals as non-refundable.</td>
+        <td><span class="mono">RET1</span></td>
+        <td><span class="badge bad">high</span></td></tr></tbody>
+  </table>
+</div>
 
-  <h2>Deliberately not re-checked</h2>
+<h2>Deliberately not re-checked</h2>
+<div class="card">
+  <p class="small muted" style="margin-top:0">Links kept in the dataset but not opened in this pass are declared here rather
+  than implied to be verified.</p>
+  <ul class="small"><li><a href="https://www.bluenile.com/engagement-rings" target="_blank" rel="noopener">https://www.bluenile.com/engagement-rings</a> &mdash; Collection page cited by four rows as context only; the product pages themselves were re-fetched and they carry every value used.</li><li><a href="https://www.lbma.org.uk/prices-and-data/lbma-precious-metal-prices" target="_blank" rel="noopener">https://www.lbma.org.uk/prices-and-data/lbma-precious-metal-prices</a> &mdash; LBMA states its historical benchmark tables are licence-gated, so no LBMA figure is used anywhere in this project. The claim itself was not re-opened this pass.</li></ul>
+</div>
+
+<h2>What no website can verify</h2>
+<div class="grid cols-2">
   <div class="card">
-    <p class="dim" style="margin-top:0">Links kept in the dataset but not opened in this pass are declared here
-      rather than implied to be verified.</p>
-    <ul id="notrechecked" class="dim" style="padding-left:18px;margin:6px 0 0"><li>Loading…</li></ul>
+    <h3 style="margin-top:0">Needs the object in hand</h3>
+    <ul class="small"><li>true karat of the actual object (needs XRF/assay)</li><li>authenticity of a stamp</li><li>hidden repairs on estate pieces</li><li>seller complaint history</li></ul>
   </div>
+  <div class="card">
+    <h3 style="margin-top:0">How to close that gap yourself</h3>
+    <p class="small">Take the ring, before wearing or resizing it, to an independent jeweller &mdash; not the seller &mdash; and ask
+    for an <strong>XRF test</strong> or an assay, plus a weight on a calibrated scale. Compare the reading with the karat stamp and
+    with the weight recorded here, and keep the test receipt with your order documentation.</p>
+    <p class="small">If the reading is below the stamp, stop: contact the seller in writing inside the return window and keep the
+    ring unworn.</p>
+  </div>
+</div>
 
-  <h2>What no website can verify</h2>
-  <div class="grid cols-2" style="margin-top:6px">
-    <div class="card">
-      <h3>Needs the object in hand</h3>
-      <ul class="dim" id="unverifiable" style="padding-left:18px;margin:6px 0 0"><li>Loading…</li></ul>
-    </div>
-    <div class="card">
-      <h3>How to do that check yourself</h3>
-      <p class="dim">Take the ring, before wearing or resizing it, to an independent jeweller — not the seller —
-        and ask for an <strong>XRF test</strong> or an assay, plus a weight on a calibrated scale. Compare the
-        reading with the karat stamp and with the weight recorded here. Keep the receipt from that test with your
-        order documentation.</p>
-      <p class="dim">If the reading is below the stamp, stop: contact the seller in writing inside the return
-        window and keep the ring unworn.</p>
-    </div>
-  </div>
+<div class="warn-box" style="margin-top:16px">
+  <strong>If a seller will not let you independently verify the ring, or will not let you return it after verification, do not
+  buy it.</strong> No price and no brand reputation overrides that rule.
+</div>
 
-  <div class="note bad" style="margin-top:16px">
-    <p><strong>If a seller will not let you independently verify the ring, or will not let you return it after
-      verification, do not buy it.</strong> No price and no brand reputation overrides that rule.</p>
-  </div>
+<h2>Standing recommendation</h2>
+<div class="card">
+  <p class="small" style="margin-top:0">Re-run the audit after every review, then spend one pass doing nothing but hunting
+  hallucinations: take any number on this site and try to find it on the linked page. If it is not there, delete it and mark the
+  field unverified. This page is that pass, written down.</p>
+  <p class="mono small">python3 scripts/audit.py &amp;&amp; python3 scripts/report_verify.py</p>
+</div>
 
 </main>
-
-<footer class="site wrap">
-  <p><strong>No hallucinations policy.</strong> This log records what was on the page on the date shown. Listings,
-    prices and policies change without notice — re-open the link before you pay.</p>
-  <p>Machine-readable copy: <a href="data/verification.json">data/verification.json</a>.</p>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <strong>GOLD3</strong> - a source-linked buying file. Data captured 22 October 2026. Spot price anchor:
+    $4,026.79/oz (Oct 22nd, 2026 at 07:07 NY Time), cross-checked against the World Gold Council
+    ($4,024.36/oz).
+    <div class="footer-links">
+      <a href="checklist.html">Buying checklist</a>
+      <a href="flagged.html">Flagged for review</a>
+      <a href="verify.html">Verification log</a>
+      <a href="sources.html">Source register</a>
+      <a href="calculator.html">Gold calculator</a>
+    </div>
+    <p class="tiny" style="margin:10px 0 0">Not financial or legal advice. No affiliate links, no sponsored placements, no prices entered by hand.
+    This site is generated from <span class="mono">data/products.json</span> and will not build if a value is unsourced.</p>
+  </div>
 </footer>
-
 <script src="assets/app.js"></script>
 </body>
 </html>
