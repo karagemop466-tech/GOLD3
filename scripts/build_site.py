@@ -599,7 +599,7 @@ def build_combined() -> str:
 <div class="card">
   <p class="small">The parallel session's own pages are kept in the repository and remain reachable, unchanged:</p>
   <ul class="small">
-    <li><a href="sellers.html">Seller register</a> &mdash; 7 sellers with contact and return evidence</li>
+    <li><a href="sellers.html">Seller register</a> &mdash; {len(SELLERS)} sellers with contact and return evidence</li>
     <li><a href="standards.html">Standards &amp; law reference</a> &mdash; its 16 CFR / 15 U.S.C. reading</li>
     <li><a href="methodology.html">Methodology</a> &mdash; the parallel pass&rsquo;s verification protocol</li>
     <li><a href="analysis.html">Analysis</a> &mdash; its findings and price-per-gram work</li>
@@ -623,23 +623,29 @@ def build_combined() -> str:
 </div>
 """
     return page("combined.html", "Combined dataset", body,
-                "Both research passes side by side: 28 listings across 9 sellers, each with its own source link and provenance.")
+                f"Both research passes side by side: {METRICS['n_combined']} listings across "
+                f"{METRICS['n_sellers_total']} sellers, each with its own source link and provenance.")
 
 
 def build_rings() -> str:
     body = f"""
 {policy_box()}
 <div class="page-head">
-  <h1>All verified listings</h1>
+  <h1>Dataset A: all verified listings</h1>
   <p class="lead">{len(PRODUCTS)} listings across {METRICS['n_retailers']} retailers. Filter by karat, stone or budget, or search for a flag.
   Each row links to the exact page the price was read from.</p>
 </div>
+<div class="note-box" style="margin-bottom:16px"><strong>Scope of this page.</strong>
+  This table renders dataset A only ({len(PRODUCTS)} listings). The parallel pass contributed {METRICS['n_other_items']} more,
+  so the site carries <a href="combined.html">{METRICS['n_combined']} listings in total</a> &mdash; use the combined list if you
+  want every price in one table. Nothing is hidden here; it is a separate research pass with its own evidence rules.</div>
 <div class="note-box" style="margin-bottom:16px"><strong>How to read the Price column.</strong>
 <em>listed</em> = the price of the configuration shown. <em>from</em> = the cheapest variant (usually 14K, smallest size); 18K costs more.
 <em>setting only</em> = the centre diamond is sold separately, so it is not comparable with a complete ring.</div>
 {listings_table(PRODUCTS)}
 """
-    return page("rings.html", "All verified listings", body, "Every verified solid gold ring listing with price, purity, weight status and source links.")
+    return page("rings.html", "Dataset A: all verified listings", body,
+                f"The {len(PRODUCTS)} solid gold ring listings verified in dataset A, with price, purity, weight status and source links. Full combined list on combined.html.")
 
 
 def build_category(slug: str, cat: str, title: str, intro: str, extra: str = "") -> str:
