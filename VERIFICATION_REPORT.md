@@ -1,9 +1,9 @@
 # GOLD3 — Anti-Hallucination & Security Verification Report
 
-- **Latest Audit Pass:** Pass #1 — `Pass 1: Primary Dataset, Verbatim Price & Melt Arithmetic Verification`
-- **Timestamp (UTC):** `2026-10-22T23:24:31Z`
+- **Latest Audit Pass:** Pass #3 — `Pass 3: Final Pre-PR Integration, JS Syntax & Hallucination Audit`
+- **Timestamp (UTC):** `2026-10-22T23:31:26Z`
 - **Overall Result:** **PASS** (`0` integrity errors)
-- **Unique Official HTTPS URLs Verified:** `52`
+- **Unique Official HTTPS URLs Verified:** `60`
 - **Catalog Entries Audited:** `21` rings + `5` sellers + `7` karat standards
 - **Items Published on Flagged for Review (`flagged-for-review.html`):** `17` entries (`37` specific findings)
 
@@ -18,6 +18,8 @@
 | `SEC-03` | Zero-Inference Enforcement (Unverified Values Strictly Left Blank/Null) | **PASS** | `14` | Confirmed 14 items with unconfirmed metal gram weights or mixed-karat splits keep null numeric cells (never inferred) and carry explicit review flags. |
 | `SEC-04` | NIST Troy-Ounce (31.1034768 g) & Raw Melt Arithmetic Audit | **PASS** | `14` | Mathematically verified spot conversion ($4,025.10 / 31.1034768 = $129.4100/g), all 7 karat tiers, and all 7 weight-complete rings to <= $0.02 tolerance. |
 | `SEC-05` | Automated Irregularity, Plated-Control, BBB & Return-Exclusion Scanner | **PASS** | `37` | Cataloged 37 line-by-line review flags across 17 flagged ring entries for publication on flagged-for-review.html. |
+| `SEC-06` | Static HTML Internal/External Link Integrity & Anchor Verification | **PASS** | `337` | Parsed 8 HTML pages and verified 337 links, stylesheets, scripts, and anchor targets with zero broken links. |
+| `SEC-07` | Front-End Security, No-Hallucinations Top Banner & Zero-External-Script Check | **PASS** | `8` | Verified zero third-party script dependencies, strict rel='noopener noreferrer' on external links, zero eval() calls, and active Front-Page No-Hallucinations Mandate summary. |
 
 ## SHA-256 Integrity Digests (`data/*.json`)
 
