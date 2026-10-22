@@ -40,6 +40,9 @@ Branch naming: `session-<id>/<task>`. (This primary session is pinned by the pla
 | T5 | Anti-hallucination audit tooling + audit report | **done** | `arena/8aaa18bf-gold3` | `scripts/`, `reports/` |
 | T6 | Site build (landing, category pages, table, calculator, flagged page) | **done** | `arena/8aaa18bf-gold3` | `*.html`, `assets/` |
 | T7 | Integration: re-verify combined data, link check, publish Pages, PR + merge | **done** | `arena/8aaa18bf-gold3` | `.github/workflows/`, repo root |
+| T8 | Independent re-verification pass: every row, seller, standard and benchmark re-opened at source | **in progress** | `arena/9855df72-gold3` | `data/rings.json`, `data/sellers.json`, `data/standards.json`, `data/gold-price.json`, `data/flags.json` |
+| T9 | Sources index page + live external link checker + per-row re-verification date | **in progress** | `arena/9855df72-gold3` | `sources.html`, `scripts/link-check.py`, `assets/app.js` |
+| T10 | Integration: merge combined data, confirm Pages deploy, PR + merge to main | **unclaimed** | — | `.github/workflows/`, repo root |
 
 Status values: `unclaimed` · `in progress` · `done` · `needs review`.
 `needs review` = the item is published on the **Flagged for Review** page; it does **not** block merge.
