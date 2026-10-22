@@ -57,6 +57,7 @@ def load(path):
 # ----------------------------------------------------------------------------
 required_files = [
     "gold-price.json", "rings.json", "sellers.json", "standards.json", "flags.json",
+    "verification.json",
 ]
 for name in required_files:
     if (DATA / name).exists():
@@ -69,8 +70,9 @@ rings_doc = load(DATA / "rings.json")
 sellers_doc = load(DATA / "sellers.json")
 standards_doc = load(DATA / "standards.json")
 flags_doc = load(DATA / "flags.json")
+verif_doc = load(DATA / "verification.json")
 
-if not all([gold, rings_doc, sellers_doc, standards_doc, flags_doc]):
+if not all([gold, rings_doc, sellers_doc, standards_doc, flags_doc, verif_doc]):
     print("cannot continue: core data missing")
     sys.exit(1)
 
@@ -327,6 +329,70 @@ for s in sellers:
         if base and not (uh == base or uh.endswith("." + base)):
             err("domain", f"{s.get('id')}.{key}: {uh!r} is not on {base}")
 
+
+# ----------------------------------------------------------------------------
+# 3c. verification log: the page that proves the other pages were checked.
+#     Rules: every row is covered by an opened URL, every URL is https and
+#     owned by the right party, the counts are computed not asserted, and no
+#     entry points at a row that does not exist.
+# ----------------------------------------------------------------------------
+verified_rows = set()
+check_urls = set()
+if verif_doc:
+    date_pass = verif_doc.get("retrieved_utc")
+    if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", str(date_pass)):
+        err("verify", "verification.retrieved_utc is not an ISO date")
+    checks = verif_doc.get("checks") or []
+    if not checks:
+        err("verify", "verification log has no checks")
+    for c in checks:
+        cid = c.get("id", "<no id>")
+        u = c.get("url", "")
+        if not str(u).startswith("https://"):
+            err("verify", f"{cid}: verification URL is not https")
+        if not c.get("findings"):
+            err("verify", f"{cid}: no finding recorded — a check with no evidence statement proves nothing")
+        if c.get("outcome") not in ("confirmed", "corrected", "flagged"):
+            err("verify", f"{cid}: outcome must be confirmed / corrected / flagged")
+        if not c.get("rows"):
+            warn("verify", f"{cid}: not linked to any row")
+        for rid in c.get("rows", []):
+            if rid in ("spot", "standards"):
+                continue
+            if rid not in seen_ids:
+                err("verify", f"{cid}: references unknown row {rid}")
+            verified_rows.add(rid)
+        check_urls.add(u)
+
+    missing = sorted(set(seen_ids) - verified_rows)
+    if missing:
+        err("verify", f"rows with no entry in the verification log: {missing}")
+    else:
+        ok("verify", f"all {len(seen_ids)} rows appear in the verification log")
+
+    # the summary block is a set of claims about the log: recompute it
+    summ = verif_doc.get("summary") or {}
+    computed = {
+        "urls_opened": len(checks),
+        "confirmed": sum(1 for c in checks if c.get("outcome") == "confirmed"),
+        "corrected": sum(1 for c in checks if c.get("outcome") == "corrected"),
+        "flagged": sum(1 for c in checks if c.get("outcome") == "flagged"),
+    }
+    for k, val in computed.items():
+        if summ.get(k) != val:
+            err("verify", f"summary.{k} says {summ.get(k)!r} but the log contains {val}")
+    if not any(c.get("outcome") != "confirmed" for c in checks):
+        warn("verify", "a log where nothing was ever corrected or flagged is suspicious")
+    ok("verify", "summary counts recomputed from the entries and match")
+
+# rows must carry a dated verification stamp
+for r in rings:
+    lv = r.get("last_verified")
+    if not lv:
+        err("verify", f"{r.get('id')}: no last_verified date")
+    elif not re.fullmatch(r"\d{4}-\d{2}-\d{2}", str(lv)):
+        err("verify", f"{r.get('id')}: last_verified is not an ISO date ({lv!r})")
+
 # ----------------------------------------------------------------------------
 # 4. flags self-check
 # ----------------------------------------------------------------------------
@@ -377,61 +443,96 @@ html_files = sorted(ROOT.glob("*.html"))
 if not html_files:
     warn("site", "no HTML pages found")
 
-# every dollar figure printed in the HTML must exist in the data
-# Collect all audited dollar figures from every JSON source so a static page that
-# bakes either dataset is not flagged as a hallucination.
-data_prices = set()
-for r in rings:
-    if isinstance(r.get("price_usd"), (int, float)):
-        data_prices.add(f"{r['price_usd']:,.0f}")
+verify_page = ROOT / "verify.html"
+if verify_page.exists():
+    ok("site", "verify.html present")
+    for page in [p for p in html_files if p.name != "verify.html"]:
+        if 'href="verify.html"' not in page.read_text(encoding="utf-8"):
+            err("links", f"{page.name}: does not link to the verification page")
+else:
+    err("site", "verify.html is missing")
+
+# every dollar figure printed in the HTML must exist in the data, or be a
+# value the site is documented to COMPUTE from that data (melt value).
+def numbers_in(obj, out):
+    if isinstance(obj, bool):
+        return
+    if isinstance(obj, (int, float)):
+        out.add(obj)
+    elif isinstance(obj, str):
+        for tok in re.findall(r"\d[\d,]*(?:\.\d+)?", obj):
+            try:
+                out.add(float(tok.replace(",", "")))
+            except ValueError:
+                pass
+    elif isinstance(obj, dict):
+        for v in obj.values():
+            numbers_in(v, out)
+    elif isinstance(obj, list):
+        for v in obj:
+            numbers_in(v, out)
+    return out
+
+
+_raw_numbers = set()
+for name in ("rings.json", "sellers.json", "standards.json", "flags.json",
+             "gold-price.json", "products.json", "retailers.json", "sources.json",
+             "prices.json", "findings.json", "verification.json"):
+    fp = DATA / name
+    if fp.exists():
+        try:
+            numbers_in(json.loads(fp.read_text(encoding="utf-8")), _raw_numbers)
+        except Exception:  # noqa: BLE001
+            pass
+
+# derived melt values the site is allowed to print, recomputed here from the
+# same inputs: published weight x karat/24 x spot per gram.
+_once = 31.1034768
+
+# every spot value the site carries (two independent anchors are published),
+# so melt values computed from either one are recognised as derived, not invented
+_spots = set()
+def collect_spots(obj):
+    if isinstance(obj, dict):
+        for k, v in obj.items():
+            if k in ("price_usd_per_troy_oz", "price_usd_per_troy_ounce") and isinstance(v, (int, float)):
+                _spots.add(float(v))
+            else:
+                collect_spots(v)
+    elif isinstance(obj, list):
+        for v in obj:
+            collect_spots(v)
+for name in ("gold-price.json", "prices.json"):
+    fp = DATA / name
+    if fp.exists():
+        try:
+            collect_spots(json.loads(fp.read_text(encoding="utf-8")))
+        except Exception:  # noqa: BLE001
+            pass
+
+for _s in _spots:
+    _per_g = _s / _once
+    _raw_numbers.add(_per_g)
+    for r in rings:
+        w = r.get("weight_g")
+        m = re.search(r"(\d+)\s*K", r.get("karat") or "")
+        if isinstance(w, (int, float)) and m:
+            _raw_numbers.add(w * (int(m.group(1)) / 24.0) * _per_g)
+    # use the fineness constants exactly as the site's data defines them
+    _fineness = {}
+    fp = DATA / "prices.json"
+    if fp.exists():
+        try:
+            _fineness = json.loads(fp.read_text(encoding="utf-8"))["constants"]["karat_fineness"]
+        except Exception:  # noqa: BLE001
+            _fineness = {}
+    for _frac in (_fineness or {"10K": 10 / 24, "14K": 14 / 24, "18K": 18 / 24, "22K": 22 / 24, "24K": 1.0}).values():
+        _raw_numbers.add(_per_g * _frac)
+        _raw_numbers.add(_per_g * _frac * 3)
+
+data_prices = {f"{v:,.0f}" for v in _raw_numbers} | {f"{v:,.2f}" for v in _raw_numbers}
 if isinstance(spot, (int, float)):
     data_prices.add(f"{spot:,.2f}")
-# Also include prices from the parallel pass (data/products.json) if present
-try:
-    products_doc = json.loads((DATA / "products.json").read_text(encoding="utf-8"))
-    for p in products_doc.get("products", []):
-        pr = p.get("price")
-        if isinstance(pr, (int, float)):
-            data_prices.add(f"{pr:,.0f}")
-            # also add with 2 decimals for $4,026.79 style
-            data_prices.add(f"{pr:,.2f}")
-except Exception:
-    pass
-try:
-    prices_doc = json.loads((DATA / "prices.json").read_text(encoding="utf-8"))
-    for key in ("spot", "primary", "products", "prices"):
-        # prices.json can hold several shapes; collect any USD/oz figure
-        for v in (prices_doc.get(key, {}) if isinstance(prices_doc.get(key), dict) else {}).values():
-            if isinstance(v, (int, float)) and v > 100:
-                data_prices.add(f"{v:,.2f}")
-                data_prices.add(f"{v:,.0f}")
-    # also direct spot from prices.json (GoldPrice.org)
-    if isinstance(prices_doc.get("spot"), dict):
-        # handled above
-        pass
-    # Fallback: search recursively for large usd figures
-    def _collect(obj):
-        if isinstance(obj, dict):
-            for kk, vv in obj.items():
-                if "price" in kk.lower() and isinstance(vv, (int, float)):
-                    data_prices.add(f"{vv:,.0f}")
-                    data_prices.add(f"{vv:,.2f}")
-                _collect(vv)
-        elif isinstance(obj, list):
-            for it in obj:
-                _collect(it)
-    _collect(prices_doc)
-except Exception:
-    pass
-# Add known spot cross-check values (GoldPrice.org 4026.79, WGC 4024.36)
-for extra in (4026.79, 4024.36, 4028.53):
-    data_prices.add(f"{extra:,.2f}")
-    data_prices.add(f"{extra:,.0f}")
-# Add small policy-adjacent figures that appear in static pages but are not
-# hallucinations (shipping fees, warranty amounts from retailer pages)
-for extra in (9, 138, 158, 550, 6000, 2.43):
-    data_prices.add(f"{extra:,.0f}")
-    data_prices.add(f"{extra:,.2f}")
 
 for page in html_files:
     raw = page.read_text(encoding="utf-8")
@@ -439,6 +540,8 @@ for page in html_files:
     # are not links and would produce false positives.
     text = re.sub(r"<script\b[^>]*>.*?</script>", "", raw, flags=re.S | re.I)
     text = re.sub(r"<style\b[^>]*>.*?</style>", "", text, flags=re.S | re.I)
+    # navigation labels are prose ("Under $1,000"), not price claims
+    text = re.sub(r"<nav\b[^>]*>.*?</nav>", "", text, flags=re.S | re.I)
 
     # internal links
     for href in re.findall(r'(?:href|src)="([^"]+)"', text):

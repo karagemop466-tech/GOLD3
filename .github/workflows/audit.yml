@@ -1,4 +1,4 @@
-name: Anti-hallucination audit
+name: Anti-hallucination checks
 
 on:
   push:
@@ -10,8 +10,8 @@ permissions:
   contents: read
 
 jobs:
-  audit:
-    name: Audit data and site
+  gate:
+    name: Gate, build, audit and render
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -21,13 +21,33 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
-      - name: Audit the dataset (fails on invented or unsourced values)
+
+      # 1. the data gate: refuses to pass if a value is unsourced or impossible
+      - name: Verify the datasets (source domains, quotes, arithmetic)
+        run: python3 scripts/verify.py
+
+      # 2. build the site from the data; fails on broken internal links
+      - name: Build the static site
+        run: python3 scripts/build_site.py
+
+      # 3. the independent audit: provenance, weighted rows, stray numbers,
+      #    and the requirement that every row appears in the verification log
+      - name: Audit the dataset and the built pages
         run: python3 scripts/audit.py
-      - name: Render the pages against the real data
+
+      # 4. assert the built HTML actually contains the audited values
+      - name: Render test against the built pages
         run: node scripts/render-test.js
-      - name: Keep the audit report
+
+      # 5. regenerate the human-readable verification report
+      - name: Rebuild the verification report
+        run: python3 scripts/report_verify.py
+
+      - name: Keep the reports
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: audit-report
-          path: reports/audit-report.md
+          name: verification-reports
+          path: |
+            reports/audit-report.md
+            reports/verification-report.md
