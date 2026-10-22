@@ -117,7 +117,7 @@ Also flagged: Ring Concierge publishes no phone or email on the pages checked (`
 | Step | Result | When (UTC) |
 |---|---|---|
 | Branch pushed | `arena/b3c924e6-gold3` | 2026-10-22T23:55Z |
-| PR → `main` | _to be recorded_ | — |
+| PR → `main` | **#6** https://github.com/karagemop466-tech/GOLD3/pull/6 | 2026-10-22T23:58Z |
 | Merge | _to be recorded_ | — |
 | GitHub Pages deploy | _to be recorded_ | — |
 
