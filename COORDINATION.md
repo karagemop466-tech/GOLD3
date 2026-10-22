@@ -130,3 +130,18 @@ belong to (14 checks total). Latest run: **11 pass / 2 warn / 0 fail / 1 info**,
 
 T9 (final integration) is `done`. T10–T13 remain `needs review` and are published on `flagged.html`; they do not
 block the merge, per the project rules.
+| PR #5 → `main` (unverified URLs removed, A14 added) | https://github.com/karagemop466-tech/GOLD3/pull/5 — **merged** (`0d606bb`); Sellers page re-read live: unverified contact links gone, flags shown instead |
+
+### Final state — 2026-10-22 (session-982bfc88)
+
+- **Site live:** https://karagemop466-tech.github.io/GOLD3/ — GitHub Pages status **built**, HTTPS enforced,
+  source `main:/`, all 7 pages fetched back from the live URL and read.
+- **Data:** 9 entries (7 live-verified, 2 dead/redirected), 5 sellers with quoted return terms
+  (Blue Nile, Mejuri, Tiffany verified; Ross-Simons, Catbird not), 10 quoted legal requirements,
+  1 dated spot price record.
+- **Audit:** 14 checks — 11 pass, 2 warn, 0 fail, 1 info. Warnings are published on `flagged.html`.
+- **Build:** 7 pages, 97 internal links / 0 broken, 12 anchors / 0 missing.
+- **Open (non-blocking, published on `flagged.html`):** T10 seller reputation research, T11 gram weights for every
+  listing, T12 full policies for Ross-Simons and Catbird, T13 a second spot-price source.
+- **Merge policy:** flagged and unverified items did not block the merge, as instructed. No file outside this
+  session's scope was touched, and no other session has ever been active in this repository.
