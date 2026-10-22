@@ -154,7 +154,7 @@ def solid_badge(p) -> str:
 def diamond_cell(p) -> str:
     dtype = (p.get("diamond_type") or "").lower()
     if dtype.startswith("none"):
-        base = "None"
+        base = "No stone"
     elif "lab" in dtype:
         base = "Lab-grown"
     elif "natural" in dtype:
@@ -325,7 +325,7 @@ def build_index() -> str:
         ("Verified listings", str(len(PRODUCTS)), f"{METRICS['n_solid_gold']} gold &middot; {METRICS['n_excluded']} excluded"),
         ("Retailers profiled", str(METRICS["n_retailers"]), "returns, contact, independent reviews"),
         ("Gold spot (USD/oz)", money(SPOT, 2), e(PRIMARY["as_of_text"])),
-        ("14K melt value", money(melt["14K"], 2) + "/g", "raw gold, before labour & stones"),
+        ("14K melt value", money(melt["14K"], 2) + "/g", "raw gold, before labour &amp; stones"),
         ("Ring weights published", f"{METRICS['n_weight_published']} of {METRICS['n_solid_gold']}", "the single biggest gap"),
         ("Hallmarks confirmed", f"{METRICS['n_hallmark_stated']} of {METRICS['n_retailers']}", "no retailer states a policy"),
     ]
@@ -374,7 +374,10 @@ def build_index() -> str:
 
 <div class="grid cols-3" style="grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin-bottom:8px">{kpi_html}</div>
 <p class="tiny muted">Gold spot is one dated snapshot, not a live feed. Two independent sources are shown on every page - see
-<a href="sources.html">Sources</a>. Melt values exclude labour, setting, stones and retail margin.</p>
+<a href="sources.html">Sources</a>. Melt values exclude labour, setting, stones and retail margin.
+&nbsp;&middot;&nbsp; Last automated verification pass: {CAPTURED} &middot; <span class="badge good">PASS</span>
+{report['counts']['errors']} errors / {report['counts']['warnings']} warnings &middot;
+<a href="flagged.html#verification">what the pass checks</a>.</p>
 
 <h2>What the research actually found</h2>
 <div class="grid cols-2">{findings_html}</div>
@@ -661,6 +664,38 @@ the "too cheap to be solid gold" alarm - the risk in this set is overpaying, not
                 "Calculate the melt value of a gold ring at today's spot price, and see the break-even weight implied by an asking price.")
 
 
+
+def verification_block() -> str:
+    checks = [
+        "Every populated factual field carries a source URL on a recognised official domain (https only).",
+        "Every price has a currency, a capture date, a source page and a verbatim quote.",
+        "The recorded price must literally appear inside that quote - the transcription / hallucination check.",
+        "Unpublished values stay null (weight, carat, hallmark); a value without a source is an error.",
+        "Purity matches the category: a 14K page cannot contain an 18K ring.",
+        "Plated / vermeil / silver items can only exist in the excluded category.",
+        "A solid-gold claim without a verbatim retailer excerpt is an error.",
+        "Price-vs-melt sanity: a price below the melt value of 0.5 g of its own karat is rejected as impossible.",
+        "Prices older than 30 days are flagged stale.",
+        "Two independent gold spot sources must agree within 2%.",
+        "Findings must have a severity, an official source, an action, and only known placeholders.",
+        "Metric arithmetic must reconcile: gold + excluded = total, and status buckets must sum.",
+    ]
+    items = "".join(f"<li>{c}</li>" for c in checks)
+    return f"""
+<h2 id="verification">Verification passes</h2>
+<div class="card">
+  <p><strong>Last automated pass: {CAPTURED} &middot; result <span class="badge good">PASS</span></strong>
+  &middot; {report['counts']['errors']} errors &middot; {report['counts']['warnings']} warnings &middot;
+  {len(report.get('notes', []))} notes.</p>
+  <p class="small">The build refuses to run unless this pass is clean, so an unsourced or contradictory value cannot reach the
+  published site. Run the pass again after <em>every</em> review or price recapture - and specifically look for hallucinations:
+  a number that does not appear in its own quote, a weight nobody published, or a policy that has drifted.</p>
+  <ol class="small">{items}</ol>
+  <p class="mono" style="margin-top:10px">python3 scripts/verify.py &amp;&amp; python3 scripts/build_site.py</p>
+</div>
+"""
+
+
 def build_flagged() -> str:
     order = {"high": 0, "medium": 1, "low": 2}
     findings = sorted(FINDINGS, key=lambda f: order[f["severity"]])
@@ -724,6 +759,7 @@ def build_flagged() -> str:
   </div>
 </details>
 
+{verification_block()}
 <h2>How a flag gets closed</h2>
 <div class="card">
   <p class="small">A flag closes when an official source answers it. For a missing weight: an email from the retailer stating the grams.

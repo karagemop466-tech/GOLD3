@@ -570,6 +570,19 @@
   </div>
 </details>
 
+
+<h2 id="verification">Verification passes</h2>
+<div class="card">
+  <p><strong>Last automated pass: 22 October 2026 &middot; result <span class="badge good">PASS</span></strong>
+  &middot; 0 errors &middot; 0 warnings &middot;
+  11 notes.</p>
+  <p class="small">The build refuses to run unless this pass is clean, so an unsourced or contradictory value cannot reach the
+  published site. Run the pass again after <em>every</em> review or price recapture - and specifically look for hallucinations:
+  a number that does not appear in its own quote, a weight nobody published, or a policy that has drifted.</p>
+  <ol class="small"><li>Every populated factual field carries a source URL on a recognised official domain (https only).</li><li>Every price has a currency, a capture date, a source page and a verbatim quote.</li><li>The recorded price must literally appear inside that quote - the transcription / hallucination check.</li><li>Unpublished values stay null (weight, carat, hallmark); a value without a source is an error.</li><li>Purity matches the category: a 14K page cannot contain an 18K ring.</li><li>Plated / vermeil / silver items can only exist in the excluded category.</li><li>A solid-gold claim without a verbatim retailer excerpt is an error.</li><li>Price-vs-melt sanity: a price below the melt value of 0.5 g of its own karat is rejected as impossible.</li><li>Prices older than 30 days are flagged stale.</li><li>Two independent gold spot sources must agree within 2%.</li><li>Findings must have a severity, an official source, an action, and only known placeholders.</li><li>Metric arithmetic must reconcile: gold + excluded = total, and status buckets must sum.</li></ol>
+  <p class="mono" style="margin-top:10px">python3 scripts/verify.py &amp;&amp; python3 scripts/build_site.py</p>
+</div>
+
 <h2>How a flag gets closed</h2>
 <div class="card">
   <p class="small">A flag closes when an official source answers it. For a missing weight: an email from the retailer stating the grams.
