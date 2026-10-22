@@ -30,13 +30,18 @@ Live site: **https://karagemop466-tech.github.io/GOLD3/**
 | `data/flags.json` | Flag definitions: what was found, why it matters, what to do. |
 | `scripts/audit.py` | The anti-hallucination audit. |
 | `reports/audit-report.md` | Output of the last audit run. |
+| `scripts/render-test.js` | Runs every page's table against the real JSON in a DOM shim (20 checks). |
 | `COORDINATION.md` | Shared task board for parallel agent sessions. |
 
 ## Run the checks
 
 ```bash
 python3 scripts/audit.py          # exits non-zero on any error
+node scripts/render-test.js       # renders every page against the real JSON
 ```
+
+Both run in CI (`.github/workflows/audit.yml`) on every push and pull request. The site is published
+by GitHub Pages from the `main` branch root, so a merge to `main` goes live directly.
 
 The audit fails when a price does not appear in its own quoted source text, when a gram figure is
 not present in its supporting quote, when a "solid gold" pass was awarded without the seller saying
