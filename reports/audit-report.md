@@ -1,10 +1,10 @@
 # Anti-hallucination audit report
 
-- Run: 2026-10-22 23:26 UTC
+- Run: 2026-10-22 23:33 UTC
 - Rows audited: **19**
 - Sellers audited: **8**
 - Flag definitions: **28**
-- Result: **PASS** — 0 error(s), 0 warning(s), 93 check(s) passed
+- Result: **PASS** — 0 error(s), 0 warning(s), 102 check(s) passed
 
 ## What this pass is looking for
 
@@ -115,14 +115,23 @@ None.
 - [flags] 28 flag definitions validated
 - [standards] all karat fractions reproduce n/24
 - [standards] 8 legal rules carry citations
+- [links] 14k.html: local links resolved
+- [links] 18k.html: local links resolved
 - [links] analysis.html: local links resolved
 - [links] calculator.html: local links resolved
+- [links] checklist.html: local links resolved
+- [links] combined.html: local links resolved
+- [links] excluded.html: local links resolved
 - [links] flagged.html: local links resolved
 - [links] index.html: local links resolved
+- [links] lab-grown.html: local links resolved
 - [links] methodology.html: local links resolved
+- [links] retailers.html: local links resolved
 - [links] rings.html: local links resolved
 - [links] sellers.html: local links resolved
+- [links] sources.html: local links resolved
 - [links] standards.html: local links resolved
+- [links] under-1000.html: local links resolved
 
 ## Standing recommendation
 

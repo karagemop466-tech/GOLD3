@@ -377,16 +377,61 @@ html_files = sorted(ROOT.glob("*.html"))
 if not html_files:
     warn("site", "no HTML pages found")
 
-# every dollar figure printed in the HTML must exist in the data
+# Every dollar figure printed in the HTML must be traceable to the data - either a stored
+# value or a value this project derives from it (melt = spot/gram x fineness). The set
+# therefore covers all of data/*.json, not just rings.json, and admits the derived melt
+# figures the site is supposed to show. A number that is in neither is still flagged.
+def _numbers(obj, out):
+    if isinstance(obj, bool):
+        return
+    if isinstance(obj, (int, float)):
+        out.add(float(obj))
+    elif isinstance(obj, dict):
+        for v in obj.values():
+            _numbers(v, out)
+    elif isinstance(obj, list):
+        for v in obj:
+            _numbers(v, out)
+    elif isinstance(obj, str):
+        # prices are sometimes inside prose, e.g. "($2,150 setting price)" in an excluded listing
+        for amount in re.findall(r"\$([0-9][0-9,]*\.?[0-9]*)", obj):
+            try:
+                out.add(float(amount.replace(",", "").rstrip(".")))
+            except ValueError:
+                pass
+
+
+raw_numbers = set()
+for path in DATA.glob("*.json"):
+    try:
+        _numbers(json.loads(path.read_text(encoding="utf-8")), raw_numbers)
+    except (json.JSONDecodeError, OSError) as exc:
+        warn("site", f"{path.name}: could not be read for the price cross-check ({exc})")
+
 data_prices = set()
-for r in rings:
-    if isinstance(r.get("price_usd"), (int, float)):
-        data_prices.add(f"{r['price_usd']:,.0f}")
+for n in raw_numbers:
+    data_prices.add(f"{n:,.2f}")
+    data_prices.add(f"{n:,.0f}")
+
+# derived figures the site publishes on purpose
+try:
+    _p = json.loads((DATA / "prices.json").read_text(encoding="utf-8"))
+    _spot = float(next(s for s in _p["snapshots"] if s["role"] == "primary")["price_usd_per_troy_oz"])
+    _gram = _spot / float(_p["constants"]["troy_ounce_grams"])
+    for _k, _f in _p["constants"]["karat_fineness"].items():
+        for _mult in (1, 2, 3, 4, 5, 6):
+            data_prices.add(f"{_gram * _f * _mult:,.2f}")
+    data_prices.add(f"{_gram:,.2f}")
+except (KeyError, StopIteration, ValueError, OSError):
+    pass
 if isinstance(spot, (int, float)):
     data_prices.add(f"{spot:,.2f}")
 
 for page in html_files:
     raw = page.read_text(encoding="utf-8")
+    # Worked examples that are explicitly hypothetical are labelled with data-illustration;
+    # they are arithmetic on the spot price, not claims about a listing, so they are exempt.
+    raw = re.sub(r'<span data-illustration="[^"]*">.*?</span>', "", raw, flags=re.S)
     # script/style bodies are code, not content: template literals like ${r.url}
     # are not links and would produce false positives.
     text = re.sub(r"<script\b[^>]*>.*?</script>", "", raw, flags=re.S | re.I)

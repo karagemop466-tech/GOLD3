@@ -475,6 +475,7 @@
   "notes": [
     "spot cross-check OK: $4,026.79 vs $4,024.36 (0.060% apart)",
     "retailer aurate: 15-day return window (below the 30-day reference used in the checklist)",
+    "retailer mejuri: no retrievable returns URL - window rests on the quoted policy text",
     "retailer ring-concierge: Trustpilot sample is only 7 reviews - low confidence",
     "retailer catbird: 20-day return window (below the 30-day reference used in the checklist)",
     "product bluenile-petite-solitaire-14k-yg: listing does not state solid gold - flagged for review",

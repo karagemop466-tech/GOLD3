@@ -21,10 +21,28 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
+
+      - name: Verify every value against its source (data gate)
+        run: python3 scripts/verify.py
+
       - name: Audit the dataset (fails on invented or unsourced values)
         run: python3 scripts/audit.py
-      - name: Render the pages against the real data
+
+      - name: Rebuild the site from the data
+        run: python3 scripts/build_site.py
+
+      - name: Committed pages must match a fresh build
+        run: |
+          if ! git diff --quiet; then
+            echo "::error::The committed HTML does not match a fresh build from data/*.json."
+            git diff --stat
+            echo "Run 'python3 scripts/build_site.py' and commit the result."
+            exit 1
+          fi
+
+      - name: Check the rendered pages against the data
         run: node scripts/render-test.js
+
       - name: Keep the audit report
         if: always()
         uses: actions/upload-artifact@v4
