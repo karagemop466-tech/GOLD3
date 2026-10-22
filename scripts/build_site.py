@@ -587,7 +587,8 @@ def build_combined() -> str:
     <li><a href="standards.html">Standards &amp; law reference</a> &mdash; its 16 CFR / 15 U.S.C. reading</li>
     <li><a href="methodology.html">Methodology</a> &mdash; the parallel pass&rsquo;s verification protocol</li>
     <li><a href="analysis.html">Analysis</a> &mdash; its findings and price-per-gram work</li>
-    <li><a href="reports/audit-latest.md">Audit report</a> &mdash; machine output from its no-hallucination audit</li>
+    <li><a href="reports/audit-report.md">Audit report</a> &mdash; machine output from its no-hallucination audit</li>
+    <li><a href="archive/session-982bfc88/reports/audit-latest.md">Earlier audit report (archived)</a> &mdash; from the first parallel pass</li>
   </ul>
 </div>
 
@@ -1191,10 +1192,17 @@ def build() -> None:
         text = (OUT / name).read_text(encoding="utf-8")
         if "TODO" in text or "TBD" in text:
             problems.append(f"{name}: contains TODO/TBD")
-        for href in re.findall(r'href="([^"#:]+\.html)[^"]*"', text):
-            base = href.split("?")[0]
-            if base not in pages and base not in preserved:
-                problems.append(f"{name}: broken internal link -> {href}")
+        for href in re.findall(r'href="([^"]+)"', text):
+            if href.startswith(("mailto:", "tel:", "//", "http", "#")):
+                continue
+            base = href.split("?")[0].split("#")[0]
+            if not base or base.startswith(("http", "/")):
+                continue
+            if base.endswith(".html"):
+                if base not in pages and base not in preserved:
+                    problems.append(f"{name}: broken internal link -> {href}")
+            elif not (OUT / base).exists():
+                problems.append(f"{name}: broken asset/report link -> {href}")
         if "assets/style.css" not in text:
             problems.append(f"{name}: missing stylesheet")
 
