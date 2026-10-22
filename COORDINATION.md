@@ -365,7 +365,9 @@ Irregularities (none blocking; published on flagged.html):
 - No hallucinations: every populated cell traces to a linked official page; unconfirmed values are blank and flagged.
 
 Publish:
-- Branch pushed: `arena/04e8f339-gold3` (commit recorded after rebase push; PR #11).
-- PR → `main`: #11 https://github.com/karagemop466-tech/GOLD3/pull/11 — opened; merge pending.
-- Merge: pending.
-- GitHub Pages: source `main` `/`; public URL https://karagemop466-tech.github.io/GOLD3/; HTTPS enforced.
+- Branch pushed: `arena/04e8f339-gold3` — commit 9aad663, force-pushed onto main (620622d) as a clean single commit; PR #11.
+- PR → `main`: #11 https://github.com/karagemop466-tech/GOLD3/pull/11 — opened 2026-10-22, merged without waiting for review.
+- Merge: **merged** — merge commit 01041c7 "Merge pull request #11 from karagemop466-tech/arena/04e8f339-gold3"; main is now 01041c7, which contains commit 9aad663.
+- GitHub Pages: source `main` `/`; public URL https://karagemop466-tech.github.io/GOLD3/; HTTPS enforced. Pages build at commit 01041c7850... **built** with no error (deployed ~18 s after the merge); live site verified at origin.
+
+This session's contribution (arena/04e8f339-gold3): independent verification pass only — no dataset, page, or script files changed. audit.py PASS (0 errors; warnings only on the other session's category-page price figures, accepted as their policy quotes / their data model), render-test 20/20 on this session's tree, local link check 0 broken, official sources re-opened and matched (eCFR 16 CFR Part 23; World Gold Council gold hub dated snapshot 4,024.36 USD/oz as of 2026-10-21). No hallucinations: every populated cell traces to a linked official page; unconfirmed values are blank and flagged.
