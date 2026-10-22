@@ -353,8 +353,8 @@ def build_index() -> str:
         ("Sellers covered", str(METRICS["n_sellers_total"]), "returns, contact, independent reviews"),
         ("Gold spot (USD/oz)", money(SPOT, 2), e(PRIMARY["as_of_text"])),
         ("14K melt value", money(melt["14K"], 2) + "/g", "raw gold, before labour &amp; stones"),
-        ("Ring weights published", f"{METRICS['n_weight_published']} of {METRICS['n_solid_gold']}", "the single biggest gap"),
-        ("Hallmarks confirmed", f"{METRICS['n_hallmark_stated']} of {METRICS['n_retailers']}", "no retailer states a policy"),
+        ("Weights in this pass", f"{METRICS['n_weight_published']} of {METRICS['n_solid_gold']}", f"{METRICS['n_weight_published_total']} of {METRICS['n_combined']} combined - see F2"),
+        ("Hallmark policies", f"{METRICS['n_hallmark_stated']} of {METRICS['n_retailers']}", "no retailer states one in writing"),
     ]
     kpi_html = "".join(
         f'<div class="kpi"><div class="label">{l}</div><div class="value">{v}</div><div class="sub">{s}</div></div>'
@@ -366,10 +366,10 @@ def build_index() -> str:
     # 5394.3% and a melt value of $6,983.75/g. Caught by the audit pass on
     # 2026-10-22 and recorded in data/verification.json under site_defects.
     melt_rows = "".join(
-        f"<tr><td><strong>{k}</strong></td><td class='num'>{v*100:.2f}%</td>"
-        f"<td class='num'>{money(SPOT_GRAM * v, 2)}</td>"
-        f"<td class='num'>{money(SPOT_GRAM * v * 3, 2)}</td></tr>"
-        for k, v in FINENESS.items() if k in melt
+        f"<tr><td><strong>{k}</strong></td><td class='num'>{FINENESS[k]*100:.2f}%</td>"
+        f"<td class='num'>{money(v, 2)}</td>"
+        f"<td class='num'>{money(v * 3, 2)}</td></tr>"
+        for k, v in melt.items()
     )
 
     findings_html = "".join(
@@ -422,7 +422,8 @@ def build_index() -> str:
   </table>
 </div>
 <p class="tiny muted">*3 g is a <em>scenario</em> used to show scale, not a claim about any ring in this dataset - none of the listings publishes a weight.
-At {money(SPOT,2)}/oz, one gram of pure gold is {money(SPOT_GRAM,2)}. Calculated in <a href="calculator.html">the calculator</a>, with the formula shown.</p>
+At {money(SPOT,2)}/oz, one gram of 100% fine gold is {money(SPOT_GRAM,2)}. The 24K row uses the 999.9-fine convention
+(99.99%), so it renders one cent lower. Calculated in <a href="calculator.html">the calculator</a>, with the formula shown.</p>
 
 <h2>Why this exists</h2>
 <div class="grid cols-3">
@@ -1487,7 +1488,7 @@ def build_checklist() -> str:
          "No retailer here publishes a hallmark policy, so every row is unverified on this point until you see the ring."),
         ("Weight", "Get the ring's weight in grams from the seller.",
          "Without weight, the gold content cannot be computed - only implied by the price.",
-         "0 of 17 gold listings publish a weight. Aurate's 'weight' field is a shipping weight and was deliberately not used."),
+         f"0 of {METRICS['n_solid_gold']} gold listings publish a weight. Aurate's product feed carries an undocumented numeric 'weight' field that repeats across variants; it is never described as the finished item weight, so it was deliberately not used."),
         ("Seller reputation", "Read independent reviews and complaints; confirm a real phone number or address.",
          "Trustpilot scores are shown with review counts and whether reviews are invited, because sample size changes meaning.",
          "Retailer cards quote the actual complaint themes, not just the stars."),
