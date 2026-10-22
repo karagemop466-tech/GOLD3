@@ -1,0 +1,159 @@
+{
+  "meta": {
+    "title": "Gold ring dataset",
+    "last_updated": "2026-10-22",
+    "rules": [
+      "One entry = one product page on the seller's own domain.",
+      "A value is only stored if it is quoted from that page and the page was opened on the date in 'checked'.",
+      "check = live  → the page was fetched and read in this project.",
+      "check = snapshot → the value was seen in a search-engine copy of the seller page, NOT re-read on the page. Price is deliberately left blank.",
+      "check = dead → the page exists but the item is no longer purchasable.",
+      "price_type = setting → the price excludes the centre diamond; never compare it to a melt value.",
+      "price_type = from → the page says 'From $X'; the real price depends on size/material."
+    ]
+  },
+  "items": [
+    {
+      "id": "BN-195730",
+      "seller": "blue-nile",
+      "title": "Classic Simple Solitaire Engagement Ring in 14k White Gold",
+      "category": "engagement-setting",
+      "url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/classic-simple-solitaire-engagement-ring-in-14k-white-gold-item-195730",
+      "checked": "2026-10-22",
+      "check": "live",
+      "karat": "14K",
+      "color": "White",
+      "solid": null,
+      "weight_g": null,
+      "price": 1145.0,
+      "price_type": "setting",
+      "stock_number": "502120w14",
+      "ev": {
+        "karat": "Metal 14K White Gold",
+        "color": "Rhodium Finish: Yes",
+        "solid": null,
+        "weight": null,
+        "price": "$1,145(Setting Price)"
+      },
+      "observations": [
+        {
+          "on": "2026-10-22",
+          "price": 1145.0,
+          "via": "live product page"
+        }
+      ],
+      "flags": [
+        "setting-price-only",
+        "weight-not-published",
+        "solid-not-stated",
+        "rhodium-plated"
+      ],
+      "notes": "Setting only: the centre diamond is chosen separately, so the $1,145 is the metal + side-stone work. Page states the 14K white gold version has a rhodium finish (which 16 CFR 23.7 requires sellers to disclose). Gram weight is not published on the page."
+    },
+    {
+      "id": "MJ-BDER",
+      "seller": "mejuri",
+      "title": "Bold Diamond Eternity Ring",
+      "category": "engagement-complete",
+      "url": "https://mejuri.com/products/bold-diamond-eternity-ring",
+      "checked": "2026-10-22",
+      "check": "live",
+      "karat": "14K",
+      "color": "White",
+      "solid": true,
+      "weight_g": null,
+      "price": 2900.0,
+      "price_type": "from",
+      "ev": {
+        "karat": "Solid White Gold (14k), Natural Diamond",
+        "color": "14k solid white gold pieces are finished with rhodium plating",
+        "solid": "handcrafted in 14k solid gold",
+        "weight": null,
+        "price": "From$2,900"
+      },
+      "observations": [
+        {
+          "on": "2026-10-22",
+          "price": 2900.0,
+          "via": "live product page"
+        }
+      ],
+      "flags": [
+        "from-price",
+        "weight-not-published",
+        "rhodium-plated",
+        "engraving-not-returnable"
+      ],
+      "notes": "Explicitly says solid 14k gold (unusually clear). Price is 'From' and moves with metal colour/size: a search-engine copy of the same Mejuri collection page showed $3,400 for one variant, so only the $2,900 floor is recorded. Returns: free 30 days, but engraved pieces are excluded."
+    },
+    {
+      "id": "RS-932728",
+      "seller": "ross-simons",
+      "title": "Italian 14kt Yellow Gold Diamond-Cut Ring",
+      "category": "weight-benchmark",
+      "url": "https://www.ross-simons.com/products/932728",
+      "checked": "2026-10-22",
+      "check": "live",
+      "karat": "14K",
+      "color": "Yellow",
+      "solid": null,
+      "weight_g": 0.8,
+      "price": 299.0,
+      "price_type": "full",
+      "item_number": "932728",
+      "ev": {
+        "karat": "Metal 14kt Yellow Gold",
+        "color": "14kt Yellow Gold",
+        "solid": null,
+        "weight": "Gold Weight 0.8 grams",
+        "price": "$299"
+      },
+      "observations": [
+        {
+          "on": "2026-10-22",
+          "price": 299.0,
+          "via": "live product page"
+        },
+        {
+          "on": "2026-10-22",
+          "price": 270.0,
+          "via": "search-engine copy of the same page (stale)"
+        }
+      ],
+      "flags": [
+        "weight-is-approximate",
+        "price-drift",
+        "solid-not-stated",
+        "not-an-engagement-ring"
+      ],
+      "notes": "Useful as a weight benchmark because Ross-Simons publishes the gram weight. The page qualifies it: \"All weights and measurements are approximate.\" It does NOT say solid gold anywhere on the page. The search-engine copy of this same URL showed $270 while the live page showed $299 — recorded as a price-drift finding rather than quietly picking one."
+    },
+    {
+      "id": "COSTCO-100423493",
+      "seller": "costco",
+      "title": "4mm Comfort Fit Diamond Cut 14kt Gold Wedding Band",
+      "category": "wedding-band",
+      "url": "https://www.costco.com/4mm-diamond-cut-wedding-ring-14kt-gold.product.100423493.html",
+      "checked": "2026-10-22",
+      "check": "dead",
+      "karat": null,
+      "color": null,
+      "solid": null,
+      "weight_g": null,
+      "price": null,
+      "price_type": null,
+      "ev": {
+        "karat": null,
+        "color": null,
+        "solid": null,
+        "weight": null,
+        "price": null
+      },
+      "observations": [],
+      "flags": [
+        "dead-listing"
+      ],
+      "notes": "Costco product URLs from the search index now return \"Page Not Found!\" / \"Product Not Available\". Nothing about this item is recorded as fact — it is kept only so the dead-link check has something to show."
+    }
+  ]
+}

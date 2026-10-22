@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Method &amp;amp; audit · GOLD3</title>
+<meta name="description" content="Verified, source-linked research on solid gold engagement rings: karat, gram weight, melt value, seller policies and every flagged irregularity.">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='11' fill='%23d9b45b'/></svg>">
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site"><div class="wrap">
+  <a class="brand" href="index.html"><span class="dot"></span>GOLD3 <small>Gold engagement ring research</small></a>
+  <nav class="main"><a href="index.html">Dashboard</a><a href="rings.html">Ring list</a><a href="sellers.html">Sellers</a><a href="standards.html">Rules &amp; law</a><a href="calculator.html">Calculator</a><a href="flagged.html">Flagged for review</a><a href="method.html" aria-current="page">Method &amp; audit</a></nav>
+</div></header>
+<main id="main"><div class="wrap">
+
+<p class="eyebrow">How this was built</p>
+<h1>Method &amp; audit</h1>
+<p class="lead">The whole value of this project is that you can check it. This page explains exactly where each
+number came from, what was deliberately left out, and what the automated anti-hallucination audit verifies after
+every review pass.</p>
+
+<h2>The no-hallucination protocol</h2>
+<div class="card">
+  <ol style="margin:0;padding-left:20px">
+    <li><b>One source of truth per value.</b> A price, karat, colour or weight may only exist in the dataset with a
+      quoted string taken from the seller's own page, plus the date the page was read.</li>
+    <li><b>Live beats cached.</b> A value seen in a search-engine copy of a page is recorded as an observation but is
+      <em>never</em> used as the price. Only a page opened and read counts as a live check.</li>
+    <li><b>Blank beats wrong.</b> If the page does not publish it, the field stays <code>null</code>. The site shows
+      <span class="nv">—</span> and the entry appears on <a href="flagged.html">Flagged for review</a>.</li>
+    <li><b>Wording must match the verdict.</b> “Solid gold = yes” is only allowed if the quote contains the word
+      <em>solid</em>; “solid gold = no” only if the quote contains plating/vermeil/filled/overlay wording.</li>
+    <li><b>Arithmetic must reproduce.</b> Every melt value is recomputed from stored inputs with the published formula,
+      and any price below its own melt value is flagged, not published as a deal.</li>
+    <li><b>Conflicts are surfaced.</b> Two prices for the same URL are both stored, and the disagreement is flagged.</li>
+  </ol>
+</div>
+
+<h2 id="audit">Automated audit — latest run</h2>
+<div class="grid g4">
+  <div class="card stat"><span class="n">13</span><span class="l">checks run</span></div>
+  <div class="card stat"><span class="n" style="color:var(--ok)">10</span><span class="l">passed</span></div>
+  <div class="card stat"><span class="n" style="color:var(--warn)">2</span><span class="l">warnings</span></div>
+  <div class="card stat"><span class="n" style="color:var(--bad)">0</span><span class="l">failures</span></div>
+</div>
+<p class="sub">Run 2026-10-22 23:15 UTC · <code>python3 scripts/audit.py</code> · machine-readable copy in
+<code>reports/audit-latest.json</code>.</p>
+<div class="tablewrap"><table><thead><tr><th>ID</th><th>Check</th><th>Result</th><th>Detail</th></tr></thead><tbody><tr><td class='mono'>A1</td><td><b>Every entry links to an official seller page</b></td><td><span class="badge b-ok">PASS</span></td><td class='sub'>4/4 entries have an official URL and a registered seller.</td></tr><tr><td class='mono'>A2</td><td><b>No price exists without a quoted, dated source</b></td><td><span class="badge b-ok">PASS</span></td><td class='sub'>3 priced entries checked; 0 need attention.</td></tr><tr><td class='mono'>A3</td><td><b>Karat value appears verbatim in the quoted evidence</b></td><td><span class="badge b-ok">PASS</span></td><td class='sub'>4/4 karat values traced to a quote.</td></tr><tr><td class='mono'>A4</td><td><b>Solid-gold verdicts are backed by the seller&#x27;s own wording</b></td><td><span class="badge b-ok">PASS</span></td><td class='sub'>1 verdicts checked.</td></tr><tr><td class='mono'>A5</td><td><b>Gram weights come from the seller, never from an estimate</b></td><td><span class="badge b-ok">PASS</span></td><td class='sub'>1 weight values checked.</td></tr><tr><td class='mono'>A6</td><td><b>Every derived figure is reproducible from stored inputs</b></td><td><span class="badge b-ok">PASS</span></td><td class='sub'>Melt value = weight_g × karat/24 × (spot ÷ 31.1034768). Recomputed for 1 entries.</td></tr><tr><td class='mono'>A7</td><td><b>Price-drift detector: same item, different recorded prices</b></td><td><span class="badge b-warn">WARN</span></td><td class='sub'>1 of 4 entries have more than one recorded price observation.</td></tr><tr><td class='mono'>A8</td><td><b>No duplicate listings</b></td><td><span class="badge b-ok">PASS</span></td><td class='sub'>0 duplicate entries.</td></tr><tr><td class='mono'>A9</td><td><b>Dead listings are labelled, not silently kept</b></td><td><span class="badge b-info">INFO</span></td><td class='sub'>1 dead listing(s) recorded and excluded from recommendations.</td></tr><tr><td class='mono'>A10</td><td><b>Spot price is dated by an official source</b></td><td><span class="badge b-ok">PASS</span></td><td class='sub'>$4,024.36/ozt as of 2026-10-21 (1 day(s) old) — World Gold Council — Goldhub, Gold spot prices.</td></tr><tr><td class='mono'>A11</td><td><b>Every entry carries a recent re-check date</b></td><td><span class="badge b-ok">PASS</span></td><td class='sub'>0 entries older than 30 days.</td></tr><tr><td class='mono'>A12</td><td><b>Price magnitude sanity check</b></td><td><span class="badge b-ok">PASS</span></td><td class='sub'>All stored prices fall in a credible range (limit $20,000 per fine gram).</td></tr><tr><td class='mono'>A13</td><td><b>Every seller has a linked, official return policy</b></td><td><span class="badge b-warn">WARN</span></td><td class='sub'>5/6 sellers documented.</td></tr></tbody></table></div>
+
+<h3>Findings this run</h3>
+<div class="tablewrap"><table><thead><tr><th>Severity</th><th>Item</th><th>Field</th><th>Finding</th></tr></thead>
+<tbody><tr><td><span class="badge b-warn">warn</span></td><td class='mono'>RS-932728</td><td>price</td><td class='sub'>Conflicting prices recorded for the same item: $270 on 2026-10-22 (search-engine copy of the same page (stale)), $299 on 2026-10-22 (live product page)</td></tr><tr><td><span class="badge b-warn">warn</span></td><td class='mono'>costco</td><td>returns</td><td class='sub'>No official return-policy URL recorded for this seller.</td></tr><tr><td><span class="badge b-mut">info</span></td><td class='mono'>COSTCO-100423493</td><td>availability</td><td class='sub'>Listing is no longer purchasable (page returned &#x27;not found&#x27; / &#x27;not available&#x27;) — kept for the record, excluded from the buy list.</td></tr></tbody></table></div>
+
+<h2>Build integrity</h2>
+<div class="card">
+<p><b>95</b> internal links checked, <b>0</b> broken.
+<b>10</b> in-page anchors checked, <b>0</b> missing.
+Pages generated: <code>index.html</code>, <code>rings.html</code>, <code>sellers.html</code>, <code>standards.html</code>, <code>calculator.html</code>, <code>flagged.html</code>, <code>method.html</code>.</p>
+<p class="sub" style="margin-bottom:0">External links point at the seller or government page that was actually read;
+each entry in <code>data/rings.json</code> stores the URL together with the quote taken from it.</p>
+</div>
+
+<h2>Formulas</h2>
+<div class="card">
+  <table><tbody>
+    <tr><td class="mono">fine_g</td><td>= ring weight in grams × karat ÷ 24</td></tr>
+    <tr><td class="mono">spot_per_g</td><td>= spot price per troy ounce ÷ 31.1034768</td></tr>
+    <tr><td class="mono">melt_value</td><td>= fine_g × spot_per_g</td></tr>
+    <tr><td class="mono">premium</td><td>= (price − melt_value) ÷ melt_value × 100 — only when the price covers the whole ring</td></tr>
+  </tbody></table>
+  <p class="sub" style="margin-bottom:0">Spot reference: <a class="srclink" href="https://www.gold.org/goldhub/data/gold-prices" rel="noopener nofollow" target="_blank">World Gold Council — Goldhub, Gold spot prices ↗</a> —
+  $4,024.36/ozt as of 2026-10-21, read 2026-10-22.</p>
+</div>
+
+<h2>Reproduce it</h2>
+<div class="card">
+<pre class="q" style="white-space:pre-wrap">git clone https://github.com/karagemop466-tech/GOLD3
+cd GOLD3
+python3 scripts/audit.py     # prints the audit, writes reports/audit-latest.{md,json}
+python3 scripts/build.py     # regenerates every page from data/*.json</pre>
+<p class="sub" style="margin-bottom:0">The dataset is plain JSON: <code>data/rings.json</code>,
+<code>data/sellers.json</code>, <code>data/standards.json</code>, <code>data/spot.json</code>.</p>
+</div>
+
+<h2>What this project is not</h2>
+<div class="note warn"><p>Not an appraisal, not legal advice, not a price guarantee. Prices change without notice — the
+date on every row is the only thing that makes it honest. Before buying, confirm the price on the seller's page
+yourself, and before wearing the ring, have an independent jeweller test and weigh it.</p></div>
+
+</div></main>
+<footer class="site"><div class="wrap">
+  <p><strong>GOLD3</strong> — an independent, source-linked buying file for solid gold engagement rings.
+  Every price on this site was read from the seller's own product page on the date shown; where a value could not be
+  confirmed it is left blank and listed on the <a href="flagged.html">Flagged for review</a> page.</p>
+  <p>This site is research, not legal, financial or appraisal advice. A karat stamp is a claim, not a test.
+  Have any ring verified by an independent jeweller before wearing or resizing it.</p>
+</div></footer>
+
+</body>
+</html>
