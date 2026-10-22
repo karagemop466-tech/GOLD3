@@ -1644,6 +1644,19 @@ def build() -> None:
     # link targets even though this script does not render them.
     preserved = {f.name for f in OUT.glob("*.html")} - set(pages)
     problems = []
+
+    # Arithmetic guard (added by `arena/92d7dd0a-gold3` in PR #14, kept through this
+    # merge): every karat row must equal spot/gram x fineness, cell for cell. A unit
+    # mix-up (fineness vs USD/gram) then fails the build instead of reaching the page.
+    _idx_html = pages["index.html"]
+    for _k in ("10K", "14K", "18K", "22K", "24K"):
+        _fin = FINENESS[_k]
+        _row = (f"<tr><td><strong>{_k}</strong></td><td class='num'>{_fin*100:.2f}%</td>"
+                f"<td class='num'>{money(SPOT_GRAM * _fin, 2)}</td>"
+                f"<td class='num'>{money(SPOT_GRAM * _fin * 3, 2)}</td></tr>")
+        if _row not in _idx_html:
+            problems.append(f"index.html: karat table arithmetic mismatch for {_k}")
+
     for name in pages:
         text = (OUT / name).read_text(encoding="utf-8")
         if "TODO" in text or "TBD" in text:

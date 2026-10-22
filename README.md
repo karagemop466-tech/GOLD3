@@ -78,11 +78,12 @@ surviving datasets are published rather than one being discarded:
 `scripts/verify.py` gates **both**. For Dataset B it checks official-domain sources, a per-listing source list, that the
 numeric price appears inside `price_as_shown`, that any weight carries a weight quote, that a `PASS` solid-gold verdict
 carries a quote, and that each excluded look-alike states a reason and an official URL. Combined metrics land in
-`data/verification-report.json` (38 listings, 10 sellers, 4 published weights).
+`data/verification-report.json` (41 listings, 13 sellers, 7 published weights).
 
 `combined.html` shows both sets with an A/B badge so nothing is misattributed. Dataset B's own pages
-(`sellers.html`, `standards.html`, `methodology.html`, `analysis.html`) and the earlier session's archive under
-`archive/session-982bfc88/` are preserved unchanged.
+(`sellers.html`, `standards.html`, `methodology.html`, `analysis.html`, `verify.html`) are generated from the same
+JSON by `scripts/build_site.py` - never hand-edited - and the earlier session's archive under
+`archive/session-982bfc88/` is preserved unchanged.
 
 ## Build and verify
 
