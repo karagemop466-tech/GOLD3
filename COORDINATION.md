@@ -22,8 +22,8 @@
 | **C1** | Repository review (`README.md`, commit history, GitHub Pages config, remote branch audit) & baseline irregularity logging | `done` | `arena/cbea1001-gold3` | `COORDINATION.md`, `data/repo-audit.json` |
 | **C2** | Official gold spot benchmark price & US federal purity/hallmark/XRF standards verification | `done` | `arena/cbea1001-gold3` | `data/gold-benchmark.json`, `data/purity-standards.json` |
 | **C3** | Official gold engagement ring product listings collection & line-by-line verification | `done` | `arena/cbea1001-gold3` | `data/rings.json` |
-| **C4** | Seller reputation, contact info, return policies (custom/resized exclusions), payment protection & XRF inspection verification | `in progress` | `arena/cbea1001-gold3` | `data/sellers.json` |
-| **C5** | Anti-hallucination security scanner, raw gold / melt math verifier, blank-cell enforcement & link checker | `unclaimed` | — | `package.json`, `scripts/security-check.mjs`, `scripts/verify-links.mjs`, `data/flagged-items.json`, `data/audit-report.json` |
+| **C4** | Seller reputation, contact info, return policies (custom/resized exclusions), payment protection & XRF inspection verification | `done` | `arena/cbea1001-gold3` | `data/sellers.json` |
+| **C5** | Anti-hallucination security scanner, raw gold / melt math verifier, blank-cell enforcement & link checker | `in progress` | `arena/cbea1001-gold3` | `package.json`, `scripts/security-check.mjs`, `scripts/verify-links.mjs`, `data/flagged-items.json`, `data/audit-report.json` |
 | **C6** | GitHub Pages dashboard landing page, category subpages, interactive gold weight/melt calculator & Flagged for Review page | `unclaimed` | — | `.nojekyll`, `index.html`, `rings.html`, `calculator.html`, `sellers.html`, `checklist.html`, `analysis.html`, `security-audit.html`, `flagged.html`, `assets/styles.css`, `assets/app.js` |
 | **C7** | Final integration session: merge/sync check against `origin/main`, full line-by-line re-verification pass, CI workflow, PR creation & merge, live GitHub Pages deployment check | `unclaimed` | — | `.github/workflows/verify.yml`, `README.md`, `COORDINATION.md` |
 
@@ -74,4 +74,15 @@
   - `RING-07` (`Sarraf.com` Stock `151105`, `$695`): Copy calls 14K alloy `"Solid and Pure 14k Yellow Gold"` (`16 CFR § 23.3` reserves unqualified/pure gold for 24K).
   - `RING-14` (`Brilliant Earth` `BE1FM0126-18KY`, `$1,090`): Displays `"Free 1-Year Resizing"` trust badge alongside Product Details exclusion `"resizing is not available for this ring"`, plus UI unit bug `"Band Width: 2 ct. tw."`.
 - **Claimed Task C4 (`in progress`):** Scope `data/sellers.json`.
+
+### 2026-10-22 — Session `arena/cbea1001-gold3` — Completed Task C4 & Claimed Task C5
+- **Task C4 Completed (`done`):** Verified all 8 jewelry retailers (`Automic Gold`, `Sarraf.com`, `Blue Nile`, `Brilliant Earth`, `VRAI`, `Mejuri`, `Local Eclectic`, `Menē`) line-by-line against official return/payment/contact/terms pages and Better Business Bureau (`bbb.org`) profiles in `data/sellers.json`.
+- **Key Verified Findings & Irregularities Logged (`needs review`):**
+  - `SELLER-VRAI`: BBB Los Angeles profile (`bbb.org/us/ca/los-angeles/profile/jewelry-advisory-service/vrai-1216-652149`) carries an **`F` rating** (failure to respond to 5 complaints) and official VRAI return help center imposes a **`$300 USD` recycling fee** on setting-only or engraved engagement ring returns to original payment method; static credit card brand list left `null` (`unverified`).
+  - `SELLER-LOCALECLECTIC`: Official FAQ (`localeclectic.com/pages/frequently-asked-questions`) advertises 90-day returns, but restricts original-payment-method refunds to **14 days from delivery** (days 15–90 yield store credit only, minus return shipping label cost); phone number omitted on website Contact Us page (`+1-888-232-8306` verified via BBB Chicago profile); static credit card brand list left `null` (`unverified`).
+  - `SELLER-MENE`: Official Sep 2, 2026 Terms of Service (`mene.com/terms-of-service`) limit returns to **7 days from receipt**, default self-service returns to non-cash `Menē Credit` (subject to expiry), permit **up to a 10% restocking fee** on discretionary original-payment refunds, and deduct **5%** if the Certificate of Authenticity is missing.
+  - `SELLER-BLUENILE`: Official return clock starts on **shipment date** (not delivery date), and resizing after initial purchase voids return eligibility (`bluenile.com/policies/returns`).
+  - `SELLER-AUTOMIC`: BBB main profile shows `A+` while BBB `/overview-of-bbb-ratings` subpage displays `NR`.
+- **Claimed Task C5 (`in progress`):** Scope `package.json`, `scripts/security-check.mjs`, `scripts/verify-links.mjs`, `data/flagged-items.json`, `data/audit-report.json`.
+
 
