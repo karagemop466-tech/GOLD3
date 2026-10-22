@@ -39,7 +39,7 @@ Branch naming: `session-<id>/<task>`. (This primary session is pinned by the pla
 | T4 | Regulatory standards (FTC 16 CFR 23; National Stamping Act) | **done** | `arena/8aaa18bf-gold3` | `data/standards.json`, `standards.html` |
 | T5 | Anti-hallucination audit tooling + audit report | **done** | `arena/8aaa18bf-gold3` | `scripts/`, `reports/` |
 | T6 | Site build (landing, category pages, table, calculator, flagged page) | **done** | `arena/8aaa18bf-gold3` | `*.html`, `assets/` |
-| T7 | Integration: re-verify combined data, link check, publish Pages, PR + merge | **done** | `arena/8aaa18bf-gold3` | `.github/workflows/`, repo root |
+| T7 | Integration: re-verify combined data, link check, publish Pages, PR + merge | **done** — PR #2 + PR #8 | `arena/8aaa18bf-gold3` | `.github/workflows/`, repo root |
 
 Status values: `unclaimed` · `in progress` · `done` · `needs review`.
 `needs review` = the item is published on the **Flagged for Review** page; it does **not** block merge.
@@ -163,3 +163,40 @@ session's files leave the root but remain in git history and in `archive/session
 lost. The lesson is recorded in `methodology.html`: **verify the deployed page, not just the repo**, and never
 auto-commit a reconciliation merge without diffing the tree afterwards.
 
+
+---
+
+## Release record — 2026-10-22
+
+**Merged pull requests**
+
+| PR | Title | Result |
+|---|---|---|
+| [#2](https://github.com/karagemop466-tech/GOLD3/pull/2) | Verified solid-gold engagement ring dataset + anti-hallucination dashboard | **merged** (merge commit `26d5ecf`) |
+| [#8](https://github.com/karagemop466-tech/GOLD3/pull/8) | Fix: restore coherent site tree after blended merge (page counts vs dataset) | **merged** (merge commit `6bea797`) |
+
+Earlier merges by the parallel session — [#1](https://github.com/karagemop466-tech/GOLD3/pull/1),
+[#3](https://github.com/karagemop466-tech/GOLD3/pull/3), [#4](https://github.com/karagemop466-tech/GOLD3/pull/4),
+[#5](https://github.com/karagemop466-tech/GOLD3/pull/5), [#7](https://github.com/karagemop466-tech/GOLD3/pull/7) —
+remain in history; their content is folded into this dataset and preserved in `archive/session-982bfc88/`.
+
+**GitHub Pages** — live at <https://karagemop466-tech.github.io/GOLD3/>. Deployment verified by reading the
+published page back after the merge: the front page renders **19 listings, 8 sellers, 28 flags**, and the
+gold table renders row by row from `data/rings.json`. Publishing mode is GitHub's branch build from `main:/`
+(the token available to this session could not switch the repository to Actions-based publishing), with
+`.nojekyll` so files are served as-is. `Audit data and site` runs on every push and PR.
+
+**Final verification state**
+- `scripts/audit.py`: **93 checks, 0 errors, 0 warnings** (`reports/audit-report.md`).
+- `scripts/render-test.js`: **20/20** pages render against the real JSON; the R11 melt figure reproduces the
+  arithmetic to the cent.
+- 19 listings, 8 sellers, 5 excluded listings, 28 flag definitions.
+- All external sources are https and sit on the domain they claim (domain-ownership check).
+
+**Open items, published on the Flagged for Review page and not blocking release**
+- Weight unpublished on 15 of 19 rows (`W1`); no seller publishes a per-item XRF or assay (`X1`).
+- Independent review/complaint research not done for any seller (`M1`) — no rating is asserted.
+- Ross-Simons, Catbird and James Allen return-policy pages were not read (`POL1`).
+- Tiffany's non-returnable / exchange-only notice is unresolved against its 30-day policy (`RET6`).
+- Costco's price was not displayable without membership (`P2`) and its policy excludes precious metals (`RET1`).
+- One row (R19) was imported from the parallel session without re-fetching (`L3`).
