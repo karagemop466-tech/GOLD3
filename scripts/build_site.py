@@ -344,8 +344,8 @@ def build_index() -> str:
         ("Sellers covered", str(METRICS["n_sellers_total"]), "returns, contact, independent reviews"),
         ("Gold spot (USD/oz)", money(SPOT, 2), e(PRIMARY["as_of_text"])),
         ("14K melt value", money(melt["14K"], 2) + "/g", "raw gold, before labour &amp; stones"),
-        ("Ring weights published", f"{METRICS['n_weight_published']} of {METRICS['n_solid_gold']}", "the single biggest gap"),
-        ("Hallmarks confirmed", f"{METRICS['n_hallmark_stated']} of {METRICS['n_retailers']}", "no retailer states a policy"),
+        ("Weights in this pass", f"{METRICS['n_weight_published']} of {METRICS['n_solid_gold']}", f"{METRICS['n_weight_published_total']} of {METRICS['n_combined']} combined - see F2"),
+        ("Hallmark policies", f"{METRICS['n_hallmark_stated']} of {METRICS['n_retailers']}", "no retailer states one in writing"),
     ]
     kpi_html = "".join(
         f'<div class="kpi"><div class="label">{l}</div><div class="value">{v}</div><div class="sub">{s}</div></div>'
@@ -353,9 +353,9 @@ def build_index() -> str:
     )
 
     melt_rows = "".join(
-        f"<tr><td><strong>{k}</strong></td><td class='num'>{v*100:.1f}%</td>"
-        f"<td class='num'>{money(SPOT_GRAM * (v if k != '24K' else 0.9999), 2)}</td>"
-        f"<td class='num'>{money(SPOT_GRAM * (v if k != '24K' else 0.9999) * 3, 2)}</td></tr>"
+        f"<tr><td><strong>{k}</strong></td><td class='num'>{FINENESS[k]*100:.2f}%</td>"
+        f"<td class='num'>{money(v, 2)}</td>"
+        f"<td class='num'>{money(v * 3, 2)}</td></tr>"
         for k, v in melt.items()
     )
 
@@ -1190,6 +1190,18 @@ def build() -> None:
     # link targets even though this script does not render them.
     preserved = {f.name for f in OUT.glob("*.html")} - set(pages)
     problems = []
+
+    # Arithmetic guard: every karat row must equal spot/gram x fineness. A rendered
+    # money value is checked in the same cell it is produced for, so a unit mix-up
+    # (fineness vs USD/gram) fails the build instead of reaching the page.
+    idx_html = pages["index.html"]
+    for k in ("10K", "14K", "18K", "22K", "24K"):
+        fin = FINENESS[k]
+        row = (f"<tr><td><strong>{k}</strong></td><td class='num'>{fin*100:.2f}%</td>"
+               f"<td class='num'>{money(SPOT_GRAM * fin, 2)}</td>"
+               f"<td class='num'>{money(SPOT_GRAM * fin * 3, 2)}</td></tr>")
+        if row not in idx_html:
+            problems.append(f"index.html: karat table arithmetic mismatch for {k}")
     for name in pages:
         text = (OUT / name).read_text(encoding="utf-8")
         if "TODO" in text or "TBD" in text:
