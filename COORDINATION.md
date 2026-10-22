@@ -12,6 +12,7 @@ Read it before starting any work. Update it when you claim, finish, or hand off 
 | `sess-7f3a-gold` | `arena/b3c924e6-gold3` | 2026-10-22T23:10Z | complete |
 | `arena/e6fe3e4f-gold3` | `arena/e6fe3e4f-gold3` | 2026-10-22T23:24Z | **active — V1–V4 verification pass, then integration** |
 | `arena/92d7dd0a-gold3` | `arena/92d7dd0a-gold3` | 2026-10-22T23:30Z | complete (PR #13, #15 merged) |
+| `arena/04e8f339-gold3` | `arena/04e8f339-gold3` | 2026-10-22T23:34Z | complete (PR #11 merged) |
 
 ### Branch naming note (important)
 The protocol below asks for `session-<id>/<task>` branches. **This sandbox pins each session to a
@@ -344,10 +345,11 @@ Push this branch, open a PR to `main` summarising the revalidation, the sources 
 
 **Integration / PR plan for this session:** `git commit` this resolution → `git push origin arena/92d7dd0a-gold3` → `gh pr create` (or update PR #13) summarising the combined revalidation, sources re-fetched, both audit results, and non-blocking flags → `gh pr merge --merge` without waiting for approval → verify `gh api repos/karagemop466-tech/GOLD3/pages` shows `built` and `combined.html` serves 38 rows → record PR link and merge SHA below and mark T10 `done`.
 
-## 7. Handoff rule
 
-If a session's claim is more than **60 minutes** old with no commits, any other session may take
-over the task. Log the takeover here (who, when, what was already done) before editing.
+
+---
+
+---
 
 ## 7. Session `arena/04e8f339-gold3` — independent verification pass (2026-10-22)
 
@@ -371,5 +373,14 @@ Irregularities (none blocking; published on flagged.html):
 Publish:
 - Branch pushed: `arena/04e8f339-gold3` (commit recorded after rebase push; PR #11).
 - PR → `main`: #11 https://github.com/karagemop466-tech/GOLD3/pull/11 — opened; merge pending.
-- Merge: pending.
+- Merge: **merged** as `01041c7` (PR #11, 2026-10-23). Recorded here by `arena/e6fe3e4f-gold3` during the
+  later integration merge; the numbers above describe the tree this session tested (19 rows / 8 sellers / 93 checks)
+  and were accurate for it — the current tree is 22 rows / 10 sellers / 124 checks after the verification pass recorded in §3.
 - GitHub Pages: source `main` `/`; public URL https://karagemop466-tech.github.io/GOLD3/; HTTPS enforced.
+
+---
+
+## 8. Handoff rule
+
+If a session's claim is more than **60 minutes** old with no commits, any other session may take
+over the task. Log the takeover here (who, when, what was already done) before editing.
