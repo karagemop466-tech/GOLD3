@@ -1,10 +1,10 @@
 # Anti-hallucination audit report
 
-- Run: 2026-10-22 23:17 UTC
-- Rows audited: **13**
-- Sellers audited: **4**
-- Flag definitions: **17**
-- Result: **PASS** — 0 error(s), 0 warning(s), 55 check(s) passed
+- Run: 2026-10-22 23:20 UTC
+- Rows audited: **19**
+- Sellers audited: **8**
+- Flag definitions: **28**
+- Result: **PASS** — 0 error(s), 0 warning(s), 74 check(s) passed
 
 ## What this pass is looking for
 
@@ -70,11 +70,30 @@ None.
 - [weight] R12: 2.2 g traced to a quoted seller statement
 - [sources] R13: 1 official source link(s)
 - [price] R13: $2,850 matches its quoted source text
+- [sources] R14: 2 official source link(s)
+- [price] R14: $1,145 matches its quoted source text
+- [sources] R15: 1 official source link(s)
+- [price] R15: $249 matches its quoted source text
+- [weight] R15: 0.7 g traced to a quoted seller statement
+- [sources] R16: 1 official source link(s)
+- [price] R16: $299 matches its quoted source text
+- [weight] R16: 0.8 g traced to a quoted seller statement
+- [sources] R17: 2 official source link(s)
+- [price] R17: $1,600 matches its quoted source text
+- [sources] R18: 1 official source link(s)
+- [price] R18: $276 matches its quoted source text
+- [sources] R19: 2 official source link(s)
+- [price] R19: $178 matches its quoted source text
+- [solid] R19: FAIL backed by plating/vermeil evidence
 - [sellers] S-BN: Blue Nile checked
 - [sellers] S-MJ: Mejuri checked
 - [sellers] S-CO: Costco checked
 - [sellers] S-WE: Wilson's Estate Jewelry checked
-- [flags] 17 flag definitions validated
+- [sellers] S-RS: Ross-Simons checked
+- [sellers] S-TI: Tiffany & Co. checked
+- [sellers] S-CB: Catbird checked
+- [sellers] S-JA: James Allen checked
+- [flags] 28 flag definitions validated
 - [standards] all karat fractions reproduce n/24
 - [standards] 8 legal rules carry citations
 - [links] analysis.html: local links resolved

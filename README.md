@@ -1,6 +1,6 @@
 # GOLD3 — verified gold engagement rings
 
-A source-verified workbench for buying a **solid gold engagement ring** online.
+A source-verified workbench for buying a **solid gold engagement ring** online: 19 listings across 8 sellers.
 
 **No hallucinations.** Every number on the site is traceable to a linked official page, retrieved
 **22 October 2026**. Where a seller does not publish a value, the cell is blank, marked
@@ -24,12 +24,13 @@ Live site: **https://karagemop466-tech.github.io/GOLD3/**
 | `flagged.html` | Everything unconfirmed or irregular, with severity, remedy and source. |
 | `methodology.html` | The passes run, the sources used, and what the audit caught. |
 | `data/gold-price.json` | The dated benchmark, with publisher, quote and caveats. |
-| `data/rings.json` | The listing rows, each with verbatim quotes and source URLs. |
+| `data/rings.json` | The 19 listing rows, each with verbatim quotes and source URLs. |
 | `data/sellers.json` | Seller policy and contact facts. |
 | `data/standards.json` | Karat fineness table and legal rules with citations. |
 | `data/flags.json` | Flag definitions: what was found, why it matters, what to do. |
 | `scripts/audit.py` | The anti-hallucination audit. |
 | `reports/audit-report.md` | Output of the last audit run. |
+| `archive/session-982bfc88/` | The parallel session's original site, data, scripts and reports, preserved verbatim. |
 | `scripts/render-test.js` | Runs every page's table against the real JSON in a DOM shim (20 checks). |
 | `COORDINATION.md` | Shared task board for parallel agent sessions. |
 
@@ -69,8 +70,17 @@ The pages read `data/*.json` over HTTP, so serve them rather than opening the fi
    from the centre diamond.
 4. **One retailer's return policy excludes precious metals** — which fails the return requirement
    outright, whatever the price.
-5. **Only estate jewellers publish weights in grams**, and even then it is *total* item weight, so a
-   melt calculation from it is an upper bound.
+5. **Weights are the exception.** Estate jewellers and one catalogue retailer publish grams; even then the
+   figure is *total* item weight or explicitly approximate, so a melt calculation from it is an upper bound.
+6. **A luxury product page can override the glossy policy.** One flagship ring is declared non-returnable and
+   exchange-only on its own product page, even though the same brand advertises a 30-day return policy.
+
+## Two sessions, one dataset
+
+A second agent session merged its own implementation to `main` (PR #1) while this one was building. Nothing
+was discarded: its seven verified listings were re-opened, re-verified and folded in, its seller facts merged,
+its two dead listings moved to the excluded table, and its original files preserved verbatim under
+`archive/session-982bfc88/`. See `COORDINATION.md` for the reconciliation log.
 
 ## Standing recommendation
 

@@ -268,7 +268,7 @@ for s in sellers:
         err("sellers", f"{sid}: contact details present without a contact_source")
 
     if s.get("phone"):
-        if not re.fullmatch(r"\+\d[\d\- ]{6,}", s["phone"]):
+        if not re.fullmatch(r"(\+\d[\d\- ]{6,}|\(\d{3}\)\s?\d{3}-\d{4})", s["phone"]):
             warn("sellers", f"{sid}: odd phone format {s['phone']!r}")
     if s.get("email") and "@" not in s["email"]:
         err("sellers", f"{sid}: malformed email {s['email']!r}")

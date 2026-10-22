@@ -154,6 +154,105 @@
       "why_it_matters": "Your checklist requires independent review research. Inventing a rating would be a hallucination, so this is left open.",
       "action": "Check BBB, Trustpilot and state AG complaint databases before buying.",
       "source": null
+    },
+    {
+      "id": "RET6",
+      "severity": "high",
+      "label": "Product page says the item is non-returnable",
+      "what": "Tiffany & Co.'s own product page for The Tiffany Setting states: \"Please note that this item is non returnable\" and \"this item can only be exchanged\".",
+      "why_it_matters": "Your checklist requires that you can return the ring after inspecting it, including after an independent test. Exchange-only means you cannot get your money back if the assay disappoints.",
+      "action": "Get the return terms confirmed in writing for the exact configuration before paying. If exchange-only stands, the ring fails your return requirement.",
+      "source": "https://www.tiffany.com/engagement/engagement-rings/the-tiffany-setting-engagement-ring-in-18k-yellow-gold-GRP10863/"
+    },
+    {
+      "id": "RH1",
+      "severity": "medium",
+      "label": "Rhodium-plated surface on white gold",
+      "what": "The listing states a rhodium finish on 14K white gold.",
+      "why_it_matters": "Rhodium is a surface plating over the gold alloy, not the body metal. 16 CFR 23.7 requires that this surface layer be disclosed, and it wears away with time.",
+      "action": "Budget for re-plating every few years, or choose yellow gold if you do not want a plated surface.",
+      "source": "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23"
+    },
+    {
+      "id": "WT2",
+      "severity": "medium",
+      "label": "Weight is explicitly approximate",
+      "what": "The seller publishes a gram weight but qualifies it: \"All weights and measurements are approximate\".",
+      "why_it_matters": "An approximate weight still beats no weight, but melt-value maths on it inherits that uncertainty.",
+      "action": "Treat the melt figure as indicative; ask for the actual weight of the specific piece before shipping.",
+      "source": "https://www.ross-simons.com/products/985230"
+    },
+    {
+      "id": "LT1",
+      "severity": "medium",
+      "label": "Very light band",
+      "what": "A published weight under 1 gram for a full ring.",
+      "why_it_matters": "At this weight there is very little gold, so the melt value is small relative to the asking price, and the band will feel and wear differently from a heavier ring. It is the clearest illustration of why the gram figure matters more than the karat badge.",
+      "action": "Decide whether you want a ring this light before comparing it on price alone.",
+      "source": "https://www.ross-simons.com/products/985230"
+    },
+    {
+      "id": "MM1",
+      "severity": "medium",
+      "label": "Two metals in one ring",
+      "what": "An 18k yellow gold band combined with a platinum head.",
+      "why_it_matters": "16 CFR 23.8 requires the relative quantities of precious metals in a multi-metal product to be disclosed and listed in order of weight. \"18k gold\" alone does not describe this ring's composition.",
+      "action": "Ask which metal dominates by weight before valuing the gold content.",
+      "source": "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23"
+    },
+    {
+      "id": "FP1",
+      "severity": "medium",
+      "label": "\"Starting from\" price",
+      "what": "The price shown is the entry configuration, not a fixed price for the ring pictured.",
+      "why_it_matters": "The figure varies with the centre stone. Comparing it with a fixed price elsewhere compares two different things.",
+      "action": "Configure the exact stone you want and record that total, with the date.",
+      "source": "https://www.tiffany.com/engagement/engagement-rings/the-tiffany-setting-engagement-ring-in-18k-yellow-gold-GRP10863/"
+    },
+    {
+      "id": "AV1",
+      "severity": "medium",
+      "label": "Availability unclear or unavailable",
+      "what": "The page showed unavailable or sold-out indicators during verification.",
+      "why_it_matters": "A price you cannot actually transact at is not a live price.",
+      "action": "Confirm stock before relying on the price.",
+      "source": "https://www.catbirdnyc.com/woodland-ring.html"
+    },
+    {
+      "id": "PD1",
+      "severity": "low",
+      "label": "Price differed between live page and cached copy",
+      "what": "A search-engine copy of the same URL showed a different figure than the live page.",
+      "why_it_matters": "This is the exact mechanism by which a hallucinated price enters a project like this. The live page wins; the stale figure is recorded only so the discrepancy stays visible.",
+      "action": "Always read the live page, never a cached snippet.",
+      "source": null
+    },
+    {
+      "id": "DL1",
+      "severity": "low",
+      "label": "Listing is dead or redirects",
+      "what": "The product URL now 404s, is sold out, or redirects to a different retailer.",
+      "why_it_matters": "Dead listings are excluded from the price table rather than quoted from a stale copy.",
+      "action": "None — recorded for completeness.",
+      "source": null
+    },
+    {
+      "id": "POL1",
+      "severity": "medium",
+      "label": "Return policy page not read",
+      "what": "No official return-policy page was captured for this seller, so return terms are unknown rather than favourable.",
+      "why_it_matters": "An unread policy is not a permissive one. Assuming a return right that has not been verified is how buyers get stuck.",
+      "action": "Read the seller's return policy before ordering and keep a copy.",
+      "source": null
+    },
+    {
+      "id": "L3",
+      "severity": "low",
+      "label": "Imported from the prior session, not re-fetched in the integration pass",
+      "what": "This row came from the parallel session's dataset and its page was not re-opened during the integration merge.",
+      "why_it_matters": "The quote was captured from the official page on the same date, but it was not independently re-read in this pass.",
+      "action": "Open the linked page and re-confirm before buying.",
+      "source": null
     }
   ]
 }

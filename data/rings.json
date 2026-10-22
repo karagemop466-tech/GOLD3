@@ -562,6 +562,267 @@
         "certification",
         "solid_gold_claim"
       ]
+    },
+    {
+      "id": "R14",
+      "seller": "Blue Nile",
+      "product": "Classic Simple Solitaire Engagement Ring",
+      "condition": "New",
+      "karat": "14K",
+      "metal_color": "White gold (rhodium finish)",
+      "price_usd": 1145,
+      "price_basis": "Setting price only — centre stone sold separately",
+      "price_as_shown": "$1,145 (Setting Price)",
+      "solid_gold_quote": "Product detail: \"Metal: 14K White Gold\" · \"Width: 2.40mm\" · \"Rhodium Finish: Yes\" — the page does not use the word \"solid\"",
+      "solid_gold_verdict": "UNVERIFIED — karat stated, \"solid\" not stated",
+      "weight_g": null,
+      "weight_quote": null,
+      "hallmark_reported": null,
+      "maker_mark_reported": null,
+      "return_window": "30 days — resized/custom/engraved excluded",
+      "certification": null,
+      "url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/classic-simple-solitaire-engagement-ring-in-14k-white-gold-item-195730",
+      "sources": [
+        "https://www.bluenile.com/engagement-rings/design-your-own-ring/classic-simple-solitaire-engagement-ring-in-14k-white-gold-item-195730",
+        "https://www.bluenile.com/policies/returns"
+      ],
+      "flags": [
+        "P1",
+        "RH1",
+        "W1",
+        "H1",
+        "S2"
+      ],
+      "verified_fields": [
+        "price_usd",
+        "price_basis",
+        "karat",
+        "metal_color",
+        "return_window"
+      ],
+      "unverified_fields": [
+        "weight_g",
+        "solid_gold_claim",
+        "hallmark_reported",
+        "maker_mark_reported"
+      ]
+    },
+    {
+      "id": "R15",
+      "seller": "Ross-Simons",
+      "product": "2mm 18kt Yellow Gold Polished Ring",
+      "condition": "New",
+      "karat": "18K",
+      "metal_color": "Yellow gold",
+      "price_usd": 249,
+      "price_basis": "Listed price (in stock, sizes 5-10)",
+      "price_as_shown": "$249",
+      "solid_gold_quote": "Spec: \"Metal 18ktYellow Gold\" · \"Gold Weight 0.7 grams\" · \"All weights and measurements are approximate\" — the page does not use the word \"solid\"",
+      "solid_gold_verdict": "UNVERIFIED — karat stated, \"solid\" not stated",
+      "weight_g": 0.7,
+      "weight_quote": "Gold Weight 0.7 grams",
+      "hallmark_reported": null,
+      "maker_mark_reported": null,
+      "return_window": "Not verified — no official return-policy page captured for this seller",
+      "certification": null,
+      "url": "https://www.ross-simons.com/products/985230",
+      "sources": [
+        "https://www.ross-simons.com/products/985230"
+      ],
+      "flags": [
+        "WT2",
+        "LT1",
+        "S2",
+        "H1",
+        "POL1",
+        "M1"
+      ],
+      "verified_fields": [
+        "price_usd",
+        "karat",
+        "metal_color",
+        "weight_g"
+      ],
+      "unverified_fields": [
+        "hallmark_reported",
+        "maker_mark_reported",
+        "certification"
+      ]
+    },
+    {
+      "id": "R16",
+      "seller": "Ross-Simons",
+      "product": "Italian 14kt Yellow Gold Diamond-Cut Ring",
+      "condition": "New",
+      "karat": "14K",
+      "metal_color": "Yellow gold (white gold also offered)",
+      "price_usd": 299,
+      "price_basis": "Listed price (in stock, sizes 5-10)",
+      "price_as_shown": "$299",
+      "solid_gold_quote": "Spec: \"Metal 14ktYellow Gold\" · \"Gold Weight 0.8 grams\" · \"All weights and measurements are approximate\" — the page does not use the word \"solid\"",
+      "solid_gold_verdict": "UNVERIFIED — karat stated, \"solid\" not stated",
+      "weight_g": 0.8,
+      "weight_quote": "Gold Weight 0.8 grams",
+      "hallmark_reported": null,
+      "maker_mark_reported": null,
+      "return_window": "Not verified — no official return-policy page captured for this seller",
+      "certification": null,
+      "url": "https://www.ross-simons.com/products/932728",
+      "sources": [
+        "https://www.ross-simons.com/products/932728"
+      ],
+      "flags": [
+        "WT2",
+        "LT1",
+        "S2",
+        "H1",
+        "POL1",
+        "M1",
+        "PD1"
+      ],
+      "verified_fields": [
+        "price_usd",
+        "karat",
+        "metal_color",
+        "weight_g"
+      ],
+      "unverified_fields": [
+        "hallmark_reported",
+        "maker_mark_reported",
+        "certification"
+      ]
+    },
+    {
+      "id": "R17",
+      "seller": "Tiffany & Co.",
+      "product": "The Tiffany® Setting Engagement Ring in 18k Yellow Gold",
+      "condition": "New",
+      "karat": "18K",
+      "metal_color": "Yellow gold band with platinum head",
+      "price_usd": 1600,
+      "price_basis": "Starting from — 0.20 ct configuration shown",
+      "price_as_shown": "Starting from $1,600",
+      "solid_gold_quote": "Spec: \"Ring Style 18k Yellow Gold and Platinum\" · \"Availability: This product is currently unavailable\" — the page does not use the word \"solid\"",
+      "solid_gold_verdict": "UNVERIFIED — karat stated, \"solid\" not stated",
+      "weight_g": null,
+      "weight_quote": null,
+      "hallmark_reported": null,
+      "maker_mark_reported": null,
+      "return_window": "Product page states the item is non returnable and can only be exchanged",
+      "certification": "Tiffany Diamond Certificate (seller's own document)",
+      "url": "https://www.tiffany.com/engagement/engagement-rings/the-tiffany-setting-engagement-ring-in-18k-yellow-gold-GRP10863/",
+      "sources": [
+        "https://www.tiffany.com/engagement/engagement-rings/the-tiffany-setting-engagement-ring-in-18k-yellow-gold-GRP10863/",
+        "https://www.tiffany.com/policy/return-policy.html"
+      ],
+      "flags": [
+        "RET6",
+        "FP1",
+        "MM1",
+        "AV1",
+        "W1",
+        "H1",
+        "S2",
+        "M1"
+      ],
+      "verified_fields": [
+        "price_usd",
+        "price_basis",
+        "karat",
+        "metal_color",
+        "return_window",
+        "certification"
+      ],
+      "unverified_fields": [
+        "weight_g",
+        "solid_gold_claim",
+        "hallmark_reported",
+        "maker_mark_reported"
+      ]
+    },
+    {
+      "id": "R18",
+      "seller": "Catbird",
+      "product": "Woodland Ring in 14K Gold (Sofia Zakia for Catbird)",
+      "condition": "New",
+      "karat": "14K",
+      "metal_color": "Yellow gold",
+      "price_usd": 276,
+      "price_basis": "Sale price (regular $368)",
+      "price_as_shown": "$276.00 Regular Price $368.00",
+      "solid_gold_quote": "Product title: \"Woodland Ring in 14K Gold\" · page text: \"Sofia Zakia - Woodland Ring 14k Yellow Gold\" — the product text captured does not use the word \"solid\"",
+      "solid_gold_verdict": "UNVERIFIED — karat stated, \"solid\" not stated in the product text",
+      "weight_g": null,
+      "weight_quote": null,
+      "hallmark_reported": null,
+      "maker_mark_reported": null,
+      "return_window": "Not verified — no official return-policy page captured for this seller",
+      "certification": null,
+      "url": "https://www.catbirdnyc.com/woodland-ring.html",
+      "sources": [
+        "https://www.catbirdnyc.com/woodland-ring.html"
+      ],
+      "flags": [
+        "AV1",
+        "S2",
+        "W1",
+        "H1",
+        "POL1",
+        "M1"
+      ],
+      "verified_fields": [
+        "price_usd",
+        "karat",
+        "metal_color"
+      ],
+      "unverified_fields": [
+        "weight_g",
+        "solid_gold_claim",
+        "hallmark_reported",
+        "maker_mark_reported",
+        "certification"
+      ]
+    },
+    {
+      "id": "R19",
+      "seller": "Mejuri",
+      "product": "Duet Mixed Ring (18k Gold Vermeil and Sterling Silver)",
+      "condition": "New",
+      "karat": "18K (plating layer only)",
+      "metal_color": "18k gold vermeil + sterling silver",
+      "price_usd": 178,
+      "price_basis": "Listed price",
+      "price_as_shown": "$178",
+      "solid_gold_quote": "Material: \"18k Gold Vermeil, Sterling Silver\" · Seller's spec: \"our vermeil is a thick layer of 18k solid gold on sterling silver\"",
+      "solid_gold_verdict": "FAIL — vermeil, not solid gold",
+      "weight_g": null,
+      "weight_quote": null,
+      "hallmark_reported": null,
+      "maker_mark_reported": null,
+      "return_window": "30 days (US, free) — engraved items non-returnable",
+      "certification": null,
+      "url": "https://mejuri.com/products/duet-mixed-ring",
+      "sources": [
+        "https://mejuri.com/products/duet-mixed-ring",
+        "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23"
+      ],
+      "flags": [
+        "S1",
+        "L3",
+        "W1",
+        "H1"
+      ],
+      "verified_fields": [
+        "karat",
+        "metal_color",
+        "return_window"
+      ],
+      "unverified_fields": [
+        "weight_g",
+        "hallmark_reported",
+        "maker_mark_reported",
+        "certification"
+      ]
     }
   ],
   "excluded_listings": [
@@ -580,6 +841,33 @@
       "reason": "URL redirected to an unrelated product (a diamond pendant) when fetched — listing could not be verified as described",
       "product": "Blue Nile / James Allen '14k white gold knife-edge solitaire item 17152'",
       "url": "https://www.jamesallen.com/engagement-rings/solitaire/14k-white-gold-knife-edge-solitaire-engagement-ring-item-17152"
+    },
+    {
+      "reason": "Dead listing — the URL redirected to bluenile.com and the item is shown as sold out. No James Allen price was ever recorded, and a cached figure was deliberately discarded rather than quoted.",
+      "product": "Comfort Fit Solitaire Engagement Ring in 14K Yellow Gold (James Allen item 41515)",
+      "url": "https://www.jamesallen.com/engagement-rings/solitaire/14k-yellow-gold-15mm-comfort-fit-engagement-ring-item-41515"
+    },
+    {
+      "reason": "Dead listing — the page returns Page Not Found / Product Not Available. A cached gram weight existed but could not be confirmed on a live page, so nothing was recorded.",
+      "product": "4mm Comfort Fit Diamond Cut 14kt Gold Wedding Band (Costco item 100423493)",
+      "url": "https://www.costco.com/4mm-diamond-cut-wedding-ring-14kt-gold.product.100423493.html"
     }
-  ]
+  ],
+  "provenance": {
+    "sessions": [
+      "arena/8aaa18bf-gold3",
+      "session-982bfc88 (PR #1)"
+    ],
+    "note": "Rows R01-R13 were researched and verified by this session. Rows R14-R18 were captured by session-982bfc88 and re-opened and re-verified by this session during integration on 2026-10-22. Row R19 was captured by session-982bfc88 and was not re-fetched in the integration pass, so it carries flag L3.",
+    "integration_reverified": [
+      "R14",
+      "R15",
+      "R16",
+      "R17",
+      "R18"
+    ],
+    "imported_not_reverified": [
+      "R19"
+    ]
+  }
 }

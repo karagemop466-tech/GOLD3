@@ -19,7 +19,12 @@
       "offers_xrf_or_assay": "Not stated",
       "price_display": "Setting price shown separately from centre-stone price",
       "policy_source": "https://www.bluenile.com/policies/returns",
-      "flags": ["P1", "RET3", "W1", "H1"],
+      "flags": [
+        "P1",
+        "RET3",
+        "W1",
+        "H1"
+      ],
       "verification": "Return policy, phone and email verified on the official return-policy page on 2026-10-22."
     },
     {
@@ -39,7 +44,13 @@
       "offers_xrf_or_assay": "Not stated",
       "price_display": "Fixed price, or 'From' price that varies by size",
       "policy_source": "https://mejuri.com/faq/return-exchanges/what-is-the-standard-return-policy",
-      "flags": ["S1", "RET4", "W1", "H1", "M1"],
+      "flags": [
+        "S1",
+        "RET4",
+        "W1",
+        "H1",
+        "M1"
+      ],
       "verification": "30-day window and the non-returnable list verified verbatim on the official FAQ page on 2026-10-22. No phone or email was published on the pages reviewed — left blank rather than guessed."
     },
     {
@@ -59,7 +70,14 @@
       "offers_xrf_or_assay": "Not stated",
       "price_display": "Price was not displayed on the item page as fetched",
       "policy_source": "https://customerservice.costco.com/app/answers/detail/a_id/1191",
-      "flags": ["RET1", "RET5", "P2", "W1", "H1", "M1"],
+      "flags": [
+        "RET1",
+        "RET5",
+        "P2",
+        "W1",
+        "H1",
+        "M1"
+      ],
       "verification": "The exact sentence 'Precious metals are non-refundable.' and the 1.00 ct diamond exception were verified verbatim on Costco's official customer-service page on 2026-10-22. Phone/email not published on the pages reviewed, so left blank."
     },
     {
@@ -79,8 +97,120 @@
       "offers_xrf_or_assay": "Not offered per item; 'Stamped for X karat' is the seller's statement. Some pieces are described as 'tested as' a karat",
       "price_display": "Sale price shown per item",
       "policy_source": "https://www.wilsonsestatejewelry.com/products/mid-century-old-european-diamond-14-karat-white-gold-vintage-solitaire-engagement-ring",
-      "flags": ["RET2", "WT1", "X1", "M1"],
+      "flags": [
+        "RET2",
+        "WT1",
+        "X1",
+        "M1"
+      ],
       "verification": "Weight in grams, stamp description, maker's mark, phone and email verified verbatim on three individual official product pages on 2026-10-22. This is the only seller in the study that publishes gram weights."
+    },
+    {
+      "id": "S-RS",
+      "name": "Ross-Simons",
+      "website": "https://www.ross-simons.com/",
+      "type": "Online and catalogue retailer (Cranston, Rhode Island, trading since 1972)",
+      "phone": null,
+      "email": null,
+      "contact_source": null,
+      "return_window": "Not verified — no official return-policy page was captured",
+      "return_exclusions": "Not verified",
+      "resize_policy": null,
+      "payment_notes": "Affirm instalments advertised on product pages",
+      "publishes_weight": true,
+      "publishes_hallmark": false,
+      "offers_xrf_or_assay": "Not stated",
+      "price_display": "Fixed price per size, all sizes in stock at the same price",
+      "policy_source": "https://www.ross-simons.com/products/985230",
+      "flags": [
+        "WT2",
+        "POL1",
+        "M1"
+      ],
+      "verification": "Publishes an explicit 'Gold Weight' in grams with the qualifier 'All weights and measurements are approximate'. Weight and price re-verified on the live product pages on 2026-10-22. No return-policy page was captured, so return terms are left unverified rather than assumed."
+    },
+    {
+      "id": "S-TI",
+      "name": "Tiffany & Co.",
+      "website": "https://www.tiffany.com/",
+      "type": "Brand retailer with its own stores",
+      "phone": "(800) 843-3269",
+      "email": null,
+      "contact_source": "https://www.tiffany.com/engagement/engagement-rings/the-tiffany-setting-engagement-ring-in-18k-yellow-gold-GRP10863/",
+      "return_window": "30 days for credit or exchange in the U.S. on eligible merchandise — but this product page states the ring is non returnable and can only be exchanged",
+      "return_exclusions": "Personalised, altered or engraved items are not eligible for return",
+      "resize_policy": "Not verified",
+      "payment_notes": "Payment plans advertised",
+      "publishes_weight": false,
+      "publishes_hallmark": false,
+      "offers_xrf_or_assay": "Not stated",
+      "price_display": "'Starting from' price that varies with the centre stone",
+      "policy_source": "https://www.tiffany.com/policy/return-policy.html",
+      "flags": [
+        "RET6",
+        "FP1",
+        "MM1",
+        "AV1",
+        "W1",
+        "H1",
+        "M1"
+      ],
+      "verification": "Phone number and the non-returnable / exchange-only notice verified on the live product page on 2026-10-22; the 30-day policy wording was captured by session-982bfc88 from the official return-policy page on the same date. The product page notice and the general policy were not reconciled by the seller, which is itself the flag."
+    },
+    {
+      "id": "S-CB",
+      "name": "Catbird",
+      "website": "https://www.catbirdnyc.com/",
+      "type": "Independent jeweller, Brooklyn NY",
+      "phone": null,
+      "email": null,
+      "contact_source": null,
+      "return_window": "Not verified — no official return-policy page was captured",
+      "return_exclusions": "Not verified",
+      "resize_policy": null,
+      "payment_notes": "Not verified",
+      "publishes_weight": false,
+      "publishes_hallmark": false,
+      "offers_xrf_or_assay": "Not stated",
+      "price_display": "Sale price shown against a regular price",
+      "policy_source": "https://www.catbirdnyc.com/woodland-ring.html",
+      "flags": [
+        "AV1",
+        "POL1",
+        "M1"
+      ],
+      "verification": "Price, sale/regular price and sold-out indicators verified on the live product page on 2026-10-22. The brand states 'Solid gold always, never plated' on its own site, but that wording did not appear in the product text captured for this ring, so the row stays unverified."
+    },
+    {
+      "id": "S-JA",
+      "name": "James Allen",
+      "website": "https://www.jamesallen.com/",
+      "type": "Online retailer — now part of Blue Nile (Signet)",
+      "phone": null,
+      "email": null,
+      "contact_source": null,
+      "return_window": "Not verified — product URLs redirect to Blue Nile",
+      "return_exclusions": "Not verified",
+      "resize_policy": null,
+      "payment_notes": "Not verified",
+      "publishes_weight": false,
+      "publishes_hallmark": false,
+      "offers_xrf_or_assay": "Not stated",
+      "price_display": "Redirects to Blue Nile",
+      "policy_source": "https://www.jamesallen.com/",
+      "flags": [
+        "DL1",
+        "POL1",
+        "M1"
+      ],
+      "verification": "jamesallen.com product URLs fetched in this project redirected to bluenile.com with the banner 'James Allen is Now Part of Blue Nile'. Treated as a redirecting brand, not a separate seller."
     }
-  ]
+  ],
+  "provenance": {
+    "note": "Blue Nile, Mejuri, Costco and Wilson's Estate Jewelry were verified by this session. Ross-Simons, Tiffany & Co., Catbird and James Allen were added during integration from session-982bfc88's register; their price, weight and non-returnable fields were re-opened and re-verified by this session on 2026-10-22.",
+    "sessions": [
+      "arena/8aaa18bf-gold3",
+      "session-982bfc88 (PR #1)"
+    ]
+  }
 }

@@ -134,7 +134,7 @@ function check(name, cond, detail = "") {
   check("analysis: R11 melt value reproduces arithmetic",
     shown && Math.abs(parseFloat(shown[1].replace(/,/g, "")) - expected) < 1,
     `expected ~${expected.toFixed(2)}, page shows ${shown ? shown[1] : "n/a"}`);
-  check("analysis: coverage computed", el("coverage").innerHTML.includes("/ 13"));
+  check("analysis: coverage computed", el("coverage").innerHTML.includes(`/ ${rings.length}`));
 
   // ---- calculator
   el = await runPage("calculator", appSource);

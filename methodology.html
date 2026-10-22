@@ -47,7 +47,7 @@
             <td>Repo held only a stub README at one commit; no conflicts.</td></tr>
         <tr><td class="num">1</td><td>Primary-source fetch</td>
             <td>Open each seller's and regulator's own page; capture exact wording, not summaries.</td>
-            <td>4 sellers, 13 listings, 8 legal rules, 1 benchmark.</td></tr>
+            <td>8 sellers, 19 listings, 8 legal rules, 1 benchmark.</td></tr>
         <tr><td class="num">2</td><td>Quote matching</td>
             <td>Attach the verbatim sentence to each price, weight and purity claim.</td>
             <td>Every populated value carries a quote.</td></tr>
@@ -57,6 +57,11 @@
         <tr><td class="num">4</td><td>Self-audit</td>
             <td>Run <code>scripts/audit.py</code>: it re-derives arithmetic and hunts invented values.</td>
             <td>Caught three of this project's own overreaches; all corrected before publishing.</td></tr>
+        <tr><td class="num">4b</td><td>Parallel-session reconciliation</td>
+            <td>Merge the second session's dataset, re-open each of its unique listings, keep its facts and
+              record what was superseded.</td>
+            <td>5 of its 6 live rows re-verified by this session and folded in; 2 dead listings moved to
+              “excluded”; its original files archived, not deleted.</td></tr>
         <tr><td class="num">5</td><td>Link and build check</td>
             <td>Resolve every local link, verify external sources are https, confirm the site builds.</td>
             <td>Clean.</td></tr>
@@ -117,6 +122,25 @@
           <td>2026-10-22</td>
         </tr>
         <tr>
+          <td><a href="https://www.ross-simons.com/products/985230" rel="noopener">Ross-Simons</a></td>
+          <td>Seller</td>
+          <td>Price, karat and the published “Gold Weight” in grams, with its “approximate” qualifier</td>
+          <td>2026-10-22</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.tiffany.com/engagement/engagement-rings/the-tiffany-setting-engagement-ring-in-18k-yellow-gold-GRP10863/" rel="noopener">Tiffany &amp; Co.</a></td>
+          <td>Seller</td>
+          <td>“Starting from” price, the 18k gold plus platinum construction, unavailability, and the
+            non-returnable / exchange-only notice on the product page</td>
+          <td>2026-10-22</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.catbirdnyc.com/woodland-ring.html" rel="noopener">Catbird</a></td>
+          <td>Seller</td>
+          <td>Sale and regular price, sold-out indicators, absence of the word “solid” in the product text</td>
+          <td>2026-10-22</td>
+        </tr>
+        <tr>
           <td><a href="https://www.wilsonsestatejewelry.com/collections/engagement-rings" rel="noopener">Wilson's Estate Jewelry</a></td>
           <td>Seller (estate)</td>
           <td>Prices, weights in grams, stamp and maker's-mark descriptions, GIA report numbers, 7-day return terms, contact details</td>
@@ -163,7 +187,15 @@
       confident error.</p>
   </div>
 
-  <h2>Collaboration and change control</h2>
+  <h2>Collaboration, conflict and change control</h2>
+  <p class="dim"><strong>Two sessions worked this repository in parallel.</strong> A second session merged its
+    own implementation to <code>main</code> (PR #1) while this one was still building, so the merge conflicted.
+    Neither side was thrown away: the second session's seven verified listings were re-opened, re-verified and
+    folded into the dataset; its seller facts were folded into the register; its two dead listings moved to the
+    excluded table; and its original pages, data, scripts and reports are preserved verbatim under
+    <code>archive/session-982bfc88/</code>. Its independently captured spot price matched this session's figure
+    exactly — a genuine two-session cross-check of the benchmark. The reconciliation is logged in
+    <code>COORDINATION.md</code>.</p>
   <p class="dim"><code>COORDINATION.md</code> in the repository root is the shared task board: task, status,
     owning session, and the files it may touch. Claims are committed before work starts, scopes do not overlap,
     and shared outputs are only changed by the integration step. The full claim and hand-off history is kept
