@@ -276,6 +276,58 @@ for s in sellers:
     ok("sellers", f"{sid}: {s.get('name')} checked")
 
 # ----------------------------------------------------------------------------
+# 3b. domain ownership: a link must sit on the domain it claims to belong to.
+#     A plausible-looking but unopened URL is the quietest kind of invented fact.
+# ----------------------------------------------------------------------------
+def host_of(u):
+    try:
+        return (urlparse(u).hostname or "").lower().removeprefix("www.")
+    except Exception:
+        return ""
+
+
+seller_sites = {}
+for s in sellers:
+    seller_sites[s.get("name")] = host_of(s.get("website") or "")
+
+
+def site_for(seller_name):
+    if seller_name in seller_sites:
+        return seller_sites[seller_name]
+    for name, host in seller_sites.items():
+        if seller_name.startswith(name):
+            return host
+    return ""
+
+
+for r in rings:
+    base = site_for(r.get("seller", ""))
+    if not base:
+        warn("domain", f"{r.get('id')}: no seller website on file, cannot check domain")
+        continue
+    h = host_of(r.get("url", ""))
+    if h == base or h.endswith("." + base):
+        ok("domain", f"{r.get('id')}: {h} belongs to {base}")
+    else:
+        err("domain", f"{r.get('id')}: url host {h!r} is not on {base}")
+    for u in r.get("sources", []):
+        uh = host_of(u)
+        if uh in ("ecfr.gov", "govinfo.gov", "gold.org", "lbma.org.uk"):
+            continue  # regulations / benchmark sources are allowed cross-domain
+        if not (uh == base or uh.endswith("." + base)):
+            warn("domain", f"{r.get('id')}: source host {uh!r} is not on {base}")
+
+for s in sellers:
+    base = host_of(s.get("website") or "")
+    for key in ("policy_source", "contact_source"):
+        u = s.get(key)
+        if not u:
+            continue
+        uh = host_of(u)
+        if base and not (uh == base or uh.endswith("." + base)):
+            err("domain", f"{s.get('id')}.{key}: {uh!r} is not on {base}")
+
+# ----------------------------------------------------------------------------
 # 4. flags self-check
 # ----------------------------------------------------------------------------
 for fid, f in flag_defs.items():

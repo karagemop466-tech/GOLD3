@@ -1,10 +1,10 @@
 # Anti-hallucination audit report
 
-- Run: 2026-10-22 23:20 UTC
+- Run: 2026-10-22 23:21 UTC
 - Rows audited: **19**
 - Sellers audited: **8**
 - Flag definitions: **28**
-- Result: **PASS** — 0 error(s), 0 warning(s), 74 check(s) passed
+- Result: **PASS** — 0 error(s), 0 warning(s), 93 check(s) passed
 
 ## What this pass is looking for
 
@@ -93,6 +93,25 @@ None.
 - [sellers] S-TI: Tiffany & Co. checked
 - [sellers] S-CB: Catbird checked
 - [sellers] S-JA: James Allen checked
+- [domain] R01: mejuri.com belongs to mejuri.com
+- [domain] R02: mejuri.com belongs to mejuri.com
+- [domain] R03: mejuri.com belongs to mejuri.com
+- [domain] R04: mejuri.com belongs to mejuri.com
+- [domain] R05: bluenile.com belongs to bluenile.com
+- [domain] R06: bluenile.com belongs to bluenile.com
+- [domain] R07: bluenile.com belongs to bluenile.com
+- [domain] R08: bluenile.com belongs to bluenile.com
+- [domain] R09: bluenile.com belongs to bluenile.com
+- [domain] R10: costco.com belongs to costco.com
+- [domain] R11: wilsonsestatejewelry.com belongs to wilsonsestatejewelry.com
+- [domain] R12: wilsonsestatejewelry.com belongs to wilsonsestatejewelry.com
+- [domain] R13: wilsonsestatejewelry.com belongs to wilsonsestatejewelry.com
+- [domain] R14: bluenile.com belongs to bluenile.com
+- [domain] R15: ross-simons.com belongs to ross-simons.com
+- [domain] R16: ross-simons.com belongs to ross-simons.com
+- [domain] R17: tiffany.com belongs to tiffany.com
+- [domain] R18: catbirdnyc.com belongs to catbirdnyc.com
+- [domain] R19: mejuri.com belongs to mejuri.com
 - [flags] 28 flag definitions validated
 - [standards] all karat fractions reproduce n/24
 - [standards] 8 legal rules carry citations
