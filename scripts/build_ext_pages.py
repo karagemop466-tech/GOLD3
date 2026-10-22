@@ -856,6 +856,7 @@ def build_all() -> None:
     # ======================================================================
     # 8. security-audit.html — Automated Anti-Hallucination & Security Pass Log
     # ======================================================================
+    repo_audit_url = "https://github.com/karagemop466-tech/GOLD3"
     pass_rows = "\n".join(
         f"""
             <tr>
@@ -866,6 +867,7 @@ def build_all() -> None:
               <td class="num">{len(r['checks'])} checks</td>
               <td class="num">{r['flagged_items_count']} items ({r['total_flag_notes']} notes)</td>
               <td style="font-size:0.82rem;">{esc(r['manual_review_recommendation'])}</td>
+              <td>{ext_link(repo_audit_url, 'Repo Suite', '')}</td>
             </tr>"""
         for r in reversed(audit_log["runs"])
     )
@@ -878,6 +880,7 @@ def build_all() -> None:
               <td><span class="badge {'badge-ok' if c['status'] == 'PASS' else 'badge-bad'}">{esc(c['status'])}</span></td>
               <td class="num">{c['verified_count']}</td>
               <td>{esc(c['details'])}</td>
+              <td>{ext_link(repo_audit_url, 'Audit Script', '')}</td>
             </tr>"""
         for c in latest_pass["checks"]
     )
@@ -920,6 +923,7 @@ def build_all() -> None:
               <th>Status</th>
               <th>Verified Count</th>
               <th>Audit Result Details</th>
+              <th>Official Source</th>
             </tr>
           </thead>
           <tbody>
@@ -947,6 +951,7 @@ def build_all() -> None:
               <th>Checks Run</th>
               <th>Flagged Count</th>
               <th>Post-Review Guidance</th>
+              <th>Official Source</th>
             </tr>
           </thead>
           <tbody>

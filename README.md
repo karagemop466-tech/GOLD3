@@ -3,11 +3,11 @@
 A verified, source-linked research project for buying a **solid gold engagement ring** online.
 It publishes as a static site on GitHub Pages and is generated entirely from machine-readable data.
 
-> ## Zero-hallucination policy
-> **Every price, purity claim, weight and policy on this site is copied from a named source page and
+> ## Zero-hallucination policy — No Hallucinations Commitment
+> **No hallucinations: every price, purity claim, weight and policy on this site is copied from a named official source page and
 > stamped with the date it was read.** If a source does not publish a value, the value is left
 > **blank** and marked **unverified** — it is never estimated, inferred, or filled in to make a row
-> look complete. Prices move daily; always re-check the linked page before buying.
+> look complete. **Recommendation:** actively look for hallucinations on every review pass by clicking the official source link on every row, re-checking live prices/weights before buying, and running all automated security checks below.
 
 **Captured:** 22 October 2026 · **41 listings across both passes** (19 + 22) · **12 sellers** · **7 published weights**
 
@@ -52,9 +52,10 @@ python3 scripts/build_site.py     # build the static site; fails on broken inter
 python3 scripts/audit.py          # independent audit: provenance, stray numbers, verification coverage
 node scripts/render-test.js       # assert the built HTML contains the audited values
 python3 scripts/report_verify.py  # regenerate reports/verification-report.md from data/
+npm --prefix archive/session-cbea1001 test  # Node anti-hallucination, melt-math & link security suite
 ```
 
-All five run in CI on every push and pull request (`.github/workflows/audit.yml`). The site is generated, so
+All checks run in CI on every push and pull request (`.github/workflows/audit.yml`). The site is generated, so
 editing HTML by hand is pointless: change `data/*.json` or `scripts/build_site.py`, then rebuild.
 
 ## What the last verification pass changed
@@ -73,7 +74,7 @@ surviving datasets are published rather than one being discarded:
 | Set | File | Rows | Sellers | Evidence model |
 |---|---|---|---|---|
 | **A** (this session) | `data/products.json` | 19 (17 gold + 2 excluded) | Aurate, Blue Nile, Catbird, Mejuri, Ring Concierge | Verbatim price quote + capture date per row |
-| **B** (parallel session `8aaa18bf`) | `data/rings.json` | 22 rings + 5 excluded look-alikes | Blue Nile, Catbird, Costco, James Allen, Mejuri, Ross-Simons, Tiffany, Wilson's Estate Jewelry, Sarraf, Automic Gold | Per-field quote for karat, solid-gold claim, weight, hallmark, plus a flag legend |
+| **B** (parallel sessions `8aaa18bf`, `e6fe3e4f`, `cbea1001`) | `data/rings.json` | 31 rings + 5 excluded look-alikes | Blue Nile, Brilliant Earth, Catbird, Costco, James Allen, Local Eclectic, Mejuri, Menē, Ross-Simons, Sarraf, Automic Gold, Tiffany, VRAI, Wilson's Estate Jewelry | Per-field quote for karat, solid-gold claim, weight, hallmark, plus a flag legend |
 
 `scripts/verify.py` gates **both**. For Dataset B it checks official-domain sources, a per-listing source list, that the
 numeric price appears inside `price_as_shown`, that any weight carries a weight quote, that a `PASS` solid-gold verdict
@@ -82,8 +83,8 @@ carries a quote, and that each excluded look-alike states a reason and an offici
 
 `combined.html` shows both sets with an A/B badge so nothing is misattributed. Dataset B's own pages
 (`sellers.html`, `standards.html`, `methodology.html`, `analysis.html`, `verify.html`) are generated from the same
-JSON by `scripts/build_site.py` - never hand-edited - and the earlier session's archive under
-`archive/session-982bfc88/` is preserved unchanged.
+JSON by `scripts/build_site.py` - never hand-edited - and the earlier sessions' standalone suites under
+`archive/session-982bfc88/` and `archive/session-cbea1001/` (including the interactive stone-carat deduction & post-arrival ED-XRF assay tolerance calculator) are preserved unchanged.
 
 ## Build and verify
 

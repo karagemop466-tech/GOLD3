@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flagged for Review — Unverified Specs, Conflicts &amp; Seller Warnings | GOLD3 Verified Gold Engagement Ring Research</title>
+  <meta name="description" content="Complete transparency log of all unverified fields left blank, conflicting online karat specs, vermeil traps, and restrictive seller return policies.">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <div class="integrity-ribbon">
+    <div class="integrity-ribbon-inner">
+      <div>
+        <strong>NO HALLUCINATIONS POLICY:</strong> Zero guessed prices, weights, karats, or hallmarks. Unconfirmed fields remain blank &amp; flagged <code>unverified</code>.
+      </div>
+      <div>
+        Spot Gold (2026-10-22): <strong>$4,025.10/oz t ($129.41/g 24K)</strong> &middot;
+        <a href="security-audit.html">Security Suite: 7/7 PASS</a> &middot;
+        <a href="flagged.html">Flagged for Review (33)</a>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">Au</span>
+        <span class="brand-text">
+          <strong>GOLD3 Verification Observatory</strong>
+          <span>Line-by-Line Gold Ring Purity, Weight &amp; Melt Audit (2026-10-22)</span>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="Primary Navigation">
+        <a href="index.html">Overview &amp; Summary</a>
+        <a href="rings.html">Verified Rings (22)</a>
+        <a href="calculator.html">Gold &amp; Melt Calculator</a>
+        <a href="checklist.html">12-Point Checklist</a>
+        <a href="sellers.html">Sellers &amp; XRF Policy (8)</a>
+        <a href="analysis.html">Price vs. Melt Analysis</a>
+        <a href="security-audit.html">Security &amp; Hallucination Audit</a>
+        <a href="flagged.html" class="active nav-flagged">Flagged for Review (33)</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="page-header">
+      <div class="eyebrow">Category 07 &middot; Dedicated Transparency Queue (data/flagged-items.json)</div>
+      <h1>Flagged for Review — Unverified Fields, Spec Conflicts &amp; Policy Traps (33 Items)</h1>
+      <p class="lead">
+        Per our <strong>No Hallucinations</strong> rule and <code>COORDINATION.md</code> protocol, any value that cannot be confirmed from a trusted official source — or where a retailer page exhibits conflicting specifications, vermeil coating keywords, or severe return/reputation risks — is left blank where unconfirmed and published transparently here as <code>needs review</code> rather than guessed or hidden.
+      </p>
+    </div>
+
+    <section class="section-card">
+      <div class="filter-bar" role="region" aria-label="Filter Flagged Items">
+        <div class="control-group" style="flex:1.6;">
+          <label for="flag-search">Search Flagged Entity, Missing Field, or Irregularity</label>
+          <input type="search" id="flag-search" placeholder="e.g. weight_grams, Blue Nile, VRAI, vermeil, 9k...">
+        </div>
+        <div class="control-group">
+          <label for="flag-severity">Filter by Review Severity</label>
+          <select id="flag-severity">
+            <option value="ALL">All Flagged Items (33)</option>
+            <option value="disqualified_do_not_buy_as_solid_gold">Disqualified / Vermeil / 9K Conflict</option>
+            <option value="high_policy_or_reputation_risk">High Seller Policy / BBB Risk</option>
+            <option value="needs_review_missing_or_conflicting_spec">Missing Weight / Price / Karat Conflict</option>
+            <option value="minor_arrival_hallmark_check">Arrival Interior Hallmark Check</option>
+            <option value="policy_watch_note">Seller Policy Watch Note</option>
+            <option value="needs_review">Baseline Repository Audit Flag</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="flag-dataset">Filter by Source Dataset</label>
+          <select id="flag-dataset">
+            <option value="ALL">All Datasets</option>
+            <option value="data/rings.json">Ring Listings (data/rings.json)</option>
+            <option value="data/sellers.json">Seller Policies (data/sellers.json)</option>
+            <option value="data/repo-audit.json">Baseline Repo Audit (data/repo-audit.json)</option>
+          </select>
+        </div>
+      </div>
+
+      <div style="margin-bottom:10px;">
+        <span id="flag-visible-count" class="badge badge-unverified">33 of 33 flagged items shown</span>
+      </div>
+
+      <div class="table-wrap">
+        <table id="flagged-master-table">
+          <thead>
+            <tr>
+              <th>Flag ID &amp; Dataset</th>
+              <th>Subject &amp; Category</th>
+              <th>Severity</th>
+              <th>Blank / Unverified Fields</th>
+              <th>Observed Irregularity / Omission</th>
+              <th>Recommended Buyer / Auditor Action</th>
+              <th>Verified Date</th>
+              <th>Official Source</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr class="row-flagged" data-severity="needs_review" data-dataset="data/repo-audit.json">
+            <td><strong>FLAG-REPO-01</strong><div class="field-hint">data/repo-audit.json</div></td>
+            <td><strong>README.md (Line 1)</strong><div class="field-hint">Repository Baseline Irregularity</div></td>
+            <td><span class="badge badge-unverified">needs_review</span></td>
+            <td><span class="field-hint">Policy / baseline irregularity (no blank numeric cell)</span></td>
+            <td>Initial repository contained only a 7-byte placeholder heading ('# GOLD3') with zero ring entries, zero gold purity checklist documentation, zero source links, and no anti-hallucination warning.</td>
+            <td>Flagged baseline repository state for audit transparency; scheduled comprehensive verified documentation update in Task C7 and published dashboard in Task C6.</td>
+            <td>2026-10-22</td>
+            <td><a class="source-link" href="https://github.com/karagemop466-tech/GOLD3/blob/1c10511ef71d1c0855283762fb854c154039bc56/README.md" target="_blank" rel="noopener noreferrer">Inspect Source &#8599;</a></td>
+          </tr>
+          <tr class="row-flagged" data-severity="needs_review" data-dataset="data/repo-audit.json">
+            <td><strong>FLAG-REPO-03</strong><div class="field-hint">data/repo-audit.json</div></td>
+            <td><strong>GitHub Pages Configuration (main:/)</strong><div class="field-hint">Repository Baseline Irregularity</div></td>
+            <td><span class="badge badge-unverified">needs_review</span></td>
+            <td><span class="field-hint">Policy / baseline irregularity (no blank numeric cell)</span></td>
+            <td>GitHub Pages was serving the raw 7-byte README.md via legacy Jekyll fallback without index.html, .nojekyll, category subpages, calculator, or Flagged for Review page.</td>
+            <td>Configured static dashboard architecture at repository root with .nojekyll so merging to main deploys directly to https://karagemop466-tech.github.io/GOLD3/ without broken paths.</td>
+            <td>2026-10-22</td>
+            <td><a class="source-link" href="https://karagemop466-tech.github.io/GOLD3/" target="_blank" rel="noopener noreferrer">Inspect Source &#8599;</a></td>
+          </tr>
+          <tr class="row-flagged" data-severity="needs_review" data-dataset="data/repo-audit.json">
+            <td><strong>FLAG-REPO-04</strong><div class="field-hint">data/repo-audit.json</div></td>
+            <td><strong>COORDINATION.md on Initial main Branch</strong><div class="field-hint">Repository Baseline Irregularity</div></td>
+            <td><span class="badge badge-unverified">needs_review</span></td>
+            <td><span class="field-hint">Policy / baseline irregularity (no blank numeric cell)</span></td>
+            <td>COORDINATION.md did not exist on initial main commit 1c10511; parallel Arena session branches were observed starting concurrently from 1c10511.</td>
+            <td>Created COORDINATION.md immediately per multi-session protocol and scheduled pre-merge integration check against origin/main in Task C7.</td>
+            <td>2026-10-22</td>
+            <td><a class="source-link" href="https://github.com/karagemop466-tech/GOLD3/tree/1c10511ef71d1c0855283762fb854c154039bc56" target="_blank" rel="noopener noreferrer">Inspect Source &#8599;</a></td>
+          </tr>
+          <tr class="row-flagged" data-severity="minor_arrival_hallmark_check" data-dataset="data/rings.json">
+            <td><strong>FLAG-RING-01</strong><div class="field-hint">data/rings.json</div></td>
+            <td><strong>Automic Gold — 3ct Radiant Cut Lab Diamond Cathedral Ring</strong><div class="field-hint">Ring Listing — Unverified / Irregular Spec</div></td>
+            <td><span class="badge badge-unverified">minor_arrival_hallmark_check</span></td>
+            <td><code>hallmark_online_stated</code></td>
+            <td>Online page does not state exact interior karat/maker's mark stamp text (must inspect 14K/585 + registered trademark stamp on arrival per 15 U.S.C. § 297). | Weight published as 'Approximately 5.4g for gold'; if weighed post-arrival with the ~3.0 ct (0.60g) diamond mounted, gross scale weight vs net gold weight must account for 0.60g stone mass.</td>
+            <td>Inspect interior karat + registered maker’s mark stamp and verify mass/purity via non-destructive scale + XRF within return window.</td>
+            <td>2026-10-22</td>
+            <td><a class="source-link" href="https://www.automicgold.com/products/radiant-cut-lab-diamond-cathedral-ring" target="_blank" rel="noopener noreferrer">Inspect Source &#8599;</a></td>
+          </tr>
+          <tr class="row-flagged" data-severity="minor_arrival_hallmark_check" data-dataset="data/rings.json">
+            <td><strong>FLAG-RING-02</strong><div class="field-hint">data/rings.json</div></td>
+            <td><strong>Automic Gold — Coffin Ring (Solid 14k Gold Engagement / Promise Band)</strong><div class="field-hint">Ring Listing — Unverified / Irregular Spec</div></td>
+            <td><span class="badge badge-unverified">minor_arrival_hallmark_check</span></td>
+            <td><code>hallmark_online_stated</code></td>
+            <td>Online page omits interior hallmark/maker's mark text (verify 14K + maker's mark on arrival). | Minor shipping lead-time copy discrepancy on page: top callout says production time '1 to 5 business days' while Shipping &amp; Returns accordion states '1-2 weeks'.</td>
+            <td>Inspect interior karat + registered maker’s mark stamp and verify mass/purity via non-destructive scale + XRF within return window.</td>
+            <td>2026-10-22</td>
+            <td><a class="source-link" href="https://www.automicgold.com/products/coffin-ring" target="_blank" rel="noopener noreferrer">Inspect Source &#8599;</a></td>
+          </tr>
+          <tr class="row-flagged" data-severity="minor_arrival_hallmark_check" data-dataset="data/rings.json">
+            <td><strong>FLAG-RING-03</strong><div class="field-hint">data/rings.json</div></td>
+            <td><strong>Automic Gold — Claddagh Ring (Solid 14k Gold)</strong><div class="field-hint">Ring Listing — Unverified / Irregular Spec</div></td>
+            <td><span class="badge badge-unverified">minor_arrival_hallmark_check</span></td>
+            <td><code>hallmark_online_stated</code></td>
+            <td>Online page omits interior hallmark/maker's mark text. | Optional engraving (+$60) voids return eligibility ('No returns on engraved rings') — do not engrave prior to independent scale/XRF verification.</td>
+            <td>Inspect interior karat + registered maker’s mark stamp and verify mass/purity via non-destructive scale + XRF within return window.</td>
+            <td>2026-10-22</td>
+            <td><a class="source-link" href="https://www.automicgold.com/products/claddagh-ring" target="_blank" rel="noopener noreferrer">Inspect Source &#8599;</a></td>
+          </tr>
+          <tr class="row-flagged" data-severity="minor_arrival_hallmark_check" data-dataset="data/rings.json">
+            <td><strong>FLAG-RING-04</strong><div class="field-hint">data/rings.json</div></td>
+            <td><strong>Automic Gold — Gemstone Flower Ring (Solid 14k Gold)</strong><div class="field-hint">Ring Listing — Unverified / Irregular Spec</div></td>
+            <td><span class="badge badge-unverified">minor_arrival_hallmark_check</span></td>
+            <td><code>hallmark_online_stated</code></td>
+            <td>Online page omits interior hallmark/maker's mark text. | Ultra-thin 1.0mm band width and 1.4g gold mass require care for daily engagement wear.</td>
+            <td>Inspect interior karat + registered maker’s mark stamp and verify mass/purity via non-destructive scale + XRF within return window.</td>
+            <td>2026-10-22</td>
+            <td><a class="source-link" href="https://www.automicgold.com/products/gemstone-flower-ring" target="_blank" rel="noopener noreferrer">Inspect Source &#8599;</a></td>
+          </tr>
+          <tr class="row-flagged" data-severity="minor_arrival_hallmark_check" data-dataset="data/rings.json">
+            <td><strong>FLAG-RING-05</strong><div class="field-hint">data/rings.json</div></td>
+            <td><strong>Sarraf.com — 14k White Gold Solitaire Ring 0.94 ctw.</strong><div class="field-hint">Ring Listing — Unverified / Irregular Spec</div></td>
+            <td><span class="badge badge-unverified">minor_arrival_hallmark_check</span></td>
+            <td><code>hallmark_online_stated</code>, <code>band_width_mm</code></td>
+            <td>Band width in millimeters and interior hallmark stamp text are not published on product page. | 14K white gold normally carries rhodium surface flash; post-arrival XRF operator should note thin rhodium peak when confirming 14K alloy.</td>
+            <td>Inspect interior karat + registered maker’s mark stamp and verify mass/purity via non-destructive scale + XRF within return window.</td>
+            <td>2026-10-22</td>
+            <td><a class="source-link" href="https://www.sarraf.com/products/14k-white-gold-solitaire-ring-0-94-ctw.html" target="_blank" rel="noopener noreferrer">Inspect Source &#8599;</a></td>
+          </tr>
+          <tr class="row-flagged" data-severity="minor_arrival_hallmark_check" data-dataset="data/rings.json">
+            <td><strong>FLAG-RING-06</strong><div class="field-hint">data/rings.json</div></td>
+            <td><strong>Sarraf.com — 18k Yellow Gold Men's Solitaire Diamond Ring 3/4 ct.</strong><div class="field-hint">Ring Listing — Unverified / Irregular Spec</div></td>
+            <td><span class="badge badge-unverified">minor_arrival_hallmark_check</span></td>
+            <td><code>hallmark_online_stated</code></td>
+            <td>Interior hallmark/maker's mark text is not stated online (verify 18K/750 + maker's mark on arrival).</td>
+            <td>Inspect interior karat + registered maker’s mark stamp and verify mass/purity via non-destructive scale + XRF within return window.</td>
+            <td>2026-10-22</td>
+            <td><a class="source-link" href="https://www.sarraf.com/products/18k-yellow-gold-mens-solitaire-diamond-ring-3-4-ct.html" target="_blank" rel="noopener noreferrer">Inspect Source &#8599;</a></td>
+          </tr>
+          <tr class="row-flagged" data-severity="minor_arrival_hallmark_check" data-dataset="data/rings.json">
+            <td><strong>FLAG-RING-07</strong><div class="field-hint">data/rings.json</div></td>
+            <td><strong>Sarraf.com — 14k Yellow Gold Round Cut 8.8mm Wide 1.0ct CZ Engagement Ring</strong><div class="field-hint">Ring Listing — Unverified / Irregular Spec</div></td>
+            <td><span class="badge badge-unverified">minor_arrival_hallmark_check</span></td>
+            <td><code>hallmark_online_stated</code></td>
+            <td>Copy irregularity flagged under 16 CFR § 23.3: Description paragraph phrases alloy as 'Solid and Pure 14k Yellow Gold' — 14K is 58.33% fine gold alloy, whereas 'Pure Gold' strictly denotes 24K fine gold. | Interior hallmark/maker's mark text is not published online.</td>
+            <td>Inspect interior karat + registered maker’s mark stamp and verify mass/purity via non-destructive scale + XRF within return window.</td>
+            <td>2026-10-22</td>
+            <td><a class="source-link" href="https://www.sarraf.com/products/14k-yellow-gold-round-cut-8-8mm-wide-1-0ct-cz-engagement-ring.html" target="_blank" rel="noopener noreferrer">Inspect Source &#8599;</a></td>
+          </tr>
+          <tr class="row-flagged" data-severity="minor_arrival_hallmark_check" data-dataset="data/rings.json">
+            <td><strong>FLAG-RING-08</strong><div class="field-hint">data/rings.json</div></td>
+            <td><strong>Sarraf.com — 10k Gold 6mm High Polished Comfort Fit Wedding Band</strong><div class="field-hint">Ring Listing — Unverified / Irregular Spec</div></td>
+            <td><span class="badge badge-unverified">minor_arrival_hallmark_check</span></td>
+            <td><code>hallmark_online_stated</code></td>
+            <td>Published 8.30g weight is explicitly benchmarked at US Ring Size 10 (smaller sizes will weigh proportionally less on a gram scale). | Interior hallmark/maker's mark text is not stated online.</td>
+            <td>Inspect interior karat + registered maker’s mark stamp and verify mass/purity via non-destructive scale + XRF within return window.</td>
+            <td>2026-10-22</td>
+            <td><a class="source-link" href="https://www.sarraf.com/products/10k-gold-6mm-high-polished-comfort-fit-wedding-band.html" target="_blank" rel="noopener noreferrer">Inspect Source &#8599;</a></td>
+          </tr>
+          <tr class="row-flagged" data-severity="needs_review_missing_or_conflicting_spec" data-dataset="data/rings.json">
+            <td><strong>FLAG-RING-09</strong><div class="field-hint">data/rings.json</div></td>
+            <td><strong>VRAI — Petite 4-Prong Solitaire Round Brilliant Engagement Ring (Plain Band, 18k Yellow Gold)</strong><div class="field-hint">Ring Listing — Unverified / Irregular Spec</div></td>
+            <td><span class="badge badge-unverified">needs_review_missing_or_conflicting_spec</span></td>
+            <td><code>price_usd</code>, <code>hallmark_online_stated</code>, <code>price_to_melt_ratio</code>, <code>melt_share_of_price_pct</code></td>
+            <td>Live product URL redirects to VRAI's interactive configurator where dollar price is injected dynamically via JavaScript; left blank (null) per No-Hallucinations rule rather than relying on cached search snippets. | Minor spec template irregularity: Setting Details lists 'Pavé carat weight: 0.11ctw' even while Plain band variant is selected.</td>
+            <td>Inspect interior karat + registered maker’s mark stamp and verify mass/purity via non-destructive scale + XRF within return window.</td>
+            <td>2026-10-22</td>
+            <td><a class="source-link" href="https://www.vrai.com/configure/setting-to-diamond/petite-4-prong-ring/round-brilliant-yellow-gold-41015509221469" target="_blank" rel="noopener noreferrer">Inspect Source &#8599;</a></td>
+          </tr>
+          <tr class="row-flagged" data-severity="needs_review_missing_or_conflicting_spec" data-dataset="data/rings.json">
+            <td><strong>FLAG-RING-10</strong><div class="field-hint">data/rings.json</div></td>
+            <td><strong>VRAI — Classic Oval Engagement Ring (Plain Band, 18k Yellow Gold)</strong><div class="field-hint">Ring Listing — Unverified / Irregular Spec</div></td>
+            <td><span class="badge badge-unverified">needs_review_missing_or_conflicting_spec</span></td>
+            <td><code>price_usd</code>, <code>hallmark_online_stated</code>, <code>stone_carat</code>, <code>band_width_mm</code>, <code>price_to_melt_ratio</code>, <code>melt_share_of_price_pct</code></td>
+            <td>Price is omitted from static HTML on configurator endpoint; left blank (null) and flagged unverified. | Band width is listed qualitatively as 'Standard' (Band depth: 1.6mm) without numeric width in mm; Plain band page still displays 'Pavé carat weight: 0.18ctw'.</td>
+            <td>Inspect interior karat + registered maker’s mark stamp and verify mass/purity via non-destructive scale + XRF within return window.</td>
+            <td>2026-10-22</td>
+            <td><a class="source-link" href="https://www.vrai.com/configure/setting-to-diamond/classic-4-prong-dome/oval-yellow-gold-32720961110109" target="_blank" rel="noopener noreferrer">Inspect Source &#8599;</a></td>
+          </tr>
+          <tr class="row-flagged" data-severity="needs_review_missing_or_conflicting_spec" data-dataset="data/rings.json">
+            <td><strong>FLAG-RING-11</strong><div class="field-hint">data/rings.json</div></td>
+            <td><strong>Blue Nile — Petite Solitaire Engagement Ring in 18k Yellow Gold</strong><div class="field-hint">Ring Listing — Unverified / Irregular Spec</div></td>
+            <td><span class="badge badge-unverified">needs_review_missing_or_conflicting_spec</span></td>
+            <td><code>hallmark_online_stated</code>, <code>weight_grams</code>, <code>pure_gold_grams</code>, <code>raw_gold_melt_usd</code>, <code>price_to_melt_ratio</code>, <code>melt_share_of_price_pct</code></td>
+            <td>Checklist CHK-04 gap: Blue Nile does not publish ring gram weight on setting product page — raw gold melt value cannot be verified prior to contacting customer support or weighing upon delivery. | Checklist CHK-02/03 gap: Explicit 'solid gold' wording and interior hallmark text are omitted on listing page.</td>
+            <td>Request written gram weight for your ring size prior to checkout; weigh on 0.01g scale upon arrival.</td>
+            <td>2026-10-22</td>
+            <td><a class="source-link" href="https://www.bluenile.com/engagement-rings/design-your-own-ring/petite-solitaire-engagement-ring-in-18k-yellow-gold-item-195269" target="_blank" rel="noopener noreferrer">Inspect Source &#8599;</a></td>
+          </tr>
+          <tr class="row-flagged" data-severity="needs_review_missing_or_conflicting_spec" data-dataset="data/rings.json">
+            <td><strong>FLAG-RING-12</strong><div class="field-hint">data/rings.json</div></td>
+            <td><strong>Blue Nile — Classic Four Prong Solitaire Engagement Ring in 14K Yellow Gold</strong><div class="field-hint">Ring Listing — Unverified / Irregular Spec</div></td>
+            <td><span class="badge badge-unverified">needs_review_missing_or_conflicting_spec</span></td>
+            <td><code>hallmark_online_stated</code>, <code>weight_grams</code>, <code>pure_gold_grams</code>, <code>raw_gold_melt_usd</code>, <code>price_to_melt_ratio</code>, <code>melt_share_of_price_pct</code></td>
+            <td>Checklist CHK-04 gap: Gram weight is unpublished on setting page. | Mixed-metal construction (14k yellow gold shank + platinum head/prongs): post-arrival XRF must test shank and prongs separately. | Warranty threshold note on page: states complimentary lifetime manufacturer warranty applies to orders '$1,000 or more', whereas standalone setting is $870.</td>
+            <td>Request written gram weight for your ring size prior to checkout; weigh on 0.01g scale upon arrival.</td>
+            <td>2026-10-22</td>
+            <td><a class="source-link" href="https://www.bluenile.com/engagement-rings/design-your-own-ring/classic-four-prong-solitaire-engagement-ring-in-14k-yellow-gold-item-203257" target="_blank" rel="noopener noreferrer">Inspect Source &#8599;</a></td>
+          </tr>
+          <tr class="row-flagged" data-severity="needs_review_missing_or_conflicting_spec" data-dataset="data/rings.json">
+            <td><strong>FLAG-RING-13</strong><div class="field-hint">data/rings.json</div></td>
+            <td><strong>Blue Nile — Solitaire Compass Set Engagement Ring in 18k Yellow Gold</strong><div class="field-hint">Ring Listing — Unverified / Irregular Spec</div></td>
+            <td><span class="badge badge-unverified">needs_review_missing_or_conflicting_spec</span></td>
+            <td><code>claimed_karat</code>, <code>purity_fraction</code>, <code>hallmark_online_stated</code>, <code>weight_grams</code>, <code>pure_gold_grams</code>, <code>raw_gold_melt_usd</code>, <code>price_to_melt_ratio</code>, <code>melt_share_of_price_pct</code></td>
+            <td>CRITICAL KARAT CONTRADICTION ON LIVE OFFICIAL PAGE: Product H1 and Metal specification state '18K Yellow Gold' (Stock 501290y), while Product Details copy states 'Show your love with this 14k yellow gold engagement ring'. Claimed karat left blank (null) and flagged unverified until confirmed in writing and XRF-tested. | Gram weight and hallmark stamp are unpublished online.</td>
+            <td>Do not purchase until seller confirms exact karat in writing; verify on arrival via 0.01g scale + ED-XRF.</td>
+            <td>2026-10-22</td>
+            <td><a class="source-link" href="https://www.bluenile.com/engagement-rings/design-your-own-ring/solitaire-compass-set-engagement-ring-in-18k-yellow-gold-item-203281" target="_blank" rel="noopener noreferrer">Inspect Source &#8599;</a></td>
+          </tr>
+          <tr class="row-flagged" data-severity="needs_review_missing_or_conflicting_spec" data-dataset="data/rings.json">
+            <td><strong>FLAG-RING-14</strong><div class="field-hint">data/rings.json</div></td>
+            <td><strong>Brilliant Earth — Fairmined 2mm Six-Prong Solitaire Ring in 18K Yellow Gold</strong><div class="field-hint">Ring Listing — Unverified / Irregular Spec</div></td>
+            <td><span class="badge badge-unverified">needs_review_missing_or_conflicting_spec</span></td>
+            <td><code>hallmark_online_stated</code>, <code>weight_grams</code>, <code>pure_gold_grams</code>, <code>raw_gold_melt_usd</code>, <code>price_to_melt_ratio</code>, <code>melt_share_of_price_pct</code></td>
+            <td>Checklist CHK-04 gap: Gram weight is omitted on setting page. | Resizing contradiction on page: Trust banner advertises 'Free 1-Year Resizing', but Product Details warns 'Due to the materials and distinctive design of this style, resizing is not available for this ring.' | Minor UI label defect on live page: Band Width selector displays 'Band Width: 2 ct. tw.' instead of 'mm'.</td>
+            <td>Request written gram weight for your ring size prior to checkout; weigh on 0.01g scale upon arrival.</td>
+            <td>2026-10-22</td>
+            <td><a class="source-link" href="https://www.brilliantearth.com/Fairmined-2mm-Six-Prong-Solitaire-Ring-Gold-BE1FM0126-24910022/" target="_blank" rel="noopener noreferrer">Inspect Source &#8599;</a></td>
+          </tr>
+          <tr class="row-flagged" data-severity="needs_review_missing_or_conflicting_spec" data-dataset="data/rings.json">
+            <td><strong>FLAG-RING-15</strong><div class="field-hint">data/rings.json</div></td>
+            <td><strong>Brilliant Earth — Comfort Fit 2mm Six-Prong Solitaire Ring in 18K Yellow Gold</strong><div class="field-hint">Ring Listing — Unverified / Irregular Spec</div></td>
+            <td><span class="badge badge-unverified">needs_review_missing_or_conflicting_spec</span></td>
+            <td><code>hallmark_online_stated</code>, <code>weight_grams</code>, <code>pure_gold_grams</code>, <code>raw_gold_melt_usd</code>, <code>price_to_melt_ratio</code>, <code>melt_share_of_price_pct</code></td>
+            <td>Checklist CHK-04 gap: Gram weight is unpublished on setting page. | Mixed-karat gold construction: Ring band is 18K Yellow Gold (75.0% Au) while Prong metal is 14K White Gold (58.3% Au). Independent XRF verification must spot-check band and prong head separately.</td>
+            <td>Request written gram weight for your ring size prior to checkout; weigh on 0.01g scale upon arrival.</td>
+            <td>2026-10-22</td>
+            <td><a class="source-link" href="https://www.brilliantearth.com/Comfort-Fit-2mm-Six-Prong-Solitaire-Ring-Gold-BE10126-9565329/" target="_blank" rel="noopener noreferrer">Inspect Source &#8599;</a></td>
+          </tr>
+          <tr class="row-flagged" data-severity="needs_review_missing_or_conflicting_spec" data-dataset="data/rings.json">
+            <td><strong>FLAG-RING-16</strong><div class="field-hint">data/rings.json</div></td>
+            <td><strong>Mejuri — Bold Diamond Half Eternity Ring (14k Solid Yellow Gold)</strong><div class="field-hint">Ring Listing — Unverified / Irregular Spec</div></td>
+            <td><span class="badge badge-unverified">needs_review_missing_or_conflicting_spec</span></td>
+            <td><code>hallmark_online_stated</code>, <code>weight_grams</code>, <code>pure_gold_grams</code>, <code>raw_gold_melt_usd</code>, <code>price_to_melt_ratio</code>, <code>melt_share_of_price_pct</code></td>
+            <td>Checklist CHK-04 gap: Mejuri publishes Shank Width (2.5 mm) and Shank Thickness (1.5 mm) but omits total gram weight. | Checklist CHK-07 trap: Complimentary optional engraving makes the ring final sale ('Engraving is optional (complimentary) and not eligible for returns').</td>
+            <td>Request written gram weight for your ring size prior to checkout; weigh on 0.01g scale upon arrival.</td>
+            <td>2026-10-22</td>
+            <td><a class="source-link" href="https://mejuri.com/shop/products/bold-diamond-half-eternity-ring?Material=Solid+Yellow+Gold+%2814k%29&amp;Stone=Natural+Diamond" target="_blank" rel="noopener noreferrer">Inspect Source &#8599;</a></td>
+          </tr>
+          <tr class="row-flagged" data-severity="needs_review_missing_or_conflicting_spec" data-dataset="data/rings.json">
+            <td><strong>FLAG-RING-17</strong><div class="field-hint">data/rings.json</div></td>
+            <td><strong>Mejuri — Pavé Diamond Thin Dôme Ring (14k Solid Yellow Gold)</strong><div class="field-hint">Ring Listing — Unverified / Irregular Spec</div></td>
+            <td><span class="badge badge-unverified">needs_review_missing_or_conflicting_spec</span></td>
+            <td><code>hallmark_online_stated</code>, <code>weight_grams</code>, <code>pure_gold_grams</code>, <code>raw_gold_melt_usd</code>, <code>price_to_melt_ratio</code>, <code>melt_share_of_price_pct</code></td>
+            <td>Checklist CHK-04 gap: Gram weight and interior hallmark stamp text are not published on product page ( also check hollow vs solid dome interior on arrival per 16 CFR § 23.3(c)).</td>
+            <td>Request written gram weight for your ring size prior to checkout; weigh on 0.01g scale upon arrival.</td>
+            <td>2026-10-22</td>
+            <td><a class="source-link" href="https://mejuri.com/shop/products/pave-diamond-thin-dome-ring?Material=Solid+Yellow+Gold+%2814k%29&amp;Stone=Natural+Diamond" target="_blank" rel="noopener noreferrer">Inspect Source &#8599;</a></td>
+          </tr>
+          <tr class="row-flagged" data-severity="needs_review_missing_or_conflicting_spec" data-dataset="data/rings.json">
+            <td><strong>FLAG-RING-18</strong><div class="field-hint">data/rings.json</div></td>
+            <td><strong>Local Eclectic — 14k Floating Deco Cluster Diamond Ring (Carried Jewels)</strong><div class="field-hint">Ring Listing — Unverified / Irregular Spec</div></td>
+            <td><span class="badge badge-unverified">needs_review_missing_or_conflicting_spec</span></td>
+            <td><code>hallmark_online_stated</code>, <code>weight_grams</code>, <code>pure_gold_grams</code>, <code>raw_gold_melt_usd</code>, <code>price_to_melt_ratio</code>, <code>melt_share_of_price_pct</code></td>
+            <td>Checklist CHK-04 gap: Gram weight and hallmark text are not published on product page. | Slender 1.2 mm band width carrying a 1.43 ctw cluster requires careful structural inspection. | Image gallery alt-text irregularity: several lifestyle images on this product page reference '14k Alexandrite and Diamond Sun Ring'.</td>
+            <td>Request written gram weight for your ring size prior to checkout; weigh on 0.01g scale upon arrival.</td>
+            <td>2026-10-22</td>
+            <td><a class="source-link" href="https://www.localeclectic.com/products/14k-floating-deco-cluster-diamond-ring" target="_blank" rel="noopener noreferrer">Inspect Source &#8599;</a></td>
+          </tr>
+          <tr class="row-flagged" data-severity="needs_review_missing_or_conflicting_spec" data-dataset="data/rings.json">
+            <td><strong>FLAG-RING-19</strong><div class="field-hint">data/rings.json</div></td>
+            <td><strong>Local Eclectic — Solid Gold Filigree Ring (Family Gold, 10k Yellow Gold)</strong><div class="field-hint">Ring Listing — Unverified / Irregular Spec</div></td>
+            <td><span class="badge badge-unverified">needs_review_missing_or_conflicting_spec</span></td>
+            <td><code>hallmark_online_stated</code>, <code>weight_grams</code>, <code>pure_gold_grams</code>, <code>raw_gold_melt_usd</code>, <code>price_to_melt_ratio</code>, <code>melt_share_of_price_pct</code></td>
+            <td>Checklist CHK-04 gap: Gram weight is omitted online — essential on open-work filigree bands where visual width (3 mm) can have low actual gold mass. | Verified customer review on live page (05/30/2026) reports filigree band broke after two years of wedding-band wear.</td>
+            <td>Request written gram weight for your ring size prior to checkout; weigh on 0.01g scale upon arrival.</td>
+            <td>2026-10-22</td>
+            <td><a class="source-link" href="https://www.localeclectic.com/products/solid-gold-filigree-ring" target="_blank" rel="noopener noreferrer">Inspect Source &#8599;</a></td>
+          </tr>
+          <tr class="row-flagged" data-severity="needs_review_missing_or_conflicting_spec" data-dataset="data/rings.json">
+            <td><strong>FLAG-RING-20</strong><div class="field-hint">data/rings.json</div></td>
+            <td><strong>Menē — Wrap Ring (Pure 24k Gold)</strong><div class="field-hint">Ring Listing — Unverified / Irregular Spec</div></td>
+            <td><span class="badge badge-unverified">needs_review_missing_or_conflicting_spec</span></td>
+            <td><code>hallmark_online_stated</code>, <code>weight_grams</code>, <code>pure_gold_grams</code>, <code>raw_gold_melt_usd</code>, <code>price_to_melt_ratio</code>, <code>melt_share_of_price_pct</code></td>
+            <td>Exact gram weight is hidden inside client-side JS 'Price breakdown' modal and not present in static HTML; left blank (null) per No-Hallucinations policy rather than back-calculating from spot price. | Short 7-day standard return window requires scheduling independent scale + XRF verification immediately upon delivery; note Menē discloses ±0.5g (in-stock) or ±1.0g (Crafted-on-Demand) weight variance.</td>
+            <td>Request written gram weight for your ring size prior to checkout; weigh on 0.01g scale upon arrival.</td>
+            <td>2026-10-22</td>
+            <td><a class="source-link" href="https://mene.com/products/wrap-ring-gold" target="_blank" rel="noopener noreferrer">Inspect Source &#8599;</a></td>
+          </tr>
+          <tr class="row-disqualified" data-severity="disqualified_do_not_buy_as_solid_gold" data-dataset="data/rings.json">
+            <td><strong>FLAG-RING-21</strong><div class="field-hint">data/rings.json</div></td>
+            <td><strong>Local Eclectic — Solid Gold Simple Knot Ring (9k vs 10k On-Page Conflict)</strong><div class="field-hint">Ring Listing — Disqualified / Karat Conflict</div></td>
+            <td><span class="badge badge-disqualified">disqualified_do_not_buy_as_solid_gold</span></td>
+            <td><code>claimed_karat</code>, <code>purity_fraction</code>, <code>hallmark_online_stated</code>, <code>weight_grams</code>, <code>pure_gold_grams</code>, <code>raw_gold_melt_usd</code>, <code>price_to_melt_ratio</code>, <code>melt_share_of_price_pct</code></td>
+            <td>CRITICAL SUB-10K &amp; CONTRADICTION WARNING: Page badge explicitly states '9k Solid Gold' (37.5% Au — below the traditional US 10K karat-gold threshold under 16 CFR § 23.3(b)), while bullet list states '10k solid yellow gold'. Flagged for review and excluded from compliant solid-gold recommendations.</td>
+            <td>Walk away: fails solid karat gold requirement (vermeil plating or unresolved 9K/10K conflict).</td>
+            <td>2026-10-22</td>
+            <td><a class="source-link" href="https://www.localeclectic.com/products/solid-gold-simple-knot-ring" target="_blank" rel="noopener noreferrer">Inspect Source &#8599;</a></td>
+          </tr>
+          <tr class="row-disqualified" data-severity="disqualified_do_not_buy_as_solid_gold" data-dataset="data/rings.json">
+            <td><strong>FLAG-RING-22</strong><div class="field-hint">data/rings.json</div></td>
+            <td><strong>Mejuri — Daily Stacker Ring (18k Gold Vermeil — DISQUALIFIED CONTROL)</strong><div class="field-hint">Ring Listing — Disqualified / Karat Conflict</div></td>
+            <td><span class="badge badge-disqualified">disqualified_do_not_buy_as_solid_gold</span></td>
+            <td><code>purity_fraction</code>, <code>hallmark_online_stated</code>, <code>weight_grams</code>, <code>pure_gold_grams</code>, <code>raw_gold_melt_usd</code>, <code>price_to_melt_ratio</code>, <code>melt_share_of_price_pct</code></td>
+            <td>DISQUALIFIED BY CHECKLIST CHK-02 (Not Solid Gold): Included as an anti-hallucination / keyword-trap control case because the page text contains the substring '18k solid gold' inside 'a thick layer of 18k solid gold plated on 91% recycled sterling silver'. Base metal is 92.5% silver, not solid karat gold. | XRF testing alert (ISO 23345:2021): 2.5 µm 18K gold electroplate over Ag925 will show strong Ag K-alpha fluorescence and surface Au distortion on ED-XRF — demonstrating why XRF immediately catches vermeil misrepresented as solid gold.</td>
+            <td>Walk away: fails solid karat gold requirement (vermeil plating or unresolved 9K/10K conflict).</td>
+            <td>2026-10-22</td>
+            <td><a class="source-link" href="https://mejuri.com/shop/products/daily-stacker-ring?Material=18k+Gold+Vermeil" target="_blank" rel="noopener noreferrer">Inspect Source &#8599;</a></td>
+          </tr>
+          <tr class="row-flagged" data-severity="policy_watch_note" data-dataset="data/sellers.json">
+            <td><strong>FLAG-SELLER-AUTOMIC</strong><div class="field-hint">data/sellers.json</div></td>
+            <td><strong>Automic Gold (PASS (Unengraved / Unmodified Stock Only))</strong><div class="field-hint">Seller Policy / Reputation Irregularity</div></td>
+            <td><span class="badge badge-unverified">policy_watch_note</span></td>
+            <td><code>bbb_complaints_3yr</code></td>
+            <td>BBB rating discrepancy on bbb.org: main profile page displays 'A+' while '/overview-of-bbb-ratings' subpage displays 'NR' (insufficient information). | Optional +$60 engraving immediately voids 30-day return rights.</td>
+            <td>30-day delivery-based return window allows ample time for non-destructive 0.01g scale check and ISO 23345:2021 ED-XRF scan before removing tags or engraving. Never scratch/acid-test or resize prior to return approval.</td>
+            <td>2026-10-22</td>
+            <td><a class="source-link" href="https://www.automicgold.com/pages/returns-exchange-policy" target="_blank" rel="noopener noreferrer">Inspect Source &#8599;</a></td>
+          </tr>
+          <tr class="row-flagged" data-severity="policy_watch_note" data-dataset="data/sellers.json">
+            <td><strong>FLAG-SELLER-SARRAF</strong><div class="field-hint">data/sellers.json</div></td>
+            <td><strong>Sarraf.com (PASS (Non-Special-Order, Unaltered Items))</strong><div class="field-hint">Seller Policy / Reputation Irregularity</div></td>
+            <td><span class="badge badge-unverified">policy_watch_note</span></td>
+            <td><span class="field-hint">Policy / baseline irregularity (no blank numeric cell)</span></td>
+            <td>Customer service phone hours are limited to Monday–Thursday 10:00 AM–4:00 PM PST. | Older product-tab templates show conflicting post-30-day warranty repair shipping/handling fees ('$50 or 5%' on some pages vs '$100 or 10%' on others). | Return shipments must be insured by the buyer; non-insured packages are returned to sender.</td>
+            <td>Publishes 'Approximate Metal Weight' in grams on ring pages, making post-arrival 0.01g scale comparison straightforward. Third-party resizing voids returns — perform only non-destructive scale + ED-XRF check within 30 days.</td>
+            <td>2026-10-22</td>
+            <td><a class="source-link" href="https://www.sarraf.com/about-sarraf/" target="_blank" rel="noopener noreferrer">Inspect Source &#8599;</a></td>
+          </tr>
+          <tr class="row-flagged" data-severity="policy_watch_note" data-dataset="data/sellers.json">
+            <td><strong>FLAG-SELLER-BLUENILE</strong><div class="field-hint">data/sellers.json</div></td>
+            <td><strong>Blue Nile (CONDITIONAL — Request Written Gram Weight &amp; Karat Clarification Before Ordering)</strong><div class="field-hint">Seller Policy / Reputation Irregularity</div></td>
+            <td><span class="badge badge-unverified">policy_watch_note</span></td>
+            <td><code>bbb_complaints_3yr</code></td>
+            <td>Return clock begins on SHIPMENT date rather than delivery date. | Resizing after initial purchase permanently voids return/exchange eligibility. | Omits gram weight across solitaire engagement setting pages and exhibited an 18K-vs-14K copy conflict on Stock 501290y.</td>
+            <td>Because 30-day clock starts at SHIPMENT (not delivery) and gram weight is unpublished online, request gram weight in writing from service@bluenile.com BEFORE ordering, and complete non-destructive scale + multi-point XRF (shank vs platinum prongs) immediately upon arrival before any resizing.</td>
+            <td>2026-10-22</td>
+            <td><a class="source-link" href="https://www.bluenile.com/policies/returns" target="_blank" rel="noopener noreferrer">Inspect Source &#8599;</a></td>
+          </tr>
+          <tr class="row-flagged" data-severity="policy_watch_note" data-dataset="data/sellers.json">
+            <td><strong>FLAG-SELLER-BRILLIANTEARTH</strong><div class="field-hint">data/sellers.json</div></td>
+            <td><strong>Brilliant Earth (CONDITIONAL — Request Written Gram Weight Before Purchase; Never Engrave Pre-XRF)</strong><div class="field-hint">Seller Policy / Reputation Irregularity</div></td>
+            <td><span class="badge badge-unverified">policy_watch_note</span></td>
+            <td><span class="field-hint">Policy / baseline irregularity (no blank numeric cell)</span></td>
+            <td>High absolute BBB complaint volume (285 complaints in 3 years / 85 in last 12 months on San Francisco HQ BBB profile, though resolved to maintain A+ rating). | Gram weights are omitted on engagement setting pages. | Fairmined style BE1FM0126-18KY displays generic 'Free 1-Year Resizing' badge while Product Details states resizing is unavailable.</td>
+            <td>Do not add complimentary/$40 engraving before inspection. Perform non-destructive 0.01g scale weighing and dual-point ED-XRF (many 18K yellow gold settings use 14K white gold prongs, e.g., BE10126-18KY).</td>
+            <td>2026-10-22</td>
+            <td><a class="source-link" href="https://www.brilliantearth.com/customer-care/" target="_blank" rel="noopener noreferrer">Inspect Source &#8599;</a></td>
+          </tr>
+          <tr class="row-flagged" data-severity="high_policy_or_reputation_risk" data-dataset="data/sellers.json">
+            <td><strong>FLAG-SELLER-VRAI</strong><div class="field-hint">data/sellers.json</div></td>
+            <td><strong>VRAI (CAUTION / HIGH RISK — BBB 'F' Rating &amp; $300 Recycling Fee on Certain Cash Refunds)</strong><div class="field-hint">Seller Policy / Reputation Irregularity</div></td>
+            <td><span class="badge badge-disqualified">high_policy_or_reputation_risk</span></td>
+            <td><code>credit_card_accepted</code>, <code>credit_card_details</code></td>
+            <td>CRITICAL SELLER REPUTATION FLAG (CHK-05): BBB Los Angeles profile rates Vrai 'F' due to 'Failure to respond to 5 complaint(s) filed against business'. | CRITICAL RETURN FEE FLAG (CHK-07): $300 USD recycling fee deducted on setting-only or engraved engagement ring returns to original payment method (pushing buyers into non-refundable store credit). | Exact list of accepted credit card networks was not present in static HTML fetched from VRAI policy snippets; left null/unverified.</td>
+            <td>Publishes exact gram weights (e.g., 2.3g, 2.86g, 3.5g at size 6), ideal for post-arrival scale checks. However, third-party alteration voids returns — use strictly non-destructive XRF and confirm fee-free cash refund eligibility in writing before ordering.</td>
+            <td>2026-10-22</td>
+            <td><a class="source-link" href="https://www.vrai.com/returns-exchanges" target="_blank" rel="noopener noreferrer">Inspect Source &#8599;</a></td>
+          </tr>
+          <tr class="row-flagged" data-severity="policy_watch_note" data-dataset="data/sellers.json">
+            <td><strong>FLAG-SELLER-MEJURI</strong><div class="field-hint">data/sellers.json</div></td>
+            <td><strong>Mejuri (CONDITIONAL — Solid 14K Line Only (Skip Complimentary Engraving; Request Gram Weight))</strong><div class="field-hint">Seller Policy / Reputation Irregularity</div></td>
+            <td><span class="badge badge-unverified">policy_watch_note</span></td>
+            <td><span class="field-hint">Policy / baseline irregularity (no blank numeric cell)</span></td>
+            <td>Complimentary engraving trap: free optional engraving renders $1,500 rings non-returnable. | Catalog mixes 14k Solid Gold rings and 18k Gold Vermeil (sterling silver core) rings whose descriptions contain the phrase 'layer of 18k solid gold plated on 91% recycled sterling silver'. | Does not publish gram weights on ring product pages.</td>
+            <td>30-day free return from delivery supports independent jeweler scale + ED-XRF verification as long as ring is unengraved and unworn. Verify product is from '14k Solid Gold' line and NOT '18k Gold Vermeil'.</td>
+            <td>2026-10-22</td>
+            <td><a class="source-link" href="https://mejuri.com/faq/return-exchanges" target="_blank" rel="noopener noreferrer">Inspect Source &#8599;</a></td>
+          </tr>
+          <tr class="row-flagged" data-severity="high_policy_or_reputation_risk" data-dataset="data/sellers.json">
+            <td><strong>FLAG-SELLER-LOCALECLECTIC</strong><div class="field-hint">data/sellers.json</div></td>
+            <td><strong>Local Eclectic (CAUTION — Short 14-Day Cash Refund Window, Missing Gram Weights &amp; 9K/10K Copy Conflict)</strong><div class="field-hint">Seller Policy / Reputation Irregularity</div></td>
+            <td><span class="badge badge-disqualified">high_policy_or_reputation_risk</span></td>
+            <td><code>credit_card_accepted</code>, <code>credit_card_details</code></td>
+            <td>RETURN WINDOW TRAP (CHK-07): Headline states 'Returns are accepted within 90 days', but cash refunds expire 14 days after delivery (days 15–90 yield store credit only), and return shipping is deducted. | Customer service phone number is omitted on official Contact Us page (only found via BBB Chicago profile: 888-232-8306). | Live product page 'Solid Gold Simple Knot Ring' mixes '9k Solid Gold' (below US 10K standard) and '10k solid yellow gold' on the same page. | Specific accepted credit card brands were not enumerated on the fetched static FAQ/Contact pages; left null/unverified.</td>
+            <td>Tight 14-day cash-refund cutoff means independent jeweler scale + XRF verification must be completed within ~10 days of delivery to avoid being locked into store credit. Pay special attention to 9K vs 10K alloy content.</td>
+            <td>2026-10-22</td>
+            <td><a class="source-link" href="https://www.localeclectic.com/pages/frequently-asked-questions" target="_blank" rel="noopener noreferrer">Inspect Source &#8599;</a></td>
+          </tr>
+          <tr class="row-flagged" data-severity="high_policy_or_reputation_risk" data-dataset="data/sellers.json">
+            <td><strong>FLAG-SELLER-MENE</strong><div class="field-hint">data/sellers.json</div></td>
+            <td><strong>Menē (CAUTION — Strict 7-Day Window &amp; Up to 10% Discretionary Cash-Refund Restocking Fee)</strong><div class="field-hint">Seller Policy / Reputation Irregularity</div></td>
+            <td><span class="badge badge-disqualified">high_policy_or_reputation_risk</span></td>
+            <td><code>bbb_complaints_3yr</code></td>
+            <td>STRICT 7-DAY RETURN &amp; FEE WARNING (CHK-07 / CHK-12): Sep 2, 2026 Terms of Service allow Menē to deduct up to a 10% restocking fee on discretionary original-payment-method refunds, while self-service 7-day returns issue non-cash Menē Credit subject to expiry. | Missing Certificate of Authenticity triggers an additional 5% assessment deduction. | Pure 24K gold (99.99% Au) is physically softer than 14K/18K alloys for prong-set gemstone rings (Menē sells plain 24K bands/rings without prong-set gemstones).</td>
+            <td>Each 24K piece ships with a Certificate of Authenticity stating final gram weight (in-stock ±0.5g, Crafted-on-Demand ±1.0g). Perform 0.01g scale + 24K XRF check on Day 1–2 of arrival due to strict 7-day return window, and keep Certificate of Authenticity intact to avoid 5% fee.</td>
+            <td>2026-10-22</td>
+            <td><a class="source-link" href="https://mene.com/terms-of-service" target="_blank" rel="noopener noreferrer">Inspect Source &#8599;</a></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div style="max-width: 680px;">
+        <strong style="color:#fff;">GOLD3 — Online Gold Engagement Ring Verification &amp; Raw Gold Melt Calculator</strong>
+        <p style="margin:6px 0 0;">
+          Verified UTC Date: <strong>2026-10-22</strong>. Every single table row links directly to an official retailer, regulatory (FTC 16 CFR Part 23, 15 U.S.C. &sect;&sect; 295 &amp; 297, NIST, ISO 23345:2021), BBB, or precious-metals benchmark source. Never rely on a karat stamp alone — verify mass on a calibrated 0.01g scale and alloy fineness via independent non-destructive ED-XRF before wearing or resizing.
+        </p>
+      </div>
+      <div>
+        <div><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener noreferrer">GitHub Repository (karagemop466-tech/GOLD3) &#8599;</a></div>
+        <div style="margin-top:6px;"><a href="security-audit.html">Run &amp; Inspect Anti-Hallucination Security Checks</a></div>
+        <div style="margin-top:6px;"><a href="flagged.html">Inspect 33 Flagged / Unverified Items</a></div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
