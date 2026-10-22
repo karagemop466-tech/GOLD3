@@ -9,7 +9,7 @@ It publishes as a static site on GitHub Pages and is generated entirely from mac
 > **blank** and marked **unverified** — it is never estimated, inferred, or filled in to make a row
 > look complete. Prices move daily; always re-check the linked page before buying.
 
-**Captured:** 22 October 2026 · **19 listings** · **5 retailers** · **17 gold + 2 excluded**
+**Captured:** 22 October 2026 · **38 listings across both passes** · **10 sellers** · **4 published weights**
 
 ---
 
@@ -37,6 +37,25 @@ It publishes as a static site on GitHub Pages and is generated entirely from mac
 | `data/prices.json` | Dated gold spot snapshots + the physical constants used |
 | `data/findings.json` | Editorial findings, each with a source and a required action |
 | `data/verification-report.json` | Machine-generated audit: metrics, derived benchmarks, errors |
+
+## Two datasets, one site
+
+Two agent sessions researched this repository on the same day, plus a third that merged an earlier draft. Both
+surviving datasets are published rather than one being discarded:
+
+| Set | File | Rows | Sellers | Evidence model |
+|---|---|---|---|---|
+| **A** (this session) | `data/products.json` | 19 (17 gold + 2 excluded) | Aurate, Blue Nile, Catbird, Mejuri, Ring Concierge | Verbatim price quote + capture date per row |
+| **B** (parallel session `8aaa18bf`) | `data/rings.json` | 19 rings + 5 excluded look-alikes | Blue Nile, Catbird, Costco, James Allen, Mejuri, Ross-Simons, Tiffany, Wilson's Estate Jewelry | Per-field quote for karat, solid-gold claim, weight, hallmark, plus a flag legend |
+
+`scripts/verify.py` gates **both**. For Dataset B it checks official-domain sources, a per-listing source list, that the
+numeric price appears inside `price_as_shown`, that any weight carries a weight quote, that a `PASS` solid-gold verdict
+carries a quote, and that each excluded look-alike states a reason and an official URL. Combined metrics land in
+`data/verification-report.json` (38 listings, 10 sellers, 4 published weights).
+
+`combined.html` shows both sets with an A/B badge so nothing is misattributed. Dataset B's own pages
+(`sellers.html`, `standards.html`, `methodology.html`, `analysis.html`) and the earlier session's archive under
+`archive/session-982bfc88/` are preserved unchanged.
 
 ## Build and verify
 

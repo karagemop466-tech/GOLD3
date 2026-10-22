@@ -89,15 +89,17 @@ here before editing.
 
 ## 4. Change requests / conflicts
 
-_None. No other session joined; no merge conflicts occurred._
+Two other sessions (`session-982bfc88`, `session-8aaa18bf`) worked this repo in parallel and merged to `main`
+while this session was finalising T9. PR #6 opened as `CONFLICTING` twice; both were resolved additively.
+See **§4b** for the item-by-item record. No work was discarded and no shared file was hand-merged.
 
 ## 4a. Irregularities published for review (do not block the merge)
 
 These are on `flagged.html` with source links and an action to close each one:
 
 1. **F1 (high)** Blue Nile's 18K Floral Marquise page contradicts itself: spec says 18K White Gold, product description says 14k yellow gold.
-2. **F2 (high)** 0 of 17 gold listings publish the finished ring weight in grams.
-3. **F3 (high)** 0 of 5 retailers state a hallmark / maker's-mark policy (15 U.S.C. 297).
+2. **F2 (high)** No clean gold-only weight anywhere: 0 of 17 in this pass, 4 of 38 combined — and all four are either labelled approximate by the seller or stated as total item weight including the stone.
+3. **F3 (high)** None of this pass's 5 retailers states a hallmark / maker's-mark policy (15 U.S.C. 297); a parallel pass observed stamps on 3 of its 19 rings.
 4. **F4 (medium)** 7 of 17 listings never use the word "solid"; another 7 rely on a brand-level statement only.
 5. **F5 (medium)** Ring Concierge Trustpilot 2.7 is based on 7 reviews, unclaimed profile.
 6. **F6 (medium)** Ring Concierge advertises "LIFETIME WARRANTY" while its refund policy states 3 years.
@@ -105,12 +107,43 @@ These are on `flagged.html` with source links and an action to close each one:
 8. **F8 (medium)** Aurate 15-day and Catbird 20-day return windows (+$9 fee at Catbird); Catbird international sales final.
 9. **F9 (medium)** Ring Concierge rings mix a yellow-gold band with platinum prongs.
 10. **F10 (low)** Mejuri's dedicated returns page could not be read (JavaScript-only); policy quoted from the product page.
-11. **F11 (low)** No 18K Aurate price captured (collection page shows only a 14K "from" price).
+11. **F11 (low)** In this pass, 18K prices exist only for Blue Nile settings; no 18K Aurate price was captured (collection page shows a single 14K "from" price).
 12. **F12 (low)** Control check: the two spot sources agree to 0.06%.
 
 Also flagged: Ring Concierge publishes no phone or email on the pages checked (`NO_DIRECT_CONTACT`).
 
 ---
+
+## 4b. Cross-session conflicts and resolution (recorded as required)
+
+### Conflict 1 — `session-982bfc88` (PRs #1–#5)
+
+| Item | Action |
+|---|---|
+| `data/rings.json` (9 items), `data/sellers.json` (7 sellers), `data/spot.json`, `data/standards.json` | Kept. |
+| `scripts/audit.py`, `scripts/build.py`, `reports/**` | Kept. |
+| Pages `sellers.html`, `standards.html` | Kept; still valid link targets. |
+
+### Conflict 2 — `session-8aaa18bf` (PRs #2 and #7, plus an audit workflow)
+
+That session had already superseded Conflict 1's dataset with a richer one — `data/rings.json` with 19 rings and 5
+excluded look-alikes, per-field quotes for karat / solid-gold claim / weight / hallmark, `data/flags.json` legend and
+8 sellers — archived the earlier session under `archive/session-982bfc88/`, and added `methodology.html`,
+`analysis.html`, `reports/audit-report.md`, `scripts/render-test.js` and `.github/workflows/audit.yml`.
+
+| Item | Action |
+|---|---|
+| Dataset B (`data/rings.json`, `data/sellers.json`, `data/flags.json`, `data/gold-price.json`, `data/standards.json`) | Kept **verbatim** — not rewritten or "corrected". |
+| Dataset B pages (`sellers.html`, `standards.html`, `methodology.html`, `analysis.html`), `scripts/audit.py`, `scripts/build.py`, `reports/**`, `.github/workflows/audit.yml`, `archive/**` | Kept verbatim. |
+| `scripts/verify.py` | **Extended** to gate Dataset B too: official-domain sources, a source list per listing, numeric price must appear in `price_as_shown`, any weight needs a weight quote, a `PASS` verdict needs a solid-gold quote, each excluded item needs a reason + official URL. |
+| `combined.html` (new) | Publishes both datasets side by side with A/B badges and a separate excluded table; every row keeps its own source link. |
+| Shared pages (`index.html`, `rings.html`, `calculator.html`, `flagged.html`) | Regenerated from this branch's generator, the only writer of those files. Dataset B's authored pages and archive remain reachable and unmodified. |
+| Findings F2, F3, F11 | **Corrected, not defended**: re-scoped to "this pass" and now reporting combined figures, because Dataset B proves weights and hallmarks *are* sometimes published. |
+
+**Agreement across passes:** both independently found that listings rarely say "solid gold", and both used the same
+gold-price anchor ($4,026.79 vs $4,024.36/oz, 0.06% apart). **Where B beat A:** it located the only published weights
+in the repo (2 approximate, 2 total-weight-including-stone) and documented observed hallmarks on 3 rings — which is
+why F2/F3 were rewritten rather than left claiming nothing exists.
 
 ## 5. Pull request and deploy record
 
