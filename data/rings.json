@@ -35,7 +35,8 @@
       "flags": [
         "W1",
         "H1",
-        "M1"
+        "M1",
+        "RH1"
       ],
       "verified_fields": [
         "price_usd",
@@ -51,7 +52,9 @@
         "certification"
       ],
       "last_verified": "2026-10-22",
-      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3)."
+      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3).",
+      "rhodium_note": "Mejuri, Materials & Specifications: “14k solid white gold pieces are finished with rhodium plating” — read live 2026-10-23",
+      "rhodium_source": "https://mejuri.com/products/bold-diamond-eternity-ring"
     },
     {
       "id": "R02",
@@ -124,7 +127,8 @@
         "W1",
         "H1",
         "M1",
-        "L1"
+        "L1",
+        "RH1"
       ],
       "verified_fields": [
         "price_usd",
@@ -138,7 +142,9 @@
         "certification"
       ],
       "last_verified": "2026-10-22",
-      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3)."
+      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3).",
+      "rhodium_note": "Mejuri's material note on its diamond bands: “14k solid white gold pieces are finished with rhodium plating” — quote captured 2026-10-22 from the same brand's product pages",
+      "rhodium_source": "https://mejuri.com/collections/milestone-rings"
     },
     {
       "id": "R04",
@@ -350,7 +356,8 @@
         "H1",
         "S2",
         "L2",
-        "SPEC1"
+        "SPEC1",
+        "RH1"
       ],
       "verified_fields": [
         "price_usd",
@@ -365,7 +372,9 @@
         "maker_mark_reported"
       ],
       "last_verified": "2026-10-22",
-      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3)."
+      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3).",
+      "rhodium_note": "Blue Nile spec table: “Rhodium Finish Yes” (Metal 18K White Gold, Stock Number 502820w) — read live 2026-10-23",
+      "rhodium_source": "https://www.bluenile.com/engagement-rings/design-your-own-ring/floral-marquise-diamond-engagement-ring-in-18k-white-gold-item-203738"
     },
     {
       "id": "R09",
@@ -396,7 +405,8 @@
         "W1",
         "H1",
         "S2",
-        "L2"
+        "L2",
+        "RH1"
       ],
       "verified_fields": [
         "price_usd",
@@ -411,7 +421,9 @@
         "maker_mark_reported"
       ],
       "last_verified": "2026-10-22",
-      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3)."
+      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3).",
+      "rhodium_note": "Blue Nile spec table: “Rhodium Finish Yes” for this 14K white gold setting — quote captured 2026-10-22; re-confirm on the page",
+      "rhodium_source": "https://www.bluenile.com/engagement-rings/design-your-own-ring/riviera-pave-diamond-engagement-ring-in-14k-white-gold-1-6-ct-tw-item-195326"
     },
     {
       "id": "R10",
@@ -442,7 +454,8 @@
         "W1",
         "H1",
         "S2",
-        "ID1"
+        "ID1",
+        "RH1"
       ],
       "verified_fields": [
         "karat",
@@ -457,7 +470,9 @@
         "maker_mark_reported"
       ],
       "last_verified": "2026-10-22",
-      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3)."
+      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3).",
+      "rhodium_note": "Costco features list: “Metal: 14kt White Gold ( Rhodium Plated ) or 14kt Yellow Gold” — read live 2026-10-23; the plating applies to the white-gold option only",
+      "rhodium_source": "https://www.costco.com/p/-/round-brilliant-050-ctw-vs2-clarity-i-color-diamond-14kt-gold-band/100675127"
     },
     {
       "id": "R11",
@@ -636,7 +651,9 @@
         "maker_mark_reported"
       ],
       "last_verified": "2026-10-22",
-      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3)."
+      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3).",
+      "rhodium_note": "Blue Nile spec table: “Rhodium Finish Yes” (Metal 14K White Gold, Stock Number 502120w14) — read live 2026-10-23",
+      "rhodium_source": "https://www.bluenile.com/engagement-rings/design-your-own-ring/classic-simple-solitaire-engagement-ring-in-14k-white-gold-item-195730"
     },
     {
       "id": "R15",
@@ -654,18 +671,18 @@
       "weight_quote": "Gold Weight 0.7 grams",
       "hallmark_reported": null,
       "maker_mark_reported": null,
-      "return_window": "Not verified — no official return-policy page captured for this seller",
+      "return_window": "30 days from receipt of the item for a refund or exchange (the site's '30-Day No-Risk Return Guarantee'); merchandise that has been damaged, altered, or resized by a jeweller other than Ross-Simons cannot be accepted; a flat fee of $4.95 for return shipping and handling may be deducted from the refund.",
       "certification": null,
       "url": "https://www.ross-simons.com/products/985230",
       "sources": [
-        "https://www.ross-simons.com/products/985230"
+        "https://www.ross-simons.com/products/985230",
+        "https://www.ross-simons.com/pages/returns-exchanges"
       ],
       "flags": [
         "WT2",
         "LT1",
         "S2",
         "H1",
-        "POL1",
         "M1"
       ],
       "verified_fields": [
@@ -679,8 +696,9 @@
         "maker_mark_reported",
         "certification"
       ],
-      "last_verified": "2026-10-22",
-      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3)."
+      "last_verified": "2026-10-23",
+      "verification": "Re-read live 2026-10-23 (session arena/6d6192d1-gold3): price, karat and the published gold weight were found verbatim on the product page, and the return terms were read on Ross-Simons' own returns page. POL1 removed; PD1 retired because the live page prints the same figure this record stores.",
+      "return_policy_source": "https://www.ross-simons.com/pages/returns-exchanges"
     },
     {
       "id": "R16",
@@ -698,20 +716,19 @@
       "weight_quote": "Gold Weight 0.8 grams",
       "hallmark_reported": null,
       "maker_mark_reported": null,
-      "return_window": "Not verified — no official return-policy page captured for this seller",
+      "return_window": "30 days from receipt of the item for a refund or exchange (the site's '30-Day No-Risk Return Guarantee'); merchandise that has been damaged, altered, or resized by a jeweller other than Ross-Simons cannot be accepted; a flat fee of $4.95 for return shipping and handling may be deducted from the refund.",
       "certification": null,
       "url": "https://www.ross-simons.com/products/932728",
       "sources": [
-        "https://www.ross-simons.com/products/932728"
+        "https://www.ross-simons.com/products/932728",
+        "https://www.ross-simons.com/pages/returns-exchanges"
       ],
       "flags": [
         "WT2",
         "LT1",
         "S2",
         "H1",
-        "POL1",
-        "M1",
-        "PD1"
+        "M1"
       ],
       "verified_fields": [
         "price_usd",
@@ -724,8 +741,9 @@
         "maker_mark_reported",
         "certification"
       ],
-      "last_verified": "2026-10-22",
-      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3)."
+      "last_verified": "2026-10-23",
+      "verification": "Re-read live 2026-10-23 (session arena/6d6192d1-gold3): price, karat and the published gold weight were found verbatim on the product page, and the return terms were read on Ross-Simons' own returns page. POL1 removed; PD1 retired because the live page prints the same figure this record stores.",
+      "return_policy_source": "https://www.ross-simons.com/pages/returns-exchanges"
     },
     {
       "id": "R17",
@@ -794,18 +812,18 @@
       "weight_quote": null,
       "hallmark_reported": null,
       "maker_mark_reported": null,
-      "return_window": "Not verified — no official return-policy page captured for this seller",
+      "return_window": "20 days from the date the package was delivered (online, domestic shipments only); an $9 return-shipping charge is deducted from the refund; special orders, engraved items, Forever jewelry, earrings from piercing events, home & beauty items and comestibles are final sale; all international sales are final.",
       "certification": null,
       "url": "https://www.catbirdnyc.com/woodland-ring.html",
       "sources": [
-        "https://www.catbirdnyc.com/woodland-ring.html"
+        "https://www.catbirdnyc.com/woodland-ring.html",
+        "https://www.catbirdnyc.com/returns"
       ],
       "flags": [
         "AV1",
         "S2",
         "W1",
         "H1",
-        "POL1",
         "M1"
       ],
       "verified_fields": [
@@ -820,8 +838,9 @@
         "maker_mark_reported",
         "certification"
       ],
-      "last_verified": "2026-10-22",
-      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3)."
+      "last_verified": "2026-10-23",
+      "verification": "Re-read live 2026-10-23 (session arena/6d6192d1-gold3): the product page prints '$276.00 Regular Price$368.00' and carries a sold-out / waitlist badge; the return terms were read on Catbird's own returns page. POL1 removed. See SRC2: Catbird's contact page returned HTTP 500 on the same day.",
+      "return_policy_source": "https://www.catbirdnyc.com/returns"
     },
     {
       "id": "R19",
@@ -1353,7 +1372,8 @@
         "W1",
         "H1",
         "X1",
-        "RET10"
+        "RET10",
+        "PRC1"
       ],
       "verified_fields": [
         "price_usd",
@@ -1368,7 +1388,14 @@
         "maker_mark_reported"
       ],
       "last_verified": "2026-10-22",
-      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3): $3,253 confirmed; exact gram weight is hidden inside a JS modal so left null rather than back-calculated."
+      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3): $3,253 confirmed; exact gram weight is hidden inside a JS modal so left null rather than back-calculated.",
+      "live_recheck": {
+        "checked_on": "2026-10-23",
+        "url": "https://mene.com/products/wrap-ring-gold",
+        "price_as_shown": "$3,228",
+        "quote": "$3,228 · USD · “Price breakdown” — read live 2026-10-23",
+        "note": "The captured figure ($3,253, 2026-10-22) is 0.8% above the price the same page printed the next day. Menē sells by gram weight and re-prices as the metal moves, so the captured price is a dated observation. price_usd is deliberately left at the captured value rather than overwritten, so the movement stays visible."
+      }
     },
     {
       "id": "R31",

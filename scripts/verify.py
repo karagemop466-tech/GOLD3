@@ -34,7 +34,7 @@ from urllib.parse import urlparse
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 
-TODAY = date(2026, 10, 22)
+TODAY = date(2026, 10, 23)
 MAX_PRICE_AGE_DAYS = 30
 
 # Official domains we are willing to cite. Anything else is an ERROR.
@@ -298,8 +298,16 @@ def main() -> int:
             if not domain_ok(p.get("weight_source")):
                 err(f"product {pid}: weight_g present without a weight_source")
         else:
-            if p.get("weight_status") != "not published":
-                err(f"product {pid}: null weight must carry weight_status='not published'")
+            # A null weight must say why it is null. The default token is
+            # "not published"; a listing that prints only a RANGE (e.g. one spec
+            # block shared by the 14k, 18k and platinum versions) may say
+            # "published as a range" instead, because the page does publish a
+            # weight but never a single figure for the ring being sold. The
+            # number itself still has to stay null either way.
+            ws = p.get("weight_status") or ""
+            if ws != "not published" and not ws.startswith("published as a range"):
+                err(f"product {pid}: null weight must carry weight_status='not published' "
+                    f"or a 'published as a range' explanation (got {ws!r})")
         if p.get("carat") is not None and not domain_ok(p.get("carat_source")):
             err(f"product {pid}: carat present without carat_source")
         if p.get("hallmark_stated") is not None:
