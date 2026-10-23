@@ -1,6 +1,6 @@
 {
   "retrieved_utc": "2026-10-23",
-  "session": "arena/e6fe3e4f-gold3 (P1-P4) · arena/699d8e05-gold3 (P5) · arena/6d6192d1-gold3 (P6-P7) · arena/2908bea4-gold3 (P8) · arena/15b00e99-gold3 (P10) · arena/bfcd8465-gold3 (P11) · arena/57724486-gold3 (P12) · arena/fb7e5e3c-gold3 (P13) · arena/438a583e-gold3 (P14)",
+  "session": "arena/e6fe3e4f-gold3 (P1-P4) · arena/699d8e05-gold3 (P5) · arena/6d6192d1-gold3 (P6-P7) · arena/2908bea4-gold3 (P8) · arena/15b00e99-gold3 (P10) · arena/bfcd8465-gold3 (P11) · arena/57724486-gold3 (P12) · arena/fb7e5e3c-gold3 (P13) · arena/438a583e-gold3 (P14) · arena/db2fe957-gold3 (P15)",
   "method": "Every URL cited in data/rings.json, data/sellers.json and data/gold-price.json was opened again in this session on 2026-10-22. Each asserted value was compared against the text the page returned. A value that could not be found on the page was deleted or downgraded to unverified; a value that contradicted the page was corrected; a contradiction found on the page itself was raised as a flag. | Addendum 2026-10-23: the log now holds three independent passes. P1-P3 are the checks recorded by arena/e6fe3e4f-gold3 (ids V01-V37); the third pass (ids P3-01-P3-47, session arena/699d8e05-gold3) was appended from data/reverification-p3.json so that its 47 checks appear in this log instead of only in a separate file; the fourth pass (ids P4-01-P4-25, session arena/6d6192d1-gold3) was run on the merged tree on 2026-10-23 against the official pages. Older entries keep the date they were made.",
   "passes": [
     {
@@ -3197,6 +3197,15 @@
       "found_by": "arena/57724486-gold3, count sweep of every published surface against data/*.json after the SD22 catch",
       "fix": "All figures in the README headline are now the computed ones, with the pass range and the check count taken from data/verification.json.",
       "status": "fixed 2026-10-23"
+    },
+    {
+      "id": "SD24",
+      "page": "verify.html, flagged.html, README.md",
+      "severity": "low",
+      "status": "fixed",
+      "what": "Post-P15 live read-back found three surfaces lagging the merged data: the verification session string ended at P14 although the P15 pass and 222 checks were present; finding F2 still presented the A+B subset as '14 of 50' beside the 71-row site; README still said P1-P14 / 211 checks.",
+      "found_by": "arena/db2fe957-gold3, live GitHub Pages read-back after PR #64",
+      "fix": "Append the P15 session attribution; compute full A+B+C counts in verify.py and use them in F2; update README to P1-P15 / 222 checks; add render assertions for all three surfaces."
     }
   ],
   "site_defects_fixed": 21

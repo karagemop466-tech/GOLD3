@@ -93,7 +93,7 @@ Status values: `unclaimed` · `in progress` · `done` · `needs review`
 | DC2 | Replace hardcoded `$4,025.10`/`$129.41`/`$317.05` spot & melt literals across `scripts/`, extend `verify_dataset_c.py` dead-URL blocklist, rebuild all 24 HTML pages & manifest, pass all 9 CI gates | done | `arena/15b00e99-gold3` | `scripts/audit.py`, `scripts/run_security_audit.py`, `scripts/build_ext_pages.py`, `scripts/verify_dataset_c.py`, `*.html`, `data/verified-data.js`, `verification/*`, `reports/*` | 2026-10-23T10:44Z |
 | DC3 | Open & merge PR #44 (`a0b589b`) to `main`, confirm GitHub Pages deployment (`39941002177`, `status: built`) & live read-back, record final outcome | done | `arena/15b00e99-gold3` | `COORDINATION.md` | 2026-10-23T10:44Z |
 | P15 | Additive net-new verification after peer P12–P14: Dataset C BND-04–BND-08 live weight checks, NIST attribution correction, VRAI SPEC7 source/text correction, Automic R23 lead-time flag, JSON-derived band ratios/calculator presets and regression guards. Preserved the peer-reviewed dated spot anchor and live-check row. Published `data/reverification-p15.json` + `reports/reverification-pass-p15.md`, 11 checks (7 confirmed / 3 corrected / 1 flagged), findings F46–F49, 222-check ledger. | done | `arena/db2fe957-gold3` | `data/reverification-p15.json`, `reports/reverification-pass-p15.md`, `data/verification.json`, `data/findings.json`, `data/flags.json`, `data/rings.json`, `data/spot-and-standards.json`, `scripts/build_ext_pages.py`, `scripts/render-test.js`, `assets/gold3-calc.js`, generated pages, `COORDINATION.md` | 2026-10-23T20:47Z |
-| P16 | Final additive integration: all local gates green (`verify.py` 0/0, Dataset C 0 dead links, `audit.py` 176, security #35 SEC-01…07, render 153/153, 1,010/1,010 official row links, archive 7/7, `git diff --check` clean). Open PR `arena/db2fe957-gold3` → `main`, merge, verify GitHub Pages and record the result. | in progress | `arena/db2fe957-gold3` | repo root (integration window), `COORDINATION.md` | 2026-10-23T20:47Z |
+| P16 | Final additive integration: all local gates green (`verify.py` 0/0, Dataset C 0 dead links, `audit.py` 176, security #36 SEC-01…07, render 156/156, 1,014/1,014 official row links, archive 7/7, `git diff --check` clean). Open PR `arena/db2fe957-gold3` → `main`, merge, verify GitHub Pages and record the result. | in progress | `arena/db2fe957-gold3` | repo root (integration window), `COORDINATION.md` | 2026-10-23T20:47Z |
 | P12 | Eleventh independent live verification pass on the post-PR-#50 tree (`253ab39`): **7 live checks — 3 confirmed / 2 corrected / 2 flagged**. Spot anchor 0.62% below the stored snapshot with an inverted clock label (F39); Menē Classic Band $1,707→$1,694 and Narrow Flat Band $1,544→$1,532 (F40); Menē Wide Flat Band page returned HTTP 500 so its price was left captured (SRC3); Sarraf R20, Ross-Simons BND-04 and Mejuri R03 confirmed verbatim. Also fixed SD14 (three headline counts said 50 while the site renders 71) and SD15 (duplicate `P11-01/P11-02` ids, duplicate `SD6/SD10`, stale `summary.checks` 137 vs 185) and added three audit guard rails. Published `data/reverification-57724486.json` + `reports/reverification-pass-57724486.md`; log now **192 checks**. Verification pass on the post-PR-#50 tree (`253ab39`): re-open the spot benchmark and a rotating sample of price/weight-bearing rows live, sweep every published headline count against `data/`, fix any discrepancy found, publish `data/reverification-57724486.json` + report, then final integration (rebuild, all 9 CI gates, PR → `main`, merge, Pages deploy read-back) | done | `arena/57724486-gold3` | `data/reverification-57724486.json`, `reports/reverification-pass-57724486.md`, `data/verification.json`, `COORDINATION.md`; integration window over generated `*.html`, `data/*.json`, `verification/*`, `reports/*` | 2026-10-23T21:00Z |
 
 > **T10 closed 2026-10-23** by its owner's own work, merged as PR #13 (board record) and PR #15
@@ -1146,16 +1146,20 @@ The session claimed P12/P13 at 20:20Z on `253ab39`, then peer sessions merged PR
 | `verify_dataset_c.py` | **PASS** — 21 rings, 5 weight-published, 16 null/unverified, 0 dead links |
 | Both builders | **PASS** — internal links, stylesheets, product URLs OK |
 | `audit.py` | **PASS** — 31 rows, 0 errors / 0 warnings / 176 checks |
-| `run_security_audit.py` | **PASS #35** — SEC-01…SEC-07, 0 errors; 2,351 links/anchors |
-| `render-test.js` | **PASS** — 153/153 |
+| `run_security_audit.py` | **PASS #36** — SEC-01…SEC-07, 0 errors; 2,355 links/anchors |
+| `render-test.js` | **PASS** — 156/156 (six P15 + three SD24 guards) |
 | `report_verify.py` | **PASS** — 222 checks rendered |
-| Root official-link gate | **PASS** — 1,010/1,010 rows |
+| Root official-link gate | **PASS** — 1,014/1,014 rows |
 | Archive suite | **PASS** — 7/7; 156 internal + 270 external links |
 | `git diff --check` + JSON parse | **PASS** |
 
 ### 21.4 PR, merge and deployment record
 
-Pending at this commit. Record the PR number, merge commit, CI run, Pages deployment and live read-back here after deployment. F46–F49 and CR-P15-1/CR-P15-2 are published for review and do not block the merge.
+- **PR #64:** https://github.com/karagemop466-tech/GOLD3/pull/64 — **MERGED** at `2026-10-23T20:49:34Z`, merge commit **`d3db33f2b2791b07baf243247c5da58d8ab0966e`**.
+- **Main CI:** run **40022197030** — **SUCCESS** (all gates, 12s).
+- **Pages:** run **40022195726** — **SUCCESS** (build 6s, deploy 8s).
+- **Live read-back:** `verify.html` served **222 checks / 108 confirmed / 77 corrected / 37 flagged**; `bands-vintage-rings.html` served the JSON-derived presets including the correct BND-06 Dome Ring; `flagged.html` served 49 findings.
+- **SD24 follow-up:** that read-back also caught the session string ending at P14, F2 still saying “14 of 50,” and README saying P1–P14 / 211 checks. The follow-up appends P15 attribution, computes F2 from full A+B+C metrics (**19 of 71**), updates README to P1–P15 / 222 checks, and adds three guards. Follow-up PR to be recorded after merge. F46–F49 and CR-P15-1/CR-P15-2 remain non-blocking.
 
 ### 21.5 Recommended next hallucination hunt
 

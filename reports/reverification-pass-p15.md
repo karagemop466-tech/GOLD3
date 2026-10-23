@@ -47,6 +47,10 @@ The [Coffin Ring page](https://www.automicgold.com/products/coffin-ring) confirm
 
 The BND-06 preset said “Ross-Simons 6mm 14K Flat,” but the [official product](https://www.ross-simons.com/products/823796) is “Italian 14kt Yellow Gold Diamond-Cut Dome Ring,” 3/4 inch wide. All four real presets now derive product names, weights, prices and ratios from `bands-and-high-karat.json`; the two simulated controls remain explicitly labelled simulations. The displayed ratio range is computed from the same data (**2.99x–3.96x** under the preserved dated anchor), not typed into the template.
 
+## SD24 — Post-deploy read-back follow-up
+
+After PR #64 deployed, the live pages confirmed P15 but exposed three stale prose surfaces: `verify.html` session attribution stopped at P14, F2 still presented the A+B subset as “14 of 50” beside the 71-row site, and README said “P1–P14 / 211 checks.” The follow-up appends P15 attribution, computes full A+B+C counts in `verify.py` (F2 now says **19 of 71**), updates README to **P1–P15 / 222 checks**, and adds three regression guards. No listing value changed.
+
 ## Line-by-line P15 evidence
 
 | Check | Row(s) | Outcome | Evidence | Official link |
@@ -71,10 +75,10 @@ The BND-06 preset said “Ross-Simons 6mm 14K Flat,” but the [official product
 | `verify_dataset_c.py` | **PASS** — 21 rings, 5 weight-published, 16 null/unverified, 0 dead links |
 | Both static builders | **PASS** — internal links, stylesheets and product URLs OK |
 | `audit.py` | **PASS** — 31 rows, 0 errors / 0 warnings / 176 checks |
-| `run_security_audit.py` | **PASS #35** — SEC-01…SEC-07, 0 errors; SEC-06 checked 2,351 links/anchors |
-| `render-test.js` | **PASS** — 153/153, including six new P15 guards |
+| `run_security_audit.py` | **PASS #36** — SEC-01…SEC-07, 0 errors; SEC-06 checked 2,355 links/anchors |
+| `render-test.js` | **PASS** — 156/156, including six P15 and three SD24 guards |
 | `report_verify.py` | **PASS** — 222 checks rendered |
-| Root HTML official-link gate | **PASS** — 1,010/1,010 rows carry an `https://` official link |
+| Root HTML official-link gate | **PASS** — 1,014/1,014 rows carry an `https://` official link |
 | Archive suite | **PASS** — 7/7; 156 internal and 270 external links |
 | `git diff --check` + JSON parse | **PASS** |
 

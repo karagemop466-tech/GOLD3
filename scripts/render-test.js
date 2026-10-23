@@ -241,6 +241,16 @@ check("P15 NIST constant carries its exact derivation and corrected attribution"
   _p15Nist.derivation.includes("480 x 0.06479891") &&
   _p15Nist.attribution_correction_p15.includes("prints no"));
 
+// SD24: post-deploy read-back guards for pass/count prose.
+check("SD24 verification session attribution includes P15",
+  verif.session.includes("arena/db2fe957-gold3 (P15)") &&
+  includesText(html["verify.html"], "arena/db2fe957-gold3 (P15)"));
+check("SD24 F2 uses full A+B+C weight and listing counts",
+  includesText(html["flagged.html"], "Only 19 of 71 listings publish a weight") &&
+  !includesText(html["flagged.html"], "Only 14 of 50 listings publish a weight"));
+check("SD24 README pass range and ledger count are current",
+  read("README.md").includes("P1`–`P15") && read("README.md").includes("222 logged checks"));
+
 // ------------------------------------------------------------------- report
 let failed = 0;
 console.log("render test (static site)\n" + "=".repeat(66));

@@ -14,9 +14,9 @@
     {
       "id": "F2",
       "severity": "high",
-      "title": "Only {n_weight_published_total} of {n_combined} listings publish a weight - none from this pass's five retailers",
-      "detail": "Within this pass, {n_weight_published} of {n_solid_gold} gold listings state the finished ring weight in grams. Across the combined dataset ({n_combined} listings, {n_sellers_total} sellers) {n_weight_published_total} publish a weight - and not one of them is a clean gold-only figure: they are variously labelled 'approximate metal weight', given as a total item weight that includes the stone, or stated as an approximate figure covering more than one metal option. Aurate's product feed does carry an undocumented numeric 'weight' field, but it repeats across variants and is never described as the finished item weight, so it was deliberately not used.",
-      "evidence": "This pass: {n_weight_published} of {n_solid_gold} listings state a weight. Combined: {n_weight_published_total} of {n_combined}, each qualified as approximate, inclusive of the stone, or spanning metal options.",
+      "title": "Only {n_all_weights} of {n_all_listings} listings publish a weight - none from Dataset A's five retailers",
+      "detail": "Dataset A: {n_weight_published} of {n_solid_gold} gold listings state a finished ring weight in grams. Datasets A+B: {n_weight_published_total} of {n_combined}. Dataset C adds {n_dataset_c_weight} more, giving {n_all_weights} of {n_all_listings} across the full site ({n_sellers_all} sellers). None is an unqualified gold-only measurement: they are labelled approximate metal weight, total item weight including stones, or a metal-dependent figure. Aurate's product feed carries a numeric 'weight' field, but it repeats across variants and is not described as the finished item weight, so it was not used.",
+      "evidence": "Full site: {n_all_weights} of {n_all_listings} publish a weight ({n_weight_published_total} in A+B plus {n_dataset_c_weight} in C). Each is qualified as approximate, inclusive of stones, or spanning metal options; none is inferred.",
       "source": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring.js",
       "product": null,
       "action": "Ask the seller in writing for the gold-only weight in grams before paying, and keep the reply. Never substitute a total item weight (which includes the stone) for a gold weight - the difference can be a large share of the metal."

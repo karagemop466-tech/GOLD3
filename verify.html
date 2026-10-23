@@ -30,7 +30,7 @@
   <h1>Verification log</h1>
   <p class="lead">Every URL this project relies on was opened again on <strong>2026-10-23</strong> and the stored
   value was checked against the text the page returned. This page records what was confirmed, what was corrected, and the
-  values that were <em>deleted</em> because the page never printed them. Session <span class="mono">arena/e6fe3e4f-gold3 (P1-P4) · arena/699d8e05-gold3 (P5) · arena/6d6192d1-gold3 (P6-P7) · arena/2908bea4-gold3 (P8) · arena/15b00e99-gold3 (P10) · arena/bfcd8465-gold3 (P11) · arena/57724486-gold3 (P12) · arena/fb7e5e3c-gold3 (P13) · arena/438a583e-gold3 (P14)</span>.</p>
+  values that were <em>deleted</em> because the page never printed them. Session <span class="mono">arena/e6fe3e4f-gold3 (P1-P4) · arena/699d8e05-gold3 (P5) · arena/6d6192d1-gold3 (P6-P7) · arena/2908bea4-gold3 (P8) · arena/15b00e99-gold3 (P10) · arena/bfcd8465-gold3 (P11) · arena/57724486-gold3 (P12) · arena/fb7e5e3c-gold3 (P13) · arena/438a583e-gold3 (P14) · arena/db2fe957-gold3 (P15)</span>.</p>
 </div>
 
 <div class="grid cols-3" style="grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin-bottom:8px">
@@ -1700,6 +1700,14 @@
         <td class="small">The authority-source card for GoldPrice.org was titled &#x27;Gold spot price (live quote shown on site)&#x27;, described itself as the &#x27;Primary USD spot snapshot used by the calculator&#x27;, and quoted only the later $3,997.22/oz reading. The amount actually used by the calculator is $4,022.22/oz, captured the same morning at 05:55 NY. As published, the source register attributed the calculator&#x27;s arithmetic to a figure the site explicitly does not use.</td>
         <td class="small">arena/57724486-gold3, reading sources.html back on the live site after the PR #55 deploy <strong>Fix:</strong> The card now states both readings: the $4,022.22/oz primary capture used in every calculation, and the $3,997.22/oz later read shown only as a labelled live-check that is not used in any calculation. Both quotes are printed verbatim with their own page timestamps.</td>
         <td><span class="badge good">fixed 2026-10-23</span></td>
+        <td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo commit</a></td></tr><tr><td class="mono">SD23</td><td class="mono small">README.md (repository front page)</td>
+        <td class="small">The README headline still described an earlier state of the tree: &#x27;41 listings across both passes (19 + 22), plus 31 Dataset-B/C band studies · 12 sellers · 7 published weights&#x27; and &#x27;re-verified live 23 October 2026 (fourth pass)&#x27;. The data now holds 71 rows (Dataset A 19, Dataset B 31, Dataset C 21), 16 distinct sellers and 19 published weights, and the verification log has run through pass P14 with 211 checks.</td>
+        <td class="small">arena/57724486-gold3, count sweep of every published surface against data/*.json after the SD22 catch <strong>Fix:</strong> All figures in the README headline are now the computed ones, with the pass range and the check count taken from data/verification.json.</td>
+        <td><span class="badge good">fixed 2026-10-23</span></td>
+        <td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo commit</a></td></tr><tr><td class="mono">SD24</td><td class="mono small">verify.html, flagged.html, README.md</td>
+        <td class="small">Post-P15 live read-back found three surfaces lagging the merged data: the verification session string ended at P14 although the P15 pass and 222 checks were present; finding F2 still presented the A+B subset as &#x27;14 of 50&#x27; beside the 71-row site; README still said P1-P14 / 211 checks.</td>
+        <td class="small">arena/db2fe957-gold3, live GitHub Pages read-back after PR #64 <strong>Fix:</strong> Append the P15 session attribution; compute full A+B+C counts in verify.py and use them in F2; update README to P1-P15 / 222 checks; add render assertions for all three surfaces.</td>
+        <td><span class="badge good">fixed</span></td>
         <td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo commit</a></td></tr></tbody>
   </table>
 </div>
