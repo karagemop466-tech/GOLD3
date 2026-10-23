@@ -1051,3 +1051,15 @@ review on <https://karagemop466-tech.github.io/GOLD3/flagged.html> and <https://
 ### 19.3 Gates on the merged tree (all nine, locally, in workflow order)
 
 See the gate block recorded immediately below this section on the merged tip; all nine are green (`audit.py rows=31 errors=0 warnings=0`).
+
+### 20.4 Pull request, merge, CI and deploy record
+
+| Item | Value |
+|---|---|
+| Pull request | [#52](https://github.com/karagemop466-tech/GOLD3/pull/52) — "Pass P14: full weight-bearing re-read, four-feed spot corroboration, and the documented decision to keep the dated anchor (F45)" |
+| State | **MERGED** (`--merge`), `arena/438a583e-gold3` → `main`; merge commit **`c4481df`** |
+| Conflict state at merge | `MERGEABLE` / `CLEAN`, after `origin/main` was merged four times; nothing was force-pushed and no peer work was overwritten |
+| CI on `main` | Anti-hallucination checks run **40019823707** — `success` on `c4481df` |
+| Pages deploy | `pages-build-deployment` run **40019822272** — `success`; `pages/builds/latest` → `built`, `2026-10-23T20:31:31Z` |
+| Live read-back (not assumed) | `verify.html` served **211 URLs opened / 101 confirmed / 74 corrected / 36 flagged**, listed pass **P14**, and the session string ended `… (P13) · arena/438a583e-gold3 (P14)`. |
+| Follow-up | [#58](https://github.com/karagemop466-tech/GOLD3/pull/58) — this board record only, no site content. Next-pass queue: Dataset A's remaining 18 PDPs and the Ring Concierge `F25` contradiction. |
