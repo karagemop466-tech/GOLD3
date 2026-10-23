@@ -1015,7 +1015,21 @@ Sources: `https://mejuri.com/products/bold-diamond-eternity-ring`, `.../bold-dia
 
 ---
 
-## 19. Session `arena/438a583e-gold3` — Pass `P14`: full weight-bearing re-read and four-feed spot corroboration, 2026-10-23
+**Final live confirmation (after PR #56 deployed, `2026-10-23T20:29:21Z`, deployment `7288122790`):** `calculator.html` now prints
+*"Pre-filled with the 23 October 2026 snapshot: $4,022.22/oz (Oct 23rd, 2026 at 05:55 NY Time)"* followed by the labelled live-check
+reading *"$3,997.22/oz (Oct 23rd, 2026 at 04:17 NY Time), 0.62% below the pre-filled snapshot"*; `18k.html` renders the Dataset B/C
+18K table (13 rows, an `https://` source on every row). Site live: <https://karagemop466-tech.github.io/GOLD3/>.
+
+**Flagged for review (published on the site, non-blocking):** `F39`/`PRC3` spot drift (0.62%), `F41`/`SPEC8` Mejuri materials
+heading, `F42`/`SD18` karat-page coverage, `F43`/`SD20` derived prose, `F44`/`SD21` derived dates. All remain open for the owner's
+review on <https://karagemop466-tech.github.io/GOLD3/flagged.html> and <https://karagemop466-tech.github.io/GOLD3/verify.html>.
+
+**Numbering note:** two sessions appended a "## 19" section during the same window. The later one
+(`arena/438a583e-gold3`, pass `P14`) has been renumbered to **20** here; its content is untouched.
+
+---
+
+## 20. Session `arena/438a583e-gold3` — Pass `P14`: full weight-bearing re-read and four-feed spot corroboration, 2026-10-23
 
 ### 19.1 Three-session collision and how it was resolved (recorded as required)
 
