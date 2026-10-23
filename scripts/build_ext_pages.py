@@ -136,7 +136,7 @@ def render_mandate_banner(compact: bool = False) -> str:
       <h2>&#9888; Core Project Mandate: Strict No-Hallucinations Policy &amp; Automated Security Verification</h2>
       <p>
         <strong>1. Do Not Hallucinate Prices, Weights, or Purities:</strong> Every single ring price, gram weight, karat fineness, spot gold benchmark,
-        and return-policy rule in this project is verified verbatim against an official primary website on <code>2026-10-22</code> and linked directly in every table row.
+        and return-policy rule in this project is verified verbatim against an official primary website on <code>2026-10-22</code>–<code>2026-10-23</code> and linked directly in every table row.
       </p>
       <p>
         <strong>2. Never Infer Missing Values — Leave Unconfirmed Cells Blank:</strong> Major bridal jewelers (including Blue Nile, Brilliant Earth, and Mejuri)
@@ -153,6 +153,8 @@ def render_mandate_banner(compact: bool = False) -> str:
 
 
 def render_calculator_section(spot_oz: float, include_presets: bool = True) -> str:
+    spot_g = spot_oz / 31.1034768
+    default_melt = round(round(4.2 * (14 / 24), 4) * spot_g, 2)
     presets_html = ""
     if include_presets:
         presets_html = """
@@ -209,7 +211,7 @@ def render_calculator_section(spot_oz: float, include_presets: bool = True) -> s
             <input id="calc-gem-ct" type="number" step="0.01" min="0" value="0">
           </div>
           <div class="field-group">
-            <label for="calc-spot-oz">4. Live 24K Spot Gold Benchmark ($ USD / Troy Oz — Verified 2026-10-22)</label>
+            <label for="calc-spot-oz">4. Live 24K Spot Gold Benchmark ($ USD / Troy Oz — Verified 2026-10-23)</label>
             <input id="calc-spot-oz" type="number" step="0.10" min="0" value="{spot_oz:.2f}">
           </div>
           <div class="field-group">
@@ -222,7 +224,7 @@ def render_calculator_section(spot_oz: float, include_presets: bool = True) -> s
           <h3 style="margin:0 0 0.7rem; font-size:1.05rem;">Live Intrinsic Gold &amp; Markup Breakdown</h3>
           <div class="calc-result-row">
             <span>24K Spot Benchmark per Gram (<code>Spot &divide; 31.1034768</code>)</span>
-            <strong id="out-spot-gram" class="num">$129.41 / g (24K)</strong>
+            <strong id="out-spot-gram" class="num">${spot_g:.2f} / g (24K)</strong>
           </div>
           <div class="calc-result-row">
             <span>Net Gold Alloy Weight (after stone deduction)</span>
@@ -238,7 +240,7 @@ def render_calculator_section(spot_oz: float, include_presets: bool = True) -> s
           </div>
           <div class="calc-result-row">
             <span><strong>Exact Raw Gold Melt Value ($ USD)</strong></span>
-            <span id="out-melt-usd" class="calc-big num">$317.05</span>
+            <span id="out-melt-usd" class="calc-big num">${default_melt:.2f}</span>
           </div>
           <div class="calc-result-row">
             <span>Retail Asking Price vs. Raw Gold Melt</span>
@@ -422,13 +424,17 @@ def build_all() -> None:
     flagged_rings = [r for r in all_rings if r["flagged"]]
     combined_total = len(products_a) + len(rings_b) + len(all_rings)
     nav_items = get_nav_items(combined_total, len(solitaires), len(bands), len(sellers), len(flagged_rings))
+    omitted_wt_count = sum(1 for r in all_rings if r["weight_grams"] is None)
+    k14_g = next(k["usd_per_gram_at_spot"] for k in spot_std["karat_purity_reference"] if abs(k["pure_gold_fraction"] - 14 / 24) < 0.001)
+    k18_g = next(k["usd_per_gram_at_spot"] for k in spot_std["karat_purity_reference"] if abs(k["pure_gold_fraction"] - 0.75) < 0.001)
+    bnd05_melt = next(b["melt_value_usd"] for b in bands if b["id"] == "BND-05")
 
     # ======================================================================
     # 1. index.html — Front Page Dashboard + Prominent No-Hallucinations Summary
     # ======================================================================
     index_body = f"""
     <section class="page-hero">
-      <p class="page-eyebrow">Verified Buyer Research &bull; Updated October 22, 2026</p>
+      <p class="page-eyebrow">Verified Buyer Research &bull; Updated October 23, 2026</p>
       <h1>Buying a Genuine Solid Gold Engagement Ring Online: Line-by-Line Audit, Melt Value Benchmarks &amp; Scam Protection</h1>
       <p class="lead">
         Independent empirical research comparing <strong>{len(all_rings)} live ring listings</strong> across <strong>{len(sellers)} major online jewelers</strong>
@@ -441,14 +447,14 @@ def build_all() -> None:
 
     <div class="kpi-grid">
       <div class="kpi-card">
-        <div class="kpi-label">Live Spot Gold (2026-10-22)</div>
+        <div class="kpi-label">Live Spot Gold (2026-10-23)</div>
         <div class="kpi-value">${bench['spot_bid_usd_per_troy_oz']:,.2f} / oz</div>
-        <div class="kpi-sub"><strong>${bench['spot_usd_per_gram_24k_exact']:.2f}/g</strong> (24K) &bull; <strong>$75.49/g</strong> (14K) &bull; <strong>$97.06/g</strong> (18K)</div>
+        <div class="kpi-sub"><strong>${bench['spot_usd_per_gram_24k_exact']:.2f}/g</strong> (24K) &bull; <strong>${k14_g:.2f}/g</strong> (14K) &bull; <strong>${k18_g:.2f}/g</strong> (18K)</div>
       </div>
       <div class="kpi-card">
         <div class="kpi-label">Best Weight-Verified Band</div>
         <div class="kpi-value">2.99x Melt</div>
-        <div class="kpi-sub">Ross-Simons 4mm 14K Band ($949 vs. $317.05 gold melt &bull; 4.2g verified in static HTML)</div>
+        <div class="kpi-sub">Ross-Simons 4mm 14K Band ($949 vs. ${bnd05_melt:.2f} gold melt &bull; 4.2g verified in static HTML)</div>
       </div>
       <div class="kpi-card">
         <div class="kpi-label">Best 14K Solid Retail Ratio</div>
@@ -458,7 +464,7 @@ def build_all() -> None:
       <div class="kpi-card">
         <div class="kpi-label">Flagged Items &amp; Omissions</div>
         <div class="kpi-value">{len(flagged_rings)} of {len(all_rings)}</div>
-        <div class="kpi-sub">13 omitted weights left blank + 4 live page contradictions logged on <a href="flagged-for-review.html">Flagged for Review</a></div>
+        <div class="kpi-sub">{omitted_wt_count} omitted weights left blank + 5 live page contradictions logged on <a href="flagged-for-review.html">Flagged for Review</a></div>
       </div>
     </div>
 
@@ -577,7 +583,7 @@ def build_all() -> None:
         ("Rule 03", "Confirm Mandatory Karat & Maker's Trademark Hallmarks", "Under the US National Gold and Silver Stamping Act (15 U.S.C. § 297), any quality mark ('14K', '585', '750') MUST be accompanied by the registered manufacturer trademark. UK items >1.0g require statutory Assay Office hallmarks.", "https://www.govinfo.gov/content/pkg/USCODE-2023-title15/html/USCODE-2023-title15-chap8.htm", "15 U.S.C. Ch. 8 Stamping Act"),
         ("Rule 04", "Ask for Exact Gram Weight Before Paying", "Millimeter width (e.g., 1.8mm vs 4.0mm) tells you dimensions, not hollow vs solid density. Request net gold weight in grams via live chat/email whenever omitted (Blue Nile, Brilliant Earth, Mejuri).", "https://www.nist.gov/pml/owm/metric-si/unit-conversion/precious-metals-conversion-information", "NIST Weight Standards"),
         ("Rule 05", "Check Independent Seller Reputation, Address & Phone", "Verify physical headquarters, working toll-free phone, and independent BBB complaint history — never rely solely on curated on-site reviews (e.g., Mejuri holds a BBB D- rating despite glossy site reviews).", "https://www.bbb.org/us/ri/cranston/profile/jewelry-stores/ross-simons-inc-0021-25107", "BBB Official Business Profiles"),
-        ("Rule 06", "Compare Asking Price Against Live Raw Gold Melt Value", "At $4,025.10/oz ($129.41/g 24K), pure 14K gold melts at $75.49/g and 18K at $97.06/g. Any 'solid gold' ring priced near or below raw melt value is counterfeit, hollow ultra-thin foil, or plated brass.", "https://www.kitco.com/price/precious-metals", "Kitco Live Gold Spot"),
+        ("Rule 06", "Compare Asking Price Against Live Raw Gold Melt Value", f"At ${bench['spot_bid_usd_per_troy_oz']:,.2f}/oz (${bench['spot_usd_per_gram_24k_exact']:.2f}/g 24K), pure 14K gold melts at ${k14_g:.2f}/g and 18K at ${k18_g:.2f}/g. Any 'solid gold' ring priced near or below raw melt value is counterfeit, hollow ultra-thin foil, or plated brass.", "https://www.kitco.com/charts/gold", "Kitco Live Gold Spot"),
         ("Rule 07", "Read Return Policy Exclusions (Resized, Engraved & Custom)", "Crucial trap: Blue Nile and Brilliant Earth void returns once a ring is engraved or resized! Menē gives only 7 calendar days from delivery. Never engrave or resize before independent verification.", "https://www.bluenile.com/policies/returns", "Blue Nile Official Return Policy"),
         ("Rule 08", "Pay Strictly by Major Credit Card for Dispute Protection", "Never pay via Zelle, crypto, cash app, or bank wire — even when tempted by Blue Nile's or Brilliant Earth's 1.5% wire discount — so you preserve statutory Fair Credit Billing Act chargeback protection.", "https://www.brilliantearth.com/flexible-payment-options/", "Brilliant Earth Payment Terms"),
         ("Rule 09", "Demand Detailed Written Invoice & Grading Certificates", "Require an itemized invoice specifying metal karat, gram weight, ring size, SKU, and natural/lab stone status, plus verifiable GIA report numbers (e.g., GIA #2225975086 on SOL-07) or Menē CoA.", "https://www.gia.edu/report-check-landing", "GIA Report Check"),

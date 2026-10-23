@@ -1,6 +1,6 @@
 {
   "retrieved_utc": "2026-10-23",
-  "legend": "Every flag below is attached to at least one row and is shown on the Flagged for Review page. A flag is not proof of wrongdoing \u2014 it marks something a buyer cannot confirm from the seller's own page and must resolve before paying.",
+  "legend": "Every flag below is attached to at least one row and is shown on the Flagged for Review page. A flag is not proof of wrongdoing — it marks something a buyer cannot confirm from the seller's own page and must resolve before paying.",
   "flags": [
     {
       "id": "W1",
@@ -70,7 +70,7 @@
       "severity": "high",
       "label": "Very short return window",
       "what": "Wilson's requires contact within 7 calendar days of delivery, then the item must be shipped back within 3 calendar days of receiving the return label. Items are sold \"as is\". Cancelled orders are not refunded the 3% card processing fee.",
-      "why_it_matters": "An independent jeweller's assay or XRF test usually needs an appointment. A 7-day window can expire before verification is possible \u2014 the exact failure mode your checklist warns about.",
+      "why_it_matters": "An independent jeweller's assay or XRF test usually needs an appointment. A 7-day window can expire before verification is possible — the exact failure mode your checklist warns about.",
       "action": "Line up the appraiser before delivery, or negotiate the return window in writing.",
       "source": "https://www.wilsonsestatejewelry.com/products/art-deco-old-mine-cut-diamond-18-karat-white-gold-antique-lotus-engagement-ring-gia"
     },
@@ -88,7 +88,7 @@
       "severity": "medium",
       "label": "Engraving voids the return",
       "what": "Mejuri and Blue Nile both exclude engraved or personalised items from returns. Mejuri adds that free engraving is optional but makes the item non-returnable.",
-      "why_it_matters": "A free engraving can quietly convert a returnable ring into a final sale \u2014 exactly the exclusion your checklist tells you to look for.",
+      "why_it_matters": "A free engraving can quietly convert a returnable ring into a final sale — exactly the exclusion your checklist tells you to look for.",
       "action": "Skip engraving until after the ring has been inspected and verified.",
       "source": "https://mejuri.com/faq/return-exchanges/what-is-the-standard-return-policy"
     },
@@ -97,7 +97,7 @@
       "severity": "medium",
       "label": "Large-diamond return is a credit memo, not a refund",
       "what": "For diamonds of 1.00 ct or larger, Costco requires all original IGI/GIA paperwork and issues a jewellery credit memo after its own gemologist inspects the stone.",
-      "why_it_matters": "A credit memo is store credit, not money back. It also assumes you kept the certificate \u2014 so documentation retention is part of your return path.",
+      "why_it_matters": "A credit memo is store credit, not money back. It also assumes you kept the certificate — so documentation retention is part of your return path.",
       "action": "Keep every certificate and appraisal with the receipt from day one.",
       "source": "https://customerservice.costco.com/app/answers/detail/a_id/1191"
     },
@@ -106,7 +106,7 @@
       "severity": "medium",
       "label": "Weight includes the stones",
       "what": "The published weight is \"total weight\" of the finished ring, diamonds included. Gold-only weight is lower, so a melt calculation using this number is an upper bound, not the gold content.",
-      "why_it_matters": "Using total item weight as gold weight systematically overstates melt value \u2014 a classic way an otherwise honest calculator produces a wrong number.",
+      "why_it_matters": "Using total item weight as gold weight systematically overstates melt value — a classic way an otherwise honest calculator produces a wrong number.",
       "action": "Ask for the mounting weight excluding stones, or accept that the melt figure is a ceiling.",
       "source": null
     },
@@ -123,7 +123,7 @@
       "id": "K1",
       "severity": "medium",
       "label": "Unusual karat / not gold throughout",
-      "what": "This piece is stamped 19 karat \u2014 uncommon in the US market \u2014 and carries black enamel inlay, so part of the item is not gold.",
+      "what": "This piece is stamped 19 karat — uncommon in the US market — and carries black enamel inlay, so part of the item is not gold.",
       "why_it_matters": "19K is 79.17% gold by definition, but an unusual fineness deserves an assay rather than trust. Enamel also means the item is not gold throughout.",
       "action": "Have the fineness assayed; treat the enamel areas as non-gold in any value estimate.",
       "source": "https://www.wilsonsestatejewelry.com/products/bailey-banks-biddle-art-deco-diamond-enamel-19-karat-white-gold-vintage-fanning-engagement-ring"
@@ -215,7 +215,7 @@
       "label": "Listing is dead or redirects",
       "what": "The product URL now 404s, is sold out, or redirects to a different retailer.",
       "why_it_matters": "Dead listings are excluded from the price table rather than quoted from a stale copy.",
-      "action": "None \u2014 recorded for completeness.",
+      "action": "None — recorded for completeness.",
       "source": null
     },
     {
@@ -233,7 +233,7 @@
       "severity": "medium",
       "label": "Seller page contradicts itself on metal/karat",
       "what": "The listing title and spec table say 18K White Gold, while the same page's product description says the ring is \"crafted from warmly lustrous 14k yellow gold\".",
-      "why_it_matters": "If the seller's own page cannot agree with itself about the metal, the karat stamp is the only thing left to trust \u2014 and that is exactly what your checklist says not to rely on alone.",
+      "why_it_matters": "If the seller's own page cannot agree with itself about the metal, the karat stamp is the only thing left to trust — and that is exactly what your checklist says not to rely on alone.",
       "action": "Ask the seller in writing which alloy the ring is made in and get the answer on the product page or by email. Have the metal tested (XRF) on arrival before accepting it.",
       "source": "https://www.bluenile.com/engagement-rings/design-your-own-ring/floral-marquise-diamond-engagement-ring-in-18k-white-gold-item-203738"
     },
@@ -259,7 +259,7 @@
       "id": "WT3",
       "severity": "medium",
       "label": "Published weight is explicitly approximate",
-      "what": "The seller publishes a gram weight but qualifies it. Sarraf states an accuracy of \u00b1 5%; Ross-Simons states that all weights and measurements are approximate.",
+      "what": "The seller publishes a gram weight but qualifies it. Sarraf states an accuracy of ± 5%; Ross-Simons states that all weights and measurements are approximate.",
       "why_it_matters": "A tolerance turns a precise-looking melt calculation into a range. Presenting the midpoint as fact would overstate the precision of the number.",
       "action": "Treat any melt figure from this weight as an estimate within the seller's stated tolerance, and confirm the actual weight on a jeweller's scale after delivery.",
       "source": "https://www.sarraf.com/products/14k-white-gold-solitaire-ring-0-94-ctw.html"
@@ -277,7 +277,7 @@
       "id": "WT5",
       "severity": "medium",
       "label": "One weight covers more than one metal option",
-      "what": "Automic Gold states \"Approximately 5.4g for gold or 8.1g for platinum\" \u2014 one line covering two metals with different densities.",
+      "what": "Automic Gold states \"Approximately 5.4g for gold or 8.1g for platinum\" — one line covering two metals with different densities.",
       "why_it_matters": "If you order the platinum version, the gold figure is the wrong number, and vice versa. A single value read out of context becomes a false claim.",
       "action": "Quote the metal alongside the weight whenever you rely on it, and check the delivered ring's weight.",
       "source": "https://www.automicgold.com/products/radiant-cut-lab-diamond-cathedral-ring"
@@ -304,10 +304,10 @@
     {
       "id": "RET8",
       "severity": "high",
-      "label": "$300 recycling fee on setting-only or engraved returns",
-      "what": "VRAI's live returns policy (https://www.vrai.com/returns-exchanges) states that returned engagement rings and engraved wedding bands refunded to the original payment method incur a $300 USD recycling fee ($50 fee on non-engraved bands/MTO rings; orders above $15,000 receive store credit only), and its Los Angeles BBB profile carries an unaccredited F rating.",
-      "why_it_matters": "A $300 deduction penalises a buyer who exercises the return right after independent inspection, and unanswered BBB complaints signal post-purchase friction.",
-      "action": "Do not engrave before independent scale and XRF verification, confirm fee-free return eligibility in writing, and pay by credit card.",
+      "label": "$300 recycling fee on engagement-ring refunds (and store-credit-only over $15,000)",
+      "what": "VRAI's live Help Center return article states that ALL engagement ring returns (<$15,000) refunded to the original payment method incur a $300 recycling fee ($50 on wedding bands and made-to-order jewelry), waived only when taking VRAI gift-card store credit, and items above $15,000 receive store credit ONLY. Its Los Angeles BBB profile also carries an unaccredited F rating.",
+      "why_it_matters": "A mandatory $300 deduction penalises any buyer who exercises a cash refund after independent inspection, and orders above $15,000 forfeit cash refund rights altogether.",
+      "action": "Do not engrave or resize before independent scale and XRF verification, factor the $300 fee into your risk budget, and pay by credit card.",
       "source": "https://help.vrai.com/en/knowledge/what-is-your-return-policy"
     },
     {
@@ -322,11 +322,12 @@
     {
       "id": "RET10",
       "severity": "high",
-      "label": "7-day return window and up to 10% restocking fee",
-      "what": "Men\u0113's Terms of Service limit returns to 7 days from receipt, default self-service returns to non-cash Men\u0113 Credit, permit up to a 10% restocking fee on discretionary original-payment refunds, and deduct 5% if the Certificate of Authenticity is missing.",
-      "why_it_matters": "A 7-day window plus up to 10% fee leaves minimal time and high cost if you need to return after independent inspection.",
-      "action": "Book your independent XRF appointment before delivery, keep the Certificate of Authenticity intact, and confirm cash-refund terms in writing.",
-      "source": "https://mene.com/terms-of-service"
+      "label": "7-day return window and 10% restocking fee on cash refunds",
+      "what": "Menē limits returns to 7 days from receipt; full value is issued only as Menē Credit, whereas a refund to the original payment method deducts a 10% restocking fee (support.mene.com policy 4407022465633).",
+      "why_it_matters": "A 7-day window plus a 10% cash-refund restocking fee leaves minimal time and high cost if you need to return after independent inspection.",
+      "action": "Book your independent XRF appointment before delivery, keep the Certificate of Authenticity intact, and pay by credit card.",
+      "source": "https://mene.com/terms-of-service",
+      "source_2": "https://support.mene.com/hc/en-us/articles/4407022465633-What-is-your-return-policy"
     },
     {
       "id": "SPEC2",
@@ -351,7 +352,7 @@
       "severity": "high",
       "label": "Resizing by another jeweller voids the return or exchange right",
       "what": "Ross-Simons' returns page states in capitals that items 'RESIZED BY ANOTHER JEWELLER ARE NOT ELIGIBLE FOR RETURN OR EXCHANGE', and Sarraf's returns policy likewise refuses items 'resized (by a jeweler other than Sarraf Jewelry Inc.)'. Both sellers do offer their own resizing, so the exclusion only bites if the buyer uses a third party.",
-      "why_it_matters": "This is the exact trap behind the brief's 'return policy \u2014 resized/custom exclusions' checklist item: a buyer who has the ring sized locally on arrival can lose the return right entirely, and the seller's own XRF or appraisal check may then have to happen on a non-returnable ring.",
+      "why_it_matters": "This is the exact trap behind the brief's 'return policy — resized/custom exclusions' checklist item: a buyer who has the ring sized locally on arrival can lose the return right entirely, and the seller's own XRF or appraisal check may then have to happen on a non-returnable ring.",
       "action": "Have the seller resize the ring, or confirm the return window has been used, before any third-party jeweller touches it.",
       "source": "https://www.ross-simons.com/pages/returns-exchanges",
       "first_seen": "2026-10-23",
@@ -396,18 +397,17 @@
       "id": "SPEC5",
       "severity": "medium",
       "label": "Automic lead time contradicts itself on one page",
-      "what": "Automic Gold product pages print conflicting lead-time statements in adjacent sections — on R22 (radiant-cut-lab-diamond-cathedral-ring), 'Production time is 1-2 weeks' vs 'Production time is 1-3 weeks', and on R25 (gemstone-flower-ring), 'Production time is 4-8 business days' vs 'Production time is 1-2 weeks'.",
+      "what": "Automic Gold product pages (including R22 Radiant Cathedral and R25 Gemstone Flower) print 'Production time is 4-8 business days' in the buy box and 'Production time is 1-2 weeks' (or '2-3 weeks' with engraving) in Shipping & Returns lower down on the exact same page.",
       "why_it_matters": "A buyer choosing between 'in 8 days' and 'in 2 weeks (5 weeks engraved)' cannot plan. When one page gives two lead times, the longer one is the safe assumption.",
       "action": "Confirm the current lead time in writing before ordering, especially for an engraved or made-to-order piece.",
       "source": "https://www.automicgold.com/products/radiant-cut-lab-diamond-cathedral-ring",
-      "first_seen": "2026-10-23",
-      "correction_note": "Updated 2026-10-23 in Pass P6 (arena/a05b3c00-gold3): Pass P3's earlier URL (.../1-50ctw-pear-shaped-lab-grown-diamond-engagement-ring-bezel-set) returned HTTP 404 and was repointed to R22's live URL."
+      "first_seen": "2026-10-23"
     },
     {
       "id": "SRC1",
       "severity": "high",
       "label": "Cited official source URL returns 404",
-      "what": "Seven seller/policy URLs recorded by earlier sessions returned HTTP 404 or redirected to a generic KB index when opened live on 2026-10-23: Sarraf's https://www.sarraf.com/pages/returns-and-refunds.html (404 -> /30-day-returns-and-exchange-policy/), Automic's https://www.automicgold.com/pages/return-policy (404 -> /policies/refund-policy), Brilliant Earth's https://www.brilliantearth.com/returns/ (404 -> /30-Day-Returns/), VRAI's https://www.vrai.com/pages/contact-us (404 -> /contact-us) and https://help.vrai.com/hc/en-us/articles/360000836514-What-is-your-return-policy (redirect -> /en/knowledge/what-is-your-return-policy), Local Eclectic's https://www.localeclectic.com/pages/contact-us (404 -> /pages/frequently-asked-questions), and Men\u0113's https://mene.com/contact-us (404 -> /customer-care/en-US). All seven records were repointed to live HTTP 200 official pages on 2026-10-23.",
+      "what": "Nine product/seller/policy URLs recorded by earlier sessions returned HTTP 404 or redirected to a generic KB index when opened live on 2026-10-23: Sarraf's https://www.sarraf.com/pages/returns-and-refunds.html (404 -> /30-day-returns-and-exchange-policy/), Automic's https://www.automicgold.com/pages/return-policy (404 -> /policies/refund-policy), Brilliant Earth's https://www.brilliantearth.com/returns/ (404 -> /30-Day-Returns/), VRAI's https://www.vrai.com/pages/contact-us (404 -> /contact-us) and https://help.vrai.com/hc/en-us/articles/360000836514-What-is-your-return-policy (redirect -> /en/knowledge/what-is-your-return-policy), Local Eclectic's https://www.localeclectic.com/pages/contact-us (404 -> /pages/frequently-asked-questions), and Menē's https://mene.com/contact-us (404 -> /customer-care/en-US). In addition, WAR1 cited dead 404 sarraf.com/.../14k-white-gold-1-00-ctw-round-3-stone-diamond-engagement-ring-g-i1-3-80-gr.html and SPEC5 cited dead 404 automicgold.com/products/1-50ctw-pear-shaped-lab-grown-diamond-engagement-ring-bezel-set. All nine records were repointed to live HTTP 200 official pages on 2026-10-23.",
       "why_it_matters": "The brief requires every table row to carry a working source link to an official site. A dead citation is worse than no citation: it looks like evidence but cannot be checked, and the values attributed to it become unverifiable.",
       "action": "Re-fetch every cited URL before publishing, and prefer the canonical page reached from the site's own policy index over a guessed slug.",
       "source": "https://www.sarraf.com/30-day-returns-and-exchange-policy/",
@@ -431,7 +431,7 @@
       "id": "PRC1",
       "severity": "medium",
       "label": "Seller re-prices continuously - a captured price is not today's price",
-      "what": "Men\u0113 sells by gram weight and re-quotes as the metal price moves. Every Men\u0113 row in this project was re-read live on 2026-10-23 and all four had moved down since capture: Wrap Ring $3,228 (captured $3,253), Classic Band $1,707 on the product page and \"From $1,664\" on the collection page (captured $1,720), Narrow Flat Band \"From $1,544\" (captured $1,556), Wide Flat Band \"From $2,315\" (captured $2,333). GoldPrice.org printed $4,022.22/oz on the same day against the $4,026.79/oz snapshot the melt values use.",
+      "what": "Menē sells by gram weight and re-quotes as the metal price moves. Every Menē row in this project was re-read live on 2026-10-23 and all four had moved down since capture: Wrap Ring $3,228 (captured $3,253), Classic Band $1,707 on the product page and \"From $1,664\" on the collection page (captured $1,720), Narrow Flat Band \"From $1,544\" (captured $1,556), Wide Flat Band \"From $2,315\" (captured $2,333). GoldPrice.org printed $4,022.22/oz on the same day against the $4,026.79/oz snapshot the melt values use.",
       "why_it_matters": "A price copied from a research page is a dated observation, not a quote a seller can be held to. On a metal-linked listing the figure you pay is whatever the page prints at checkout, and any melt-value ratio computed from the older figure drifts with it.",
       "action": "Open the source link and read the live price before comparing or buying. Treat every price on this site as captured on the date printed beside it, and re-check it the day you order.",
       "source": "https://mene.com/collections/bands-gold",
@@ -441,12 +441,13 @@
     {
       "id": "SRC2",
       "severity": "medium",
-      "label": "Cited contact page returned a server error",
-      "what": "Catbird's contact page https://www.catbirdnyc.com/contact-us returned \"HTTP 500 Internal Server Error\" (nginx) on two attempts on 2026-10-23, so the e-mail address recorded against S-CB could not be re-confirmed that day. The same site's returns page and product page loaded normally in the same session, so this is a fault on one page rather than a dead domain.",
-      "why_it_matters": "A buyer who cannot reach a seller cannot exercise a return. A contact claim that cannot be re-checked is unverified even when it was right when it was captured, and the checklist's \"verify the business has real contact information\" item fails on that page as it stands today.",
-      "action": "Resolved via Catbird's live https://www.catbirdnyc.com/facts ('Customer Email: customerservice@catbirdnyc.com') and official return_form.pdf (+1-718-599-2340, 141 Flushing Avenue, Building 77, Suite 709, Brooklyn, NY 11205); avoid /contact-us while nginx 500 persists.",
+      "label": "Cited contact page returned HTTP 500 (repointed to live /facts page)",
+      "what": "Catbird's /contact-us URL returned \"HTTP 500 Internal Server Error\" (nginx) across multiple checks on 2026-10-23. Session arena/15b00e99-gold3 confirmed that https://www.catbirdnyc.com/facts returns HTTP 200 and prints 'customerservice@catbirdnyc.com' verbatim, so S-CB and catbird now cite /facts while keeping this flag to warn buyers that /contact-us is failing.",
+      "why_it_matters": "A broken contact page impedes post-purchase support; buyers should use customerservice@catbirdnyc.com or returns.narvar.com/catbird directly.",
+      "action": "Contact customerservice@catbirdnyc.com (verified on catbirdnyc.com/facts) or use returns.narvar.com/catbird.",
       "source": "https://www.catbirdnyc.com/facts",
-      "quote": "500 Internal Server Error",
+      "dead_url": "https://www.catbirdnyc.com/contact-us",
+      "quote": "500 Internal Server Error on /contact-us; customerservice@catbirdnyc.com confirmed live on /facts",
       "first_seen": "2026-10-23"
     },
     {

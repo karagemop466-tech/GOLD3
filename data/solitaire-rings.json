@@ -1,9 +1,9 @@
 {
   "category_id": "solitaire-rings",
   "category_title": "Solid Gold Solitaire Engagement Rings, Settings & Control Listings",
-  "verified_date_utc": "2026-10-23T09:56:00Z",
-  "spot_reference_usd_per_oz": 4025.1,
-  "spot_reference_usd_per_gram_24k": 129.41,
+  "verified_date_utc": "2026-10-23T10:34:00Z",
+  "spot_reference_usd_per_oz": 4022.7,
+  "spot_reference_usd_per_gram_24k": 129.3328,
   "items": [
     {
       "id": "SOL-01",
@@ -285,7 +285,7 @@
       "flagged": true,
       "flags": [
         "CRITICAL KARAT CONTRADICTION CAUGHT LINE-BY-LINE: Official product heading and spec table state '10kt Yellow Gold' (41.67% gold), whereas the official description text on the exact same page claims 'Set in polished 14kt yellow gold' (58.33% gold).",
-        "At $199 retail in an Oct 2026 $4,025.10/oz gold market, pricing strongly reflects lightweight 10K construction; gram weight is omitted (left blank/unverified). Archive screenshot per Checklist #9 and verify by XRF.",
+        "At $199 retail in an Oct 2026 $4,022.70/oz gold market, pricing strongly reflects lightweight 10K construction; gram weight is omitted (left blank/unverified). Archive screenshot per Checklist #9 and verify by XRF.",
         "SECOND LIVE CONTRADICTION CAUGHT (2026-10-23): Listing's own Stone Story warns '[Opal] sits at 5.5 to 6.5 on the Mohs scale, so that means bezel or halo, not prongs, on rings' directly on a 4-prong opal solitaire ring!",
         "HALLMARK CORRECTION (2026-10-23, SD6 extension): neither the cited product page nor warranty page prints any hallmark or maker's mark."
       ]
@@ -321,9 +321,9 @@
       "flagged": true,
       "flags": [
         "CONTROL RED-FLAG BENCHMARK (DO NOT BUY AS SOLID GOLD): Included specifically to demonstrate Checklist #2 (Plated Exclusion) and Checklist #6 (Price Red Flag).",
-        "At $29 total retail price when 14K gold melt alone is $75.49/gram, $29 could not buy even 0.39 grams of raw 14K scrap metal—proving instantaneously why unusually cheap '14kt' headlines must be inspected down to the spec table ('14kt Yellow Gold over Brass')."
+        "At $29 total retail price when 14K gold melt alone is $75.44/gram, $29 could not buy even 0.39 grams of raw 14K scrap metal—proving instantaneously why unusually cheap '14kt' headlines must be inspected down to the spec table ('14kt Yellow Gold over Brass')."
       ]
     }
   ],
-  "reverified_by_session": "arena/6ccbc523-gold3"
+  "reverified_by_session": "arena/6ccbc523-gold3 · arena/2908bea4-gold3 · arena/15b00e99-gold3"
 }
