@@ -431,12 +431,14 @@
       "id": "PRC1",
       "severity": "medium",
       "label": "Seller re-prices continuously - a captured price is not today's price",
-      "what": "Menē sells by gram weight and re-quotes as the metal price moves. Every Menē row in this project was re-read live on 2026-10-23 and all four had moved down since capture: Wrap Ring $3,228 (captured $3,253), Classic Band $1,707 on the product page and \"From $1,664\" on the collection page (captured $1,720), Narrow Flat Band \"From $1,544\" (captured $1,556), Wide Flat Band \"From $2,315\" (captured $2,333). GoldPrice.org printed $4,022.22/oz on the same day; that anchor has since been re-read to $3,997.22/oz at 2026-10-23T20:17Z, so both the captured prices and the melt baseline are now explicitly dated.",
+      "what": "Menē sells by gram weight and re-quotes as the metal price moves. Every Menē row in this project has now moved down more than once, and the movement continued on the evening of 2026-10-23: the Classic Band product page printed $1,694 (captured $1,707 earlier that day, $1,720 on 2026-10-22) and the Narrow Flat Band printed $1,532 (captured $1,544). On the same evening GoldPrice.org printed $3,997.22/oz against the $4,022.22/oz snapshot the melt values use — a 0.62% fall on the same market date. Menē's Wide Flat Band page returned HTTP 500 during that read (see SRC3).",
       "why_it_matters": "A price copied from a research page is a dated observation, not a quote a seller can be held to. On a metal-linked listing the figure you pay is whatever the page prints at checkout, and any melt-value ratio computed from the older figure drifts with it.",
-      "action": "Open the source link and read the live price before comparing or buying. Treat every price on this site as captured on the date printed beside it, and re-check it the day you order.",
+      "action": "Open the source link and read the live price before comparing or buying. Treat every price on this site as captured on the date printed beside it, and re-check it the day you order — a Menē figure can move twice in one day.",
       "source": "https://mene.com/collections/bands-gold",
       "quote": "Classic Band From $1,664 ... Narrow Flat Band From $1,544 ... Wide Flat Band From $2,315",
-      "first_seen": "2026-10-23"
+      "first_seen": "2026-10-23",
+      "reverified_on": "2026-10-23",
+      "reverified_by": "arena/57724486-gold3"
     },
     {
       "id": "SRC2",
@@ -500,6 +502,17 @@
       "source": "https://www.automicgold.com/policies/refund-policy",
       "first_seen": "2026-10-23",
       "quote": "To avoid a restocking fee, please mail your items within 14 days. Items must be in their original, unworn condition."
+    },
+    {
+      "id": "SRC3",
+      "severity": "medium",
+      "label": "Cited product page returned HTTP 500 while the seller's own pages still link it",
+      "what": "Menē's Wide Flat Band page (https://mene.com/products/mene-wide-flat-band-gold) answered our fetch on 2026-10-23T20:31Z with “500 Internal Server Error / Page Not Found | Menē”. Menē's own Classic Band and Narrow Flat Band pages link that exact URL and print “Wide Flat Band - Gold … From $2,297”. A buyer therefore cannot confirm the band's own price on the product page at the time of reading, and the BND-03 record keeps its captured $2,465 rather than adopting the collection-level “From” figure.",
+      "why_it_matters": "The price you can actually transact at is the one on the product page. When that page errors, the only number visible is a “From” floor on another page, which is not the same figure and cannot be substituted without guessing.",
+      "action": "Re-open the link before buying; if it still errors, call Menē customer care and get the price for your size in writing, and treat BND-03's stored price as unconfirmed on the day you order.",
+      "source": "https://mene.com/products/mene-wide-flat-band-gold",
+      "first_seen": "2026-10-23",
+      "quote": "500 Internal Server Error — returned by /products/mene-wide-flat-band-gold; \"Wide Flat Band - Gold ... From $2,297\" read on Menē's own Recommended widget the same evening."
     }
   ]
 }

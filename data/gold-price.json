@@ -16,6 +16,7 @@
     "The LBMA Gold Price benchmark cannot be reproduced here: LBMA's official page states its historical tables moved to the MyLBMA Portal and that a licence from ICE Benchmark Administration (IBA) is required to view/redistribute the data. Verified at https://www.lbma.org.uk/prices-and-data/lbma-precious-metal-prices",
     "Spot price is a wholesale, unallocated-metal price. A retail ring is priced at spot + fabrication + stones + margin, so melt value is a floor, not a fair retail price.",
     "Per-gram value is computed in the site at request time (price ÷ 31.1034768) and is never stored as a rounded constant.",
+    "Re-anchored 2026-10-23T20:17:00Z by arena/438a583e-gold3 (Pass P12). Spot price moves continuously; the value above is the dated snapshot this pass read, not a live quote.",
     "Re-anchored 2026-10-23T20:17:00Z by arena/438a583e-gold3 (Pass P12). Spot price moves continuously; the value above is the dated snapshot this pass read, not a live quote."
   ],
   "unverified_or_flagged": [

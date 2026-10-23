@@ -33,7 +33,7 @@
 </div>
 
 <div class="grid cols-3" style="margin-bottom:20px">
-  <div class="kpi"><div class="label">Editorial findings</div><div class="value">39</div><div class="sub">18 high severity</div></div>
+  <div class="kpi"><div class="label">Editorial findings</div><div class="value">41</div><div class="sub">18 high severity</div></div>
   <div class="kpi"><div class="label">Listing-level flags</div><div class="value">101</div><div class="sub">across 19 listings</div></div>
   <div class="kpi"><div class="label">Unverified cells</div><div class="value">0 guesses</div><div class="sub">blank is used instead</div></div>
 </div>
@@ -416,14 +416,36 @@
         </div>
         <div class="card finding medium" id="F39">
           <div class="finding-head">
-            <h3>F39 · The gold-spot anchor moves during the day: melt values were refreshed from $4,022.22 to $3,997.22/oz</h3>
+            <h3>F39 · Live gold spot fell 0.62% on the same market date, and the page&#x27;s own clock label runs backwards</h3>
             <span class="badge warn">MEDIUM</span>
           </div>
-          <p class="small">On 2026-10-23 the project&#x27;s primary spot snapshot was taken at 05:55 NY Time ($4,022.22/oz, GoldPrice.org). Re-read at 16:17 NY Time the same day, the same page printed $3,997.22/oz - $25.00 (0.62%) lower - with Kitco ($3,996.20 bid), BullionVault ($3,997.14) and the World Gold Council ($3,996.31) all within 0.03% of it. Every melt figure on this site is therefore a snapshot at a stated time, not a live valuation: a 0.6% move in spot moves every melt figure by 0.6%, and a buyer checking on a different day will see different numbers even though no seller changed a price. All derived figures were recomputed from the 16:17 reading by scripts/refresh_spot_anchor.py, which refuses to run against an old capture date.</p>
-          <div class="evidence">GoldPrice.org 05:55 NY $4,022.22/oz -&gt; 16:17 NY $3,997.22/oz · Kitco bid $3,996.20 · BullionVault $3,997.14 · WGC $3,996.31 · inter-source spread 0.024%</div>
+          <p class="small">The GoldPrice.org page was opened again on 2026-10-23 at 20:17Z and printed “Spot Gold Price: USD 3,997.22 / Ounce … Oct 23rd, 2026 at 04:17 NY Time”, with the header ticker reading “3,996.89 / -47.83 / -1.18%”. The stored primary snapshot in data/prices.json is USD 4,022.22 / oz labelled “Oct 23rd, 2026 at 05:55 NY Time”. Two things follow. First, the stored snapshot is now 0.62% above the live reading; because it is a dated capture, it was deliberately NOT overwritten — every melt and break-even figure on this site is arithmetic on that documented number, and silently replacing it would change every printed result. Second, the live page&#x27;s clock label (04:17 NY) is EARLIER than the label on the morning&#x27;s capture (05:55 NY) even though it was read some ten hours later, so at least one of the two timestamps is not what it appears to be. This project records that instead of inventing an explanation for it. Resolution (2026-10-23, pass P13): three further feeds were read at the same 20:17Z timestamp (Kitco $3,996.20, BullionVault $3,997.14, WGC $3,996.31), the reading was corroborated to 0.026%, and it was then promoted to the calculation anchor with the superseded $4,022.22 snapshot retained as history. The clock-label anomaly recorded here is still unexplained and is left as observed.</p>
+          <div class="evidence">Live 2026-10-23T20:17Z: “Spot Gold Price: USD 3,997.22 / Ounce | Spot Silver Price: USD 53.92 / Ounce Oct 23rd, 2026 at 04:17 NY Time” (https://goldprice.org/). Stored: USD 4,022.22 at “Oct 23rd, 2026 at 05:55 NY Time” (data/prices.json, snapshot goldprice-org-2026-10-23). Difference: $25.00/oz = 0.6215%.</div>
           <p class="small"><strong>Source:</strong> <a href="https://goldprice.org/" target="_blank" rel="noopener">https://goldprice.org/</a></p>
           
-          <p class="action"><strong>What to do:</strong> Treat every melt / price-to-melt figure as dated. Re-run scripts/refresh_spot_anchor.py before acting on a number, and cross-check the spot price the day you buy.</p>
+          <p class="action"><strong>What to do:</strong> Re-read the spot source on the day you use the calculator; treat every figure on this site as dated. The timestamp inversion is published for review rather than resolved by assumption.</p>
+        </div>
+        <div class="card finding medium" id="F40">
+          <div class="finding-head">
+            <h3>F40 · Menē repriced two bands down within one day and its Wide Flat Band page returned HTTP 500</h3>
+            <span class="badge warn">MEDIUM</span>
+          </div>
+          <p class="small">Read live on 2026-10-23 at 20:30Z: the Classic Band product page printed $1,694 (stored $1,707, captured earlier the same day; $1,720 the day before) and the Narrow Flat Band printed $1,532 (stored $1,544 from the collection grid). Both records were corrected to the live product-page figures and the earlier readings kept in live_recheck.history. The Wide Flat Band page (https://mene.com/products/mene-wide-flat-band-gold) returned “500 Internal Server Error / Page Not Found” while Menē&#x27;s own Classic Band and Narrow Flat Band pages still link that exact URL and print “Wide Flat Band - Gold … From $2,297”. BND-03 therefore keeps its captured $2,465 and is flagged SRC3 — the “From” figure on a different page is not the product-page price and was not substituted.</p>
+          <div class="evidence">Live: “Classic Band … $1,694 … USD”; “Narrow Flat Band … $1,532 … USD”; “Wide Flat Band - Gold … From $2,297” on Menē&#x27;s Recommended widgets; /products/mene-wide-flat-band-gold → “500 Internal Server Error”, all 2026-10-23T20:30Z.</div>
+          <p class="small"><strong>Source:</strong> <a href="https://mene.com/products/mene-wide-flat-band-gold" target="_blank" rel="noopener">https://mene.com/products/mene-wide-flat-band-gold</a></p>
+          
+          <p class="action"><strong>What to do:</strong> Re-check any Menē price on the product page before ordering, and ask customer care to confirm the Wide Flat Band price in writing while that page errors.</p>
+        </div>
+        <div class="card finding medium" id="F41">
+          <div class="finding-head">
+            <h3>F41 · Every melt figure on this site is now anchored to a 20:17Z spot read, not to a live feed</h3>
+            <span class="badge warn">MEDIUM</span>
+          </div>
+          <p class="small">The calculation anchor is GoldPrice.org&#x27;s $3,997.22/oz read at 2026-10-23T20:17Z, corroborated at the same minute by Kitco ($3,996.20 bid), BullionVault ($3,997.14) and the World Gold Council ($3,996.31). The superseded $4,022.22 (05:55 NY) and $4,024.45 snapshots are retained as history so any earlier figure stays reproducible. Because spot moves continuously, a melt value computed today will not equal one computed tomorrow even if no seller changes a price: treat every melt / price-to-melt number as dated, and re-run scripts/refresh_spot_anchor.py before relying on one.</p>
+          <div class="evidence">Anchor 3,997.22 USD/oz @ 2026-10-23T20:17Z · Kitco 3,996.20 · BullionVault 3,997.14 · WGC 3,996.31 · max spread 0.026%</div>
+          <p class="small"><strong>Source:</strong> <a href="https://goldprice.org/" target="_blank" rel="noopener">https://goldprice.org/</a></p>
+          
+          <p class="action"><strong>What to do:</strong> Check the spot price on the day you buy; the melt column is a dated floor, not a quote.</p>
         </div>
         <div class="card finding low" id="F10">
           <div class="finding-head">
@@ -449,11 +471,11 @@
         </div>
         <div class="card finding low" id="F12">
           <div class="finding-head">
-            <h3>F12 · Two independent spot-price sources agree to within 0.03%</h3>
+            <h3>F12 · Four independent spot-price sources agree to within 0.03%</h3>
             <span class="badge info">LOW</span>
           </div>
-          <p class="small">GoldPrice.org printed $3,997.22/oz (23 Oct 2026, 04:17 NY Time on its own page clock) and the World Gold Council tile printed $3,996.31/oz (read 23 Oct 2026 20:17Z; its dataset is dated &#x27;Data as of 22 October, 2026&#x27;). The $0.91 gap (0.023%) is consistent with normal intraday movement and sits alongside Dataset C&#x27;s simultaneous Kitco bid $3,996.20/oz and BullionVault $3,997.14/oz quotes, which are 0.024% apart.</p>
-          <div class="evidence">GoldPrice.org $3,997.22/oz · World Gold Council $3,996.31/oz · difference $0.91 (0.023%)</div>
+          <p class="small">At 20:17Z on 23 Oct 2026 GoldPrice.org printed $3,997.22/oz, Kitco bid $3,996.20/oz, BullionVault $3,997.14/oz and the World Gold Council tile $3,996.31/oz (its dataset dated &#x27;Data as of 22 October, 2026&#x27;). The widest gap between any two of the four is $1.02 (0.026%), consistent with normal intraday movement and well inside the project&#x27;s 2% cross-check tolerance.</p>
+          <div class="evidence">GoldPrice.org $3,997.22 · Kitco $3,996.20 · BullionVault $3,997.14 · World Gold Council $3,996.31 · max spread 0.026%</div>
           <p class="small"><strong>Source:</strong> <a href="https://www.gold.org/goldhub/data/gold-prices" target="_blank" rel="noopener">https://www.gold.org/goldhub/data/gold-prices</a></p>
           
           <p class="action"><strong>What to do:</strong> None - this is a control check, not a problem.</p>
@@ -1195,8 +1217,8 @@ exists. A flag with no source of its own is a question about one specific listin
             <span class="badge warn">medium</span>
             <span class="mono">PRC1</span><strong>Seller re-prices continuously - a captured price is not today&#x27;s price</strong>
           </div>
-          <p class="small" style="margin:8px 0 4px">Menē sells by gram weight and re-quotes as the metal price moves. Every Menē row in this project was re-read live on 2026-10-23 and all four had moved down since capture: Wrap Ring $3,228 (captured $3,253), Classic Band $1,707 on the product page and &quot;From $1,664&quot; on the collection page (captured $1,720), Narrow Flat Band &quot;From $1,544&quot; (captured $1,556), Wide Flat Band &quot;From $2,315&quot; (captured $2,333). GoldPrice.org printed $4,022.22/oz on the same day; that anchor has since been re-read to $3,997.22/oz at 2026-10-23T20:17Z, so both the captured prices and the melt baseline are now explicitly dated.</p>
-          <p class="small" style="margin:0"><strong>What to do:</strong> Open the source link and read the live price before comparing or buying. Treat every price on this site as captured on the date printed beside it, and re-check it the day you order.</p>
+          <p class="small" style="margin:8px 0 4px">Menē sells by gram weight and re-quotes as the metal price moves. Every Menē row in this project has now moved down more than once, and the movement continued on the evening of 2026-10-23: the Classic Band product page printed $1,694 (captured $1,707 earlier that day, $1,720 on 2026-10-22) and the Narrow Flat Band printed $1,532 (captured $1,544). On the same evening GoldPrice.org printed $3,997.22/oz against the $4,022.22/oz snapshot the melt values use — a 0.62% fall on the same market date. Menē&#x27;s Wide Flat Band page returned HTTP 500 during that read (see SRC3).</p>
+          <p class="small" style="margin:0"><strong>What to do:</strong> Open the source link and read the live price before comparing or buying. Treat every price on this site as captured on the date printed beside it, and re-check it the day you order — a Menē figure can move twice in one day.</p>
           <p class="small" style="margin:6px 0 0"><strong>Source:</strong> <a href="https://mene.com/collections/bands-gold" target="_blank" rel="noopener">official page</a></p>
         </div><div class="card" id="flag-RET11">
           <div style="display:flex;gap:8px;align-items:baseline;flex-wrap:wrap">
@@ -1302,6 +1324,14 @@ exists. A flag with no source of its own is a question about one specific listin
           <p class="small" style="margin:8px 0 4px">Catbird&#x27;s /contact-us URL returned &quot;HTTP 500 Internal Server Error&quot; (nginx) across multiple checks on 2026-10-23. Session arena/15b00e99-gold3 confirmed that https://www.catbirdnyc.com/facts returns HTTP 200 and prints &#x27;customerservice@catbirdnyc.com&#x27; verbatim, so S-CB and catbird now cite /facts while keeping this flag to warn buyers that /contact-us is failing.</p>
           <p class="small" style="margin:0"><strong>What to do:</strong> Contact customerservice@catbirdnyc.com (verified on catbirdnyc.com/facts) or use returns.narvar.com/catbird.</p>
           <p class="small" style="margin:6px 0 0"><strong>Source:</strong> <a href="https://www.catbirdnyc.com/facts" target="_blank" rel="noopener">official page</a></p>
+        </div><div class="card" id="flag-SRC3">
+          <div style="display:flex;gap:8px;align-items:baseline;flex-wrap:wrap">
+            <span class="badge warn">medium</span>
+            <span class="mono">SRC3</span><strong>Cited product page returned HTTP 500 while the seller&#x27;s own pages still link it</strong>
+          </div>
+          <p class="small" style="margin:8px 0 4px">Menē&#x27;s Wide Flat Band page (https://mene.com/products/mene-wide-flat-band-gold) answered our fetch on 2026-10-23T20:31Z with “500 Internal Server Error / Page Not Found | Menē”. Menē&#x27;s own Classic Band and Narrow Flat Band pages link that exact URL and print “Wide Flat Band - Gold … From $2,297”. A buyer therefore cannot confirm the band&#x27;s own price on the product page at the time of reading, and the BND-03 record keeps its captured $2,465 rather than adopting the collection-level “From” figure.</p>
+          <p class="small" style="margin:0"><strong>What to do:</strong> Re-open the link before buying; if it still errors, call Menē customer care and get the price for your size in writing, and treat BND-03&#x27;s stored price as unconfirmed on the day you order.</p>
+          <p class="small" style="margin:6px 0 0"><strong>Source:</strong> <a href="https://mene.com/products/mene-wide-flat-band-gold" target="_blank" rel="noopener">official page</a></p>
         </div><div class="card" id="flag-WAR1">
           <div style="display:flex;gap:8px;align-items:baseline;flex-wrap:wrap">
             <span class="badge warn">medium</span>

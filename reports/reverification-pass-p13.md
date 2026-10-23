@@ -1,4 +1,4 @@
-# Pass P12 — live spot re-anchor and weight-bearing listing re-read
+# Pass P13 — live spot promotion and full weight-bearing re-read
 
 - **Session:** `arena/438a583e-gold3`
 - **Date:** 2026-10-23, reads taken at 20:17Z / 16:17 NY Time
@@ -6,8 +6,12 @@
   page returned a figure, the figure is quoted verbatim; where it returned
   nothing (a JavaScript-only price), the value stays null and is recorded as
   unverified rather than estimated.
-- **Checks:** `P12-01` … `P12-12` in `data/verification.json`
-  (197 checks across 13 passes after this one).
+- **Checks:** `P13-01` … `P13-12` in `data/verification.json`
+  (204 checks across 14 passes after this one).
+- **Renumbered:** drafted as pass `P12`, but session `arena/57724486-gold3` merged its own
+  `P12` (PR #51) while this pass was in flight. Every id here moved to `P13` and the new
+  finding to `F41`. Their seven checks, their Menē corrections, flag `SRC3`, defects
+  `SD14`/`SD15` and their three `audit.py` guards are preserved unchanged.
 
 ## 1. Why this pass exists
 
@@ -29,8 +33,9 @@ tolerance, so the new anchor is independently corroborated rather than copied.
 
 The previous anchor ($4,022.22) was not invented — it was a correct reading of
 the same page ten hours earlier. It was, however, out of date, and leaving it in
-place would have overstated every melt figure by 0.62%. Finding **F39** records
-that drift and tells the reader to treat every melt number as dated.
+place would have overstated every melt figure by 0.62%. Finding **F39** (raised by session `arena/57724486-gold3`, which flagged the drift rather
+than acting on it) records that move, and **F41** records this pass's decision to promote the
+corroborated read to the calculation anchor. Both tell the reader to treat every melt number as dated.
 
 ## 2. What was recomputed
 

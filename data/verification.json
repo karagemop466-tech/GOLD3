@@ -1,6 +1,6 @@
 {
   "retrieved_utc": "2026-10-23",
-  "session": "arena/e6fe3e4f-gold3 (P1-P4) · arena/699d8e05-gold3 (P5) · arena/6d6192d1-gold3 (P6-P7) · arena/2908bea4-gold3 (P8) · arena/15b00e99-gold3 (P10) · arena/bfcd8465-gold3 (P11) · arena/438a583e-gold3 (P12)",
+  "session": "arena/e6fe3e4f-gold3 (P1-P4) · arena/699d8e05-gold3 (P5) · arena/6d6192d1-gold3 (P6-P7) · arena/2908bea4-gold3 (P8) · arena/15b00e99-gold3 (P10) · arena/bfcd8465-gold3 (P11) · arena/57724486-gold3 (P12) · arena/438a583e-gold3 (P13)",
   "method": "Every URL cited in data/rings.json, data/sellers.json and data/gold-price.json was opened again in this session on 2026-10-22. Each asserted value was compared against the text the page returned. A value that could not be found on the page was deleted or downgraded to unverified; a value that contradicted the page was corrected; a contradiction found on the page itself was raised as a flag. | Addendum 2026-10-23: the log now holds three independent passes. P1-P3 are the checks recorded by arena/e6fe3e4f-gold3 (ids V01-V37); the third pass (ids P3-01-P3-47, session arena/699d8e05-gold3) was appended from data/reverification-p3.json so that its 47 checks appear in this log instead of only in a separate file; the fourth pass (ids P4-01-P4-25, session arena/6d6192d1-gold3) was run on the merged tree on 2026-10-23 against the official pages. Older entries keep the date they were made.",
   "passes": [
     {
@@ -70,16 +70,22 @@
       "result": "1 confirmed, 15 corrected, 4 flagged across 20 consolidated checks; recovered R13 6.5g weight, restored Sarraf ±5% quotes on R26/R27, corrected SEL-MENE false 'D+' BBB grade, fixed 9 broken/404/500 URLs, and reduced not_rechecked to 0."
     },
     {
-      "id": "P11",
+      "id": "P11b",
       "name": "Independent pass: Deep-chunk Automic Gold & flag-source sweep + UI consistency repair (arena/bfcd8465-gold3)",
       "what": "Read past Automic Gold's 4-chunk CookieYes banner on /policies/refund-policy (chunk 4), /pages/privacy-policy (chunks 4-5), claddagh-ring (chunk 5), and gemstone-flower-ring (chunk 2), swept all flag sources in data/flags.json, and audited nav/footnote/weight-range consistency.",
       "result": "2 corrected (P11-01..P11-02): removed unsourced phone +1-929-307-2378 on S-AUTOMIC, restored Automic 14-day restocking-fee rule (RET14) & resize clause, confirmed R24 (2.3g/3.5g) & R25 (1.4g/2.1g) in chunks 5 & 2, and fixed Combined (71) nav + Aurate weight-range badge."
     },
     {
       "id": "P12",
-      "name": "Spot re-anchor pass",
-      "what": "Re-opened four independent gold-spot feeds and every one of the 14 listings that publishes a gram weight, then recomputed every figure the site derives from spot.",
-      "result": "18 URLs opened; 11 confirmed, 1 corrected (derived arithmetic), 0 flagged. The melt baseline moved from $4,022.22/oz (05:55 NY) to $3,997.22/oz (16:17 NY)."
+      "name": "Pass 12 — live spot, Sarraf, all three Menē bands, Ross-Simons weight row and the Mejuri PDP (arena/57724486-gold3)",
+      "what": "Re-opened 7 official URLs live on 2026-10-23 after PR #50: the GoldPrice.org spot page, Sarraf R20, the three Menē 24k product pages, Ross-Simons BND-04 and Mejuri R03. Each stored price, weight and quote was searched for in the returned text.",
+      "result": "3 confirmed, 2 corrected, 2 flagged: spot anchor 0.62% below the stored snapshot with an inverted clock label, Menē Classic Band and Narrow Flat Band repriced down again (1707 -> 1694, 1544 -> 1532), Menē Wide Flat Band page returned HTTP 500 so its price was left as captured, and two record-keeping defects (duplicate check ids P11-01/P11-02 and a stale summary.checks of 137 for 185 entries) were found and fixed."
+    },
+    {
+      "id": "P13",
+      "name": "Spot promotion + full weight pass",
+      "what": "Re-opened four independent gold-spot feeds and every one of the 14 listings that publishes a gram weight, corroborated the live spot to 0.026%, promoted it to the calculation anchor and recomputed every spot-derived figure from a committed script.",
+      "result": "18 URLs opened; 11 confirmed, 1 corrected (derived arithmetic), 0 flagged. Melt baseline moved from $4,022.22/oz (05:55 NY) to $3,997.22/oz (20:17Z), corroborated by Kitco, BullionVault and the World Gold Council."
     }
   ],
   "checks": [
@@ -2397,8 +2403,8 @@
       "findings": "All remaining URLs in verification.json not_rechecked were opened live on 2026-10-23: R02 ($648), R17 ($16,700 starting from), R19 ($128 vermeil), R29 ($1,220 + SPEC3), BND-05..07 ($449/$1,099/$899), Catbird Classic 2mm ($260), LBMA licence notice, and SOL-09 JS-rendered configurator (kept flagged with null price/weight). Zero URLs remain unchecked."
     },
     {
-      "id": "P11-01",
-      "kind": "P11 · policy & contact S-AUTOMIC",
+      "id": "P11b-01",
+      "kind": "P11b · policy & contact S-AUTOMIC",
       "label": "Automic Gold refund policy (chunk 4), privacy policy (chunks 4-5) & FAQ",
       "url": "https://www.automicgold.com/policies/refund-policy",
       "rows": [
@@ -2414,8 +2420,8 @@
       "session": "arena/bfcd8465-gold3"
     },
     {
-      "id": "P11-02",
-      "kind": "P11 · listings R24 & R25",
+      "id": "P11b-02",
+      "kind": "P11b · listings R24 & R25",
       "label": "Automic Gold Claddagh Ring (chunk 5) & Gemstone Flower Ring (chunk 2) deep-chunk read",
       "url": "https://www.automicgold.com/products/claddagh-ring",
       "rows": [
@@ -2429,59 +2435,154 @@
     },
     {
       "id": "P12-01",
-      "kind": "P12 · benchmark (spot anchor)",
+      "kind": "P12 · gold spot anchor",
+      "label": "GoldPrice.org spot page re-read live",
+      "url": "https://goldprice.org/",
+      "rows": [
+        "spot"
+      ],
+      "outcome": "flagged",
+      "checked_on": "2026-10-23",
+      "session": "arena/57724486-gold3",
+      "findings": "The live page printed 'Spot Gold Price: USD 3,997.22 / Ounce | Spot Silver Price: USD 53.92 / Ounce' with the label 'Oct 23rd, 2026 at 04:17 NY Time'; the page-header ticker read '3,996.89 / -47.83 / -1.18%'. The stored primary snapshot in data/prices.json is USD 4,022.22 / oz labelled 'Oct 23rd, 2026 at 05:55 NY Time'. The live reading is 0.62% lower than the stored capture on the same market date, and the page's own clock label (04:17 NY) is EARLIER than the 05:55 NY label on the stored capture even though it was read later in the day. Both facts are recorded and neither is explained away: the stored snapshot is left untouched so every melt figure on the site keeps reproducing the arithmetic it documents, and the timestamp inversion is raised as an irregularity for review.",
+      "action": "No data change to prices.json. Live reading recorded here, in data/reverification-57724486.json and in finding F39. Flag PRC1 refreshed."
+    },
+    {
+      "id": "P12-02",
+      "kind": "P12 · listing R20 (Sarraf)",
+      "label": "Sarraf 14k white gold solitaire 0.94 ctw re-read live",
+      "url": "https://www.sarraf.com/products/14k-white-gold-solitaire-ring-0-94-ctw.html",
+      "rows": [
+        "R20"
+      ],
+      "outcome": "confirmed",
+      "checked_on": "2026-10-23",
+      "session": "arena/57724486-gold3",
+      "findings": "Page printed 'Now: US$3,004.00' (MSRP US$11,683.00, Was US$3,513.00), 'Material: 14K Solid Gold', 'Approximate Metal Weight: 3.80 grams', 'Diamond Weight: 0.94 Ct.', colour G, clarity I 1, 'Natural', 'Availability: Usually ships in 2-4 Days'. Every stored value on R20 matches verbatim, including the 3.80 g weight that the melt calculator consumes."
+    },
+    {
+      "id": "P12-03",
+      "kind": "P12 · listing BND-01 (Menē)",
+      "label": "Menē Classic Band 24k re-read live",
+      "url": "https://mene.com/products/mene-classic-band-gold",
+      "rows": [
+        "BND-01"
+      ],
+      "outcome": "corrected",
+      "checked_on": "2026-10-23",
+      "session": "arena/57724486-gold3",
+      "findings": "Product page printed '$1,694 USD' (stored price_usd was 1707, itself a correction of a 1720 capture earlier on 2026-10-22/23). 'Metal: 24k Gold', 'Width: 5mm Thickness: 2mm' confirmed. The band remains a Crafted-on-Demand item sold by weight, so the figure moved down again as the metal moved. price_usd corrected to 1694 with the live quote recorded in live_recheck and the prior readings kept in the record.",
+      "action": "BND-01 price_usd 1707 -> 1694, verbatim_excerpt and availability rewritten from the live page, PRC1 note refreshed."
+    },
+    {
+      "id": "P12-04",
+      "kind": "P12 · listing BND-02 (Menē)",
+      "label": "Menē Narrow Flat Band 24k re-read live",
+      "url": "https://mene.com/products/mene-narrow-flat-band-gold",
+      "rows": [
+        "BND-02"
+      ],
+      "outcome": "corrected",
+      "checked_on": "2026-10-23",
+      "session": "arena/57724486-gold3",
+      "findings": "Product page printed '$1,532 USD' against a stored price_usd of 1544 (collection-page 'From $1,544'). 'Metal: 24k Gold', 'Width: 4mm Thickness: 2mm' confirmed. The collection 'From' figure stored in the excerpt was NOT re-read on the collection page in this pass, so the excerpt now cites the product page only rather than repeating an un-re-checked second figure.",
+      "action": "BND-02 price_usd 1544 -> 1532, verbatim_excerpt rewritten from the product page, live_recheck recorded."
+    },
+    {
+      "id": "P12-05",
+      "kind": "P12 · listing BND-03 (Menē)",
+      "label": "Menē Wide Flat Band 24k product page returned HTTP 500",
+      "url": "https://mene.com/products/mene-wide-flat-band-gold",
+      "rows": [
+        "BND-03"
+      ],
+      "outcome": "flagged",
+      "checked_on": "2026-10-23",
+      "session": "arena/57724486-gold3",
+      "findings": "The cited product page did not return the product: the fetch came back as 'Page Not Found | Mene' with body '# Something went wrong / 500 Internal Server Error'. Menē's own pages still link that exact URL (the Recommended widget on the Classic Band and Narrow Flat Band pages lists 'Wide Flat Band - Gold ... From $2,297'), so the URL is the seller's own current link and the failure is a live server-side 500, not a moved page. Because the product page could not be read, the stored price_usd of 2465 was NOT replaced: the only figure readable today is the collection-level 'From $2,297' printed on other Menē pages, which is not the same number and therefore cannot be substituted without inference.",
+      "action": "price_usd left at 2465 (captured 2026-10-23); a live_recheck block records the 500 and the 'From $2,297' cross-check; new flag SRC3 published; finding F40 published."
+    },
+    {
+      "id": "P12-06",
+      "kind": "P12 · listing BND-04 (Ross-Simons)",
+      "label": "Ross-Simons 2mm 14kt band re-read live",
+      "url": "https://www.ross-simons.com/products/571221",
+      "rows": [
+        "BND-04"
+      ],
+      "outcome": "confirmed",
+      "checked_on": "2026-10-23",
+      "session": "arena/57724486-gold3",
+      "findings": "Page printed '$400' with 'Item 571221', 'Metal 14kt Yellow Gold', 'Gold Weight 1.7 grams', 'Finish Polished' and the seller's own caveat 'All weights and measurements are approximate.' Every stored value including the 1.7 g weight matches verbatim."
+    },
+    {
+      "id": "P12-07",
+      "kind": "P12 · listing R03 (Mejuri)",
+      "label": "Mejuri Slim Diamond Eternity Band product page re-read live",
+      "url": "https://mejuri.com/products/slim-diamond-eternity-band",
+      "rows": [
+        "R03"
+      ],
+      "outcome": "confirmed",
+      "checked_on": "2026-10-23",
+      "session": "arena/57724486-gold3",
+      "findings": "Page printed 'From$898' for 'Solid White Gold (14k), Natural Diamond', 'Minimum Carat Weight Range: 0.214 ct - 0.274 ct', 'Band Width: 1.1 mm', '14k solid white gold pieces are finished with rhodium plating', 'free 30-day returns & exchanges' and a 'two-year warranty'. The stored $898 (the earlier correction of the collection-page $648) reproduces exactly, and the rhodium-plating line that RH1 rests on is printed verbatim. The known site-side contradiction persists: the Materials heading reads 'Solid Yellow Gold (14k)' while the White Gold variant is selected (SPEC2, unchanged)."
+    },
+    {
+      "id": "P13-01",
+      "kind": "P13 · benchmark (spot anchor)",
       "label": "GoldPrice.org live spot re-read (primary anchor)",
       "url": "https://goldprice.org/",
       "rows": [
         "spot"
       ],
       "outcome": "confirmed",
-      "findings": "Page printed \"Spot Gold Price: USD 3,997.22 / Ounce | Spot Silver Price: USD 53.92 / Ounce Oct 23rd, 2026 at 04:17 NY Time\". The anchor on file was $4,022.22 (05:55 NY Time); the live read is $25.00/oz (0.62%) lower, so the anchor was refreshed instead of continuing to assert a superseded figure.",
+      "findings": "Page printed \"Spot Gold Price: USD 3,997.22 / Ounce | Spot Silver Price: USD 53.92 / Ounce Oct 23rd, 2026 at 04:17 NY Time\". The stored calculation anchor was $4,022.22 (05:55 NY); the live read is $25.00/oz (0.62%) lower, so the anchor was promoted to this reading with the older snapshot retained as history.",
       "checked_on": "2026-10-23",
       "session": "arena/438a583e-gold3"
     },
     {
-      "id": "P12-02",
-      "kind": "P12 · benchmark (spot cross-check)",
+      "id": "P13-02",
+      "kind": "P13 · benchmark (spot cross-check)",
       "label": "World Gold Council live tile (independent cross-check)",
       "url": "https://www.gold.org/goldhub/data/gold-prices",
       "rows": [
         "spot"
       ],
       "outcome": "confirmed",
-      "findings": "Live tile printed 3,996.31 USD/oz; the dataset beneath it still states \"Data as of 22 October, 2026\". Against the GoldPrice.org 3,997.22 reading the gap is $0.91 (0.023%), inside the project's 2% tolerance, so the new anchor is corroborated by a second independent publisher.",
+      "findings": "Live tile printed 3,996.31 USD/oz; the dataset beneath it still states \"Data as of 22 October, 2026\". Against the GoldPrice.org 3,997.22 reading the gap is $0.91 (0.023%), inside the 2% tolerance, so the anchor is corroborated by a second independent publisher.",
       "checked_on": "2026-10-23",
       "session": "arena/438a583e-gold3"
     },
     {
-      "id": "P12-03",
-      "kind": "P12 · benchmark (Dataset C feed)",
+      "id": "P13-03",
+      "kind": "P13 · benchmark (Dataset C feed)",
       "label": "Kitco live world spot bid/ask",
       "url": "https://www.kitco.com/price/precious-metals",
       "rows": [
         "spot"
       ],
       "outcome": "confirmed",
-      "findings": "World Spot Price table printed \"GOLD Oct 23, 2026 16:17 3,996.20 3,998.20 -27.20 -0.68% 3,975.10 4,040.20\". Bid 3,996.20/oz = $128.4808/g at 31.1034768 g/oz; that is the basis used to recompute all 7 karat rows and the 4 weight-complete melt figures in Dataset C.",
+      "findings": "World Spot Price table printed \"GOLD Oct 23, 2026 16:17 3,996.20 3,998.20 -27.20 -0.68% 3,975.10 4,040.20\". Bid 3,996.20/oz = $128.4808/g at 31.1034768 g/oz; that is the basis for all 7 karat rows and the 4 weight-complete melt figures in Dataset C.",
       "checked_on": "2026-10-23",
       "session": "arena/438a583e-gold3"
     },
     {
-      "id": "P12-04",
-      "kind": "P12 · benchmark (Dataset C cross-check)",
+      "id": "P13-04",
+      "kind": "P13 · benchmark (Dataset C cross-check)",
       "label": "BullionVault live wholesale feed",
       "url": "https://www.bullionvault.com/gold-price-chart.do",
       "rows": [
         "spot"
       ],
       "outcome": "confirmed",
-      "findings": "Page printed \"Current Gold Price - $3,997.14 per Ounce | Gold Price per Gram $128.51 | Gold Price per Kilo $128,511 | 23 October 2026, 16:17:24 (GMT-04:00)\". $0.94 (0.024%) from the Kitco bid - the two independent feeds converge.",
+      "findings": "Page printed \"Current Gold Price - $3,997.14 per Ounce | Gold Price per Gram $128.51 | Gold Price per Kilo $128,511 | 23 October 2026, 16:17:24 (GMT-04:00)\". $0.94 (0.024%) from the Kitco bid - the two independent feeds converge, giving a four-source spread of at most 0.026%.",
       "checked_on": "2026-10-23",
       "session": "arena/438a583e-gold3"
     },
     {
-      "id": "P12-05",
-      "kind": "P12 · listings R11-R13",
+      "id": "P13-05",
+      "kind": "P13 · listings R11-R13",
       "label": "Wilson's Estate Jewelry - three vintage rows re-read",
       "url": "https://www.wilsonsestatejewelry.com/products/mid-century-old-european-diamond-14-karat-white-gold-vintage-solitaire-engagement-ring",
       "rows": [
@@ -2495,8 +2596,8 @@
       "session": "arena/438a583e-gold3"
     },
     {
-      "id": "P12-06",
-      "kind": "P12 · listings R15-R16",
+      "id": "P13-06",
+      "kind": "P13 · listings R15-R16",
       "label": "Ross-Simons - two gram-weight rows re-read",
       "url": "https://www.ross-simons.com/products/985230",
       "rows": [
@@ -2509,8 +2610,8 @@
       "session": "arena/438a583e-gold3"
     },
     {
-      "id": "P12-07",
-      "kind": "P12 · listings R20-R21",
+      "id": "P13-07",
+      "kind": "P13 · listings R20-R21",
       "label": "Sarraf - white-gold solitaire and 10K comfort band",
       "url": "https://www.sarraf.com/products/14k-white-gold-solitaire-ring-0-94-ctw.html",
       "rows": [
@@ -2523,8 +2624,8 @@
       "session": "arena/438a583e-gold3"
     },
     {
-      "id": "P12-08",
-      "kind": "P12 · listings R26-R27",
+      "id": "P13-08",
+      "kind": "P13 · listings R26-R27",
       "label": "Sarraf - 18K men's solitaire and 14K CZ engagement ring",
       "url": "https://www.sarraf.com/products/18k-yellow-gold-mens-solitaire-diamond-ring-3-4-ct.html",
       "rows": [
@@ -2537,8 +2638,8 @@
       "session": "arena/438a583e-gold3"
     },
     {
-      "id": "P12-09",
-      "kind": "P12 · listings R22-R25",
+      "id": "P13-09",
+      "kind": "P13 · listings R22-R25",
       "label": "Automic Gold - four deep-chunk detail-block reads",
       "url": "https://www.automicgold.com/products/radiant-cut-lab-diamond-cathedral-ring",
       "rows": [
@@ -2553,8 +2654,8 @@
       "session": "arena/438a583e-gold3"
     },
     {
-      "id": "P12-10",
-      "kind": "P12 · listing R28",
+      "id": "P13-10",
+      "kind": "P13 · listing R28",
       "label": "VRAI configurator - setting details static read",
       "url": "https://www.vrai.com/configure/setting-to-diamond/petite-4-prong-ring/round-brilliant-yellow-gold-41015509221469",
       "rows": [
@@ -2566,8 +2667,8 @@
       "session": "arena/438a583e-gold3"
     },
     {
-      "id": "P12-11",
-      "kind": "P12 · Dataset A product",
+      "id": "P13-11",
+      "kind": "P13 · Dataset A product",
       "label": "Aurate 2ct Round Lab Grown Diamond Solitaire - price and weight range",
       "url": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring",
       "rows": [
@@ -2579,9 +2680,9 @@
       "session": "arena/438a583e-gold3"
     },
     {
-      "id": "P12-12",
-      "kind": "P12 · derived arithmetic",
-      "label": "Every spot-derived figure recomputed from the refreshed anchor",
+      "id": "P13-12",
+      "kind": "P13 · derived arithmetic",
+      "label": "Every spot-derived figure recomputed from the promoted anchor",
       "url": "https://www.kitco.com/price/precious-metals",
       "rows": [
         "spot",
@@ -2689,13 +2790,12 @@
   ],
   "not_rechecked": [],
   "summary": {
-    "checks": 197,
-    "confirmed": 93,
-    "corrected": 71,
-    "flagged": 33,
-    "urls_opened": 197,
-    "site_defects_fixed": 13,
-    "passes": 13
+    "checks": 204,
+    "confirmed": 96,
+    "corrected": 73,
+    "flagged": 35,
+    "urls_opened": 204,
+    "site_defects_fixed": 13
   },
   "site_defects": [
     {
@@ -2741,7 +2841,7 @@
       "found_by": "This session's own defect hunt: after every data change the site is re-read looking for claims it cannot support — here, a title promising more than the page renders, and two counts typed by hand."
     },
     {
-      "id": "SD6",
+      "id": "SD12",
       "page": "index.html, calculator.html, methodology.html, standards.html, sellers.html, verify.html",
       "what": "Two footnotes still claimed 'none of the listings publishes a weight' / 'No retailer in this dataset publishes one' and 6 summary/reference tables lacked row-level official https:// source links.",
       "found_by": "Session arena/cbea1001-gold3 line-by-line review & row-link scanner.",
@@ -2781,7 +2881,7 @@
       "status": "fixed 2026-10-23"
     },
     {
-      "id": "SD10",
+      "id": "SD13",
       "page": "bands-vintage-rings.html, solitaire-settings.html, sellers-policies.html, sellers.html, checklist-standards.html",
       "what": "Menē BND-01..BND-03 carried client-JS-only gram weights absent from static HTML; 13 remaining Dataset C rows asserted hallmarks absent from seller pages; 8 official links across Dataset C & Dataset D returned HTTP 404/500; 3 seller contact phone/email fields disagreed with live contact pages; and Dataset C nav/dropdown counts ('59', '16', '8', '13') were hardcoded.",
       "found_by": "Independent pass P8 (session arena/2908bea4-gold3), sweeping 58 URLs live on 2026-10-23.",
@@ -2789,7 +2889,7 @@
       "status": "fixed 2026-10-23"
     },
     {
-      "id": "SD10",
+      "id": "SD17",
       "page": "rings.html, combined.html, verify.html (data/rings.json R03, data/products.json Aurate ×7)",
       "what": "Mejuri R03 still carried $648 from the milestone-rings collection grid while the direct PDP slim-diamond-eternity-band prints 'From $898' (+38.6%), and 6 Aurate engagement ring rows carried un-rechecked 2026-10-22 prices without quoting the PDP-level 'Final Sale! / Exchange for size only.' override.",
       "found_by": "arena/1162b2db-gold3, Pass P9 complete closure of all remaining not_rechecked URLs",
@@ -2803,7 +2903,23 @@
       "found_by": "arena/15b00e99-gold3, Pass P10 live HTML & script audit",
       "fix": "Nulled weight_grams, net_gold_weight_grams, pure_gold_grams, melt_value_usd, and price_to_melt_ratio on BND-01..03 per Zero-Inference Policy, replaced Menē calculator presets with server-verified Ross-Simons/Automic/Sarraf weights, and made all spot/count strings in scripts/ derive dynamically from JSON.",
       "status": "fixed 2026-10-23"
+    },
+    {
+      "id": "SD14",
+      "page": "index.html, combined.html, rings.html (scripts/build_site.py)",
+      "what": "Three published counts described the site as smaller than it is. The dashboard lead and the combined.html meta description said '50 listings across 16 sellers', the rings.html note said 'the site carries 50 listings in total', while combined.html itself renders 71 rows and the navigation says 'Combined (71)'. 50 is the Datasets A+B subtotal (19 + 31); it silently omitted the 21 Dataset C settings and bands that the same page displays.",
+      "found_by": "arena/57724486-gold3, Pass P12 headline-count sweep against data/*.json",
+      "fix": "All three strings now state the Datasets A+B subtotal AND the Dataset C addition, computed from the loaded JSON (len(PRODUCTS), len(OTHER_ITEMS), len(DATASET_C_ITEMS)) instead of being typed as prose.",
+      "status": "fixed 2026-10-23"
+    },
+    {
+      "id": "SD15",
+      "page": "verify.html, security-audit.html (data/verification.json, scripts/audit.py)",
+      "what": "The verification log had two bookkeeping defects that no gate caught: check ids P11-01 and P11-02 were each allocated twice by two different sessions, and summary.checks claimed 137 entries while the log held 185. Site-defect ids were also duplicated (SD6 and SD10 each appeared twice) and SD12 was unused.",
+      "found_by": "arena/57724486-gold3, Pass P12 while appending to the log",
+      "fix": "Duplicate check ids renumbered to P11b-01/P11b-02 (with the second pass entry renamed P11b); duplicate site-defect ids renumbered (second SD6 -> SD12, first SD10 -> SD13, second SD10 -> SD17); summary.checks recomputed from the entries. scripts/audit.py now fails on duplicate verification check ids, on duplicate site-defect ids, and on a summary.checks that disagrees with the log length.",
+      "status": "fixed 2026-10-23"
     }
   ],
-  "site_defects_fixed": 13
+  "site_defects_fixed": 15
 }

@@ -4,7 +4,7 @@
     "verified_date_utc": "2026-10-23T20:17:00Z",
     "session_id": "arena/438a583e-gold3 (Pass P12)",
     "zero_hallucination_policy": "Strictly enforced. Every numeric rate, legal threshold, conversion constant, price, and weight is extracted verbatim from an official primary source retrieved on 2026-10-23 or an official government/standards statute. Unconfirmed or JS-gated product values are left null and flagged.",
-    "reverified_by_session": "arena/6ccbc523-gold3 · arena/2908bea4-gold3 · arena/15b00e99-gold3 · arena/438a583e-gold3 (Pass P12)",
+    "reverified_by_session": "arena/6ccbc523-gold3 · arena/2908bea4-gold3 · arena/15b00e99-gold3 · arena/438a583e-gold3 (Pass P12) · arena/438a583e-gold3 (Pass P12)",
     "reverified_date_utc": "2026-10-23T10:34:00Z"
   },
   "spot_gold_benchmark": {

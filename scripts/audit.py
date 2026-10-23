@@ -371,6 +371,18 @@ if verif_doc:
     checks = verif_doc.get("checks") or []
     if not checks:
         err("verify", "verification log has no checks")
+    # Two different sessions both allocated check ids P11-01/P11-02 in this log, and a
+    # stale summary.checks said 137 while the log held 185 entries. Both are the kind of
+    # bookkeeping error that hides a duplicate or a dropped check, so they are gated.
+    _ids = [c.get("id") for c in checks]
+    _dupes = sorted({i for i in _ids if _ids.count(i) > 1})
+    if _dupes:
+        err("verify", f"duplicate verification check ids: {_dupes}")
+    else:
+        ok("verify", f"all {len(_ids)} verification check ids are unique")
+    _declared = (verif_doc.get("summary") or {}).get("checks")
+    if _declared is not None and _declared != len(checks):
+        err("verify", f"summary.checks says {_declared!r} but the log holds {len(checks)} entries")
     for c in checks:
         cid = c.get("id", "<no id>")
         u = c.get("url", "")
@@ -440,6 +452,16 @@ for fid, f in flag_defs.items():
     if src and not str(src).startswith("https://"):
         err("flags", f"{fid}: source is not https")
 ok("flags", f"{len(flag_defs)} flag definitions validated")
+
+# site-defect ids must be unique too: SD6 and SD10 were each reused by two sessions
+for _k in ("site_defects",):
+    if verif_doc and verif_doc.get(_k):
+        _sids = [d.get("id") for d in verif_doc[_k] if isinstance(d, dict)]
+        _sdup = sorted({i for i in _sids if _sids.count(i) > 1})
+        if _sdup:
+            err("verify", f"duplicate {_k} ids: {_sdup}")
+        else:
+            ok("verify", f"all {len(_sids)} site-defect ids are unique")
 
 unused = set(flag_defs)
 for r in rings:

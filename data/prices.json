@@ -65,7 +65,8 @@
   "cross_check": {
     "difference_usd_per_oz": 0.91,
     "difference_percent": 0.0228,
-    "note": "The two independent snapshots read on 2026-10-23 at 20:17Z differ by 0.0228% ($3,997.22 vs $3,996.31), consistent with normal intraday movement between the two timestamps and consistent with the simultaneous Kitco ($3,996.20/oz) and BullionVault ($3,997.14/oz) quotes, which are $0.94 (0.024%) apart. Calculations use the primary (GoldPrice.org) snapshot; the World Gold Council figure is shown next to it so the reader can see the spread.",
+    "note": "The two independent snapshots read on 2026-10-23 at 20:17Z differ by 0.0228% ($3,997.22 vs $3,996.31), consistent with normal intraday movement between the two timestamps and consistent with the simultaneous Kitco ($3,996.20/oz) and BullionVault ($3,997.14/oz) quotes, which are $0.94 (0.024%) apart. Calculations use the primary (GoldPrice.org) snapshot; the World Gold Council figure is shown next to it so the reader can see the spread. The 20:17Z GoldPrice.org reading was first recorded by session arena/57724486-gold3 as a reference-only row (its finding F39); this pass corroborated it with three more feeds and promoted it to the calculation anchor, so that duplicate row is folded into the primary entry above rather than printed twice.",
     "benchmark_note": "The LBMA Gold Price is the global benchmark, set twice daily by ICE Benchmark Administration. LBMA states (re-verified live 2026-10-23) that real-time and historical benchmark data require an IBA licence and that the public tables have moved behind the MyLBMA portal, so no LBMA figure is reproduced here. Source: https://www.lbma.org.uk/prices-and-data/lbma-precious-metal-prices"
-  }
+  },
+  "live_check_note": "A third, explicitly labelled live-check reading is kept beside the two calculation snapshots. It is never consumed by the calculator: the arithmetic on every page stays pinned to the dated primary snapshot so the printed results can be reproduced."
 }

@@ -486,7 +486,7 @@
     {
       "id": "F12",
       "severity": "low",
-      "title": "Two independent spot-price sources agree to within 0.03%"
+      "title": "Four independent spot-price sources agree to within 0.03%"
     },
     {
       "id": "F13",
@@ -621,7 +621,17 @@
     {
       "id": "F39",
       "severity": "medium",
-      "title": "The gold-spot anchor moves during the day: melt values were refreshed from $4,022.22 to $3,997.22/oz"
+      "title": "Live gold spot fell 0.62% on the same market date, and the page's own clock label runs backwards"
+    },
+    {
+      "id": "F40",
+      "severity": "medium",
+      "title": "Menē repriced two bands down within one day and its Wide Flat Band page returned HTTP 500"
+    },
+    {
+      "id": "F41",
+      "severity": "medium",
+      "title": "Every melt figure on this site is now anchored to a 20:17Z spot read, not to a live feed"
     }
   ],
   "parallel_dataset": {
