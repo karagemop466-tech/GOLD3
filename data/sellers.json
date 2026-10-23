@@ -400,7 +400,8 @@
         "X1",
         "PRC1",
         "SRC1",
-        "SD7"
+        "SD7",
+        "SRC3"
       ],
       "verification": "Re-verified live 2026-10-23 (sessions arena/6d6192d1-gold3 & arena/2908bea4-gold3): https://mene.com/contact-us returned HTTP 404 and was repointed to https://mene.com/customer-care/en-US (SRC1); corrected phone from +1-833-636-3465 to +1-833-636-3245 (1-833-MENE-24K) and email from concierge@mene.com to service@mene.com (printed on mene.com/customer-care/en-US/articles/returns-319505 and product Customer Care modal). Prices are metal-linked (PRC1).",
       "policy_source_2": "https://support.mene.com/hc/en-us/articles/4407022465633-What-is-your-return-policy"

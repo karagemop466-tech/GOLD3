@@ -1,14 +1,15 @@
 {
-  "generated_at_utc": "2026-10-23T10:50:02Z",
+  "generated_at_utc": "2026-10-23T20:19:22Z",
   "data_file_sha256": {
-    "bands-and-high-karat.json": "65cf013eff52ee0598e15d0798015b861a728dcae55da08de6b573899d56675e",
-    "findings.json": "eec779a5e7c96a45d41a0acbadd6414439392c6b20941b54ad8904876eebe87e",
-    "flags.json": "756fa396b663b9a4aa449c0df44e89289881647fb54c54834c3cfc6bc7046a0f",
+    "bands-and-high-karat.json": "8061e893bb6b94c3886cb8d5dca41ed8260f75506ca140e5f06440fd27d3a99e",
+    "findings.json": "5dd250e3097fab51ddcddb09cca33c15d90572e769d115c0f4dd1d609fda2c3f",
+    "flags.json": "0cb02371eeb777773cbe3cc1f80a3990642d4c57d55a64fc60b43bd0ab8160da",
     "gold-price.json": "bdb3a741c6696f56ec713c090706cb98fefb53901fe284dfe105308a7d6a7e08",
     "prices.json": "509ec5ee9ef43541fc4298458e8b1b79ecb522a4eeddd5204c3863f29d7d9e58",
     "products.json": "b710535c3310aded606c436d9207276ac91c399d879522aa4861c7c751ef7194",
     "retailers.json": "e780a16102e4278cd4c8803871c50f2527bb7a73baa5db24ead1558e5e5d50e8",
     "reverification-1162b2db.json": "803157bd7daddc10ea8ab4773c5ee1df1b5573c259c53c18c74c025263cea4b3",
+    "reverification-57724486.json": "8b185580a5ef8bafa536151f721d3cb516e66926f02762af704284b9c3e2e2f3",
     "reverification-bfcd8465.json": "46f99c832ef98244d5d535ef4389dabc9313f1f92833e11157a3b9a09ec2cae8",
     "reverification-c-15b00e99.json": "34ac65f9dc2ee5d078b5a4a7128eb41fd2e7316efbd4e5d125ebe71b0b946332",
     "reverification-c-6ccbc523.json": "52f4a6d610762be546e45e94fd1ffe2f17f201d16215625264fe45c84acc78f2",
@@ -19,13 +20,13 @@
     "reverification-p6.json": "dee30027715ce1f89f414ab0bff0140b3684ba009e6b7f1fa3fc3f7322a7b62e",
     "rings.json": "fd36fe00e0d452205a50e623b9311803e07daba21b3ae6e052fd144a252f0fe8",
     "sellers-policies.json": "6f2edb268c1efd391f4c98102d164665d40d1b2f56cc18702c4492bad6b8cd36",
-    "sellers.json": "469d062f068d98d8293e22bd2257c1144c59f64ce732956cb58afc062e31afea",
+    "sellers.json": "4d1bd09620f904e833139fa16f7be571e87ade0115df1826472447e324bc033f",
     "solitaire-rings.json": "b14736e9308d559ca542081e0b9dda7b325588b6558486aa288d27753ef5b8d8",
     "sources.json": "8dfba5f0fa227f13eda84dd54b6bdf60e1b55738e449edc87cae1e0684f0938d",
     "spot-and-standards.json": "fb7febce8b15501221a57f89e4f244635d645ac122963315373bc0137f39a171",
     "standards.json": "6b745302667c70fb15800fb830471250551a37e238e507a8b993f8e3c4423ad8",
-    "verification-report.json": "e8eff0078abae2dba3634be853f799286f77bd119f2f57a25bed4fb3fd14487d",
-    "verification.json": "261f21b1050448ab9e4d1de6b55cdd26a39349714501f918450ba5f806025476"
+    "verification-report.json": "73a08c63ef8d0b2cbdcfb840a6108231ab6141c95efef3bb294d7bbc61a648ee",
+    "verification.json": "f4d122b839f1581f0b8e2e6d0c1336b675b456314d5891e0fcd2161e3e8fc2c1"
   },
   "unique_official_urls_count": 180,
   "official_sources": [
@@ -183,6 +184,7 @@
       "url": "https://goldprice.org/",
       "referenced_by": [
         "HTML Link in calculator.html",
+        "HTML Link in flagged.html",
         "HTML Link in index.html",
         "HTML Link in sources.html",
         "HTML Link in verify.html"
@@ -428,6 +430,7 @@
         "HTML Link in bands-vintage-rings.html",
         "HTML Link in combined.html",
         "HTML Link in flagged-for-review.html",
+        "HTML Link in flagged.html",
         "HTML Link in verify.html",
         "Ring BND-03 Product Page"
       ]

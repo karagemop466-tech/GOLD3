@@ -393,6 +393,27 @@
       "action": "Phone set to null on S-AUTOMIC, contact_source repointed to https://www.automicgold.com/pages/faq (care@automicgold.com), resize_policy restored verbatim from chunk 4 of /policies/refund-policy, and new flag RET14 attached to S-AUTOMIC and R22-R25.",
       "subject": "S-AUTOMIC",
       "product": null
+    },
+    {
+      "id": "F39",
+      "severity": "medium",
+      "title": "Live gold spot fell 0.62% on the same market date, and the page's own clock label runs backwards",
+      "detail": "The GoldPrice.org page was opened again on 2026-10-23 at 20:17Z and printed “Spot Gold Price: USD 3,997.22 / Ounce … Oct 23rd, 2026 at 04:17 NY Time”, with the header ticker reading “3,996.89 / -47.83 / -1.18%”. The stored primary snapshot in data/prices.json is USD 4,022.22 / oz labelled “Oct 23rd, 2026 at 05:55 NY Time”. Two things follow. First, the stored snapshot is now 0.62% above the live reading; because it is a dated capture, it was deliberately NOT overwritten — every melt and break-even figure on this site is arithmetic on that documented number, and silently replacing it would change every printed result. Second, the live page's clock label (04:17 NY) is EARLIER than the label on the morning's capture (05:55 NY) even though it was read some ten hours later, so at least one of the two timestamps is not what it appears to be. This project records that instead of inventing an explanation for it.",
+      "evidence": "Live 2026-10-23T20:17Z: “Spot Gold Price: USD 3,997.22 / Ounce | Spot Silver Price: USD 53.92 / Ounce Oct 23rd, 2026 at 04:17 NY Time” (https://goldprice.org/). Stored: USD 4,022.22 at “Oct 23rd, 2026 at 05:55 NY Time” (data/prices.json, snapshot goldprice-org-2026-10-23). Difference: $25.00/oz = 0.6215%.",
+      "impact": "Melt values move by the same 0.62%. Working the arithmetic with the project's exact constants (1 troy ounce = 31.1034768 g, 14K fineness 14/24): gold is $129.3174/g pure and $75.4351/g at 14K on the stored $4,022.22/oz, and $128.5136/g pure and $74.9663/g at 14K on the live $3,997.22/oz. R20's 3.80 g 14K ring therefore holds $286.65 of gold at the stored spot and $284.87 at the live one — $1.78 less, the same 0.62%. Every 'price ÷ melt' multiple printed on the site shifts by that amount.",
+      "action": "Re-read the spot source on the day you use the calculator; treat every figure on this site as dated. The timestamp inversion is published for review rather than resolved by assumption.",
+      "source": "https://goldprice.org/",
+      "source_note": "Live reading taken 2026-10-23T20:17Z; the stored snapshot it is compared against is in data/prices.json."
+    },
+    {
+      "id": "F40",
+      "severity": "medium",
+      "title": "Menē repriced two bands down within one day and its Wide Flat Band page returned HTTP 500",
+      "detail": "Read live on 2026-10-23 at 20:30Z: the Classic Band product page printed $1,694 (stored $1,707, captured earlier the same day; $1,720 the day before) and the Narrow Flat Band printed $1,532 (stored $1,544 from the collection grid). Both records were corrected to the live product-page figures and the earlier readings kept in live_recheck.history. The Wide Flat Band page (https://mene.com/products/mene-wide-flat-band-gold) returned “500 Internal Server Error / Page Not Found” while Menē's own Classic Band and Narrow Flat Band pages still link that exact URL and print “Wide Flat Band - Gold … From $2,297”. BND-03 therefore keeps its captured $2,465 and is flagged SRC3 — the “From” figure on a different page is not the product-page price and was not substituted.",
+      "evidence": "Live: “Classic Band … $1,694 … USD”; “Narrow Flat Band … $1,532 … USD”; “Wide Flat Band - Gold … From $2,297” on Menē's Recommended widgets; /products/mene-wide-flat-band-gold → “500 Internal Server Error”, all 2026-10-23T20:30Z.",
+      "action": "Re-check any Menē price on the product page before ordering, and ask customer care to confirm the Wide Flat Band price in writing while that page errors.",
+      "source": "https://mene.com/products/mene-wide-flat-band-gold",
+      "source_note": "500 error read 2026-10-23T20:31Z; the two re-priced bands are https://mene.com/products/mene-classic-band-gold and https://mene.com/products/mene-narrow-flat-band-gold."
     }
   ]
 }

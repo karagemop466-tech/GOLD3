@@ -426,7 +426,7 @@ def build_index() -> str:
 {policy_box()}
 <div class="page-head">
   <h1>A gold engagement ring you can actually verify &mdash; No Hallucinations</h1>
-  <p class="lead">{METRICS['n_combined']} listings across {METRICS['n_sellers_total']} sellers &mdash; {len(PRODUCTS)} verified in Dataset A and {METRICS['n_other_items']} in Dataset B &mdash; checked line by line under our <strong>No Hallucinations</strong> commitment against official seller pages, US jewellery-marking
+  <p class="lead">{METRICS['n_combined']} listings across {METRICS['n_sellers_total']} sellers &mdash; {len(PRODUCTS)} verified in Dataset A and {METRICS['n_other_items']} in Dataset B &mdash; plus {len(DATASET_C_ITEMS)} Dataset C settings and bands, {len(PRODUCTS) + len(OTHER_ITEMS) + len(DATASET_C_ITEMS)} rows in all, checked line by line under our <strong>No Hallucinations</strong> commitment against official seller pages, US jewellery-marking
   regulations and the gold price captured on 22 October 2026 and re-checked live on 23 October 2026. Every single table row links to an official source. Where a seller publishes nothing, the cell is left blank
   and flagged <em>unverified</em>. Need stone-carat deduction &amp; post-arrival ED-XRF assay tolerances? Open the <a href="archive/session-cbea1001/calculator.html">XRF &amp; Stone-Deduction Lab Calculator</a> or <a href="archive/session-cbea1001/index.html">Session Observatory</a>.</p>
 </div>
@@ -705,8 +705,9 @@ def build_combined() -> str:
 </div>
 """
     return page("combined.html", "Combined dataset", body,
-                f"Both research passes side by side: {METRICS['n_combined']} listings across "
-                f"{METRICS['n_sellers_total']} sellers, each with its own source link and provenance.")
+                f"All three research passes side by side: {len(PRODUCTS) + len(OTHER_ITEMS) + len(DATASET_C_ITEMS)} rows - "
+                f"{METRICS['n_combined']} listings across {METRICS['n_sellers_total']} sellers in Datasets A and B plus "
+                f"{len(DATASET_C_ITEMS)} Dataset C settings and bands, each with its own source link and provenance.")
 
 
 def build_rings() -> str:
@@ -719,7 +720,8 @@ def build_rings() -> str:
 </div>
 <div class="note-box" style="margin-bottom:16px"><strong>Scope of this page.</strong>
   This table renders dataset A only ({len(PRODUCTS)} listings). The parallel pass contributed {METRICS['n_other_items']} more,
-  so the site carries <a href="combined.html">{METRICS['n_combined']} listings in total</a> &mdash; use the combined list if you
+  so the site carries <a href="combined.html">{METRICS['n_combined']} listings in total</a> before the {len(DATASET_C_ITEMS)} Dataset C
+  settings and bands on <a href="solitaire-settings.html">Solitaires</a> and <a href="bands-vintage-rings.html">24K &amp; Melt</a> &mdash; use the combined list if you
   want every price in one table. Nothing is hidden here; it is a separate research pass with its own evidence rules.</div>
 <div class="note-box" style="margin-bottom:16px"><strong>How to read the Price column.</strong>
 <em>listed</em> = the price of the configuration shown. <em>from</em> = the cheapest variant (usually 14K, smallest size); 18K costs more.
@@ -1601,7 +1603,7 @@ def build_sources() -> str:
     <tbody>{snaps}</tbody>
   </table>
 </div>
-<p class="small">Cross-check: the two snapshots are {e(str(prices_doc['cross_check']['difference_percent']))}% apart
+<p class="small">Cross-check: the two independent snapshots are {e(str(prices_doc['cross_check']['difference_percent']))}% apart
 ({money(float(prices_doc['cross_check'].get('difference_usd_per_oz', prices_doc['cross_check'].get('difference_usd', 0))),2)}). {e(prices_doc['cross_check']['benchmark_note'])}</p>
 
 <h2>Authority sources</h2>

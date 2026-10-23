@@ -27,26 +27,41 @@
       "pure_gold_grams": null,
       "melt_value_usd": null,
       "price_to_melt_ratio": null,
-      "price_usd": 1707.0,
-      "availability": "Crafted-on-Demand (Sizes 4–14; $1,707 USD default PDP / From $1,664 on /collections/bands-gold)",
+      "price_usd": 1694.0,
+      "availability": "Crafted-on-Demand (Sizes 4–14; $1,694 USD on the product page, read 2026-10-23T20:30Z)",
       "verified_date": "2026-10-23",
       "product_url": "https://mene.com/products/mene-classic-band-gold",
       "secondary_weight_source_url": "https://mene.com/collections/bands-gold",
-      "verbatim_excerpt": "Classic Band $1,707 USD (collections/bands-gold: 'From $1,664') | Metal: 24k Gold | Width: 5mm Thickness: 2mm | 'Weights can fluctuate by up to 0.5 grams per piece for in-stock pieces and up to 1 gram for Crafted-on-Demand pieces.'",
+      "verbatim_excerpt": "Classic Band $1,694 USD | Metal: 24k Gold | Width: 5mm Thickness: 2mm | 'This is a Crafted-on-Demand item.' | 'Dimensions are approximate. Products are sold by weight, not size.' | 'Weights can fluctuate by up to 0.5 grams per piece for in-stock pieces and up to 1 gram for Crafted-on-Demand pieces.'",
       "checklist_status": "Flagged — JS-Hydrated Weight Omitted in Static HTML & 7-Day Return Window",
       "flagged": true,
       "flags": [
         "STRICT ANTI-HALLUCINATION ENFORCEMENT (2026-10-23): Menē's Shopify Oxygen v2 static HTML omits gram weights until client JS hydrates (and legacy /bands/gold redirects to /collections/bands-gold without gram labels); weight_grams set to null matching Dataset B R30.",
         "BUYER POLICY CAUTION: Strict 7-day return window from receipt (10% card refund fee waived only for Menē Credit), D+ / Not Accredited BBB rating, +/-0.5g to +/-1.0g variance, and $75 engraving voids standard return.",
-        "PRICE MOVED (PRC1): Updated to live $1,707 USD on 2026-10-23 (captured $1,720 on 2026-10-22; collection prints 'From $1,664').",
-        "HALLMARK CORRECTION (2026-10-23): this record previously described a stamp the seller never printed; see the corrected hallmark_disclosure field and site defect SD6."
+        "HALLMARK CORRECTION (2026-10-23): this record previously described a stamp the seller never printed; see the corrected hallmark_disclosure field and site defect SD6.",
+        "PRICE MOVED AGAIN (PRC1): product page read $1,694 USD on 2026-10-23T20:30Z (captured $1,707 earlier the same day, $1,720 on 2026-10-22). Menē re-quotes as the metal moves; the captured figure was replaced with the live one and the earlier readings are kept in live_recheck.history."
       ],
       "live_recheck": {
         "checked_on": "2026-10-23",
+        "checked_at_utc": "2026-10-23T20:30:00Z",
         "url": "https://mene.com/products/mene-classic-band-gold",
-        "price_as_shown": "$1,707",
-        "quote": "Product page: “Classic Band / $1,707 / USD”; the 24k Gold Bands collection prints “Classic Band From $1,664” — both read live 2026-10-23",
-        "note": "Menē prices are metal-linked and re-quoted continuously, so the captured $1,720 on 2026-10-22 is lower than the page printed today. price_usd keeps the captured figure and this block records the live one; see flag PRC1."
+        "price_as_shown": "$1,694",
+        "quote": "Product page: “Classic Band … $1,694 … USD”, “Metal: 24k Gold”, “Width: 5mm Thickness: 2mm” — read live 2026-10-23.",
+        "history": [
+          {
+            "read_on": "2026-10-22",
+            "price_usd": 1720.0
+          },
+          {
+            "read_on": "2026-10-23 (earlier pass)",
+            "price_usd": 1707.0
+          },
+          {
+            "read_on": "2026-10-23T20:30Z (this pass)",
+            "price_usd": 1694.0
+          }
+        ],
+        "note": "price_usd now carries today's live figure rather than the superseded capture, because this pass re-read the same page on the same day. The earlier figures are preserved above so the movement is auditable; the collection page's 'From' figure was not re-read in this pass and is no longer quoted here."
       }
     },
     {
@@ -71,26 +86,41 @@
       "pure_gold_grams": null,
       "melt_value_usd": null,
       "price_to_melt_ratio": null,
-      "price_usd": 1544.0,
-      "availability": "Crafted-on-Demand ($1,544 USD on PDP & From $1,544 on /collections/bands-gold)",
+      "price_usd": 1532.0,
+      "availability": "In stock (Sizes 4–13; $1,532 USD on the product page, read 2026-10-23T20:30Z)",
       "verified_date": "2026-10-23",
       "product_url": "https://mene.com/products/mene-narrow-flat-band-gold",
       "secondary_weight_source_url": "https://mene.com/collections/bands-gold",
-      "verbatim_excerpt": "Narrow Flat Band $1,544 USD (collections/bands-gold: 'From $1,544') | Metal: 24k Gold | Width: 4mm Thickness: 2mm | 'Weights can fluctuate by up to 0.5 grams per piece for in-stock pieces and up to 1 gram for Crafted-on-Demand pieces.'",
+      "verbatim_excerpt": "Narrow Flat Band $1,532 USD | Metal: 24k Gold | Width: 4mm Thickness: 2mm | 'Dimensions are approximate. Products are sold by weight, not size.'",
       "checklist_status": "Flagged — JS-Hydrated Weight Omitted in Static HTML & 7-Day Return Window",
       "flagged": true,
       "flags": [
         "STRICT ANTI-HALLUCINATION ENFORCEMENT (2026-10-23): Upgraded product_url to direct PDP https://mene.com/products/mene-narrow-flat-band-gold ($1,544 USD); static server HTML omits gram weight so weight_grams is left null.",
         "Subject to Menē strict 7-day return window and D+ BBB rating; schedule XRF & gram check immediately upon delivery.",
-        "PRICE MOVED (PRC1): Updated to live $1,544 USD on 2026-10-23 (captured $1,556 on 2026-10-22).",
-        "HALLMARK CORRECTION (2026-10-23): this record previously described a stamp the seller never printed; see the corrected hallmark_disclosure field and site defect SD6."
+        "HALLMARK CORRECTION (2026-10-23): this record previously described a stamp the seller never printed; see the corrected hallmark_disclosure field and site defect SD6.",
+        "PRICE MOVED AGAIN (PRC1): product page read $1,532 USD on 2026-10-23T20:30Z (captured $1,544 via the collection 'From' figure earlier the same day). The stored figure was replaced with the product-page figure; the collection page was not re-read, so no collection-level number is quoted any more."
       ],
       "live_recheck": {
         "checked_on": "2026-10-23",
-        "url": "https://mene.com/collections/bands-gold",
-        "price_as_shown": "From $1,544",
-        "quote": "“Narrow Flat Band From $1,544” — read live 2026-10-23",
-        "note": "Menē prices are metal-linked and re-quoted continuously, so the captured $1,556 on 2026-10-22 is lower than the page printed today. price_usd keeps the captured figure and this block records the live one; see flag PRC1."
+        "checked_at_utc": "2026-10-23T20:30:00Z",
+        "url": "https://mene.com/products/mene-narrow-flat-band-gold",
+        "price_as_shown": "$1,532",
+        "quote": "Product page: “Narrow Flat Band … $1,532 … USD”, “Metal: 24k Gold”, “Width: 4mm Thickness: 2mm” — read live 2026-10-23.",
+        "history": [
+          {
+            "read_on": "2026-10-22",
+            "price_usd": 1556.0
+          },
+          {
+            "read_on": "2026-10-23 (earlier pass)",
+            "price_usd": 1544.0
+          },
+          {
+            "read_on": "2026-10-23T20:30Z (this pass)",
+            "price_usd": 1532.0
+          }
+        ],
+        "note": "The earlier 1,544 figure came from the collection grid; this pass read the product page directly and quotes only that page."
       }
     },
     {
@@ -127,14 +157,16 @@
         "STRICT ANTI-HALLUCINATION ENFORCEMENT (2026-10-23): Upgraded product_url to direct PDP https://mene.com/products/mene-wide-flat-band-gold ($2,465 USD default size; From $2,315 on collection page); static server HTML omits gram weight so weight_grams is left null.",
         "Subject to Menē strict 7-day return window and D+ BBB rating; verify gram weight on 0.01g scale and XRF scan immediately on arrival.",
         "PRICE MOVED (PRC1): Updated to live $2,465 USD PDP ($2,315 collection minimum) on 2026-10-23 versus captured $2,333 on 2026-10-22.",
-        "HALLMARK CORRECTION (2026-10-23): this record previously described a stamp the seller never printed; see the corrected hallmark_disclosure field and site defect SD6."
+        "HALLMARK CORRECTION (2026-10-23): this record previously described a stamp the seller never printed; see the corrected hallmark_disclosure field and site defect SD6.",
+        "CITED PAGE RETURNED HTTP 500 (SRC3): https://mene.com/products/mene-wide-flat-band-gold answered with '500 Internal Server Error / Page Not Found | Menē' to our fetch on 2026-10-23T20:30Z, although Menē's own product pages link that exact URL and print 'Wide Flat Band - Gold … From $2,297'. The stored price was left at its captured figure rather than replaced by the collection-level number."
       ],
       "live_recheck": {
         "checked_on": "2026-10-23",
-        "url": "https://mene.com/collections/bands-gold",
-        "price_as_shown": "From $2,315",
-        "quote": "“Wide Flat Band From $2,315” — read live 2026-10-23",
-        "note": "Menē prices are metal-linked and re-quoted continuously, so the captured $2,333 on 2026-10-22 is lower than the page printed today. price_usd keeps the captured figure and this block records the live one; see flag PRC1."
+        "checked_at_utc": "2026-10-23T20:31:00Z",
+        "url": "https://mene.com/products/mene-wide-flat-band-gold",
+        "price_as_shown": null,
+        "quote": "Fetch returned: “Page Not Found | Menē” with body “# Something went wrong / 500 Internal Server Error”. Cross-check from Menē's own Recommended widget on /products/mene-classic-band-gold and /products/mene-narrow-flat-band-gold: “Wide Flat Band - Gold … From $2,297”.",
+        "note": "UNVERIFIED TODAY: the product page could not be read, so price_usd keeps the 2026-10-23 capture of $2,465. The 'From $2,297' widget figure is a different number from a different surface and is recorded as a cross-check only — substituting it would be an inference, not a source."
       }
     },
     {
