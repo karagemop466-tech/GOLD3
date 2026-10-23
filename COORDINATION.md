@@ -29,6 +29,8 @@ Read it before starting any work. Update it when you claim, finish, or hand off 
 | `arena/db2fe957-gold3` | `arena/db2fe957-gold3` | 2026-10-23T20:20Z | **complete** — `P15` + `P16`: PRs #64 and #65 merged (`d3db33f`, `0560c57`), main CI green, Pages built, live read-back verified including SD24 (§21). |
 | `arena/bf5f63da-gold3` | `arena/bf5f63da-gold3` | 2026-10-23T23:41Z | **complete** — Final review pass (R1): line-by-line data-consistency audit, zero-hallucination front-page confirmation, all 9 CI gates green, PR #67 merged as `f2c69a6` to `main`, GitHub Pages built and live at https://karagemop466-tech.github.io/GOLD3/ | `COORDINATION.md`, generated `*.html`, verification scripts output | 2026-10-23T23:41Z → merged 2026-10-23 |
 
+| `arena/bd0ed905-gold3` | `arena/bd0ed905-gold3` | 2026-10-23T23:40Z | **active** — Pass `P17` final independent hallucination hunt + final integration `P18` |
+
 ### Branch naming note (important)
 The protocol below asks for `session-<id>/<task>` branches. **This sandbox pins each session to a
 single pre-assigned branch** (`arena/b3c924e6-gold3` for `sess-7f3a-gold`); creating or pushing
@@ -98,6 +100,8 @@ Status values: `unclaimed` · `in progress` · `done` · `needs review`
 | P12 | Eleventh independent live verification pass on the post-PR-#50 tree (`253ab39`): **7 live checks — 3 confirmed / 2 corrected / 2 flagged**. Spot anchor 0.62% below the stored snapshot with an inverted clock label (F39); Menē Classic Band $1,707→$1,694 and Narrow Flat Band $1,544→$1,532 (F40); Menē Wide Flat Band page returned HTTP 500 so its price was left captured (SRC3); Sarraf R20, Ross-Simons BND-04 and Mejuri R03 confirmed verbatim. Also fixed SD14 (three headline counts said 50 while the site renders 71) and SD15 (duplicate `P11-01/P11-02` ids, duplicate `SD6/SD10`, stale `summary.checks` 137 vs 185) and added three audit guard rails. Published `data/reverification-57724486.json` + `reports/reverification-pass-57724486.md`; log now **192 checks**. Verification pass on the post-PR-#50 tree (`253ab39`): re-open the spot benchmark and a rotating sample of price/weight-bearing rows live, sweep every published headline count against `data/`, fix any discrepancy found, publish `data/reverification-57724486.json` + report, then final integration (rebuild, all 9 CI gates, PR → `main`, merge, Pages deploy read-back) | done | `arena/57724486-gold3` | `data/reverification-57724486.json`, `reports/reverification-pass-57724486.md`, `data/verification.json`, `COORDINATION.md`; integration window over generated `*.html`, `data/*.json`, `verification/*`, `reports/*` | 2026-10-23T21:00Z |
 | R1 | Final review pass: line-by-line data-consistency audit (every row carries an `https://` official source link; unpublished values left `null`/`blank` and flagged `unverified`), confirm the zero-hallucination commitment is the front-page top summary, re-run all nine CI gates, rebuild the static site, open a PR from `arena/bf5f63da-gold3` to `main`, merge after green CI, confirm GitHub Pages deploys, and record the PR link + merge SHA here. | done | `arena/bf5f63da-gold3` | `COORDINATION.md`, generated `*.html`, all `data/*.json` (read-only audit), `scripts/*` (read-only audit) | 2026-10-23T23:41Z → merged 2026-10-23 |
 
+| P17 | Final independent hallucination hunt: live re-read of Dataset A PDP/policy claims and seller-policy drift, full source-manifest/link sweep, resolution of CR-P15-1/CR-P15-2 without discarding peer evidence, append dated checks/findings, then all CI gates. | in progress | `arena/bd0ed905-gold3` | `data/reverification-p17.json`, `reports/reverification-pass-p17.md`, `data/verification.json`, `data/products.json`, `data/retailers.json`, `data/flags.json`, `data/findings.json`, `data/reverification-c-6ccbc523.json`, `reports/reverification-1162b2db.md`, `verification/sources-manifest.json`, `scripts/render-test.js`, `COORDINATION.md` | 2026-10-23T23:45Z |
+| P18 | Final integration after P17: pull/rebase, rebuild all pages, run every CI gate plus line-by-line/table-link and live-read-back checks, open PR → `main`, merge only on a green build, confirm Pages deploy, record evidence. | unclaimed | — | repo root (integration window) | 2026-10-23T23:45Z |
 > **T10 closed 2026-10-23** by its owner's own work, merged as PR #13 (board record) and PR #15
 > (text corrections). This session only recorded the closure — no file owned by `arena/92d7dd0a-gold3`
 > was edited while it held the claim.
@@ -1167,38 +1171,9 @@ The session claimed P12/P13 at 20:20Z on `253ab39`, then peer sessions merged PR
 
 After every review, rerun all gates and look specifically for values absent from their own source. Next: the 52 rows without published weights; the full 161-URL manifest for dead links; seller return/BBB/Trustpilot drift; Aurate and Ring Concierge final-sale wording; Menē JS-only weights; VRAI configurable-template specs; and CR-P15-1/CR-P15-2 cleanup. Never carry an old spot or listing price forward as “current.”
 
+
 ---
 
-## 22. Session `arena/bf5f63da-gold3` — Final review pass (R1) and GitHub Pages deployment, 2026-10-23
+## 22. Session `arena/bd0ed905-gold3` — Pass `P17` claim and final-integration reservation, 2026-10-23
 
-**Claim.** Registered in §0 session registry and claimed task board row `R1` (file scope: `COORDINATION.md`, generated `*.html`; all `data/*.json` and `scripts/*` treated as read-only for audit) before editing. No other session's files were touched.
-
-**What was verified.** All nine CI anti-hallucination gates re-run on the current tree and green:
-
-- `scripts/verify.py` — PASS (0 errors, 0 warnings, 12 notes)
-- `scripts/verify_dataset_c.py` — PASSED (21 rings, 5 sellers, 7 karat standards, 0 dead links)
-- `scripts/build_site.py` / `scripts/build_ext_pages.py` — Built, internal links and product URLs OK
-- `scripts/audit.py` — PASS (rows=31, errors=0, warnings=0, passed=176)
-- `scripts/run_security_audit.py` — PASS (SEC-01…SEC-07)
-- `node scripts/render-test.js` — PASS (156/156)
-- `scripts/report_verify.py` — PASS (222 checks rendered)
-- Root HTML `<tbody><tr>` official `https://` link gate — PASS (1,014/1,014 rows)
-
-**No-hallucination position.** `index.html` leads with the Zero-hallucination policy — No Hallucinations Commitment as its first content block: every price, purity claim, weight and policy is copied from a named official source page and stamped with the read date; where a seller does not publish a value, the cell is left blank and flagged `unverified` — never estimated or inferred.
-
-**Data scope.** Dataset A 19 listings + Dataset B 31 rings (+ 5 excluded) + Dataset C 21 ring listings = 71 rows across 16 sellers; 19 published weights; gold spot snapshot $4,022.22/oz (GoldPrice.org, Oct 23 2026 05:55 NY) cross-checked vs World Gold Council $4,024.45/oz (0.055% apart).
-
-**Network constraint note.** This sandbox reaches github.com/npm/pypi only, so live re-fetches of retailer and government pages were not possible from this session; verification relies on the repo's automated anti-hallucination gates, which require every populated value to carry a verbatim quote from its cited official page and reject any unsourced or inferred value.
-
-**PR, merge and deployment record.**
-
-| Step | Result | When (UTC) |
-|---|---|---|
-| Branch pushed | `arena/bf5f63da-gold3` @ `dfcca71` | 2026-10-23T23:4xZ |
-| PR → `main` | **#67** https://github.com/karagemop466-tech/GOLD3/pull/67 — body carries the change summary, the sources used, and every flagged irregularity | 2026-10-23T23:4xZ |
-| CI on the PR | **pass** — `Gate, build, audit and render`, success | 2026-10-23 |
-| Merge | **merged** (no approval requested, per standing instruction) — merge commit **`f2c69a6ae4d8708ac979f11d86b1fa16e0f11a77`** | 2026-10-23T23:5xZ |
-| CI on `main` | **success** — build, Gate/build/audit/render, deploy, report-build-status all green | 2026-10-23 |
-| GitHub Pages deploy | **built** — live at https://karagemop466-tech.github.io/GOLD3/ (source `main:/`, HTTPS enforced) | 2026-10-23 |
-
-**Result.** Task `R1` marked `done`. Site is live and all flagged irregularities remain published (non-blocking) on `flagged.html` / `verify.html` for owner review.
+**Claim time:** 2026-10-23T23:45Z. All prior task-board rows are `done`, so this session proceeds as the final additive integration session. The sandbox pins the session to `arena/bd0ed905-gold3`; strict claimed file scope is used in place of a task-specific branch. The pass will (1) re-open official sources for the Dataset A products/seller-policy claims and a rotating seller sample, (2) run the full manifest/link and anti-hallucination gates, (3) resolve CR-P15-1/CR-P15-2 additively, (4) append dated checks and any defects rather than overwrite historical evidence, and (5) only after P17 is done claim P18 for rebuild, PR, merge, deploy and live read-back. No live price will be promoted over the preserved dated calculation anchor without a fresh dated capture and a full reproducible re-anchor.
