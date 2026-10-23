@@ -740,3 +740,10 @@ not-re-checked; `R22`'s weight line was cut off by the fetch. All of it is liste
 7. **Menē `BND-01`..`BND-03` (`data/bands-and-high-karat.json`) — Static-HTML zero-inference parity with `R30`:** Upgraded all 3 bands to direct product page URLs with live `2026-10-23` prices (`$1,707`, `$1,544`, `$2,465`), updated `/bands/gold` -> `/collections/bands-gold`, and set static-unconfirmed `weight_grams` / melt fields to `null` with explicit JS-hydration flags. Confirmed `BND-04`..`BND-12`, Aurate, and Ring Concierge verbatim on `2026-10-23` (closing §11.3 item #1).
 8. **New live listing defects recorded (`SOL-04`, `SOL-05`, `SOL-08`, `SEL-BLUENILE`, `SEL-MENE`):** Logged `SOL-05` live selector bug (`Band Width: 2 ct. tw.`), `SOL-08` second live contradiction (`bezel or halo, not prongs, on rings` warning on prong-set opal ring), Brilliant Earth Global-e EUR/USD geo-IP hazard, Blue Nile 6-month free resize window change, and Menē 10% card refund fee detail.
 9. **Test & CI gate hardening (`SD6` in `scripts/render-test.js` & `CR-692d-2` in `scripts/run_security_audit.py`):** Moved `SD4` assertions prior to the `failed` loop with proper boolean negation in `render-test.js`, and added SHA-256 manifest parity check + `--record-pass` + git-branch session attribution in `run_security_audit.py` so read-only CI checks leave `git status` clean.
+
+### 12.2 PR, Merge & Live Deployment Record
+
+- **Pull Request:** [#38](https://github.com/karagemop466-tech/GOLD3/pull/38) (`arena/6ccbc523-gold3` → `main`)
+- **Merged Commit on `main`:** `93a3d33`
+- **CI Verification Run (`main`):** `39938399650` — **SUCCESS** (all 9 gates green)
+- **GitHub Pages Deployment (`pages-build-deployment`):** `39938399224` — **SUCCESS** (live at `https://karagemop466-tech.github.io/GOLD3/`)
