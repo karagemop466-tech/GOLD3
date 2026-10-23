@@ -88,9 +88,9 @@
       "type": "market-data",
       "supports": "Primary USD spot snapshot used by the calculator",
       "quotes": [
-        "Spot Gold Price: USD 4,026.79 / Ounce | Spot Silver Price: USD 54.63 / Ounce Oct 22nd, 2026 at 07:07 NY Time"
+        "Spot Gold Price: USD 4,022.22 / Ounce | Spot Silver Price: USD 53.82 / Ounce Oct 23rd, 2026 at 05:55 NY Time"
       ],
-      "accessed": "2026-10-22"
+      "accessed": "2026-10-23"
     },
     {
       "id": "wgc-gold-prices",
@@ -100,9 +100,9 @@
       "type": "market-data",
       "supports": "Independent cross-check of the spot snapshot",
       "quotes": [
-        "Gold Spot price USD /oz 4,024.36 ... Data as of 21 October, 2026"
+        "Gold Spot price USD /oz - 4,024.45 ... Data as of 22 October, 2026"
       ],
-      "accessed": "2026-10-22"
+      "accessed": "2026-10-23"
     },
     {
       "id": "lbma-prices",
@@ -115,7 +115,7 @@
         "The LBMA Gold Price is set twice daily in auctions independently operated and administered by ICE Benchmark Administration Limited (IBA) and commencing at 10:30 and 15:00 London time.",
         "The historical tabulated data for the LBMA Precious Metals Prices has been moved to our MyLBMA Portal. In order to view this data on our Portal, you will need to have the relevant licence from IBA."
       ],
-      "accessed": "2026-10-22"
+      "accessed": "2026-10-23"
     },
     {
       "id": "trustpilot",

@@ -115,8 +115,8 @@
       "id": "F12",
       "severity": "low",
       "title": "Two independent spot-price sources agree to within 0.06%",
-      "detail": "GoldPrice.org showed $4,026.79/oz (22 Oct 2026, 07:07 NY time) and the World Gold Council showed $4,024.36/oz (data as of 21 Oct 2026). The $2.43 gap is consistent with normal movement between the two timestamps, which gives reasonable confidence in the price anchor used for every calculation here.",
-      "evidence": "GoldPrice.org $4,026.79/oz \u00b7 World Gold Council $4,024.36/oz \u00b7 difference $2.43 (0.060%)",
+      "detail": "GoldPrice.org showed $4,022.22/oz (23 Oct 2026, 05:55 NY Time) and the World Gold Council showed $4,024.45/oz (data as of 22 Oct 2026, read 23 Oct 2026). The $2.23 gap (0.055%) is consistent with normal intraday movement and aligns with Dataset C's simultaneous Kitco ($4,022.70/oz) and BullionVault ($4,024.23/oz) quotes.",
+      "evidence": "GoldPrice.org $4,022.22/oz \u00b7 World Gold Council $4,024.45/oz \u00b7 difference $2.23 (0.055%)",
       "source": "https://www.gold.org/goldhub/data/gold-prices",
       "product": null,
       "action": "None - this is a control check, not a problem."
@@ -278,13 +278,33 @@
     },
     {
       "id": "F28",
+      "severity": "high",
+      "title": "Ring Concierge's $6,038 engagement-ring page claims both a 2.08 ct E VS1 stone and a 5.63 ct D VVS2 stone \u2014 and cuts the return window to 7 days",
+      "detail": "Live re-read of Ring Concierge's 2.08 Oval Lab Diamond in Whisper Thin Hidden Halo on 2026-10-23 uncovered two major contradictions: (1) the title and Details accordion specify '2.08 Carat E VS1 Oval Lab Grown Diamond', while the description prose directly on the same page claims 'featuring a 5.63 Carat D VVS2 Oval Lab Diamond'; and (2) while Ring Concierge's general Refund Policy states 30 days on Fine Jewelry, the engagement-ring PDP Shipping & Returns accordion states 'You have 1 week (7 days) from the date of delivery to return your ready-made engagement ring' and makes any resized ring final sale.",
+      "evidence": "Title/Details: '2.08 Carat E VS1 Oval Lab Grown Diamond' vs Description: 'featuring a 5.63 Carat D VVS2 Oval Lab Diamond' \u00b7 PDP FAQ: '1 week (7 days) from the date of delivery to return your ready-made engagement ring'",
+      "source": "https://ringconcierge.com/products/2-08-oval-lab-diamond-in-whisper-thina-hidden-halo",
+      "product": "ringconcierge-2-08-oval-lab-whisper-thin",
+      "action": "Require the exact diamond certificate number and written return window before ordering, and assume the stricter 7-day bridal return window governs."
+    },
+    {
+      "id": "F29",
+      "severity": "high",
+      "title": "Systematic URL sweep caught five more 404 citations, two mis-transcribed phone numbers, and Men\u0113's JS-gated weights",
+      "detail": "Sweeping every unique URL across all JSON datasets on 2026-10-23 caught dead 404/500 pages in flags.json (SPEC5, WAR1), sellers.json (vrai.com/pages/contact-us, localeclectic.com/pages/contact-us, mene.com/contact-us, catbirdnyc.com/contact-us), and spot-and-standards.json (uscode.house.gov HTTP 500, GIA Summer 2025 trailing-'0' 404). Opening the live replacements revealed that S-VRAI listed the wrong phone (+1-855-383-8724 instead of +1.855.956.4488) and understated its $300 engagement-ring recycling fee, S-MENE mis-transcribed 1-833-MENE-24K as +1-833-636-3465 instead of +1-833-636-3245, R03's dedicated PDP is From $898 (not $648), and Men\u0113's BND-01..03 static HTML omits gram weights (nulled per Zero-Inference Policy).",
+      "evidence": "VRAI live Help Center: 'Email: help@vrai.com \u00b7 Phone: +1.855.956.4488' & 'Engagement ring: A $300 recycling fee will apply' \u00b7 Men\u0113 Terms: '1-833-MENE-24K' (+1-833-636-3245) & 'service@mene.com' \u00b7 Men\u0113 PDPs: no static gram figure in HTML.",
+      "source": "https://help.vrai.com/en/knowledge/what-is-your-return-policy",
+      "product": null,
+      "action": "All dead citations repointed to live 200 OK official pages, wrong phone numbers fixed, and Men\u0113's JS-gated band weights nulled."
+    },
+    {
+      "id": "F30",
       "severity": "medium",
-      "title": "Post-deploy live read caught mismatched variant quotes on 6 Aurate & 2 Ring Concierge rows from an initial Pass P9 script",
-      "detail": "Following the standing hallucination-hunt rule immediately after deploying PR #43, re-reading live https://karagemop466-tech.github.io/GOLD3/combined.html exposed that 5 Aurate rows still pointed price_source at /collections/engagement-rings and carried drafted range strings ('2.09g-4.27g' / '14K Solid Yellow Gold'), while P9-06 cited earlier Ring Concierge slugs ($5,900/$6,900) rather than the exact Whisper Thin PDPs ($6,038 / $7,268). Re-fetching all 8 exact p['url'] pages end-to-end replaced every quote with literal page substrings.",
-      "evidence": "AU5769/AU5760 print 'Weight: 5.5-8.5g' & 'Rate - 14k GOLD'; AU5000 '2.23g' ($1,498); AU5093 '2.36g' ($1,968); AU5763 '5.7-8.7g' ($2,858); AU5764 '5.9-8.9g' ($3,958); AU5107 '3.33g' ($2,498); Ring Concierge Whisper Thin PDPs print '$6,038' & '$7,268' ('Metal: 14K Yellow Gold with Platinum Prongs').",
-      "source": "https://ringconcierge.com/products/2-72-round-lab-diamond-in-whisper-thina",
-      "product": "ringconcierge-2-72-round-lab-whisper-thin",
-      "action": "Corrected immediately in PR #44: all 8 rows now point price_source to their exact p['url'] with literal verbatim substrings."
+      "title": "Post-deploy live read caught mismatched variant quotes on Aurate & Ring Concierge rows from an initial Pass P9 script",
+      "detail": "Following the standing hallucination-hunt rule immediately after deploying PR #43 (b92017b), re-reading live combined.html exposed that 5 Aurate rows still pointed price_source at /collections/engagement-rings with drafted range strings ('2.09g-4.27g' / '14K Solid Yellow Gold'), while P9-06 cited earlier Ring Concierge slugs ($5,900/$6,900) rather than Whisper Thin PDPs ($6,038 / $7,268). Re-fetching all exact p['url'] pages end-to-end synced every quote to literal page substrings.",
+      "evidence": "AU5769/AU5760 print 'Weight: 5.5-8.5g' & 'Rate - 14k GOLD'; AU5000 '2.23g' ($1,498); AU5093 '2.36g' ($1,968); AU5763 '5.7-8.7g' ($2,858); AU5764 '5.9-8.9g' ($3,958); AU5107 '3.33g' ($2,498); Ring Concierge Whisper Thin PDPs print '$6,038' & '$7,268'.",
+      "source": "https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-bezel-ring",
+      "product": "aurate-2ct-emerald-lgd-bezel",
+      "action": "Corrected in PR #46: all 7 Aurate rows now point price_source to their exact p['url'] with literal verbatim substrings."
     }
   ]
 }

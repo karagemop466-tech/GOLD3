@@ -1,6 +1,6 @@
 # Anti-hallucination audit report
 
-- Run: 2026-10-23 10:42 UTC
+- Run: 2026-10-23 10:43 UTC
 - Rows audited: **31**
 - Sellers audited: **14**
 - Flag definitions: **47**
@@ -45,7 +45,7 @@ None.
 - [sources] R02: 2 official source link(s)
 - [price] R02: $1,500 matches its quoted source text
 - [solid] R02: PASS backed by a quote containing 'solid'
-- [sources] R03: 3 official source link(s)
+- [sources] R03: 2 official source link(s)
 - [price] R03: $898 matches its quoted source text
 - [solid] R03: PASS backed by a quote containing 'solid'
 - [sources] R04: 2 official source link(s)

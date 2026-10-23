@@ -51,7 +51,7 @@
         },
         {
           "code": "WEIGHT_RANGE_ONLY",
-          "note": "The published weight is a 3.0 g-wide range (5.5-8.5g). At $4,026.79/oz the difference between the ends is more than the entire melt value of a light band, so the range cannot be used for a price-per-gram test."
+          "note": "The published weight is a 3.0 g-wide range (5.5-8.5g). At $4,022.22/oz the difference between the ends is more than the entire melt value of a light band, so the range cannot be used for a price-per-gram test."
         },
         {
           "code": "EXCHANGE_ONLY_FINAL_SALE",
@@ -845,26 +845,26 @@
         "lab-grown"
       ],
       "purity": "14K",
-      "purity_source": "https://ringconcierge.com/collections/ready-to-ship-engagement-rings",
-      "metal_detail": "Yellow gold band with platinum prongs (per the product image descriptions); the page body does not state the karat",
+      "purity_source": "https://ringconcierge.com/products/2-08-oval-lab-diamond-in-whisper-thina-hidden-halo",
+      "metal_detail": "14K Yellow Gold with Platinum Prongs (stated in Details accordion); page body never uses the word 'solid'",
       "solid_gold": null,
       "solid_gold_status": "not stated",
       "solid_gold_evidence": null,
       "solid_gold_source": null,
-      "price": 6038,
+      "price": 6038.0,
       "currency": "USD",
       "price_type": "listed",
-      "price_variant_note": "Listed price for the single \"Default Title\" configuration. Corrected by the P3 re-read on 2026-10-22: this is NOT a ready-to-ship item \u2014 every size option on the live page read \"Made to Order\", the page states \"Estimated production time is 3-4 weeks\", and it also offered a waitlist (\"Receive a notification when this item is back in stock!\" / \"Join the Waitlist\"). The collection it was found in is named \"ready-to-ship-engagement-rings\", which is where the earlier wording came from; the product page itself says the opposite.",
+      "price_variant_note": "Listed price for the single \"Default Title\" configuration. Corrected by the P3 re-read on 2026-10-22 and re-confirmed 2026-10-23: this is NOT a ready-to-ship item \u2014 every size option on the live page reads \"Made to Order\", the page states \"Estimated production time is 3-4 weeks\", and it offers a waitlist (\"Join the Waitlist\").",
       "price_captured_on": "2026-10-23",
       "price_source": "https://ringconcierge.com/products/2-08-oval-lab-diamond-in-whisper-thina-hidden-halo",
-      "price_quote": "2.08 Oval Lab Diamond in Whisper Thin\u00ae Hidden Halo | Regular price $6,038 | 2.08 Carat E VS1 Oval Lab Grown Diamond | Estimated production time is 3-4 weeks. Made to Order",
+      "price_quote": "$6,038",
       "weight_g": null,
       "weight_status": "not published",
       "weight_source": null,
       "diamond_type": "lab-grown",
       "diamond_source": "https://ringconcierge.com/products/2-08-oval-lab-diamond-in-whisper-thina-hidden-halo",
       "carat": 2.08,
-      "carat_note": "2.08 Carat E VS1 Oval Lab Grown Diamond",
+      "carat_note": "2.08 Carat E VS1 Oval Lab Grown Diamond in title & Details accordion \u2014 CONTRADICTED by description copy claiming '5.63 Carat D VVS2 Oval Lab Diamond'",
       "carat_source": "https://ringconcierge.com/products/2-08-oval-lab-diamond-in-whisper-thina-hidden-halo",
       "setting_included": true,
       "hallmark_stated": null,
@@ -874,16 +874,20 @@
           "note": "The product page never uses the word 'solid'."
         },
         {
-          "code": "PURITY_NOT_IN_BODY_TEXT",
-          "note": "The karat is not stated in the page body; 'Yellow Gold ... with Platinum Prongs' appears only in the product image descriptions, and the collection filter lists '14k Yellow Gold'. Confirm the karat in writing."
+          "code": "PAGE_SELF_CONTRADICTION",
+          "note": "LIVE CONTRADICTION CAUGHT (2026-10-23): Title and Details accordion state '2.08 Carat E VS1 Oval Lab Grown Diamond', whereas description prose on the exact same page claims 'featuring a 5.63 Carat D VVS2 Oval Lab Diamond'!"
+        },
+        {
+          "code": "SHORT_RETURN_WINDOW",
+          "note": "Engagement-ring PDP Shipping & Returns accordion restricts returns to '1 week (7 days) from the date of delivery to return your ready-made engagement ring' (contradicting the 30-day general Fine Jewelry policy), and resizing makes it final sale."
         },
         {
           "code": "MIXED_METAL",
-          "note": "Band in yellow gold with platinum prongs - two different metals in one ring, so a single purity claim does not describe the whole piece."
+          "note": "Details accordion states 'Metal: 14K Yellow Gold with Platinum Prongs' - two different metals in one ring, so a single purity claim does not describe the whole piece."
         },
         {
           "code": "MADE_TO_ORDER",
-          "note": "Estimated production time 3-4 weeks and every size marked \"Made to Order\" on the live page (P3 re-read 2026-10-22); the 30-day return window runs from delivery, so the clock starts after a 3-4 week wait. The page also offers a waitlist, so availability is not guaranteed."
+          "note": "Estimated production time 3-4 weeks and every size marked \"Made to Order\" on the live page (re-read 2026-10-23); the page also offers a waitlist."
         },
         {
           "code": "WEIGHT_NOT_PUBLISHED",
@@ -894,11 +898,10 @@
           "note": "No hallmark / maker's-mark statement."
         }
       ],
-      "notes": "",
-      "price_recheck": "2026-10-22 (pass P3, session arena/699d8e05-gold3) \u2014 figure unchanged at $6,038; stone unchanged at \"2.08 Carat E VS1 Oval Lab Grown Diamond\".",
+      "notes": "Re-read live 2026-10-23 (session arena/15b00e99-gold3): caught major stone spec conflict (2.08 ct E VS1 vs 5.63 ct D VVS2), confirmed 'Metal: 14K Yellow Gold with Platinum Prongs', info@ringconcierge.com, and 7-day bridal return window.",
+      "price_recheck": "2026-10-23 (session arena/15b00e99-gold3) \u2014 figure unchanged at $6,038; caught 2.08 ct E VS1 vs 5.63 ct D VVS2 copy contradiction and 7-day bridal return window.",
       "availability_quote": "Every size option read \"Made to Order\"; \"Estimated production time is 3-4 weeks\"; \"Receive a notification when this item is back in stock!\"; \"Join the Waitlist\"; page banners \"FREE RETURNS + COMPLIMENTARY WARRANTY\" and \"COMPLIMENTARY LIFETIME WARRANTY\".",
-      "availability_source": "https://ringconcierge.com/products/2-08-oval-lab-diamond-in-whisper-thina-hidden-halo",
-      "price_basis": "listed"
+      "availability_source": "https://ringconcierge.com/products/2-08-oval-lab-diamond-in-whisper-thina-hidden-halo"
     },
     {
       "id": "ringconcierge-2-72-round-lab-whisper-thin",
@@ -911,27 +914,27 @@
         "lab-grown"
       ],
       "purity": "14K",
-      "purity_source": "https://ringconcierge.com/collections/ready-to-ship-engagement-rings",
-      "metal_detail": "Yellow gold band with platinum prongs (per the product image descriptions)",
+      "purity_source": "https://ringconcierge.com/products/2-72-round-lab-diamond-in-whisper-thina",
+      "metal_detail": "14K Yellow Gold with Platinum Prongs (stated in Details accordion)",
       "solid_gold": null,
       "solid_gold_status": "not stated",
       "solid_gold_evidence": null,
       "solid_gold_source": null,
-      "price": 7268,
+      "price": 7268.0,
       "currency": "USD",
       "price_type": "listed",
-      "price_variant_note": "Listed price for this ready-to-ship configuration.",
+      "price_variant_note": "Listed price re-confirmed directly on the product page on 2026-10-23 ($7,268; all sizes marked Made to Order, 3-4 weeks).",
       "price_captured_on": "2026-10-23",
       "price_source": "https://ringconcierge.com/products/2-72-round-lab-diamond-in-whisper-thina",
-      "price_quote": "2.72 Round Lab Diamond in Whisper Thin\u00ae | Regular price $7,268 | Metal: 14K Yellow Gold with Platinum Prongs | Estimated production time is 3-4 weeks. Made to Order",
+      "price_quote": "$7,268",
       "weight_g": null,
       "weight_status": "not published",
       "weight_source": null,
       "diamond_type": "lab-grown",
-      "diamond_source": "https://ringconcierge.com/collections/ready-to-ship-engagement-rings",
+      "diamond_source": "https://ringconcierge.com/products/2-72-round-lab-diamond-in-whisper-thina",
       "carat": 2.72,
-      "carat_note": "2.72 stated in the product name",
-      "carat_source": "https://ringconcierge.com/collections/ready-to-ship-engagement-rings",
+      "carat_note": "2.72 Carat E VS1 Round Lab Grown Diamond",
+      "carat_source": "https://ringconcierge.com/products/2-72-round-lab-diamond-in-whisper-thina",
       "setting_included": true,
       "hallmark_stated": null,
       "flags": [
@@ -940,16 +943,16 @@
           "note": "The listing does not use the word 'solid'."
         },
         {
-          "code": "PURITY_NOT_IN_BODY_TEXT",
-          "note": "Karat inferred from the collection's '14k Yellow Gold' metal filter and image descriptions, not stated in body text."
+          "code": "SHORT_RETURN_WINDOW",
+          "note": "Engagement-ring PDP restricts returns to 7 days from delivery (vs 30 days in general Refund Policy); resizing makes it final sale."
         },
         {
           "code": "MIXED_METAL",
-          "note": "Yellow gold band with platinum prongs."
+          "note": "Details accordion states 'Metal: 14K Yellow Gold with Platinum Prongs'."
         },
         {
-          "code": "PRICE_NOT_RECONFIRMED",
-          "note": "Price taken from the official category listing, not re-opened on the product page."
+          "code": "MADE_TO_ORDER",
+          "note": "Every size option marked 'Made to Order' (3-4 weeks production) despite appearing in the ready-to-ship collection."
         },
         {
           "code": "WEIGHT_NOT_PUBLISHED",
@@ -960,8 +963,7 @@
           "note": "No hallmark / maker's-mark statement."
         }
       ],
-      "notes": "",
-      "price_basis": "listed"
+      "notes": "Product page opened directly on 2026-10-23 (session arena/15b00e99-gold3): $7,268, 'Metal: 14K Yellow Gold with Platinum Prongs', 2.72 ct E VS1, and 7-day bridal return window confirmed."
     },
     {
       "id": "catbird-classic-half-round-2mm",
