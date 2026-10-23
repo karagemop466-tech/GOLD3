@@ -1,6 +1,6 @@
 # Anti-hallucination audit report
 
-- Run: 2026-10-23 10:50 UTC
+- Run: 2026-10-23 20:21 UTC
 - Rows audited: **31**
 - Sellers audited: **14**
 - Flag definitions: **52**
@@ -36,9 +36,9 @@ None.
 - [files] data/standards.json present
 - [files] data/flags.json present
 - [files] data/verification.json present
-- [gold-price] spot price present: 4024.36 USD/oz
+- [gold-price] spot price present: 3996.31 USD/oz
 - [gold-price] source is the World Gold Council (gold.org)
-- [gold-price] per-gram value reproduces: $129.3862/g (computed, not stored)
+- [gold-price] per-gram value reproduces: $128.4844/g (computed, not stored)
 - [sources] R01: 2 official source link(s)
 - [price] R01: $2,900 matches its quoted source text
 - [solid] R01: PASS backed by a quote containing 'solid'

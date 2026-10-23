@@ -2,24 +2,25 @@
   "generated_on": "2026-10-23",
   "spot": {
     "primary": {
-      "id": "goldprice-org-2026-10-23",
+      "id": "goldprice-org-2026-10-23T2017Z",
       "publisher": "GoldPrice.org",
       "url": "https://goldprice.org/",
       "metal": "gold",
-      "price_usd_per_troy_oz": 4022.22,
-      "as_of_text": "Oct 23rd, 2026 at 05:55 NY Time",
+      "price_usd_per_troy_oz": 3997.22,
+      "as_of_text": "Oct 23rd, 2026 at 04:17 NY Time",
       "captured_on": "2026-10-23",
+      "captured_utc": "2026-10-23T20:17:00Z",
       "role": "primary",
-      "quote": "Spot Gold Price: USD 4,022.22 / Ounce | Spot Silver Price: USD 53.82 / Ounce Oct 23rd, 2026 at 05:55 NY Time"
+      "quote": "Spot Gold Price: USD 3,997.22 / Ounce | Spot Silver Price: USD 53.92 / Ounce Oct 23rd, 2026 at 04:17 NY Time"
     },
     "cross_check": {
-      "primary_usd_per_oz": 4022.22,
-      "cross_usd_per_oz": 4024.45,
-      "difference_usd": 2.23,
-      "difference_percent": 0.0554,
+      "primary_usd_per_oz": 3997.22,
+      "cross_usd_per_oz": 3996.31,
+      "difference_usd": 0.91,
+      "difference_percent": 0.0228,
       "within_tolerance": true
     },
-    "usd_per_gram": 129.3174
+    "usd_per_gram": 128.5136
   },
   "counts": {
     "products": 19,
@@ -49,8 +50,8 @@
       ],
       "derived": {
         "karat": "14K",
-        "melt_usd_per_gram": 75.44,
-        "implied_gold_weight_g_for_price_to_equal_melt": 37.89,
+        "melt_usd_per_gram": 74.97,
+        "implied_gold_weight_g_for_price_to_equal_melt": 38.12,
         "note": "DERIVED BENCHMARK ONLY - this is not the ring's weight. It is the grams of that karat the price would buy at spot."
       }
     },
@@ -71,8 +72,8 @@
       ],
       "derived": {
         "karat": "14K",
-        "melt_usd_per_gram": 75.44,
-        "implied_gold_weight_g_for_price_to_equal_melt": 34.97,
+        "melt_usd_per_gram": 74.97,
+        "implied_gold_weight_g_for_price_to_equal_melt": 35.19,
         "note": "DERIVED BENCHMARK ONLY - this is not the ring's weight. It is the grams of that karat the price would buy at spot."
       }
     },
@@ -92,8 +93,8 @@
       ],
       "derived": {
         "karat": "14K",
-        "melt_usd_per_gram": 75.44,
-        "implied_gold_weight_g_for_price_to_equal_melt": 19.86,
+        "melt_usd_per_gram": 74.97,
+        "implied_gold_weight_g_for_price_to_equal_melt": 19.98,
         "note": "DERIVED BENCHMARK ONLY - this is not the ring's weight. It is the grams of that karat the price would buy at spot."
       }
     },
@@ -113,8 +114,8 @@
       ],
       "derived": {
         "karat": "14K",
-        "melt_usd_per_gram": 75.44,
-        "implied_gold_weight_g_for_price_to_equal_melt": 26.09,
+        "melt_usd_per_gram": 74.97,
+        "implied_gold_weight_g_for_price_to_equal_melt": 26.25,
         "note": "DERIVED BENCHMARK ONLY - this is not the ring's weight. It is the grams of that karat the price would buy at spot."
       }
     },
@@ -135,8 +136,8 @@
       ],
       "derived": {
         "karat": "14K",
-        "melt_usd_per_gram": 75.44,
-        "implied_gold_weight_g_for_price_to_equal_melt": 37.89,
+        "melt_usd_per_gram": 74.97,
+        "implied_gold_weight_g_for_price_to_equal_melt": 38.12,
         "note": "DERIVED BENCHMARK ONLY - this is not the ring's weight. It is the grams of that karat the price would buy at spot."
       }
     },
@@ -157,8 +158,8 @@
       ],
       "derived": {
         "karat": "14K",
-        "melt_usd_per_gram": 75.44,
-        "implied_gold_weight_g_for_price_to_equal_melt": 52.47,
+        "melt_usd_per_gram": 74.97,
+        "implied_gold_weight_g_for_price_to_equal_melt": 52.8,
         "note": "DERIVED BENCHMARK ONLY - this is not the ring's weight. It is the grams of that karat the price would buy at spot."
       }
     },
@@ -178,8 +179,8 @@
       ],
       "derived": {
         "karat": "14K",
-        "melt_usd_per_gram": 75.44,
-        "implied_gold_weight_g_for_price_to_equal_melt": 33.11,
+        "melt_usd_per_gram": 74.97,
+        "implied_gold_weight_g_for_price_to_equal_melt": 33.32,
         "note": "DERIVED BENCHMARK ONLY - this is not the ring's weight. It is the grams of that karat the price would buy at spot."
       }
     },
@@ -197,8 +198,8 @@
       ],
       "derived": {
         "karat": "14K",
-        "melt_usd_per_gram": 75.44,
-        "implied_gold_weight_g_for_price_to_equal_melt": 13.26,
+        "melt_usd_per_gram": 74.97,
+        "implied_gold_weight_g_for_price_to_equal_melt": 13.34,
         "note": "DERIVED BENCHMARK ONLY - this is not the ring's weight. It is the grams of that karat the price would buy at spot."
       }
     },
@@ -216,8 +217,8 @@
       ],
       "derived": {
         "karat": "14K",
-        "melt_usd_per_gram": 75.44,
-        "implied_gold_weight_g_for_price_to_equal_melt": 16.64,
+        "melt_usd_per_gram": 74.97,
+        "implied_gold_weight_g_for_price_to_equal_melt": 16.74,
         "note": "DERIVED BENCHMARK ONLY - this is not the ring's weight. It is the grams of that karat the price would buy at spot."
       }
     },
@@ -235,8 +236,8 @@
       ],
       "derived": {
         "karat": "14K",
-        "melt_usd_per_gram": 75.44,
-        "implied_gold_weight_g_for_price_to_equal_melt": 19.88,
+        "melt_usd_per_gram": 74.97,
+        "implied_gold_weight_g_for_price_to_equal_melt": 20.01,
         "note": "DERIVED BENCHMARK ONLY - this is not the ring's weight. It is the grams of that karat the price would buy at spot."
       }
     },
@@ -255,8 +256,8 @@
       ],
       "derived": {
         "karat": "18K",
-        "melt_usd_per_gram": 96.99,
-        "implied_gold_weight_g_for_price_to_equal_melt": 22.79,
+        "melt_usd_per_gram": 96.39,
+        "implied_gold_weight_g_for_price_to_equal_melt": 22.93,
         "note": "DERIVED BENCHMARK ONLY - this is not the ring's weight. It is the grams of that karat the price would buy at spot."
       }
     },
@@ -274,8 +275,8 @@
       ],
       "derived": {
         "karat": "18K",
-        "melt_usd_per_gram": 96.99,
-        "implied_gold_weight_g_for_price_to_equal_melt": 23.92,
+        "melt_usd_per_gram": 96.39,
+        "implied_gold_weight_g_for_price_to_equal_melt": 24.07,
         "note": "DERIVED BENCHMARK ONLY - this is not the ring's weight. It is the grams of that karat the price would buy at spot."
       }
     },
@@ -292,8 +293,8 @@
       ],
       "derived": {
         "karat": "14K",
-        "melt_usd_per_gram": 75.44,
-        "implied_gold_weight_g_for_price_to_equal_melt": 8.59,
+        "melt_usd_per_gram": 74.97,
+        "implied_gold_weight_g_for_price_to_equal_melt": 8.64,
         "note": "DERIVED BENCHMARK ONLY - this is not the ring's weight. It is the grams of that karat the price would buy at spot."
       }
     },
@@ -310,8 +311,8 @@
       ],
       "derived": {
         "karat": "10K",
-        "melt_usd_per_gram": 53.88,
-        "implied_gold_weight_g_for_price_to_equal_melt": 2.56,
+        "melt_usd_per_gram": 53.55,
+        "implied_gold_weight_g_for_price_to_equal_melt": 2.58,
         "note": "DERIVED BENCHMARK ONLY - this is not the ring's weight. It is the grams of that karat the price would buy at spot."
       }
     },
@@ -335,8 +336,8 @@
       ],
       "derived": {
         "karat": "14K",
-        "melt_usd_per_gram": 75.44,
-        "implied_gold_weight_g_for_price_to_equal_melt": 80.04,
+        "melt_usd_per_gram": 74.97,
+        "implied_gold_weight_g_for_price_to_equal_melt": 80.54,
         "note": "DERIVED BENCHMARK ONLY - this is not the ring's weight. It is the grams of that karat the price would buy at spot."
       }
     },
@@ -359,8 +360,8 @@
       ],
       "derived": {
         "karat": "14K",
-        "melt_usd_per_gram": 75.44,
-        "implied_gold_weight_g_for_price_to_equal_melt": 96.35,
+        "melt_usd_per_gram": 74.97,
+        "implied_gold_weight_g_for_price_to_equal_melt": 96.95,
         "note": "DERIVED BENCHMARK ONLY - this is not the ring's weight. It is the grams of that karat the price would buy at spot."
       }
     },
@@ -378,8 +379,8 @@
       ],
       "derived": {
         "karat": "14K",
-        "melt_usd_per_gram": 75.44,
-        "implied_gold_weight_g_for_price_to_equal_melt": 7.29,
+        "melt_usd_per_gram": 74.97,
+        "implied_gold_weight_g_for_price_to_equal_melt": 7.34,
         "note": "DERIVED BENCHMARK ONLY - this is not the ring's weight. It is the grams of that karat the price would buy at spot."
       }
     },
@@ -485,7 +486,7 @@
     {
       "id": "F12",
       "severity": "low",
-      "title": "Two independent spot-price sources agree to within 0.06%"
+      "title": "Two independent spot-price sources agree to within 0.03%"
     },
     {
       "id": "F13",
@@ -616,6 +617,11 @@
       "id": "F38",
       "severity": "high",
       "title": "Automic Gold requires mailing returns within 14 days to avoid a restocking fee, and its recorded phone number was not on the cited page"
+    },
+    {
+      "id": "F39",
+      "severity": "medium",
+      "title": "The gold-spot anchor moves during the day: melt values were refreshed from $4,022.22 to $3,997.22/oz"
     }
   ],
   "parallel_dataset": {
@@ -627,7 +633,7 @@
   "errors": [],
   "warnings": [],
   "notes": [
-    "spot cross-check OK: $4,022.22 vs $4,024.45 (0.055% apart)",
+    "spot cross-check OK: $3,997.22 vs $3,996.31 (0.023% apart)",
     "retailer aurate: 15-day return window (below the 30-day reference used in the checklist)",
     "retailer ring-concierge: 7-day return window (below the 30-day reference used in the checklist)",
     "retailer ring-concierge: Trustpilot sample is only 7 reviews - low confidence",

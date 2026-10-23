@@ -14,6 +14,30 @@
   },
   "snapshots": [
     {
+      "id": "goldprice-org-2026-10-23T2017Z",
+      "publisher": "GoldPrice.org",
+      "url": "https://goldprice.org/",
+      "metal": "gold",
+      "price_usd_per_troy_oz": 3997.22,
+      "as_of_text": "Oct 23rd, 2026 at 04:17 NY Time",
+      "captured_on": "2026-10-23",
+      "captured_utc": "2026-10-23T20:17:00Z",
+      "role": "primary",
+      "quote": "Spot Gold Price: USD 3,997.22 / Ounce | Spot Silver Price: USD 53.92 / Ounce Oct 23rd, 2026 at 04:17 NY Time"
+    },
+    {
+      "id": "world-gold-council-2026-10-23T2017Z",
+      "publisher": "World Gold Council (Goldhub), market data by ICE Data Services",
+      "url": "https://www.gold.org/goldhub/data/gold-prices",
+      "metal": "gold",
+      "price_usd_per_troy_oz": 3996.31,
+      "as_of_text": "Live tile 3,996.31 (read 2026-10-23T20:17Z); dataset 'Data as of 22 October, 2026'",
+      "captured_on": "2026-10-23",
+      "captured_utc": "2026-10-23T20:17:00Z",
+      "role": "cross-check",
+      "quote": "Gold Spot price USD/oz - 3,996.31 ... Data as of 22 October, 2026"
+    },
+    {
       "id": "goldprice-org-2026-10-23",
       "publisher": "GoldPrice.org",
       "url": "https://goldprice.org/",
@@ -21,8 +45,9 @@
       "price_usd_per_troy_oz": 4022.22,
       "as_of_text": "Oct 23rd, 2026 at 05:55 NY Time",
       "captured_on": "2026-10-23",
-      "role": "primary",
-      "quote": "Spot Gold Price: USD 4,022.22 / Ounce | Spot Silver Price: USD 53.82 / Ounce Oct 23rd, 2026 at 05:55 NY Time"
+      "role": "history",
+      "quote": "Spot Gold Price: USD 4,022.22 / Ounce | Spot Silver Price: USD 53.82 / Ounce Oct 23rd, 2026 at 05:55 NY Time",
+      "superseded_by": "2026-10-23T20:17Z"
     },
     {
       "id": "world-gold-council-2026-10-22",
@@ -32,14 +57,15 @@
       "price_usd_per_troy_oz": 4024.45,
       "as_of_text": "Data as of 22 October, 2026",
       "captured_on": "2026-10-23",
-      "role": "cross-check",
-      "quote": "Gold Spot price USD /oz - 4,024.45 ... Data as of 22 October, 2026"
+      "role": "history",
+      "quote": "Gold Spot price USD /oz - 4,024.45 ... Data as of 22 October, 2026",
+      "superseded_by": "2026-10-23T20:17Z"
     }
   ],
   "cross_check": {
-    "difference_usd_per_oz": 2.23,
-    "difference_percent": 0.0554,
-    "note": "The two independent snapshots read on 2026-10-23 differ by 0.055%, which is consistent with normal intraday movement between the two timestamps (and within 0.06% of Dataset C's simultaneous Kitco $4,022.70/oz & BullionVault $4,024.23/oz quotes). Calculations use the primary (GoldPrice.org) snapshot; the World Gold Council figure is shown next to it so the reader can see the spread.",
+    "difference_usd_per_oz": 0.91,
+    "difference_percent": 0.0228,
+    "note": "The two independent snapshots read on 2026-10-23 at 20:17Z differ by 0.0228% ($3,997.22 vs $3,996.31), consistent with normal intraday movement between the two timestamps and consistent with the simultaneous Kitco ($3,996.20/oz) and BullionVault ($3,997.14/oz) quotes, which are $0.94 (0.024%) apart. Calculations use the primary (GoldPrice.org) snapshot; the World Gold Council figure is shown next to it so the reader can see the spread.",
     "benchmark_note": "The LBMA Gold Price is the global benchmark, set twice daily by ICE Benchmark Administration. LBMA states (re-verified live 2026-10-23) that real-time and historical benchmark data require an IBA licence and that the public tables have moved behind the MyLBMA portal, so no LBMA figure is reproduced here. Source: https://www.lbma.org.uk/prices-and-data/lbma-precious-metal-prices"
   }
 }

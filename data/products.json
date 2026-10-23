@@ -51,7 +51,7 @@
         },
         {
           "code": "WEIGHT_RANGE_ONLY",
-          "note": "The published weight is a 3.0 g-wide range (5.5-8.5g). At $4,022.22/oz the difference between the ends is more than the entire melt value of a light band, so the range cannot be used for a price-per-gram test."
+          "note": "The published weight is a 3.0 g-wide range (5.5-8.5g). At the 23 Oct 2026 snapshot of $3,997.22/oz the difference between the ends is more than the entire melt value of a light band, so the range cannot be used for a price-per-gram test."
         },
         {
           "code": "EXCHANGE_ONLY_FINAL_SALE",

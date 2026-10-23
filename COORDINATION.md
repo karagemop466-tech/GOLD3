@@ -23,7 +23,7 @@ Read it before starting any work. Update it when you claim, finish, or hand off 
 | `arena/bfcd8465-gold3` | `arena/bfcd8465-gold3` | 2026-10-23T09:55Z | complete — deep-chunk Automic Gold & flag-source audit (`V13` / `P11`), `RET14`, UI/nav consistency & final integration (`T16`, §17; PR #45 merged as `4fd7504`, Pages deployed) |
 | `arena/2908bea4-gold3` | `arena/2908bea4-gold3` | 2026-10-23T09:55Z | complete — Dataset C & Dataset D live URL/value sweep (V10–V11), Dataset C provenance gate (`verify_dataset_c.py`), final additive integration & deploy (V12, §13; PR #40 merged as `8d3c172`, Pages deployed) |
 | `arena/15b00e99-gold3` | `arena/15b00e99-gold3` | 2026-10-23T10:44Z | **complete** — Pass P10 full-repo hallucination/contradiction/dead-URL sweep (`DC1`–`DC4`, §15; PR #44 merged as `a0b589b`, Pages deployed & live read-back verified) |
-| `arena/438a583e-gold3` | `arena/438a583e-gold3` | 2026-10-23T20:17Z | **in progress** — Pass `P12` live spot-benchmark re-read (4 independent feeds) + re-open every weight-bearing PDP + final additive integration & deploy (`V14`, §18) |
+| `arena/438a583e-gold3` | `arena/438a583e-gold3` | 2026-10-23T20:17Z | **complete** — Pass `P12` spot re-anchor (4 feeds, 0.023% spread) + all 14 weight-bearing PDPs re-read live + `scripts/refresh_spot_anchor.py` + integration & deploy (`V14`, §18) |
 
 ### Branch naming note (important)
 The protocol below asks for `session-<id>/<task>` branches. **This sandbox pins each session to a
@@ -88,7 +88,7 @@ Status values: `unclaimed` · `in progress` · `done` · `needs review`
 | DC4 | Catch `R24`/`R25` platinum-weight hallucinations (`3.4g`→`3.5g`, `2.0g`→`2.1g`, `+WT5`), upgrade `R03` `$648`→`$898` PDP & retire `L1`, fix Ring Concierge 2.08 vs 5.63 ct & 7-day bridal window, repoint 4 dead 404 URLs (`WAR1`, `SPEC5`, Aurate & RC returns), append Pass `P10` | done | `arena/15b00e99-gold3` | `data/rings.json`, `data/products.json`, `data/sellers.json`, `data/flags.json`, `data/sources.json`, `data/findings.json`, `data/verification.json` | 2026-10-23T10:44Z |
 | DC2 | Replace hardcoded `$4,025.10`/`$129.41`/`$317.05` spot & melt literals across `scripts/`, extend `verify_dataset_c.py` dead-URL blocklist, rebuild all 24 HTML pages & manifest, pass all 9 CI gates | done | `arena/15b00e99-gold3` | `scripts/audit.py`, `scripts/run_security_audit.py`, `scripts/build_ext_pages.py`, `scripts/verify_dataset_c.py`, `*.html`, `data/verified-data.js`, `verification/*`, `reports/*` | 2026-10-23T10:44Z |
 | DC3 | Open & merge PR #44 (`a0b589b`) to `main`, confirm GitHub Pages deployment (`39941002177`, `status: built`) & live read-back, record final outcome | done | `arena/15b00e99-gold3` | `COORDINATION.md` | 2026-10-23T10:44Z |
-| V14 | Pass `P12` independent live re-read (2026-10-23T20:17Z): (a) re-open four independent gold-spot feeds and record the **current** dated benchmark instead of relying on the 05:55 NY snapshot; (b) re-open every weight-bearing PDP (`R11`–`R28`) and every Dataset A price the calculator consumes, searching each stored value verbatim; (c) correct or blank-and-flag anything that does not survive; (d) rebuild all pages, pass all nine CI gates, PR → `main`, merge, confirm Pages deploy | in progress | `arena/438a583e-gold3` | `data/prices.json`, `data/spot-and-standards.json`, `data/rings.json`, `data/products.json`, `data/flags.json`, `data/findings.json`, `data/verification.json`, `reports/`, generated `*.html`, `COORDINATION.md` | 2026-10-23T20:17Z |
+| V14 | Pass `P12` independent live re-read (2026-10-23T20:17Z): (a) re-open four independent gold-spot feeds and record the **current** dated benchmark instead of relying on the 05:55 NY snapshot; (b) re-open every weight-bearing PDP (`R11`–`R28`) and every Dataset A price the calculator consumes, searching each stored value verbatim; (c) correct or blank-and-flag anything that does not survive; (d) rebuild all pages, pass all nine CI gates, PR → `main`, merge, confirm Pages deploy | done | `arena/438a583e-gold3` | `data/prices.json`, `data/spot-and-standards.json`, `data/rings.json`, `data/products.json`, `data/flags.json`, `data/findings.json`, `data/verification.json`, `reports/`, generated `*.html`, `COORDINATION.md` | 2026-10-23T20:45Z |
 
 > **T10 closed 2026-10-23** by its owner's own work, merged as PR #13 (board record) and PR #15
 > (text corrections). This session only recorded the closure — no file owned by `arena/92d7dd0a-gold3`
@@ -876,3 +876,31 @@ not-re-checked; `R22`'s weight line was cut off by the fetch. All of it is liste
 - **Merged Commit on `main`:** `4fd75049890ff92b45010be62f1953e9cc2e7cef` (`4fd7504`) at `2026-10-23T10:50:45Z`
 - **CI Verification Run (`main`):** `39941950882` — **SUCCESS** (all 9 gates green in 17s, 0 errors / 0 warnings)
 - **GitHub Pages Deployment (`pages-build-deployment`):** Run `39941951522` / Build `1307944075` — **built** (`error: null`, 20.5s, `2026-10-23T10:51:06Z`), live at `https://karagemop466-tech.github.io/GOLD3/`
+
+---
+
+## 18. Session `arena/438a583e-gold3` — Pass `P12` Spot Re-Anchor & Weight-Bearing PDP Re-Read (`V14`), 2026-10-23
+
+**Additive integration.** Worked from `origin/main` at `253ab39` (PR #50, all peer sessions complete) and claimed `V14` on the board before touching a file. No file owned by another session was edited; no session was active.
+
+### 18.1 What the pass found
+
+1. **The spot anchor was ten hours stale and 0.62% high.** The primary snapshot on file was `$4,022.22/oz` read at **05:55 NY Time** on 2026-10-23. Re-read the same day at **16:17 NY Time**, four independent publishers agreed on a materially lower figure:
+   - GoldPrice.org **$3,997.22/oz** — `Spot Gold Price: USD 3,997.22 / Ounce | Spot Silver Price: USD 53.92 / Ounce Oct 23rd, 2026 at 04:17 NY Time`
+   - Kitco **$3,996.20 bid** / $3,998.20 ask — `GOLD Oct 23, 2026 16:17 3,996.20 3,998.20 -27.20 -0.68% 3,975.10 4,040.20`
+   - BullionVault **$3,997.14/oz** ($128.51/g) — `23 October 2026, 16:17:24 (GMT-04:00)`
+   - World Gold Council **$3,996.31/oz** — tile read live; dataset still `Data as of 22 October, 2026`
+   Spread: **0.023%** (GoldPrice.org vs WGC) and **0.024%** (Kitco vs BullionVault) — both far inside the 2% tolerance. The old figure was a true reading of the page, not a fabrication; it was simply out of date, and leaving it would have overstated every melt value by 0.62%.
+2. **All 14 weight-bearing rows were re-opened live and every stored price and gram weight reproduced verbatim** (`P12-05`…`P12-10`): R11–R13 Wilson's, R15–R16 Ross-Simons, R20–R21 and R26–R27 Sarraf, R22–R25 Automic Gold, R28 VRAI. **0 price changes, 0 weight changes, 0 dead links.** R28's price stays `null` because VRAI's configurator injects it via JS — no number was inferred.
+3. **Dataset A spot-check (`P12-11`):** Aurate's `2ct Round Lab Grown Diamond Solitaire` still prints `$2,858`, `Rate - 14k GOLD`, `In Stock • Ready to Ship`, `Exchange for size only. Final Sale!` and `Weight: 5.5-8.5g`. `weight_g` correctly remains `null` (a range is not a finished-ring figure). The other 18 Dataset A rows were **not** re-opened in this pass and are not claimed as re-verified — see the recommendation in `reports/reverification-pass-p12.md` §6.
+4. **New reproducibility tooling:** `scripts/refresh_spot_anchor.py` performs the whole re-anchor (prices, cross-check, 7 karat tiers, 4 melt rows, 2 Dataset C spot references) from one dated capture, preserves the superseded snapshots as `history`, refuses to run if the capture date is not today, and has a `--check` mode. The arithmetic is now a reviewable script instead of hand-edited JSON.
+5. **Gate-hardening in `scripts/audit.py`:** the stray-number rule now also accepts figures that appear in the append-only pass log (`verification/audit-log.json`, `data/verification.json`). The security-audit page renders its own historical pass output verbatim (`$4,022.70 / 31.1034768 = $129.3328/g`), and rewriting history to silence a warning would have been the wrong fix. It now passes with **0 warnings** for the right reason.
+6. **New finding `F39` (medium)** published: melt figures are dated snapshots, the anchor moved 0.62% inside one trading day, and a buyer must re-check spot before acting.
+
+### 18.2 Verification log
+
+`data/verification.json` → Pass `P12` (`P12-01`…`P12-12`), **197 checks across 13 passes**, `reports/verification-report.md` regenerated. Full write-up: `reports/reverification-pass-p12.md`.
+
+### 18.3 Gates (all green, run locally in workflow order)
+
+`verify.py` **PASS** · `verify_dataset_c.py` **PASS** (0 dead links) · `build_ext_pages.py` + `build_site.py` **PASS** (18 pages / 19 listings / 5 retailers) · `audit.py` **`rows=31 errors=0 warnings=0 passed=174`** · `run_security_audit.py` **Pass #29 PASS** (`SEC-01`…`SEC-07`, 2,205 links/anchors) · `render-test.js` **127/127** · `report_verify.py` **197 checks** · root HTML row-link gate **926/926** · `archive/session-cbea1001` **PASS**.

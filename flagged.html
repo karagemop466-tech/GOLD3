@@ -33,7 +33,7 @@
 </div>
 
 <div class="grid cols-3" style="margin-bottom:20px">
-  <div class="kpi"><div class="label">Editorial findings</div><div class="value">38</div><div class="sub">18 high severity</div></div>
+  <div class="kpi"><div class="label">Editorial findings</div><div class="value">39</div><div class="sub">18 high severity</div></div>
   <div class="kpi"><div class="label">Listing-level flags</div><div class="value">101</div><div class="sub">across 19 listings</div></div>
   <div class="kpi"><div class="label">Unverified cells</div><div class="value">0 guesses</div><div class="sub">blank is used instead</div></div>
 </div>
@@ -414,6 +414,17 @@
           <p class="small"><a href="rings.html#p-aurate-2ct-emerald-lgd-bezel">See the listing in the table &rarr;</a></p>
           <p class="action"><strong>What to do:</strong> Corrected in PR #46: all 7 Aurate rows now point price_source to their exact p[&#x27;url&#x27;] with literal verbatim substrings.</p>
         </div>
+        <div class="card finding medium" id="F39">
+          <div class="finding-head">
+            <h3>F39 · The gold-spot anchor moves during the day: melt values were refreshed from $4,022.22 to $3,997.22/oz</h3>
+            <span class="badge warn">MEDIUM</span>
+          </div>
+          <p class="small">On 2026-10-23 the project&#x27;s primary spot snapshot was taken at 05:55 NY Time ($4,022.22/oz, GoldPrice.org). Re-read at 16:17 NY Time the same day, the same page printed $3,997.22/oz - $25.00 (0.62%) lower - with Kitco ($3,996.20 bid), BullionVault ($3,997.14) and the World Gold Council ($3,996.31) all within 0.03% of it. Every melt figure on this site is therefore a snapshot at a stated time, not a live valuation: a 0.6% move in spot moves every melt figure by 0.6%, and a buyer checking on a different day will see different numbers even though no seller changed a price. All derived figures were recomputed from the 16:17 reading by scripts/refresh_spot_anchor.py, which refuses to run against an old capture date.</p>
+          <div class="evidence">GoldPrice.org 05:55 NY $4,022.22/oz -&gt; 16:17 NY $3,997.22/oz · Kitco bid $3,996.20 · BullionVault $3,997.14 · WGC $3,996.31 · inter-source spread 0.024%</div>
+          <p class="small"><strong>Source:</strong> <a href="https://goldprice.org/" target="_blank" rel="noopener">https://goldprice.org/</a></p>
+          
+          <p class="action"><strong>What to do:</strong> Treat every melt / price-to-melt figure as dated. Re-run scripts/refresh_spot_anchor.py before acting on a number, and cross-check the spot price the day you buy.</p>
+        </div>
         <div class="card finding low" id="F10">
           <div class="finding-head">
             <h3>F10 · Mejuri&#x27;s main /help hub requires JavaScript, while direct leaf FAQ articles render server-side</h3>
@@ -438,11 +449,11 @@
         </div>
         <div class="card finding low" id="F12">
           <div class="finding-head">
-            <h3>F12 · Two independent spot-price sources agree to within 0.06%</h3>
+            <h3>F12 · Two independent spot-price sources agree to within 0.03%</h3>
             <span class="badge info">LOW</span>
           </div>
-          <p class="small">GoldPrice.org showed $4,022.22/oz (23 Oct 2026, 05:55 NY Time) and the World Gold Council showed $4,024.45/oz (data as of 22 Oct 2026, read 23 Oct 2026). The $2.23 gap (0.055%) is consistent with normal intraday movement and aligns with Dataset C&#x27;s simultaneous Kitco ($4,022.70/oz) and BullionVault ($4,024.23/oz) quotes.</p>
-          <div class="evidence">GoldPrice.org $4,022.22/oz · World Gold Council $4,024.45/oz · difference $2.23 (0.055%)</div>
+          <p class="small">GoldPrice.org printed $3,997.22/oz (23 Oct 2026, 04:17 NY Time on its own page clock) and the World Gold Council tile printed $3,996.31/oz (read 23 Oct 2026 20:17Z; its dataset is dated &#x27;Data as of 22 October, 2026&#x27;). The $0.91 gap (0.023%) is consistent with normal intraday movement and sits alongside Dataset C&#x27;s simultaneous Kitco bid $3,996.20/oz and BullionVault $3,997.14/oz quotes, which are 0.024% apart.</p>
+          <div class="evidence">GoldPrice.org $3,997.22/oz · World Gold Council $3,996.31/oz · difference $0.91 (0.023%)</div>
           <p class="small"><strong>Source:</strong> <a href="https://www.gold.org/goldhub/data/gold-prices" target="_blank" rel="noopener">https://www.gold.org/goldhub/data/gold-prices</a></p>
           
           <p class="action"><strong>What to do:</strong> None - this is a control check, not a problem.</p>
@@ -484,7 +495,7 @@
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-round-lgd-solitaire">2ct Round Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Weight Range Only</span><span class="sub mono">WEIGHT_RANGE_ONLY</span></td>
-              <td class="small">The published weight is a 3.0 g-wide range (5.5-8.5g). At $4,022.22/oz the difference between the ends is more than the entire melt value of a light band, so the range cannot be used for a price-per-gram test.</td>
+              <td class="small">The published weight is a 3.0 g-wide range (5.5-8.5g). At the 23 Oct 2026 snapshot of $3,997.22/oz the difference between the ends is more than the entire melt value of a light band, so the range cannot be used for a price-per-gram test.</td>
               <td><a href="https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-round-lgd-solitaire">2ct Round Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
@@ -1184,7 +1195,7 @@ exists. A flag with no source of its own is a question about one specific listin
             <span class="badge warn">medium</span>
             <span class="mono">PRC1</span><strong>Seller re-prices continuously - a captured price is not today&#x27;s price</strong>
           </div>
-          <p class="small" style="margin:8px 0 4px">Menē sells by gram weight and re-quotes as the metal price moves. Every Menē row in this project was re-read live on 2026-10-23 and all four had moved down since capture: Wrap Ring $3,228 (captured $3,253), Classic Band $1,707 on the product page and &quot;From $1,664&quot; on the collection page (captured $1,720), Narrow Flat Band &quot;From $1,544&quot; (captured $1,556), Wide Flat Band &quot;From $2,315&quot; (captured $2,333). GoldPrice.org printed $4,022.22/oz on the same day against the $4,026.79/oz snapshot the melt values use.</p>
+          <p class="small" style="margin:8px 0 4px">Menē sells by gram weight and re-quotes as the metal price moves. Every Menē row in this project was re-read live on 2026-10-23 and all four had moved down since capture: Wrap Ring $3,228 (captured $3,253), Classic Band $1,707 on the product page and &quot;From $1,664&quot; on the collection page (captured $1,720), Narrow Flat Band &quot;From $1,544&quot; (captured $1,556), Wide Flat Band &quot;From $2,315&quot; (captured $2,333). GoldPrice.org printed $4,022.22/oz on the same day; that anchor has since been re-read to $3,997.22/oz at 2026-10-23T20:17Z, so both the captured prices and the melt baseline are now explicitly dated.</p>
           <p class="small" style="margin:0"><strong>What to do:</strong> Open the source link and read the live price before comparing or buying. Treat every price on this site as captured on the date printed beside it, and re-check it the day you order.</p>
           <p class="small" style="margin:6px 0 0"><strong>Source:</strong> <a href="https://mene.com/collections/bands-gold" target="_blank" rel="noopener">official page</a></p>
         </div><div class="card" id="flag-RET11">
@@ -1423,8 +1434,8 @@ exists. A flag with no source of its own is a question about one specific listin
 <footer class="site-footer">
   <div class="footer-inner">
     <strong>GOLD3</strong> - a source-linked buying file. Data captured 22 October 2026. Spot price anchor:
-    $4,022.22/oz (Oct 23rd, 2026 at 05:55 NY Time), cross-checked against the World Gold Council
-    ($4,024.45/oz).
+    $3,997.22/oz (Oct 23rd, 2026 at 04:17 NY Time), cross-checked against the World Gold Council
+    ($3,996.31/oz).
     <div class="footer-links">
       <a href="checklist.html">Buying checklist</a>
       <a href="flagged.html">Flagged for review</a>

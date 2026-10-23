@@ -692,8 +692,8 @@ def build_combined() -> str:
 
 <h2>Where the two passes agree - and where they don't</h2>
 <div class="card">
-  <p class="small"><strong>Agree:</strong> the gold spot anchor. Dataset B records the World Gold Council figure of $4,024.36/oz (21 Oct 2026);
-  Dataset A uses GoldPrice.org at $4,026.79/oz (22 Oct 2026) and lists the World Gold Council figure as its cross-check. The two are 0.06% apart.</p>
+  <p class="small"><strong>Agree:</strong> the gold spot anchor. Dataset B records the World Gold Council figure of {money(float(CROSS['price_usd_per_troy_oz']),2)}/oz ({e(CROSS['as_of_text'])});
+  Dataset A uses GoldPrice.org at {money(SPOT,2)}/oz ({e(PRIMARY['as_of_text'])}) and lists the World Gold Council figure as its cross-check. The two are {e(str(prices_doc['cross_check']['difference_percent']))}% apart.</p>
   <p class="small"><strong>Agree:</strong> "solid gold" is rarely stated on listings. Both passes independently flagged it as the norm rather than the exception.</p>
   <p class="small"><strong>Differ:</strong> weight publication. Dataset A's five retailers publish none; Dataset B found Ross-Simons publishing
   approximate gram weights. That is why finding F2 is now scoped to "this pass" and reports the combined figure separately.</p>
