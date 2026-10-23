@@ -72,10 +72,12 @@
     {
       "id": "L4",
       "title": "Quality marks must carry the maker's name or trademark",
-      "rule": "The National Stamping Act provides that anyone applying a quality mark indicating gold or silver must also apply to the article the trademark or name of that person. 16 CFR 23.10 restates this under 'Disclosure of identity of manufacturers, processors, or distributors'.",
+      "rule": "The National Stamping Act provides that anyone applying a quality mark indicating gold or silver must also apply to the article the trademark or name of that person. 16 CFR 23.10 defines what counts as a quality mark (including 'gold', 'karat', 'vermeil', 'plated', 'overlay') and carries the identity paragraph.",
       "cite": "16 CFR 23.10 · 15 U.S.C. 297",
       "url": "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23",
-      "use_in_project": "The checklist's requirement for a maker's mark is a legal requirement on the maker, not a nicety. It is also how you trace who stands behind the stamp."
+      "use_in_project": "The checklist's requirement for a maker's mark is a legal requirement on the maker, not a nicety. It is also how you trace who stands behind the stamp.",
+      "quoted_text": "Disclosure of identity of manufacturers, processors, or distributors. The National Stamping Act provides that any person, firm, corporation, or association ... who applies or causes to be applied a quality mark ... shall apply to the article the trademark or name of such person. [15 U.S.C. 297]",
+      "quoted_on": "2026-10-23"
     },
     {
       "id": "L5",

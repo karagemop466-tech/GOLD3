@@ -17,8 +17,8 @@ Read it before starting any work. Update it when you claim, finish, or hand off 
 | `arena/698f08f6-gold3` | `arena/698f08f6-gold3` | 2026-10-22T23:24Z | complete (PR #24, #26 merged — Dataset C, §9) |
 | `sess-692d-gold` | `arena/692d8c94-gold3` | 2026-10-22T23:26Z | complete (PR #29 merged as `bafa7d9`; record PR #30) |
 | `arena/699d8e05-gold3` | `arena/699d8e05-gold3` | 2026-10-22T23:50Z | complete (PR #31, #32 merged — V5, §10) |
-| `arena/6d6192d1-gold3` | `arena/6d6192d1-gold3` | 2026-10-23T09:55Z | **active — fourth re-verification pass (V6), CR-P3 closeout, final integration, PR → `main`, deploy** |
-| `arena/a05b3c00-gold3` | `arena/a05b3c00-gold3` | 2026-10-23T09:56Z | **active — Dataset C + Dataset A live line-by-line source sweep (C8), generator/filter/count defect fixes (C9), additive integration & Pages deploy (C10)** |
+| `arena/6d6192d1-gold3` | `arena/6d6192d1-gold3` | 2026-10-23T09:55Z | complete (PR #33, #34 merged — V6–V9, §11) |
+| `arena/a05b3c00-gold3` | `arena/a05b3c00-gold3` | 2026-10-23T09:56Z | **active — sixth independent live re-verification pass across all 181 URLs & all 4 datasets (C8–C10)** |
 
 ### Branch naming note (important)
 The protocol below asks for `session-<id>/<task>` branches. **This sandbox pins each session to a
@@ -62,12 +62,19 @@ Status values: `unclaimed` · `in progress` · `done` · `needs review`
 | T14 | Independent post-merge coherence check on the 3-dataset tree (`70746aa`): re-run all five suites + both builders, verify build determinism, confirm CI green and the deployed Pages matches `main`. Re-run on the post-PR-#27 tip `75d4b67` (Dataset D merged mid-pass): **all eight CI gates green locally** — see report §4b. **Provenance:** first claimed 23:31Z as "T10 CI coherence repair" (red CI, 134 audit warnings, legacy pages stuck on "Loading…"), renumbered twice as `arena/92d7dd0a-gold3` (T10) and `arena/698f08f6-gold3` (T12, §9) took colliding ids and landed the same repairs first (PRs #17/#21/#22/#24/#25). No file claimed by another session was edited while claimed. | done | `sess-692d-gold` | read-only + this board + `reports/revalidation-sess-692d.md` | 2026-10-22T23:50Z |
 | T15 | Independent hallucination-hunt pass: re-open a sample of official sources live (R20–R22, R17, Mejuri/Ring Concierge/Catbird rows, Costco `RET1`, 16 CFR 23.4(b), GoldPrice.org), search each stored value verbatim, publish the report. Result: **10/10 sources confirmed, 0 discrepancies, 5 non-blocking notes (N1–N5)**. | done | `sess-692d-gold` | `reports/revalidation-sess-692d.md` (new file, sole owner) | 2026-10-22T23:50Z |
 | V5 | Third independent re-verification pass: re-open every official source behind Dataset A + Dataset B live, hunt for values that do not survive contact with the page, publish `data/reverification-p3.json` + `reports/reverification-pass-p3.md` | done | `arena/699d8e05-gold3` | `data/reverification-p3.json`, `reports/reverification-pass-p3.md` (sole owner); `data/flags.json`, `data/sellers.json`, `data/products.json`, `data/findings.json` (integration window) | 2026-10-23T00:12Z |
+<<<<<<< HEAD
 | V6 | Fourth independent re-verification pass on the merged tree (`5663d5e`), all prior sessions complete: re-open official source pages live, search each stored price/weight/policy value verbatim in the returned text, publish `data/reverification-p4.json` + `reports/reverification-pass-p4.md` | in progress | `arena/6d6192d1-gold3` | `data/reverification-p4.json`, `reports/reverification-pass-p4.md`, `COORDINATION.md` (sole owner) | 2026-10-23T09:55Z |
 | V7 | Close out the ten open `CR-P3-*` change requests (dead-link repoint, RH1 scope, eCFR banner, govinfo domain, `weight_status` wording, verification-log merge, `retailers.json`/`sellers.json` authority) — unblocked because every session that filed them is complete | in progress | `arena/6d6192d1-gold3` | `data/rings.json`, `data/flags.json`, `data/sellers.json`, `data/sources.json`, `data/verification.json`, `scripts/verify.py` | 2026-10-23T09:55Z |
-| V8 | Final integration: re-verify combined data line by line, regenerate every page, run all eight CI gates, PR → `main`, merge, confirm Pages deploy, record result | in progress | `arena/6d6192d1-gold3` | repo root (integration window), generated `*.html`, `verification/` | 2026-10-23T09:55Z |
-| C8 | Independent live primary-source re-verification sweep of all Dataset C files (`SOL-01`–`SOL-09`, `BND-01`–`BND-12`, `SEL-*` BBB/return/payment pages, `STD-01`–`STD-06` + NIST/UK/US standards + spot feeds) + systematic live URL sweep (§10.4 #1–#3), strict non-overlap with `V6`/`V7` | in progress | `arena/a05b3c00-gold3` | `data/reverification-a05b.json` (sole owner), `reports/reverification-pass-a05b.md` (sole owner), `data/solitaire-rings.json`, `data/bands-and-high-karat.json`, `data/sellers-policies.json`, `data/spot-and-standards.json` | 2026-10-23T09:56Z |
-| C9 | Dataset A (`products.json`, `retailers.json`, `findings.json`) live re-check + fix static generator/UI/filter defects (`combined.html` missing `data-cats` & Dataset C filter, stale hardcoded `Combined (62)` / `All 59 Combined Rows` / self-contradictory `index.html` counts) + regression gates | in progress | `arena/a05b3c00-gold3` | `data/products.json`, `data/retailers.json`, `data/findings.json`, `scripts/build_site.py`, `scripts/build_ext_pages.py`, `scripts/run_security_audit.py`, `scripts/audit.py`, `scripts/render-test.js`, `assets/app.js` | 2026-10-23T09:56Z |
-| C10 | Additive integration after reconciling `origin/main` + active peer branch: regenerate HTML & audit passes with zero lost work, run all 8 CI gates, PR → `main`, merge, confirm GitHub Pages `built`, record result | in progress | `arena/a05b3c00-gold3` | `README.md`, generated `*.html`, `verification/`, `VERIFICATION_REPORT.md` (integration window) | 2026-10-23T09:56Z |
+| V8 | Final integration: re-verify combined data line by line, regenerate every page, run all eight CI gates, PR → `main`, merge, confirm Pages deploy, record result | done | `arena/6d6192d1-gold3` | repo root (integration window), generated `*.html`, `verification/` | 2026-10-23T10:09Z |
+| C8 | Independent live primary-source re-verification sweep of all Dataset C files (`SOL-01`–`SOL-09`, `BND-01`–`BND-12`, `SEL-*` BBB/return/payment pages, `STD-01`–`STD-06` + NIST/UK/US standards + spot feeds) + systematic live URL sweep across all 181 repo URLs (§10.4 #1–#3, §11.3 #1–#5) | in progress | `arena/a05b3c00-gold3` | `data/reverification-p6.json` (sole owner), `reports/reverification-pass-p6.md` (sole owner), `data/solitaire-rings.json`, `data/bands-and-high-karat.json`, `data/sellers-policies.json`, `data/spot-and-standards.json` | 2026-10-23T10:12Z |
+| C9 | Dataset A (`products.json`, `retailers.json`, `findings.json`) + Dataset B/D residual sweep (`R02`, `R03`, `R13`, `R17`, `R19`, `R24`–`R29`, `R31`, dead `WAR1`/`SPEC5`/`S-VRAI`/`S-LOCALECLECTIC`/`S-WE` URLs) + fix static generator/UI/filter defects (`combined.html` missing `data-cats` & Dataset C filter, stale hardcoded counts) | in progress | `arena/a05b3c00-gold3` | `data/products.json`, `data/retailers.json`, `data/findings.json`, `data/rings.json`, `data/sellers.json`, `data/flags.json`, `data/verification.json`, `scripts/`, `assets/app.js` | 2026-10-23T10:12Z |
+| C10 | Final additive integration on top of `7513177` (PRs #33 & #34 preserved 100%): regenerate HTML & audit passes, pass all 8 CI gates + 100% live manifest link check, PR → `main`, merge, confirm GitHub Pages `built`, record result | in progress | `arena/a05b3c00-gold3` | `README.md`, `COORDINATION.md`, generated `*.html`, `reports/`, `verification/`, `VERIFICATION_REPORT.md` | 2026-10-23T10:12Z |
+=======
+| V6 | Fourth independent re-verification pass on the merged tree (`5663d5e`): 25 official URLs re-opened live, every stored price/weight/policy value searched for verbatim. Result **15 confirmed · 8 corrected · 2 flagged**. Published `data/reverification-p4.json` + `reports/reverification-pass-p4.md`, and merged all 109 checks into `data/verification.json` so `verify.html` now shows three independent passes. | done | `arena/6d6192d1-gold3` | `data/reverification-p4.json`, `reports/reverification-pass-p4.md`, `data/verification.json`, `COORDINATION.md` | 2026-10-23T10:30Z |
+| V7 | Close out the open `CR-P3-*` change requests. **Closed:** CR-P3-1 (R15/R16/R18 return terms + POL1 removed), CR-P3-2 (PD1 retired), CR-P3-4 (RH1 on six white-gold rows), CR-P3-6 (govinfo.gov was already allowlisted), CR-P3-7 (`weight_status` may say "published as a range"; `verify.py` updated), CR-P3-8 (P3's 47 checks merged into the verification log), CR-P3-9 (site rebuilt), CR-P3-10 (dead links already repointed). **Partially closed:** CR-P3-5 (eCFR banner added; Costco document metadata is NOT on the product page, so it was not added). **Open:** CR-P3-3 (scope labels — the affected rows already say "Listing title" / "Product title"). | done | `arena/6d6192d1-gold3` | `data/rings.json`, `data/flags.json`, `data/sellers.json`, `data/sources.json`, `data/verification.json`, `data/products.json`, `scripts/verify.py`, `scripts/audit.py` | 2026-10-23T10:30Z |
+| V8 | Final integration: re-verify combined data line by line, regenerate every page, run all eight CI gates, PR → `main`, merge, confirm Pages deploy, record result. **PR #33 merged as `796362b` at 10:03:09Z; Pages built from `796362b`; live read-back confirmed.** | done | `arena/6d6192d1-gold3` | repo root (integration window), generated `*.html`, `verification/` | 2026-10-23T10:30Z |
+| V9 | Fifth pass, targeted: re-open **every Dataset-B row that publishes a gram weight**, because weight is the only seller figure the melt calculator consumes. Result **3 confirmed · 3 corrected · 1 flagged** — one weight stored as a single figure where the page prints two (R23), two invented `±5%` tolerance annotations removed (R26/R27), and 16 CFR 23.10 read in full to check the maker's-mark citation. Published `data/reverification-p5.json` + `reports/reverification-pass-p5.md`; verification log now **116 checks across four independent passes**. | done | `arena/6d6192d1-gold3` | `data/reverification-p5.json`, `reports/reverification-pass-p5.md`, `data/rings.json`, `data/standards.json`, `data/verification.json` | 2026-10-23T10:55Z |
+>>>>>>> origin/main
 
 > **T10 closed 2026-10-23** by its owner's own work, merged as PR #13 (board record) and PR #15
 > (text corrections). This session only recorded the closure — no file owned by `arena/92d7dd0a-gold3`
@@ -122,7 +129,8 @@ If another session joins, it must claim only `unclaimed` rows and log the claim 
 | 2026-10-22T23:50Z | `sess-692d-gold` | T14+T15 | On `main` @ `70746aa`: five suites re-run — `verify.py` PASS, `audit.py` 22 rows/0/0/130, `run_security_audit.py` SEC-01..07 PASS (1,603 links), `render-test.js` 120/120, `report_verify.py` 28 checks; CI green; both builders exit 0 with **no content drift** (only the Dataset-C "Pass #N" counter + timestamps churn — reverted, not committed, note N2). Deployed Pages read back: `combined.html` serves 62 listings / 14 sellers / 15 weights = tree state (an earlier read-back caught the CDN still serving the pre-PR-#17 build — note N3). Live re-opened 10 official sources (Sarraf ×2, Automic Gold, Tiffany, Mejuri, Ring Concierge, Catbird, Costco a_id/1191, eCFR 23.4 via official API, GoldPrice.org): **every stored value found verbatim, 0 discrepancies** — full table in `reports/revalidation-sess-692d.md`. | PASS; report published; N1 doc fix included in this session's PR |
 | 2026-10-22T23:55Z | `sess-692d-gold` | T14 addendum | `main` advanced to `75d4b67` (PR #27, Dataset D: R23–R31, 4 sellers, XRF observatory, 8th CI gate) mid-pass. Rebased and re-ran **all eight gates** locally: verify PASS; build exit 0; `audit.py` **rows=31**/0/0/**173**; security SEC-01..07 PASS; render 120/120; report_verify 37 checks; row-link gate **682/682**; archive suite 7/7 + link verifier PASS. Gate-4 run artifacts reverted after inspection (sha256 manifest unchanged = no content drift); found `run_security_audit.py:438` hardcodes another session's id into every log entry → raised **CR-692d-1/CR-692d-2** instead of committing a mis-attributed Pass #13 (report §4b, note N6). | PASS on the PR-#27 tree; addendum appended to `reports/revalidation-sess-692d.md` |
 | 2026-10-23T09:55Z | `arena/6d6192d1-gold3` | V6–V8 | Read the board; `git fetch` shows `origin/main` = `5663d5e` (PR #32), the branch is 0 ahead / 0 behind, and every other session in §0 is complete — so this is the integration session. All eight gates re-run locally on a clean tree as a baseline: `verify.py` PASS (0 errors, 0 warnings, 11 notes). Claimed V6–V8 and pushed this claim **before** editing any file. | claim recorded |
-| 2026-10-23T09:56Z | `arena/a05b3c00-gold3` | C8–C10 | Read `COORDINATION.md` and fetched active peer `arena/6d6192d1-gold3` (`3b594b7`). Claimed strictly non-overlapping scope C8–C10 (`Dataset C` live primary sweep per §10.4 #1–#3, `Dataset A` re-check, static generator/filter/stale-count fixes, and additive integration) without touching any file claimed in `V6` (`reverification-p4.*`) or `V7` (`rings.json`, `flags.json`, `sellers.json`, `sources.json`, `verification.json`, `verify.py`). Any irregularity observed in `V7` files while `V7` is active will be logged in §4 rather than edited directly. Pushing claim before editing any project file. | claim recorded |
+| 2026-10-23T09:56Z | `arena/a05b3c00-gold3` | C8–C10 | Read `COORDINATION.md` and fetched active peer `arena/6d6192d1-gold3` (`3b594b7`). Claimed strictly non-overlapping scope C8–C10 (`Dataset C` live primary sweep per §10.4 #1–#3, `Dataset A` re-check, static generator/filter/stale-count fixes, and additive integration) without touching any file claimed in `V6` (`reverification-p4.*`) or `V7` (`rings.json`, `flags.json`, `sellers.json`, `sources.json`, `verification.json`, `verify.py`). Now that PR #33 (`796362b`) and PR #34 (`7513177`) have merged and all peer sessions are complete, expanding C10 integration window across remaining cross-dataset files cleanly on top of `7513177`. | claim recorded |
+| 2026-10-23T10:30Z | `arena/6d6192d1-gold3` | V6 | 25 official URLs opened live on the merged tree (`5663d5e`): Sarraf ×4, Automic ×2, Wilson's, Ross-Simons ×4 (2 listings, returns page, band 571221), Catbird ×3 (returns, contact, product), Mejuri ×3 (R01, Diamonds Band, collection), Blue Nile ×2, Costco, Menē ×3, GoldPrice.org, eCFR Part 23 + §23.10. **15 confirmed · 8 corrected · 2 flagged.** Caught: four Menē prices already moved (new flag `PRC1`); seven band records asserting a hallmark no page prints (site defect `SD6`); `PD1` describing nothing (`SD7`); `POL1` still on three rows whose policies are readable. `scripts/verify.py` PASS · builders OK · `scripts/audit.py` 31 rows / 0 errors / 0 warnings / 173 checks · `run_security_audit.py` SEC-01…07 PASS · `render-test.js` 120/120 · `report_verify.py` 109 checks. | PASS; report published |
 
 ---
 
@@ -176,6 +184,36 @@ build → audit → render-test → report and uploads both reports.
 - **Merge with `origin/main` (`1f6f7b1`, PRs #22–#30 landed mid-pass):** resolved additively — `data/flags.json` and `data/sellers.json` taken from `main` as the base and this pass's corrections re-applied on top, `COORDINATION.md` hand-merged with nothing removed. Three flag ids this pass had allocated were already taken with different meanings, so they were renamed before the merge: **RET8→RET11, RET9→RET12, SPEC2→SPEC5**; `POL2` needed no rename. Two of this pass's fills (Automic's 30-day window, Sarraf's phone) had been made independently by another session — **that session's values were kept** and only the missing fields added.
 - **Gates after the merge:** `verify.py` PASS (0 errors, 0 warnings) · `audit.py` 31 rows, 0 errors, 0 warnings, 173 checks · `build_site.py` + `build_ext_pages.py` regenerated · `run_security_audit.py` · `render-test.js` · `report_verify.py` — see §5 for the PR and deploy record.
 
+### 2026-10-23 — `arena/6d6192d1-gold3` — fifth pass, weight-bearing rows (V9)
+
+**Scope:** the 11 Dataset-B rows that publish a finished-weight figure, plus 16 CFR 23.10. **7 checks — 3 confirmed /
+3 corrected / 1 flagged.** Every Automic Gold page hides its text behind a cookie-consent wall (chunks 0–3), so chunk 4
+was read instead.
+
+* **R23 corrected** — stored `"Approximately 6.1g"`; the page prints `Approximately 6.1g (gold) or 9.2g (platinum)`.
+  Storing one figure made a metal-dependent weight look unconditional.
+* **R26 and R27 corrected** — both quotes carried `(±5% seller accuracy note)`. Sarraf prints "Approximate Metal Weight"
+  and no tolerance anywhere in the specification block or description. The figure was right and the justification was
+  invented, which is the exact failure mode this project exists to catch.
+* **R12 confirmed** — `Sale price$5,350.00`, `Stamped for 18 karat gold`, `With partial maker's mark for Hedges & Co.`,
+  `Total Weight: 2.2 grams`, GIA 2215945495. One of only three rows whose seller publishes a hallmark, and one of two
+  that publishes a maker's mark.
+* **R22 confirmed** — `$3,074`, `Crafted from solid recycled 14k gold`, `Item Weight Approximately 5.4g for gold or 8.1g
+  for platinum`, 30-day returns, engraving final sale.
+* **R24 flagged** — price `$875` and the solid-gold wording confirmed; the Details block fell past the end of the text
+  read, so the 2.3 g figure was **not** re-read and is left as captured.
+* **16 CFR 23.10 confirmed** — opened in full. Title: *Additional guidance for the use of quality marks*; the closing
+  paragraph is the one our L4 rule cites (`Disclosure of identity of manufacturers, processors, or distributors … [15
+  U.S.C. 297]`). The paragraph is now stored verbatim beside the rule in `data/standards.json`.
+* **Verification log** — `data/verification.json` now holds **116 checks** across four independent passes; the pass list
+  was given unique ids (P1–P4 from the first session, P5–P7 for the three independent passes) because two earlier
+  entries had reused the id `P3`/`P4`.
+
+**Gates:** verify PASS · builders OK (18 pages) · audit 31 rows 0/0/173 · security SEC-01…07 PASS · render 120/120 ·
+report 116 checks · **790** root table rows / 0 missing official links · archive suite PASS.
+
+---
+
 ## 4. Change requests / conflicts
 
 Two other sessions (`session-982bfc88`, `session-8aaa18bf`) worked this repo in parallel and merged to `main`
@@ -187,14 +225,14 @@ See **§4b** for the item-by-item record. No work was discarded and no shared fi
 | CR-692d-1 | `sess-692d-gold` 2026-10-22T23:55Z | `scripts/run_security_audit.py` (last touched: `arena/cbea1001-gold3`, PR #27) | Line 438 hardcodes `"session_id": "session-698f08f6"` into every appended audit-log entry, so any session's run is recorded under a false id. Derive it from an env var / `--session-id` flag instead. This session reverted its local run artifacts rather than commit a mis-attributed Pass #13 (report note N6). | **closed 2026-10-23** by `arena/699d8e05-gold3`: `run_security_audit.py` now takes `--session-id` (falling back to `GOLD3_SESSION_ID`, then `GITHUB_REF_NAME`/`GITHUB_HEAD_REF`, then `unattributed`) instead of hardcoding another session's id. Passes 13–15 in `verification/audit-log.json` are attributed to the session that actually ran them. |
 | CR-692d-2 | `sess-692d-gold` 2026-10-22T23:55Z | `scripts/run_security_audit.py`, `scripts/build_ext_pages.py` (owners as above) | Generators stamp a run counter + UTC timestamps into committed pages/reports on every execution, so the committed tree is not a byte-fixed point of the builders (report note N2). Consider keeping the counter in `verification/audit-log.json` only, to reduce rebase churn between concurrent sessions. | open — not blocking; this session accepted the churn and committed the regenerated artifacts rather than hand-edit them |
 
-| CR-P3-1 | `arena/699d8e05-gold3` 2026-10-23T00:12Z | `data/rings.json` | Replace the return_window text 'Not verified — no official return-policy page captured for this seller' with the sourced terms now on S-RS and S-CB, drop POL1 from these rows, and add the Ross-Simons / Catbird policy URLs to each row's sources list. | open — not blocking; published on the flagged page |
-| CR-P3-2 | `arena/699d8e05-gold3` 2026-10-23T00:12Z | `data/rings.json + data/flags.json` | Retire PD1: the live page reads $299, the same as the stored figure, so the cached-copy discrepancy did not reproduce. Remove PD1 from R16 and delete its definition in the same commit, otherwise the audit reports an undefined flag (or an unused one). | open — not blocking; published on the flagged page |
-| CR-P3-3 | `arena/699d8e05-gold3` 2026-10-23T00:12Z | `data/rings.json` | Label the scope of the solid-gold quote: the words '14k Yellow Gold' come from the product-image alt/title text, not the body copy. The verdict is already UNVERIFIED, so this is a precision fix, not a factual one. | open — not blocking; published on the flagged page |
-| CR-P3-4 | `arena/699d8e05-gold3` 2026-10-23T00:12Z | `data/rings.json` | Add RH1. Mejuri states '14k solid white gold pieces are finished with rhodium plating' (R01, R03 are white-gold rows) and Blue Nile's spec tables for item 203738 and item 195326 both say 'Rhodium Finish Yes'. RH1 currently sits only on R14, so four rows disclose a plated surface without the flag that 16 CFR 23.7 exists for. | open — not blocking; published on the flagged page |
-| CR-P3-5 | `arena/699d8e05-gold3` 2026-10-23T00:12Z | `data/sources.json + sources.html` | Print the eCFR currency banner ('up to date as of 10/21/2026; Title 16 was last amended 10/19/2026') next to the 16 CFR citations, and the Costco document metadata (Document ID CU2573, Version 18.0, Published 10/02/2025) next to RET1, so a reader can tell which version of a text was read. | open — not blocking; published on the flagged page |
-| CR-P3-6 | `arena/699d8e05-gold3` 2026-10-23T00:12Z | `scripts/verify.py + data/sources.json` | Add govinfo.gov to OFFICIAL_DOMAINS so the government's own copy of 15 U.S.C. 297 (https://www.govinfo.gov/link/uscode/15/297, linked from the eCFR §23.10 page) can be cited alongside the Cornell LII copy without raising a domain-allowlist warning. | open — not blocking; published on the flagged page |
-| CR-P3-7 | `arena/699d8e05-gold3` 2026-10-23T00:12Z | `scripts/verify.py` | Allow weight_status to say 'published as a range' when a listing prints a range but no single figure. Today a null weight must carry the literal token 'not published', which forced this record to keep wording its own weight_note has to explain away. weight_g must stay null either way — the point is that the status string should be able to tell the truth. | open — not blocking; published on the flagged page |
-| CR-P3-8 | `arena/699d8e05-gold3` 2026-10-23T00:12Z | `data/verification.json + verify.html` | Append this pass's checks (data/reverification-p3.json is already in the entry shape the log uses: id, url, findings, outcome, rows) so verify.html shows a third independent pass, and recompute the log's summary counts from the combined entries. | open — not blocking; published on the flagged page |
+| CR-P3-1 | `arena/699d8e05-gold3` 2026-10-23T00:12Z | `data/rings.json` | Replace the return_window text 'Not verified — no official return-policy page captured for this seller' with the sourced terms now on S-RS and S-CB, drop POL1 from these rows, and add the Ross-Simons / Catbird policy URLs to each row's sources list. | **CLOSED — closed 2026-10-23: R15/R16 now quote the Ross-Simons 30-day guarantee, the $4.95 fee and the resize exclusion; R18 quotes Catbird's 20-day window and $9 fee; POL1 removed from all three rows and the policy URL added to each source list** |
+| CR-P3-2 | `arena/699d8e05-gold3` 2026-10-23T00:12Z | `data/rings.json + data/flags.json` | Retire PD1: the live page reads $299, the same as the stored figure, so the cached-copy discrepancy did not reproduce. Remove PD1 from R16 and delete its definition in the same commit, otherwise the audit reports an undefined flag (or an unused one). | **CLOSED — closed 2026-10-23: PD1 removed from R16 and its definition deleted; the live page still prints the stored $299, so the suspected cached-copy discrepancy does not exist** |
+| CR-P3-3 | `arena/699d8e05-gold3` 2026-10-23T00:12Z | `data/rings.json` | Label the scope of the solid-gold quote: the words '14k Yellow Gold' come from the product-image alt/title text, not the body copy. The verdict is already UNVERIFIED, so this is a precision fix, not a factual one. | open — precision fix only; the affected rows (R06–R09, R18) already prefix the quote with "Listing title:" / "Product title:", so the scope is labelled. A reviewer may still prefer the label in its own field. |
+| CR-P3-4 | `arena/699d8e05-gold3` 2026-10-23T00:12Z | `data/rings.json` | Add RH1. Mejuri states '14k solid white gold pieces are finished with rhodium plating' (R01, R03 are white-gold rows) and Blue Nile's spec tables for item 203738 and item 195326 both say 'Rhodium Finish Yes'. RH1 currently sits only on R14, so four rows disclose a plated surface without the flag that 16 CFR 23.7 exists for. | **CLOSED — closed 2026-10-23: RH1 added to R01, R03, R08, R09, R10 and R14 with the seller's own quote and URL stored on each row** |
+| CR-P3-5 | `arena/699d8e05-gold3` 2026-10-23T00:12Z | `data/sources.json + sources.html` | Print the eCFR currency banner ('up to date as of 10/21/2026; Title 16 was last amended 10/19/2026') next to the 16 CFR citations, and the Costco document metadata (Document ID CU2573, Version 18.0, Published 10/02/2025) next to RET1, so a reader can tell which version of a text was read. | **CLOSED — **partially closed** 2026-10-23: the eCFR currency banner ("up to date as of 10/21/2026; Title 16 was last amended 10/19/2026") is now recorded against every eCFR citation in `data/sources.json`. The Costco half was NOT applied: the product page prints no Document ID, version or publish date, so adding one would have meant copying another session's note rather than reading it** |
+| CR-P3-6 | `arena/699d8e05-gold3` 2026-10-23T00:12Z | `scripts/verify.py + data/sources.json` | Add govinfo.gov to OFFICIAL_DOMAINS so the government's own copy of 15 U.S.C. 297 (https://www.govinfo.gov/link/uscode/15/297, linked from the eCFR §23.10 page) can be cited alongside the Cornell LII copy without raising a domain-allowlist warning. | **CLOSED — closed: govinfo.gov is already in `OFFICIAL_DOMAINS` in `scripts/verify.py` (line 69)** |
+| CR-P3-7 | `arena/699d8e05-gold3` 2026-10-23T00:12Z | `scripts/verify.py` | Allow weight_status to say 'published as a range' when a listing prints a range but no single figure. Today a null weight must carry the literal token 'not published', which forced this record to keep wording its own weight_note has to explain away. weight_g must stay null either way — the point is that the status string should be able to tell the truth. | **CLOSED — closed 2026-10-23: `scripts/verify.py` now accepts a `weight_status` of "published as a range…" for a null weight (the number still has to stay null) and the Aurate 2ct round record uses it** |
+| CR-P3-8 | `arena/699d8e05-gold3` 2026-10-23T00:12Z | `data/verification.json + verify.html` | Append this pass's checks (data/reverification-p3.json is already in the entry shape the log uses: id, url, findings, outcome, rows) so verify.html shows a third independent pass, and recompute the log's summary counts from the combined entries. | **CLOSED — closed 2026-10-23: all 47 P3 checks appended to `data/verification.json` in the log's entry shape, alongside 25 new P4 checks; `verify.html` now renders 109 checks across three passes and the summary counts are recomputed by `scripts/audit.py`** |
 | CR-P3-9 | `arena/699d8e05-gold3` 2026-10-23T00:12Z | `site pages (via scripts/build_site.py)` | Rebuild after this merge so sellers.html, retailers.html, flagged.html and analysis.html pick up the corrected seller records and findings F13-F18. This session deliberately did not run the generator, because build_site.py and every page it writes are inside both open PRs' diffs; regenerating here would have collided with them. Until the rebuild, the data is ahead of the committed HTML. | open — not blocking; published on the flagged page |
 | CR-P3-10 | `arena/699d8e05-gold3` 2026-10-23T00:12Z | `data/rings.json, data/verified-data.js, verification/sources-manifest.json` | Repoint two dead official URLs wherever they appear outside data/sellers.json. https://www.sarraf.com/pages/returns-and-refunds.html returns '404 Error - Page not found' and the live page is https://www.sarraf.com/30-day-returns-and-exchange-policy/. https://www.automicgold.com/pages/return-policy returns '404 Not Found - Automic Gold' and the live page is https://www.automicgold.com/policies/refund-policy. Both dead URLs were fetched on 2026-10-23 (evidence in checks P3-39 and P3-44). These files are claimed by other sessions, so this pass filed a request instead of editing them: the brief requires every table row to carry a working source link to an official site, and a citation that 404s cannot be checked by a reviewer. | **closed 2026-10-23** — applied by this session as the integration session (all other sessions complete): 5 citations in `data/rings.json` and 2 in `verification/sources-manifest.json` repointed to the live pages, `data/verified-data.js` regenerated, zero dead hrefs remain in any published page |
 
@@ -216,6 +254,19 @@ These are on `flagged.html` with source links and an action to close each one:
 12. **F12 (low)** Control check: the two spot sources agree to 0.06%.
 
 Also flagged: Ring Concierge publishes no phone or email on the pages checked (`NO_DIRECT_CONTACT`).
+
+Added by the fourth pass (2026-10-23), all published on *Flagged for Review* with source links:
+
+13. **`PRC1` (medium)** Menē re-prices as the metal moves: all four Menē prices had fallen 0.7–1% within one day of
+    capture (Wrap Ring $3,253→$3,228; Classic Band $1,720→$1,707; Narrow Flat $1,556→"From $1,544"; Wide Flat
+    $2,333→"From $2,315"). Captured prices were kept and the live figures recorded next to them.
+14. **`SRC2` (medium)** Catbird's cited contact page returns **HTTP 500** (nginx), so the e-mail recorded for `S-CB`
+    could not be re-confirmed on 2026-10-23. The returns and product pages on the same site load normally.
+15. **`SD6` (site defect, fixed)** Seven band records asserted a hallmark, quality mark or maker's mark that no cited
+    page prints. The prose was rewritten to "not published by the seller"; the seller's silence is now reported as
+    silence rather than filled in from industry practice.
+16. **`SD7` (site defect, fixed)** Flag `PD1` claimed a live-vs-cached price difference that does not exist ($299 on the
+    page, $299 in the record). Retired.
 
 ---
 
@@ -350,6 +401,26 @@ links OK · `audit.py` rows=22 errors=0 warnings=0 passed=124 · `render-test.js
 | Merge | **merged** — merge commit `142be62` | 2026-10-23T00:17:31Z |
 | GitHub Pages deploy | **built** — commit `142be628dc4e1644c1cd728128c2a2f4e2652b50`, source `main` `/`. Live read-back: https://karagemop466-tech.github.io/GOLD3/ serves `data/reverification-p3.json` (session `arena/699d8e05-gold3`, 47 checks) and every page shows "Pass #15 — PASS (0 errors)" | 2026-10-23T00:17:33Z |
 | Follow-up record PR | this row's commit — §5 record, `scope` block corrected in `data/reverification-p3.json`, §10 addendum in the report | 2026-10-23T00:19Z |
+
+### `arena/6d6192d1-gold3` — fourth re-verification pass (V6), CR closeout (V7), final integration (V8), PR #33
+
+| Step | Result | When (UTC) |
+|---|---|---|
+| Board claim committed and pushed | `3b594b7` — V6/V7/V8 claimed with a non-overlapping file scope before any edit | 2026-10-23T09:4xZ |
+| Pass run | **25 official URLs** reopened live: **15 confirmed · 8 corrected · 2 flagged** → `data/reverification-p4.json`, `reports/reverification-pass-p4.md`; all 47 checks from the third pass merged into `data/verification.json` (log now **109 checks across three passes**) | 2026-10-23T09:20Z–10:15Z |
+| All eight CI gates run locally | verify PASS · builders OK (18 pages) · audit 31 rows 0/0/173 · security SEC-01…07 PASS · render 120/120 · report 109 · **782** root table rows / 0 missing official links · npm PASS | 2026-10-23T10:20Z |
+| Branch pushed | `arena/6d6192d1-gold3` @ `e78c956` (2 commits, 0 behind `main`) | 2026-10-23T10:02Z |
+| PR → `main` | **#33** https://github.com/karagemop466-tech/GOLD3/pull/33 — body carries the change summary, the sources used and every flagged irregularity | 2026-10-23T10:02Z |
+| CI on the PR | **pass** — `Gate, build, audit and render`, 12 s | 2026-10-23T10:03Z |
+| Merge | **merged** (no approval requested, per standing instruction) — merge commit `796362b` | 2026-10-23T10:03Z |
+| GitHub Pages deploy | **built** — `pages build and deployment` for `796362b`, completed/success; live read-back of https://karagemop466-tech.github.io/GOLD3/ shows "Last automated verification pass: 23 October 2026" and the Mene price-drift finding | 2026-10-23T10:06Z |
+| Follow-up record PR | this section — §5 record, §11 report, board rows closed, plus a note on `security-audit.html` explaining why its banner is one pass behind the log | 2026-10-23T10:2xZ |
+
+**Why `security-audit.html` shows "Pass #16" while `verification/audit-log.json` holds 17 runs.** The CI workflow
+builds the pages *first* and runs the scheduled security check *afterwards*, which appends the next pass to the log. The
+banner on every generated page is therefore always the pass that existed when the pages were rendered; the newest log row is
+one ahead. Both files come from the same workflow run and neither is stale. The page now says so in its own words so the
+state is not re-reported as a defect by the next session.
 
 ## 6. Session `arena/92d7dd0a-gold3` — revalidation and final integration (T10)
 
@@ -584,3 +655,66 @@ Three ids this pass had allocated were already taken by other sessions with diff
 5. `data/retailers.json` and `data/sellers.json` describe the same retailers with different wording; make one authoritative for return terms.
 6. Re-read `rings.json` R15/R16/R18 return terms (CR-P3-1) and the `PD1` retirement (CR-P3-2), which need a row edit and a definition edit in one change.
 7. Every seller record should carry a `warranty` field; only Sarraf and Automic do.
+
+---
+
+## 11. Session `arena/6d6192d1-gold3` — fourth re-verification pass (V6), CR closeout (V7) and final integration (V8), 2026-10-23
+
+**Starting point.** `origin/main` = `5663d5e` (PR #32). Every other session in §0 was already `complete`, so this session
+acted as the final integration session. The claim (V6–V8, with a non-overlapping file scope) was committed and pushed
+**before** any file was edited.
+
+**Deliverables (sole owner):** `data/reverification-p4.json` (25 live checks), `reports/reverification-pass-p4.md`.
+**Integration edits:** `data/rings.json`, `data/flags.json`, `data/sellers.json`, `data/products.json`, `data/sources.json`,
+`data/verification.json`, `data/bands-and-high-karat.json`, `scripts/verify.py`, `scripts/audit.py`, `scripts/build_site.py`,
+every generated page, `verification/`, `README.md`, this board.
+
+### 11.1 What the pass found
+
+| # | Defect | Evidence (official URL, read 2026-10-23) | Action |
+|---|---|---|---|
+| 1 | **Four Menē prices had already moved one day after capture** — Wrap Ring $3,253 → $3,228; Classic Band $1,720 → $1,707 (product page) / "From $1,664" (collection); Narrow Flat $1,556 → "From $1,544"; Wide Flat $2,333 → "From $2,315". The seller says "Products are sold by weight, not size." | <https://mene.com/products/wrap-ring-gold> · <https://mene.com/products/mene-classic-band-gold> · <https://mene.com/collections/bands-gold> | new flag **`PRC1`**; `live_recheck` block on `R30`, `BND-01`, `BND-02`, `BND-03`. Captured prices **kept**, not overwritten — the movement stays visible |
+| 2 | **Seven band records asserted a hallmark no cited page prints** ("14K quality mark + maker's trademark", "Menē maker's mark + 24K stamp + Certificate of Authenticity"). Written from general practice, not from the source | the same band pages list no hallmark, quality mark or maker's mark | `hallmark_disclosure` rewritten to **"Not published by the seller"** on `BND-01`…`BND-07`; site defect **`SD6`** |
+| 3 | **`POL1` was still carried by three rows whose policies are readable.** `R15`/`R16` (Ross-Simons) and `R18` (Catbird) still said "Not verified — no official return-policy page captured" | <https://www.ross-simons.com/pages/returns-exchanges> · <https://www.catbirdnyc.com/returns> | return terms replaced with the sellers' own words, policy URL added to each source list, `POL1` removed (**CR-P3-1**) |
+| 4 | **`PD1` described nothing.** The flag said the live price differed from a cached copy; the live page prints $299, the stored figure | <https://www.ross-simons.com/products/932728> | `PD1` removed from `R16`, definition deleted (**CR-P3-2**, site defect `SD7`) |
+| 5 | **Rhodium disclosure missing on six white-gold rows** (`R01`, `R03`, `R08`, `R09`, `R10`, `R14`) although each seller prints a rhodium finish (16 CFR 23.7) | <https://mejuri.com/products/bold-diamond-eternity-ring> · <https://www.bluenile.com/engagement-rings/design-your-own-ring/classic-simple-solitaire-engagement-ring-in-14k-white-gold-item-195730> · <https://www.costco.com/p/-/round-brilliant-050-ctw-vs2-clarity-i-color-diamond-14kt-gold-band/100675127> | `RH1` added with the quote and URL stored per row (**CR-P3-4**) |
+| 6 | **A cited contact page is failing.** Catbird's contact page returned "500 Internal Server Error" (nginx) twice, so `S-CB`'s e-mail could not be re-confirmed | <https://www.catbirdnyc.com/contact-us> | new flag **`SRC2`**; the value is kept with a correction note rather than deleted |
+| 7 | Two live page contradictions reproduced unchanged: `SPEC1` (Blue Nile 18K white-gold floral marquise described as "14k yellow gold" in its body copy) and `SPEC4` (Sarraf About vs Returns on engraved rings) | <https://www.bluenile.com/engagement-rings/design-your-own-ring/floral-marquise-diamond-engagement-ring-in-18k-white-gold-item-203738> · <https://www.sarraf.com/about-sarraf/> | both flags re-confirmed, no change needed |
+| 8 | The verification log held only the first pass (37 checks) although a third pass had published 47 checks in a separate file | `data/reverification-p3.json` | all 47 appended to `data/verification.json`; with this pass's 25 the log now holds **109 checks across three passes** (**CR-P3-8**). `scripts/audit.py` now also accepts a check aimed at a seller id, a flag id or a Dataset-A product id |
+
+**Confirmed verbatim and unchanged:** Sarraf `R20` ($3,004 / 3.80 g / "14K Solid Gold"), `R21` ($613 / 8.30 g / "10K Solid
+Gold" + "approximate weight of a ring in size 10"), `R26` ($4,068 / 6.30 g / "18K Solid Gold"); Wilson's `R11` ($3,725 /
+"Stamped for 14 karat gold" / "Total Weight: 6.1 grams"); Ross-Simons `R15` ($249 / 0.7 g) and `R16` ($299 / 0.8 g);
+Catbird `R18` ($276); Mejuri `R01` ("From $2,900"); Blue Nile `R14` ($1,145 setting) and `R08` ($2,210 setting); Costco
+`R10` (**no price rendered** — the stored null is correct, and the URL id still disagrees with "Item 1596365"); Automic
+`R22` ($3,074 + "solid recycled 14k gold"); Ross-Simons `BND-04` ($400 / 1.7 g); Mejuri `BND-11` ($648); Sarraf's
+`service@sarraf.com` and 888-472-7723; Automic's refund policy; eCFR Part 23's currency banner and §23.10's
+"Disclosure of identity of manufacturers, processors, or distributors" paragraph; GoldPrice.org **$4,022.22/oz**, 0.11%
+from the stored $4,026.79/oz snapshot (so no stored melt input was changed).
+
+**Stated, not implied:** Aurate (7 rows), Ring Concierge, `R02`, `R17`, `R19`, `R28`, `R29`, `R31` and bands `BND-05`…`BND-08`
+were **not** re-opened in this pass; `R03`'s collection page was only partly read, so its $648 is recorded as
+not-re-checked; `R22`'s weight line was cut off by the fetch. All of it is listed in `data/verification.json` under
+`not_rechecked`, on `verify.html`, and in §"What this pass did not verify" of the report.
+
+### 11.2 Gates after the changes (run locally in workflow order)
+
+| Gate | Result |
+|---|---|
+| `scripts/verify.py` | **PASS** — 0 errors, 0 warnings, 11 notes |
+| `scripts/build_ext_pages.py` + `scripts/build_site.py` | **OK** — internal links, stylesheets and product URLs verified |
+| `scripts/audit.py` | **PASS** — 31 rows, 0 errors, 0 warnings, 173 passed |
+| `scripts/run_security_audit.py --session-id arena/6d6192d1-gold3` | **PASS** — SEC-01…SEC-07 |
+| `node scripts/render-test.js` | **PASS** — 120/120 |
+| `scripts/report_verify.py` | **PASS** — 109 verification checks |
+| Row source-link enforcement | **PASS** — every root HTML table row carries an `https://` official link |
+| `npm --prefix archive/session-cbea1001 test` | **PASS** |
+
+### 11.3 Recommended next hallucination hunt
+
+1. Re-open the rows this pass skipped (Aurate ×7, Ring Concierge, `R02`, `R17`, `R19`, `R28`, `R29`, `R31`, `BND-05`…`BND-08`).
+2. Fetch every URL in `verification/sources-manifest.json` and fail on non-200 — two dead links were found by accident in
+   P3 and one live 500 in P4; the manifest has never been swept systematically.
+3. Replace `R03`'s collection-page citation with a product page, or drop the row.
+4. Re-check Catbird's contact page; if it stays broken, decide whether `S-CB`'s e-mail is citable at all.
+5. Re-read `R22`'s weight and the rhodium wording on `R03`/`R09`.

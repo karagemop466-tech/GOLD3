@@ -9,7 +9,7 @@ It publishes as a static site on GitHub Pages and is generated entirely from mac
 > **blank** and marked **unverified** — it is never estimated, inferred, or filled in to make a row
 > look complete. **Recommendation:** actively look for hallucinations on every review pass by clicking the official source link on every row, re-checking live prices/weights before buying, and running all automated security checks below.
 
-**Captured:** 22 October 2026 · **41 listings across both passes** (19 + 22) · **12 sellers** · **7 published weights**
+**Prices captured:** 22 October 2026 · **re-verified live:** 23 October 2026 (fourth pass) · **41 listings across both passes** (19 + 22), plus 31 Dataset-B/C band studies · **12 sellers** · **7 published weights** in the verified ring set
 
 ---
 
@@ -58,7 +58,43 @@ npm --prefix archive/session-cbea1001 test  # Node anti-hallucination, melt-math
 All checks run in CI on every push and pull request (`.github/workflows/audit.yml`). The site is generated, so
 editing HTML by hand is pointless: change `data/*.json` or `scripts/build_site.py`, then rebuild.
 
-## What the last verification pass changed
+## What the fourth verification pass changed (23 October 2026)
+
+25 official URLs were re-opened on the merged tree: **15 confirmed, 8 corrected, 2 flagged**. Full log in
+`data/reverification-p4.json`, human-readable in `reports/reverification-pass-p4.md`, and every check appended to
+`data/verification.json` (which now holds **109 checks across three passes** and is what `verify.html` renders).
+
+* **Four Menē prices had already moved** one day after capture (Wrap Ring $3,253 → $3,228; Classic Band $1,720 → $1,707;
+  Narrow Flat "From $1,544"; Wide Flat "From $2,315"). New flag **`PRC1`**; a `live_recheck` block on each row records
+  today's figure beside the captured one. Captured prices were **not** overwritten.
+* **Seven band records asserted a hallmark no page prints.** The words came from general jewellery practice, not from
+  the seller. Every `hallmark_disclosure` in `BND-01`…`BND-07` now reads "not published by the seller" (site defect `SD6`).
+* **`POL1` removed from three rows** whose return policies are readable: Ross-Simons `R15`/`R16` now quote the 30-day
+  guarantee, the $4.95 flat fee and the resize exclusion; Catbird `R18` quotes the 20-day window and $9 fee.
+* **`PD1` retired** — the live page prints the price the record stores (site defect `SD7`).
+* **`RH1` added to six white-gold rows** (`R01`, `R03`, `R08`, `R09`, `R10`, `R14`) with the seller's rhodium wording stored.
+* **New flag `SRC2`**: Catbird's cited contact page returned **HTTP 500**, so its e-mail is not re-confirmed as of
+  23 October 2026.
+* `scripts/verify.py` now accepts a `weight_status` of "published as a range…" for a null weight, and `scripts/audit.py`
+  lets a verification check point at a seller, a flag or a Dataset-A product instead of only an `R##` row.
+
+## What the fifth pass changed (23 October 2026)
+
+A targeted pass over **every row that publishes a finished weight**, because grams are the only seller figure the melt
+calculator consumes. 7 checks: **3 confirmed · 3 corrected · 1 flagged** (`reports/reverification-pass-p5.md`).
+
+* **R23** stored `"Approximately 6.1g"` where the page prints `6.1g (gold) or 9.2g (platinum)` — a metal-dependent weight
+  was reading as unconditional.
+* **R26 and R27** carried a `(±5% seller accuracy note)` that Sarraf does not print. The numbers were right; the
+  justification was invented. Removed and replaced with the fact that no tolerance is published.
+* **R12** confirmed as one of only three rows whose seller publishes a hallmark, and one of two that publishes a maker's
+  mark (`Stamped for 18 karat gold`, `partial maker's mark for Hedges & Co.`).
+* **16 CFR 23.10** read in full: the maker's-mark paragraph the site cites is real and is now quoted verbatim next to
+  the rule.
+
+The verification log now holds **116 checks across four independent passes**.
+
+## What the third verification pass changed
 
 Every cited URL in the parallel dataset was reopened on 22 October 2026 and each stored value was searched for
 in the page text. Outcome: **15 confirmed, 8 corrected, 5 flagged**, three listings added (Sarraf ×2, Automic
