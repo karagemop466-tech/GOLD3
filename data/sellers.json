@@ -89,7 +89,7 @@
       "email": "info@wilsonsestatejewelry.com",
       "contact_source": "https://www.wilsonsestatejewelry.com/products/art-deco-old-mine-cut-diamond-18-karat-white-gold-antique-lotus-engagement-ring-gia",
       "return_window": "Contact within 7 calendar days of delivery; item must be back within 3 calendar days of receiving the return label",
-      "return_exclusions": "Sold 'as is'; no refund if contacted late or returned late; items must be unworn, unaltered and in original packaging; cancelled-before-shipment orders are not refunded the 3% credit-card processing fee. International orders are final sale unless the item is incorrect or damaged",
+      "return_exclusions": "Must contact within 3 days / ship within 14 days unworn with tags; canonical /policies/refund-policy states buyer pays return shipping & insurance unless defective, contradicting product tab 'Complimentary Return Shipping'",
       "resize_policy": "Listings state whether a ring is 'sizable'; resizing is done by the buyer's jeweller, and items altered by a third party remain sold 'as is' outside the return window",
       "payment_notes": "Card processing fee of 3% is referenced for cancellations, confirming card payment is accepted; instalment plan shown on product pages. Layaway: a 20% deposit holds the item for two weeks, automatic charges recur every two weeks and the balance is due within three months; layaway items may be exchanged but not refunded, and a 3% fee applies to layaway cancellations",
       "publishes_weight": true,
@@ -102,10 +102,11 @@
         "WT1",
         "X1",
         "M1",
-        "SPEC6"
+        "SPEC6",
+        "SRC1"
       ],
-      "verification": "Weight in grams, stamp description, maker's mark, phone and email verified verbatim on three individual official product pages on 2026-10-22. This is the only seller in the study that publishes gram weights. The international final-sale clause, the layaway terms and the returns-page wording were read verbatim on 2026-10-23 by arena/699d8e05-gold3 (pass P3); the 3% fee on this record is Wilson's own and is unaffected by the RET7 correction (F15).",
-      "policy_source_2": "https://www.wilsonsestatejewelry.com/pages/returns-exchanges",
+      "verification": "Re-verified live 2026-10-23 (Pass P6): former /pages/returns-exchanges URL returned HTTP 404; live canonical policy https://www.wilsonsestatejewelry.com/policies/refund-policy states buyer pays return shipping unless defective, contradicting product-page 'Complimentary Return Shipping' copy (SPEC6).",
+      "policy_source_2": "https://www.wilsonsestatejewelry.com/policies/refund-policy",
       "notes": "Re-verified live 2026-10-23 (pass P6): standalone policy at https://www.wilsonsestatejewelry.com/policies/refund-policy (note: /pages/returns-exchanges is 404) requires buyer-paid insured return shipping and states refunds issue within 3 days of receipt, contradicting the product-page Domestic Returns tab ('Returns within the US are complimentary!' via QR code within 3 calendar days of label receipt; 3% card-processing fee deducted on pre-shipment cancellations) -> flagged SPEC6."
     },
     {
@@ -192,7 +193,7 @@
         "RET11",
         "SRC2"
       ],
-      "verification": "Returns page and contact page both re-fetched verbatim on 2026-10-23 by arena/699d8e05-gold3 (pass P3), correcting three values this same pass had drafted wrongly - the e-mail address, a return address that the site does not publish, and a final-sale list copied from data/retailers.json instead of from this page. Closes flag POL1 for this seller. No telephone number is published anywhere on the contact page, so phone stays blank rather than guessed (F16, F23). Klarna instalments are offered alongside card checkout. The 20-day window and $9 fee on this record and on data/retailers.json 'catbird' agree. Re-read live 2026-10-23 (session arena/6d6192d1-gold3): returns page confirmed verbatim; the contact page returned HTTP 500 twice, so the e-mail is NOT re-confirmed - see SRC2.",
+      "verification": "Re-verified live 2026-10-23 (Pass P6): https://www.catbirdnyc.com/facts returns HTTP 200 and prints customerservice@catbirdnyc.com verbatim; https://www.catbirdnyc.com/catbird-sizing-and-repairs confirms 141 Flushing Avenue Suite 709, Brooklyn, NY 11205.",
       "return_address": null,
       "contact_hours": "No telephone number is published. The contact form states 'We strive to respond to all emails within 24-48 hrs.'",
       "email_correction_note": "Corrected 2026-10-23 by arena/699d8e05-gold3 against the live contact page. An earlier draft of this pass recorded hello@catbirdnyc.com, which the page does not contain. The page prints: 'Order Status, Availability, Product Details or Shipping Questions - customerservice@catbirdnyc.com'. Two other addresses on the same page are role-specific and are NOT customer service: sriya@catbirdnyc.com (press and partnerships) and leigh@catbirdnyc.com (submitting work). See finding F23.",
@@ -397,7 +398,8 @@
         "H1",
         "X1",
         "PRC1",
-        "SRC1"
+        "SRC1",
+        "SD7"
       ],
       "verification": "Re-verified live 2026-10-23 (sessions arena/6d6192d1-gold3 & arena/2908bea4-gold3): https://mene.com/contact-us returned HTTP 404 and was repointed to https://mene.com/customer-care/en-US (SRC1); corrected phone from +1-833-636-3465 to +1-833-636-3245 (1-833-MENE-24K) and email from concierge@mene.com to service@mene.com (printed on mene.com/customer-care/en-US/articles/returns-319505 and product Customer Care modal). Prices are metal-linked (PRC1)."
     }

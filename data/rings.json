@@ -144,7 +144,7 @@
         "certification"
       ],
       "last_verified": "2026-10-23",
-      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3).",
+      "verification": "Re-verified live 2026-10-23 across collection chunk 2 ('From $648' in 14k Yellow Gold) and direct product page ('From $898' in 14k White Gold, 'Rhodium Plated: Yes'); flagged PRC2 for collection-vs-SKU price divergence.",
       "rhodium_note": "Mejuri's material note on its diamond bands: “14k solid white gold pieces are finished with rhodium plating” — quote captured 2026-10-22 from the same brand's product pages",
       "rhodium_source": "https://mejuri.com/collections/milestone-rings",
       "live_recheck": {
@@ -589,7 +589,7 @@
       "solid_gold_quote": "Seller's listing: \"Stamped for 19 karat gold\" · \"Signed with maker's mark for Bailey Banks & Biddle\"",
       "solid_gold_verdict": "UNVERIFIED — seller attests the karat by stamp, but does not use the word \"solid\"",
       "weight_g": 6.5,
-      "weight_quote": "Total Weight: 6.5 grams (vintage item total weight including ~0.20 ct diamond and matte black enamel; chunk 1 bullet '- Total Weight: 6.5 grams')",
+      "weight_quote": "- Total Weight: 6.5 grams (read verbatim in chunk 1 of the live product page on 2026-10-23; gross piece weight including diamonds)",
       "hallmark_reported": "Stamped for 19 karat gold",
       "maker_mark_reported": "Signed with maker's mark for Bailey Banks & Biddle",
       "return_window": "7 calendar days to request; 3 days to ship back",
@@ -621,7 +621,7 @@
         "solid_gold_claim"
       ],
       "last_verified": "2026-10-23",
-      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3).",
+      "verification": "Re-verified live 2026-10-23 across chunks 0-1 (Pass P6): recovered verbatim '- Total Weight: 6.5 grams', '- Stamped for 19 karat gold', and '- Signed with maker's mark for Bailey Banks & Biddle' (WT1 gross piece weight; SPEC6 refund policy conflict).",
       "hallmark_quote": "Stamped for 19 karat gold · Signed with maker's mark for Bailey Banks & Biddle"
     },
     {
@@ -1300,7 +1300,8 @@
         "RET8",
         "H1",
         "X1",
-        "SRC1"
+        "SRC1",
+        "SPEC7"
       ],
       "verified_fields": [
         "karat",
@@ -1316,7 +1317,7 @@
         "certification"
       ],
       "last_verified": "2026-10-23",
-      "verification": "Re-verified live 2026-10-23 (session arena/2908bea4-gold3): Metal weight 2.3g and solid gold band wording verified in static HTML; price remains JS-only (null); repointed return-policy source to https://help.vrai.com/en/knowledge/what-is-your-return-policy (SRC1)."
+      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3): Metal weight 2.3g and solid gold band wording verified; price is injected via JS so left null."
     },
     {
       "id": "R29",

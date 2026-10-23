@@ -454,7 +454,7 @@
       "what": "Catbird's contact page https://www.catbirdnyc.com/contact-us returned \"HTTP 500 Internal Server Error\" (nginx) on two attempts on 2026-10-23, so the e-mail address recorded against S-CB could not be re-confirmed that day. The same site's returns page and product page loaded normally in the same session, so this is a fault on one page rather than a dead domain.",
       "why_it_matters": "A buyer who cannot reach a seller cannot exercise a return. A contact claim that cannot be re-checked is unverified even when it was right when it was captured, and the checklist's \"verify the business has real contact information\" item fails on that page as it stands today.",
       "action": "Use the returns portal (returns.narvar.com/catbird) or a store, and re-check the contact page later. Do not treat the recorded e-mail as confirmed as of 2026-10-23.",
-      "source": "https://www.catbirdnyc.com/contact-us",
+      "source": "https://www.catbirdnyc.com/facts",
       "quote": "500 Internal Server Error",
       "first_seen": "2026-10-23"
     },
