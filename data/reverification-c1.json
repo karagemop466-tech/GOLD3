@@ -1,0 +1,59 @@
+{
+  "pass_id": "P5",
+  "session_id": "arena/1162b2db-gold3",
+  "verified_date": "2026-10-23",
+  "scope": "Complete primary-source re-verification of all 21 Dataset C rows, all 19 Dataset A individual PDPs, all remaining not_rechecked rows in data/rings.json (R02, R03, R17, R19, R28, R29, R31), 4 live spot gold benchmarks + LBMA, 5 Trustpilot & 5 BBB profiles, and replacement of all dead HTTP 404/500 official URLs.",
+  "spot_gold_live_2026_10_23": {
+    "goldprice_org_usd_per_oz": 4022.22,
+    "kitco_bid_usd_per_oz": 4022.70,
+    "bullionvault_usd_per_oz": 4024.23,
+    "wgc_goldhub_usd_per_oz": 4024.45,
+    "spread_usd_per_oz": 2.23,
+    "spread_pct": 0.0554
+  },
+  "removed_unconfirmed_values": [
+    {
+      "row": "BND-01",
+      "removed": "weight_grams: 8.5 (plus derived pure_gold_grams, melt_value_usd, price_to_melt_ratio)",
+      "reason": "mene.com/rings/gold/classic-band-gold renders gram weights client-side only; static HTML omits gram weights and /products/classic-band-gold.json returns HTTP 404. Updated live price to $1,707 PDP ('From $1,664' collection) and flagged unverified."
+    },
+    {
+      "row": "BND-02",
+      "removed": "weight_grams: 7.9 (plus derived melt fields)",
+      "reason": "Repointed from collection page to direct PDP https://mene.com/rings/gold/narrow-flat-band-gold ($1,544 live); static HTML omits gram weights (/products/*.json HTTP 404)."
+    },
+    {
+      "row": "BND-03",
+      "removed": "weight_grams: 12.0 (plus derived melt fields)",
+      "reason": "Repointed from collection page to direct PDP https://mene.com/rings/gold/wide-flat-band-gold ($2,465 live PDP; 'From $2,315' collection); static HTML omits gram weights (/products/*.json HTTP 404)."
+    },
+    {
+      "row": "BND-08..BND-12 & SOL-01..SOL-08",
+      "removed": "13 unprinted seller hallmark assertions in hallmark_disclosure",
+      "reason": "None of the cited product pages prints an explicit hallmark or trademark stamp statement; extended SD6b cleanup across all remaining Dataset C items."
+    }
+  ],
+  "major_live_corrections_and_flags": [
+    {
+      "id": "F25",
+      "subject": "aurate (all 7 engagement rings AU5760..AU5107)",
+      "summary": "Every individual Aurate engagement ring PDP carries 'Final Sale! / Exchange for size only.' linking to /pages/terms-conditions-exchange-only-final-sale (zero refund; 30% cancellation fee after 24h), publishes shared multi-metal weights (2.23g to 5.9-8.9g), and repeats VVS/VS/SI clarity self-contradictions (plus 'classic oval diamond' on emerald-cut AU5093)."
+    },
+    {
+      "id": "F26",
+      "subject": "R03 (Mejuri Slim Diamond Eternity Band)",
+      "summary": "Direct PDP https://mejuri.com/products/slim-diamond-eternity-band prints 'From $898' (+38.6% vs stale $648 collection figure belonging to Mejuri's separate Diamonds Band)."
+    },
+    {
+      "id": "F27",
+      "subject": "S-CB / catbird & statutory/gemological links",
+      "summary": "Replaced HTTP 500 catbirdnyc.com/contact-us with HTTP 200 catbirdnyc.com/facts ('customerservice@catbirdnyc.com') and return_form.pdf ('141 Flushing Avenue, Building 77, Suite 709, Brooklyn, NY 11205', '718-599-2340'), and replaced HTTP 404/500 uscode.house.gov, gov.uk, and GIA HTML links with HTTP 200 primary sources."
+    },
+    {
+      "id": "F28",
+      "subject": "SOL-05 / R29 & R28",
+      "summary": "Caught 'Band Width: 2 ct. tw.' spec bug + EUR geo-routing on Brilliant Earth BE1FM0126, '14k yellow gold' body vs '18K White Gold' spec contradiction on Blue Nile 203738, and 'Pavé carat weight: 0.11ctw' on VRAI Plain band R28."
+    }
+  ],
+  "not_rechecked_remaining": 0
+}

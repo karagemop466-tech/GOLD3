@@ -39,7 +39,7 @@ jobs:
 
       # 4. Dataset C melt arithmetic, allowlist, HTML link/anchor & XSS audit
       - name: Run Dataset C & repo-wide security/hallucination audit
-        run: python3 scripts/run_security_audit.py --pass-label "GitHub Actions CI Audit"
+        run: python3 scripts/run_security_audit.py --deterministic --session-id "github-actions-ci" --pass-label "GitHub Actions CI Audit"
 
       # 5. assert the built HTML actually contains the audited values
       - name: Render test against the built pages

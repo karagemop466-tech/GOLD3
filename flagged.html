@@ -33,8 +33,8 @@
 </div>
 
 <div class="grid cols-3" style="margin-bottom:20px">
-  <div class="kpi"><div class="label">Editorial findings</div><div class="value">23</div><div class="sub">8 high severity</div></div>
-  <div class="kpi"><div class="label">Listing-level flags</div><div class="value">80</div><div class="sub">across 19 listings</div></div>
+  <div class="kpi"><div class="label">Editorial findings</div><div class="value">28</div><div class="sub">11 high severity</div></div>
+  <div class="kpi"><div class="label">Listing-level flags</div><div class="value">94</div><div class="sub">across 19 listings</div></div>
   <div class="kpi"><div class="label">Unverified cells</div><div class="value">0 guesses</div><div class="sub">blank is used instead</div></div>
 </div>
 
@@ -127,6 +127,39 @@
           <p class="small"><strong>Source:</strong> <a href="https://www.sarraf.com/about-sarraf/" target="_blank" rel="noopener">https://www.sarraf.com/about-sarraf/</a></p>
           
           <p class="action"><strong>What to do:</strong> Recorded as flag SPEC4 with both URLs; S-SARRAF resize_policy corrected to quote both pages. Do not engrave until the return window has passed, or get written confirmation first.</p>
+        </div>
+        <div class="card finding high" id="F24">
+          <div class="finding-head">
+            <h3>F24 · Menē gram weights (8.5 g, 7.9 g, 12.0 g) removed on BND-01..BND-03 because static HTML omits ring weights</h3>
+            <span class="badge bad">HIGH</span>
+          </div>
+          <p class="small">Dataset C previously stored exact gram weights and derived 1.50x-1.56x melt ratios on Menē&#x27;s Classic Band (BND-01, 8.5 g), Narrow Flat Band (BND-02, 7.9 g), and Wide Flat Band (BND-03, 12.0 g), while BND-02 and BND-03 pointed to the collection page rather than individual product pages. Live primary-source fetches on 2026-10-23 of all three individual PDPs (classic-band-gold, narrow-flat-band-gold, wide-flat-band-gold), the collection page, and Shopify JSON endpoints (/products/*.json -&gt; HTTP 404) confirmed that zero gram weights appear anywhere in server-rendered HTML because Menē injects gram weights client-side only. Under the project&#x27;s strict No-Hallucinations Policy, all three weight_grams, net_gold_weight_grams, pure_gold_grams, melt_value_usd, and price_to_melt_ratio fields were blanked to null and flagged as unverified, while live 2026-10-23 PDP prices ($1,707, $1,544, $2,465) were recorded verbatim.</p>
+          <div class="evidence">Live PDPs fetched 2026-10-23: classic-band-gold prints &#x27;$1,707&#x27; (collection &#x27;From $1,664&#x27;), narrow-flat-band-gold prints &#x27;$1,544&#x27;, wide-flat-band-gold prints &#x27;$2,465&#x27; (collection &#x27;From $2,315&#x27;); zero gram figures appear in static HTML and /products/*.json returns HTTP 404.</div>
+          <p class="small"><strong>Source:</strong> <a href="https://mene.com/rings/gold/wide-flat-band-gold" target="_blank" rel="noopener">https://mene.com/rings/gold/wide-flat-band-gold</a></p>
+          
+          <p class="action"><strong>What to do:</strong> Blanked weight_grams and all derived melt fields to null across BND-01..BND-03, repointed BND-02 &amp; BND-03 to direct PDPs, and removed Menē weight presets from calculator.html and bands-vintage-rings.html.</p>
+        </div>
+        <div class="card finding high" id="F25">
+          <div class="finding-head">
+            <h3>F25 · All seven Aurate lab-grown engagement ring PDPs override the 60-day return policy with &#x27;Final Sale! / Exchange for size only.&#x27;</h3>
+            <span class="badge bad">HIGH</span>
+          </div>
+          <p class="small">Earlier passes verified only one Aurate engagement ring directly and treated Aurate&#x27;s standard 60-day return policy as applicable. Opening all seven individual Aurate PDPs (AU5760, AU5769, AU5000, AU5093, AU5763, AU5764, AU5107) plus the linked terms page https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale on 2026-10-23 revealed that every single engagement ring carries &#x27;Final Sale! / Exchange for size only.&#x27; — zero cash or credit card refund, one size exchange only, a 24-hour cancellation window on made-to-order rings, and a 30% cancellation fee after 24 hours. All seven PDPs also publish shared multi-metal Weight specs (2.23 g to 5.9-8.9 g without per-metal breakdown) and self-contradictory diamond clarity copy (&#x27;VVS Clarity&#x27; vs &#x27;VS Clarity and EF Color&#x27; vs &#x27;SI Clarity Only&#x27;), while AU5093 (&#x27;2ct Emerald Cut&#x27;) states &#x27;1.8tcw&#x27; and &#x27;classic oval diamond&#x27; in body prose.</p>
+          <div class="evidence">Verbatim across all 7 PDPs: &#x27;Final Sale! / Exchange for size only.&#x27; Terms page verbatim: no refunds, exchange for size only, 30% cancellation fee after 24 hours on made-to-order items. AU5093 verbatim: &#x27;Weight: 2.36g&#x27;, &#x27;1.8tcw&#x27;, and &#x27;classic oval diamond&#x27;.</div>
+          <p class="small"><strong>Source:</strong> <a href="https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale" target="_blank" rel="noopener">https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale</a></p>
+          <p class="small"><a href="rings.html#p-aurate-2ct-round-lgd-solitaire">See the listing in the table &rarr;</a></p>
+          <p class="action"><strong>What to do:</strong> Added FINAL_SALE_EXCHANGE_ONLY and PAGE_SELF_CONTRADICTION flags across all 7 Aurate rows in data/products.json, documented the multi-metal weight ranges without guessing single-karat weights, and updated data/retailers.json.</p>
+        </div>
+        <div class="card finding high" id="F26">
+          <div class="finding-head">
+            <h3>F26 · Mejuri R03 (Slim Diamond Eternity Band) printed From $898 on its live PDP — 38.6% above the $648 collection figure stored earlier</h3>
+            <span class="badge bad">HIGH</span>
+          </div>
+          <p class="small">Record R03 in data/rings.json cited the collection page https://mejuri.com/collections/milestone-rings for a price of &#x27;From $648&#x27;. Opening the ring&#x27;s own direct product page https://mejuri.com/products/slim-diamond-eternity-band on 2026-10-23 showed that $648 belongs to Mejuri&#x27;s separate &#x27;Diamonds Band&#x27; (mejuri.com/products/diamonds-band), whereas &#x27;Slim Diamond Eternity Band&#x27; prints &#x27;From $898&#x27; (&#x27;featuring 47-60 responsibly sourced diamonds for an average carat weight of 0.248ct&#x27;, &#x27;Minimum Carat Weight Range: 0.214 ct - 0.274 ct&#x27;, &#x27;Band Width: 1.1 mm&#x27;). This proves why collection-grid prices must always be traced to the exact product page.</p>
+          <div class="evidence">Direct PDP https://mejuri.com/products/slim-diamond-eternity-band verbatim: &#x27;Slim Diamond Eternity Band ... From$898 ... Solid White Gold (14k), Natural Diamond ... Band Width: 1.1 mm&#x27;.</div>
+          <p class="small"><strong>Source:</strong> <a href="https://mejuri.com/products/slim-diamond-eternity-band" target="_blank" rel="noopener">https://mejuri.com/products/slim-diamond-eternity-band</a></p>
+          
+          <p class="action"><strong>What to do:</strong> Updated R03 in data/rings.json to url https://mejuri.com/products/slim-diamond-eternity-band and price_usd 898 (&#x27;From $898&#x27;), replacing collection-level flag L1 with starting-price flag FP1.</p>
         </div>
         <div class="card finding medium" id="F4">
           <div class="finding-head">
@@ -249,6 +282,28 @@
           
           <p class="action"><strong>What to do:</strong> Corrected in data/sellers.json: email set to customerservice@catbirdnyc.com, return_address set to null with a note, exclusions replaced with the page&#x27;s own list, and the no-cancellation and return-then-reorder rules added as their own fields.</p>
         </div>
+        <div class="card finding medium" id="F27">
+          <div class="finding-head">
+            <h3>F27 · Broken Catbird /contact-us (HTTP 500) and dead government/GIA links replaced with live HTTP 200 primary documents</h3>
+            <span class="badge warn">MEDIUM</span>
+          </div>
+          <p class="small">Catbird&#x27;s /contact-us route returned HTTP 500 Internal Server Error across multiple checks on 2026-10-23 (flag SRC2), while three regulatory/gemological citations in Dataset C and checklist-standards.html returned HTTP 500 (uscode.house.gov) or HTTP 404 (gov.uk/guidance/hallmarking-law-and-practice and gia.edu/gems-gemology/summer-2025-lab-notes-gold-plated-gold0). Live checks on 2026-10-23 verified live HTTP 200 replacements on the exact official domains: catbirdnyc.com/facts (&#x27;Customer Email: customerservice@catbirdnyc.com&#x27;, &#x27;Primary Materials: Solid gold (never plated; over 95% recycled gold)&#x27;) and catbirdnyc.com/media/files/return_form.pdf (&#x27;141 Flushing Avenue, Building 77, Suite 709, Brooklyn, NY 11205&#x27;, &#x27;718-599-2340&#x27;), plus law.cornell.edu/uscode/text/15/295 &amp; /297, gov.uk/.../hallmarking-is-the-law-guidance-summary, and gia.edu/dam/migrated-assets/docs/doc1/summer-2025-lab-notes.pdf.</p>
+          <div class="evidence">All replacement URLs returned HTTP 200 on 2026-10-23 with verbatim statutory/seller text confirmed.</div>
+          <p class="small"><strong>Source:</strong> <a href="https://www.catbirdnyc.com/facts" target="_blank" rel="noopener">https://www.catbirdnyc.com/facts</a></p>
+          
+          <p class="action"><strong>What to do:</strong> Updated S-CB in data/sellers.json, catbird in data/retailers.json, data/spot-and-standards.json, and scripts/build_ext_pages.py so zero broken official URLs remain anywhere in the site.</p>
+        </div>
+        <div class="card finding medium" id="F28">
+          <div class="finding-head">
+            <h3>F28 · Template spec bugs caught on Brilliant Earth SOL-05/R29 (&#x27;Band Width: 2 ct. tw.&#x27;) and VRAI R28 (&#x27;Pavé carat weight: 0.11ctw&#x27; on Plain band)</h3>
+            <span class="badge warn">MEDIUM</span>
+          </div>
+          <p class="small">Line-by-line inspection of all remaining un-reopened configurator/setting pages on 2026-10-23 uncovered two further retailer spec bugs: Brilliant Earth&#x27;s Fairmined 2mm Six-Prong Solitaire (BE1FM0126, SOL-05/R29) prints &#x27;Band Width: 2 ct. tw.&#x27; in its Ring Information table (diamond carat units in the millimeter width field) and geo-routes non-US requests to EUR (€1,250), while VRAI&#x27;s Petite 4-Prong Solitaire Plain Band configurator (R28) prints &#x27;Pavé carat weight: 0.11ctw&#x27; inside Setting Details right below &#x27;Metal weight: 2.3g&#x27;.</p>
+          <div class="evidence">Brilliant Earth BE1FM0126 verbatim: &#x27;Band Width: 2 ct. tw.&#x27;. VRAI Petite 4-Prong Plain Band verbatim: &#x27;Band: Plain band ... Metal weight: 2.3g · Pavé carat weight: 0.11ctw&#x27;.</div>
+          <p class="small"><strong>Source:</strong> <a href="https://www.brilliantearth.com/Fairmined-2mm-Six-Prong-Solitaire-Ring-Gold-BE1FM0126-24910022/" target="_blank" rel="noopener">https://www.brilliantearth.com/Fairmined-2mm-Six-Prong-Solitaire-Ring-Gold-BE1FM0126-24910022/</a></p>
+          
+          <p class="action"><strong>What to do:</strong> Documented both template spec contradictions on SOL-05, R29, and R28 so buyers verify physical millimeter width, gram weight, and invoice line items prior to payment.</p>
+        </div>
         <div class="card finding low" id="F10">
           <div class="finding-head">
             <h3>F10 · Mejuri&#x27;s dedicated returns page could not be read, so its policy is quoted from the product page</h3>
@@ -297,7 +352,7 @@
 <h2 style="margin-top:36px">Every listing-level flag</h2>
 <p class="small">These are the machine-checked flags attached to individual rows. Collapse or expand as needed.</p>
 <details>
-  <summary>Show all 80 listing flags</summary>
+  <summary>Show all 94 listing flags</summary>
   <div class="table-wrap" style="margin-top:10px">
     <table style="min-width:900px">
       <thead><tr><th>Listing</th><th>Flag</th><th>What it means</th><th>Source</th></tr></thead>
@@ -340,122 +395,212 @@
               <td><a href="rings.html#p-aurate-2ct-emerald-lgd-solitaire">2ct Emerald Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Brand-level</span><span class="sub mono">SOLID_NOT_ON_LISTING</span></td>
               <td class="small">Purity statement is at brand level, not on the listing.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-emerald-lgd-solitaire">2ct Emerald Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">From-price</span><span class="sub mono">PRICE_FROM_LOWEST_VARIANT</span></td>
               <td class="small">Only the &#x27;From&#x27; price is published.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-emerald-lgd-solitaire">2ct Emerald Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">No weight</span><span class="sub mono">WEIGHT_NOT_PUBLISHED</span></td>
               <td class="small">No ring weight in grams on the listing.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-emerald-lgd-solitaire">2ct Emerald Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">No hallmark</span><span class="sub mono">HALLMARK_NOT_STATED</span></td>
               <td class="small">No hallmark / maker&#x27;s-mark statement on the listing.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
+            </tr><tr>
+              <td><a href="rings.html#p-aurate-2ct-emerald-lgd-solitaire">2ct Emerald Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
+              <td><span class="badge warn">Weight Range Only</span><span class="sub mono">WEIGHT_RANGE_ONLY</span></td>
+              <td class="small">Listing prints &#x27;Weight: 5.5-8.5g&#x27; inside a shared multi-metal specs block spanning 14k gold, 18k gold, and platinum without per-alloy breakdown; weight_g stays null.</td>
+              <td><a href="https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
+            </tr><tr>
+              <td><a href="rings.html#p-aurate-2ct-emerald-lgd-solitaire">2ct Emerald Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
+              <td><span class="badge warn">Exchange Only Final Sale</span><span class="sub mono">EXCHANGE_ONLY_FINAL_SALE</span></td>
+              <td class="small">Live PDP prints &#x27;Final Sale! / Exchange for size only.&#x27; linking to https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale — zero cash/card refund, size exchange only once, and a 30% cancellation fee after 24 hours on made-to-order pieces.</td>
+              <td><a href="https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
+            </tr><tr>
+              <td><a href="rings.html#p-aurate-2ct-emerald-lgd-solitaire">2ct Emerald Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
+              <td><span class="badge warn">Page Self Contradiction</span><span class="sub mono">PAGE_SELF_CONTRADICTION</span></td>
+              <td class="small">Diamond clarity conflicts across the same PDP (&#x27;VVS clarity&#x27; in prose vs &#x27;VS/EF&#x27; in specs vs &#x27;SI Clarity Only&#x27; badge).</td>
+              <td><a href="https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-1ct-round-lgd-bezel">1ct Round Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Brand-level</span><span class="sub mono">SOLID_NOT_ON_LISTING</span></td>
               <td class="small">Purity statement is at brand level, not on the listing.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/1ct-round-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-1ct-round-lgd-bezel">1ct Round Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">From-price</span><span class="sub mono">PRICE_FROM_LOWEST_VARIANT</span></td>
               <td class="small">Only the &#x27;From&#x27; price is published.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/1ct-round-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-1ct-round-lgd-bezel">1ct Round Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">No weight</span><span class="sub mono">WEIGHT_NOT_PUBLISHED</span></td>
               <td class="small">No ring weight in grams on the listing.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/1ct-round-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-1ct-round-lgd-bezel">1ct Round Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">No hallmark</span><span class="sub mono">HALLMARK_NOT_STATED</span></td>
               <td class="small">No hallmark / maker&#x27;s-mark statement on the listing.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/1ct-round-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">source</a></td>
+            </tr><tr>
+              <td><a href="rings.html#p-aurate-1ct-round-lgd-bezel">1ct Round Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
+              <td><span class="badge warn">Weight Range Only</span><span class="sub mono">WEIGHT_RANGE_ONLY</span></td>
+              <td class="small">Listing prints &#x27;Weight: 2.23g&#x27; inside a shared multi-metal specs block spanning 14k gold, 18k gold, and platinum without per-alloy breakdown; weight_g stays null.</td>
+              <td><a href="https://auratenewyork.com/products/1ct-round-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">source</a></td>
+            </tr><tr>
+              <td><a href="rings.html#p-aurate-1ct-round-lgd-bezel">1ct Round Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
+              <td><span class="badge warn">Exchange Only Final Sale</span><span class="sub mono">EXCHANGE_ONLY_FINAL_SALE</span></td>
+              <td class="small">Live PDP prints &#x27;Final Sale! / Exchange for size only.&#x27; linking to https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale — zero cash/card refund, size exchange only once, and a 30% cancellation fee after 24 hours on made-to-order pieces.</td>
+              <td><a href="https://auratenewyork.com/products/1ct-round-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">source</a></td>
+            </tr><tr>
+              <td><a href="rings.html#p-aurate-1ct-round-lgd-bezel">1ct Round Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
+              <td><span class="badge warn">Page Self Contradiction</span><span class="sub mono">PAGE_SELF_CONTRADICTION</span></td>
+              <td class="small">Title says 1ct while Specs print 1.05tcw; Diamond clarity conflicts across the same PDP (&#x27;VVS clarity&#x27; in prose vs &#x27;VS/EF&#x27; in specs vs &#x27;SI Clarity Only&#x27; badge).</td>
+              <td><a href="https://auratenewyork.com/products/1ct-round-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-emerald-lgd-bezel">2ct Emerald Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Brand-level</span><span class="sub mono">SOLID_NOT_ON_LISTING</span></td>
               <td class="small">Purity statement is at brand level, not on the listing.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-emerald-lgd-bezel">2ct Emerald Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">From-price</span><span class="sub mono">PRICE_FROM_LOWEST_VARIANT</span></td>
               <td class="small">Only the &#x27;From&#x27; price is published.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-emerald-lgd-bezel">2ct Emerald Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">No weight</span><span class="sub mono">WEIGHT_NOT_PUBLISHED</span></td>
               <td class="small">No ring weight in grams on the listing.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-emerald-lgd-bezel">2ct Emerald Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">No hallmark</span><span class="sub mono">HALLMARK_NOT_STATED</span></td>
               <td class="small">No hallmark / maker&#x27;s-mark statement on the listing.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">source</a></td>
+            </tr><tr>
+              <td><a href="rings.html#p-aurate-2ct-emerald-lgd-bezel">2ct Emerald Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
+              <td><span class="badge warn">Weight Range Only</span><span class="sub mono">WEIGHT_RANGE_ONLY</span></td>
+              <td class="small">Listing prints &#x27;Weight: 2.36g&#x27; inside a shared multi-metal specs block spanning 14k gold, 18k gold, and platinum without per-alloy breakdown; weight_g stays null.</td>
+              <td><a href="https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">source</a></td>
+            </tr><tr>
+              <td><a href="rings.html#p-aurate-2ct-emerald-lgd-bezel">2ct Emerald Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
+              <td><span class="badge warn">Exchange Only Final Sale</span><span class="sub mono">EXCHANGE_ONLY_FINAL_SALE</span></td>
+              <td class="small">Live PDP prints &#x27;Final Sale! / Exchange for size only.&#x27; linking to https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale — zero cash/card refund, size exchange only once, and a 30% cancellation fee after 24 hours on made-to-order pieces.</td>
+              <td><a href="https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">source</a></td>
+            </tr><tr>
+              <td><a href="rings.html#p-aurate-2ct-emerald-lgd-bezel">2ct Emerald Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
+              <td><span class="badge warn">Page Self Contradiction</span><span class="sub mono">PAGE_SELF_CONTRADICTION</span></td>
+              <td class="small">Title says &#x27;2ct Emerald&#x27; while Specs print &#x27;1.8tcw&#x27; and body prose reads &#x27;classic oval diamond&#x27;; Diamond clarity conflicts across the same PDP (&#x27;VVS clarity&#x27; in prose vs &#x27;VS/EF&#x27; in specs vs &#x27;SI Clarity Only&#x27; badge).</td>
+              <td><a href="https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-oval-lgd-solitaire">2ct Oval Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Brand-level</span><span class="sub mono">SOLID_NOT_ON_LISTING</span></td>
               <td class="small">Purity statement is at brand level, not on the listing.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-oval-lgd-solitaire">2ct Oval Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">From-price</span><span class="sub mono">PRICE_FROM_LOWEST_VARIANT</span></td>
               <td class="small">Only the &#x27;From&#x27; price is published.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-oval-lgd-solitaire">2ct Oval Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">No weight</span><span class="sub mono">WEIGHT_NOT_PUBLISHED</span></td>
               <td class="small">No ring weight in grams on the listing.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-oval-lgd-solitaire">2ct Oval Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">No hallmark</span><span class="sub mono">HALLMARK_NOT_STATED</span></td>
               <td class="small">No hallmark / maker&#x27;s-mark statement on the listing.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
+            </tr><tr>
+              <td><a href="rings.html#p-aurate-2ct-oval-lgd-solitaire">2ct Oval Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
+              <td><span class="badge warn">Weight Range Only</span><span class="sub mono">WEIGHT_RANGE_ONLY</span></td>
+              <td class="small">Listing prints &#x27;Weight: 5.7-8.7g&#x27; inside a shared multi-metal specs block spanning 14k gold, 18k gold, and platinum without per-alloy breakdown; weight_g stays null.</td>
+              <td><a href="https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
+            </tr><tr>
+              <td><a href="rings.html#p-aurate-2ct-oval-lgd-solitaire">2ct Oval Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
+              <td><span class="badge warn">Exchange Only Final Sale</span><span class="sub mono">EXCHANGE_ONLY_FINAL_SALE</span></td>
+              <td class="small">Live PDP prints &#x27;Final Sale! / Exchange for size only.&#x27; linking to https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale — zero cash/card refund, size exchange only once, and a 30% cancellation fee after 24 hours on made-to-order pieces.</td>
+              <td><a href="https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
+            </tr><tr>
+              <td><a href="rings.html#p-aurate-2ct-oval-lgd-solitaire">2ct Oval Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
+              <td><span class="badge warn">Page Self Contradiction</span><span class="sub mono">PAGE_SELF_CONTRADICTION</span></td>
+              <td class="small">Diamond clarity conflicts across the same PDP (&#x27;VVS clarity&#x27; in prose vs &#x27;VS/EF&#x27; in specs vs &#x27;SI Clarity Only&#x27; badge).</td>
+              <td><a href="https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-3ct-oval-lgd-solitaire">3ct Oval Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Brand-level</span><span class="sub mono">SOLID_NOT_ON_LISTING</span></td>
               <td class="small">Purity statement is at brand level, not on the listing.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-3ct-oval-lgd-solitaire">3ct Oval Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">From-price</span><span class="sub mono">PRICE_FROM_LOWEST_VARIANT</span></td>
               <td class="small">Only the &#x27;From&#x27; price is published.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-3ct-oval-lgd-solitaire">3ct Oval Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">No weight</span><span class="sub mono">WEIGHT_NOT_PUBLISHED</span></td>
               <td class="small">No ring weight in grams on the listing.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-3ct-oval-lgd-solitaire">3ct Oval Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">No hallmark</span><span class="sub mono">HALLMARK_NOT_STATED</span></td>
               <td class="small">No hallmark / maker&#x27;s-mark statement on the listing.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
+            </tr><tr>
+              <td><a href="rings.html#p-aurate-3ct-oval-lgd-solitaire">3ct Oval Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
+              <td><span class="badge warn">Weight Range Only</span><span class="sub mono">WEIGHT_RANGE_ONLY</span></td>
+              <td class="small">Listing prints &#x27;Weight: 5.9-8.9g&#x27; inside a shared multi-metal specs block spanning 14k gold, 18k gold, and platinum without per-alloy breakdown; weight_g stays null.</td>
+              <td><a href="https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
+            </tr><tr>
+              <td><a href="rings.html#p-aurate-3ct-oval-lgd-solitaire">3ct Oval Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
+              <td><span class="badge warn">Exchange Only Final Sale</span><span class="sub mono">EXCHANGE_ONLY_FINAL_SALE</span></td>
+              <td class="small">Live PDP prints &#x27;Final Sale! / Exchange for size only.&#x27; linking to https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale — zero cash/card refund, size exchange only once, and a 30% cancellation fee after 24 hours on made-to-order pieces.</td>
+              <td><a href="https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
+            </tr><tr>
+              <td><a href="rings.html#p-aurate-3ct-oval-lgd-solitaire">3ct Oval Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
+              <td><span class="badge warn">Page Self Contradiction</span><span class="sub mono">PAGE_SELF_CONTRADICTION</span></td>
+              <td class="small">Diamond clarity conflicts across the same PDP (&#x27;VVS clarity&#x27; in prose vs &#x27;VS/EF&#x27; in specs vs &#x27;SI Clarity Only&#x27; badge).</td>
+              <td><a href="https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-3ct-pear-lgd-bezel">3ct Pear Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Brand-level</span><span class="sub mono">SOLID_NOT_ON_LISTING</span></td>
               <td class="small">Purity statement is at brand level, not on the listing.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/3ct-pear-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-3ct-pear-lgd-bezel">3ct Pear Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">From-price</span><span class="sub mono">PRICE_FROM_LOWEST_VARIANT</span></td>
               <td class="small">Only the &#x27;From&#x27; price is published.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/3ct-pear-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-3ct-pear-lgd-bezel">3ct Pear Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">No weight</span><span class="sub mono">WEIGHT_NOT_PUBLISHED</span></td>
               <td class="small">No ring weight in grams on the listing.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/3ct-pear-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-3ct-pear-lgd-bezel">3ct Pear Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">No hallmark</span><span class="sub mono">HALLMARK_NOT_STATED</span></td>
               <td class="small">No hallmark / maker&#x27;s-mark statement on the listing.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/3ct-pear-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">source</a></td>
+            </tr><tr>
+              <td><a href="rings.html#p-aurate-3ct-pear-lgd-bezel">3ct Pear Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
+              <td><span class="badge warn">Weight Range Only</span><span class="sub mono">WEIGHT_RANGE_ONLY</span></td>
+              <td class="small">Listing prints &#x27;Weight: 3.33g&#x27; inside a shared multi-metal specs block spanning 14k gold, 18k gold, and platinum without per-alloy breakdown; weight_g stays null.</td>
+              <td><a href="https://auratenewyork.com/products/3ct-pear-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">source</a></td>
+            </tr><tr>
+              <td><a href="rings.html#p-aurate-3ct-pear-lgd-bezel">3ct Pear Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
+              <td><span class="badge warn">Exchange Only Final Sale</span><span class="sub mono">EXCHANGE_ONLY_FINAL_SALE</span></td>
+              <td class="small">Live PDP prints &#x27;Final Sale! / Exchange for size only.&#x27; linking to https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale — zero cash/card refund, size exchange only once, and a 30% cancellation fee after 24 hours on made-to-order pieces.</td>
+              <td><a href="https://auratenewyork.com/products/3ct-pear-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">source</a></td>
+            </tr><tr>
+              <td><a href="rings.html#p-aurate-3ct-pear-lgd-bezel">3ct Pear Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
+              <td><span class="badge warn">Page Self Contradiction</span><span class="sub mono">PAGE_SELF_CONTRADICTION</span></td>
+              <td class="small">Title says &#x27;3ct Pear&#x27; while Specs print &#x27;3.6tcw&#x27;; Diamond clarity conflicts across the same PDP (&#x27;VVS clarity&#x27; in prose vs &#x27;VS/EF&#x27; in specs vs &#x27;SI Clarity Only&#x27; badge).</td>
+              <td><a href="https://auratenewyork.com/products/3ct-pear-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-bluenile-petite-solitaire-14k-yg">Petite Solitaire Engagement Ring in 14k Yellow Gold</a><span class="sub">Blue Nile</span></td>
               <td><span class="badge warn">Setting only</span><span class="sub mono">SETTING_PRICE_ONLY</span></td>
@@ -480,52 +625,42 @@
               <td><a href="rings.html#p-bluenile-petite-hidden-halo-14k-yg">Petite Hidden Halo Solitaire Plus Diamond Engagement Ring in 14k Yellow Gold</a><span class="sub">Blue Nile</span></td>
               <td><span class="badge warn">Setting only</span><span class="sub mono">SETTING_PRICE_ONLY</span></td>
               <td class="small">Excludes the centre diamond.</td>
-              <td><a href="https://www.bluenile.com/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/petite-hidden-halo-solitaire-plus-diamond-engagement-ring-in-14k-yellow-gold-item-192506" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-bluenile-petite-hidden-halo-14k-yg">Petite Hidden Halo Solitaire Plus Diamond Engagement Ring in 14k Yellow Gold</a><span class="sub">Blue Nile</span></td>
               <td><span class="badge warn">No &#x27;solid&#x27;</span><span class="sub mono">SOLID_NOT_STATED</span></td>
               <td class="small">Page states 14k gold but does not say &#x27;solid&#x27;.</td>
-              <td><a href="https://www.bluenile.com/engagement-rings" target="_blank" rel="noopener">source</a></td>
-            </tr><tr>
-              <td><a href="rings.html#p-bluenile-petite-hidden-halo-14k-yg">Petite Hidden Halo Solitaire Plus Diamond Engagement Ring in 14k Yellow Gold</a><span class="sub">Blue Nile</span></td>
-              <td><span class="badge warn">Listing-level price</span><span class="sub mono">PRICE_NOT_RECONFIRMED</span></td>
-              <td class="small">Price taken from Blue Nile&#x27;s official category listing, not re-opened on the product page.</td>
-              <td><a href="https://www.bluenile.com/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/petite-hidden-halo-solitaire-plus-diamond-engagement-ring-in-14k-yellow-gold-item-192506" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-bluenile-petite-hidden-halo-14k-yg">Petite Hidden Halo Solitaire Plus Diamond Engagement Ring in 14k Yellow Gold</a><span class="sub">Blue Nile</span></td>
               <td><span class="badge warn">No weight</span><span class="sub mono">WEIGHT_NOT_PUBLISHED</span></td>
               <td class="small">No metal weight in grams.</td>
-              <td><a href="https://www.bluenile.com/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/petite-hidden-halo-solitaire-plus-diamond-engagement-ring-in-14k-yellow-gold-item-192506" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-bluenile-petite-hidden-halo-14k-yg">Petite Hidden Halo Solitaire Plus Diamond Engagement Ring in 14k Yellow Gold</a><span class="sub">Blue Nile</span></td>
               <td><span class="badge warn">No hallmark</span><span class="sub mono">HALLMARK_NOT_STATED</span></td>
               <td class="small">No hallmark / maker&#x27;s-mark statement.</td>
-              <td><a href="https://www.bluenile.com/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/petite-hidden-halo-solitaire-plus-diamond-engagement-ring-in-14k-yellow-gold-item-192506" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-bluenile-riviera-pave-14k-wg">Riviera Pavé Diamond Engagement Ring in 14k White Gold (1/6 ct. tw.)</a><span class="sub">Blue Nile</span></td>
               <td><span class="badge warn">Setting only</span><span class="sub mono">SETTING_PRICE_ONLY</span></td>
               <td class="small">Excludes the centre diamond.</td>
-              <td><a href="https://www.bluenile.com/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/riviera-pave-diamond-engagement-ring-in-14k-white-gold-1-6-ct-tw-item-195326" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-bluenile-riviera-pave-14k-wg">Riviera Pavé Diamond Engagement Ring in 14k White Gold (1/6 ct. tw.)</a><span class="sub">Blue Nile</span></td>
               <td><span class="badge warn">No &#x27;solid&#x27;</span><span class="sub mono">SOLID_NOT_STATED</span></td>
               <td class="small">Page states 14k white gold but does not say &#x27;solid&#x27;.</td>
-              <td><a href="https://www.bluenile.com/engagement-rings" target="_blank" rel="noopener">source</a></td>
-            </tr><tr>
-              <td><a href="rings.html#p-bluenile-riviera-pave-14k-wg">Riviera Pavé Diamond Engagement Ring in 14k White Gold (1/6 ct. tw.)</a><span class="sub">Blue Nile</span></td>
-              <td><span class="badge warn">Listing-level price</span><span class="sub mono">PRICE_NOT_RECONFIRMED</span></td>
-              <td class="small">Price taken from Blue Nile&#x27;s official category listing.</td>
-              <td><a href="https://www.bluenile.com/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/riviera-pave-diamond-engagement-ring-in-14k-white-gold-1-6-ct-tw-item-195326" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-bluenile-riviera-pave-14k-wg">Riviera Pavé Diamond Engagement Ring in 14k White Gold (1/6 ct. tw.)</a><span class="sub">Blue Nile</span></td>
               <td><span class="badge warn">No weight</span><span class="sub mono">WEIGHT_NOT_PUBLISHED</span></td>
               <td class="small">No metal weight in grams.</td>
-              <td><a href="https://www.bluenile.com/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/riviera-pave-diamond-engagement-ring-in-14k-white-gold-1-6-ct-tw-item-195326" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-bluenile-riviera-pave-14k-wg">Riviera Pavé Diamond Engagement Ring in 14k White Gold (1/6 ct. tw.)</a><span class="sub">Blue Nile</span></td>
               <td><span class="badge warn">No hallmark</span><span class="sub mono">HALLMARK_NOT_STATED</span></td>
               <td class="small">No hallmark / maker&#x27;s-mark statement.</td>
-              <td><a href="https://www.bluenile.com/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/riviera-pave-diamond-engagement-ring-in-14k-white-gold-1-6-ct-tw-item-195326" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-bluenile-floral-marquise-18k-wg">Floral Marquise Diamond Engagement Ring in 18k White Gold</a><span class="sub">Blue Nile</span></td>
               <td><span class="badge warn">Contradiction</span><span class="sub mono">DESCRIPTION_CONTRADICTION</span></td>
@@ -555,27 +690,22 @@
               <td><a href="rings.html#p-bluenile-criss-cross-18k-yg">Criss Cross Solitaire Engagement Ring In 18K Yellow Gold By James Allen</a><span class="sub">Blue Nile (By James Allen)</span></td>
               <td><span class="badge warn">Setting only</span><span class="sub mono">SETTING_PRICE_ONLY</span></td>
               <td class="small">Excludes the centre diamond.</td>
-              <td><a href="https://www.bluenile.com/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/criss-cross-solitaire-engagement-ring-in-18k-yellow-gold-by-james-allen-item-311132" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-bluenile-criss-cross-18k-yg">Criss Cross Solitaire Engagement Ring In 18K Yellow Gold By James Allen</a><span class="sub">Blue Nile (By James Allen)</span></td>
               <td><span class="badge warn">No &#x27;solid&#x27;</span><span class="sub mono">SOLID_NOT_STATED</span></td>
               <td class="small">Page states 18k yellow gold but does not say &#x27;solid&#x27;.</td>
-              <td><a href="https://www.bluenile.com/engagement-rings" target="_blank" rel="noopener">source</a></td>
-            </tr><tr>
-              <td><a href="rings.html#p-bluenile-criss-cross-18k-yg">Criss Cross Solitaire Engagement Ring In 18K Yellow Gold By James Allen</a><span class="sub">Blue Nile (By James Allen)</span></td>
-              <td><span class="badge warn">Listing-level price</span><span class="sub mono">PRICE_NOT_RECONFIRMED</span></td>
-              <td class="small">Price taken from Blue Nile&#x27;s official category listing.</td>
-              <td><a href="https://www.bluenile.com/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/criss-cross-solitaire-engagement-ring-in-18k-yellow-gold-by-james-allen-item-311132" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-bluenile-criss-cross-18k-yg">Criss Cross Solitaire Engagement Ring In 18K Yellow Gold By James Allen</a><span class="sub">Blue Nile (By James Allen)</span></td>
               <td><span class="badge warn">No weight</span><span class="sub mono">WEIGHT_NOT_PUBLISHED</span></td>
               <td class="small">No metal weight in grams.</td>
-              <td><a href="https://www.bluenile.com/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/criss-cross-solitaire-engagement-ring-in-18k-yellow-gold-by-james-allen-item-311132" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-bluenile-criss-cross-18k-yg">Criss Cross Solitaire Engagement Ring In 18K Yellow Gold By James Allen</a><span class="sub">Blue Nile (By James Allen)</span></td>
               <td><span class="badge warn">No hallmark</span><span class="sub mono">HALLMARK_NOT_STATED</span></td>
               <td class="small">No hallmark / maker&#x27;s-mark statement.</td>
-              <td><a href="https://www.bluenile.com/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/criss-cross-solitaire-engagement-ring-in-18k-yellow-gold-by-james-allen-item-311132" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-mejuri-diamonds-band">Diamonds Band</a><span class="sub">Mejuri</span></td>
               <td><span class="badge warn">No weight</span><span class="sub mono">WEIGHT_NOT_PUBLISHED</span></td>
@@ -593,24 +723,19 @@
               <td><a href="https://mejuri.com/products/diamonds-band?Material=Solid+Yellow+Gold+%2814k%29&amp;Stone=Natural+Diamond" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-mejuri-stacker-ring-10k">Stacker Ring</a><span class="sub">Mejuri</span></td>
-              <td><span class="badge warn">Listing-level price</span><span class="sub mono">PRICE_NOT_RECONFIRMED</span></td>
-              <td class="small">Price taken from Mejuri&#x27;s official category listing, not re-opened on the product page.</td>
-              <td><a href="https://mejuri.com/collections/rings" target="_blank" rel="noopener">source</a></td>
-            </tr><tr>
-              <td><a href="rings.html#p-mejuri-stacker-ring-10k">Stacker Ring</a><span class="sub">Mejuri</span></td>
               <td><span class="badge warn">No weight</span><span class="sub mono">WEIGHT_NOT_PUBLISHED</span></td>
               <td class="small">No ring weight in grams on the listing.</td>
-              <td><a href="https://mejuri.com/collections/rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://mejuri.com/products/stacker-ring?Material=Solid+Yellow+Gold+%2810k%29" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-mejuri-stacker-ring-10k">Stacker Ring</a><span class="sub">Mejuri</span></td>
               <td><span class="badge warn">No hallmark</span><span class="sub mono">HALLMARK_NOT_STATED</span></td>
               <td class="small">No hallmark / maker&#x27;s-mark statement on the listing.</td>
-              <td><a href="https://mejuri.com/collections/rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://mejuri.com/products/stacker-ring?Material=Solid+Yellow+Gold+%2810k%29" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-mejuri-stacker-ring-10k">Stacker Ring</a><span class="sub">Mejuri</span></td>
               <td><span class="badge warn">Not an engagement ring</span><span class="sub mono">NOT_ENGAGEMENT_RING</span></td>
               <td class="small">A stacking ring, not an engagement ring - included as the lowest-cost solid-gold entry point for comparison.</td>
-              <td><a href="https://mejuri.com/collections/rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://mejuri.com/products/stacker-ring?Material=Solid+Yellow+Gold+%2810k%29" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-ringconcierge-2-08-oval-lab-whisper-thin">2.08 Oval Lab Diamond in Whisper Thin® Hidden Halo</a><span class="sub">Ring Concierge</span></td>
               <td><span class="badge warn">No &#x27;solid&#x27;</span><span class="sub mono">SOLID_NOT_STATED</span></td>
@@ -645,32 +770,32 @@
               <td><a href="rings.html#p-ringconcierge-2-72-round-lab-whisper-thin">2.72 Round Lab Diamond in Whisper Thin®</a><span class="sub">Ring Concierge</span></td>
               <td><span class="badge warn">No &#x27;solid&#x27;</span><span class="sub mono">SOLID_NOT_STATED</span></td>
               <td class="small">The listing does not use the word &#x27;solid&#x27;.</td>
-              <td><a href="https://ringconcierge.com/collections/ready-to-ship-engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://ringconcierge.com/products/2-72-round-lab-diamond-in-whisper-thina" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-ringconcierge-2-72-round-lab-whisper-thin">2.72 Round Lab Diamond in Whisper Thin®</a><span class="sub">Ring Concierge</span></td>
               <td><span class="badge warn">Karat in images</span><span class="sub mono">PURITY_NOT_IN_BODY_TEXT</span></td>
               <td class="small">Karat inferred from the collection&#x27;s &#x27;14k Yellow Gold&#x27; metal filter and image descriptions, not stated in body text.</td>
-              <td><a href="https://ringconcierge.com/collections/ready-to-ship-engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://ringconcierge.com/products/2-72-round-lab-diamond-in-whisper-thina" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-ringconcierge-2-72-round-lab-whisper-thin">2.72 Round Lab Diamond in Whisper Thin®</a><span class="sub">Ring Concierge</span></td>
               <td><span class="badge warn">Mixed metal</span><span class="sub mono">MIXED_METAL</span></td>
               <td class="small">Yellow gold band with platinum prongs.</td>
-              <td><a href="https://ringconcierge.com/collections/ready-to-ship-engagement-rings" target="_blank" rel="noopener">source</a></td>
-            </tr><tr>
-              <td><a href="rings.html#p-ringconcierge-2-72-round-lab-whisper-thin">2.72 Round Lab Diamond in Whisper Thin®</a><span class="sub">Ring Concierge</span></td>
-              <td><span class="badge warn">Listing-level price</span><span class="sub mono">PRICE_NOT_RECONFIRMED</span></td>
-              <td class="small">Price taken from the official category listing, not re-opened on the product page.</td>
-              <td><a href="https://ringconcierge.com/collections/ready-to-ship-engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://ringconcierge.com/products/2-72-round-lab-diamond-in-whisper-thina" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-ringconcierge-2-72-round-lab-whisper-thin">2.72 Round Lab Diamond in Whisper Thin®</a><span class="sub">Ring Concierge</span></td>
               <td><span class="badge warn">No weight</span><span class="sub mono">WEIGHT_NOT_PUBLISHED</span></td>
               <td class="small">No ring weight in grams.</td>
-              <td><a href="https://ringconcierge.com/collections/ready-to-ship-engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://ringconcierge.com/products/2-72-round-lab-diamond-in-whisper-thina" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-ringconcierge-2-72-round-lab-whisper-thin">2.72 Round Lab Diamond in Whisper Thin®</a><span class="sub">Ring Concierge</span></td>
               <td><span class="badge warn">No hallmark</span><span class="sub mono">HALLMARK_NOT_STATED</span></td>
               <td class="small">No hallmark / maker&#x27;s-mark statement.</td>
-              <td><a href="https://ringconcierge.com/collections/ready-to-ship-engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://ringconcierge.com/products/2-72-round-lab-diamond-in-whisper-thina" target="_blank" rel="noopener">source</a></td>
+            </tr><tr>
+              <td><a href="rings.html#p-ringconcierge-2-72-round-lab-whisper-thin">2.72 Round Lab Diamond in Whisper Thin®</a><span class="sub">Ring Concierge</span></td>
+              <td><span class="badge warn">Made to order</span><span class="sub mono">MADE_TO_ORDER</span></td>
+              <td class="small">Live PDP specifies 2.72 Carat E VS1 Round Lab Grown Diamond, made to order in 3-4 weeks.</td>
+              <td><a href="https://ringconcierge.com/products/2-72-round-lab-diamond-in-whisper-thina" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-catbird-classic-half-round-2mm">Catbird Classic Wedding Bands, Solid Half Round Band, 2mm</a><span class="sub">Catbird</span></td>
               <td><span class="badge warn">Karat in images</span><span class="sub mono">PURITY_FROM_IMAGE_TEXT</span></td>
@@ -695,12 +820,12 @@
               <td><a href="rings.html#p-mejuri-dome-figure-vermeil">Dôme Figure Ring (18k Gold Vermeil)</a><span class="sub">Mejuri</span></td>
               <td><span class="badge warn">Not solid gold</span><span class="sub mono">NOT_SOLID_GOLD</span></td>
               <td class="small">Vermeil is a sterling-silver base with a gold coating (16 CFR 23.4) - it is not solid gold and must not be counted toward a gold-weight calculation.</td>
-              <td><a href="https://mejuri.com/collections/rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://mejuri.com/products/dome-figure-ring?Material=18k+Gold+Vermeil" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-mejuri-dome-figure-sterling">Dôme Figure Ring (Sterling Silver)</a><span class="sub">Mejuri</span></td>
               <td><span class="badge warn">No gold</span><span class="sub mono">NO_GOLD</span></td>
               <td class="small">Sterling silver contains no gold. Included to show that a familiar product name does not imply gold.</td>
-              <td><a href="https://mejuri.com/collections/rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://mejuri.com/products/dome-figure-ring?Material=Sterling+Silver" target="_blank" rel="noopener">source</a></td>
             </tr></tbody>
     </table>
   </div>
@@ -976,11 +1101,11 @@ exists. A flag with no source of its own is a question about one specific listin
         </div><div class="card" id="flag-SRC2">
           <div style="display:flex;gap:8px;align-items:baseline;flex-wrap:wrap">
             <span class="badge warn">medium</span>
-            <span class="mono">SRC2</span><strong>Cited contact page returned a server error</strong>
+            <span class="mono">SRC2</span><strong>Cited /contact-us page returned HTTP 500 — contact details re-confirmed on two HTTP 200 official pages</strong>
           </div>
-          <p class="small" style="margin:8px 0 4px">Catbird&#x27;s contact page https://www.catbirdnyc.com/contact-us returned &quot;HTTP 500 Internal Server Error&quot; (nginx) on two attempts on 2026-10-23, so the e-mail address recorded against S-CB could not be re-confirmed that day. The same site&#x27;s returns page and product page loaded normally in the same session, so this is a fault on one page rather than a dead domain.</p>
-          <p class="small" style="margin:0"><strong>What to do:</strong> Use the returns portal (returns.narvar.com/catbird) or a store, and re-check the contact page later. Do not treat the recorded e-mail as confirmed as of 2026-10-23.</p>
-          <p class="small" style="margin:6px 0 0"><strong>Source:</strong> <a href="https://www.catbirdnyc.com/contact-us" target="_blank" rel="noopener">official page</a></p>
+          <p class="small" style="margin:8px 0 4px">Catbird&#x27;s contact page https://www.catbirdnyc.com/contact-us returned &quot;HTTP 500 Internal Server Error&quot; (nginx) during both pass P4 (arena/6d6192d1-gold3) and pass P5 (arena/1162b2db-gold3) on 2026-10-23. Pass P5 repointed S-CB&#x27;s primary contact sources to two live HTTP 200 official Catbird documents: https://www.catbirdnyc.com/facts (verbatim: &#x27;Customer Email: customerservice@catbirdnyc.com&#x27; and &#x27;Primary Materials: Solid gold (never plated; over 95% recycled gold)&#x27;) and https://www.catbirdnyc.com/media/files/return_form.pdf (verbatim: &#x27;Catbird, 141 Flushing Avenue, Building 77, Suite 709, Brooklyn, NY 11205, 718-599-2340&#x27;).</p>
+          <p class="small" style="margin:0"><strong>What to do:</strong> Contact customerservice@catbirdnyc.com (verified on catbirdnyc.com/facts) or +1-718-599-2340 (verified on return_form.pdf), and process returns via catbirdnyc.com/returns.</p>
+          <p class="small" style="margin:6px 0 0"><strong>Source:</strong> <a href="https://www.catbirdnyc.com/facts" target="_blank" rel="noopener">official page</a></p>
         </div><div class="card" id="flag-WAR1">
           <div style="display:flex;gap:8px;align-items:baseline;flex-wrap:wrap">
             <span class="badge warn">medium</span>
@@ -1045,14 +1170,6 @@ exists. A flag with no source of its own is a question about one specific listin
           <p class="small" style="margin:8px 0 4px">The Costco URL ends in /100675127, while the page that loads shows &quot;Item 1596365&quot;. The product title matched, so the row is kept, but the two identifiers disagree.</p>
           <p class="small" style="margin:0"><strong>What to do:</strong> Use the item number printed on the page (1596365) and keep a dated screenshot of it next to the URL.</p>
           <p class="small" style="margin:6px 0 0"><strong>Source:</strong> <a href="https://www.costco.com/p/-/round-brilliant-050-ctw-vs2-clarity-i-color-diamond-14kt-gold-band/100675127" target="_blank" rel="noopener">official page</a></p>
-        </div><div class="card" id="flag-L1">
-          <div style="display:flex;gap:8px;align-items:baseline;flex-wrap:wrap">
-            <span class="badge neutral">low</span>
-            <span class="mono">L1</span><strong>Verified at listing level only</strong>
-          </div>
-          <p class="small" style="margin:8px 0 4px">Price and material were taken from the seller&#x27;s collection/listing page; the individual product page was not re-fetched in this session.</p>
-          <p class="small" style="margin:0"><strong>What to do:</strong> Open the product page and re-confirm price before buying.</p>
-          <p class="small" style="margin:6px 0 0"><strong>Source:</strong> <a href="https://mejuri.com/collections/milestone-rings" target="_blank" rel="noopener">official page</a></p>
         </div><div class="card" id="flag-L2">
           <div style="display:flex;gap:8px;align-items:baseline;flex-wrap:wrap">
             <span class="badge neutral">low</span>

@@ -30,17 +30,17 @@
   <h1>Verification log</h1>
   <p class="lead">Every URL this project relies on was opened again on <strong>2026-10-23</strong> and the stored
   value was checked against the text the page returned. This page records what was confirmed, what was corrected, and the
-  values that were <em>deleted</em> because the page never printed them. Session <span class="mono">arena/e6fe3e4f-gold3 (P1-P3) · arena/699d8e05-gold3 (P3) · arena/6d6192d1-gold3 (P4)</span>.</p>
+  values that were <em>deleted</em> because the page never printed them. Session <span class="mono">arena/e6fe3e4f-gold3 (P1-P3) · arena/699d8e05-gold3 (P3) · arena/6d6192d1-gold3 (P4) · arena/1162b2db-gold3 (P5)</span>.</p>
 </div>
 
 <div class="grid cols-3" style="grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin-bottom:8px">
-  <div class="kpi"><div class="label">URLs opened</div><div class="value">109</div>
+  <div class="kpi"><div class="label">URLs opened</div><div class="value">121</div>
     <div class="sub">each one fetched, not assumed</div></div>
-  <div class="kpi"><div class="label">Confirmed as stored</div><div class="value">61</div>
+  <div class="kpi"><div class="label">Confirmed as stored</div><div class="value">64</div>
     <div class="sub">value found verbatim on the page</div></div>
-  <div class="kpi"><div class="label">Rows corrected</div><div class="value">29</div>
+  <div class="kpi"><div class="label">Rows corrected</div><div class="value">35</div>
     <div class="sub">the page said something different</div></div>
-  <div class="kpi"><div class="label">Newly flagged</div><div class="value">19</div>
+  <div class="kpi"><div class="label">Newly flagged</div><div class="value">22</div>
     <div class="sub">page contradicts itself or the listing</div></div>
 </div>
 
@@ -820,6 +820,90 @@
           <td class="mono">S-SARRAF</td>
           <td><span class="badge good">confirmed</span></td>
           <td class="small">Page prints the extended-holiday clause, &quot;Items from which the Sarraf.com tag has been removed are not eligible for return or exchange&quot;, &quot;resized (by a jeweler other than Sarraf Jewelry Inc.) ... cannot be accepted for return&quot;, the $25.00 engraving / $50.00 finish charges, and the return address. No percentage card fee appears anywhere on it - which is what flag RET7 originally got wrong and what the correction note records.</td>
+        </tr><tr>
+          <td class="mono">P5-01</td>
+          <td><a href="https://mene.com/rings/gold/wide-flat-band-gold" target="_blank" rel="noopener">Menē 24K bands (BND-01..BND-03) — unverified snippet weights blanked to null and direct PDPs verified</a>
+            <div class="tiny muted">P5 · Dataset C bands BND-01..BND-03</div></td>
+          <td class="mono">BND-01, BND-02, BND-03, SEL-MENE</td>
+          <td><span class="badge info">corrected</span></td>
+          <td class="small">Opened classic-band-gold ($1,707 PDP / From $1,664 collection), narrow-flat-band-gold ($1,544 PDP &amp; collection), wide-flat-band-gold ($2,465 PDP / From $2,315 collection), and /products/*.json (HTTP 404). Zero gram weights appear anywhere in server-rendered HTML; blanked 8.5g, 7.9g, and 12.0g plus derived melt ratios strictly to null and flagged as unverified.</td>
+        </tr><tr>
+          <td class="mono">P5-02</td>
+          <td><a href="https://www.ross-simons.com/products/993085" target="_blank" rel="noopener">Ross-Simons 14K/22K bands &amp; signet (BND-04..BND-08) — live PDP prices &amp; published weights confirmed</a>
+            <div class="tiny muted">P5 · Dataset C bands BND-04..BND-08</div></td>
+          <td class="mono">BND-04, BND-05, BND-06, BND-07, BND-08, SEL-ROSSSIMONS</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">All five Ross-Simons band/coin listings opened directly on 2026-10-23: 571221 ($949, 4.2g), 571212 ($400, 1.7g), 823796 ($950, 4.2g), 964717 ($1,047/$1,050, 3.5g), and 993085 ($1,529, 6.2g mixed 22K coin + 14K shank kept null on melt). Extended unprinted hallmark cleanup to BND-08.</td>
+        </tr><tr>
+          <td class="mono">P5-03</td>
+          <td><a href="https://mejuri.com/products/slim-cigar-band?Material=14k+Yellow+Gold" target="_blank" rel="noopener">Mejuri 14K bands (BND-09..BND-12) — live PDP prices &amp; omitted weights confirmed; unprinted hallmarks cleaned</a>
+            <div class="tiny muted">P5 · Dataset C bands BND-09..BND-12</div></td>
+          <td class="mono">BND-09, BND-10, BND-11, BND-12, SEL-MEJURI</td>
+          <td><span class="badge info">corrected</span></td>
+          <td class="small">Confirmed live prices and explicit &#x27;14k solid gold&#x27; wording across Slim Cigar Band ($298), Cigar Band ($748), Charlotte Bold Ring ($498), and Diamonds Eternity Band ($1,698), with all gram weights omitted and unprinted hallmark statements removed.</td>
+        </tr><tr>
+          <td class="mono">P5-04</td>
+          <td><a href="https://www.ross-simons.com/products/990022" target="_blank" rel="noopener">Blue Nile &amp; Ross-Simons solitaires (SOL-01..SOL-03, SOL-07..SOL-09) — live PDP prices &amp; unprinted hallmarks verified</a>
+            <div class="tiny muted">P5 · Dataset C solitaires SOL-01..SOL-03, SOL-07..SOL-09</div></td>
+          <td class="mono">SOL-01, SOL-02, SOL-03, SOL-07, SOL-08, SOL-09</td>
+          <td><span class="badge info">corrected</span></td>
+          <td class="small">Confirmed live prices on Blue Nile 194158 ($1,125), 195063 ($2,595), 195639 ($1,000) and Ross-Simons 990022 ($2,819 GIA #2225975086), 251663 ($199 with 10kt vs 14kt conflict), and 241592 ($29 gold-over-brass control); cleaned unprinted hallmark claims across SOL-01..SOL-08.</td>
+        </tr><tr>
+          <td class="mono">P5-05</td>
+          <td><a href="https://www.brilliantearth.com/Fairmined-2mm-Six-Prong-Solitaire-Ring-Gold-BE1FM0126-24910022/" target="_blank" rel="noopener">Brilliant Earth solitaires (SOL-04..SOL-06 &amp; R29) — caught &#x27;Band Width: 2 ct. tw.&#x27; spec bug &amp; EUR geo-routing</a>
+            <div class="tiny muted">P5 · Dataset C SOL-04..SOL-06 &amp; Dataset B R29</div></td>
+          <td class="mono">SOL-04, SOL-05, SOL-06, R29, SEL-BRILLIANTEARTH</td>
+          <td><span class="badge bad">flagged</span></td>
+          <td class="small">Confirmed canonical US JSON-LD prices ($1,650, $1,090, $850), dual 18K/14K alloy on SOL-06, resizing contradiction on BE1FM0126, and newly caught &#x27;Band Width: 2 ct. tw.&#x27; unit error on BE1FM0126 plus EUR geo-routing (€1,850 / €1,250) on non-US requests; also confirmed $40 engraved return fee on brilliantearth.com/30-Day-Returns/.</td>
+        </tr><tr>
+          <td class="mono">P5-06</td>
+          <td><a href="https://www.gia.edu/dam/migrated-assets/docs/doc1/summer-2025-lab-notes.pdf" target="_blank" rel="noopener">Statutory, NIST &amp; GIA standards (STD-01..STD-06) — replaced broken 404/500 URLs with live HTTP 200 primary sources</a>
+            <div class="tiny muted">P5 · standards STD-01..STD-06</div></td>
+          <td class="mono">STD-01, STD-02, STD-03, STD-04, STD-05, STD-06, standards</td>
+          <td><span class="badge info">corrected</span></td>
+          <td class="small">Replaced HTTP 500 uscode.house.gov with HTTP 200 law.cornell.edu/uscode/text/15/295 &amp; /297, HTTP 404 gov.uk/guidance/hallmarking-law-and-practice with HTTP 200 gov.uk/.../hallmarking-is-the-law-guidance-summary, and HTTP 404 GIA HTML slug with HTTP 200 GIA Summer 2025 Lab Notes PDF (&#x27;Gold-Plated Gold: Deceptive High-Karat Coating on Lower-Karat Jewelry&#x27;); verified eCFR Part 23 (amended 10/19/2026) and NIST constants.</td>
+        </tr><tr>
+          <td class="mono">P5-07</td>
+          <td><a href="https://www.kitco.com/price/precious-metals" target="_blank" rel="noopener">Four-feed live spot gold cross-check on 2026-10-23 (GoldPrice.org, Kitco, BullionVault, World Gold Council + LBMA)</a>
+            <div class="tiny muted">P5 · spot gold &amp; LBMA benchmark check</div></td>
+          <td class="mono">spot</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">Opened all four independent spot feeds plus LBMA on 2026-10-23: GoldPrice.org $4,022.22/oz ($129.3174/g), Kitco Bid $4,022.70/oz (London AM Fix $4,026.66/oz), BullionVault $4,024.23/oz ($129.38/g), and World Gold Council $4,024.45/oz (0.055% spread across 4 sources); LBMA confirmed MyLBMA IBA licence gate verbatim.</td>
+        </tr><tr>
+          <td class="mono">P5-08</td>
+          <td><a href="https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale" target="_blank" rel="noopener">All seven Aurate lab-grown engagement ring PDPs + Final Sale / Exchange-Only terms page</a>
+            <div class="tiny muted">P5 · Dataset A Aurate engagement rings (7 PDPs)</div></td>
+          <td class="mono">aurate-2ct-round-lgd-solitaire, aurate-2ct-emerald-lgd-solitaire, aurate-1ct-round-lgd-bezel, aurate-2ct-emerald-lgd-bezel, aurate-2ct-oval-lgd-solitaire, aurate-3ct-oval-lgd-solitaire, aurate-3ct-pear-lgd-bezel</td>
+          <td><span class="badge bad">flagged</span></td>
+          <td class="small">Opened all 7 individual PDPs (AU5760 $2,858 5.5-8.5g; AU5769 $2,638 5.5-8.5g; AU5000 $1,498 2.23g; AU5093 $1,968 2.36g + &#x27;classic oval diamond&#x27; copy bug; AU5763 $2,858 5.7-8.7g; AU5764 $3,958 5.9-8.9g; AU5107 $2,498 3.33g 3.6tcw) and terms page: every single ring prints &#x27;Final Sale! / Exchange for size only.&#x27; (zero cash refund; 30% MTO cancellation fee after 24h) plus VVS/VS/SI clarity self-contradictions.</td>
+        </tr><tr>
+          <td class="mono">P5-09</td>
+          <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/classic-trio-diamond-engagement-ring-in-18k-white-gold-1-4-ct-tw-item-203738" target="_blank" rel="noopener">All five Dataset A Blue Nile PDPs — confirmed live setting prices &amp; caught 203738 18K WG vs 14k YG body contradiction</a>
+            <div class="tiny muted">P5 · Dataset A Blue Nile settings (5 PDPs)</div></td>
+          <td class="mono">bluenile-petite-solitaire-14k-yg, bluenile-petite-hidden-halo-14k-yg, bluenile-riviera-pave-14k-wg, bluenile-floral-marquise-18k-wg, bluenile-criss-cross-18k-yg</td>
+          <td><span class="badge bad">flagged</span></td>
+          <td class="small">Replaced all remaining collection quotes with direct PDPs ($1,000, $1,255, $1,500, $2,210, $2,320) and flagged item 203738 for stating &#x27;Metal: 18K White Gold&#x27; in specs while body prose reads &#x27;crafted in luminous 14k yellow gold&#x27;.</td>
+        </tr><tr>
+          <td class="mono">P5-10</td>
+          <td><a href="https://mejuri.com/products/slim-diamond-eternity-band" target="_blank" rel="noopener">Mejuri direct PDPs (R02, R03, R19 + Dataset A bands/controls) — corrected R03 from $648 collection to From $898 PDP</a>
+            <div class="tiny muted">P5 · Mejuri R02, R03, R19 &amp; Dataset A rows</div></td>
+          <td class="mono">R02, R03, R19, mejuri-diamonds-band, mejuri-stacker-ring-10k, mejuri-dome-figure-vermeil, mejuri-dome-figure-sterling</td>
+          <td><span class="badge info">corrected</span></td>
+          <td class="small">Opened all 6 individual Mejuri PDPs live on 2026-10-23: corrected R03 (Slim Diamond Eternity Band) from collection-grid $648 (which belongs to Diamonds Band) to actual PDP starting price &#x27;From $898&#x27; (+38.6%); confirmed R02 ($1,500), R19 ($178 vermeil), Diamonds Band ($648), Stacker Ring ($138 10k), Dome Figure Vermeil ($158) and Silver ($138).</td>
+        </tr><tr>
+          <td class="mono">P5-11</td>
+          <td><a href="https://www.catbirdnyc.com/facts" target="_blank" rel="noopener">Ring Concierge PDPs, Catbird PDP &amp; HTTP 200 /facts + return_form.pdf (resolving SRC2), plus Trustpilot refresh</a>
+            <div class="tiny muted">P5 · Ring Concierge, Catbird SRC2 &amp; Trustpilot</div></td>
+          <td class="mono">S-CB, catbird-classic-half-round-2mm, ringconcierge-2-08-oval-lab-whisper-thin, ringconcierge-2-72-round-lab-whisper-thin, retailers</td>
+          <td><span class="badge info">corrected</span></td>
+          <td class="small">Confirmed Ring Concierge 2.08ct ($6,038) &amp; 2.72ct E VS1 ($7,268) + /policies/refund-policy (30d, 3yr warranty), Catbird 2mm Half Round (from $550), and resolved HTTP 500 catbirdnyc.com/contact-us via HTTP 200 catbirdnyc.com/facts (&#x27;customerservice@catbirdnyc.com&#x27;) and return_form.pdf (&#x27;141 Flushing Avenue, Building 77, Suite 709, Brooklyn, NY 11205&#x27;, &#x27;718-599-2340&#x27;); refreshed all 5 Trustpilot counts.</td>
+        </tr><tr>
+          <td class="mono">P5-12</td>
+          <td><a href="https://www.vrai.com/configure/setting-to-diamond/petite-4-prong-ring/round-brilliant-yellow-gold-41015509221469" target="_blank" rel="noopener">Remaining Dataset B/D configurator &amp; redirect rows (Tiffany R17, VRAI R28, Local Eclectic R31)</a>
+            <div class="tiny muted">P5 · R17, R28, R31 complete backlog closure</div></td>
+          <td class="mono">R17, R28, R31</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">Confirmed Tiffany R17 (Starting from $1,600, non-returnable / exchange only, (800) 843-3269), Local Eclectic R31 ($239, &#x27;9k Solid Gold&#x27; badge vs &#x27;10k solid yellow gold&#x27; bullet), and VRAI R28 (&#x27;Metal weight: 2.3g&#x27;, &#x27;Band width: 1.7mm&#x27;, dynamic JS price left null, plus static &#x27;Pavé carat weight: 0.11ctw&#x27; template line noted under F28).</td>
         </tr></tbody>
   </table>
 </div>
@@ -853,7 +937,7 @@
         <td class="small">Two footnotes still claimed &#x27;none of the listings publishes a weight&#x27; / &#x27;No retailer in this dataset publishes one&#x27; and 6 summary/reference tables lacked row-level official https:// source links.</td>
         <td class="small">Session arena/cbea1001-gold3 line-by-line review &amp; row-link scanner. <strong>Fix:</strong> Updated prose to distinguish Dataset A (0 published weights) from Dataset B (13 published weights) and added official https:// source links to 100% of &lt;tbody&gt;&lt;tr&gt; rows across all root pages.</td>
         <td><span class="badge good">fixed</span></td>
-        <td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo commit</a></td></tr><tr><td class="mono">SD6</td><td class="mono small">bands-vintage-rings.html (data/bands-and-high-karat.json)</td>
+        <td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo commit</a></td></tr><tr><td class="mono">SD6b</td><td class="mono small">bands-vintage-rings.html (data/bands-and-high-karat.json)</td>
         <td class="small">Seven band records stated a hallmark in the seller&#x27;s voice (&quot;14K quality mark + maker&#x27;s trademark&quot;, &quot;Mene maker&#x27;s mark + 24K stamp + Certificate of Authenticity&quot;) although none of the cited pages prints any hallmark or maker&#x27;s-mark statement. The words came from general jewellery practice, not from the source.</td>
         <td class="small">Fourth verification pass (P4), reading each band source page line by line. <strong>Fix:</strong> hallmark_disclosure rewritten to &quot;not published by the seller&quot; on BND-01 to BND-07, with the 16 CFR 23.10 / 15 U.S.C. 297 check stated as a to-do rather than a fact.</td>
         <td><span class="badge good">fixed 2026-10-23</span></td>
@@ -864,6 +948,18 @@
         <td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo commit</a></td></tr><tr><td class="mono">SD8</td><td class="mono small">bands-vintage-rings.html, rings.html</td>
         <td class="small">Four Mene listings were presented with a single captured price and no statement that the seller re-quotes as the metal moves. All four had moved by 0.7-1% within one day.</td>
         <td class="small">Fourth verification pass (P4), re-reading the Mene product and collection pages. <strong>Fix:</strong> live_recheck blocks added to R30 and BND-01/02/03 and new flag PRC1 documents the movement; captured prices are kept, not overwritten.</td>
+        <td><span class="badge good">fixed 2026-10-23</span></td>
+        <td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo commit</a></td></tr><tr><td class="mono">SD9</td><td class="mono small">bands-vintage-rings.html, calculator.html (data/bands-and-high-karat.json, scripts/build_ext_pages.py)</td>
+        <td class="small">BND-01..BND-03 displayed exact gram weights (8.5g, 7.9g, 12.0g), pure gold grams, melt values, and 1.50x-1.56x melt ratios (including hardcoded calculator presets and hero prose), even though mene.com static HTML omits ring gram weights completely (/products/*.json returns HTTP 404).</td>
+        <td class="small">Fifth verification pass (P5, session arena/1162b2db-gold3), fetching all 3 individual Menē PDPs and JSON endpoints. <strong>Fix:</strong> Blanked weight_grams and all derived melt fields to null on BND-01..BND-03, flagged as unverified, repointed BND-02 &amp; BND-03 to direct PDPs, and replaced hardcoded Menē presets/prose in scripts/build_ext_pages.py.</td>
+        <td><span class="badge good">fixed 2026-10-23</span></td>
+        <td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo commit</a></td></tr><tr><td class="mono">SD10</td><td class="mono small">solitaire-settings.html, bands-vintage-rings.html (data/solitaire-rings.json, data/bands-and-high-karat.json)</td>
+        <td class="small">BND-08..BND-12 and SOL-01..SOL-08 still asserted unprinted seller hallmark statements in hallmark_disclosure, and filter option counts (8/13) and flagged counts (16) were hardcoded in scripts/build_ext_pages.py.</td>
+        <td class="small">Fifth verification pass (P5, session arena/1162b2db-gold3). <strong>Fix:</strong> Extended SD6b unprinted hallmark cleanup across all remaining Dataset C items and replaced hardcoded counts in scripts/build_ext_pages.py with live computed totals.</td>
+        <td><span class="badge good">fixed 2026-10-23</span></td>
+        <td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo commit</a></td></tr><tr><td class="mono">SD11</td><td class="mono small">checklist-standards.html, retailers.html, sellers.html (scripts/build_ext_pages.py, data/spot-and-standards.json, data/sellers.json)</td>
+        <td class="small">Four live HTTP 404/500 official links remained in rendered pages: uscode.house.gov (HTTP 500), gov.uk/guidance/hallmarking-law-and-practice (HTTP 404), gia.edu/gems-gemology/summer-2025-lab-notes-gold-plated-gold0 (HTTP 404), and catbirdnyc.com/contact-us (HTTP 500).</td>
+        <td class="small">Fifth verification pass (P5, session arena/1162b2db-gold3), testing every unique external HTTPS URL. <strong>Fix:</strong> Replaced all four with live HTTP 200 primary pages on the exact official domains (Cornell LII 15 U.S.C. §§ 295 &amp; 297, GOV.UK Hallmarking Guidance Notes, GIA Summer 2025 Lab Notes PDF, and catbirdnyc.com/facts + return_form.pdf).</td>
         <td><span class="badge good">fixed 2026-10-23</span></td>
         <td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo commit</a></td></tr></tbody>
   </table>
@@ -909,7 +1005,7 @@
         <td class="small"><a href="https://mene.com/collections/bands-gold" target="_blank" rel="noopener">official source</a></td></tr><tr><td class="mono">S-CB</td><td>Catbird&#x27;s cited contact page returned HTTP 500 on 2026-10-23, so the recorded e-mail could not be re-confirmed.</td>
         <td><span class="mono">SRC2</span></td>
         <td><span class="badge warn">medium</span></td>
-        <td class="small"><a href="https://www.catbirdnyc.com/contact-us" target="_blank" rel="noopener">official source</a></td></tr></tbody>
+        <td class="small"><a href="https://www.catbirdnyc.com/facts" target="_blank" rel="noopener">official source</a></td></tr></tbody>
   </table>
 </div>
 
@@ -917,14 +1013,14 @@
 <div class="card">
   <p class="small muted" style="margin-top:0">Links kept in the dataset but not opened in this pass are declared here rather
   than implied to be verified.</p>
-  <ul class="small"><li><a href="https://www.bluenile.com/engagement-rings" target="_blank" rel="noopener">https://www.bluenile.com/engagement-rings</a> &mdash; Collection page cited by four rows as context only; the product pages themselves were re-fetched and they carry every value used.</li><li><a href="https://www.lbma.org.uk/prices-and-data/lbma-precious-metal-prices" target="_blank" rel="noopener">https://www.lbma.org.uk/prices-and-data/lbma-precious-metal-prices</a> &mdash; LBMA states its historical benchmark tables are licence-gated, so no LBMA figure is used anywhere in this project. The claim itself was not re-opened this pass.</li><li><a href="https://mejuri.com/products/bold-diamond-half-eternity-ring" target="_blank" rel="noopener">https://mejuri.com/products/bold-diamond-half-eternity-ring</a> &mdash; R02 not re-opened in the 2026-10-23 pass; value remains the 2026-10-22 capture.</li><li><a href="https://mejuri.com/collections/milestone-rings" target="_blank" rel="noopener">https://mejuri.com/collections/milestone-rings</a> &mdash; R03&#x27;s $648 sits on a collection page. The 2026-10-23 fetch returned the first part of the page only, so the card was not located and the price is not claimed as re-verified.</li><li><a href="https://mejuri.com/products/duet-mixed-ring" target="_blank" rel="noopener">https://mejuri.com/products/duet-mixed-ring</a> &mdash; R19 not re-opened in the 2026-10-23 pass (excluded vermeil row); value remains the 2026-10-22 capture.</li><li><a href="https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring</a> &mdash; All seven Aurate rows: not re-opened in the 2026-10-23 pass. Their prices remain the 2026-10-22 capture and are flagged accordingly.</li><li><a href="https://ringconcierge.com/products/2-08-oval-lab-diamond-in-14k-gold-whisper-thin-solitaire" target="_blank" rel="noopener">https://ringconcierge.com/products/2-08-oval-lab-diamond-in-14k-gold-whisper-thin-solitaire</a> &mdash; Ring Concierge rows not re-opened in the 2026-10-23 pass.</li><li><a href="https://www.tiffany.com/engagement/engagement-rings/the-tiffany-setting-engagement-ring-in-18k-yellow-gold-GRP10863/" target="_blank" rel="noopener">https://www.tiffany.com/engagement/engagement-rings/the-tiffany-setting-engagement-ring-in-18k-yellow-gold-GRP10863/</a> &mdash; R17 not re-opened in the 2026-10-23 pass.</li><li><a href="https://www.vrai.com/configure/setting-to-diamond/petite-4-prong-ring/round-brilliant-yellow-gold-41015509221469" target="_blank" rel="noopener">https://www.vrai.com/configure/setting-to-diamond/petite-4-prong-ring/round-brilliant-yellow-gold-41015509221469</a> &mdash; R28 is a client-side configurator with no static price; not re-opened in the 2026-10-23 pass.</li><li><a href="https://www.brilliantearth.com/Fairmined-2mm-Six-Prong-Solitaire-Ring-Gold-BE1FM0126-24910022/" target="_blank" rel="noopener">https://www.brilliantearth.com/Fairmined-2mm-Six-Prong-Solitaire-Ring-Gold-BE1FM0126-24910022/</a> &mdash; R29 not re-opened in the 2026-10-23 pass.</li><li><a href="https://www.localeclectic.com/products/solid-gold-simple-knot-ring" target="_blank" rel="noopener">https://www.localeclectic.com/products/solid-gold-simple-knot-ring</a> &mdash; R31 not re-opened in the 2026-10-23 pass; the 9k/10k contradiction (SPEC2) therefore remains as captured.</li><li><a href="https://www.ross-simons.com/products/993085" target="_blank" rel="noopener">https://www.ross-simons.com/products/993085</a> &mdash; BND-08 (22K/14K coin ring) not re-opened in the 2026-10-23 pass.</li><li><a href="https://www.ross-simons.com/products/823796" target="_blank" rel="noopener">https://www.ross-simons.com/products/823796</a> &mdash; BND-06 not re-opened in the 2026-10-23 pass.</li><li><a href="https://www.ross-simons.com/products/964717" target="_blank" rel="noopener">https://www.ross-simons.com/products/964717</a> &mdash; BND-07 not re-opened in the 2026-10-23 pass.</li><li><a href="https://www.ross-simons.com/products/571212" target="_blank" rel="noopener">https://www.ross-simons.com/products/571212</a> &mdash; BND-05 not re-opened in the 2026-10-23 pass.</li><li><a href="https://www.catbirdnyc.com/catbird-classic-wedding-bands-solid-gold" target="_blank" rel="noopener">https://www.catbirdnyc.com/catbird-classic-wedding-bands-solid-gold</a> &mdash; Dataset A Catbird row not re-opened in the 2026-10-23 pass.</li></ul>
+  <ul class="small"></ul>
 </div>
 
 <h2>What no website can verify</h2>
 <div class="grid cols-2">
   <div class="card">
     <h3 style="margin-top:0">Needs the object in hand</h3>
-    <ul class="small"><li>true karat of the actual object (needs XRF/assay)</li><li>authenticity of a stamp</li><li>hidden repairs on estate pieces</li><li>seller complaint history</li></ul>
+    <ul class="small"><li>true karat of the actual object (needs XRF/assay)</li><li>authenticity of a stamp</li><li>hidden repairs on estate pieces</li><li>client-side-only JS prices/weights not rendered in static HTML</li></ul>
   </div>
   <div class="card">
     <h3 style="margin-top:0">How to close that gap yourself</h3>

@@ -1,7 +1,7 @@
 {
   "category_id": "sellers-policies",
   "category_title": "Verified Online Gold Ring Sellers — Reputation, Return Policies, Resizing Exclusions & Payment Protection",
-  "verified_date_utc": "2026-10-22T23:21:00Z",
+  "verified_date_utc": "2026-10-23T06:15:00Z",
   "sellers": [
     {
       "id": "SEL-ROSSSIMONS",
@@ -17,16 +17,16 @@
       "bbb_complaints_3yr": 35,
       "bbb_customer_rating": "4.41 / 5 (595 reviews)",
       "bbb_url": "https://www.bbb.org/us/ri/cranston/profile/jewelry-stores/ross-simons-0021-105000",
-      "gram_weight_transparency": "Partial — Strong on plain/signet gold bands (exact grams published on Items 571221, 571212, 823796, 964717, 993085); omitted on diamond solitaires.",
+      "gram_weight_transparency": "Partial — Strong on plain/signet gold bands (exact grams published in HTML on Items 571221, 571212, 823796, 964717, 993085); omitted on diamond solitaires.",
       "return_window_days": 30,
-      "return_shipping_terms": "Shipping & handling non-refundable; flat $4.95 return label fee may apply; insure package for full invoice value.",
+      "return_shipping_terms": "Shipping & handling non-refundable; $4.95 flat fee deducted when using Ross-Simons prepaid return label; insure package for full invoice value.",
       "resized_custom_exclusions": "Merchandise that has been damaged, altered, or resized by any jeweler other than Ross-Simons CANNOT be returned.",
       "return_policy_url": "https://www.ross-simons.com/pages/returns-exchanges",
       "accepted_payments": "Visa, MasterCard, American Express, Discover, Apple Pay, PayPal (US), Affirm",
       "credit_card_supported": true,
       "wire_transfer_risk_note": "No bank wire discount trap; standard major credit cards fully accepted for Fair Credit Billing Act dispute protection.",
       "payment_policy_url": "https://www.ross-simons.com/pages/payment-options",
-      "checklist_grade": "PASS (Top Overall Traditional Value & Weight Disclosure)",
+      "checklist_grade": "PASS (Top Overall Traditional Value & Server-Rendered Weight Disclosure)",
       "flagged_notes": [
         "Catalog sells BOTH solid karat gold AND gold-plated/gold-over-sterling items (e.g., Item 241592 '14kt Yellow Gold over Brass')—always verify the Metal spec table line by line.",
         "Found 10kt vs 14kt copy contradiction on Item 251663; always screenshot listing before checkout."
@@ -77,8 +77,8 @@
       "bbb_url": "https://www.bbb.org/us/ca/san-francisco/profile/diamond/brilliant-earth-llc-1116-154721",
       "gram_weight_transparency": "Omitted online (publishes mm band width & depth, not gram weight).",
       "return_window_days": 30,
-      "return_shipping_terms": "Free FedEx insured return shipping both ways within 30 days of ship/pickup availability date.",
-      "resized_custom_exclusions": "STRICT EXCLUSION: Custom designed, custom engraved, modified, previously resized, or exchanged rings are NON-REFUNDABLE. Outside jeweler work voids warranty.",
+      "return_shipping_terms": "Free FedEx insured return shipping within 30 days of ship/pickup availability date ($40 engraving removal fee deducted on engraved ring returns).",
+      "resized_custom_exclusions": "Custom designed, modified, previously resized, or exchanged rings are NON-REFUNDABLE; engraved rings incur a $40 fee on 30-day returns (note: BBB profile summary still states older 'non-refundable if engraved' wording). Free 1-year resizing excludes eternity/Fairmined rings; outside jeweler work voids warranty.",
       "return_policy_url": "https://www.brilliantearth.com/30-Day-Returns/",
       "accepted_payments": "Major Credit Cards (Visa, MC, Amex, Discover), Apple Pay, PayPal, Affirm, Wells Fargo, Bank Wire ($500+)",
       "credit_card_supported": true,
@@ -86,7 +86,7 @@
       "payment_policy_url": "https://www.brilliantearth.com/flexible-payment-options/",
       "checklist_grade": "CONDITIONAL PASS (Check Individual Ring Resize Exclusion & Prong Metal)",
       "flagged_notes": [
-        "Caught page-level contradiction on Fairmined Solitaire BE1FM0126 (banner says 'Free 1-Year Resizing' while body text says 'resizing is not available for this ring').",
+        "Caught dual page-level contradictions on Fairmined Solitaire BE1FM0126 ('Free 1-Year Resizing' banner vs body 'resizing is not available', plus 'Band Width: 2 ct. tw.' spec table error).",
         "BBB complaint records confirm any repair/resizing performed by an outside jeweler voids Brilliant Earth's warranty—use strictly non-destructive XRF + scale check upon arrival."
       ]
     },
@@ -104,7 +104,7 @@
       "bbb_complaints_3yr": 1,
       "bbb_customer_rating": "1.0 / 5 (2 BBB reviews)",
       "bbb_url": "https://www.bbb.org/ca/on/ontario/profile/jewelry-designers/mene-inc-0107-1413670",
-      "gram_weight_transparency": "Industry-Best — Publishes exact pure 24K gram weights and Certificate of Authenticity (+/-0.5g in-stock, +/-1.0g Crafted-on-Demand tolerance).",
+      "gram_weight_transparency": "Client-Side Only Online — Policy commits to Certificate of Authenticity (+/-0.5g in-stock, +/-1.0g Crafted-on-Demand), but static PDP HTML omits gram weights (/products/*.json HTTP 404); catalog weights left null/unverified.",
       "return_window_days": 7,
       "return_shipping_terms": "SHORT 7-DAY RETURN WINDOW ONLY from receipt via prepaid FedEx label; Certificate of Authenticity must be included.",
       "resized_custom_exclusions": "Pure 24K bands are sold by weight, not traditional resizing; discount-code orders face store-credit restrictions on buybacks/returns.",
@@ -113,9 +113,9 @@
       "credit_card_supported": true,
       "wire_transfer_risk_note": "Pay strictly with a major credit card (avoid discount promo codes if cash buyback flexibility matters).",
       "payment_policy_url": "https://mene.com/terms-of-service",
-      "checklist_grade": "FLAGGED FOR REVIEW (Best 24K Gram Value, But Strict 7-Day Window & BBB D+)",
+      "checklist_grade": "FLAGGED FOR REVIEW (24K Pure Gold, But Client-Side Weights, 7-Day Window & BBB D+)",
       "flagged_notes": [
-        "Highest intrinsic gold value in entire study (64%–67% melt value at ~1.50x–1.56x spot), ideal for pure bullion value seekers.",
+        "Server-rendered HTML on mene.com omits ring gram weights (rendered dynamically via client JS only); all three Menē rows (BND-01..BND-03) keep weight_grams = null per strict Zero-Hallucinations Policy.",
         "Flagged because 7-day return window leaves zero margin for delay—must book independent jeweler XRF + gram scale verification BEFORE ordering so you test on Day 1."
       ]
     },
@@ -145,7 +145,7 @@
       "checklist_grade": "FLAGGED FOR REVIEW (Explicit '14k Solid Gold' Wording, But BBB D- & Omitted Grams)",
       "flagged_notes": [
         "Storefront mixes '14k Solid Gold' rings alongside 'Gold Vermeil' (gold-plated sterling silver) items—always confirm 'Solid Yellow Gold (14k)' variant URL before checkout.",
-        "Flagged for BBB D- rating (unanswered consumer complaint on file) and omitted gram weights."
+        "Flagged for BBB D- rating (35 complaints, 1 unanswered complaint on file; reconfirmed 2026-10-23) and omitted gram weights."
       ]
     }
   ]

@@ -61,7 +61,10 @@
         "SOLID_NOT_ON_LISTING",
         "PRICE_FROM_LOWEST_VARIANT",
         "WEIGHT_NOT_PUBLISHED",
-        "HALLMARK_NOT_STATED"
+        "HALLMARK_NOT_STATED",
+        "WEIGHT_RANGE_ONLY",
+        "EXCHANGE_ONLY_FINAL_SALE",
+        "PAGE_SELF_CONTRADICTION"
       ],
       "derived": {
         "karat": "14K",
@@ -80,7 +83,10 @@
         "SOLID_NOT_ON_LISTING",
         "PRICE_FROM_LOWEST_VARIANT",
         "WEIGHT_NOT_PUBLISHED",
-        "HALLMARK_NOT_STATED"
+        "HALLMARK_NOT_STATED",
+        "WEIGHT_RANGE_ONLY",
+        "EXCHANGE_ONLY_FINAL_SALE",
+        "PAGE_SELF_CONTRADICTION"
       ],
       "derived": {
         "karat": "14K",
@@ -99,7 +105,10 @@
         "SOLID_NOT_ON_LISTING",
         "PRICE_FROM_LOWEST_VARIANT",
         "WEIGHT_NOT_PUBLISHED",
-        "HALLMARK_NOT_STATED"
+        "HALLMARK_NOT_STATED",
+        "WEIGHT_RANGE_ONLY",
+        "EXCHANGE_ONLY_FINAL_SALE",
+        "PAGE_SELF_CONTRADICTION"
       ],
       "derived": {
         "karat": "14K",
@@ -118,7 +127,10 @@
         "SOLID_NOT_ON_LISTING",
         "PRICE_FROM_LOWEST_VARIANT",
         "WEIGHT_NOT_PUBLISHED",
-        "HALLMARK_NOT_STATED"
+        "HALLMARK_NOT_STATED",
+        "WEIGHT_RANGE_ONLY",
+        "EXCHANGE_ONLY_FINAL_SALE",
+        "PAGE_SELF_CONTRADICTION"
       ],
       "derived": {
         "karat": "14K",
@@ -137,7 +149,10 @@
         "SOLID_NOT_ON_LISTING",
         "PRICE_FROM_LOWEST_VARIANT",
         "WEIGHT_NOT_PUBLISHED",
-        "HALLMARK_NOT_STATED"
+        "HALLMARK_NOT_STATED",
+        "WEIGHT_RANGE_ONLY",
+        "EXCHANGE_ONLY_FINAL_SALE",
+        "PAGE_SELF_CONTRADICTION"
       ],
       "derived": {
         "karat": "14K",
@@ -156,7 +171,10 @@
         "SOLID_NOT_ON_LISTING",
         "PRICE_FROM_LOWEST_VARIANT",
         "WEIGHT_NOT_PUBLISHED",
-        "HALLMARK_NOT_STATED"
+        "HALLMARK_NOT_STATED",
+        "WEIGHT_RANGE_ONLY",
+        "EXCHANGE_ONLY_FINAL_SALE",
+        "PAGE_SELF_CONTRADICTION"
       ],
       "derived": {
         "karat": "14K",
@@ -193,7 +211,6 @@
       "flags": [
         "SETTING_PRICE_ONLY",
         "SOLID_NOT_STATED",
-        "PRICE_NOT_RECONFIRMED",
         "WEIGHT_NOT_PUBLISHED",
         "HALLMARK_NOT_STATED"
       ],
@@ -213,7 +230,6 @@
       "flags": [
         "SETTING_PRICE_ONLY",
         "SOLID_NOT_STATED",
-        "PRICE_NOT_RECONFIRMED",
         "WEIGHT_NOT_PUBLISHED",
         "HALLMARK_NOT_STATED"
       ],
@@ -253,7 +269,6 @@
       "flags": [
         "SETTING_PRICE_ONLY",
         "SOLID_NOT_STATED",
-        "PRICE_NOT_RECONFIRMED",
         "WEIGHT_NOT_PUBLISHED",
         "HALLMARK_NOT_STATED"
       ],
@@ -289,7 +304,6 @@
       "purity": "10K",
       "solid_gold": true,
       "flags": [
-        "PRICE_NOT_RECONFIRMED",
         "WEIGHT_NOT_PUBLISHED",
         "HALLMARK_NOT_STATED",
         "NOT_ENGAGEMENT_RING"
@@ -332,9 +346,9 @@
         "SOLID_NOT_STATED",
         "PURITY_NOT_IN_BODY_TEXT",
         "MIXED_METAL",
-        "PRICE_NOT_RECONFIRMED",
         "WEIGHT_NOT_PUBLISHED",
-        "HALLMARK_NOT_STATED"
+        "HALLMARK_NOT_STATED",
+        "MADE_TO_ORDER"
       ],
       "derived": {
         "karat": "14K",
@@ -520,6 +534,31 @@
       "id": "F23",
       "severity": "medium",
       "title": "Three Catbird values drafted in this pass did not survive contact with the live pages"
+    },
+    {
+      "id": "F24",
+      "severity": "high",
+      "title": "Menē gram weights (8.5 g, 7.9 g, 12.0 g) removed on BND-01..BND-03 because static HTML omits ring weights"
+    },
+    {
+      "id": "F25",
+      "severity": "high",
+      "title": "All seven Aurate lab-grown engagement ring PDPs override the 60-day return policy with 'Final Sale! / Exchange for size only.'"
+    },
+    {
+      "id": "F26",
+      "severity": "high",
+      "title": "Mejuri R03 (Slim Diamond Eternity Band) printed From $898 on its live PDP — 38.6% above the $648 collection figure stored earlier"
+    },
+    {
+      "id": "F27",
+      "severity": "medium",
+      "title": "Broken Catbird /contact-us (HTTP 500) and dead government/GIA links replaced with live HTTP 200 primary documents"
+    },
+    {
+      "id": "F28",
+      "severity": "medium",
+      "title": "Template spec bugs caught on Brilliant Earth SOL-05/R29 ('Band Width: 2 ct. tw.') and VRAI R28 ('Pavé carat weight: 0.11ctw' on Plain band)"
     }
   ],
   "parallel_dataset": {

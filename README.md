@@ -9,7 +9,7 @@ It publishes as a static site on GitHub Pages and is generated entirely from mac
 > **blank** and marked **unverified** — it is never estimated, inferred, or filled in to make a row
 > look complete. **Recommendation:** actively look for hallucinations on every review pass by clicking the official source link on every row, re-checking live prices/weights before buying, and running all automated security checks below.
 
-**Prices captured:** 22 October 2026 · **re-verified live:** 23 October 2026 (fourth pass) · **41 listings across both passes** (19 + 22), plus 31 Dataset-B/C band studies · **12 sellers** · **7 published weights** in the verified ring set
+**Prices captured:** 22 October 2026 · **re-verified live:** 23 October 2026 (fifth pass — 100% primary-source coverage) · **71 listings across all verified sets** (19 Dataset A + 31 Dataset B/D + 21 Dataset C) · **16 sellers** · **17 published weights** across the combined study (`not_rechecked: []`)
 
 ---
 
@@ -47,16 +47,48 @@ It publishes as a static site on GitHub Pages and is generated entirely from mac
 ## Run every check
 
 ```bash
-python3 scripts/verify.py         # gate: source domains, quotes must contain their price, arithmetic
-python3 scripts/build_site.py     # build the static site; fails on broken internal links
-python3 scripts/audit.py          # independent audit: provenance, stray numbers, verification coverage
-node scripts/render-test.js       # assert the built HTML contains the audited values
-python3 scripts/report_verify.py  # regenerate reports/verification-report.md from data/
-npm --prefix archive/session-cbea1001 test  # Node anti-hallucination, melt-math & link security suite
+python3 scripts/verify.py                           # gate: source domains, quotes must contain their price, arithmetic
+python3 scripts/build_ext_pages.py                  # build Dataset C subpages + Flagged for Review + Security Audit pages
+python3 scripts/build_site.py                       # build unified dashboard & subpages; fails on broken internal links
+python3 scripts/audit.py                            # independent audit: provenance, stray numbers, verification coverage
+python3 scripts/run_security_audit.py --deterministic  # SEC-01..SEC-07 security & anti-hallucination audit (0 git diff churn)
+node scripts/render-test.js                         # assert all built HTML pages contain the audited values (120/120)
+python3 scripts/report_verify.py                    # regenerate reports/verification-report.md (121 checks) from data/
+npm --prefix archive/session-cbea1001 test          # Node anti-hallucination, melt-math & link security suite
 ```
 
 All checks run in CI on every push and pull request (`.github/workflows/audit.yml`). The site is generated, so
 editing HTML by hand is pointless: change `data/*.json` or `scripts/build_site.py`, then rebuild.
+
+## What the fifth verification pass changed (23 October 2026)
+
+Every remaining URL across **Dataset C** (`SOL-01`..`SOL-09`, `BND-01`..`BND-12`, all 5 seller policies, all 4 BBB
+profiles, all 4 live gold spot benchmarks + LBMA, and all statutory/NIST/GIA citations), **Dataset A** (`AU5760`,
+`AU5769`, `AU5000`, `AU5093`, `AU5763`, `AU5764`, `AU5107`, Blue Nile ×5, Catbird, Mejuri, Ring Concierge ×2, all 5
+seller contact/policy pages, and all 5 Trustpilot profiles), and **Dataset B/D** (`R02`, `R03`, `R17`, `R19`, `R22`,
+`R28`, `R31`, `BND-05`..`BND-08`) was opened live on **23 October 2026**, reducing `not_rechecked` to **`[]` (zero)**.
+Full Dataset C audit log in `data/reverification-c1.json` (`reports/reverification-dataset-c.md`) and Pass P5 entries
+`V5-01`..`V5-12` appended to `data/verification.json` (**121 checks across four logged passes**):
+
+* **Three unconfirmed Menē weights deleted, not softened (`F24`, `SD9`).** Live `mene.com` PDPs (`BND-01` `$1,707`,
+  `BND-02` `$1,544`, `BND-03` `$2,465` — Wide Flat Band live PDP vs `$2,315` collection grid) render gram weight only via
+  client-side JS and block `/products/*.json` (`404`). Stored snippet weights (`8.5g`, `7.9g`, `12.0g`) and derived melt
+  multiples (`1.56x`, `1.52x`, `1.50x`) were set to `null` / `unverified` and removed from hardcoded calculator presets.
+* **Thirteen unprinted hallmark assertions corrected (`SD9`).** `BND-08`..`BND-12` and `SOL-01`..`SOL-08` now record
+  `"Not published by the seller"` instead of generic `"14K stamp"` assumptions.
+* **All seven Aurate lab-grown engagement ring PDPs enforce `"Final Sale! / Exchange for size only."` (`F25`, `RET14`).**
+  Live PDPs override Aurate's 60-day general return policy, add a 30% MTO cancellation fee after 24 hours
+  (`auratenewyork.com/pages/terms-conditions-exchange-only-final-sale`), share multi-metal gram ranges across 14K/18K/Pt,
+  and show clarity/shape contradictions (`AU5093` Cushion headline vs `"classic oval diamond"` description).
+* **Mejuri `R03` (`Slim Diamond Eternity Band`) live PDP reads `"From $898"`, not `$648` (`F26`, flag `FP1`).** Opening
+  the direct PDP reveals `$898` (+38.6% over the `$648` figure captured from the collection grid alongside `Diamonds Band`).
+* **Four dead/broken external links repaired (`F27`, `SD10`, `SRC2` closed).** Catbird `/contact-us` (`500`) repointed
+  to live `catbirdnyc.com/facts` (`customerservice@catbirdnyc.com`) + `return_form.pdf` (`141 Flushing Avenue, Building
+  77, Suite 709, Brooklyn, NY 11205`, `+1-718-599-2340`); `uscode.house.gov` (`500`), `gov.uk/guidance/...` (`404`), and
+  `gia.edu/.../gold-plated-gold0` (`404`) repointed to live `HTTP 200` Cornell LII, GOV.UK Statutory Guidance, and GIA
+  Summer 2025 *Gems & Gemology* PDF citations.
+* **Deterministic security audit (`CR-692d-2` closed).** `python3 scripts/run_security_audit.py --deterministic` re-runs
+  all `SEC-01`..`SEC-07` checks with zero timestamp/counter churn (`git diff` empty).
 
 ## What the fourth verification pass changed (23 October 2026)
 

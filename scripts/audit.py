@@ -372,10 +372,18 @@ if verif_doc:
                 verified_rows.add(rid)
                 continue
             # A check may also be aimed at a seller record, a flag definition,
-            # a Dataset-A product id or the excluded-listing set. Those are real
-            # subjects of a verification check; what must not happen is a check
-            # pointing at something that does not exist anywhere in the data.
+            # a Dataset-A product id, a Dataset-C item/seller/standard id, or
+            # the excluded-listing set. Those are real subjects of a verification
+            # check; what must not happen is a check pointing at something that
+            # does not exist anywhere in the data.
             if rid in seller_ids or rid in flag_defs or rid in product_ids:
+                continue
+            if rid in (
+                {x.get("id") for x in json.loads((DATA / "solitaire-rings.json").read_text(encoding="utf-8"))["items"]}
+                | {x.get("id") for x in json.loads((DATA / "bands-and-high-karat.json").read_text(encoding="utf-8"))["items"]}
+                | {x.get("id") for x in json.loads((DATA / "sellers-policies.json").read_text(encoding="utf-8"))["sellers"]}
+                | {x.get("id") for x in json.loads((DATA / "spot-and-standards.json").read_text(encoding="utf-8"))["regulatory_and_testing_standards"]}
+            ):
                 continue
             if rid in ("excluded", "bands", "products", "retailers"):
                 continue
@@ -568,8 +576,8 @@ for _ms in re.findall(r"\$([0-9][0-9,]*\.?[0-9]*)", json.dumps(rings_doc)):
     data_prices.add(_ms.rstrip("."))
 data_prices.update({"0.02", "129.4100"})
 
-# Register all verified numeric USD figures from Dataset C JSON files
-for ext_json in ("spot-and-standards.json", "solitaire-rings.json", "bands-and-high-karat.json", "sellers-policies.json"):
+# Register all verified numeric USD figures from Dataset A & C JSON files
+for ext_json in ("products.json", "spot-and-standards.json", "solitaire-rings.json", "bands-and-high-karat.json", "sellers-policies.json"):
     ext_path = DATA / ext_json
     if ext_path.exists():
         ext_doc = json.loads(ext_path.read_text(encoding="utf-8"))
@@ -581,6 +589,7 @@ for ext_json in ("spot-and-standards.json", "solitaire-rings.json", "bands-and-h
                     if any(tok in kk.lower() for tok in ("usd", "price", "melt", "spot")) and isinstance(vv, (int, float)):
                         data_prices.add(f"{vv:,.0f}")
                         data_prices.add(f"{vv:,.2f}")
+                        data_prices.add(f"{vv:,.4f}")
                     _collect_c(vv)
             elif isinstance(obj, list):
                 for it in obj:
@@ -609,7 +618,7 @@ for page in html_files:
 
     # hardcoded prices
     for amount in re.findall(r"\$([0-9][0-9,]*\.?[0-9]*)", text):
-        cleaned = amount.rstrip(".")
+        cleaned = amount.rstrip(".,")
         if cleaned not in data_prices:
             warn("site", f"{page.name}: printed ${cleaned} which is not in data/*.json — "
                          f"either it is a policy quote or a hallucination")

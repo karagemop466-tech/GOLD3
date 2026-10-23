@@ -97,8 +97,8 @@
         "maker_mark_reported",
         "certification"
       ],
-      "last_verified": "2026-10-22",
-      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3)."
+      "last_verified": "2026-10-23",
+      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3) and live re-confirmed on 2026-10-23 (session arena/1162b2db-gold3): '$1,500', 'Solid Yellow Gold (14k), Natural Diamond', 'Minimum Carat Weight: 0.4 ct', 'Shank Width: 2.5 mm', 'Shank Thickness: 1.5 mm', '90% Recycled 14K Gold'."
     },
     {
       "id": "R03",
@@ -106,33 +106,36 @@
       "product": "Slim Diamond Eternity Band",
       "condition": "New",
       "karat": "14K",
-      "metal_color": "Solid white gold (14k) per collection listing",
-      "price_usd": 648,
-      "price_basis": "From — varies by size",
-      "price_as_shown": "From $648",
-      "solid_gold_quote": "Collection listing: \"Slim Diamond Eternity Band From $648 ... Solid White Gold (14k), Natural Diamond\"",
-      "solid_gold_verdict": "PASS (listing-level)",
+      "metal_color": "Solid white gold (14k) per product page",
+      "price_usd": 898,
+      "price_basis": "From — varies by size (re-verified on direct PDP; collection card earlier showed $648)",
+      "price_as_shown": "From $898",
+      "solid_gold_quote": "Direct PDP: \"Slim Diamond Eternity Band ... From$898 ... Solid White Gold (14k), Natural Diamond ... handcrafted in recycled 14k solid gold, featuring 47-60 responsibly sourced diamonds for an average carat weight of 0.248ct\"",
+      "solid_gold_verdict": "PASS",
       "weight_g": null,
       "weight_quote": null,
       "hallmark_reported": null,
       "maker_mark_reported": null,
       "return_window": "30 days (US, free) — engraved items non-returnable",
       "certification": null,
-      "url": "https://mejuri.com/collections/milestone-rings",
+      "url": "https://mejuri.com/products/slim-diamond-eternity-band",
       "sources": [
-        "https://mejuri.com/collections/milestone-rings",
+        "https://mejuri.com/products/slim-diamond-eternity-band",
         "https://mejuri.com/faq/return-exchanges/what-is-the-standard-return-policy"
       ],
       "flags": [
         "W1",
         "H1",
         "M1",
-        "L1",
+        "FP1",
         "RH1"
       ],
       "verified_fields": [
         "price_usd",
+        "price_basis",
         "karat",
+        "metal_color",
+        "solid_gold_claim",
         "return_window"
       ],
       "unverified_fields": [
@@ -141,10 +144,10 @@
         "maker_mark_reported",
         "certification"
       ],
-      "last_verified": "2026-10-22",
-      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3).",
-      "rhodium_note": "Mejuri's material note on its diamond bands: “14k solid white gold pieces are finished with rhodium plating” — quote captured 2026-10-22 from the same brand's product pages",
-      "rhodium_source": "https://mejuri.com/collections/milestone-rings"
+      "last_verified": "2026-10-23",
+      "verification": "Re-verified on direct product page https://mejuri.com/products/slim-diamond-eternity-band on 2026-10-23 (session arena/1162b2db-gold3): corrected from collection-grid $648 (which belongs to Mejuri's separate Diamonds Band) to actual PDP starting price From $898 (+38.6%; 0.214-0.274 ct natural diamonds, 1.1 mm band width, 1.5 mm thickness). See finding F26.",
+      "rhodium_note": "Mejuri, Materials & Specifications: “14k solid white gold pieces are finished with rhodium plating” — read verbatim on the product page 2026-10-23",
+      "rhodium_source": "https://mejuri.com/products/slim-diamond-eternity-band"
     },
     {
       "id": "R04",
@@ -793,8 +796,8 @@
         "hallmark_reported",
         "maker_mark_reported"
       ],
-      "last_verified": "2026-10-22",
-      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3)."
+      "last_verified": "2026-10-23",
+      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3) and live re-confirmed on 2026-10-23 (session arena/1162b2db-gold3): redirects to /jewelry/rings/18k-rose-gold-and-platinum-diamond-rings-1712.html, prints SKU 40318275, 'Starting from $1,600 — 0.20 CT G VS1', '18k Yellow Gold and Platinum', 'This product is currently unavailable', 'Please note that this item is non returnable. Please note that this item can only be exchanged.', and '(800) 843-3269'."
     },
     {
       "id": "R18",
@@ -883,8 +886,8 @@
         "maker_mark_reported",
         "certification"
       ],
-      "last_verified": "2026-10-22",
-      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3)."
+      "last_verified": "2026-10-23",
+      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3) and live re-confirmed on 2026-10-23 (session arena/1162b2db-gold3): '$178', '18k Gold Vermeil, Sterling Silver', 'Total Width: 11 mm', 'Thickness: 2.3 mm', '2.5 Micron Gold Plating for Daily Wear'."
     },
     {
       "id": "R20",
@@ -1294,8 +1297,8 @@
         "maker_mark_reported",
         "certification"
       ],
-      "last_verified": "2026-10-22",
-      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3): Metal weight 2.3g and solid gold band wording verified; price is injected via JS so left null."
+      "last_verified": "2026-10-23",
+      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3) and live re-confirmed on 2026-10-23 (session arena/1162b2db-gold3): 'Metal weight: 2.3g', 'Band width: 1.7mm', 'Band depth: 1.6mm', and solid gold band wording verified; also caught static template spec anomaly printing 'Pavé carat weight: 0.11ctw' on the Plain band configurator (finding F28); price remains dynamic JS so left null."
     },
     {
       "id": "R29",
@@ -1341,8 +1344,8 @@
         "maker_mark_reported",
         "certification"
       ],
-      "last_verified": "2026-10-22",
-      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3): $1,090 setting price confirmed; caught resizing badge contradiction (SPEC3)."
+      "last_verified": "2026-10-23",
+      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3) and live re-confirmed on 2026-10-23 (session arena/1162b2db-gold3): $1,090 canonical US setting price (EUR €1,250 when geo-routed), resizing contradiction (SPEC3), and 'Band Width: 2 ct. tw.' spec-table unit bug (finding F28) all verified."
     },
     {
       "id": "R30",
@@ -1439,8 +1442,8 @@
         "maker_mark_reported",
         "certification"
       ],
-      "last_verified": "2026-10-22",
-      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3): $239 confirmed; caught 9k vs 10k on-page contradiction (SPEC2)."
+      "last_verified": "2026-10-23",
+      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3) and live re-confirmed on 2026-10-23 (session arena/1162b2db-gold3): $239 regular/sale price and on-page conflict between '9k Solid Gold' badge and '10k solid yellow gold' bullet (SPEC2) confirmed."
     }
   ],
   "excluded_listings": [
