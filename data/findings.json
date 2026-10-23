@@ -115,8 +115,8 @@
       "id": "F12",
       "severity": "low",
       "title": "Two independent spot-price sources agree to within 0.06%",
-      "detail": "GoldPrice.org showed $4,026.79/oz (22 Oct 2026, 07:07 NY time) and the World Gold Council showed $4,024.36/oz (data as of 21 Oct 2026). The $2.43 gap is consistent with normal movement between the two timestamps, which gives reasonable confidence in the price anchor used for every calculation here.",
-      "evidence": "GoldPrice.org $4,026.79/oz · World Gold Council $4,024.36/oz · difference $2.43 (0.060%)",
+      "detail": "GoldPrice.org showed $4,022.22/oz (23 Oct 2026, 05:55 NY Time) and the World Gold Council showed $4,024.45/oz (data as of 22 Oct 2026, read 23 Oct 2026). The $2.23 gap (0.055%) is consistent with normal intraday movement and aligns with Dataset C's simultaneous Kitco ($4,022.70/oz) and BullionVault ($4,024.23/oz) quotes.",
+      "evidence": "GoldPrice.org $4,022.22/oz · World Gold Council $4,024.45/oz · difference $2.23 (0.055%)",
       "source": "https://www.gold.org/goldhub/data/gold-prices",
       "product": null,
       "action": "None - this is a control check, not a problem."
@@ -279,23 +279,32 @@
     {
       "id": "F28",
       "severity": "high",
+      "title": "Ring Concierge's $6,038 engagement-ring page claims both a 2.08 ct E VS1 stone and a 5.63 ct D VVS2 stone — and cuts the return window to 7 days",
+      "detail": "Live re-read of Ring Concierge's 2.08 Oval Lab Diamond in Whisper Thin Hidden Halo on 2026-10-23 uncovered two major contradictions: (1) the title and Details accordion specify '2.08 Carat E VS1 Oval Lab Grown Diamond', while the description prose directly on the same page claims 'featuring a 5.63 Carat D VVS2 Oval Lab Diamond'; and (2) while Ring Concierge's general Refund Policy states 30 days on Fine Jewelry, the engagement-ring PDP Shipping & Returns accordion states 'You have 1 week (7 days) from the date of delivery to return your ready-made engagement ring' and makes any resized ring final sale.",
+      "evidence": "Title/Details: '2.08 Carat E VS1 Oval Lab Grown Diamond' vs Description: 'featuring a 5.63 Carat D VVS2 Oval Lab Diamond' · PDP FAQ: '1 week (7 days) from the date of delivery to return your ready-made engagement ring'",
+      "source": "https://ringconcierge.com/products/2-08-oval-lab-diamond-in-whisper-thina-hidden-halo",
+      "product": "ringconcierge-2-08-oval-lab-whisper-thin",
+      "action": "Require the exact diamond certificate number and written return window before ordering, and assume the stricter 7-day bridal return window governs."
+    },
+    {
+      "id": "F29",
+      "severity": "high",
+      "title": "Systematic URL sweep caught five more 404 citations, two mis-transcribed phone numbers, and Menē's JS-gated weights",
+      "detail": "Sweeping every unique URL across all JSON datasets on 2026-10-23 caught dead 404/500 pages in flags.json (SPEC5, WAR1), sellers.json (vrai.com/pages/contact-us, localeclectic.com/pages/contact-us, mene.com/contact-us, catbirdnyc.com/contact-us), and spot-and-standards.json (uscode.house.gov HTTP 500, GIA Summer 2025 trailing-'0' 404). Opening the live replacements revealed that S-VRAI listed the wrong phone (+1-855-383-8724 instead of +1.855.956.4488) and understated its $300 engagement-ring recycling fee, S-MENE mis-transcribed 1-833-MENE-24K as +1-833-636-3465 instead of +1-833-636-3245, R03's dedicated PDP is From $898 (not $648), and Menē's BND-01..03 static HTML omits gram weights (nulled per Zero-Inference Policy).",
+      "evidence": "VRAI live Help Center: 'Email: help@vrai.com · Phone: +1.855.956.4488' & 'Engagement ring: A $300 recycling fee will apply' · Menē Terms: '1-833-MENE-24K' (+1-833-636-3245) & 'service@mene.com' · Menē PDPs: no static gram figure in HTML.",
+      "source": "https://help.vrai.com/en/knowledge/what-is-your-return-policy",
+      "product": null,
+      "action": "All dead citations repointed to live 200 OK official pages, wrong phone numbers fixed, and Menē's JS-gated band weights nulled."
+    },
+    {
+      "id": "F30",
+      "severity": "high",
       "title": "Automic Gold requires mailing returns within 14 days to avoid a restocking fee, and its recorded phone number was not on the cited page",
       "detail": "Reading all 5 chunks of https://www.automicgold.com/policies/refund-policy and all 6 chunks of https://www.automicgold.com/pages/privacy-policy past the 4-chunk CookieYes banner (2026-10-23, session arena/bfcd8465-gold3) uncovered two facts missed by earlier passes: (1) S-AUTOMIC listed phone +1-929-307-2378 against /pages/privacy-policy, which prints no phone number at all (only accessibility@automicgold.com, while /pages/faq prints care@automicgold.com), so phone was set to null; and (2) while Automic Gold's headline return window is 30 days from delivery, chunk 4 of the live refund policy states: 'To avoid a restocking fee, please mail your items within 14 days.' It also restores the exact final-sale and resizing clause that pass P3 had blanked because chunk 0 only contained the cookie banner.",
       "evidence": "Refund policy chunk 4 verbatim: 'Automic Gold offers free returns within 30 days of the delivery date for customers who reside in the U.S. ... To avoid a restocking fee, please mail your items within 14 days.' and 'The following Items are excluded from the return policy and are deemed Final Sale: Gift Cards / Engraved items / Custom items / Modified Items. However, if you are not satisfied with your final sale item, we may be able to work with you on making changes to your piece by resizing or modifying it for an additional fee, or we can purchase the item back from you at a reduced rate for recycling.'",
       "source": "https://www.automicgold.com/policies/refund-policy",
       "action": "Phone set to null on S-AUTOMIC, contact_source repointed to https://www.automicgold.com/pages/faq (care@automicgold.com), resize_policy restored verbatim from chunk 4 of /policies/refund-policy, and new flag RET14 attached to S-AUTOMIC and R22-R25.",
       "subject": "S-AUTOMIC",
-      "product": null
-    },
-    {
-      "id": "F29",
-      "severity": "medium",
-      "title": "Two reconstructed product slugs in data/flags.json (WAR1.source and SPEC5.source) returned HTTP 404 and were repointed",
-      "detail": "Testing every source URL in data/flags.json live on 2026-10-23 (session arena/bfcd8465-gold3) caught two reconstructed product slugs that returned HTTP 404: WAR1.source (https://www.sarraf.com/products/14k-white-gold-1-00-ctw-round-3-stone-diamond-engagement-ring-g-i1-3-80-gr.html) and SPEC5.source (https://www.automicgold.com/products/1-50ctw-pear-shaped-lab-grown-diamond-engagement-ring-bezel-set). Both were repointed to the live product pages in the study.",
-      "evidence": "WAR1.source returned '404 Error - Page not found (Sarraf - Not Found)'; SPEC5.source returned '404 Not Found – Automic Gold'.",
-      "source": "https://www.sarraf.com/products/14k-white-gold-solitaire-ring-0-94-ctw.html",
-      "action": "Repointed WAR1.source and SPEC5.source in data/flags.json to live HTTP 200 product pages.",
-      "subject": "WAR1, SPEC5",
       "product": null
     }
   ]

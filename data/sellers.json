@@ -328,8 +328,8 @@
       "phone": "+1-855-956-4488",
       "email": "help@vrai.com",
       "contact_source": "https://www.vrai.com/contact-us",
-      "return_window": "30 days from delivery for eligible unworn engagement rings (<$15,000 eligible for refund minus recycling fee; >$15,000 store credit only)",
-      "return_exclusions": "Original-payment returns under $15,000 incur a $300 USD engagement-ring ($50 USD band/MTO) recycling fee; resized, custom, or previously exchanged items are final sale",
+      "return_window": "30 days for eligible unworn items below $15,000 (full store credit, OR original-payment refund minus $300 engagement-ring / $50 band recycling fee); items above $15,000 receive store credit ONLY",
+      "return_exclusions": "All engagement ring refunds to original payment method (<$15,000) incur a $300 recycling fee ($50 on wedding bands and made-to-order jewelry), waived only for VRAI gift-card store credit; items >$15,000 are store credit only; resized, custom, or worn items excluded",
       "resize_policy": "One complimentary resize on eligible rings, after which the ring becomes final sale",
       "payment_notes": "Online card checkout supported; exact card-network list is rendered dynamically at checkout",
       "publishes_weight": true,
@@ -355,8 +355,8 @@
       "email": "hello@localeclectic.com",
       "contact_source": "https://www.localeclectic.com/pages/frequently-asked-questions",
       "return_window": "14 days from delivery for original-payment refund (minus return shipping label); days 15-90 store credit only",
-      "return_exclusions": "Final-sale, custom, or worn items excluded; after day 14 only store credit is issued",
-      "resize_policy": "Does not offer resizing",
+      "return_exclusions": "Final-sale, custom, resized, or worn items excluded; after day 14 only store credit is issued",
+      "resize_policy": "Any ring resizing (by Local Eclectic OOAK or by a third party) makes the ring purchase final sale (no refunds or exchanges)",
       "payment_notes": "Online card checkout supported; exact card-network list rendered dynamically at checkout",
       "publishes_weight": false,
       "publishes_hallmark": false,
@@ -387,7 +387,7 @@
       "payment_notes": "Major credit cards (Visa, Mastercard, American Express), PayPal, Affirm, crypto (BitPay), and bank wire accepted",
       "publishes_weight": false,
       "publishes_hallmark": false,
-      "offers_xrf_or_assay": "Seller includes its own Certificate of Authenticity; independent XRF still required within 7-day window",
+      "offers_xrf_or_assay": "Seller includes its own Certificate of Authenticity (+/-0.5g standard / +/-1.0g Crafted-on-Demand tolerance); independent XRF still required within 7-day window",
       "price_display": "Live 24K bullion-linked price; exact gram weight hidden inside client-side JS modal",
       "policy_source": "https://mene.com/terms-of-service",
       "flags": [
@@ -398,7 +398,8 @@
         "PRC1",
         "SRC1"
       ],
-      "verification": "Re-verified live 2026-10-23 (sessions arena/6d6192d1-gold3 & arena/2908bea4-gold3): https://mene.com/contact-us returned HTTP 404 and was repointed to https://mene.com/customer-care/en-US (SRC1); corrected phone from +1-833-636-3465 to +1-833-636-3245 (1-833-MENE-24K) and email from concierge@mene.com to service@mene.com (printed on mene.com/customer-care/en-US/articles/returns-319505 and product Customer Care modal). Prices are metal-linked (PRC1)."
+      "verification": "Re-verified live 2026-10-23 (sessions arena/6d6192d1-gold3 & arena/2908bea4-gold3): https://mene.com/contact-us returned HTTP 404 and was repointed to https://mene.com/customer-care/en-US (SRC1); corrected phone from +1-833-636-3465 to +1-833-636-3245 (1-833-MENE-24K) and email from concierge@mene.com to service@mene.com (printed on mene.com/customer-care/en-US/articles/returns-319505 and product Customer Care modal). Prices are metal-linked (PRC1).",
+      "policy_source_2": "https://support.mene.com/hc/en-us/articles/4407022465633-What-is-your-return-policy"
     }
   ],
   "provenance": {

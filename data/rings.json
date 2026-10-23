@@ -106,34 +106,34 @@
       "product": "Slim Diamond Eternity Band",
       "condition": "New",
       "karat": "14K",
-      "metal_color": "Solid white gold (14k) per collection listing",
+      "metal_color": "Solid White Gold (14k) (subheading misprints 'Solid Yellow Gold (14k)')",
       "price_usd": 898,
-      "price_basis": "From — varies by size",
-      "price_as_shown": "From $898 (live PDP; previously stored $648 from collection grid belonging to Diamonds Band)",
-      "solid_gold_quote": "Materials: \"14k solid gold (white rhodium plated)\"",
-      "solid_gold_verdict": "PASS (listing-level)",
+      "price_basis": "From — varies by size (Natural Diamond PDP; earlier collection-grid snippet showed From $648)",
+      "price_as_shown": "From $898",
+      "solid_gold_quote": "Material & Stone Options: \"Solid White Gold (14k), Natural Diamond\" · Description: \"handcrafted in recycled 14k solid gold, featuring 47-60 responsibly sourced diamonds for an average carat weight of 0.248ct\"",
+      "solid_gold_verdict": "PASS",
       "weight_g": null,
       "weight_quote": null,
       "hallmark_reported": null,
       "maker_mark_reported": null,
-      "return_window": "30 days (US, free) — engraved items non-returnable",
+      "return_window": "30 days (US, free) — engraved and Before We Melt items non-returnable",
       "certification": null,
       "url": "https://mejuri.com/products/slim-diamond-eternity-band",
       "sources": [
         "https://mejuri.com/products/slim-diamond-eternity-band",
-        "https://mejuri.com/collections/milestone-rings",
         "https://mejuri.com/faq/return-exchanges/what-is-the-standard-return-policy"
       ],
       "flags": [
         "W1",
         "H1",
         "M1",
-        "RH1",
-        "FP1"
+        "RH1"
       ],
       "verified_fields": [
         "price_usd",
         "karat",
+        "metal_color",
+        "solid_gold_claim",
         "return_window"
       ],
       "unverified_fields": [
@@ -143,9 +143,9 @@
         "certification"
       ],
       "last_verified": "2026-10-23",
-      "verification": "Re-opened live on 2026-10-23 (arena/1162b2db-gold3): direct PDP https://mejuri.com/products/slim-diamond-eternity-band prints 'From $898' (+38.6% over the $648 figure captured from the collection grid alongside Diamonds Band) and '14k solid gold (white rhodium plated)'.",
-      "rhodium_note": "Mejuri's material note on its diamond bands: “14k solid white gold pieces are finished with rhodium plating” — quote captured 2026-10-22 from the same brand's product pages",
-      "rhodium_source": "https://mejuri.com/collections/milestone-rings"
+      "verification": "Upgraded from collection-grid snippet to dedicated product page live on 2026-10-23 (session arena/15b00e99-gold3, closing §11.3 item 3): Solid White Gold (14k) + Natural Diamond PDP prints 'From $898' (vs earlier $648 collection-grid card), Band Width 1.1 mm, Band thickness 1.5 mm, 0.214–0.274 ct, rhodium plating disclosure, and a subheading misprint ('Solid Yellow Gold (14k)').",
+      "rhodium_note": "Mejuri, Materials & Specifications: “14k solid white gold pieces are finished with rhodium plating, giving them their signature color along with added shine and durability” — read live 2026-10-23",
+      "rhodium_source": "https://mejuri.com/products/slim-diamond-eternity-band"
     },
     {
       "id": "R04",
@@ -1007,6 +1007,7 @@
         "X1",
         "M1",
         "POL2",
+        "SPEC5",
         "RET14"
       ],
       "verified_fields": [
@@ -1022,8 +1023,8 @@
         "hallmark_reported",
         "maker_mark_reported"
       ],
-      "last_verified": "2026-10-22",
-      "verification": "Product page re-fetched and re-read on 2026-10-22; price, material wording, item weight and return line copied from that page. Automic's page is served with a cookie-consent layer that dominates the first fetch chunks; the product block was read in full."
+      "last_verified": "2026-10-23",
+      "verification": "Product page chunks 4–5 re-fetched live on 2026-10-23 (session arena/15b00e99-gold3): $3,074, 'Crafted from solid recycled 14k gold', 'Approximately 5.4g for gold or 8.1g for platinum', 30-day returns, and 4–8 business days vs 1–2 weeks lead-time conflict (SPEC5) confirmed verbatim."
     },
     {
       "id": "R23",
@@ -1098,10 +1099,10 @@
       ],
       "flags": [
         "WT2",
+        "WT5",
         "H1",
         "X1",
         "POL2",
-        "WT5",
         "RET14"
       ],
       "verified_fields": [
@@ -1119,7 +1120,7 @@
         "certification"
       ],
       "last_verified": "2026-10-23",
-      "verification": "Re-verified live 2026-10-23 across chunks 0-1 (session arena/2908bea4-gold3): price $875, Solid 14k gold, and Item Weight 'Approximately 2.3g (gold) or 3.4g (platinum)' confirmed verbatim."
+      "verification": "Re-verified live 2026-10-23 in chunk 5 Details block (session arena/15b00e99-gold3): price $875, Solid 14k gold, and Item Weight \"Approximately 2.3g (gold) or 3.5g (platinum)\" confirmed verbatim (correcting 3.4g transcription in P8-04; added WT5)."
     },
     {
       "id": "R25",
@@ -1147,11 +1148,11 @@
       "flags": [
         "WT1",
         "WT2",
+        "WT5",
         "H1",
         "X1",
-        "WT5",
-        "RET14",
-        "SPEC5"
+        "SPEC5",
+        "RET14"
       ],
       "verified_fields": [
         "price_usd",
@@ -1168,7 +1169,7 @@
         "certification"
       ],
       "last_verified": "2026-10-23",
-      "verification": "Re-verified live 2026-10-23 (session arena/2908bea4-gold3): price $551, Solid 14k gold, and Item Weight 'Approximately 1.4g (gold) or 2.0g (platinum)' (including 3mm gemstone, WT1) confirmed verbatim."
+      "verification": "Re-verified live 2026-10-23 in chunks 5–6 (session arena/15b00e99-gold3): price $551, Solid 14k gold, Item Weight \"Approximately 1.4g (gold) or 2.1g (platinum)\" (correcting 2.0g transcription in P8-05; added WT1 + WT5), and lead-time conflict \"4-8 business days\" vs \"1-2 weeks\" (SPEC5)."
     },
     {
       "id": "R26",
@@ -1282,7 +1283,7 @@
       "weight_quote": "Setting Details: \"Metal weight: 2.3g\" — the page abbreviates grams as \"g\".",
       "hallmark_reported": null,
       "maker_mark_reported": null,
-      "return_window": "30 days from delivery; $300 USD recycling fee on engraved or setting-only original-payment returns",
+      "return_window": "30 days (<$15,000); ALL engagement ring original-payment refunds incur a $300 recycling fee (store credit only >$15,000)",
       "certification": null,
       "url": "https://www.vrai.com/configure/setting-to-diamond/petite-4-prong-ring/round-brilliant-yellow-gold-41015509221469",
       "sources": [
@@ -1328,7 +1329,7 @@
       "weight_quote": null,
       "hallmark_reported": null,
       "maker_mark_reported": null,
-      "return_window": "30 days from delivery (free US return shipping); resizing is not available for this ring",
+      "return_window": "30 days from delivery (free US return shipping; $40 fee if ring engraved); resizing is not available for this ring",
       "certification": null,
       "url": "https://www.brilliantearth.com/Fairmined-2mm-Six-Prong-Solitaire-Ring-Gold-BE1FM0126-24910022/?currency=USD",
       "sources": [
