@@ -454,7 +454,7 @@
     {
       "id": "F10",
       "severity": "low",
-      "title": "Mejuri's dedicated returns page could not be read, so its policy is quoted from the product page"
+      "title": "Mejuri's main /help hub requires JavaScript, while direct leaf FAQ articles render server-side"
     },
     {
       "id": "F11",
@@ -520,6 +520,11 @@
       "id": "F23",
       "severity": "medium",
       "title": "Three Catbird values drafted in this pass did not survive contact with the live pages"
+    },
+    {
+      "id": "F24",
+      "severity": "medium",
+      "title": "Catbird's /contact-us page returned HTTP 500 on 2026-10-23 live re-verification"
     }
   ],
   "parallel_dataset": {

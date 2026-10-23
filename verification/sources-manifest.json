@@ -1,25 +1,26 @@
 {
-  "generated_at_utc": "2026-10-23T00:15:08Z",
+  "generated_at_utc": "2026-10-23T10:16:48Z",
   "data_file_sha256": {
-    "bands-and-high-karat.json": "fd6b7c175980cfad74b34145c03e2632e809c6a94de48ef399b96c55d8ea333c",
-    "findings.json": "ab9bc570436602ab1166ad274e53a3b80dd1cb3c1b691cd1758e90950fb54873",
+    "bands-and-high-karat.json": "468c7359744b8f5bd7c51d298c8563f5808a482a5219754a17276b762046d5c2",
+    "findings.json": "f09121b80be71c0ea36574a57147452511035b52968060ebe9d08407ceb1389e",
     "flags.json": "6a588c9a3c76af47044f8d6de0e44bdcd5c48299723df651a5dc6b41f0e9763d",
     "gold-price.json": "bdb3a741c6696f56ec713c090706cb98fefb53901fe284dfe105308a7d6a7e08",
     "prices.json": "639b30ebe844d1e7740046c0c1aa474117ab0a34d14df6077be23ca532226f0a",
     "products.json": "bac54f10685ad44ec13e3af7118d2e175ce1f67b71bcfe90325580a67ec073f3",
-    "retailers.json": "fc2130447e547458e380d666c0b6598352464a2dedffbd8d0aefc7ce7ffabab3",
-    "reverification-p3.json": "605b62ab0bd0f220f2fe2c7c88d282f8305a58525f43bec643b9c557b123019b",
+    "retailers.json": "4cefa585b777b303ec98910ceaab98ebe8621cc62f16e0096f268edddd7700e9",
+    "reverification-c-6ccbc523.json": "52f4a6d610762be546e45e94fd1ffe2f17f201d16215625264fe45c84acc78f2",
+    "reverification-p3.json": "b1dca1669099d66e45b08588f8827b24f59edd65e4f4b4a806ef2a02987b5d16",
     "rings.json": "238cf2fa864fd91c8e2a2ea90ba6d6a71bdd739704ef31609f533b23b1337b41",
-    "sellers-policies.json": "372689ba815fb011c15b17e52773385718f972b174023f8bd67e01bc10d27ea6",
+    "sellers-policies.json": "b035da051fc01076295ea9ef95b5a2cedcefaea431b8966810ab4fccb167d503",
     "sellers.json": "4754237cf4aeda1d27c072d8f7a518230279b675c7fdc4b1cd9e505e828614a4",
-    "solitaire-rings.json": "1b0d493a2835471df5bf8610622bf2f668a0c2d62e7961c112d46591ae19f769",
+    "solitaire-rings.json": "43f014b01ffb974e7c628eb8090fb0760149bee5dd791c2fa6e5405395cd3fb7",
     "sources.json": "1496e3741397057c11913b06d748bf838b6781b5686e7ab733d3ac5e76a49f41",
-    "spot-and-standards.json": "77a3ff10db7fe885bc1f51eece4311fa6a62034f73ce2292d2e4bf1841b9a5ed",
+    "spot-and-standards.json": "25540d8e0c216fc68fb024546ba80e208c7be137acbc04c65900b0c767a8cdc8",
     "standards.json": "7d10a2520465c2b2734d236d9dfe93e4db44bc5d0649cb6cf82bb35cc94b668c",
-    "verification-report.json": "a58a48d836389be639184621d736fc01e4cf527e7e80a34f9e3c43ddd056282e",
+    "verification-report.json": "84bbfb16f28043a82c2b221afe2cefde01abc7ceab4540ee53bc37809721cb45",
     "verification.json": "25db638f8498645c22831bd8a2275179ce34ea80b0ad8987553f8f714c7c1181"
   },
-  "unique_official_urls_count": 164,
+  "unique_official_urls_count": 171,
   "official_sources": [
     {
       "url": "https://auratenewyork.com/",
@@ -223,7 +224,6 @@
     {
       "url": "https://mejuri.com/faq",
       "referenced_by": [
-        "HTML Link in retailers.html",
         "HTML Link in security-audit.html"
       ]
     },
@@ -238,9 +238,16 @@
     {
       "url": "https://mejuri.com/faq/return-exchanges/what-is-the-standard-return-policy",
       "referenced_by": [
+        "HTML Link in 14k.html",
+        "HTML Link in excluded.html",
+        "HTML Link in flagged.html",
+        "HTML Link in retailers.html",
+        "HTML Link in rings.html",
         "HTML Link in security-audit.html",
         "HTML Link in sellers-policies.html",
         "HTML Link in sellers.html",
+        "HTML Link in sources.html",
+        "HTML Link in under-1000.html",
         "HTML Link in verify.html",
         "Seller SEL-MEJURI Returns"
       ]
@@ -275,12 +282,10 @@
         "HTML Link in 14k.html",
         "HTML Link in calculator.html",
         "HTML Link in combined.html",
-        "HTML Link in excluded.html",
         "HTML Link in flagged.html",
         "HTML Link in retailers.html",
         "HTML Link in rings.html",
         "HTML Link in security-audit.html",
-        "HTML Link in sources.html",
         "HTML Link in under-1000.html"
       ]
     },
@@ -361,6 +366,12 @@
       ]
     },
     {
+      "url": "https://mejuri.com/world/en/company/terms",
+      "referenced_by": [
+        "HTML Link in retailers.html"
+      ]
+    },
+    {
       "url": "https://mene.com/",
       "referenced_by": [
         "HTML Link in security-audit.html",
@@ -372,23 +383,18 @@
     {
       "url": "https://mene.com/bands/gold",
       "referenced_by": [
-        "HTML Link in bands-vintage-rings.html",
-        "HTML Link in flagged-for-review.html",
-        "HTML Link in security-audit.html",
-        "Ring BND-01 Weight Page",
-        "Ring BND-02 Weight Page",
-        "Ring BND-03 Weight Page"
+        "HTML Link in security-audit.html"
       ]
     },
     {
       "url": "https://mene.com/collections/bands-gold",
       "referenced_by": [
         "HTML Link in bands-vintage-rings.html",
-        "HTML Link in combined.html",
         "HTML Link in flagged-for-review.html",
         "HTML Link in security-audit.html",
-        "Ring BND-02 Product Page",
-        "Ring BND-03 Product Page"
+        "Ring BND-01 Weight Page",
+        "Ring BND-02 Weight Page",
+        "Ring BND-03 Weight Page"
       ]
     },
     {
@@ -414,6 +420,26 @@
         "HTML Link in flagged-for-review.html",
         "HTML Link in security-audit.html",
         "Ring BND-01 Product Page"
+      ]
+    },
+    {
+      "url": "https://mene.com/products/mene-narrow-flat-band-gold",
+      "referenced_by": [
+        "HTML Link in bands-vintage-rings.html",
+        "HTML Link in combined.html",
+        "HTML Link in flagged-for-review.html",
+        "HTML Link in security-audit.html",
+        "Ring BND-02 Product Page"
+      ]
+    },
+    {
+      "url": "https://mene.com/products/mene-wide-flat-band-gold",
+      "referenced_by": [
+        "HTML Link in bands-vintage-rings.html",
+        "HTML Link in combined.html",
+        "HTML Link in flagged-for-review.html",
+        "HTML Link in security-audit.html",
+        "Ring BND-03 Product Page"
       ]
     },
     {
@@ -497,17 +523,12 @@
     {
       "url": "https://uscode.house.gov/view.xhtml?path=%2Fprelim%40title15%2Fchapter8&edition=prelim",
       "referenced_by": [
-        "HTML Link in checklist-standards.html",
-        "HTML Link in security-audit.html",
-        "Karat Row (14K Solid Gold (U.S. Fractional 14/24))",
-        "Karat Row (18K Solid Gold)",
-        "Standard STD-01"
+        "HTML Link in security-audit.html"
       ]
     },
     {
       "url": "https://uscode.house.gov/view.xhtml?path=/prelim@title15/chapter8&edition=prelim",
       "referenced_by": [
-        "HTML Link in checklist-standards.html",
         "HTML Link in security-audit.html"
       ]
     },
@@ -596,6 +617,12 @@
     },
     {
       "url": "https://www.bbb.org/us/ri/cranston/profile/jewelry-stores/ross-simons-0021-105000",
+      "referenced_by": [
+        "HTML Link in security-audit.html"
+      ]
+    },
+    {
+      "url": "https://www.bbb.org/us/ri/cranston/profile/jewelry-stores/ross-simons-inc-0021-25107",
       "referenced_by": [
         "HTML Link in checklist-standards.html",
         "HTML Link in security-audit.html",
@@ -868,9 +895,15 @@
     {
       "url": "https://www.catbirdnyc.com/contact-us",
       "referenced_by": [
-        "HTML Link in retailers.html",
         "HTML Link in security-audit.html",
         "HTML Link in sellers.html"
+      ]
+    },
+    {
+      "url": "https://www.catbirdnyc.com/facts",
+      "referenced_by": [
+        "HTML Link in flagged.html",
+        "HTML Link in retailers.html"
       ]
     },
     {
@@ -940,6 +973,7 @@
       "url": "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23/section-23.3",
       "referenced_by": [
         "HTML Link in calculator.html",
+        "HTML Link in checklist-standards.html",
         "HTML Link in index.html",
         "HTML Link in security-audit.html"
       ]
@@ -947,14 +981,12 @@
     {
       "url": "https://www.ecfr.gov/current/title-16/part-23",
       "referenced_by": [
-        "HTML Link in checklist-standards.html",
         "HTML Link in security-audit.html"
       ]
     },
     {
       "url": "https://www.ecfr.gov/current/title-16/part-23/section-23.4",
       "referenced_by": [
-        "HTML Link in checklist-standards.html",
         "HTML Link in security-audit.html"
       ]
     },
@@ -966,10 +998,16 @@
       ]
     },
     {
-      "url": "https://www.gia.edu/gems-gemology/summer-2025-lab-notes-gold-plated-gold0",
+      "url": "https://www.gia.edu/gems-gemology/summer-2025-lab-notes-gold-plated-gold",
       "referenced_by": [
         "HTML Link in security-audit.html",
         "Standard STD-05"
+      ]
+    },
+    {
+      "url": "https://www.gia.edu/gems-gemology/summer-2025-lab-notes-gold-plated-gold0",
+      "referenced_by": [
+        "HTML Link in security-audit.html"
       ]
     },
     {
@@ -1007,8 +1045,17 @@
     {
       "url": "https://www.gov.uk/guidance/hallmarking-law-and-practice",
       "referenced_by": [
-        "HTML Link in checklist-standards.html",
         "HTML Link in security-audit.html"
+      ]
+    },
+    {
+      "url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title15/html/USCODE-2023-title15-chap8.htm",
+      "referenced_by": [
+        "HTML Link in checklist-standards.html",
+        "HTML Link in security-audit.html",
+        "Karat Row (14K Solid Gold (U.S. Fractional 14/24))",
+        "Karat Row (18K Solid Gold)",
+        "Standard STD-01"
       ]
     },
     {
@@ -1123,13 +1170,13 @@
     {
       "url": "https://www.nist.gov/pml/owm/approximate-conversions-us-customary-measures-metric",
       "referenced_by": [
-        "HTML Link in checklist-standards.html",
         "HTML Link in security-audit.html"
       ]
     },
     {
       "url": "https://www.nist.gov/pml/owm/metric-si/unit-conversion/precious-metals-conversion-information",
       "referenced_by": [
+        "HTML Link in checklist-standards.html",
         "HTML Link in security-audit.html",
         "NIST Constant (NIST Office of Weights and Measures \u2014 Conversion Factors for Precious Metal Sales)"
       ]
