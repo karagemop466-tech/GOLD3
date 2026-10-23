@@ -56,9 +56,6 @@ FLAG_LABELS = {
     "SOLID_NOT_ON_LISTING": "Brand-level",
     "PRICE_FROM_LOWEST_VARIANT": "From-price",
     "WEIGHT_NOT_PUBLISHED": "No weight",
-    "WEIGHT_RANGE_ONLY": "Weight range only",
-    "EXCHANGE_ONLY_FINAL_SALE": "Exchange-only / final sale",
-    "PAGE_SELF_CONTRADICTION": "Page self-contradiction",
     "HALLMARK_NOT_STATED": "No hallmark",
     "DESCRIPTION_CONTRADICTION": "Contradiction",
     "MIXED_METAL": "Mixed metal",
@@ -173,6 +170,8 @@ CAT_LABELS = {
     "excluded": "Excluded - not solid gold",
 }
 
+
+NAV[2] = ("combined.html", f"Combined ({len(PRODUCTS) + len(OTHER_ITEMS) + len(DATASET_C_ITEMS)})")
 
 VERIF = load("verification.json") if (DATA / "verification.json").exists() else None
 
@@ -427,7 +426,7 @@ def build_index() -> str:
 {policy_box()}
 <div class="page-head">
   <h1>A gold engagement ring you can actually verify &mdash; No Hallucinations</h1>
-  <p class="lead">{METRICS['n_combined']} listings across {METRICS['n_sellers_total']} sellers in Datasets A+B (plus {len(DATASET_C_ITEMS)} in Dataset C = {len(PRODUCTS) + len(OTHER_ITEMS) + len(DATASET_C_ITEMS)} total rows on <a href="combined.html">Combined</a>) &mdash; {len(PRODUCTS)} verified in Dataset A and {METRICS['n_other_items']} in Dataset B &mdash; checked line by line under our <strong>No Hallucinations</strong> commitment against official seller pages, US jewellery-marking
+  <p class="lead">{METRICS['n_combined']} listings across {METRICS['n_sellers_total']} sellers &mdash; {len(PRODUCTS)} verified in Dataset A and {METRICS['n_other_items']} in Dataset B &mdash; checked line by line under our <strong>No Hallucinations</strong> commitment against official seller pages, US jewellery-marking
   regulations and the gold price captured on 22 October 2026 and re-checked live on 23 October 2026. Every single table row links to an official source. Where a seller publishes nothing, the cell is left blank
   and flagged <em>unverified</em>. Need stone-carat deduction &amp; post-arrival ED-XRF assay tolerances? Open the <a href="archive/session-cbea1001/calculator.html">XRF &amp; Stone-Deduction Lab Calculator</a> or <a href="archive/session-cbea1001/index.html">Session Observatory</a>.</p>
 </div>
@@ -449,7 +448,7 @@ def build_index() -> str:
     <tbody>{melt_rows}</tbody>
   </table>
 </div>
-<p class="tiny muted">*3 g is a <em>scenario</em> used to show scale, not a claim about any ring in Dataset A (where 0 of {METRICS['n_solid_gold']} gold listings state a single finished ring weight; 13 listings in Dataset B and 8 in Dataset C publish weights &mdash; see <a href="combined.html">Combined</a>).
+<p class="tiny muted">*3 g is a <em>scenario</em> used to show scale, not a claim about any ring in this dataset - none of Dataset A's listings publishes a single finished ring weight (14 listings in Dataset B and 5 in Dataset C publish static-HTML weights &mdash; see <a href="combined.html">Combined</a>).
 At {money(SPOT,2)}/oz, one gram of 100% fine gold is {money(SPOT_GRAM,2)}. The 24K row uses the 999.9-fine convention
 (99.99%), so it renders one cent lower. Calculated in <a href="calculator.html">the calculator</a>, with the formula shown.</p>
 
@@ -467,7 +466,7 @@ At {money(SPOT,2)}/oz, one gram of 100% fine gold is {money(SPOT_GRAM,2)}. The 2
   </div>
   <div class="card">
     <h3>Weight is the missing number</h3>
-    <p class="small">Not one of Dataset A's {METRICS['n_solid_gold']} gold listings publishes a single finished ring weight (one states a 5.5&ndash;8.5 g range across three metals). Without an exact gram figure you cannot know
+    <p class="small">Not one of the {METRICS['n_solid_gold']} gold listings publishes the finished ring weight. Without it you cannot know
     how much gold you are buying - you can only see what the price implies.</p>
   </div>
 </div>
@@ -514,8 +513,8 @@ def build_combined() -> str:
         price_html = money(price) if isinstance(price, (int, float)) else '<span class="badge neutral">no price</span>'
         if it.get("weight_g") is not None:
             approx = "approximate" in (it.get("weight_quote") or "").lower()
-            incl = "includes" in (it.get("weight_quote") or "").lower()
-            weight = f'{it["weight_g"]:g} g' + ('<span class="sub">approx.</span>' if approx else '') + ('<span class="sub">incl. stone</span>' if incl else '')
+            incl = "includes" in (it.get("weight_quote") or "").lower() or "total weight" in (it.get("weight_quote") or "").lower()
+            weight = f'{float(it["weight_g"]):.1f} g' + ('<span class="sub">approx.</span>' if approx else '') + ('<span class="sub">incl. stone</span>' if incl else '')
         else:
             weight = '<span class="badge neutral">not published</span>'
         chips = ""
@@ -528,11 +527,20 @@ def build_combined() -> str:
         extra = len(it.get("flags") or []) - 3
         if extra > 0:
             chips += f'<span class="badge neutral">+{extra}</span>'
-        checked = it.get("checked") or RINGS_RETRIEVED or "-"
+        checked = it.get("checked") or it.get("last_verified") or RINGS_RETRIEVED or "-"
         src = it.get("url")
-        k_tok = (it.get("karat") or "").split()[0].lower()
-        w_tok = "weighted" if it.get("weight_g") is not None else ""
-        return f"""<tr data-cats="b {e(k_tok)} {w_tok}">
+        k_lower = str(it.get("karat") or "").lower()
+        row_cats = ["b"]
+        for kk in ("10k", "14k", "18k", "19k"):
+            if kk in k_lower:
+                row_cats.append(kk)
+        if "22k" in k_lower or "24k" in k_lower:
+            row_cats.append("22k-24k")
+        if it.get("weight_g") is not None:
+            row_cats.append("weighted")
+        if it.get("flags"):
+            row_cats.append("flagged")
+        return f"""<tr data-cats="{' '.join(row_cats)}">
           <td><span class="badge info">B</span></td>
           <td>{e(seller_name)}</td>
           <td><a href="{e(src)}" target="_blank" rel="noopener">{e(title)}</a></td>
@@ -547,9 +555,12 @@ def build_combined() -> str:
 
     def mine_row(p):
         r = R_BY_ID.get(p["retailer"], {})
-        k_tok = (p.get("purity") or "").split()[0].lower()
-        cats_attr = " ".join(["a", k_tok] + [str(x).lower() for x in (p.get("categories") or [])])
-        return f"""<tr data-cats="{e(cats_attr)}">
+        row_cats = ["a"] + list(p.get("categories") or [])
+        if p.get("weight_g") is not None:
+            row_cats.append("weighted")
+        if p.get("flags"):
+            row_cats.append("flagged")
+        return f"""<tr data-cats="{e(' '.join(row_cats))}">
           <td><span class="badge gold">A</span></td>
           <td>{e(r.get('name', p['retailer']))}<span class="sub"><span class="badge good">live</span></span></td>
           <td><a href="{e(p['url'])}" target="_blank" rel="noopener">{e(p['name'])}</a></td>
@@ -575,8 +586,15 @@ def build_combined() -> str:
         else:
             weight = '<span class="badge neutral">not published</span>'
         flag_badge = f'<span class="badge {"bad" if str(c.get("checklist_status","")).startswith("REJECT") else ("warn" if c.get("flagged") else "good")}">{e(c.get("checklist_status",""))}</span>'
-        w_tok = "weighted" if c.get("weight_grams") is not None else ""
-        return f"""<tr data-cats="c {str(c.get('karat_numeric','')).lower()}k {w_tok}">
+        kn = c.get("karat_numeric")
+        row_cats = ["c", f"{str(kn).lower()}k"]
+        if kn in (22, 24):
+            row_cats.append("22k-24k")
+        if c.get("weight_grams") is not None:
+            row_cats.append("weighted")
+        if c.get("flagged"):
+            row_cats.append("flagged")
+        return f"""<tr data-cats="{' '.join(row_cats)}">
           <td><span class="badge good">C</span></td>
           <td>{e(c['seller_name'])}</td>
           <td><a href="{e(c['product_url'])}" target="_blank" rel="noopener">{e(c['product_name'])}</a></td>
@@ -605,12 +623,11 @@ def build_combined() -> str:
     body = f"""
 {policy_box()}
 <div class="page-head">
-  <h1>Combined dataset &mdash; all three research passes ({len(PRODUCTS) + len(OTHER_ITEMS) + live_c} rows)</h1>
-  <p class="lead">Multiple agent sessions researched this repo independently on the same day. Rather than discard any pass, all three datasets are published here,
-  side by side, with their own source links and provenance. <strong>Dataset A</strong> is {len(PRODUCTS)} listings with verbatim price quotes
-  ({len(RETAILERS)} retailers). <strong>Dataset B</strong> is the parallel pass's {len(OTHER_ITEMS)} listings plus {len(OTHER_EXCLUDED)} documented
-  look-alikes ({b_sellers} sellers), including Costco, James Allen, Ross-Simons, Tiffany &amp; Co., Sarraf, Automic Gold, VRAI, Brilliant Earth, Menē, Local Eclectic and Wilson's Estate Jewelry.
-  <strong>Dataset C</strong> adds {live_c} solitaire settings, 24K pure bullion bands and solid 14K bands with verbatim excerpts and melt ratios.</p>
+  <h1>Combined dataset &mdash; both research passes</h1>
+  <p class="lead">Two agent sessions researched this repo independently on the same day. Rather than discard either, both datasets are published here,
+  side by side, with their own source links and provenance. <strong>Dataset A</strong> is this session's {len(PRODUCTS)} listings with verbatim price quotes
+  ({len(RETAILERS)} retailers). <strong>Dataset B</strong> is the parallel session's {len(OTHER_ITEMS)} listings plus {len(OTHER_EXCLUDED)} documented
+  look-alikes ({b_sellers} sellers), including Costco, James Allen, Ross-Simons, Tiffany &amp; Co. and Wilson's Estate Jewelry.</p>
 </div>
 
 <div class="grid cols-4" style="margin-bottom:18px">
@@ -621,11 +638,10 @@ def build_combined() -> str:
 </div>
 
 <div class="warn-box" style="margin-bottom:16px">
-  <strong>What "A", "B" and "C" mean.</strong> Dataset A records every price with a verbatim quote and a capture date, and is gated by
-  <span class="mono">scripts/verify.py</span>. Dataset B records a per-field quote for the karat,
-  the solid-gold claim, the weight and the hallmark, plus a flag legend and an audit report (<span class="mono">scripts/audit.py</span>).
-  Dataset C records solitaire settings, 24K pure bullion bands and solid 14K bands gated by <span class="mono">scripts/run_security_audit.py</span>.
-  All three are shown unchanged with their provenance badge. Dataset B&rsquo;s own excluded look-alikes are listed separately below, with the reason and the facts its session verified.
+  <strong>What "A" and "B" mean.</strong> Dataset A (this session) records every price with a verbatim quote and a capture date, and is gated by
+  <span class="mono">scripts/verify.py</span>. Dataset B (parallel session <span class="mono">8aaa18bf</span>) records a per-field quote for the karat,
+  the solid-gold claim, the weight and the hallmark, plus a flag legend and an audit report. Both are shown unchanged; neither is re-vouched for by the
+  other. Dataset B&rsquo;s own excluded look-alikes are listed separately below, with the reason and the facts its session verified.
 </div>
 
 <div class="toolbar" data-table-toolbar="combined-table">
@@ -633,10 +649,12 @@ def build_combined() -> str:
   <button class="filter-btn" data-filter="a">Dataset A</button>
   <button class="filter-btn" data-filter="b">Dataset B</button>
   <button class="filter-btn" data-filter="c">Dataset C</button>
+  <button class="filter-btn" data-filter="10k">10K</button>
   <button class="filter-btn" data-filter="14k">14K</button>
   <button class="filter-btn" data-filter="18k">18K</button>
-  <button class="filter-btn" data-filter="24k">24K</button>
-  <button class="filter-btn" data-filter="weighted">Weight published</button>
+  <button class="filter-btn" data-filter="22k-24k">22K&ndash;24K</button>
+  <button class="filter-btn" data-filter="weighted">Published weight</button>
+  <button class="filter-btn" data-filter="flagged">Flagged</button>
   <input type="search" placeholder="Search seller, ring or flag…" aria-label="Search combined listings">
   <span class="small muted" data-count></span>
 </div>
@@ -687,8 +705,8 @@ def build_combined() -> str:
 </div>
 """
     return page("combined.html", "Combined dataset", body,
-                f"All three research passes side by side: {len(PRODUCTS) + len(OTHER_ITEMS) + live_c} listings across "
-                f"{sellers} sellers, each with its own source link and provenance.")
+                f"Both research passes side by side: {METRICS['n_combined']} listings across "
+                f"{METRICS['n_sellers_total']} sellers, each with its own source link and provenance.")
 
 
 def build_rings() -> str:
@@ -866,6 +884,7 @@ def build_calculator() -> str:
         <option value="10K">10K (41.7% gold)</option>
         <option value="14K" selected>14K (58.3% gold)</option>
         <option value="18K">18K (75.0% gold)</option>
+        <option value="19K">19K (79.2% gold &mdash; estate alloy)</option>
         <option value="22K">22K (91.7% gold)</option>
         <option value="24K">24K (99.99% gold)</option>
       </select>
@@ -873,7 +892,21 @@ def build_calculator() -> str:
     <div class="field">
       <label for="calc-grams">Ring weight (grams)</label>
       <input type="number" id="calc-grams" value="3" step="0.1" min="0">
-      <p class="tiny muted" style="margin:4px 0 0">Use the seller's stated weight (published on 13 Dataset B rings; ask in writing where omitted).</p>
+      <p class="tiny muted" style="margin:4px 0 0">Use the seller's stated weight (published on {len([r for r in RINGS if isinstance(r.get('weight_g'),(int,float))])} Dataset B rings; ask in writing where omitted).</p>
+    </div>
+    <div class="field">
+      <label for="calc-stone-ct">Set diamond / gemstone carat weight to deduct (ct) &mdash; optional</label>
+      <input type="number" id="calc-stone-ct" value="0" step="0.01" min="0" placeholder="0.00">
+      <p class="tiny muted" style="margin:4px 0 0">Metric carat standard: <code>1.00 ct = 0.200 g</code> (deduct on total-item weights such as <code>WT1</code>).</p>
+    </div>
+    <div class="field">
+      <label for="calc-tolerance">Seller stated weight tolerance &mdash; optional</label>
+      <select id="calc-tolerance">
+        <option value="none" selected>Exact scale measurement (&plusmn;0.00 g)</option>
+        <option value="pct5">Sarraf stated accuracy (&plusmn;5%)</option>
+        <option value="g05">Menē in-stock tolerance (&plusmn;0.50 g)</option>
+        <option value="g10">Menē Crafted-on-Demand tolerance (&plusmn;1.00 g)</option>
+      </select>
     </div>
     <div class="field">
       <label for="calc-price">Asking price (USD) &mdash; optional</label>
@@ -885,7 +918,7 @@ def build_calculator() -> str:
     <div class="result-grid">
       <div class="result"><div class="label">Spot / gram</div><div class="value" id="out-spot-gram">—</div><div class="note">pure gold</div></div>
       <div class="result"><div class="label">Melt / gram</div><div class="value" id="out-melt-gram">—</div><div class="note" id="out-purity">—</div></div>
-      <div class="result"><div class="label">Gold value of the ring</div><div class="value" id="out-melt-value">—</div><div class="note">weight × melt per gram</div></div>
+      <div class="result"><div class="label">Gold value of the ring</div><div class="value" id="out-melt-value">—</div><div class="note" id="out-tolerance-note">weight × melt per gram</div></div>
       <div class="result"><div class="label">Break-even weight</div><div class="value" id="out-implied">—</div><div class="note">price ÷ melt per gram</div></div>
       <div class="result"><div class="label">Price ÷ gold value</div><div class="value" id="out-ratio">—</div><div class="note">the retail multiple</div></div>
       <div class="result"><div class="label">Premium over gold</div><div class="value" id="out-premium">—</div><div class="note">price − gold value</div></div>
@@ -1612,7 +1645,7 @@ def build_checklist() -> str:
          "No retailer here publishes a hallmark policy, so every row is unverified on this point until you see the ring."),
         ("Weight", "Get the ring's weight in grams from the seller.",
          "Without weight, the gold content cannot be computed - only implied by the price.",
-         f"0 of {METRICS['n_solid_gold']} gold listings in Dataset A publish a single finished weight (one publishes a 5.5-8.5 g range across three metals; 13 listings in Dataset B and 8 in Dataset C publish weights). Aurate's product feed also carries an undocumented numeric 'weight' field that repeats across variants; it is never described as the finished item weight, so it was deliberately not used."),
+         f"0 of {METRICS['n_solid_gold']} gold listings publish a weight. Aurate's product feed carries an undocumented numeric 'weight' field that repeats across variants; it is never described as the finished item weight, so it was deliberately not used."),
         ("Seller reputation", "Read independent reviews and complaints; confirm a real phone number or address.",
          "Trustpilot scores are shown with review counts and whether reviews are invited, because sample size changes meaning.",
          "Retailer cards quote the actual complaint themes, not just the stars."),
@@ -1723,10 +1756,10 @@ def build() -> None:
         "14k.html": build_category(
             "14k", "14k", "14K solid gold rings",
             "14K is 58.3% gold. It is the hardest-wearing karat commonly sold in the US and the price point most listings sit at. "
-            "Note how few listings state the word <em>solid</em> or publish a weight - those are the gaps this page exists to show.",
-            extra="""<div class="note-box" style="margin-bottom:16px"><strong>Aurate's prices are "from" prices.</strong>
-            The collection page shows one starting price per design, which corresponds to the 14K option at the smallest size. The 18K
-            version of the same design costs more and was not captured, so no 18K Aurate price appears on this site.</div>"""),
+            "Note how few listings state the word <em>solid</em> or publish a single ring weight - those are the gaps this page exists to show.",
+            extra="""<div class="note-box" style="margin-bottom:16px"><strong>Aurate's 14K product pages were re-verified live on 23 October 2026.</strong>
+            All seven Aurate listings now link directly to their live product pages (18K and platinum options cost more and were not captured).
+            Notice that every Aurate page pairs a <em>Free Returns</em> badge with <em>Exchange for size only. Final Sale!</em> and publishes only multi-metal ranges or stone-inclusive weights.</div>"""),
         "18k.html": build_category(
             "18k", "18k", "18K solid gold rings",
             "18K is 75% gold - more gold per gram, a softer alloy, and a higher price. Only two listings in this dataset publish a usable 18K price, "

@@ -47,6 +47,7 @@
         <option value="10K">10K (41.7% gold)</option>
         <option value="14K" selected>14K (58.3% gold)</option>
         <option value="18K">18K (75.0% gold)</option>
+        <option value="19K">19K (79.2% gold &mdash; estate alloy)</option>
         <option value="22K">22K (91.7% gold)</option>
         <option value="24K">24K (99.99% gold)</option>
       </select>
@@ -54,7 +55,21 @@
     <div class="field">
       <label for="calc-grams">Ring weight (grams)</label>
       <input type="number" id="calc-grams" value="3" step="0.1" min="0">
-      <p class="tiny muted" style="margin:4px 0 0">Use the seller's stated weight (published on 13 Dataset B rings; ask in writing where omitted).</p>
+      <p class="tiny muted" style="margin:4px 0 0">Use the seller's stated weight (published on 14 Dataset B rings; ask in writing where omitted).</p>
+    </div>
+    <div class="field">
+      <label for="calc-stone-ct">Set diamond / gemstone carat weight to deduct (ct) &mdash; optional</label>
+      <input type="number" id="calc-stone-ct" value="0" step="0.01" min="0" placeholder="0.00">
+      <p class="tiny muted" style="margin:4px 0 0">Metric carat standard: <code>1.00 ct = 0.200 g</code> (deduct on total-item weights such as <code>WT1</code>).</p>
+    </div>
+    <div class="field">
+      <label for="calc-tolerance">Seller stated weight tolerance &mdash; optional</label>
+      <select id="calc-tolerance">
+        <option value="none" selected>Exact scale measurement (&plusmn;0.00 g)</option>
+        <option value="pct5">Sarraf stated accuracy (&plusmn;5%)</option>
+        <option value="g05">Menē in-stock tolerance (&plusmn;0.50 g)</option>
+        <option value="g10">Menē Crafted-on-Demand tolerance (&plusmn;1.00 g)</option>
+      </select>
     </div>
     <div class="field">
       <label for="calc-price">Asking price (USD) &mdash; optional</label>
@@ -66,7 +81,7 @@
     <div class="result-grid">
       <div class="result"><div class="label">Spot / gram</div><div class="value" id="out-spot-gram">—</div><div class="note">pure gold</div></div>
       <div class="result"><div class="label">Melt / gram</div><div class="value" id="out-melt-gram">—</div><div class="note" id="out-purity">—</div></div>
-      <div class="result"><div class="label">Gold value of the ring</div><div class="value" id="out-melt-value">—</div><div class="note">weight × melt per gram</div></div>
+      <div class="result"><div class="label">Gold value of the ring</div><div class="value" id="out-melt-value">—</div><div class="note" id="out-tolerance-note">weight × melt per gram</div></div>
       <div class="result"><div class="label">Break-even weight</div><div class="value" id="out-implied">—</div><div class="note">price ÷ melt per gram</div></div>
       <div class="result"><div class="label">Price ÷ gold value</div><div class="value" id="out-ratio">—</div><div class="note">the retail multiple</div></div>
       <div class="result"><div class="label">Premium over gold</div><div class="value" id="out-premium">—</div><div class="note">price − gold value</div></div>

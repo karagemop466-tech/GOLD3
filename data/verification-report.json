@@ -32,7 +32,7 @@
     {
       "id": "aurate-2ct-round-lgd-solitaire",
       "brand": "Aurate New York",
-      "price": 2858.0,
+      "price": 2858,
       "purity": "14K",
       "solid_gold": true,
       "flags": [
@@ -43,7 +43,9 @@
         "EXCHANGE_ONLY_FINAL_SALE",
         "PAGE_SELF_CONTRADICTION",
         "HALLMARK_NOT_STATED",
-        "FINAL_SALE_PDP_OVERRIDE"
+        "FINAL_SALE_PDP_OVERRIDE",
+        "WEIGHT_RANGE_ONLY",
+        "EXCHANGE_ONLY_FINAL_SALE"
       ],
       "derived": {
         "karat": "14K",
@@ -55,15 +57,17 @@
     {
       "id": "aurate-2ct-emerald-lgd-solitaire",
       "brand": "Aurate New York",
-      "price": 2638.0,
+      "price": 2638,
       "purity": "14K",
       "solid_gold": true,
       "flags": [
         "SOLID_NOT_ON_LISTING",
-        "PRICE_FROM_LOWEST_VARIANT",
         "WEIGHT_NOT_PUBLISHED",
         "HALLMARK_NOT_STATED",
-        "FINAL_SALE_PDP_OVERRIDE"
+        "FINAL_SALE_PDP_OVERRIDE",
+        "WEIGHT_RANGE_ONLY",
+        "EXCHANGE_ONLY_FINAL_SALE",
+        "PAGE_SELF_CONTRADICTION"
       ],
       "derived": {
         "karat": "14K",
@@ -75,15 +79,16 @@
     {
       "id": "aurate-1ct-round-lgd-bezel",
       "brand": "Aurate New York",
-      "price": 1498.0,
+      "price": 1498,
       "purity": "14K",
       "solid_gold": true,
       "flags": [
         "SOLID_NOT_ON_LISTING",
-        "PRICE_FROM_LOWEST_VARIANT",
         "WEIGHT_NOT_PUBLISHED",
         "HALLMARK_NOT_STATED",
-        "FINAL_SALE_PDP_OVERRIDE"
+        "FINAL_SALE_PDP_OVERRIDE",
+        "EXCHANGE_ONLY_FINAL_SALE",
+        "PAGE_SELF_CONTRADICTION"
       ],
       "derived": {
         "karat": "14K",
@@ -95,15 +100,16 @@
     {
       "id": "aurate-2ct-emerald-lgd-bezel",
       "brand": "Aurate New York",
-      "price": 1968.0,
+      "price": 1968,
       "purity": "14K",
       "solid_gold": true,
       "flags": [
         "SOLID_NOT_ON_LISTING",
-        "PRICE_FROM_LOWEST_VARIANT",
         "WEIGHT_NOT_PUBLISHED",
         "HALLMARK_NOT_STATED",
-        "FINAL_SALE_PDP_OVERRIDE"
+        "FINAL_SALE_PDP_OVERRIDE",
+        "EXCHANGE_ONLY_FINAL_SALE",
+        "PAGE_SELF_CONTRADICTION"
       ],
       "derived": {
         "karat": "14K",
@@ -115,15 +121,17 @@
     {
       "id": "aurate-2ct-oval-lgd-solitaire",
       "brand": "Aurate New York",
-      "price": 2858.0,
+      "price": 2858,
       "purity": "14K",
       "solid_gold": true,
       "flags": [
         "SOLID_NOT_ON_LISTING",
-        "PRICE_FROM_LOWEST_VARIANT",
         "WEIGHT_NOT_PUBLISHED",
         "HALLMARK_NOT_STATED",
-        "FINAL_SALE_PDP_OVERRIDE"
+        "FINAL_SALE_PDP_OVERRIDE",
+        "WEIGHT_RANGE_ONLY",
+        "EXCHANGE_ONLY_FINAL_SALE",
+        "PAGE_SELF_CONTRADICTION"
       ],
       "derived": {
         "karat": "14K",
@@ -135,15 +143,17 @@
     {
       "id": "aurate-3ct-oval-lgd-solitaire",
       "brand": "Aurate New York",
-      "price": 3958.0,
+      "price": 3958,
       "purity": "14K",
       "solid_gold": true,
       "flags": [
         "SOLID_NOT_ON_LISTING",
-        "PRICE_FROM_LOWEST_VARIANT",
         "WEIGHT_NOT_PUBLISHED",
         "HALLMARK_NOT_STATED",
-        "FINAL_SALE_PDP_OVERRIDE"
+        "FINAL_SALE_PDP_OVERRIDE",
+        "WEIGHT_RANGE_ONLY",
+        "EXCHANGE_ONLY_FINAL_SALE",
+        "PAGE_SELF_CONTRADICTION"
       ],
       "derived": {
         "karat": "14K",
@@ -155,15 +165,16 @@
     {
       "id": "aurate-3ct-pear-lgd-bezel",
       "brand": "Aurate New York",
-      "price": 2498.0,
+      "price": 2498,
       "purity": "14K",
       "solid_gold": true,
       "flags": [
         "SOLID_NOT_ON_LISTING",
-        "PRICE_FROM_LOWEST_VARIANT",
         "WEIGHT_NOT_PUBLISHED",
         "HALLMARK_NOT_STATED",
-        "FINAL_SALE_PDP_OVERRIDE"
+        "FINAL_SALE_PDP_OVERRIDE",
+        "EXCHANGE_ONLY_FINAL_SALE",
+        "PAGE_SELF_CONTRADICTION"
       ],
       "derived": {
         "karat": "14K",
@@ -200,7 +211,6 @@
       "flags": [
         "SETTING_PRICE_ONLY",
         "SOLID_NOT_STATED",
-        "PRICE_NOT_RECONFIRMED",
         "WEIGHT_NOT_PUBLISHED",
         "HALLMARK_NOT_STATED"
       ],
@@ -220,7 +230,6 @@
       "flags": [
         "SETTING_PRICE_ONLY",
         "SOLID_NOT_STATED",
-        "PRICE_NOT_RECONFIRMED",
         "WEIGHT_NOT_PUBLISHED",
         "HALLMARK_NOT_STATED"
       ],
@@ -260,7 +269,6 @@
       "flags": [
         "SETTING_PRICE_ONLY",
         "SOLID_NOT_STATED",
-        "PRICE_NOT_RECONFIRMED",
         "WEIGHT_NOT_PUBLISHED",
         "HALLMARK_NOT_STATED"
       ],
@@ -296,7 +304,6 @@
       "purity": "10K",
       "solid_gold": true,
       "flags": [
-        "PRICE_NOT_RECONFIRMED",
         "WEIGHT_NOT_PUBLISHED",
         "HALLMARK_NOT_STATED",
         "NOT_ENGAGEMENT_RING"
@@ -321,7 +328,10 @@
         "MIXED_METAL",
         "MADE_TO_ORDER",
         "WEIGHT_NOT_PUBLISHED",
-        "HALLMARK_NOT_STATED"
+        "HALLMARK_NOT_STATED",
+        "PURITY_NOT_IN_BODY_TEXT",
+        "MIXED_METAL",
+        "MADE_TO_ORDER"
       ],
       "derived": {
         "karat": "14K",
@@ -342,7 +352,10 @@
         "MIXED_METAL",
         "MADE_TO_ORDER",
         "WEIGHT_NOT_PUBLISHED",
-        "HALLMARK_NOT_STATED"
+        "HALLMARK_NOT_STATED",
+        "MADE_TO_ORDER",
+        "PURITY_NOT_IN_BODY_TEXT",
+        "MIXED_METAL"
       ],
       "derived": {
         "karat": "14K",
@@ -407,10 +420,10 @@
     "n_other_items": 31,
     "n_other_excluded": 5,
     "n_other_priced": 29,
-    "n_other_weight": 13,
+    "n_other_weight": 14,
     "n_other_hallmark": 3,
     "n_combined": 50,
-    "n_weight_published_total": 13,
+    "n_weight_published_total": 14,
     "n_sellers_total": 16
   },
   "findings": [
@@ -537,7 +550,7 @@
     {
       "id": "F25",
       "severity": "high",
-      "title": "All 7 Aurate lab-grown engagement ring PDPs enforce 'Final Sale! / Exchange for size only.' + 30% MTO cancellation fee after 24h"
+      "title": "All 7 Aurate lab-grown engagement ring PDPs enforce 'Exchange for size only. Final Sale!' beside 'Free Returns' and omit listing-level 'solid' wording"
     },
     {
       "id": "F26",
@@ -562,6 +575,46 @@
     {
       "id": "F30",
       "severity": "high",
+      "title": "All seven Aurate engagement listings conflict 'Free Returns' with 'Exchange for size only. Final Sale!' — and two bezels misstate carat weight in their titles"
+    },
+    {
+      "id": "F31",
+      "severity": "high",
+      "title": "Mejuri's Milestone collection card prints 'From $648' for Slim Diamond Eternity Band (R03), while clicking through to the 14k White Gold product page prints 'From $898' (+38.6%)"
+    },
+    {
+      "id": "F32",
+      "severity": "high",
+      "title": "Wilson's Bailey Banks & Biddle 19K Art Deco ring (R13) DOES publish 'Total Weight: 6.5 grams' in chunk 1 — missed by five prior passes"
+    },
+    {
+      "id": "F33",
+      "severity": "high",
+      "title": "Menē BBB profiles (0107-1413670 & 0107-1378080) are both 'Not Rated' — removing unverified 'D+' BBB grade on SEL-MENE"
+    },
+    {
+      "id": "F34",
+      "severity": "high",
+      "title": "Two hallucinated 404 product URLs caught inside data/flags.json (WAR1 & SPEC5) plus four dead seller policy/contact URLs"
+    },
+    {
+      "id": "F35",
+      "severity": "medium",
+      "title": "Wilson's standalone refund-policy page contradicts its product-page Domestic Returns tab on free US return labels"
+    },
+    {
+      "id": "F36",
+      "severity": "medium",
+      "title": "Sarraf's '± 5%' weight accuracy statement IS printed verbatim in chunk 4 (#tab-education) of R20, R26, and R27"
+    },
+    {
+      "id": "F37",
+      "severity": "medium",
+      "title": "Post-deploy live read caught mismatched variant quotes on Aurate & Ring Concierge rows from an initial Pass P9 script"
+    },
+    {
+      "id": "F38",
+      "severity": "high",
       "title": "Automic Gold requires mailing returns within 14 days to avoid a restocking fee, and its recorded phone number was not on the cited page"
     }
   ],
@@ -569,7 +622,7 @@
     "items": 31,
     "excluded": 5,
     "priced": 29,
-    "weights": 13
+    "weights": 14
   },
   "errors": [],
   "warnings": [],

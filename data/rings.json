@@ -1,5 +1,5 @@
 {
-  "retrieved_utc": "2026-10-22",
+  "retrieved_utc": "2026-10-23",
   "scope": "Gold engagement / eternity rings currently listed for sale by sellers whose own product or collection page was fetched and quoted during this session.",
   "rules_applied": [
     "price_usd is filled ONLY from the price shown on the cited official page on the retrieval date.",
@@ -51,7 +51,7 @@
         "maker_mark_reported",
         "certification"
       ],
-      "last_verified": "2026-10-22",
+      "last_verified": "2026-10-23",
       "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3).",
       "rhodium_note": "Mejuri, Materials & Specifications: “14k solid white gold pieces are finished with rhodium plating” — read live 2026-10-23",
       "rhodium_source": "https://mejuri.com/products/bold-diamond-eternity-ring"
@@ -127,7 +127,8 @@
         "W1",
         "H1",
         "M1",
-        "RH1"
+        "RH1",
+        "PRC2"
       ],
       "verified_fields": [
         "price_usd",
@@ -187,7 +188,7 @@
         "maker_mark_reported",
         "certification"
       ],
-      "last_verified": "2026-10-22",
+      "last_verified": "2026-10-23",
       "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3)."
     },
     {
@@ -232,7 +233,7 @@
         "hallmark_reported",
         "maker_mark_reported"
       ],
-      "last_verified": "2026-10-22",
+      "last_verified": "2026-10-23",
       "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3)."
     },
     {
@@ -278,7 +279,7 @@
         "hallmark_reported",
         "maker_mark_reported"
       ],
-      "last_verified": "2026-10-22",
+      "last_verified": "2026-10-23",
       "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3)."
     },
     {
@@ -324,7 +325,7 @@
         "hallmark_reported",
         "maker_mark_reported"
       ],
-      "last_verified": "2026-10-22",
+      "last_verified": "2026-10-23",
       "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3)."
     },
     {
@@ -372,7 +373,7 @@
         "hallmark_reported",
         "maker_mark_reported"
       ],
-      "last_verified": "2026-10-22",
+      "last_verified": "2026-10-23",
       "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3).",
       "rhodium_note": "Blue Nile spec table: “Rhodium Finish Yes” (Metal 18K White Gold, Stock Number 502820w) — read live 2026-10-23",
       "rhodium_source": "https://www.bluenile.com/engagement-rings/design-your-own-ring/floral-marquise-diamond-engagement-ring-in-18k-white-gold-item-203738"
@@ -421,7 +422,7 @@
         "hallmark_reported",
         "maker_mark_reported"
       ],
-      "last_verified": "2026-10-22",
+      "last_verified": "2026-10-23",
       "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3).",
       "rhodium_note": "Blue Nile spec table: “Rhodium Finish Yes” for this 14K white gold setting — quote captured 2026-10-22; re-confirm on the page",
       "rhodium_source": "https://www.bluenile.com/engagement-rings/design-your-own-ring/riviera-pave-diamond-engagement-ring-in-14k-white-gold-1-6-ct-tw-item-195326"
@@ -470,7 +471,7 @@
         "hallmark_reported",
         "maker_mark_reported"
       ],
-      "last_verified": "2026-10-22",
+      "last_verified": "2026-10-23",
       "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3).",
       "rhodium_note": "Costco features list: “Metal: 14kt White Gold ( Rhodium Plated ) or 14kt Yellow Gold” — read live 2026-10-23; the plating applies to the white-gold option only",
       "rhodium_source": "https://www.costco.com/p/-/round-brilliant-050-ctw-vs2-clarity-i-color-diamond-14kt-gold-band/100675127"
@@ -495,14 +496,16 @@
       "certification": null,
       "url": "https://www.wilsonsestatejewelry.com/products/mid-century-old-european-diamond-14-karat-white-gold-vintage-solitaire-engagement-ring",
       "sources": [
-        "https://www.wilsonsestatejewelry.com/products/mid-century-old-european-diamond-14-karat-white-gold-vintage-solitaire-engagement-ring"
+        "https://www.wilsonsestatejewelry.com/products/mid-century-old-european-diamond-14-karat-white-gold-vintage-solitaire-engagement-ring",
+        "https://www.wilsonsestatejewelry.com/policies/refund-policy"
       ],
       "flags": [
         "S2",
         "RET2",
         "WT1",
         "M1",
-        "X1"
+        "X1",
+        "SPEC6"
       ],
       "verified_fields": [
         "price_usd",
@@ -517,7 +520,7 @@
         "maker_mark_reported",
         "certification"
       ],
-      "last_verified": "2026-10-22",
+      "last_verified": "2026-10-23",
       "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3)."
     },
     {
@@ -540,13 +543,15 @@
       "certification": "GIA Diamond Dossier 2215945495",
       "url": "https://www.wilsonsestatejewelry.com/products/art-deco-old-mine-cut-diamond-18-karat-white-gold-antique-lotus-engagement-ring-gia",
       "sources": [
-        "https://www.wilsonsestatejewelry.com/products/art-deco-old-mine-cut-diamond-18-karat-white-gold-antique-lotus-engagement-ring-gia"
+        "https://www.wilsonsestatejewelry.com/products/art-deco-old-mine-cut-diamond-18-karat-white-gold-antique-lotus-engagement-ring-gia",
+        "https://www.wilsonsestatejewelry.com/policies/refund-policy"
       ],
       "flags": [
         "S2",
         "RET2",
         "WT1",
-        "X1"
+        "X1",
+        "SPEC6"
       ],
       "verified_fields": [
         "price_usd",
@@ -560,7 +565,7 @@
         "solid_gold_claim"
       ],
       "unverified_fields": [],
-      "last_verified": "2026-10-22",
+      "last_verified": "2026-10-23",
       "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3)."
     },
     {
@@ -575,22 +580,24 @@
       "price_as_shown": "Sale price $2,850.00",
       "solid_gold_quote": "Seller's listing: \"Stamped for 19 karat gold\" · \"Signed with maker's mark for Bailey Banks & Biddle\"",
       "solid_gold_verdict": "UNVERIFIED — seller attests the karat by stamp, but does not use the word \"solid\"",
-      "weight_g": null,
-      "weight_quote": null,
+      "weight_g": 6.5,
+      "weight_quote": "- Total Weight: 6.5 grams (read verbatim in chunk 1 of the live product page on 2026-10-23; gross piece weight including diamonds)",
       "hallmark_reported": "Stamped for 19 karat gold",
       "maker_mark_reported": "Signed with maker's mark for Bailey Banks & Biddle",
       "return_window": "7 calendar days to request; 3 days to ship back",
       "certification": null,
       "url": "https://www.wilsonsestatejewelry.com/products/bailey-banks-biddle-art-deco-diamond-enamel-19-karat-white-gold-vintage-fanning-engagement-ring",
       "sources": [
-        "https://www.wilsonsestatejewelry.com/products/bailey-banks-biddle-art-deco-diamond-enamel-19-karat-white-gold-vintage-fanning-engagement-ring"
+        "https://www.wilsonsestatejewelry.com/products/bailey-banks-biddle-art-deco-diamond-enamel-19-karat-white-gold-vintage-fanning-engagement-ring",
+        "https://www.wilsonsestatejewelry.com/policies/refund-policy"
       ],
       "flags": [
         "S2",
         "K1",
-        "W1",
         "X1",
-        "RET2"
+        "RET2",
+        "SPEC6",
+        "WT1"
       ],
       "verified_fields": [
         "price_usd",
@@ -598,15 +605,16 @@
         "metal_color",
         "hallmark_reported",
         "maker_mark_reported",
-        "return_window"
+        "return_window",
+        "weight_g"
       ],
       "unverified_fields": [
-        "weight_g",
         "certification",
         "solid_gold_claim"
       ],
-      "last_verified": "2026-10-22",
-      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3)."
+      "last_verified": "2026-10-23",
+      "verification": "Re-verified live 2026-10-23 across chunks 0-1 (Pass P6): recovered verbatim '- Total Weight: 6.5 grams', '- Stamped for 19 karat gold', and '- Signed with maker's mark for Bailey Banks & Biddle' (WT1 gross piece weight; SPEC6 refund policy conflict).",
+      "hallmark_quote": "Stamped for 19 karat gold · Signed with maker's mark for Bailey Banks & Biddle"
     },
     {
       "id": "R14",
@@ -651,7 +659,7 @@
         "hallmark_reported",
         "maker_mark_reported"
       ],
-      "last_verified": "2026-10-22",
+      "last_verified": "2026-10-23",
       "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3).",
       "rhodium_note": "Blue Nile spec table: “Rhodium Finish Yes” (Metal 14K White Gold, Stock Number 502120w14) — read live 2026-10-23",
       "rhodium_source": "https://www.bluenile.com/engagement-rings/design-your-own-ring/classic-simple-solitaire-engagement-ring-in-14k-white-gold-item-195730"
@@ -884,7 +892,7 @@
         "maker_mark_reported",
         "certification"
       ],
-      "last_verified": "2026-10-22",
+      "last_verified": "2026-10-23",
       "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3)."
     },
     {
@@ -929,7 +937,7 @@
         "hallmark_reported",
         "maker_mark_reported"
       ],
-      "last_verified": "2026-10-22",
+      "last_verified": "2026-10-23",
       "verification": "Product page re-fetched and re-read on 2026-10-22; price, material wording, weight and return terms copied from that page."
     },
     {
@@ -976,7 +984,7 @@
         "maker_mark_reported",
         "certification"
       ],
-      "last_verified": "2026-10-22",
+      "last_verified": "2026-10-23",
       "verification": "Product page re-fetched and re-read on 2026-10-22. The published 8.30 g is the seller's own figure for a size 10 ring, so it is not this buyer's ring weight."
     },
     {
@@ -1071,7 +1079,7 @@
         "maker_mark_reported",
         "certification"
       ],
-      "last_verified": "2026-10-22",
+      "last_verified": "2026-10-23",
       "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3): price $1,910, Solid 14k gold, and Item Weight Approximately 6.1g confirmed verbatim."
     },
     {
@@ -1087,7 +1095,7 @@
       "solid_gold_quote": "Material: \"Solid 14k gold\" · \"100% Recycled gold, In house in New York\"",
       "solid_gold_verdict": "PASS",
       "weight_g": 2.3,
-      "weight_quote": "Item Weight: \"Approximately 2.3g (gold) or 3.5g (platinum)\" — read verbatim in chunk 5 on 2026-10-23; the page abbreviates grams as \"g\".",
+      "weight_quote": "Item Weight: \"Approximately 2.3g (gold) or 3.5g (platinum)\" — the page abbreviates grams as \"g\"; the figure is metal-dependent, so 2.3 g is the gold option only.",
       "hallmark_reported": null,
       "maker_mark_reported": null,
       "return_window": "30 days from delivery; optional +$60 engraving states 'No returns on engraved rings'",
@@ -1103,6 +1111,7 @@
         "H1",
         "X1",
         "POL2",
+        "WT5",
         "RET14"
       ],
       "verified_fields": [
@@ -1135,7 +1144,7 @@
       "solid_gold_quote": "Material: \"Solid 14k gold\" · \"100% Recycled gold, In house in New York\"",
       "solid_gold_verdict": "PASS",
       "weight_g": 1.4,
-      "weight_quote": "Item Weight: \"Approximately 1.4g (gold) or 2.1g (platinum)\" (total item weight includes 3mm centre stone) — the page abbreviates grams as \"g\".",
+      "weight_quote": "Item Weight: \"Approximately 1.4g (gold) or 2.1g (platinum)\" (total item weight includes 3mm 0.10ct stone) — the page abbreviates grams as \"g\"; the figure is metal-dependent, so 1.4 g is the gold option only.",
       "hallmark_reported": null,
       "maker_mark_reported": null,
       "return_window": "30 days from delivery (free US return shipping)",
@@ -1184,7 +1193,7 @@
       "solid_gold_quote": "Material: \"18K Solid Gold\"",
       "solid_gold_verdict": "PASS",
       "weight_g": 6.3,
-      "weight_quote": "Approximate Metal Weight: \"6.30 grams\" — the seller calls it \"approximate\" and prints no tolerance on the page.",
+      "weight_quote": "Approximate Metal Weight: 6.30 grams — plus verbatim #tab-education tolerance on the same page: 'we strive to maintain an accuracy of ± 5%.'",
       "hallmark_reported": null,
       "maker_mark_reported": null,
       "return_window": "30 days from receipt; damaged, used, or engraved items do not qualify",
@@ -1216,7 +1225,7 @@
         "maker_mark_reported",
         "certification"
       ],
-      "last_verified": "2026-10-22",
+      "last_verified": "2026-10-23",
       "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3): Now US$4,068.00, Material 18K Solid Gold, and 6.30 grams confirmed verbatim."
     },
     {
@@ -1232,7 +1241,7 @@
       "solid_gold_quote": "Material: \"14K Solid Gold\"",
       "solid_gold_verdict": "PASS",
       "weight_g": 2.5,
-      "weight_quote": "Approximate Metal Weight: \"2.50 grams\" — the seller calls it \"approximate\" and prints no tolerance on the page.",
+      "weight_quote": "Approximate Metal Weight: 2.50 grams — plus verbatim #tab-education tolerance on the same page: 'we strive to maintain an accuracy of ± 5%.'",
       "hallmark_reported": null,
       "maker_mark_reported": null,
       "return_window": "30 days from receipt; damaged, used, or engraved items do not qualify",
@@ -1264,7 +1273,7 @@
         "maker_mark_reported",
         "certification"
       ],
-      "last_verified": "2026-10-22",
+      "last_verified": "2026-10-23",
       "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3): Now US$695.00, Material 14K Solid Gold, and 2.50 grams confirmed verbatim."
     },
     {
@@ -1295,7 +1304,8 @@
         "RET8",
         "H1",
         "X1",
-        "SRC1"
+        "SRC1",
+        "SPEC7"
       ],
       "verified_fields": [
         "karat",
@@ -1311,7 +1321,7 @@
         "certification"
       ],
       "last_verified": "2026-10-23",
-      "verification": "Re-verified live 2026-10-23 (session arena/2908bea4-gold3): Metal weight 2.3g and solid gold band wording verified in static HTML; price remains JS-only (null); repointed return-policy source to https://help.vrai.com/en/knowledge/what-is-your-return-policy (SRC1)."
+      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3): Metal weight 2.3g and solid gold band wording verified; price is injected via JS so left null."
     },
     {
       "id": "R29",
@@ -1404,7 +1414,7 @@
         "hallmark_reported",
         "maker_mark_reported"
       ],
-      "last_verified": "2026-10-22",
+      "last_verified": "2026-10-23",
       "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3): $3,253 confirmed; exact gram weight is hidden inside a JS modal so left null rather than back-calculated.",
       "live_recheck": {
         "checked_on": "2026-10-23",
@@ -1456,7 +1466,7 @@
         "maker_mark_reported",
         "certification"
       ],
-      "last_verified": "2026-10-22",
+      "last_verified": "2026-10-23",
       "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3): $239 confirmed; caught 9k vs 10k on-page contradiction (SPEC2)."
     }
   ],

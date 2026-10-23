@@ -1,10 +1,10 @@
 # Anti-hallucination audit report
 
-- Run: 2026-10-23 10:44 UTC
+- Run: 2026-10-23 10:48 UTC
 - Rows audited: **31**
 - Sellers audited: **14**
-- Flag definitions: **48**
-- Result: **PASS** — 0 error(s), 0 warning(s), 173 check(s) passed
+- Flag definitions: **52**
+- Result: **PASS** — 0 error(s), 0 warning(s), 174 check(s) passed
 
 ## What this pass is looking for
 
@@ -63,14 +63,15 @@ None.
 - [price] R09: $1,500 matches its quoted source text
 - [sources] R10: 2 official source link(s)
 - [price] R10: price honestly left blank and labelled
-- [sources] R11: 1 official source link(s)
+- [sources] R11: 2 official source link(s)
 - [price] R11: $3,725 matches its quoted source text
 - [weight] R11: 6.1 g traced to a quoted seller statement
-- [sources] R12: 1 official source link(s)
+- [sources] R12: 2 official source link(s)
 - [price] R12: $5,350 matches its quoted source text
 - [weight] R12: 2.2 g traced to a quoted seller statement
-- [sources] R13: 1 official source link(s)
+- [sources] R13: 2 official source link(s)
 - [price] R13: $2,850 matches its quoted source text
+- [weight] R13: 6.5 g traced to a quoted seller statement
 - [sources] R14: 2 official source link(s)
 - [price] R14: $1,145 matches its quoted source text
 - [sources] R15: 2 official source link(s)
@@ -175,7 +176,7 @@ None.
 - [domain] R31: localeclectic.com belongs to localeclectic.com
 - [verify] all 31 rows appear in the verification log
 - [verify] summary counts recomputed from the entries and match
-- [flags] 48 flag definitions validated
+- [flags] 52 flag definitions validated
 - [standards] all karat fractions reproduce n/24
 - [standards] 8 legal rules carry citations
 - [site] verify.html present

@@ -249,10 +249,10 @@
     {
       "id": "F25",
       "severity": "high",
-      "title": "All 7 Aurate lab-grown engagement ring PDPs enforce 'Final Sale! / Exchange for size only.' + 30% MTO cancellation fee after 24h",
-      "detail": "Re-opening all seven Aurate engagement ring PDPs live on 2026-10-23 revealed every single listing prints 'Final Sale! / Exchange for size only.' beside a 'Free Returns' badge, imposes a 30% cancellation fee after 24 hours on made-to-order rings, repeats identical gram-weight ranges across 14K gold, 18K gold, and 950 platinum, and mislabels Emerald Bezel SKU AU5093 as a 'classic oval diamond' in body copy.",
-      "evidence": "'Final Sale! / Exchange for size only.' on AU5760, AU5769, AU5000, AU5093, AU5763, AU5764, AU5107 + '30% cancellation fee' after 24 hours on auratenewyork.com/pages/terms-conditions-exchange-only-final-sale.",
-      "source": "https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale",
+      "title": "All 7 Aurate lab-grown engagement ring PDPs enforce 'Exchange for size only. Final Sale!' beside 'Free Returns' and omit listing-level 'solid' wording",
+      "detail": "Opening all seven exact Aurate PDPs live on 2026-10-23 (AU5760 $2,858, AU5769 $2,638, AU5000 $1,498, AU5093 $1,968, AU5763 $2,858, AU5764 $3,958, AU5107 $2,498) confirmed every page prints 'Exchange for size only. Final Sale!' directly beside a 'Free Returns' badge, prints only 'Rate - 14k GOLD' (no 'solid' on the PDP itself), shares multi-variant weights ('5.5-8.5g', '5.7-8.7g', '5.9-8.9g', '2.23g', '2.36g', '3.33g') inclusive of stone carats, and misstates 'classic oval diamond' on Emerald Bezel SKU AU5093.",
+      "evidence": "AU5760 ($2,858, 5.5-8.5g), AU5769 ($2,638, 5.5-8.5g), AU5000 ($1,498, 2.23g), AU5093 ($1,968, 2.36g, 'classic oval diamond'), AU5763 ($2,858, 5.7-8.7g), AU5764 ($3,958, 5.9-8.9g), AU5107 ($2,498, 3.33g) — all print 'Exchange for size only. Final Sale!'.",
+      "source": "https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-bezel-ring",
       "product": "aurate-2ct-emerald-lgd-bezel",
       "action": "Do not treat Aurate's 60-day sitewide return window as applying to lab-grown engagement rings; confirm cash refund eligibility and single-metal gram weight in writing before paying."
     },
@@ -298,6 +298,93 @@
     },
     {
       "id": "F30",
+      "severity": "high",
+      "title": "All seven Aurate engagement listings conflict 'Free Returns' with 'Exchange for size only. Final Sale!' — and two bezels misstate carat weight in their titles",
+      "detail": "Pass P3 checked only one Aurate product page (AU5760). Opening all six remaining Aurate product pages live on 2026-10-23 proved every single one displays 'Exchange for size only. Final Sale!' (30% cancellation fee after 24h at /pages/terms-conditions-exchange-only-final-sale) alongside a 'Free Returns' badge. Worse, '2ct Emerald Lab Grown Diamond Bezel Ring' (AU5093, $1,968) prints '1.8tcw' (-10% below advertised 2ct), and '3ct Pear Lab Grown Diamond Bezel Ring' (AU5107, $2,498) prints '3.6tcw' alongside a single static 'Weight: 3.33g' shared across 14k gold, 18k gold, and platinum.",
+      "evidence": "AU5093 live specs: 'Thickness: 1.75mm · Weight: 2.36g · Diamonds: 1 Emerald VS/EF Lab Grown Diamond · 1.8tcw · SKU: AU5093'. AU5107 live specs: 'Weight: 3.33g · 3.6tcw · SKU: AU5107'. Policy page: 'After the first 24 hours (our jewelers waste no time), a 30% cancellation fee applies*.'",
+      "source": "https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-bezel-ring",
+      "action": "Propagated EXCHANGE_ONLY_FINAL_SALE, PAGE_SELF_CONTRADICTION, and exact weight disclosures to all 7 Aurate rows in data/products.json; never purchase without written refund terms and written net gold weight.",
+      "subject": "aurate",
+      "product": "aurate-2ct-emerald-lgd-bezel"
+    },
+    {
+      "id": "F31",
+      "severity": "high",
+      "title": "Mejuri's Milestone collection card prints 'From $648' for Slim Diamond Eternity Band (R03), while clicking through to the 14k White Gold product page prints 'From $898' (+38.6%)",
+      "detail": "Reading all 4 chunks of Mejuri's milestone-rings collection page on 2026-10-23 found 'Slim Diamond Eternity Band ... From $648' in chunk 2, whereas opening the linked product page (mejuri.com/products/slim-diamond-eternity-band?Material=Solid+White+Gold+%2814k%29&Stone=Natural+Diamond) showed 'From $898' (+$250 higher at the exact same moment) plus '14k solid white gold pieces are finished with rhodium plating'.",
+      "evidence": "Collection chunk 2: 'Slim Diamond Eternity Band ... From $648'. Live 14k Solid White Gold product page: 'Slim Diamond Eternity Band ... From $898' and '14k solid white gold pieces are finished with rhodium plating'.",
+      "source": "https://mejuri.com/products/slim-diamond-eternity-band?Material=Solid+White+Gold+%2814k%29&Stone=Natural+Diamond",
+      "action": "Added product URL to R03.sources, recorded live_recheck ($898 product page vs $648 collection card), and added flag PRC2.",
+      "subject": "R03",
+      "product": null
+    },
+    {
+      "id": "F32",
+      "severity": "high",
+      "title": "Wilson's Bailey Banks & Biddle 19K Art Deco ring (R13) DOES publish 'Total Weight: 6.5 grams' in chunk 1 — missed by five prior passes",
+      "detail": "R13 was marked weight_g: null with flag W1 across passes P1–P5 because '- Total Weight: 6.5 grams' sits 4 lines into chunk 1 right below '- Signed with maker's mark for Bailey Banks & Biddle'. Reading chunk 1 in full recovered the verbatim 6.5-gram total item weight AND confirmed that BOTH R12 and R13 publish both a karat stamp and a named maker's mark.",
+      "evidence": "Chunk 0: 'Stamped for 19 karat gold · Signed with maker's mark for Bailey Banks & Biddle'. Chunk 1: 'Circa: 1930s · Ring Size: 8 3/4 and sizable · Measures north to south 8.0 mm and sits 4.5 mm high · Total Weight: 6.5 grams · Stock Number: We-17095'.",
+      "source": "https://www.wilsonsestatejewelry.com/products/bailey-banks-biddle-art-deco-diamond-enamel-19-karat-white-gold-vintage-fanning-engagement-ring",
+      "action": "Set R13.weight_g = 6.5 with verbatim weight_quote and replaced W1 with WT1 (total weight includes ~0.20 ct diamond and matte black enamel).",
+      "subject": "R13",
+      "product": null
+    },
+    {
+      "id": "F33",
+      "severity": "high",
+      "title": "Menē BBB profiles (0107-1413670 & 0107-1378080) are both 'Not Rated' — removing unverified 'D+' BBB grade on SEL-MENE",
+      "detail": "Live verification of both official Better Business Bureau profiles for Menē Inc. in Ontario/Toronto (0107-1413670 and 0107-1378080) confirmed neither carries a 'D+' letter grade; both official BBB profiles read 'Not Rated / Not BBB Accredited'.",
+      "evidence": "BBB profile 0107-1378080 (334 Adelaide St W Suite 307, Toronto, ON M5V 1R4): 'BBB Rating: NR (Not Rated) · This business is not BBB Accredited'.",
+      "source": "https://www.bbb.org/ca/on/toronto/profile/jewelry-designers/mene-inc-0107-1378080",
+      "action": "Corrected SEL-MENE.bbb_rating to 'Not Rated (Not BBB Accredited — Ontario file 0107-1413670 & Toronto HQ file 0107-1378080)' and linked canonical Toronto HQ BBB profile.",
+      "subject": "S-MENE",
+      "product": null
+    },
+    {
+      "id": "F34",
+      "severity": "high",
+      "title": "Two hallucinated 404 product URLs caught inside data/flags.json (WAR1 & SPEC5) plus four dead seller policy/contact URLs",
+      "detail": "Full repo URL sweep caught WAR1.source (sarraf.com/...3-stone...3-80-gr.html -> 404) and SPEC5.source (automicgold.com/...1-50ctw-pear... -> 404) inside data/flags.json alongside S-VRAI.contact_source (/pages/contact-us -> /contact-us), S-LOCALECLECTIC.contact_source (/pages/contact-us -> /pages/contact), and S-WE.policy_source (/pages/returns-exchanges -> /policies/refund-policy).",
+      "evidence": "All dead paths returned explicit HTTP 404 pages on 2026-10-23; all replacement official URLs returned HTTP 200 with verbatim supporting text.",
+      "source": "https://www.sarraf.com/products/14k-white-gold-solitaire-ring-0-94-ctw.html",
+      "action": "Repointed all dead citations across flags.json and sellers.json and eliminated security-audit.html self-echo so verification/sources-manifest.json contains 0 dead URLs.",
+      "subject": "WAR1",
+      "product": null
+    },
+    {
+      "id": "F35",
+      "severity": "medium",
+      "title": "Wilson's standalone refund-policy page contradicts its product-page Domestic Returns tab on free US return labels",
+      "detail": "On Wilson's product pages (R11–R13), the Domestic Returns tab states 'Returns within the US are complimentary!' via prepaid QR label, whereas /policies/refund-policy omits complimentary labels and states 'You must ship the package back to us, insured for the retail value.'",
+      "evidence": "Product page tab: 'Returns within the US are complimentary!'. Standalone policy (/policies/refund-policy): 'You must ship the package back to us, insured for the retail value'.",
+      "source": "https://www.wilsonsestatejewelry.com/policies/refund-policy",
+      "action": "Recorded flag SPEC6 on S-WE and R11–R13; confirm complimentary insured return shipping in writing before checkout.",
+      "subject": "S-WE",
+      "product": null
+    },
+    {
+      "id": "F36",
+      "severity": "medium",
+      "title": "Sarraf's '± 5%' weight accuracy statement IS printed verbatim in chunk 4 (#tab-education) of R20, R26, and R27",
+      "detail": "Pass P5 read chunk 0 only of R26 and R27 and removed '(±5% seller accuracy note)'. Reading chunk 4 (#tab-education) proved Sarraf prints 'we strive to maintain an accuracy of ± 5%' verbatim on R20, R26, and R27.",
+      "evidence": "Chunk 4 verbatim on R20, R26, and R27: 'therefore we strive to maintain an accuracy of ± 5%.'",
+      "source": "https://www.sarraf.com/products/18k-yellow-gold-mens-solitaire-diamond-ring-3-4-ct.html",
+      "action": "Updated R26 and R27 weight_quote to cite both the chunk-0 spec line and the verbatim chunk-4 #tab-education tolerance sentence.",
+      "subject": "R26",
+      "product": null
+    },
+    {
+      "id": "F37",
+      "severity": "medium",
+      "title": "Post-deploy live read caught mismatched variant quotes on Aurate & Ring Concierge rows from an initial Pass P9 script",
+      "detail": "Following the standing hallucination-hunt rule immediately after deploying PR #43 (b92017b), re-reading live combined.html exposed that 5 Aurate rows still pointed price_source at /collections/engagement-rings with drafted range strings ('2.09g-4.27g' / '14K Solid Yellow Gold'), while P9-06 cited earlier Ring Concierge slugs ($5,900/$6,900) rather than Whisper Thin PDPs ($6,038 / $7,268). Re-fetching all exact p['url'] pages end-to-end synced every quote to literal page substrings.",
+      "evidence": "AU5769/AU5760 print 'Weight: 5.5-8.5g' & 'Rate - 14k GOLD'; AU5000 '2.23g' ($1,498); AU5093 '2.36g' ($1,968); AU5763 '5.7-8.7g' ($2,858); AU5764 '5.9-8.9g' ($3,958); AU5107 '3.33g' ($2,498); Ring Concierge Whisper Thin PDPs print '$6,038' & '$7,268'.",
+      "source": "https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-bezel-ring",
+      "product": "aurate-2ct-emerald-lgd-bezel",
+      "action": "Corrected in PR #46: all 7 Aurate rows now point price_source to their exact p['url'] with literal verbatim substrings."
+    },
+    {
+      "id": "F38",
       "severity": "high",
       "title": "Automic Gold requires mailing returns within 14 days to avoid a restocking fee, and its recorded phone number was not on the cited page",
       "detail": "Reading all 5 chunks of https://www.automicgold.com/policies/refund-policy and all 6 chunks of https://www.automicgold.com/pages/privacy-policy past the 4-chunk CookieYes banner (2026-10-23, session arena/bfcd8465-gold3) uncovered two facts missed by earlier passes: (1) S-AUTOMIC listed phone +1-929-307-2378 against /pages/privacy-policy, which prints no phone number at all (only accessibility@automicgold.com, while /pages/faq prints care@automicgold.com), so phone was set to null; and (2) while Automic Gold's headline return window is 30 days from delivery, chunk 4 of the live refund policy states: 'To avoid a restocking fee, please mail your items within 14 days.' It also restores the exact final-sale and resizing clause that pass P3 had blanked because chunk 0 only contained the cookie banner.",
