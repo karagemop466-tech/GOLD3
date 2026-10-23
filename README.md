@@ -78,6 +78,22 @@ editing HTML by hand is pointless: change `data/*.json` or `scripts/build_site.p
 * `scripts/verify.py` now accepts a `weight_status` of "published as a range…" for a null weight, and `scripts/audit.py`
   lets a verification check point at a seller, a flag or a Dataset-A product instead of only an `R##` row.
 
+## What the fifth pass changed (23 October 2026)
+
+A targeted pass over **every row that publishes a finished weight**, because grams are the only seller figure the melt
+calculator consumes. 7 checks: **3 confirmed · 3 corrected · 1 flagged** (`reports/reverification-pass-p5.md`).
+
+* **R23** stored `"Approximately 6.1g"` where the page prints `6.1g (gold) or 9.2g (platinum)` — a metal-dependent weight
+  was reading as unconditional.
+* **R26 and R27** carried a `(±5% seller accuracy note)` that Sarraf does not print. The numbers were right; the
+  justification was invented. Removed and replaced with the fact that no tolerance is published.
+* **R12** confirmed as one of only three rows whose seller publishes a hallmark, and one of two that publishes a maker's
+  mark (`Stamped for 18 karat gold`, `partial maker's mark for Hedges & Co.`).
+* **16 CFR 23.10** read in full: the maker's-mark paragraph the site cites is real and is now quoted verbatim next to
+  the rule.
+
+The verification log now holds **116 checks across four independent passes**.
+
 ## What the third verification pass changed
 
 Every cited URL in the parallel dataset was reopened on 22 October 2026 and each stored value was searched for

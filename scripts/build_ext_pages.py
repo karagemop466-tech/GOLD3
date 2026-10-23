@@ -73,6 +73,8 @@ def render_shell(active_file: str, title: str, body_html: str, spot_bench: dict,
         Security &amp; Hallucination Suite:
         <strong>Pass #{latest_pass['pass_number']} — {esc(latest_pass['overall_status'])} ({latest_pass['error_count']} errors)</strong>
         &bull; <a href="security-audit.html">View Audit Log</a>
+        <span class="small" style="opacity:.8">(as recorded when this page was built; each new pass is appended to
+        <code>verification/audit-log.json</code> after the build, so the log can be one entry ahead of this banner)</span>
       </div>
     </div>
   </div>
@@ -937,7 +939,11 @@ def build_all() -> None:
       <div class="section-header">
         <div>
           <h2>Recorded Multi-Pass Verification History (<code>verification/audit-log.json</code>)</h2>
-          <p>Chronological record of automated verification passes run after data compilation, site build, and pre-PR review.</p>
+          <p>Chronological record of automated verification passes run after data compilation, site build, and pre-PR review.
+          The banner at the top of every page is rendered <em>from this log at build time</em>; the CI job
+          (<code>.github/workflows/audit.yml</code>) runs the check <em>after</em> the build and then appends the next pass, so the
+          newest row here is normally one ahead of the banner. That is the designed order, not a stale page: a pass cannot
+          describe a build that has not happened yet.</p>
         </div>
       </div>
       <div class="table-wrap">

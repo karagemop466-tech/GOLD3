@@ -1036,7 +1036,7 @@
       "solid_gold_quote": "Material: \"Solid 14k gold\" · \"100% Recycled gold, In house in New York\"",
       "solid_gold_verdict": "PASS",
       "weight_g": 6.1,
-      "weight_quote": "Item Weight: \"Approximately 6.1g\" — the page abbreviates grams as \"g\".",
+      "weight_quote": "Item Weight: \"Approximately 6.1g (gold) or 9.2g (platinum)\" — the page abbreviates grams as \"g\"; the figure is metal-dependent, so 6.1 g is the gold option only.",
       "hallmark_reported": null,
       "maker_mark_reported": null,
       "return_window": "30 days from delivery (free US return shipping); engraved items final sale",
@@ -1113,7 +1113,8 @@
         "certification"
       ],
       "last_verified": "2026-10-22",
-      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3): price $875, Solid 14k gold, and Item Weight Approximately 2.3g confirmed verbatim."
+      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3): price $875, Solid 14k gold, and Item Weight Approximately 2.3g confirmed verbatim.",
+      "weight_status": "not re-checked this pass"
     },
     {
       "id": "R25",
@@ -1173,7 +1174,7 @@
       "solid_gold_quote": "Material: \"18K Solid Gold\"",
       "solid_gold_verdict": "PASS",
       "weight_g": 6.3,
-      "weight_quote": "Approximate Metal Weight: \"6.30 grams\" (±5% seller accuracy note)",
+      "weight_quote": "Approximate Metal Weight: \"6.30 grams\" — the seller calls it \"approximate\" and prints no tolerance on the page.",
       "hallmark_reported": null,
       "maker_mark_reported": null,
       "return_window": "30 days from receipt; damaged, used, or engraved items do not qualify",
@@ -1219,7 +1220,7 @@
       "solid_gold_quote": "Material: \"14K Solid Gold\"",
       "solid_gold_verdict": "PASS",
       "weight_g": 2.5,
-      "weight_quote": "Approximate Metal Weight: \"2.50 grams\" (±5% seller accuracy note)",
+      "weight_quote": "Approximate Metal Weight: \"2.50 grams\" — the seller calls it \"approximate\" and prints no tolerance on the page.",
       "hallmark_reported": null,
       "maker_mark_reported": null,
       "return_window": "30 days from receipt; damaged, used, or engraved items do not qualify",
