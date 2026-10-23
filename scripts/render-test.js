@@ -212,6 +212,35 @@ check("SD21 calculator labels the pre-filled snapshot with its own capture date"
 check("SD21 flagged.html audit date comes from the audit report, not a typed literal",
   /Last automated pass: 23 October 2026/.test(html["flagged.html"]));
 
+// P15: additive Dataset-C weight, source-attribution and calculator-provenance guards.
+const _p15C = [
+  ...JSON.parse(read("data/solitaire-rings.json")).items,
+  ...JSON.parse(read("data/bands-and-high-karat.json")).items,
+];
+const _p15BandPage = read("bands-vintage-rings.html");
+const _p15Ratios = _p15C.filter((r) => typeof r.price_to_melt_ratio === "number")
+  .map((r) => r.price_to_melt_ratio);
+const _p15Range = `${Math.min(..._p15Ratios).toFixed(2)}x–${Math.max(..._p15Ratios).toFixed(2)}x`;
+check("P15 band ratio range is derived from Dataset C", _p15BandPage.includes(_p15Range), _p15Range);
+check("P15 calculator presets use the actual BND-04..BND-07 product names",
+  _p15C.filter((r) => ["BND-04", "BND-05", "BND-06", "BND-07"].includes(r.id))
+    .every((r) => includesText(_p15BandPage, r.product_name)) &&
+  !_p15BandPage.includes("Ross-Simons 6mm 14K Flat"));
+const _p15Rows = new Set(verif.checks.filter((c) => c.id.startsWith("P15-")).flatMap((c) => c.rows || []));
+check("P15 covers all five Dataset-C published-weight rows",
+  ["BND-04", "BND-05", "BND-06", "BND-07", "BND-08"].every((id) => _p15Rows.has(id)));
+const _p15Flags = JSON.parse(read("data/flags.json")).flags;
+const _p15Spec7 = _p15Flags.find((f) => f.id === "SPEC7");
+check("P15 SPEC7 names the actual R28 page and asserts no price",
+  _p15Spec7.source.includes("petite-4-prong-ring") && !_p15Spec7.what.includes("$1,460") &&
+  _ringsDoc.rings.find((r) => r.id === "R23").flags.includes("SPEC5"));
+check("P15 findings F46-F49 are published for manual review",
+  ["F46", "F47", "F48", "F49"].every((id) => html["flagged.html"].includes(`id="${id}"`)));
+const _p15Nist = JSON.parse(read("data/spot-and-standards.json")).nist_conversion_constants;
+check("P15 NIST constant carries its exact derivation and corrected attribution",
+  _p15Nist.derivation.includes("480 x 0.06479891") &&
+  _p15Nist.attribution_correction_p15.includes("prints no"));
+
 // ------------------------------------------------------------------- report
 let failed = 0;
 console.log("render test (static site)\n" + "=".repeat(66));

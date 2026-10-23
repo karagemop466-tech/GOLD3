@@ -1067,7 +1067,8 @@
         "X1",
         "POL2",
         "WT5",
-        "RET14"
+        "RET14",
+        "SPEC5"
       ],
       "verified_fields": [
         "price_usd",
@@ -1084,7 +1085,7 @@
         "certification"
       ],
       "last_verified": "2026-10-23",
-      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3): price $1,910, Solid 14k gold, and Item Weight Approximately 6.1g confirmed verbatim."
+      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3): price $1,910, Solid 14k gold, and Item Weight Approximately 6.1g confirmed verbatim. Pass P15 re-read the official page on 2026-10-23: $1,910 and 'Approximately 6.1g (gold) or 9.2g (platinum)' confirmed; added SPEC5 for buy-box '1 to 5 business days' versus Details '1-2 weeks'."
     },
     {
       "id": "R24",
@@ -1325,7 +1326,7 @@
         "certification"
       ],
       "last_verified": "2026-10-23",
-      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3): Metal weight 2.3g and solid gold band wording verified; price is injected via JS so left null."
+      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3): Metal weight 2.3g and solid gold band wording verified; price is injected via JS so left null. Pass P15 re-read both chunks on 2026-10-23: 'Band: Plain band', 'Metal weight: 2.3g' and 'Pav\u00e9 carat weight: 0.11ctw' confirmed; no price was shown in the static text, so price_usd remains null."
     },
     {
       "id": "R29",

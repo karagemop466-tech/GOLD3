@@ -1629,7 +1629,7 @@ def build_flagged() -> str:
           <p class="small">{e(f['detail'])}</p>
           <div class="evidence">{e(f['evidence'])}</div>
           <p class="small"><strong>Source:</strong> <a href="{e(f['source'])}" target="_blank" rel="noopener">{e(f['source'])}</a></p>
-          {rel}
+{rel}
           <p class="action"><strong>What to do:</strong> {e(f['action'])}</p>
         </div>"""
 

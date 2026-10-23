@@ -92,6 +92,12 @@
       "name": "Full weight-bearing pass",
       "what": "Re-opened every listing that publishes a gram weight, plus four independent gold-spot feeds, and re-checked the melt arithmetic against the dated anchor.",
       "result": "17 URLs opened; 10 confirmed, 1 flagged (spot drift, already F39), 0 corrected. 0 price changes, 0 weight changes, 0 dead links across all 14 weight-bearing rows."
+    },
+    {
+      "id": "P15",
+      "name": "Independent pass 15: Dataset C weights, NIST attribution, VRAI/Automic flags & calculator provenance (arena/db2fe957-gold3)",
+      "what": "Additive net-new pass after peer P12-P14. Re-opened the five Dataset C rows with published weights, both NIST pages behind the conversion constant, VRAI R28, Automic R23 and the BND-06 identity used by the calculator. The peer-reviewed dated spot anchor and live-check reference were preserved.",
+      "result": "11 checks: 7 confirmed, 3 corrected, 1 flagged. BND-04..BND-08 all matched verbatim; corrected the NIST attribution (F46), VRAI SPEC7 (F47), Automic R23 lead-time flag (F48), and the BND-06 calculator preset/product mismatch plus hardcoded ratios (F49). Combined current weight coverage is 19/19 when P14's 14 Dataset B checks are included."
     }
   ],
   "checks": [
@@ -2793,6 +2799,127 @@
       "findings": "With the anchor left at the dated capture, all 7 karat tiers and the 4 weight-complete melt rows reproduce within the audit's tolerance: BND-04 $128.26, BND-05 $316.87, BND-06 $301.77, BND-07 $158.43. No recompute was applied: promoting the 20:17Z reading would move every melt figure by 0.62%, and two earlier sessions deliberately kept the dated anchor so figures stay reproducible (F39). scripts/refresh_spot_anchor.py is the reviewed way to promote it if the owner asks.",
       "checked_on": "2026-10-23",
       "session": "arena/438a583e-gold3"
+    },
+    {
+      "id": "P15-01",
+      "kind": "constant",
+      "label": "NIST precious-metals page does not print the previously attributed troy-ounce figure",
+      "url": "https://www.nist.gov/pml/owm/metric-si/unit-conversion/precious-metals-conversion-information",
+      "rows": [
+        "standards"
+      ],
+      "outcome": "flagged",
+      "findings": "Live page returns HTTP 200 and reproduces NIST Handbook 130 sec. 2.17 with a linked conversion PDF, but prints no troy-ounce-to-gram figure. Corrected the attribution in spot-and-standards.json and published F46; the peer historical evidence file was not overwritten (CR-P15-1)."
+    },
+    {
+      "id": "P15-02",
+      "kind": "constant",
+      "label": "NIST SP 811 Appendix B.9 supplies the troy-ounce and exact grain factors",
+      "url": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9",
+      "rows": [
+        "standards"
+      ],
+      "outcome": "confirmed",
+      "findings": "Live page prints 'ounce (troy or apothecary) (oz) -> gram (g) | 3.110 348 | E+01' and 'grain (gr) -> kilogram (kg) | 6.479 891 | E-05' in boldface (exact). Exactly 480 grains per troy ounce gives 480 x 0.06479891 = 31.1034768 g, so the constant remains valid."
+    },
+    {
+      "id": "P15-03",
+      "kind": "weight",
+      "label": "R28 VRAI Petite 4-Prong weight confirmed; SPEC7 ring name, source and price text corrected",
+      "url": "https://www.vrai.com/configure/setting-to-diamond/petite-4-prong-ring/round-brilliant-yellow-gold-41015509221469",
+      "rows": [
+        "R28"
+      ],
+      "outcome": "corrected",
+      "findings": "Both chunks print 'Band: Plain band', 'Metal: 18k Yellow Gold', 'Metal weight: 2.3g' and 'Pavé carat weight: 0.11ctw'. No price appears in static text, so price_usd stays null. SPEC7 had named Signature 6-Prong, linked another URL and mentioned $1,460; corrected and published as F47."
+    },
+    {
+      "id": "P15-04",
+      "kind": "weight",
+      "label": "R23 Automic Coffin Ring weight confirmed; same-page production-time contradiction flagged",
+      "url": "https://www.automicgold.com/products/coffin-ring",
+      "rows": [
+        "R23"
+      ],
+      "outcome": "corrected",
+      "findings": "Chunk 4 confirms $1,910 and 'Approximately 6.1g (gold) or 9.2g (platinum)'. The buy box says 'Production time is 1 to 5 business days' while Details says '1-2 weeks' (2-3 weeks engraved). Added SPEC5 to R23 and published F48; no weight or price changed."
+    },
+    {
+      "id": "P15-05",
+      "kind": "weight",
+      "label": "BND-04 Ross-Simons Women's 2mm 14kt band - gold weight and price",
+      "url": "https://www.ross-simons.com/products/571221",
+      "rows": [
+        "BND-04"
+      ],
+      "outcome": "confirmed",
+      "findings": "Live page prints 'Gold Weight 1.7 grams', 'Metal 14kt Yellow Gold' and $400 verbatim. All weights and measurements are labelled approximate by the seller."
+    },
+    {
+      "id": "P15-06",
+      "kind": "weight",
+      "label": "BND-05 Ross-Simons Men's 4mm 14kt band - gold weight and price",
+      "url": "https://www.ross-simons.com/products/571212",
+      "rows": [
+        "BND-05"
+      ],
+      "outcome": "confirmed",
+      "findings": "Live page prints 'Gold Weight 4.2 grams', 'Metal 14kt Yellow Gold' and $949 verbatim."
+    },
+    {
+      "id": "P15-07",
+      "kind": "weight",
+      "label": "BND-06 Ross-Simons Italian 14kt Diamond-Cut Dome Ring - gold weight and price",
+      "url": "https://www.ross-simons.com/products/823796",
+      "rows": [
+        "BND-06"
+      ],
+      "outcome": "confirmed",
+      "findings": "Live page prints 'Gold Weight 4.0 grams', 'Metal 14kt Yellow Gold', Width 3/4 inch and $1,195 verbatim. The page also shows a cart-level promotional banner; the stored list price is unchanged."
+    },
+    {
+      "id": "P15-08",
+      "kind": "weight",
+      "label": "BND-07 Ross-Simons Italian 14kt Fleur-De-Lis Signet Ring - gold weight and price",
+      "url": "https://www.ross-simons.com/products/964717",
+      "rows": [
+        "BND-07"
+      ],
+      "outcome": "confirmed",
+      "findings": "Live page prints 'Gold Weight 2.1 grams', 'Metal 14kt Yellow Gold', Width 1/2 inch and $599 verbatim."
+    },
+    {
+      "id": "P15-09",
+      "kind": "weight",
+      "label": "BND-08 Ross-Simons 22kt Eagle coin ring in 14kt setting - gold weight and price",
+      "url": "https://www.ross-simons.com/products/993085",
+      "rows": [
+        "BND-08"
+      ],
+      "outcome": "confirmed",
+      "findings": "Live page prints 'Gold Weight 5.9 grams', 'Metal 14kt and 22kt Gold' and $3,295 verbatim. The single 5.9 g figure spans two finenesses, so the mixed-karat caveat remains and no single-karat melt value is inferred."
+    },
+    {
+      "id": "P15-10",
+      "kind": "benchmark",
+      "label": "Kitco purity table independently corroborates the fineness arithmetic without changing the dated anchor",
+      "url": "https://www.kitco.com/price/precious-metals/gold",
+      "rows": [
+        "standards"
+      ],
+      "outcome": "confirmed",
+      "findings": "At the P15 live read, Kitco printed bid 3,996.00 / ask 3,998.00 at 'Oct 23, 2026 - 16:18 NY Time', 14K = 2,330.87 USD/oz, 128.47 USD/g and 'A troy ounce is 31.1034768 grams'. 3996.00 x 14/24 = 2331.00 and 3996.00/31.1034768 = 128.4744, agreeing to rounding. This is corroboration only; the peer-reviewed dated calculation anchor is preserved."
+    },
+    {
+      "id": "P15-11",
+      "kind": "site-source",
+      "label": "BND-06 official identity corrects the extended calculator preset label",
+      "url": "https://www.ross-simons.com/products/823796",
+      "rows": [
+        "BND-06"
+      ],
+      "outcome": "corrected",
+      "findings": "The official product is 'Italian 14kt Yellow Gold Diamond-Cut Dome Ring' (3/4 inch wide), not the template's 'Ross-Simons 6mm 14K Flat'. Calculator presets now derive the real product name, weight, price and ratio from Dataset C JSON; published as F49."
     }
   ],
   "discrepancies": [
@@ -2888,12 +3015,13 @@
   ],
   "not_rechecked": [],
   "summary": {
-    "checks": 211,
-    "confirmed": 101,
-    "corrected": 74,
-    "flagged": 36,
-    "urls_opened": 211,
-    "site_defects_fixed": 19
+    "checks": 222,
+    "confirmed": 108,
+    "corrected": 77,
+    "flagged": 37,
+    "urls_opened": 222,
+    "site_defects_fixed": 19,
+    "p15_note": "P15 added 11 net-new checks after P12-P14 (7 confirmed, 3 corrected, 1 flagged). It preserves the dated calculation anchor and adds Dataset C weight coverage, NIST/VRAI/Automic corrections and JSON-derived calculator presets."
   },
   "site_defects": [
     {

@@ -92,13 +92,13 @@
             outVerdict.textContent =
               "HIGH INTRINSIC GOLD VALUE (" +
               ratio.toFixed(2) +
-              "x melt): Bullion-grade low markup comparable to Menē 24K bands (1.50x–1.56x). Verify return window and test via XRF on Day 1.";
+              "x melt): Bullion-grade low markup. Compare with the sourced band rows, verify the return window and test via XRF on Day 1.";
           } else if (ratio <= 4.5) {
             outVerdict.className = "verdict-box badge-ok";
             outVerdict.textContent =
               "NORMAL FINE RETAIL RANGE (" +
               ratio.toFixed(2) +
-              "x melt): Consistent with verified traditional 14K solid gold retail bands (Ross-Simons 2.99x–3.96x). Pay by credit card & verify hallmark upon arrival.";
+              "x melt): Consistent with the verified traditional 14K solid gold retail bands in this dataset. Pay by credit card & verify hallmark upon arrival.";
           } else {
             outVerdict.className = "verdict-box badge-warn";
             outVerdict.textContent =
