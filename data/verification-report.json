@@ -42,7 +42,8 @@
         "WEIGHT_RANGE_ONLY",
         "EXCHANGE_ONLY_FINAL_SALE",
         "PAGE_SELF_CONTRADICTION",
-        "HALLMARK_NOT_STATED"
+        "HALLMARK_NOT_STATED",
+        "FINAL_SALE_PDP_OVERRIDE"
       ],
       "derived": {
         "karat": "14K",
@@ -61,9 +62,7 @@
         "SOLID_NOT_ON_LISTING",
         "WEIGHT_NOT_PUBLISHED",
         "HALLMARK_NOT_STATED",
-        "WEIGHT_RANGE_ONLY",
-        "EXCHANGE_ONLY_FINAL_SALE",
-        "PAGE_SELF_CONTRADICTION"
+        "FINAL_SALE_PDP_OVERRIDE"
       ],
       "derived": {
         "karat": "14K",
@@ -82,8 +81,7 @@
         "SOLID_NOT_ON_LISTING",
         "WEIGHT_NOT_PUBLISHED",
         "HALLMARK_NOT_STATED",
-        "EXCHANGE_ONLY_FINAL_SALE",
-        "PAGE_SELF_CONTRADICTION"
+        "FINAL_SALE_PDP_OVERRIDE"
       ],
       "derived": {
         "karat": "14K",
@@ -102,8 +100,7 @@
         "SOLID_NOT_ON_LISTING",
         "WEIGHT_NOT_PUBLISHED",
         "HALLMARK_NOT_STATED",
-        "EXCHANGE_ONLY_FINAL_SALE",
-        "PAGE_SELF_CONTRADICTION"
+        "FINAL_SALE_PDP_OVERRIDE"
       ],
       "derived": {
         "karat": "14K",
@@ -122,9 +119,7 @@
         "SOLID_NOT_ON_LISTING",
         "WEIGHT_NOT_PUBLISHED",
         "HALLMARK_NOT_STATED",
-        "WEIGHT_RANGE_ONLY",
-        "EXCHANGE_ONLY_FINAL_SALE",
-        "PAGE_SELF_CONTRADICTION"
+        "FINAL_SALE_PDP_OVERRIDE"
       ],
       "derived": {
         "karat": "14K",
@@ -143,9 +138,7 @@
         "SOLID_NOT_ON_LISTING",
         "WEIGHT_NOT_PUBLISHED",
         "HALLMARK_NOT_STATED",
-        "WEIGHT_RANGE_ONLY",
-        "EXCHANGE_ONLY_FINAL_SALE",
-        "PAGE_SELF_CONTRADICTION"
+        "FINAL_SALE_PDP_OVERRIDE"
       ],
       "derived": {
         "karat": "14K",
@@ -164,8 +157,7 @@
         "SOLID_NOT_ON_LISTING",
         "WEIGHT_NOT_PUBLISHED",
         "HALLMARK_NOT_STATED",
-        "EXCHANGE_ONLY_FINAL_SALE",
-        "PAGE_SELF_CONTRADICTION"
+        "FINAL_SALE_PDP_OVERRIDE"
       ],
       "derived": {
         "karat": "14K",
@@ -534,37 +526,17 @@
     {
       "id": "F25",
       "severity": "high",
-      "title": "All seven Aurate engagement listings conflict 'Free Returns' with 'Exchange for size only. Final Sale!' — and two bezels misstate carat weight in their titles"
+      "title": "All 7 Aurate lab-grown engagement ring PDPs enforce 'Final Sale! / Exchange for size only.' + 30% MTO cancellation fee after 24h"
     },
     {
       "id": "F26",
       "severity": "high",
-      "title": "Mejuri's Milestone collection card prints 'From $648' for Slim Diamond Eternity Band (R03), while clicking through to the 14k White Gold product page prints 'From $898' (+38.6%)"
+      "title": "Mejuri Slim Diamond Eternity Band (R03) live PDP reads 'From $898' vs $648 stored from collection grid (+38.6%)"
     },
     {
       "id": "F27",
-      "severity": "high",
-      "title": "Wilson's Bailey Banks & Biddle 19K Art Deco ring (R13) DOES publish 'Total Weight: 6.5 grams' in chunk 1 — missed by five prior passes"
-    },
-    {
-      "id": "F28",
-      "severity": "high",
-      "title": "Menē BBB profiles (0107-1413670 & 0107-1378080) are both 'Not Rated' — removing unverified 'D+' BBB grade on SEL-MENE"
-    },
-    {
-      "id": "F29",
-      "severity": "high",
-      "title": "Two hallucinated 404 product URLs caught inside data/flags.json (WAR1 & SPEC5) plus four dead seller policy/contact URLs"
-    },
-    {
-      "id": "F30",
       "severity": "medium",
-      "title": "Wilson's standalone refund-policy page contradicts its product-page Domestic Returns tab on free US return labels"
-    },
-    {
-      "id": "F31",
-      "severity": "medium",
-      "title": "Sarraf's '± 5%' weight accuracy statement IS printed verbatim in chunk 4 (#tab-education) of R20, R26, and R27"
+      "title": "Live PDP template specification bugs on Brilliant Earth SOL-05/R29 ('Band Width: 2 ct. tw.') and VRAI R28 ('Pavé carat weight: 0.11ctw' on Plain band)"
     }
   ],
   "parallel_dataset": {

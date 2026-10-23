@@ -1311,9 +1311,9 @@
     },
     {
       "pass_number": 21,
-      "pass_label": "Pass P9 Full Multi-Chunk & Manifest Audit (Additive on b5d2880)",
-      "timestamp_utc": "2026-10-23T10:39:42Z",
-      "session_id": "arena/a05b3c00-gold3",
+      "pass_label": "Pass P9 \u2014 Complete Primary-Source Re-Verification (137 Checks, Aurate \u00d77, R03 PDP Fix, Zero Backlog)",
+      "timestamp_utc": "2026-10-23T10:36:42Z",
+      "session_id": "arena/1162b2db-gold3",
       "overall_status": "PASS",
       "error_count": 0,
       "errors": [],
@@ -1375,9 +1375,9 @@
     },
     {
       "pass_number": 22,
-      "pass_label": "Pass P9 Full Multi-Chunk & Manifest Audit (Additive on b5d2880)",
-      "timestamp_utc": "2026-10-23T10:40:38Z",
-      "session_id": "arena/a05b3c00-gold3",
+      "pass_label": "Pass P9 \u2014 Complete Primary-Source Re-Verification (137 Checks, Aurate \u00d77, R03 PDP Fix, Zero Backlog)",
+      "timestamp_utc": "2026-10-23T10:36:53Z",
+      "session_id": "arena/1162b2db-gold3",
       "overall_status": "PASS",
       "error_count": 0,
       "errors": [],
@@ -1424,8 +1424,8 @@
           "check_id": "SEC-06",
           "name": "Static HTML Internal/External Link Integrity & Anchor Verification",
           "status": "PASS",
-          "verified_count": 2073,
-          "details": "Parsed 24 HTML pages and verified 2073 links, stylesheets, scripts, and anchor targets with zero broken links."
+          "verified_count": 2083,
+          "details": "Parsed 24 HTML pages and verified 2083 links, stylesheets, scripts, and anchor targets with zero broken links."
         },
         {
           "check_id": "SEC-07",

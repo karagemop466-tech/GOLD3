@@ -6,7 +6,7 @@
       "severity": "high",
       "title": "Blue Nile's 18K ring page contradicts itself on the metal",
       "detail": "The title and specification block of the Floral Marquise ring say '18K White Gold' / 'Metal: 18K White Gold'. The Product Details paragraph on the very same page says the ring is 'artfully crafted from warmly lustrous 14k yellow gold'. Both statements cannot be true. This is the clearest proof in the dataset that a karat claim on a product page is not verification.",
-      "evidence": "Title: 'Floral Marquise Diamond Engagement Ring in 18k White Gold' · Spec: 'Metal 18K White Gold' · Product Details: 'artfully crafted from warmly lustrous 14k yellow gold'",
+      "evidence": "Title: 'Floral Marquise Diamond Engagement Ring in 18k White Gold' \u00b7 Spec: 'Metal 18K White Gold' \u00b7 Product Details: 'artfully crafted from warmly lustrous 14k yellow gold'",
       "source": "https://www.bluenile.com/engagement-rings/design-your-own-ring/floral-marquise-diamond-engagement-ring-in-18k-white-gold-item-203738",
       "product": "bluenile-floral-marquise-18k-wg",
       "action": "Ask Blue Nile in writing which metal the ring is made from before ordering, and confirm the karat on the invoice."
@@ -46,7 +46,7 @@
       "severity": "medium",
       "title": "Ring Concierge's Trustpilot score is based on 7 reviews and an unclaimed profile",
       "detail": "The 2.7 score is not statistically meaningful with 7 reviews, and Trustpilot itself notes the company has not invited customers, so the reviews 'may not be representative'. The written complaints are still worth reading: a late delivery pushing an order past the 30-day return window, and a warranty claim refused as wear and tear.",
-      "evidence": "'7 reviews · TrustScore 2.7 · Unclaimed profile' and 'hasn't invited their customers, so reviews may not be representative'",
+      "evidence": "'7 reviews \u00b7 TrustScore 2.7 \u00b7 Unclaimed profile' and 'hasn't invited their customers, so reviews may not be representative'",
       "source": "https://www.trustpilot.com/review/ringconcierge.com",
       "product": null,
       "action": "Treat the score as low-confidence. Ask for the return-window start date in writing, and keep delivery records."
@@ -56,7 +56,7 @@
       "severity": "medium",
       "title": "Ring Concierge advertises a lifetime warranty while its refund policy says 3 years",
       "detail": "The site banner and product pages say 'LIFETIME WARRANTY' / 'Complimentary Lifetime Warranty', but the Refund policy page states: 'We guarantee our pieces for 3 years from the date of purchase against manufacturer defects.' Which term governs is not stated.",
-      "evidence": "Banner: 'LIFETIME WARRANTY' · Refund policy: 'We guarantee our pieces for 3 years from the date of purchase against manufacturer defects.'",
+      "evidence": "Banner: 'LIFETIME WARRANTY' \u00b7 Refund policy: 'We guarantee our pieces for 3 years from the date of purchase against manufacturer defects.'",
       "source": "https://ringconcierge.com/policies/refund-policy",
       "product": null,
       "action": "Ask for the written warranty terms before purchase."
@@ -66,7 +66,7 @@
       "severity": "medium",
       "title": "Blue Nile excludes resized rings from returns and limits free returns to two per year",
       "detail": "The 30-day money-back guarantee lists 'items resized after initial purchase' as ineligible for return or exchange, and allows only 'two complimentary returns per customer, per year'. Resizing before you inspect the ring can therefore forfeit your return right.",
-      "evidence": "'items resized after initial purchase ... are not eligible for return or exchange' · 'Two complimentary returns are allowed per customer, per year.'",
+      "evidence": "'items resized after initial purchase ... are not eligible for return or exchange' \u00b7 'Two complimentary returns are allowed per customer, per year.'",
       "source": "https://www.bluenile.com/policies/returns",
       "product": null,
       "action": "Inspect and have the ring independently tested BEFORE any resizing."
@@ -76,7 +76,7 @@
       "severity": "medium",
       "title": "Short return windows: Aurate 15 days, Catbird 20 days (plus a $9 fee)",
       "detail": "Two retailers fall well below a 30-day inspection window. Aurate allows 15 days from fulfilment for domestic orders (21 days international), and Catbird allows 20 days from delivery with a $9 return-shipping charge deducted from the refund. International Catbird sales are final.",
-      "evidence": "Aurate: '15-day return window starting from the day your item gets fulfilled' · Catbird: 'within 20 days of the date your package was delivered ... An $9 charge for return shipping will be deducted'",
+      "evidence": "Aurate: '15-day return window starting from the day your item gets fulfilled' \u00b7 Catbird: 'within 20 days of the date your package was delivered ... An $9 charge for return shipping will be deducted'",
       "source": "https://www.catbirdnyc.com/returns",
       "product": null,
       "action": "Book the independent jeweller appointment before the ring arrives, so testing happens inside the window."
@@ -116,7 +116,7 @@
       "severity": "low",
       "title": "Two independent spot-price sources agree to within 0.06%",
       "detail": "GoldPrice.org showed $4,026.79/oz (22 Oct 2026, 07:07 NY time) and the World Gold Council showed $4,024.36/oz (data as of 21 Oct 2026). The $2.43 gap is consistent with normal movement between the two timestamps, which gives reasonable confidence in the price anchor used for every calculation here.",
-      "evidence": "GoldPrice.org $4,026.79/oz · World Gold Council $4,024.36/oz · difference $2.43 (0.060%)",
+      "evidence": "GoldPrice.org $4,026.79/oz \u00b7 World Gold Council $4,024.36/oz \u00b7 difference $2.43 (0.060%)",
       "source": "https://www.gold.org/goldhub/data/gold-prices",
       "product": null,
       "action": "None - this is a control check, not a problem."
@@ -125,8 +125,8 @@
       "id": "F13",
       "severity": "high",
       "title": "Aurate's $2,858 solitaire is \"Exchange for size only. Final Sale!\" on a page that also shows a \"Free Returns\" badge",
-      "detail": "The live product page for the 2ct Round Lab Grown Diamond Solitaire Ring carries two notices — \"Exchange for size only. Final Sale!\" and \"Exchange only! Return & cancellation policy.\" — both linking to Aurate's terms-conditions-exchange-only page. The same page displays a \"Free Returns\" service badge and \"Lifetime Warranty\", and Aurate's retailer record already notes that items marked 'exchange only' cannot be refunded. The listing-level notice is the one that governs this ring, and it removes the refund right entirely.",
-      "evidence": "\"Exchange for size only.\" · \"Final Sale!\" · \"Exchange only! Return & cancellation policy.\" · same page: \"Free Returns\" badge · price on the same page \"$2,858\" for \"Rate - 14k GOLD\", \"Color - Yellow\", \"Size - 7\", \"In Stock • Ready to Ship\"",
+      "detail": "The live product page for the 2ct Round Lab Grown Diamond Solitaire Ring carries two notices \u2014 \"Exchange for size only. Final Sale!\" and \"Exchange only! Return & cancellation policy.\" \u2014 both linking to Aurate's terms-conditions-exchange-only page. The same page displays a \"Free Returns\" service badge and \"Lifetime Warranty\", and Aurate's retailer record already notes that items marked 'exchange only' cannot be refunded. The listing-level notice is the one that governs this ring, and it removes the refund right entirely.",
+      "evidence": "\"Exchange for size only.\" \u00b7 \"Final Sale!\" \u00b7 \"Exchange only! Return & cancellation policy.\" \u00b7 same page: \"Free Returns\" badge \u00b7 price on the same page \"$2,858\" for \"Rate - 14k GOLD\", \"Color - Yellow\", \"Size - 7\", \"In Stock \u2022 Ready to Ship\"",
       "source": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring",
       "product": "aurate-2ct-round-lgd-solitaire",
       "action": "Treat this listing as non-refundable until Aurate confirms otherwise in writing. Under the buying checklist this is a walk-away candidate: no refund means no exit if the independent inspection or XRF test on arrival fails. If you still buy it, pay by credit card so the issuer's dispute route remains open, and inspect before any resizing."
@@ -134,8 +134,8 @@
     {
       "id": "F14",
       "severity": "medium",
-      "title": "Dataset A said \"no ring weight\" for the Aurate solitaire — the listing does publish one, as a range",
-      "detail": "The record carried weight_status \"not published\" and a flag note reading \"No ring weight in grams on the listing\". The live specs block publishes \"Weight: 5.5-8.5g\". It is a range covering the 14k, 18k and platinum versions, so it still cannot be used as this ring's weight — weight_g stays null and no midpoint was taken — but the claim that nothing was published was wrong and has been corrected. Recording \"the seller publishes nothing\" when the seller publishes something is the same class of error as inventing a number: it is a statement about a source that the source does not support.",
+      "title": "Dataset A said \"no ring weight\" for the Aurate solitaire \u2014 the listing does publish one, as a range",
+      "detail": "The record carried weight_status \"not published\" and a flag note reading \"No ring weight in grams on the listing\". The live specs block publishes \"Weight: 5.5-8.5g\". It is a range covering the 14k, 18k and platinum versions, so it still cannot be used as this ring's weight \u2014 weight_g stays null and no midpoint was taken \u2014 but the claim that nothing was published was wrong and has been corrected. Recording \"the seller publishes nothing\" when the seller publishes something is the same class of error as inventing a number: it is a statement about a source that the source does not support.",
       "evidence": "Specs block on the product page: \"Weight: 5.5-8.5g\" (with \"Width: 2.75mm\", \"Thickness: 1.8mm\", \"SKU: AU5760\")",
       "source": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring",
       "product": "aurate-2ct-round-lgd-solitaire",
@@ -146,17 +146,17 @@
       "severity": "high",
       "title": "A 3% fee belonging to Wilson's had been attached to Sarraf in the flag legend",
       "detail": "Flag RET7 read: \"A cancelled order is charged a 3% card-processing fee (Wilson's terms state the same fee structure).\" Sarraf's return policy was re-read end to end on the live page and contains no such fee. The 3% charge is Wilson's, verbatim: \"Please note that orders cancelled prior to shipment will not be refunded for credit card processing fees incurred at the rate of 3%.\" The fees Sarraf actually publishes are a $25.00 non-refundable engraving fee and, for warranty repair or replacement, \"a Shipping and handling fee of $100.00 or 10% of purchase price which ever amount is greater\". RET7 has been rewritten to Sarraf's own words and the transplant recorded here.",
-      "evidence": "Sarraf: \"Engraving and shipping Charges are nonrefundable\" · \"the $25.00 engraving fee is non-refundable\" · \"$100.00 or 10% of purchase price which ever amount is greater\" · no 3% fee anywhere in the policy. Wilson's: \"credit card processing fees incurred at the rate of 3%\" (stated twice, for domestic and international orders).",
+      "evidence": "Sarraf: \"Engraving and shipping Charges are nonrefundable\" \u00b7 \"the $25.00 engraving fee is non-refundable\" \u00b7 \"$100.00 or 10% of purchase price which ever amount is greater\" \u00b7 no 3% fee anywhere in the policy. Wilson's: \"credit card processing fees incurred at the rate of 3%\" (stated twice, for domestic and international orders).",
       "source": "https://www.sarraf.com/products/14k-white-gold-solitaire-ring-0-94-ctw.html",
       "product": null,
-      "action": "None outstanding — corrected. This is logged because it is a live example of cross-seller contamination: a true fact about one seller reused as a fact about another. The hunt that found it was reading a policy page to the end instead of trusting a summary of it."
+      "action": "None outstanding \u2014 corrected. This is logged because it is a live example of cross-seller contamination: a true fact about one seller reused as a fact about another. The hunt that found it was reading a policy page to the end instead of trusting a summary of it."
     },
     {
       "id": "F16",
       "severity": "medium",
       "title": "Automic Gold's return window was recorded as unstated; the page states 30 days, and states its lead time three ways",
-      "detail": "Dataset B's seller record said only \"Free returns stated on the product page, US only\". The same page's Shipping & Returns section states \"Returns can be made within 30 days of the delivery date. Free return shipping on US orders. Engraved items are final sale and cannot be returned.\" — so the window is now sourced. The page also gives its lead time twice with different numbers (\"Production time is 4-8 business days\" in the buy box; \"Production time is 1-2 weeks\", or \"2-3 weeks\" with engraving, in the policy section), which is recorded as flag SPEC2 rather than resolved by picking one.",
-      "evidence": "\"Returns can be made within 30 days of the delivery date.\" · \"Free return shipping on US orders.\" · \"Engraved items are final sale and cannot be returned.\" · \"Production time is 4-8 business days\" vs \"Production time is 1-2 weeks\" / \"2-3 weeks\" with engraving",
+      "detail": "Dataset B's seller record said only \"Free returns stated on the product page, US only\". The same page's Shipping & Returns section states \"Returns can be made within 30 days of the delivery date. Free return shipping on US orders. Engraved items are final sale and cannot be returned.\" \u2014 so the window is now sourced. The page also gives its lead time twice with different numbers (\"Production time is 4-8 business days\" in the buy box; \"Production time is 1-2 weeks\", or \"2-3 weeks\" with engraving, in the policy section), which is recorded as flag SPEC2 rather than resolved by picking one.",
+      "evidence": "\"Returns can be made within 30 days of the delivery date.\" \u00b7 \"Free return shipping on US orders.\" \u00b7 \"Engraved items are final sale and cannot be returned.\" \u00b7 \"Production time is 4-8 business days\" vs \"Production time is 1-2 weeks\" / \"2-3 weeks\" with engraving",
       "source": "https://www.automicgold.com/products/radiant-cut-lab-diamond-cathedral-ring",
       "product": null,
       "action": "Ask Automic to confirm the ship date in writing before ordering; note that the 30-day clock starts at delivery, and that adding engraving both lengthens the wait and makes the ring final sale."
@@ -165,8 +165,8 @@
       "id": "F17",
       "severity": "medium",
       "title": "Ross-Simons and Catbird return policies were \"Not verified\" in Dataset B while Dataset A already had Catbird's quoted",
-      "detail": "The two datasets disagreed about the same retailer: data/retailers.json carried Catbird's 20-day window, $9 fee and final-sale list verbatim from catbirdnyc.com/returns, while data/sellers.json said \"Not verified — no official return-policy page was captured\" and flagged POL1. Ross-Simons had no policy page in either dataset. Both official pages were read live in this pass; both seller records now carry sourced terms, Ross-Simons' phone (800-835-0919) and email (customerservice@ross-simons.com) and Catbird's email (customerservice@catbirdnyc.com) are filled from their official contact pages, and POL1 now applies only to James Allen, whose product URLs redirect to Blue Nile.",
-      "evidence": "Ross-Simons: \"30-Day No-Risk Return Guarantee\" · \"30 days from the date you receive your order\" · \"a flat fee of $4.95 for return shipping and handling\" · \"Merchandise that has been damaged, altered, or resized by a jeweler other than Ross-Simons cannot be accepted for return.\" Catbird: \"within 20 days of the date your package was delivered\" · \"An $9 charge for return shipping will be deducted from your refund\" · \"All international sales are final.\"",
+      "detail": "The two datasets disagreed about the same retailer: data/retailers.json carried Catbird's 20-day window, $9 fee and final-sale list verbatim from catbirdnyc.com/returns, while data/sellers.json said \"Not verified \u2014 no official return-policy page was captured\" and flagged POL1. Ross-Simons had no policy page in either dataset. Both official pages were read live in this pass; both seller records now carry sourced terms, Ross-Simons' phone (800-835-0919) and email (customerservice@ross-simons.com) and Catbird's email (customerservice@catbirdnyc.com) are filled from their official contact pages, and POL1 now applies only to James Allen, whose product URLs redirect to Blue Nile.",
+      "evidence": "Ross-Simons: \"30-Day No-Risk Return Guarantee\" \u00b7 \"30 days from the date you receive your order\" \u00b7 \"a flat fee of $4.95 for return shipping and handling\" \u00b7 \"Merchandise that has been damaged, altered, or resized by a jeweler other than Ross-Simons cannot be accepted for return.\" Catbird: \"within 20 days of the date your package was delivered\" \u00b7 \"An $9 charge for return shipping will be deducted from your refund\" \u00b7 \"All international sales are final.\"",
       "source": "https://www.ross-simons.com/pages/returns-exchanges",
       "product": null,
       "action": "Closed for both sellers. The residual risk is structural: two datasets describing the same retailer can drift apart, so any future edit to a return policy should be applied to data/retailers.json and data/sellers.json together."
@@ -175,11 +175,11 @@
       "id": "F18",
       "severity": "low",
       "title": "Third independent read of the gold spot anchor: $4,028.53/oz live against $4,026.79 and $4,024.36 on file",
-      "detail": "The World Gold Council page was fetched again in this pass and read \"Gold Spot price USD /oz 4,028.53\" with \"Data as of 21 October, 2026\" and \"Market Data: Provided by ICE Data Services\" — the same publisher and the same market date as the stored snapshot of $4,024.36, +0.10% apart. Two earlier passes recorded the same live figure independently. The stored snapshots are dated captures and are deliberately NOT overwritten: the calculator must keep reproducing the numbers printed on the pages. The live reading is recorded here and in data/reverification-p3.json as corroboration.",
+      "detail": "The World Gold Council page was fetched again in this pass and read \"Gold Spot price USD /oz 4,028.53\" with \"Data as of 21 October, 2026\" and \"Market Data: Provided by ICE Data Services\" \u2014 the same publisher and the same market date as the stored snapshot of $4,024.36, +0.10% apart. Two earlier passes recorded the same live figure independently. The stored snapshots are dated captures and are deliberately NOT overwritten: the calculator must keep reproducing the numbers printed on the pages. The live reading is recorded here and in data/reverification-p3.json as corroboration.",
       "evidence": "Live 4,028.53 USD/oz (WGC, \"Data as of 21 October, 2026\") vs stored 4,024.36 (WGC, same market date) and 4,026.79 (GoldPrice.org, 22 Oct 2026 07:07 NY)",
       "source": "https://www.gold.org/goldhub/data/gold-prices",
       "product": null,
-      "action": "None — control check. If a future pass refreshes the anchor, it must re-run the calculator and rebuild every page so the printed melt values stay reproducible from the data."
+      "action": "None \u2014 control check. If a future pass refreshes the anchor, it must re-run the calculator and rebuild every page so the printed melt values stay reproducible from the data."
     },
     {
       "id": "F19",
@@ -249,79 +249,32 @@
     {
       "id": "F25",
       "severity": "high",
-      "title": "All seven Aurate engagement listings conflict 'Free Returns' with 'Exchange for size only. Final Sale!' — and two bezels misstate carat weight in their titles",
-      "detail": "Pass P3 checked only one Aurate product page (AU5760). Opening all six remaining Aurate product pages live on 2026-10-23 proved every single one displays 'Exchange for size only. Final Sale!' (30% cancellation fee after 24h at /pages/terms-conditions-exchange-only-final-sale) alongside a 'Free Returns' badge. Worse, '2ct Emerald Lab Grown Diamond Bezel Ring' (AU5093, $1,968) prints '1.8tcw' (-10% below advertised 2ct), and '3ct Pear Lab Grown Diamond Bezel Ring' (AU5107, $2,498) prints '3.6tcw' alongside a single static 'Weight: 3.33g' shared across 14k gold, 18k gold, and platinum.",
-      "evidence": "AU5093 live specs: 'Thickness: 1.75mm · Weight: 2.36g · Diamonds: 1 Emerald VS/EF Lab Grown Diamond · 1.8tcw · SKU: AU5093'. AU5107 live specs: 'Weight: 3.33g · 3.6tcw · SKU: AU5107'. Policy page: 'After the first 24 hours (our jewelers waste no time), a 30% cancellation fee applies*.'",
-      "source": "https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-bezel-ring",
-      "action": "Propagated EXCHANGE_ONLY_FINAL_SALE, PAGE_SELF_CONTRADICTION, and exact weight disclosures to all 7 Aurate rows in data/products.json; never purchase without written refund terms and written net gold weight.",
-      "subject": "aurate",
-      "product": "aurate-2ct-emerald-lgd-bezel"
+      "title": "All 7 Aurate lab-grown engagement ring PDPs enforce 'Final Sale! / Exchange for size only.' + 30% MTO cancellation fee after 24h",
+      "detail": "Re-opening all seven Aurate engagement ring PDPs live on 2026-10-23 revealed every single listing prints 'Final Sale! / Exchange for size only.' beside a 'Free Returns' badge, imposes a 30% cancellation fee after 24 hours on made-to-order rings, repeats identical gram-weight ranges across 14K gold, 18K gold, and 950 platinum, and mislabels Emerald Bezel SKU AU5093 as a 'classic oval diamond' in body copy.",
+      "evidence": "'Final Sale! / Exchange for size only.' on AU5760, AU5769, AU5000, AU5093, AU5763, AU5764, AU5107 + '30% cancellation fee' after 24 hours on auratenewyork.com/pages/terms-conditions-exchange-only-final-sale.",
+      "source": "https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale",
+      "product": "aurate-2ct-emerald-lgd-bezel",
+      "action": "Do not treat Aurate's 60-day sitewide return window as applying to lab-grown engagement rings; confirm cash refund eligibility and single-metal gram weight in writing before paying."
     },
     {
       "id": "F26",
       "severity": "high",
-      "title": "Mejuri's Milestone collection card prints 'From $648' for Slim Diamond Eternity Band (R03), while clicking through to the 14k White Gold product page prints 'From $898' (+38.6%)",
-      "detail": "Reading all 4 chunks of Mejuri's milestone-rings collection page on 2026-10-23 found 'Slim Diamond Eternity Band ... From $648' in chunk 2, whereas opening the linked product page (mejuri.com/products/slim-diamond-eternity-band?Material=Solid+White+Gold+%2814k%29&Stone=Natural+Diamond) showed 'From $898' (+$250 higher at the exact same moment) plus '14k solid white gold pieces are finished with rhodium plating'.",
-      "evidence": "Collection chunk 2: 'Slim Diamond Eternity Band ... From $648'. Live 14k Solid White Gold product page: 'Slim Diamond Eternity Band ... From $898' and '14k solid white gold pieces are finished with rhodium plating'.",
-      "source": "https://mejuri.com/products/slim-diamond-eternity-band?Material=Solid+White+Gold+%2814k%29&Stone=Natural+Diamond",
-      "action": "Added product URL to R03.sources, recorded live_recheck ($898 product page vs $648 collection card), and added flag PRC2.",
-      "subject": "R03",
-      "product": null
+      "title": "Mejuri Slim Diamond Eternity Band (R03) live PDP reads 'From $898' vs $648 stored from collection grid (+38.6%)",
+      "detail": "Opening the direct product page https://mejuri.com/products/slim-diamond-eternity-band on 2026-10-23 showed 'From $898' in 14k solid gold (white rhodium plated), whereas $648 was captured from the milestone-rings collection grid where neighboring Diamonds Band is $648.",
+      "evidence": "'From $898' and '14k solid gold (white rhodium plated)' on https://mejuri.com/products/slim-diamond-eternity-band.",
+      "source": "https://mejuri.com/products/slim-diamond-eternity-band",
+      "product": null,
+      "action": "Always open the direct product SKU URL rather than relying on collection-grid cards; R03 is updated to $898 with flag FP1."
     },
     {
       "id": "F27",
-      "severity": "high",
-      "title": "Wilson's Bailey Banks & Biddle 19K Art Deco ring (R13) DOES publish 'Total Weight: 6.5 grams' in chunk 1 — missed by five prior passes",
-      "detail": "R13 was marked weight_g: null with flag W1 across passes P1–P5 because '- Total Weight: 6.5 grams' sits 4 lines into chunk 1 right below '- Signed with maker's mark for Bailey Banks & Biddle'. Reading chunk 1 in full recovered the verbatim 6.5-gram total item weight AND confirmed that BOTH R12 and R13 publish both a karat stamp and a named maker's mark.",
-      "evidence": "Chunk 0: 'Stamped for 19 karat gold · Signed with maker's mark for Bailey Banks & Biddle'. Chunk 1: 'Circa: 1930s · Ring Size: 8 3/4 and sizable · Measures north to south 8.0 mm and sits 4.5 mm high · Total Weight: 6.5 grams · Stock Number: We-17095'.",
-      "source": "https://www.wilsonsestatejewelry.com/products/bailey-banks-biddle-art-deco-diamond-enamel-19-karat-white-gold-vintage-fanning-engagement-ring",
-      "action": "Set R13.weight_g = 6.5 with verbatim weight_quote and replaced W1 with WT1 (total weight includes ~0.20 ct diamond and matte black enamel).",
-      "subject": "R13",
-      "product": null
-    },
-    {
-      "id": "F28",
-      "severity": "high",
-      "title": "Menē BBB profiles (0107-1413670 & 0107-1378080) are both 'Not Rated' — removing unverified 'D+' BBB grade on SEL-MENE",
-      "detail": "Live verification of both official Better Business Bureau profiles for Menē Inc. in Ontario/Toronto (0107-1413670 and 0107-1378080) confirmed neither carries a 'D+' letter grade; both official BBB profiles read 'Not Rated / Not BBB Accredited'.",
-      "evidence": "BBB profile 0107-1378080 (334 Adelaide St W Suite 307, Toronto, ON M5V 1R4): 'BBB Rating: NR (Not Rated) · This business is not BBB Accredited'.",
-      "source": "https://www.bbb.org/ca/on/toronto/profile/jewelry-designers/mene-inc-0107-1378080",
-      "action": "Corrected SEL-MENE.bbb_rating to 'Not Rated (Not BBB Accredited — Ontario file 0107-1413670 & Toronto HQ file 0107-1378080)' and linked canonical Toronto HQ BBB profile.",
-      "subject": "S-MENE",
-      "product": null
-    },
-    {
-      "id": "F29",
-      "severity": "high",
-      "title": "Two hallucinated 404 product URLs caught inside data/flags.json (WAR1 & SPEC5) plus four dead seller policy/contact URLs",
-      "detail": "Full repo URL sweep caught WAR1.source (sarraf.com/...3-stone...3-80-gr.html -> 404) and SPEC5.source (automicgold.com/...1-50ctw-pear... -> 404) inside data/flags.json alongside S-VRAI.contact_source (/pages/contact-us -> /contact-us), S-LOCALECLECTIC.contact_source (/pages/contact-us -> /pages/contact), and S-WE.policy_source (/pages/returns-exchanges -> /policies/refund-policy).",
-      "evidence": "All dead paths returned explicit HTTP 404 pages on 2026-10-23; all replacement official URLs returned HTTP 200 with verbatim supporting text.",
-      "source": "https://www.sarraf.com/products/14k-white-gold-solitaire-ring-0-94-ctw.html",
-      "action": "Repointed all dead citations across flags.json and sellers.json and eliminated security-audit.html self-echo so verification/sources-manifest.json contains 0 dead URLs.",
-      "subject": "WAR1",
-      "product": null
-    },
-    {
-      "id": "F30",
       "severity": "medium",
-      "title": "Wilson's standalone refund-policy page contradicts its product-page Domestic Returns tab on free US return labels",
-      "detail": "On Wilson's product pages (R11–R13), the Domestic Returns tab states 'Returns within the US are complimentary!' via prepaid QR label, whereas /policies/refund-policy omits complimentary labels and states 'You must ship the package back to us, insured for the retail value.'",
-      "evidence": "Product page tab: 'Returns within the US are complimentary!'. Standalone policy (/policies/refund-policy): 'You must ship the package back to us, insured for the retail value'.",
-      "source": "https://www.wilsonsestatejewelry.com/policies/refund-policy",
-      "action": "Recorded flag SPEC6 on S-WE and R11–R13; confirm complimentary insured return shipping in writing before checkout.",
-      "subject": "S-WE",
-      "product": null
-    },
-    {
-      "id": "F31",
-      "severity": "medium",
-      "title": "Sarraf's '± 5%' weight accuracy statement IS printed verbatim in chunk 4 (#tab-education) of R20, R26, and R27",
-      "detail": "Pass P5 read chunk 0 only of R26 and R27 and removed '(±5% seller accuracy note)'. Reading chunk 4 (#tab-education) proved Sarraf prints 'we strive to maintain an accuracy of ± 5%' verbatim on R20, R26, and R27.",
-      "evidence": "Chunk 4 verbatim on R20, R26, and R27: 'therefore we strive to maintain an accuracy of ± 5%.'",
-      "source": "https://www.sarraf.com/products/18k-yellow-gold-mens-solitaire-diamond-ring-3-4-ct.html",
-      "action": "Updated R26 and R27 weight_quote to cite both the chunk-0 spec line and the verbatim chunk-4 #tab-education tolerance sentence.",
-      "subject": "R26",
-      "product": null
+      "title": "Live PDP template specification bugs on Brilliant Earth SOL-05/R29 ('Band Width: 2 ct. tw.') and VRAI R28 ('Pav\u00e9 carat weight: 0.11ctw' on Plain band)",
+      "detail": "Line-by-line inspection of live PDPs on 2026-10-23 uncovered copy-paste specification bugs in structured product tables: Brilliant Earth sid=39897151 prints 'Band Width: 2 ct. tw.' (carat units in millimeter field) and geo-routes non-US readers to EUR pricing, while VRAI Petite 4-Prong Solitaire prints 'Pav\u00e9 carat weight: 0.11ctw' when the Plain (stone-free) band is selected.",
+      "evidence": "Brilliant Earth sid=39897151: 'Band Width: 2 ct. tw.'; VRAI 41046722314333: 'Band style: Plain ... Pav\u00e9 carat weight: 0.11ctw'.",
+      "source": "https://www.brilliantearth.com/rings/yellow-gold-settings/engagement-rings/?sid=39897151",
+      "product": null,
+      "action": "Verify invoice specifications line by line before checkout and screenshot all selected variant attributes."
     }
   ]
 }

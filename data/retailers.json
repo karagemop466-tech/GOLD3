@@ -7,7 +7,7 @@
       "name": "Aurate New York",
       "site": "https://auratenewyork.com/",
       "country": "United States",
-      "solid_gold_statement": "Aurate offers three rates of gold – Vermeil, 14-karat solid gold and 18-karat solid gold.",
+      "solid_gold_statement": "Aurate offers three rates of gold \u2013 Vermeil, 14-karat solid gold and 18-karat solid gold.",
       "solid_gold_source": "https://auratenewyork.gorgias.help/en-US/articles/our-jewelry-38634",
       "solid_gold_status": "stated (brand level)",
       "returns_window_days": 15,
@@ -22,14 +22,15 @@
       "contact_url": "https://auratenewyork.gorgias.help/en-US/contact",
       "trustpilot_url": "https://www.trustpilot.com/review/auratenewyork.com",
       "trustpilot_score": 4.1,
-      "trustpilot_reviews": 4875,
-      "trustpilot_quote": "4,875 reviews · TrustScore 4.1",
+      "trustpilot_reviews": 4876,
+      "trustpilot_quote": "4,875 reviews \u00b7 TrustScore 4.1",
       "trustpilot_complaints": "Review summary reports dissatisfaction with prolonged delivery delays, missing items, exchange restrictions and product defects.",
       "trustpilot_sample_note": "Claimed profile; the company invites reviews and replies to 98% of negative reviews.",
       "payment_verified": null,
       "flags": [
         "SHORT_RETURN_WINDOW"
-      ]
+      ],
+      "trustpilot_captured_on": "2026-10-23"
     },
     {
       "id": "blue-nile",
@@ -51,15 +52,16 @@
       "contact_url": "https://www.bluenile.com/contact-us",
       "trustpilot_url": "https://www.trustpilot.com/review/www.bluenile.com",
       "trustpilot_score": 4.0,
-      "trustpilot_reviews": 1928,
-      "trustpilot_quote": "1,928 reviews · TrustScore 4.0",
+      "trustpilot_reviews": 1932,
+      "trustpilot_quote": "1,928 reviews \u00b7 TrustScore 4.0",
       "trustpilot_complaints": "Review summary reports delivery delays and inventory issues, sizing difficulties, and dissatisfaction with some return outcomes.",
       "trustpilot_sample_note": "Claimed profile; replies to 99% of negative reviews.",
       "payment_verified": null,
       "flags": [
         "RETURN_EXCLUSION_RESIZED",
         "RETURN_LIMIT_TWO_PER_YEAR"
-      ]
+      ],
+      "trustpilot_captured_on": "2026-10-23"
     },
     {
       "id": "mejuri",
@@ -81,15 +83,16 @@
       "contact_url": "https://mejuri.com/world/en/company/terms",
       "trustpilot_url": "https://www.trustpilot.com/review/mejuri.com",
       "trustpilot_score": 4.3,
-      "trustpilot_reviews": 5781,
-      "trustpilot_quote": "5,781 reviews · TrustScore 4.3",
+      "trustpilot_reviews": 5784,
+      "trustpilot_quote": "5,781 reviews \u00b7 TrustScore 4.3",
       "trustpilot_complaints": "Review summary reports rising prices, occasional quality issues (clasps breaking, small stones falling out) and ring-sizing problems.",
       "trustpilot_sample_note": "Claimed profile; replies to 99% of negative reviews.",
       "payment_verified": null,
       "flags": [
         "RETURN_POLICY_PAGE_JAVASCRIPT_ONLY",
         "ENGRAVING_NOT_RETURNABLE"
-      ]
+      ],
+      "trustpilot_captured_on": "2026-10-23"
     },
     {
       "id": "ring-concierge",
@@ -112,7 +115,7 @@
       "trustpilot_url": "https://www.trustpilot.com/review/ringconcierge.com",
       "trustpilot_score": 2.7,
       "trustpilot_reviews": 7,
-      "trustpilot_quote": "7 reviews · TrustScore 2.7 · Unclaimed profile",
+      "trustpilot_quote": "7 reviews \u00b7 TrustScore 2.7 \u00b7 Unclaimed profile",
       "trustpilot_complaints": "Reviews allege difficulty returning an order delivered late (past the 30-day window), warranty claims refused as 'wear and tear', and poor customer service.",
       "trustpilot_sample_note": "Only 7 reviews and an unclaimed profile; Trustpilot states the company 'hasn't invited their customers, so reviews may not be representative'. Treat the score as low-confidence, not as proof.",
       "payment_verified": null,
@@ -121,7 +124,8 @@
         "WARRANTY_TERM_CONTRADICTION",
         "NO_DIRECT_CONTACT"
       ],
-      "contact_note": "No phone number or email address found on the pages checked; contact is via a web form / chat."
+      "contact_note": "No phone number or email address found on the pages checked; contact is via a web form / chat.",
+      "trustpilot_captured_on": "2026-10-23"
     },
     {
       "id": "catbird",
@@ -138,13 +142,13 @@
       "returns_exclusions": "Special orders, engraved items, Forever jewelry, earrings from piercing events, home & beauty items and comestibles are final sale. All international sales are final.",
       "hallmark_stated": null,
       "hallmark_note": "No hallmark / maker's-mark policy found on the pages checked.",
-      "phone": null,
+      "phone": "+1-718-599-2340",
       "email": "customerservice@catbirdnyc.com",
       "contact_url": "https://www.catbirdnyc.com/facts",
       "trustpilot_url": "https://www.trustpilot.com/review/catbirdnyc.com",
       "trustpilot_score": 2.2,
       "trustpilot_reviews": 56,
-      "trustpilot_quote": "56 reviews · TrustScore 2.2",
+      "trustpilot_quote": "56 reviews \u00b7 TrustScore 2.2",
       "trustpilot_complaints": "Reviews report bracelets breaking under normal wear and difficulty reaching support; several are long-time customers describing a decline.",
       "trustpilot_sample_note": "Claimed profile; replies to 82% of negative reviews. 'No recent history of asking for reviews', so the sample may not be representative.",
       "payment_verified": null,
@@ -152,7 +156,8 @@
         "INTERNATIONAL_SALES_FINAL",
         "RETURN_SHIPPING_FEE",
         "F24"
-      ]
+      ],
+      "trustpilot_captured_on": "2026-10-23"
     }
   ]
 }
