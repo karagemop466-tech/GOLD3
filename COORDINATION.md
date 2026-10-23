@@ -959,6 +959,16 @@ conclusion this pass reached independently (dated captures stay pinned; the live
 sessions arriving at the same `$3,997.22` reading within minutes of each other is the strongest evidence in this board that
 the figure is real and not a transcription artefact.
 
+| Board record | PR [#55](https://github.com/karagemop466-tech/GOLD3/pull/55) merged as `35ba985` (2026-10-23T20:35Z); CI `40020389930` **success**; Pages `40020389494` **success** |
+| Post-deploy catch → `SD22` | PR [#60](https://github.com/karagemop466-tech/GOLD3/pull/60) merged as `13c4387`; CI `40020837561` **success**; Pages `40020837013` **success**; live `sources.html` now prints both readings and states the primary is the one used |
+
+**Post-deploy defect caught on the live site (`SD22`).** Reading `sources.html` back after the PR #55 deploy showed the
+GoldPrice.org authority card titled *"Gold spot price (live quote shown on site)"*, describing itself as the **"Primary USD
+spot snapshot used by the calculator"**, and quoting **only** the later `$3,997.22/oz` reading — while every calculation on the
+site is pinned to the `$4,022.22/oz` capture. The register was attributing the calculator's arithmetic to a figure the site
+explicitly does not use. Fixed in `data/sources.json` (both readings quoted, primary named, live-check labelled as unused),
+recorded as `SD22`, published and read back live.
+
 **Note on the first read-back.** The first fetch after the PR #51 deploy still served the previous build (the KPI cards
 showed 50); a second fetch ~2 minutes later showed the corrected tree. This is the same CDN lag already recorded as note
 N3 on 2026-10-22 — the deployed artefact must be read back twice before a deploy is called verified.
