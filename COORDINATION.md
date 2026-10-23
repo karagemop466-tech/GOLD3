@@ -10,13 +10,14 @@ Read it before starting any work. Update it when you claim, finish, or hand off 
 | Session ID | Branch (actual) | Started (UTC) | Status |
 |---|---|---|---|
 | `sess-7f3a-gold` | `arena/b3c924e6-gold3` | 2026-10-22T23:10Z | complete |
-| `arena/e6fe3e4f-gold3` | `arena/e6fe3e4f-gold3` | 2026-10-22T23:24Z | **active — V1–V4 verification pass, then integration** |
+| `arena/e6fe3e4f-gold3` | `arena/e6fe3e4f-gold3` | 2026-10-22T23:24Z | complete (PRs #17, #19, #22, #25 merged; V1–V4 done) |
 | `arena/92d7dd0a-gold3` | `arena/92d7dd0a-gold3` | 2026-10-22T23:30Z | complete (PR #13, #15 merged) |
 | `arena/04e8f339-gold3` | `arena/04e8f339-gold3` | 2026-10-22T23:34Z | complete (PR #11 merged) |
 | `arena/b3c924e6-gold3` (2nd run) | `arena/b3c924e6-gold3` | 2026-10-22T23:45Z | complete (PR #16, #21 merged) |
 | `arena/698f08f6-gold3` | `arena/698f08f6-gold3` | 2026-10-22T23:24Z | complete (PR #24, #26 merged — Dataset C, §9) |
 | `sess-692d-gold` | `arena/692d8c94-gold3` | 2026-10-22T23:26Z | complete (PR #29 merged as `bafa7d9`; record PR #30) |
-| `arena/699d8e05-gold3` | `arena/699d8e05-gold3` | 2026-10-22T23:50Z | **active — third re-verification pass (V5), then integration** |
+| `arena/699d8e05-gold3` | `arena/699d8e05-gold3` | 2026-10-22T23:50Z | complete (PR #31, #32 merged; V5 done) |
+| `arena/bfcd8465-gold3` | `arena/bfcd8465-gold3` | 2026-10-23T09:55Z | **active — fourth re-verification pass (V6, Dataset C + seller contact/policy sweep) & CR-P3-1..9 / SD6–SD8 integration (T16)** |
 
 ### Branch naming note (important)
 The protocol below asks for `session-<id>/<task>` branches. **This sandbox pins each session to a
@@ -60,6 +61,8 @@ Status values: `unclaimed` · `in progress` · `done` · `needs review`
 | T14 | Independent post-merge coherence check on the 3-dataset tree (`70746aa`): re-run all five suites + both builders, verify build determinism, confirm CI green and the deployed Pages matches `main`. Re-run on the post-PR-#27 tip `75d4b67` (Dataset D merged mid-pass): **all eight CI gates green locally** — see report §4b. **Provenance:** first claimed 23:31Z as "T10 CI coherence repair" (red CI, 134 audit warnings, legacy pages stuck on "Loading…"), renumbered twice as `arena/92d7dd0a-gold3` (T10) and `arena/698f08f6-gold3` (T12, §9) took colliding ids and landed the same repairs first (PRs #17/#21/#22/#24/#25). No file claimed by another session was edited while claimed. | done | `sess-692d-gold` | read-only + this board + `reports/revalidation-sess-692d.md` | 2026-10-22T23:50Z |
 | T15 | Independent hallucination-hunt pass: re-open a sample of official sources live (R20–R22, R17, Mejuri/Ring Concierge/Catbird rows, Costco `RET1`, 16 CFR 23.4(b), GoldPrice.org), search each stored value verbatim, publish the report. Result: **10/10 sources confirmed, 0 discrepancies, 5 non-blocking notes (N1–N5)**. | done | `sess-692d-gold` | `reports/revalidation-sess-692d.md` (new file, sole owner) | 2026-10-22T23:50Z |
 | V5 | Third independent re-verification pass: re-open every official source behind Dataset A + Dataset B live, hunt for values that do not survive contact with the page, publish `data/reverification-p3.json` + `reports/reverification-pass-p3.md` | done | `arena/699d8e05-gold3` | `data/reverification-p3.json`, `reports/reverification-pass-p3.md` (sole owner); `data/flags.json`, `data/sellers.json`, `data/products.json`, `data/findings.json` (integration window) | 2026-10-23T00:12Z |
+| V6 | Fourth independent re-verification pass (Pass P4): live re-open Dataset C (`solitaire-rings.json`, `bands-and-high-karat.json`, `sellers-policies.json`) + Dataset B (`R23`–`R31`) + seller contact/policy sources (§10.4 items 1–7); hunt for hallucinations, dead URLs, or transplanted claims; publish `data/reverification-p4.json` + `reports/reverification-pass-p4.md` | in progress | `arena/bfcd8465-gold3` | `data/reverification-p4.json`, `reports/reverification-pass-p4.md` (sole owner) | 2026-10-23T09:55Z |
+| T16 | Final integration & CR resolution: close open change requests `CR-P3-1`..`CR-P3-9`, reconcile cross-dataset / UI count & weight discrepancies (`SD6`–`SD8`), rebuild all static pages, pass all 8 CI gates, PR → `main`, merge & verify GitHub Pages | in progress | `arena/bfcd8465-gold3` | `data/*.json`, `scripts/*`, `*.html`, `README.md`, `COORDINATION.md` (integration window; all prior sessions >9h inactive with tasks `done`) | 2026-10-23T09:55Z |
 
 > **T10 closed 2026-10-23** by its owner's own work, merged as PR #13 (board record) and PR #15
 > (text corrections). This session only recorded the closure — no file owned by `arena/92d7dd0a-gold3`
