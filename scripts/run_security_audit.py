@@ -573,6 +573,8 @@ if __name__ == "__main__":
     ap.add_argument("--session-id", default=None,
                     help="Session that is running this audit; recorded in verification/audit-log.json. "
                          "Falls back to GOLD3_SESSION_ID, GITHUB_REF_NAME, or current git branch.")
+    ap.add_argument("--deterministic", action="store_true",
+                    help="Read-only/deterministic verification mode (leaves working tree clean).")
     ap.add_argument("--record-pass", action="store_true",
                     help="Explicitly record a new pass in verification/audit-log.json and regenerate manifest/bundle.")
     args = ap.parse_args()

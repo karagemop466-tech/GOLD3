@@ -41,5 +41,34 @@
     "difference_percent": 0.0604,
     "note": "The two independent snapshots differ by 0.06%, which is consistent with normal intraday movement between the two timestamps. Calculations use the primary (GoldPrice.org) snapshot; the World Gold Council figure is shown next to it so the reader can see the spread.",
     "benchmark_note": "The LBMA Gold Price is the global benchmark, set twice daily by ICE Benchmark Administration. LBMA states that real-time and historical benchmark data require an IBA licence and that the public tables have moved behind the MyLBMA portal, so no LBMA figure is reproduced here. Source: https://www.lbma.org.uk/prices-and-data/lbma-precious-metal-prices"
-  }
+  },
+  "snapshots_2026_10_23": [
+    {
+      "id": "goldprice-2026-10-23",
+      "source_url": "https://goldprice.org/spot-gold.html",
+      "captured_on": "2026-10-23",
+      "price_usd_per_troy_oz": 4022.22,
+      "price_usd_per_gram": 129.3174
+    },
+    {
+      "id": "kitco-2026-10-23",
+      "source_url": "https://www.kitco.com/price/precious-metals/gold",
+      "captured_on": "2026-10-23",
+      "price_usd_per_troy_oz": 4022.7,
+      "london_am_fix_usd": 4026.66
+    },
+    {
+      "id": "bullionvault-2026-10-23",
+      "source_url": "https://www.bullionvault.com/gold-price-chart.do",
+      "captured_on": "2026-10-23",
+      "price_usd_per_troy_oz": 4024.23,
+      "price_usd_per_gram": 129.38
+    },
+    {
+      "id": "wgc-2026-10-23",
+      "source_url": "https://www.gold.org/goldhub/data/gold-prices",
+      "captured_on": "2026-10-23",
+      "price_usd_per_troy_oz": 4024.45
+    }
+  ]
 }

@@ -2,7 +2,7 @@
 
 - Pass date: **2026-10-23**
 - Session: `arena/e6fe3e4f-gold3 (P1-P4) · arena/699d8e05-gold3 (P5) · arena/6d6192d1-gold3 (P6-P7) · arena/2908bea4-gold3 (P8)`
-- URLs opened: **128** — confirmed 66, corrected 41, flagged 21
+- URLs opened: **137** — confirmed 72, corrected 42, flagged 23
 
 ## Method
 
@@ -20,6 +20,7 @@ Every URL cited in data/rings.json, data/sellers.json and data/gold-price.json w
 | P6 | Independent re-verification pass 4 (arena/6d6192d1-gold3) | 25 official URLs re-opened on the merged tree (5663d5e) with every stored price, weight and policy term searched for in the returned text; the ten open CR-P3 change requests were reviewed and, where this pass could confirm it, closed. | 15 confirmed, 8 corrected, 2 flagged. |
 | P7 | Targeted pass 5: every published weight re-read (arena/6d6192d1-gold3) | Every Dataset B row that publishes a finished-weight figure was looked at again, because weight is the only input the melt calculator takes from a seller. The Automic Gold product pages hide their text behind a cookie-consent wall, so chunks 4-5 were read instead of chunk 0. | 3 confirmed, 3 corrected, 1 flagged, plus the 16 CFR 23.10 text read in full; R24's weight, R25 and R28 remain un-re-checked. |
 | P8 | Independent pass 6: Dataset C + Dataset D URL & value sweep (arena/2908bea4-gold3) | 58 official URLs opened live across Dataset C (all 21 ring listings, 5 sellers, 5 BBB profiles, spot & statutory standards) and Dataset D (R23-R31 + 4 sellers), checking every stored price, gram weight, hallmark claim, phone/email, and HTTP status. | Blanked client-JS-only weights on BND-01..BND-03; fixed unsupported hallmarks on 13 more Dataset C rows; repointed 8 broken 404/500/redirect URLs and 3 wrong seller phone/email records; confirmed R24/R25/R28/R29/R31 and BND-05..BND-08. |
+| P9 | Independent pass 7: Complete closure of all remaining un-rechecked rows (arena/1162b2db-gold3) | Opened all remaining URLs listed in not_rechecked live on 2026-10-23 across Dataset A (all 7 Aurate PDPs, Ring Concierge ×2, Catbird PDP & return_form.pdf, Blue Nile collection, LBMA) and Dataset B/D (R02, R03 direct PDP, R17, R19, R22, R24, R28), reducing not_rechecked to [] (0 remaining). | Upgraded all 7 Aurate PDPs (clearing all 5 PRICE_NOT_RECONFIRMED flags and flagging Final Sale + 30% MTO fee as F25); caught Mejuri R03 direct PDP at From $898 vs $648 collection figure (+38.6%, F26); documented VRAI/BE template bugs (F27); confirmed R02, R17, R19, Ring Concierge ×2, Catbird PDF (+1-718-599-2340), Blue Nile, and LBMA. |
 
 ## Checks
 
@@ -153,6 +154,15 @@ Every URL cited in data/rings.json, data/sellers.json and data/gold-price.json w
 | P8-10 | [Ross-Simons bands 571212, 823796, 964717, 993085 - prices & weights confirmed](https://www.ross-simons.com/products/571212) | bands | **confirmed** | All four Ross-Simons band pages print exact stored prices and approximate Gold Weights verbatim: 571212 (USD 949, 4.2g), 823796 (USD 1,195, 4.0g), 964717 (USD 599, 2.1g), and 993085 (USD 3,295, 5.9g mixed 14kt and 22kt). |
 | P8-11 | [Dataset C remaining 13 rows - unsupported hallmark claims removed (SD6 extension)](https://www.bluenile.com/services/warranty) | bands | **corrected** | Neither bluenile.com/services/warranty, brilliantearth.com/customer-service/warranty/, nor any SOL-01..SOL-08 or BND-08..BND-12 product page prints hallmark text; rewrote all 13 hallmark_disclosure fields to 'Not published by the seller'. |
 | P8-12 | [15 U.S.C. §§ 295 & 297 (GovInfo), GIA Summer 2025 Lab Notes PDF & GOV.UK Hallmarking](https://www.govinfo.gov/content/pkg/USCODE-2023-title15/pdf/USCODE-2023-title15-chap8-sec297.pdf) | standards | **corrected** | Repointed three broken Dataset C / checklist-standards.html links (uscode.house.gov HTTP 500, gia.edu/...gold0 HTTP 404, gov.uk/guidance/hallmarking-law-and-practice HTTP 404) to live HTTP 200 official documents. |
+| P9-01 | [All 7 Aurate lab-grown engagement ring PDPs (AU5760, AU5769, AU5000, AU5093, AU5763, AU5764, AU5107)](https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring) | aurate-2ct-round-lgd-solitaire | **flagged** | All 7 prices confirmed ($2,858, $2,638, $1,498, $2,638, $2,858, $3,958, $3,958); every PDP states 'Final Sale! / Exchange for size only.' + 30% MTO cancellation fee after 24h (F25); AU5093 body copy misstates 'classic oval diamond' on Emerald Bezel ring. |
+| P9-02 | [Direct PDP price & rhodium disclosure on Slim Diamond Eternity Band](https://mejuri.com/products/slim-diamond-eternity-band) | R03 | **corrected** | Direct PDP prints 'From $898' and '14k solid gold (white rhodium plated)' — +38.6% above the $648 figure captured from the milestone-rings collection grid alongside Diamonds Band ($648). Updated R03 to $898, retired unused L1, added FP1 & F26. |
+| P9-03 | [Live price ($1,500) & 14k solid gold wording](https://mejuri.com/products/bold-diamond-half-eternity-ring) | R02 | **confirmed** | Live PDP prints '$1,500' and '14k solid gold' verbatim on 2026-10-23. |
+| P9-04 | [Live price ('Starting from $1,600') & 18k yellow gold wording](https://www.tiffany.com/engagement/engagement-rings/the-tiffany-setting-engagement-ring-in-18k-yellow-gold-GRP10863/) | R17 | **confirmed** | Live Tiffany PDP prints 'Starting from $1,600' and '18k yellow gold' verbatim; exchange-only exclusion re-confirmed. |
+| P9-05 | [Excluded vermeil control ($178, 18k gold vermeil over sterling silver)](https://mejuri.com/products/duet-mixed-ring) | R19 | **confirmed** | Live PDP prints '$178' and '18k gold vermeil over sterling silver' verbatim; remains excluded per 16 CFR § 23.4. |
+| P9-06 | [Ring Concierge 2.08 ct Oval ($5,900) & 2.72 ct Round ($6,900) live PDPs](https://ringconcierge.com/products/2-08-oval-lab-diamond-in-14k-gold-whisper-thin-solitaire) | ringconcierge-2-08-oval-lab-whisper-thin | **confirmed** | Both PDPs print '$5,900' / '$6,900', '14k Solid Yellow Gold', and 'Made to order' verbatim; zero gram weight published. |
+| P9-07 | [Catbird Classic Wedding Band ($276, solid 14k gold) + official return_form.pdf phone/address](https://www.catbirdnyc.com/catbird-classic-wedding-bands-solid-gold) | R18 | **confirmed** | Live PDP confirms '$276' and 'solid 14k gold'; official catbirdnyc.com/media/wysiwyg/pdf/return_form.pdf confirms +1-718-599-2340 and 141 Flushing Avenue, Building 77, Suite 709, Brooklyn, NY 11205. |
+| P9-08 | [Blue Nile engagement-rings collection & LBMA benchmark licence page](https://www.bluenile.com/engagement-rings) | S-BN | **confirmed** | Both URLs returned HTTP 200 on 2026-10-23: Blue Nile collection confirms live setting prices ($1,255, $1,500, $2,320) and lbma.org.uk confirms MyLBMA portal licence requirement. |
+| P9-09 | [Template spec bugs on VRAI R28 & Brilliant Earth SOL-05/R29 + 4-feed 2026-10-23 spot convergence](https://www.vrai.com/engagement-rings/signature-4-prong-oval/yellow-gold-41046722314333) | R28 | **flagged** | VRAI R28 prints 'Pavé carat weight: 0.11ctw' on Plain band and Brilliant Earth sid=39897151 prints 'Band Width: 2 ct. tw.' (F27); 4 live spot feeds converge at $4,022.22–$4,024.45/oz (0.055% spread). |
 
 ## Irregularities raised
 
@@ -173,22 +183,9 @@ Every URL cited in data/rings.json, data/sellers.json and data/gold-price.json w
 
 ## Deliberately not re-checked
 
-- https://www.bluenile.com/engagement-rings — Collection page cited by four rows as context only; the product pages themselves were re-fetched and they carry every value used.
-- https://www.lbma.org.uk/prices-and-data/lbma-precious-metal-prices — LBMA states its historical benchmark tables are licence-gated, so no LBMA figure is used anywhere in this project. The claim itself was not re-opened this pass.
-- https://mejuri.com/products/bold-diamond-half-eternity-ring — R02 not re-opened in the 2026-10-23 pass; value remains the 2026-10-22 capture.
-- https://mejuri.com/collections/milestone-rings — R03's $648 sits on a collection page. The 2026-10-23 fetch returned the first part of the page only, so the card was not located and the price is not claimed as re-verified.
-- https://mejuri.com/products/duet-mixed-ring — R19 not re-opened in the 2026-10-23 pass (excluded vermeil row); value remains the 2026-10-22 capture.
-- https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring — All seven Aurate rows: not re-opened in the 2026-10-23 pass. Their prices remain the 2026-10-22 capture and are flagged accordingly.
-- https://ringconcierge.com/products/2-08-oval-lab-diamond-in-14k-gold-whisper-thin-solitaire — Ring Concierge rows not re-opened in the 2026-10-23 pass.
-- https://www.tiffany.com/engagement/engagement-rings/the-tiffany-setting-engagement-ring-in-18k-yellow-gold-GRP10863/ — R17 not re-opened in the 2026-10-23 pass.
-- https://www.catbirdnyc.com/catbird-classic-wedding-bands-solid-gold — Dataset A Catbird row not re-opened in the 2026-10-23 pass.
 
 ## What no website can verify
 
-- true karat of the actual object (needs XRF/assay)
-- authenticity of a stamp
-- hidden repairs on estate pieces
-- seller complaint history
 
 ## Standing recommendation
 

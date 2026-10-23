@@ -42,7 +42,8 @@
         "WEIGHT_RANGE_ONLY",
         "EXCHANGE_ONLY_FINAL_SALE",
         "PAGE_SELF_CONTRADICTION",
-        "HALLMARK_NOT_STATED"
+        "HALLMARK_NOT_STATED",
+        "FINAL_SALE_PDP_OVERRIDE"
       ],
       "derived": {
         "karat": "14K",
@@ -61,7 +62,8 @@
         "SOLID_NOT_ON_LISTING",
         "PRICE_FROM_LOWEST_VARIANT",
         "WEIGHT_NOT_PUBLISHED",
-        "HALLMARK_NOT_STATED"
+        "HALLMARK_NOT_STATED",
+        "FINAL_SALE_PDP_OVERRIDE"
       ],
       "derived": {
         "karat": "14K",
@@ -80,7 +82,8 @@
         "SOLID_NOT_ON_LISTING",
         "PRICE_FROM_LOWEST_VARIANT",
         "WEIGHT_NOT_PUBLISHED",
-        "HALLMARK_NOT_STATED"
+        "HALLMARK_NOT_STATED",
+        "FINAL_SALE_PDP_OVERRIDE"
       ],
       "derived": {
         "karat": "14K",
@@ -99,7 +102,8 @@
         "SOLID_NOT_ON_LISTING",
         "PRICE_FROM_LOWEST_VARIANT",
         "WEIGHT_NOT_PUBLISHED",
-        "HALLMARK_NOT_STATED"
+        "HALLMARK_NOT_STATED",
+        "FINAL_SALE_PDP_OVERRIDE"
       ],
       "derived": {
         "karat": "14K",
@@ -118,7 +122,8 @@
         "SOLID_NOT_ON_LISTING",
         "PRICE_FROM_LOWEST_VARIANT",
         "WEIGHT_NOT_PUBLISHED",
-        "HALLMARK_NOT_STATED"
+        "HALLMARK_NOT_STATED",
+        "FINAL_SALE_PDP_OVERRIDE"
       ],
       "derived": {
         "karat": "14K",
@@ -137,7 +142,8 @@
         "SOLID_NOT_ON_LISTING",
         "PRICE_FROM_LOWEST_VARIANT",
         "WEIGHT_NOT_PUBLISHED",
-        "HALLMARK_NOT_STATED"
+        "HALLMARK_NOT_STATED",
+        "FINAL_SALE_PDP_OVERRIDE"
       ],
       "derived": {
         "karat": "14K",
@@ -156,7 +162,8 @@
         "SOLID_NOT_ON_LISTING",
         "PRICE_FROM_LOWEST_VARIANT",
         "WEIGHT_NOT_PUBLISHED",
-        "HALLMARK_NOT_STATED"
+        "HALLMARK_NOT_STATED",
+        "FINAL_SALE_PDP_OVERRIDE"
       ],
       "derived": {
         "karat": "14K",
@@ -525,6 +532,21 @@
       "id": "F24",
       "severity": "medium",
       "title": "Catbird's /contact-us page returned HTTP 500 on 2026-10-23 live re-verification"
+    },
+    {
+      "id": "F25",
+      "severity": "high",
+      "title": "All 7 Aurate lab-grown engagement ring PDPs enforce 'Final Sale! / Exchange for size only.' + 30% MTO cancellation fee after 24h"
+    },
+    {
+      "id": "F26",
+      "severity": "high",
+      "title": "Mejuri Slim Diamond Eternity Band (R03) live PDP reads 'From $898' vs $648 stored from collection grid (+38.6%)"
+    },
+    {
+      "id": "F27",
+      "severity": "medium",
+      "title": "Live PDP template specification bugs on Brilliant Earth SOL-05/R29 ('Band Width: 2 ct. tw.') and VRAI R28 ('Pavé carat weight: 0.11ctw' on Plain band)"
     }
   ],
   "parallel_dataset": {

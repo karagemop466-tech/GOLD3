@@ -1,29 +1,30 @@
 {
-  "generated_at_utc": "2026-10-23T10:29:39Z",
+  "generated_at_utc": "2026-10-23T10:36:53Z",
   "data_file_sha256": {
     "bands-and-high-karat.json": "98aa4d2f5d54bb97e57dfc03c38ec75f93341ea451ba251dca02d60329332068",
-    "findings.json": "f09121b80be71c0ea36574a57147452511035b52968060ebe9d08407ceb1389e",
-    "flags.json": "de635e0abb8780f2751da49a1c2fe91fa9cef2db7d79e993e7988e129925b933",
+    "findings.json": "93cb67ee542546a15f23589cb673f65614d31265d48a3647e765caa7da885bf3",
+    "flags.json": "0f5b823c94cc7c94d49603a9403bcb28a2b2f69594f752e4cd30748d0d0dbaa0",
     "gold-price.json": "bdb3a741c6696f56ec713c090706cb98fefb53901fe284dfe105308a7d6a7e08",
-    "prices.json": "639b30ebe844d1e7740046c0c1aa474117ab0a34d14df6077be23ca532226f0a",
-    "products.json": "d4c36640860f639be29f18c6fe5c601389eb736ed8e1df2c1ae6cdeaa7a8efe7",
-    "retailers.json": "4cefa585b777b303ec98910ceaab98ebe8621cc62f16e0096f268edddd7700e9",
+    "prices.json": "74ac434deda76bda595af161d3d52c5777a71c3fbfe58003e251b802dc44f165",
+    "products.json": "005445cd3fed062d1ccf0c6767a9fc6fc97e1f0e22f96e5927234aa415c8d89c",
+    "retailers.json": "63cd624dc7354989c209bfd9939c448ae84ef52a84017e19808eb1f6f375ae0f",
+    "reverification-1162b2db.json": "803157bd7daddc10ea8ab4773c5ee1df1b5573c259c53c18c74c025263cea4b3",
     "reverification-c-6ccbc523.json": "52f4a6d610762be546e45e94fd1ffe2f17f201d16215625264fe45c84acc78f2",
     "reverification-dataset-c.json": "2f35e1bb80f76cbc360f51dc2fec996c407f96fdd192b6386f33ad5cf4635e5c",
     "reverification-p3.json": "b1dca1669099d66e45b08588f8827b24f59edd65e4f4b4a806ef2a02987b5d16",
     "reverification-p4.json": "2e5ce8fdff92d04a3e1570960caf0bb1daafc91b2d76209a97a0fb94635e801a",
     "reverification-p5.json": "1c5ba33b93efdaa14d423fff0be8ca20622f4436d900bc6208ee44e64158bdda",
-    "rings.json": "eb9c0e9b468fb7e8dc8d79dcdc4f511ee8362f55b00b921ef97aad016ad02344",
+    "rings.json": "287a2adcce047c0ab98542e44cf28beff4ee3d9a2e429c7b36b455be970d1c2b",
     "sellers-policies.json": "56fdfb4fc6bb31f747e74e342defb37b9311326c34d60704724abbebe9917d4b",
     "sellers.json": "33ab30a0301db541df25ec21fbe9e73d6161360ec66d8b54b69261578632ff2e",
     "solitaire-rings.json": "67cc81d443f307e3728c1609c591f63e98f4855d732619bb4b573b5b43c71db4",
     "sources.json": "e59992bc2419cc8e9bed56c64b49c8ae91394ec5c8bbdf78881320caaf2fa77b",
     "spot-and-standards.json": "58902c71386b14704c28a9e15c23f05db8f4feb08692a44ce6ff0fd5dd0378f5",
     "standards.json": "6b745302667c70fb15800fb830471250551a37e238e507a8b993f8e3c4423ad8",
-    "verification-report.json": "1009fa8f3e811ed5a04d8b62ad6da1ac7859dd0548b08ab411a25d5bfcdeb6de",
-    "verification.json": "163f06038a2792c6a393890e96b1ca476803eb6948a0e3a4dd5cba053fa8dc3c"
+    "verification-report.json": "e5de1fdd3af6c70cd2e2deee94e32ad599ebab2d7c3d6313b707327ffd9d5e3f",
+    "verification.json": "e3ad7faf68db178c71041e3d6ba32af7b4d21d531036f9030358d490fdfd6ce8"
   },
-  "unique_official_urls_count": 189,
+  "unique_official_urls_count": 193,
   "official_sources": [
     {
       "url": "https://auratenewyork.com/",
@@ -41,6 +42,13 @@
         "HTML Link in flagged.html",
         "HTML Link in lab-grown.html",
         "HTML Link in rings.html",
+        "HTML Link in security-audit.html"
+      ]
+    },
+    {
+      "url": "https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale",
+      "referenced_by": [
+        "HTML Link in flagged.html",
         "HTML Link in security-audit.html"
       ]
     },
@@ -133,10 +141,7 @@
     {
       "url": "https://auratenewyork.gorgias.help/en-US/articles/our-jewelry-38634",
       "referenced_by": [
-        "HTML Link in 14k.html",
-        "HTML Link in lab-grown.html",
         "HTML Link in retailers.html",
-        "HTML Link in rings.html",
         "HTML Link in security-audit.html"
       ]
     },
@@ -194,6 +199,7 @@
       "url": "https://help.vrai.com/en/knowledge/what-is-your-return-policy",
       "referenced_by": [
         "HTML Link in flagged.html",
+        "HTML Link in security-audit.html",
         "HTML Link in sellers.html"
       ]
     },
@@ -217,8 +223,6 @@
     {
       "url": "https://mejuri.com/collections/milestone-rings",
       "referenced_by": [
-        "HTML Link in combined.html",
-        "HTML Link in flagged.html",
         "HTML Link in security-audit.html",
         "HTML Link in verify.html"
       ]
@@ -329,6 +333,15 @@
       ]
     },
     {
+      "url": "https://mejuri.com/products/slim-diamond-eternity-band",
+      "referenced_by": [
+        "HTML Link in combined.html",
+        "HTML Link in flagged.html",
+        "HTML Link in security-audit.html",
+        "HTML Link in verify.html"
+      ]
+    },
+    {
       "url": "https://mejuri.com/products/stacker-ring?Material=Solid+Yellow+Gold+%2810k%29",
       "referenced_by": [
         "HTML Link in calculator.html",
@@ -423,6 +436,7 @@
     {
       "url": "https://mene.com/customer-care/en-US",
       "referenced_by": [
+        "HTML Link in security-audit.html",
         "HTML Link in sellers.html",
         "HTML Link in verify.html"
       ]
@@ -841,6 +855,7 @@
     {
       "url": "https://www.bluenile.com/services/warranty",
       "referenced_by": [
+        "HTML Link in security-audit.html",
         "HTML Link in verify.html"
       ]
     },
@@ -876,6 +891,7 @@
       "referenced_by": [
         "HTML Link in combined.html",
         "HTML Link in flagged-for-review.html",
+        "HTML Link in security-audit.html",
         "HTML Link in solitaire-settings.html",
         "HTML Link in verify.html",
         "Ring SOL-05 Product Page"
@@ -892,6 +908,7 @@
       "referenced_by": [
         "HTML Link in combined.html",
         "HTML Link in flagged-for-review.html",
+        "HTML Link in security-audit.html",
         "HTML Link in solitaire-settings.html",
         "Ring SOL-04 Product Page"
       ]
@@ -907,6 +924,7 @@
       "referenced_by": [
         "HTML Link in combined.html",
         "HTML Link in flagged-for-review.html",
+        "HTML Link in security-audit.html",
         "HTML Link in solitaire-settings.html",
         "Ring SOL-06 Product Page"
       ]
@@ -930,6 +948,13 @@
     {
       "url": "https://www.brilliantearth.com/returns/",
       "referenced_by": [
+        "HTML Link in security-audit.html"
+      ]
+    },
+    {
+      "url": "https://www.brilliantearth.com/rings/yellow-gold-settings/engagement-rings/?sid=39897151",
+      "referenced_by": [
+        "HTML Link in flagged.html",
         "HTML Link in security-audit.html"
       ]
     },
@@ -976,7 +1001,6 @@
     {
       "url": "https://www.catbirdnyc.com/contact-us",
       "referenced_by": [
-        "HTML Link in flagged.html",
         "HTML Link in security-audit.html",
         "HTML Link in verify.html"
       ]
@@ -987,7 +1011,8 @@
         "HTML Link in flagged.html",
         "HTML Link in retailers.html",
         "HTML Link in security-audit.html",
-        "HTML Link in sellers.html"
+        "HTML Link in sellers.html",
+        "HTML Link in verify.html"
       ]
     },
     {
@@ -1164,6 +1189,7 @@
     {
       "url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title15/pdf/USCODE-2023-title15-chap8-sec297.pdf",
       "referenced_by": [
+        "HTML Link in security-audit.html",
         "HTML Link in verify.html"
       ]
     },
@@ -1638,7 +1664,15 @@
     {
       "url": "https://www.vrai.com/contact-us",
       "referenced_by": [
+        "HTML Link in security-audit.html",
         "HTML Link in sellers.html",
+        "HTML Link in verify.html"
+      ]
+    },
+    {
+      "url": "https://www.vrai.com/engagement-rings/signature-4-prong-oval/yellow-gold-41046722314333",
+      "referenced_by": [
+        "HTML Link in security-audit.html",
         "HTML Link in verify.html"
       ]
     },
