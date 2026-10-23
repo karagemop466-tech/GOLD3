@@ -42,6 +42,12 @@
       "bullionvault_usd_per_gram": 129.38,
       "bullionvault_timestamp": "23 October 2026, 05:57:08 (GMT-04:00)",
       "delta_vs_anchor_pct": -0.06
+    },
+    "live_recheck_2026_10_23": {
+      "kitco_bid_usd_per_troy_oz": 4022.7,
+      "kitco_usd_per_gram_24k": 129.3328,
+      "bullionvault_usd_per_troy_oz": 4024.23,
+      "note": "Re-verified live 2026-10-23 (within 0.06% of 2026-10-22 anchor $4,025.10/oz); stored snapshot preserved."
     }
   },
   "nist_conversion_constants": {

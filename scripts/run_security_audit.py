@@ -99,6 +99,8 @@ TRUSTED_OFFICIAL_DOMAINS = {
     "www.iso.org",
     "iso.org",
     "consumer.ftc.gov",
+    "www.consumerfinance.gov",
+    "consumerfinance.gov",
     "github.com",
     "karagemop466-tech.github.io",
 }

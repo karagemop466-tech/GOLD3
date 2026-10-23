@@ -317,7 +317,7 @@
       "what": "VRAI's live returns policy (https://www.vrai.com/returns-exchanges) states that returned engagement rings and engraved wedding bands refunded to the original payment method incur a $300 USD recycling fee ($50 fee on non-engraved bands/MTO rings; orders above $15,000 receive store credit only), and its Los Angeles BBB profile carries an unaccredited F rating.",
       "why_it_matters": "A $300 deduction penalises a buyer who exercises the return right after independent inspection, and unanswered BBB complaints signal post-purchase friction.",
       "action": "Do not engrave before independent scale and XRF verification, confirm fee-free return eligibility in writing, and pay by credit card.",
-      "source": "https://www.vrai.com/returns-exchanges"
+      "source": "https://help.vrai.com/en/knowledge/what-is-your-return-policy"
     },
     {
       "id": "RET9",
@@ -416,7 +416,7 @@
       "id": "SRC1",
       "severity": "high",
       "label": "Cited official source URL returns 404",
-      "what": "Across Passes P3–P6, nine broken/404/500 source URLs recorded across datasets were caught and repointed to verified live official pages: Sarraf's policy URL (/pages/returns-and-refunds.html -> /30-day-returns-and-exchange-policy/), Automic's policy URL (/pages/return-policy -> /policies/refund-policy), WAR1.source (...3-stone...3-80-gr.html -> R20 live URL), SPEC5.source (...1-50ctw-pear... -> R22 live URL), VRAI contact (/pages/contact-us -> /contact-us), Local Eclectic contact (/pages/contact-us -> /pages/contact), Wilson's policy (/pages/returns-exchanges -> /policies/refund-policy), GIA Lab Notes (...gold0 -> ...gold), and US Code citations (uscode.house.gov 500 -> law.cornell.edu 15 U.S.C. 295/297).",
+      "what": "Seven seller/policy URLs recorded by earlier sessions returned HTTP 404 or redirected to a generic KB index when opened live on 2026-10-23: Sarraf's https://www.sarraf.com/pages/returns-and-refunds.html (404 -> /30-day-returns-and-exchange-policy/), Automic's https://www.automicgold.com/pages/return-policy (404 -> /policies/refund-policy), Brilliant Earth's https://www.brilliantearth.com/returns/ (404 -> /30-Day-Returns/), VRAI's https://www.vrai.com/pages/contact-us (404 -> /contact-us) and https://help.vrai.com/hc/en-us/articles/360000836514-What-is-your-return-policy (redirect -> /en/knowledge/what-is-your-return-policy), Local Eclectic's https://www.localeclectic.com/pages/contact-us (404 -> /pages/frequently-asked-questions), and Menē's https://mene.com/contact-us (404 -> /customer-care/en-US). All seven records were repointed to live HTTP 200 official pages on 2026-10-23.",
       "why_it_matters": "The brief requires every table row to carry a working source link to an official site. A dead citation is worse than no citation: it looks like evidence but cannot be checked, and the values attributed to it become unverifiable.",
       "action": "Re-fetch every cited URL before publishing, and prefer the canonical page reached from the site's own policy index over a guessed slug.",
       "source": "https://www.sarraf.com/30-day-returns-and-exchange-policy/",

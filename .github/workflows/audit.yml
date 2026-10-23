@@ -24,13 +24,16 @@ jobs:
 
       # 1. the data gate: refuses to pass if a value is unsourced or impossible
       - name: Verify the datasets (source domains, quotes, arithmetic)
-        run: python3 scripts/verify.py
+        run: |
+          python3 scripts/verify.py
+          python3 scripts/verify_dataset_c.py
 
       # 2. build Dataset C subpages + unified static site; fails on broken internal links
       - name: Build the static site
         run: |
           python3 scripts/build_ext_pages.py
           python3 scripts/build_site.py
+          python3 scripts/verify_dataset_c.py
 
       # 3. the independent audit: provenance, weighted rows, stray numbers,
       #    and the requirement that every row appears in the verification log
