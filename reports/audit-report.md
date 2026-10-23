@@ -1,9 +1,9 @@
 # Anti-hallucination audit report
 
-- Run: 2026-10-23 20:23 UTC
+- Run: 2026-10-23 20:24 UTC
 - Rows audited: **31**
 - Sellers audited: **14**
-- Flag definitions: **53**
+- Flag definitions: **54**
 - Result: **PASS** — 0 error(s), 0 warning(s), 176 check(s) passed
 
 ## What this pass is looking for
@@ -174,11 +174,11 @@ None.
 - [domain] R29: brilliantearth.com belongs to brilliantearth.com
 - [domain] R30: mene.com belongs to mene.com
 - [domain] R31: localeclectic.com belongs to localeclectic.com
-- [verify] all 192 verification check ids are unique
+- [verify] all 199 verification check ids are unique
 - [verify] all 31 rows appear in the verification log
 - [verify] summary counts recomputed from the entries and match
-- [flags] 53 flag definitions validated
-- [verify] all 15 site-defect ids are unique
+- [flags] 54 flag definitions validated
+- [verify] all 18 site-defect ids are unique
 - [standards] all karat fractions reproduce n/24
 - [standards] 8 legal rules carry citations
 - [site] verify.html present
