@@ -1,0 +1,14 @@
+{
+  "name": "gold3-verified-ring-audit",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Zero-hallucination gold engagement ring verification dataset, raw gold melt calculator, and automated anti-hallucination security suite.",
+  "scripts": {
+    "build": "node scripts/build-site.mjs",
+    "security-check": "node scripts/security-check.mjs --write-reports",
+    "security-check:data": "node scripts/security-check.mjs --data-only --write-reports",
+    "verify-links": "node scripts/verify-links.mjs",
+    "test": "node scripts/security-check.mjs --write-reports && node scripts/verify-links.mjs"
+  }
+}

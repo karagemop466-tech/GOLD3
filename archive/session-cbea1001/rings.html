@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>22 Verified Gold Ring Listings &amp; Blank-Cell Audit | GOLD3 Verified Gold Engagement Ring Research</title>
+  <meta name="description" content="Line-by-line audit of 22 online gold engagement and wedding ring listings across 8 retailers with verified prices, gram weights, raw gold melt values, and official product links.">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <div class="integrity-ribbon">
+    <div class="integrity-ribbon-inner">
+      <div>
+        <strong>NO HALLUCINATIONS POLICY:</strong> Zero guessed prices, weights, karats, or hallmarks. Unconfirmed fields remain blank &amp; flagged <code>unverified</code>.
+      </div>
+      <div>
+        Spot Gold (2026-10-22): <strong>$4,025.10/oz t ($129.41/g 24K)</strong> &middot;
+        <a href="security-audit.html">Security Suite: 7/7 PASS</a> &middot;
+        <a href="flagged.html">Flagged for Review (33)</a>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">Au</span>
+        <span class="brand-text">
+          <strong>GOLD3 Verification Observatory</strong>
+          <span>Line-by-Line Gold Ring Purity, Weight &amp; Melt Audit (2026-10-22)</span>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="Primary Navigation">
+        <a href="index.html">Overview &amp; Summary</a>
+        <a href="rings.html" class="active">Verified Rings (22)</a>
+        <a href="calculator.html">Gold &amp; Melt Calculator</a>
+        <a href="checklist.html">12-Point Checklist</a>
+        <a href="sellers.html">Sellers &amp; XRF Policy (8)</a>
+        <a href="analysis.html">Price vs. Melt Analysis</a>
+        <a href="security-audit.html">Security &amp; Hallucination Audit</a>
+        <a href="flagged.html" class="nav-flagged">Flagged for Review (33)</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="page-header">
+      <div class="eyebrow">Category 01 &middot; Line-by-Line Product Audit (data/rings.json)</div>
+      <h1>Verified Online Gold Engagement &amp; Wedding Ring Listings (22 Rows)</h1>
+      <p class="lead">
+        Every row below was audited directly against its live official retailer product page on <strong>2026-10-22</strong> under our front-page <strong>No Hallucinations</strong> mandate. Where a seller does not publish gram weight, interior hallmark wording, or static HTML price, or publishes conflicting karat figures (<code>RING-09</code> 18K vs. 14K; <code>RING-20</code> 9K vs. 10K), the unconfirmed cell is left <strong>blank</strong> and tagged <code>unverified</code>.
+      </p>
+    </div>
+
+    <section class="section-card">
+      <div class="filter-bar" role="region" aria-label="Filter and Sort Verified Ring Listings">
+        <div class="control-group" style="flex:1.5;">
+          <label for="ring-search">Search Retailer, Model, Stone, or SKU</label>
+          <input type="search" id="ring-search" placeholder="e.g. Automic, Sarraf, Solitaire, 24K, Vermeil...">
+        </div>
+        <div class="control-group">
+          <label for="ring-karat-filter">Filter by Verified Karat</label>
+          <select id="ring-karat-filter">
+            <option value="ALL">All Karat Rows (22)</option>
+            <option value="24K">24K Pure Gold</option>
+            <option value="18K">18K Solid Gold</option>
+            <option value="14K">14K Solid Gold</option>
+            <option value="10K">10K Solid Gold</option>
+            <option value="UNVERIFIED">Conflicting / Unverified Karat</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="ring-status-filter">Checklist &amp; Weight Filter</label>
+          <select id="ring-status-filter">
+            <option value="ALL">All Audited Rows (incl. Controls)</option>
+            <option value="COMPLIANT_SOLID">Compliant Solid Gold Only (20)</option>
+            <option value="VERIFIED_WEIGHT">Solid Gold + Published Gram Weight (10)</option>
+            <option value="MISSING_WEIGHT">Missing Online Gram Weight (12)</option>
+            <option value="DISQUALIFIED">Disqualified Vermeil / 9K Traps (2)</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="ring-sort">Sort Listings By</label>
+          <select id="ring-sort">
+            <option value="default">Default Audit Order (RING-01..22)</option>
+            <option value="ratio-asc">Best Melt Value Multiple (Lowest Price/Melt)</option>
+            <option value="melt-desc">Highest Raw Gold Melt Value ($)</option>
+            <option value="weight-desc">Heaviest Published Gold Weight (g)</option>
+            <option value="price-asc">Lowest Verified Retail Price ($)</option>
+            <option value="price-desc">Highest Verified Retail Price ($)</option>
+          </select>
+        </div>
+      </div>
+
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:10px;">
+        <span id="ring-visible-count" class="badge badge-info">22 of 22 verified rows shown</span>
+        <span style="font-size:12.5px; color:var(--text-secondary);">Striped cells indicate unconfirmed values intentionally left blank (<code>unverified</code>) &mdash; see <a href="flagged.html">Flagged for Review</a>.</span>
+      </div>
+
+      <div class="table-wrap">
+        <table id="rings-master-table">
+          <thead>
+            <tr>
+              <th>ID / Date</th>
+              <th>Retailer / SKU</th>
+              <th>Ring Listing &amp; Stone Spec</th>
+              <th>Karat</th>
+              <th>Solid Gold Check</th>
+              <th>Online Hallmark</th>
+              <th class="num">Gold Weight</th>
+              <th class="num">Pure 24K Au</th>
+              <th class="num">Raw Melt ($)</th>
+              <th class="num">Retail Price</th>
+              <th class="num">Price / Melt</th>
+              <th>Official Source</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr class="row-flagged" data-index="0" data-karat="14K" data-compliant="true" data-has-weight="true" data-price="3074" data-weight="5.4" data-melt="407.64" data-ratio="7.54">
+            <td><strong>RING-01</strong><div class="field-hint">2026-10-22</div></td>
+            <td><strong>Automic Gold</strong><div class="field-hint"></div></td>
+            <td>
+              <strong>3ct Radiant Cut Lab Diamond Cathedral Ring</strong>
+              <div class="field-hint"></div>
+              <div style="margin-top:5px;"><span class="badge badge-unverified">Solid Gold (Spec Blank)</span> <a class="btn btn-secondary btn-xs" href="calculator.html?ring=RING-01">Calc &#8594;</a></div>
+            </td>
+            <td><strong>14K</strong><div class="field-hint">58.33% Au</div></td>
+            <td><span class="badge badge-verified">Solid Gold</span><div class="field-hint">Solid 14k gold (100% Recycled gold, In house in New York)</div></td>
+            <td class="blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num"><strong>5.40 g</strong></td>
+            <td class="num">3.150 g</td>
+            <td class="num"><strong>$407.64</strong></td>
+            <td class="num"><strong>$3,074.00</strong></td>
+            <td class="num">7.54x<div class="field-hint">13.3% melt</div></td>
+            <td><a class="source-link" href="https://www.automicgold.com/products/radiant-cut-lab-diamond-cathedral-ring" target="_blank" rel="noopener noreferrer">Product Page &#8599;</a></td>
+          </tr>
+          <tr class="row-flagged" data-index="1" data-karat="14K" data-compliant="true" data-has-weight="true" data-price="1910" data-weight="6.1" data-melt="460.48" data-ratio="4.15">
+            <td><strong>RING-02</strong><div class="field-hint">2026-10-22</div></td>
+            <td><strong>Automic Gold</strong><div class="field-hint"></div></td>
+            <td>
+              <strong>Coffin Ring (Solid 14k Gold Engagement / Promise Band)</strong>
+              <div class="field-hint"></div>
+              <div style="margin-top:5px;"><span class="badge badge-unverified">Solid Gold (Spec Blank)</span> <a class="btn btn-secondary btn-xs" href="calculator.html?ring=RING-02">Calc &#8594;</a></div>
+            </td>
+            <td><strong>14K</strong><div class="field-hint">58.33% Au</div></td>
+            <td><span class="badge badge-verified">Solid Gold</span><div class="field-hint">Solid 14k gold (100% Recycled gold, In house in New York)</div></td>
+            <td class="blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num"><strong>6.10 g</strong></td>
+            <td class="num">3.558 g</td>
+            <td class="num"><strong>$460.48</strong></td>
+            <td class="num"><strong>$1,910.00</strong></td>
+            <td class="num">4.15x<div class="field-hint">24.1% melt</div></td>
+            <td><a class="source-link" href="https://www.automicgold.com/products/coffin-ring" target="_blank" rel="noopener noreferrer">Product Page &#8599;</a></td>
+          </tr>
+          <tr class="row-flagged" data-index="2" data-karat="14K" data-compliant="true" data-has-weight="true" data-price="875" data-weight="2.3" data-melt="173.63" data-ratio="5.04">
+            <td><strong>RING-03</strong><div class="field-hint">2026-10-22</div></td>
+            <td><strong>Automic Gold</strong><div class="field-hint"></div></td>
+            <td>
+              <strong>Claddagh Ring (Solid 14k Gold)</strong>
+              <div class="field-hint"></div>
+              <div style="margin-top:5px;"><span class="badge badge-unverified">Solid Gold (Spec Blank)</span> <a class="btn btn-secondary btn-xs" href="calculator.html?ring=RING-03">Calc &#8594;</a></div>
+            </td>
+            <td><strong>14K</strong><div class="field-hint">58.33% Au</div></td>
+            <td><span class="badge badge-verified">Solid Gold</span><div class="field-hint">Solid 14k gold (100% Recycled gold, In house in New York)</div></td>
+            <td class="blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num"><strong>2.30 g</strong></td>
+            <td class="num">1.342 g</td>
+            <td class="num"><strong>$173.63</strong></td>
+            <td class="num"><strong>$875.00</strong></td>
+            <td class="num">5.04x<div class="field-hint">19.8% melt</div></td>
+            <td><a class="source-link" href="https://www.automicgold.com/products/claddagh-ring" target="_blank" rel="noopener noreferrer">Product Page &#8599;</a></td>
+          </tr>
+          <tr class="row-flagged" data-index="3" data-karat="14K" data-compliant="true" data-has-weight="true" data-price="551" data-weight="1.4" data-melt="105.68" data-ratio="5.21">
+            <td><strong>RING-04</strong><div class="field-hint">2026-10-22</div></td>
+            <td><strong>Automic Gold</strong><div class="field-hint"></div></td>
+            <td>
+              <strong>Gemstone Flower Ring (Solid 14k Gold)</strong>
+              <div class="field-hint"></div>
+              <div style="margin-top:5px;"><span class="badge badge-unverified">Solid Gold (Spec Blank)</span> <a class="btn btn-secondary btn-xs" href="calculator.html?ring=RING-04">Calc &#8594;</a></div>
+            </td>
+            <td><strong>14K</strong><div class="field-hint">58.33% Au</div></td>
+            <td><span class="badge badge-verified">Solid Gold</span><div class="field-hint">Solid 14k gold (100% Recycled gold, In house in New York)</div></td>
+            <td class="blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num"><strong>1.40 g</strong></td>
+            <td class="num">0.817 g</td>
+            <td class="num"><strong>$105.68</strong></td>
+            <td class="num"><strong>$551.00</strong></td>
+            <td class="num">5.21x<div class="field-hint">19.2% melt</div></td>
+            <td><a class="source-link" href="https://www.automicgold.com/products/gemstone-flower-ring" target="_blank" rel="noopener noreferrer">Product Page &#8599;</a></td>
+          </tr>
+          <tr class="row-flagged" data-index="4" data-karat="14K" data-compliant="true" data-has-weight="true" data-price="3004" data-weight="3.8" data-melt="286.86" data-ratio="10.47">
+            <td><strong>RING-05</strong><div class="field-hint">2026-10-22</div></td>
+            <td><strong>Sarraf.com</strong><div class="field-hint"></div></td>
+            <td>
+              <strong>14k White Gold Solitaire Ring 0.94 ctw.</strong>
+              <div class="field-hint"></div>
+              <div style="margin-top:5px;"><span class="badge badge-unverified">Solid Gold (Spec Blank)</span> <a class="btn btn-secondary btn-xs" href="calculator.html?ring=RING-05">Calc &#8594;</a></div>
+            </td>
+            <td><strong>14K</strong><div class="field-hint">58.33% Au</div></td>
+            <td><span class="badge badge-verified">Solid Gold</span><div class="field-hint">Material: 14K Solid Gold</div></td>
+            <td class="blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num"><strong>3.80 g</strong></td>
+            <td class="num">2.217 g</td>
+            <td class="num"><strong>$286.86</strong></td>
+            <td class="num"><strong>$3,004.00</strong></td>
+            <td class="num">10.47x<div class="field-hint">9.6% melt</div></td>
+            <td><a class="source-link" href="https://www.sarraf.com/products/14k-white-gold-solitaire-ring-0-94-ctw.html" target="_blank" rel="noopener noreferrer">Product Page &#8599;</a></td>
+          </tr>
+          <tr class="row-flagged" data-index="5" data-karat="18K" data-compliant="true" data-has-weight="true" data-price="4068" data-weight="6.3" data-melt="611.46" data-ratio="6.65">
+            <td><strong>RING-06</strong><div class="field-hint">2026-10-22</div></td>
+            <td><strong>Sarraf.com</strong><div class="field-hint"></div></td>
+            <td>
+              <strong>18k Yellow Gold Men's Solitaire Diamond Ring 3/4 ct.</strong>
+              <div class="field-hint"></div>
+              <div style="margin-top:5px;"><span class="badge badge-unverified">Solid Gold (Spec Blank)</span> <a class="btn btn-secondary btn-xs" href="calculator.html?ring=RING-06">Calc &#8594;</a></div>
+            </td>
+            <td><strong>18K</strong><div class="field-hint">75.00% Au</div></td>
+            <td><span class="badge badge-verified">Solid Gold</span><div class="field-hint">Material: 18K Solid Gold</div></td>
+            <td class="blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num"><strong>6.30 g</strong></td>
+            <td class="num">4.725 g</td>
+            <td class="num"><strong>$611.46</strong></td>
+            <td class="num"><strong>$4,068.00</strong></td>
+            <td class="num">6.65x<div class="field-hint">15.0% melt</div></td>
+            <td><a class="source-link" href="https://www.sarraf.com/products/18k-yellow-gold-mens-solitaire-diamond-ring-3-4-ct.html" target="_blank" rel="noopener noreferrer">Product Page &#8599;</a></td>
+          </tr>
+          <tr class="row-flagged" data-index="6" data-karat="14K" data-compliant="true" data-has-weight="true" data-price="695" data-weight="2.5" data-melt="188.72" data-ratio="3.68">
+            <td><strong>RING-07</strong><div class="field-hint">2026-10-22</div></td>
+            <td><strong>Sarraf.com</strong><div class="field-hint"></div></td>
+            <td>
+              <strong>14k Yellow Gold Round Cut 8.8mm Wide 1.0ct CZ Engagement Ring</strong>
+              <div class="field-hint"></div>
+              <div style="margin-top:5px;"><span class="badge badge-unverified">Solid Gold (Spec Blank)</span> <a class="btn btn-secondary btn-xs" href="calculator.html?ring=RING-07">Calc &#8594;</a></div>
+            </td>
+            <td><strong>14K</strong><div class="field-hint">58.33% Au</div></td>
+            <td><span class="badge badge-verified">Solid Gold</span><div class="field-hint">Material: 14K Solid Gold</div></td>
+            <td class="blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num"><strong>2.50 g</strong></td>
+            <td class="num">1.458 g</td>
+            <td class="num"><strong>$188.72</strong></td>
+            <td class="num"><strong>$695.00</strong></td>
+            <td class="num">3.68x<div class="field-hint">27.1% melt</div></td>
+            <td><a class="source-link" href="https://www.sarraf.com/products/14k-yellow-gold-round-cut-8-8mm-wide-1-0ct-cz-engagement-ring.html" target="_blank" rel="noopener noreferrer">Product Page &#8599;</a></td>
+          </tr>
+          <tr class="row-flagged" data-index="7" data-karat="10K" data-compliant="true" data-has-weight="true" data-price="613" data-weight="8.3" data-melt="447.54" data-ratio="1.37">
+            <td><strong>RING-08</strong><div class="field-hint">2026-10-22</div></td>
+            <td><strong>Sarraf.com</strong><div class="field-hint"></div></td>
+            <td>
+              <strong>10k Gold 6mm High Polished Comfort Fit Wedding Band</strong>
+              <div class="field-hint"></div>
+              <div style="margin-top:5px;"><span class="badge badge-unverified">Solid Gold (Spec Blank)</span> <a class="btn btn-secondary btn-xs" href="calculator.html?ring=RING-08">Calc &#8594;</a></div>
+            </td>
+            <td><strong>10K</strong><div class="field-hint">41.67% Au</div></td>
+            <td><span class="badge badge-verified">Solid Gold</span><div class="field-hint">Material: 10K Solid Gold (Made in the USA)</div></td>
+            <td class="blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num"><strong>8.30 g</strong></td>
+            <td class="num">3.458 g</td>
+            <td class="num"><strong>$447.54</strong></td>
+            <td class="num"><strong>$613.00</strong></td>
+            <td class="num">1.37x<div class="field-hint">73.0% melt</div></td>
+            <td><a class="source-link" href="https://www.sarraf.com/products/10k-gold-6mm-high-polished-comfort-fit-wedding-band.html" target="_blank" rel="noopener noreferrer">Product Page &#8599;</a></td>
+          </tr>
+          <tr class="row-flagged" data-index="8" data-karat="18K" data-compliant="true" data-has-weight="true" data-price="" data-weight="2.3" data-melt="223.23" data-ratio="">
+            <td><strong>RING-09</strong><div class="field-hint">2026-10-22</div></td>
+            <td><strong>VRAI</strong><div class="field-hint"></div></td>
+            <td>
+              <strong>Petite 4-Prong Solitaire Round Brilliant Engagement Ring (Plain Band, 18k Yellow Gold)</strong>
+              <div class="field-hint"></div>
+              <div style="margin-top:5px;"><span class="badge badge-unverified">Solid Gold (Spec Blank)</span> <a class="btn btn-secondary btn-xs" href="calculator.html?ring=RING-09">Calc &#8594;</a></div>
+            </td>
+            <td><strong>18K</strong><div class="field-hint">75.00% Au</div></td>
+            <td><span class="badge badge-verified">Solid Gold</span><div class="field-hint">Atop a slender platinum or solid gold band; Metal: 18k Yellow Gold</div></td>
+            <td class="blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num"><strong>2.30 g</strong></td>
+            <td class="num">1.725 g</td>
+            <td class="num"><strong>$223.23</strong></td>
+            <td class="num blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td><a class="source-link" href="https://www.vrai.com/configure/setting-to-diamond/petite-4-prong-ring/round-brilliant-yellow-gold-41015509221469" target="_blank" rel="noopener noreferrer">Product Page &#8599;</a></td>
+          </tr>
+          <tr class="row-flagged" data-index="9" data-karat="18K" data-compliant="true" data-has-weight="true" data-price="" data-weight="2.86" data-melt="277.58" data-ratio="">
+            <td><strong>RING-10</strong><div class="field-hint">2026-10-22</div></td>
+            <td><strong>VRAI</strong><div class="field-hint"></div></td>
+            <td>
+              <strong>Classic Oval Engagement Ring (Plain Band, 18k Yellow Gold)</strong>
+              <div class="field-hint"></div>
+              <div style="margin-top:5px;"><span class="badge badge-unverified">Solid Gold (Spec Blank)</span> <a class="btn btn-secondary btn-xs" href="calculator.html?ring=RING-10">Calc &#8594;</a></div>
+            </td>
+            <td><strong>18K</strong><div class="field-hint">75.00% Au</div></td>
+            <td><span class="badge badge-verified">Solid Gold</span><div class="field-hint">Metal: 18k Yellow Gold (omits literal word 'solid' in this model's Setting Details)</div></td>
+            <td class="blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num"><strong>2.86 g</strong></td>
+            <td class="num">2.145 g</td>
+            <td class="num"><strong>$277.58</strong></td>
+            <td class="num blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td><a class="source-link" href="https://www.vrai.com/configure/setting-to-diamond/classic-4-prong-dome/oval-yellow-gold-32720961110109" target="_blank" rel="noopener noreferrer">Product Page &#8599;</a></td>
+          </tr>
+          <tr class="row-flagged" data-index="10" data-karat="18K" data-compliant="true" data-has-weight="false" data-price="1155" data-weight="" data-melt="" data-ratio="">
+            <td><strong>RING-11</strong><div class="field-hint">2026-10-22</div></td>
+            <td><strong>Blue Nile</strong><div class="field-hint"></div></td>
+            <td>
+              <strong>Petite Solitaire Engagement Ring in 18k Yellow Gold</strong>
+              <div class="field-hint"></div>
+              <div style="margin-top:5px;"><span class="badge badge-unverified">Solid Gold (Spec Blank)</span> <a class="btn btn-secondary btn-xs" href="calculator.html?ring=RING-11">Calc &#8594;</a></div>
+            </td>
+            <td><strong>18K</strong><div class="field-hint">75.00% Au</div></td>
+            <td><span class="badge badge-verified">Solid Gold</span><div class="field-hint">Metal: 18K Yellow Gold ('crafted in polished 18k gold' — omits explicit 'solid' keyword)</div></td>
+            <td class="blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num"><strong>$1,155.00</strong></td>
+            <td class="num blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td><a class="source-link" href="https://www.bluenile.com/engagement-rings/design-your-own-ring/petite-solitaire-engagement-ring-in-18k-yellow-gold-item-195269" target="_blank" rel="noopener noreferrer">Product Page &#8599;</a></td>
+          </tr>
+          <tr class="row-flagged" data-index="11" data-karat="14K" data-compliant="true" data-has-weight="false" data-price="870" data-weight="" data-melt="" data-ratio="">
+            <td><strong>RING-12</strong><div class="field-hint">2026-10-22</div></td>
+            <td><strong>Blue Nile</strong><div class="field-hint"></div></td>
+            <td>
+              <strong>Classic Four Prong Solitaire Engagement Ring in 14K Yellow Gold</strong>
+              <div class="field-hint"></div>
+              <div style="margin-top:5px;"><span class="badge badge-unverified">Solid Gold (Spec Blank)</span> <a class="btn btn-secondary btn-xs" href="calculator.html?ring=RING-12">Calc &#8594;</a></div>
+            </td>
+            <td><strong>14K</strong><div class="field-hint">58.33% Au</div></td>
+            <td><span class="badge badge-verified">Solid Gold</span><div class="field-hint">Metal: 14K Yellow Gold with platinum prongs (omits explicit 'solid' keyword)</div></td>
+            <td class="blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num"><strong>$870.00</strong></td>
+            <td class="num blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td><a class="source-link" href="https://www.bluenile.com/engagement-rings/design-your-own-ring/classic-four-prong-solitaire-engagement-ring-in-14k-yellow-gold-item-203257" target="_blank" rel="noopener noreferrer">Product Page &#8599;</a></td>
+          </tr>
+          <tr class="row-flagged" data-index="12" data-karat="UNVERIFIED" data-compliant="true" data-has-weight="false" data-price="1375" data-weight="" data-melt="" data-ratio="">
+            <td><strong>RING-13</strong><div class="field-hint">2026-10-22</div></td>
+            <td><strong>Blue Nile</strong><div class="field-hint"></div></td>
+            <td>
+              <strong>Solitaire Compass Set Engagement Ring in 18k Yellow Gold</strong>
+              <div class="field-hint"></div>
+              <div style="margin-top:5px;"><span class="badge badge-unverified">Solid Gold (Spec Blank)</span> <a class="btn btn-secondary btn-xs" href="calculator.html?ring=RING-13">Calc &#8594;</a></div>
+            </td>
+            <td class="blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified (conflict)</span></td>
+            <td><span class="badge badge-verified">Solid Gold</span><div class="field-hint">CONFLICTING ON-PAGE SPECS: Title &amp; Metal spec say '18K Yellow Gold' while Product Details paragraph says '14k yellow gold engagement ring'</div></td>
+            <td class="blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num"><strong>$1,375.00</strong></td>
+            <td class="num blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td><a class="source-link" href="https://www.bluenile.com/engagement-rings/design-your-own-ring/solitaire-compass-set-engagement-ring-in-18k-yellow-gold-item-203281" target="_blank" rel="noopener noreferrer">Product Page &#8599;</a></td>
+          </tr>
+          <tr class="row-flagged" data-index="13" data-karat="18K" data-compliant="true" data-has-weight="false" data-price="1090" data-weight="" data-melt="" data-ratio="">
+            <td><strong>RING-14</strong><div class="field-hint">2026-10-22</div></td>
+            <td><strong>Brilliant Earth</strong><div class="field-hint"></div></td>
+            <td>
+              <strong>Fairmined 2mm Six-Prong Solitaire Ring in 18K Yellow Gold</strong>
+              <div class="field-hint"></div>
+              <div style="margin-top:5px;"><span class="badge badge-unverified">Solid Gold (Spec Blank)</span> <a class="btn btn-secondary btn-xs" href="calculator.html?ring=RING-14">Calc &#8594;</a></div>
+            </td>
+            <td><strong>18K</strong><div class="field-hint">75.00% Au</div></td>
+            <td><span class="badge badge-verified">Solid Gold</span><div class="field-hint">Metal: 18K Yellow Gold (Fairmined Collection — omits literal 'solid' keyword)</div></td>
+            <td class="blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num"><strong>$1,090.00</strong></td>
+            <td class="num blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td><a class="source-link" href="https://www.brilliantearth.com/Fairmined-2mm-Six-Prong-Solitaire-Ring-Gold-BE1FM0126-24910022/" target="_blank" rel="noopener noreferrer">Product Page &#8599;</a></td>
+          </tr>
+          <tr class="row-flagged" data-index="14" data-karat="18K" data-compliant="true" data-has-weight="false" data-price="950" data-weight="" data-melt="" data-ratio="">
+            <td><strong>RING-15</strong><div class="field-hint">2026-10-22</div></td>
+            <td><strong>Brilliant Earth</strong><div class="field-hint"></div></td>
+            <td>
+              <strong>Comfort Fit 2mm Six-Prong Solitaire Ring in 18K Yellow Gold</strong>
+              <div class="field-hint"></div>
+              <div style="margin-top:5px;"><span class="badge badge-unverified">Solid Gold (Spec Blank)</span> <a class="btn btn-secondary btn-xs" href="calculator.html?ring=RING-15">Calc &#8594;</a></div>
+            </td>
+            <td><strong>18K</strong><div class="field-hint">75.00% Au</div></td>
+            <td><span class="badge badge-verified">Solid Gold</span><div class="field-hint">Metal: 18K Yellow Gold; Prong metal: 14K White Gold (omits literal 'solid' keyword)</div></td>
+            <td class="blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num"><strong>$950.00</strong></td>
+            <td class="num blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td><a class="source-link" href="https://www.brilliantearth.com/Comfort-Fit-2mm-Six-Prong-Solitaire-Ring-Gold-BE10126-9565329/" target="_blank" rel="noopener noreferrer">Product Page &#8599;</a></td>
+          </tr>
+          <tr class="row-flagged" data-index="15" data-karat="14K" data-compliant="true" data-has-weight="false" data-price="1500" data-weight="" data-melt="" data-ratio="">
+            <td><strong>RING-16</strong><div class="field-hint">2026-10-22</div></td>
+            <td><strong>Mejuri</strong><div class="field-hint"></div></td>
+            <td>
+              <strong>Bold Diamond Half Eternity Ring (14k Solid Yellow Gold)</strong>
+              <div class="field-hint"></div>
+              <div style="margin-top:5px;"><span class="badge badge-unverified">Solid Gold (Spec Blank)</span> <a class="btn btn-secondary btn-xs" href="calculator.html?ring=RING-16">Calc &#8594;</a></div>
+            </td>
+            <td><strong>14K</strong><div class="field-hint">58.33% Au</div></td>
+            <td><span class="badge badge-verified">Solid Gold</span><div class="field-hint">Solid Yellow Gold (14k) — handcrafted in 14k solid gold (90% recycled gold)</div></td>
+            <td class="blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num"><strong>$1,500.00</strong></td>
+            <td class="num blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td><a class="source-link" href="https://mejuri.com/shop/products/bold-diamond-half-eternity-ring?Material=Solid+Yellow+Gold+%2814k%29&amp;Stone=Natural+Diamond" target="_blank" rel="noopener noreferrer">Product Page &#8599;</a></td>
+          </tr>
+          <tr class="row-flagged" data-index="16" data-karat="14K" data-compliant="true" data-has-weight="false" data-price="798" data-weight="" data-melt="" data-ratio="">
+            <td><strong>RING-17</strong><div class="field-hint">2026-10-22</div></td>
+            <td><strong>Mejuri</strong><div class="field-hint"></div></td>
+            <td>
+              <strong>Pavé Diamond Thin Dôme Ring (14k Solid Yellow Gold)</strong>
+              <div class="field-hint"></div>
+              <div style="margin-top:5px;"><span class="badge badge-unverified">Solid Gold (Spec Blank)</span> <a class="btn btn-secondary btn-xs" href="calculator.html?ring=RING-17">Calc &#8594;</a></div>
+            </td>
+            <td><strong>14K</strong><div class="field-hint">58.33% Au</div></td>
+            <td><span class="badge badge-verified">Solid Gold</span><div class="field-hint">Solid Yellow Gold (14k) — Handcrafted in 14k solid gold (90% recycled gold)</div></td>
+            <td class="blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num"><strong>$798.00</strong></td>
+            <td class="num blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td><a class="source-link" href="https://mejuri.com/shop/products/pave-diamond-thin-dome-ring?Material=Solid+Yellow+Gold+%2814k%29&amp;Stone=Natural+Diamond" target="_blank" rel="noopener noreferrer">Product Page &#8599;</a></td>
+          </tr>
+          <tr class="row-flagged" data-index="17" data-karat="14K" data-compliant="true" data-has-weight="false" data-price="1600" data-weight="" data-melt="" data-ratio="">
+            <td><strong>RING-18</strong><div class="field-hint">2026-10-22</div></td>
+            <td><strong>Local Eclectic</strong><div class="field-hint"></div></td>
+            <td>
+              <strong>14k Floating Deco Cluster Diamond Ring (Carried Jewels)</strong>
+              <div class="field-hint"></div>
+              <div style="margin-top:5px;"><span class="badge badge-unverified">Solid Gold (Spec Blank)</span> <a class="btn btn-secondary btn-xs" href="calculator.html?ring=RING-18">Calc &#8594;</a></div>
+            </td>
+            <td><strong>14K</strong><div class="field-hint">58.33% Au</div></td>
+            <td><span class="badge badge-verified">Solid Gold</span><div class="field-hint">14k Solid Gold — Crafted in heirloom quality 14k solid yellow gold</div></td>
+            <td class="blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num"><strong>$1,600.00</strong></td>
+            <td class="num blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td><a class="source-link" href="https://www.localeclectic.com/products/14k-floating-deco-cluster-diamond-ring" target="_blank" rel="noopener noreferrer">Product Page &#8599;</a></td>
+          </tr>
+          <tr class="row-flagged" data-index="18" data-karat="10K" data-compliant="true" data-has-weight="false" data-price="399" data-weight="" data-melt="" data-ratio="">
+            <td><strong>RING-19</strong><div class="field-hint">2026-10-22</div></td>
+            <td><strong>Local Eclectic</strong><div class="field-hint"></div></td>
+            <td>
+              <strong>Solid Gold Filigree Ring (Family Gold, 10k Yellow Gold)</strong>
+              <div class="field-hint"></div>
+              <div style="margin-top:5px;"><span class="badge badge-unverified">Solid Gold (Spec Blank)</span> <a class="btn btn-secondary btn-xs" href="calculator.html?ring=RING-19">Calc &#8594;</a></div>
+            </td>
+            <td><strong>10K</strong><div class="field-hint">41.67% Au</div></td>
+            <td><span class="badge badge-verified">Solid Gold</span><div class="field-hint">10k Solid Gold — 10k solid yellow gold</div></td>
+            <td class="blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num"><strong>$399.00</strong></td>
+            <td class="num blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td><a class="source-link" href="https://www.localeclectic.com/products/solid-gold-filigree-ring" target="_blank" rel="noopener noreferrer">Product Page &#8599;</a></td>
+          </tr>
+          <tr class="row-flagged" data-index="19" data-karat="24K" data-compliant="true" data-has-weight="false" data-price="3253" data-weight="" data-melt="" data-ratio="">
+            <td><strong>RING-20</strong><div class="field-hint">2026-10-22</div></td>
+            <td><strong>Menē</strong><div class="field-hint"></div></td>
+            <td>
+              <strong>Wrap Ring (Pure 24k Gold)</strong>
+              <div class="field-hint"></div>
+              <div style="margin-top:5px;"><span class="badge badge-unverified">Solid Gold (Spec Blank)</span> <a class="btn btn-secondary btn-xs" href="calculator.html?ring=RING-20">Calc &#8594;</a></div>
+            </td>
+            <td><strong>24K</strong><div class="field-hint">99.99% Au</div></td>
+            <td><span class="badge badge-verified">Solid Gold</span><div class="field-hint">24k Gold — crafted from pure 24k gold (LBMA Responsible Gold Guidance)</div></td>
+            <td class="blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num"><strong>$3,253.00</strong></td>
+            <td class="num blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td><a class="source-link" href="https://mene.com/products/wrap-ring-gold" target="_blank" rel="noopener noreferrer">Product Page &#8599;</a></td>
+          </tr>
+          <tr class="row-disqualified" data-index="20" data-karat="UNVERIFIED" data-compliant="false" data-has-weight="false" data-price="239" data-weight="" data-melt="" data-ratio="">
+            <td><strong>RING-21</strong><div class="field-hint">2026-10-22</div></td>
+            <td><strong>Local Eclectic</strong><div class="field-hint"></div></td>
+            <td>
+              <strong>Solid Gold Simple Knot Ring (9k vs 10k On-Page Conflict)</strong>
+              <div class="field-hint"></div>
+              <div style="margin-top:5px;"><span class="badge badge-disqualified">Disqualified / Conflict</span> <a class="btn btn-secondary btn-xs" href="calculator.html?ring=RING-21">Calc &#8594;</a></div>
+            </td>
+            <td class="blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified (conflict)</span></td>
+            <td><span class="badge badge-disqualified">Fails Solid Rule</span><div class="field-hint">CONFLICTING ON-PAGE SPECS: Material callout says '9k Solid Gold' while Product Materials bullet says '10k solid yellow gold'</div></td>
+            <td class="blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num"><strong>$239.00</strong></td>
+            <td class="num blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td><a class="source-link" href="https://www.localeclectic.com/products/solid-gold-simple-knot-ring" target="_blank" rel="noopener noreferrer">Product Page &#8599;</a></td>
+          </tr>
+          <tr class="row-disqualified" data-index="21" data-karat="18K Gold Vermeil (Sterling Silver Base)" data-compliant="false" data-has-weight="false" data-price="118" data-weight="" data-melt="" data-ratio="">
+            <td><strong>RING-22</strong><div class="field-hint">2026-10-22</div></td>
+            <td><strong>Mejuri</strong><div class="field-hint"></div></td>
+            <td>
+              <strong>Daily Stacker Ring (18k Gold Vermeil — DISQUALIFIED CONTROL)</strong>
+              <div class="field-hint"></div>
+              <div style="margin-top:5px;"><span class="badge badge-disqualified">Disqualified / Conflict</span> <a class="btn btn-secondary btn-xs" href="calculator.html?ring=RING-22">Calc &#8594;</a></div>
+            </td>
+            <td><strong>18K Gold Vermeil (Sterling Silver Base)</strong><div class="field-hint">0.00% Au</div></td>
+            <td><span class="badge badge-disqualified">Fails Solid Rule</span><div class="field-hint">18k Gold Vermeil: 'a thick layer of 18k solid gold plated on 91% recycled sterling silver' (2.5 Micron Gold Plating)</div></td>
+            <td class="blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td class="num"><strong>$118.00</strong></td>
+            <td class="num blank-cell"><span class="badge badge-unverified" title="Value not confirmed on official source page; left blank per No-Hallucinations policy">unverified</span></td>
+            <td><a class="source-link" href="https://mejuri.com/shop/products/daily-stacker-ring?Material=18k+Gold+Vermeil" target="_blank" rel="noopener noreferrer">Product Page &#8599;</a></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div style="max-width: 680px;">
+        <strong style="color:#fff;">GOLD3 — Online Gold Engagement Ring Verification &amp; Raw Gold Melt Calculator</strong>
+        <p style="margin:6px 0 0;">
+          Verified UTC Date: <strong>2026-10-22</strong>. Every single table row links directly to an official retailer, regulatory (FTC 16 CFR Part 23, 15 U.S.C. &sect;&sect; 295 &amp; 297, NIST, ISO 23345:2021), BBB, or precious-metals benchmark source. Never rely on a karat stamp alone — verify mass on a calibrated 0.01g scale and alloy fineness via independent non-destructive ED-XRF before wearing or resizing.
+        </p>
+      </div>
+      <div>
+        <div><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener noreferrer">GitHub Repository (karagemop466-tech/GOLD3) &#8599;</a></div>
+        <div style="margin-top:6px;"><a href="security-audit.html">Run &amp; Inspect Anti-Hallucination Security Checks</a></div>
+        <div style="margin-top:6px;"><a href="flagged.html">Inspect 33 Flagged / Unverified Items</a></div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="assets/app.js"></script>
+</body>
+</html>

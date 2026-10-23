@@ -1,10 +1,10 @@
 # Anti-hallucination audit report
 
-- Run: 2026-10-22 23:36 UTC
-- Rows audited: **22**
-- Sellers audited: **10**
-- Flag definitions: **35**
-- Result: **PASS** — 0 error(s), 0 warning(s), 124 check(s) passed
+- Run: 2026-10-22 23:48 UTC
+- Rows audited: **31**
+- Sellers audited: **14**
+- Flag definitions: **40**
+- Result: **PASS** — 0 error(s), 0 warning(s), 173 check(s) passed
 
 ## What this pass is looking for
 
@@ -98,6 +98,36 @@ None.
 - [price] R22: $3,074 matches its quoted source text
 - [weight] R22: 5.4 g traced to a quoted seller statement
 - [solid] R22: PASS backed by a quote containing 'solid'
+- [sources] R23: 2 official source link(s)
+- [price] R23: $1,910 matches its quoted source text
+- [weight] R23: 6.1 g traced to a quoted seller statement
+- [solid] R23: PASS backed by a quote containing 'solid'
+- [sources] R24: 2 official source link(s)
+- [price] R24: $875 matches its quoted source text
+- [weight] R24: 2.3 g traced to a quoted seller statement
+- [solid] R24: PASS backed by a quote containing 'solid'
+- [sources] R25: 2 official source link(s)
+- [price] R25: $551 matches its quoted source text
+- [weight] R25: 1.4 g traced to a quoted seller statement
+- [solid] R25: PASS backed by a quote containing 'solid'
+- [sources] R26: 2 official source link(s)
+- [price] R26: $4,068 matches its quoted source text
+- [weight] R26: 6.3 g traced to a quoted seller statement
+- [solid] R26: PASS backed by a quote containing 'solid'
+- [sources] R27: 2 official source link(s)
+- [price] R27: $695 matches its quoted source text
+- [weight] R27: 2.5 g traced to a quoted seller statement
+- [solid] R27: PASS backed by a quote containing 'solid'
+- [sources] R28: 2 official source link(s)
+- [price] R28: price honestly left blank and labelled
+- [weight] R28: 2.3 g traced to a quoted seller statement
+- [solid] R28: PASS backed by a quote containing 'solid'
+- [sources] R29: 2 official source link(s)
+- [price] R29: $1,090 matches its quoted source text
+- [sources] R30: 2 official source link(s)
+- [price] R30: $3,253 matches its quoted source text
+- [sources] R31: 2 official source link(s)
+- [price] R31: $239 matches its quoted source text
 - [sellers] S-BN: Blue Nile checked
 - [sellers] S-MJ: Mejuri checked
 - [sellers] S-CO: Costco checked
@@ -108,6 +138,10 @@ None.
 - [sellers] S-JA: James Allen checked
 - [sellers] S-SARRAF: Sarraf.com checked
 - [sellers] S-AUTOMIC: Automic Gold checked
+- [sellers] S-BRILLIANTEARTH: Brilliant Earth checked
+- [sellers] S-VRAI: VRAI checked
+- [sellers] S-LOCALECLECTIC: Local Eclectic checked
+- [sellers] S-MENE: Menē checked
 - [domain] R01: mejuri.com belongs to mejuri.com
 - [domain] R02: mejuri.com belongs to mejuri.com
 - [domain] R03: mejuri.com belongs to mejuri.com
@@ -130,26 +164,41 @@ None.
 - [domain] R20: sarraf.com belongs to sarraf.com
 - [domain] R21: sarraf.com belongs to sarraf.com
 - [domain] R22: automicgold.com belongs to automicgold.com
-- [verify] all 22 rows appear in the verification log
+- [domain] R23: automicgold.com belongs to automicgold.com
+- [domain] R24: automicgold.com belongs to automicgold.com
+- [domain] R25: automicgold.com belongs to automicgold.com
+- [domain] R26: sarraf.com belongs to sarraf.com
+- [domain] R27: sarraf.com belongs to sarraf.com
+- [domain] R28: vrai.com belongs to vrai.com
+- [domain] R29: brilliantearth.com belongs to brilliantearth.com
+- [domain] R30: mene.com belongs to mene.com
+- [domain] R31: localeclectic.com belongs to localeclectic.com
+- [verify] all 31 rows appear in the verification log
 - [verify] summary counts recomputed from the entries and match
-- [flags] 35 flag definitions validated
+- [flags] 40 flag definitions validated
 - [standards] all karat fractions reproduce n/24
 - [standards] 8 legal rules carry citations
 - [site] verify.html present
 - [links] 14k.html: local links resolved
 - [links] 18k.html: local links resolved
 - [links] analysis.html: local links resolved
+- [links] bands-vintage-rings.html: local links resolved
 - [links] calculator.html: local links resolved
+- [links] checklist-standards.html: local links resolved
 - [links] checklist.html: local links resolved
 - [links] combined.html: local links resolved
 - [links] excluded.html: local links resolved
+- [links] flagged-for-review.html: local links resolved
 - [links] flagged.html: local links resolved
 - [links] index.html: local links resolved
 - [links] lab-grown.html: local links resolved
 - [links] methodology.html: local links resolved
 - [links] retailers.html: local links resolved
 - [links] rings.html: local links resolved
+- [links] security-audit.html: local links resolved
+- [links] sellers-policies.html: local links resolved
 - [links] sellers.html: local links resolved
+- [links] solitaire-settings.html: local links resolved
 - [links] sources.html: local links resolved
 - [links] standards.html: local links resolved
 - [links] under-1000.html: local links resolved

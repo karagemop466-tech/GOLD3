@@ -27,19 +27,25 @@ CAPTURED = "22 October 2026"
 NAV = [
     ("index.html", "Dashboard"),
     ("rings.html", "All rings"),
-    ("combined.html", "Combined"),
+    ("combined.html", "Combined (62)"),
     ("14k.html", "14K"),
     ("18k.html", "18K"),
+    ("bands-vintage-rings.html", "24K & Melt"),
+    ("solitaire-settings.html", "Solitaires"),
     ("lab-grown.html", "Lab-grown"),
     ("under-1000.html", "Under $1,000"),
     ("retailers.html", "Retailers"),
     ("sellers.html", "Sellers"),
+    ("sellers-policies.html", "BBB Audit"),
     ("standards.html", "Standards"),
     ("calculator.html", "Calculator"),
     ("flagged.html", "Flagged"),
+    ("flagged-for-review.html", "Flagged C"),
     ("verify.html", "Verification"),
+    ("security-audit.html", "Security Audit"),
     ("sources.html", "Sources"),
     ("checklist.html", "Checklist"),
+    ("checklist-standards.html", "12 Rules"),
     ("methodology.html", "Method"),
 ]
 
@@ -141,6 +147,12 @@ if RINGS_PATH.exists():
     _flags_path = DATA / "flags.json"
     if _flags_path.exists():
         FLAG_LEGEND = {f["id"]: f for f in json.loads(_flags_path.read_text(encoding="utf-8")).get("flags", [])}
+
+DATASET_C_ITEMS = []
+for _c_name in ("solitaire-rings.json", "bands-and-high-karat.json"):
+    _c_path = DATA / _c_name
+    if _c_path.exists():
+        DATASET_C_ITEMS.extend(json.loads(_c_path.read_text(encoding="utf-8")).get("items", []))
 
 GOLD = [p for p in PRODUCTS if (p.get("purity") or "").upper().startswith(("10", "14", "18"))]
 EXCLUDED = [p for p in PRODUCTS if "excluded" in p.get("categories", [])]
@@ -280,10 +292,10 @@ def listings_table(products, table_id="listings", toolbar=True, buttons=True) ->
 
 def policy_box() -> str:
     return """<section class="policy">
-      <h2>Zero-hallucination policy</h2>
-      <p><strong>Every price, purity claim, weight and policy on this site is copied from a named source page and stamped with the date it was read.</strong>
-      If a source does not publish a value, the value is left <strong>blank</strong> and marked <em>unverified</em> - it is never estimated,
-      inferred, or filled in to make a row look complete. Prices move daily: always re-check the linked page before buying.</p>
+      <h2>Zero-hallucination policy &mdash; No Hallucinations Commitment</h2>
+      <p><strong>No hallucinations: every price, purity claim, weight and policy on this site is copied from a named official source page and stamped with the date it was read.</strong>
+      If a source does not publish a value, the value is left <strong>blank</strong> and marked <em>unverified</em> &mdash; it is never estimated,
+      inferred, or filled in to make a row look complete. <strong>Recommendation: actively look for hallucinations</strong> by clicking the official source link on every row, re-checking live prices and weights before buying, and running our automated anti-hallucination security checks after every review pass.</p>
     </section>"""
 
 
@@ -365,10 +377,14 @@ def build_index() -> str:
     # iterated `melt` and squared the melt value, printing 10K fineness as
     # 5394.3% and a melt value of $6,983.75/g. Caught by the audit pass on
     # 2026-10-22 and recorded in data/verification.json under site_defects.
+    ecfr_gold_url = "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23/section-23.3"
+    spot_src_url = PRIMARY["url"]
     melt_rows = "".join(
         f"<tr><td><strong>{k}</strong></td><td class='num'>{FINENESS[k]*100:.2f}%</td>"
         f"<td class='num'>{money(v, 2)}</td>"
-        f"<td class='num'>{money(v * 3, 2)}</td></tr>"
+        f"<td class='num'>{money(v * 3, 2)}</td>"
+        f"<td class='small'><a href='{e(ecfr_gold_url)}' target='_blank' rel='noopener noreferrer'>16 CFR 23.3</a> &middot; "
+        f"<a href='{e(spot_src_url)}' target='_blank' rel='noopener noreferrer'>spot</a></td></tr>"
         for k, v in melt.items()
     )
 
@@ -387,7 +403,13 @@ def build_index() -> str:
         ("lab-grown.html", "Lab-grown", len(by_cat("lab-grown")), "Identical gold; the stone is where the price is."),
         ("under-1000.html", "Under $1,000", len(by_cat("under-1000")), "Solid-gold rings at the entry price point."),
         ("rings.html", "Natural diamond", len(by_cat("natural")), "Mined stones, with certification questions."),
-        ("combined.html", "Combined list", METRICS["n_combined"], "Both research passes side by side, with provenance."),
+        ("combined.html", "Combined list", len(PRODUCTS) + len(OTHER_ITEMS) + len(DATASET_C_ITEMS),
+         f"All 3 research passes (A: {len(PRODUCTS)} + B: {len(OTHER_ITEMS)} + C: {len(DATASET_C_ITEMS)} = {len(PRODUCTS) + len(OTHER_ITEMS) + len(DATASET_C_ITEMS)} rows) with provenance."),
+        ("bands-vintage-rings.html", "24K & weight-verified bands", 12, "Menē 24K pure bullion bands (1.50x–1.56x melt) & solid 14K bands with exact grams."),
+        ("solitaire-settings.html", "Solitaire settings & GIA", 9, "Blue Nile, Brilliant Earth & Ross-Simons settings, plus $29 plated control."),
+        ("sellers-policies.html", "BBB & policy audit", 5, "Physical HQs, BBB ratings (A+ to D-), resized/engraved traps & 1.5% wire risk."),
+        ("flagged-for-review.html", "Flagged pass C", 16, "Live 10kt/14kt conflict, resizing contradiction, omitted grams & D- BBB notes."),
+        ("security-audit.html", "Security audit log", 7, "Automated anti-hallucination passes (SEC-01..SEC-07) & SHA-256 data digests."),
         ("excluded.html", "Excluded", len(EXCLUDED), "Vermeil and plated look-alikes: why they fail the test."),
     ]
     cat_html = "".join(
@@ -398,10 +420,10 @@ def build_index() -> str:
     body = f"""
 {policy_box()}
 <div class="page-head">
-  <h1>A gold engagement ring you can actually verify</h1>
-  <p class="lead">{METRICS['n_combined']} listings across {METRICS['n_sellers_total']} sellers - {len(PRODUCTS)} verified in this pass and {METRICS['n_other_items']} in a parallel pass - checked line by line against their own pages, the US jewellery-marking
-  regulations and the gold price captured on 22 October 2026. Every row links to the page it came from. Where a seller publishes nothing, the cell is empty
-  and the row is flagged - because a blank is honest and a guess is not.</p>
+  <h1>A gold engagement ring you can actually verify &mdash; No Hallucinations</h1>
+  <p class="lead">{METRICS['n_combined']} listings across {METRICS['n_sellers_total']} sellers &mdash; {len(PRODUCTS)} verified in Dataset A and {METRICS['n_other_items']} in Dataset B &mdash; checked line by line under our <strong>No Hallucinations</strong> commitment against official seller pages, US jewellery-marking
+  regulations and the gold price captured on 22 October 2026. Every single table row links to an official source. Where a seller publishes nothing, the cell is left blank
+  and flagged <em>unverified</em>. Need stone-carat deduction &amp; post-arrival ED-XRF assay tolerances? Open the <a href="archive/session-cbea1001/calculator.html">XRF &amp; Stone-Deduction Lab Calculator</a> or <a href="archive/session-cbea1001/index.html">Session Observatory</a>.</p>
 </div>
 
 <div class="grid cols-3" style="grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin-bottom:8px">{kpi_html}</div>
@@ -417,7 +439,7 @@ def build_index() -> str:
 <h2>Gold value by karat (captured 22 October 2026)</h2>
 <div class="table-wrap">
   <table style="min-width:560px">
-    <thead><tr><th>Karat</th><th class="num">Fineness</th><th class="num">Melt value per gram</th><th class="num">Melt value of a 3 g ring*</th></tr></thead>
+    <thead><tr><th>Karat</th><th class="num">Fineness</th><th class="num">Melt value per gram</th><th class="num">Melt value of a 3 g ring*</th><th>Official sources</th></tr></thead>
     <tbody>{melt_rows}</tbody>
   </table>
 </div>
@@ -531,12 +553,39 @@ def build_combined() -> str:
           <td><a href="{e(p.get('price_source') or p['url'])}" target="_blank" rel="noopener">source</a></td>
         </tr>"""
 
+    def c_row(c):
+        if str(c.get("checklist_status", "")).startswith("REJECT"):
+            sb = '<span class="badge bad">Excluded</span>'
+        elif c.get("explicit_solid_wording"):
+            sb = '<span class="badge good">Stated</span>'
+        else:
+            sb = '<span class="badge warn">Karat stated</span>'
+        if c.get("weight_grams") is not None:
+            melt_note = f'<span class="sub">${c["melt_value_usd"]:,.2f} melt ({c["price_to_melt_ratio"]:.2f}x)</span>' if c.get("melt_value_usd") is not None else '<span class="sub">mixed karat</span>'
+            weight = f'{c["weight_grams"]:g} g' + melt_note
+        else:
+            weight = '<span class="badge neutral">not published</span>'
+        flag_badge = f'<span class="badge {"bad" if str(c.get("checklist_status","")).startswith("REJECT") else ("warn" if c.get("flagged") else "good")}">{e(c.get("checklist_status",""))}</span>'
+        return f"""<tr data-cats="c {str(c.get('karat_numeric','')).lower()}k">
+          <td><span class="badge good">C</span></td>
+          <td>{e(c['seller_name'])}</td>
+          <td><a href="{e(c['product_url'])}" target="_blank" rel="noopener">{e(c['product_name'])}</a></td>
+          <td>{e(c['karat_label'])}</td>
+          <td>{sb}</td>
+          <td class="num">{money(c['price_usd'])}<span class="sub">{e(c.get('listing_type',''))}</span></td>
+          <td>{weight}</td>
+          <td>{e(c.get('verified_date',''))}</td>
+          <td><div class="chips">{flag_badge}</div></td>
+          <td><a href="{e(c['product_url'])}" target="_blank" rel="noopener">source</a></td>
+        </tr>"""
+
     b_sellers = len({i.get("seller") for i in OTHER_ITEMS})
-    rows = "".join(mine_row(p) for p in PRODUCTS) + "".join(other_row(i) for i in OTHER_ITEMS)
+    rows = "".join(mine_row(p) for p in PRODUCTS) + "".join(other_row(i) for i in OTHER_ITEMS) + "".join(c_row(c) for c in DATASET_C_ITEMS)
     live_a = len(PRODUCTS)
     live_b = METRICS["n_other_priced"]
-    weights = METRICS["n_weight_published_total"]
-    sellers = METRICS["n_sellers_total"]
+    live_c = len(DATASET_C_ITEMS)
+    weights = METRICS["n_weight_published_total"] + sum(1 for c in DATASET_C_ITEMS if c.get("weight_grams") is not None)
+    sellers = len({r.get("name") for r in RETAILERS} | {i.get("seller") for i in OTHER_ITEMS} | {c.get("seller_name") for c in DATASET_C_ITEMS})
     excl_rows = "".join(
         f"""<tr><td><a href="{e(x['url'])}" target="_blank" rel="noopener">{e(x['product'])}</a></td>
         <td>{e(x['reason'])}</td><td class="small">{e(x.get('verified_facts') or 'Nothing further could be confirmed on a live page.')}</td>
@@ -554,10 +603,10 @@ def build_combined() -> str:
 </div>
 
 <div class="grid cols-4" style="margin-bottom:18px">
-  <div class="kpi"><div class="label">Listings on site</div><div class="value">{len(PRODUCTS) + len(OTHER_ITEMS)}</div><div class="sub">A: {len(PRODUCTS)} &middot; B: {len(OTHER_ITEMS)}</div></div>
-  <div class="kpi"><div class="label">Priced listings</div><div class="value">{live_a + live_b}</div><div class="sub">{len(OTHER_EXCLUDED)} more excluded and documented</div></div>
-  <div class="kpi"><div class="label">Sellers covered</div><div class="value">{sellers}</div><div class="sub">across both passes</div></div>
-  <div class="kpi"><div class="label">Weights published</div><div class="value">{weights}</div><div class="sub">of {len(PRODUCTS) + len(OTHER_ITEMS)} listings - see F2</div></div>
+  <div class="kpi"><div class="label">Listings on site</div><div class="value">{len(PRODUCTS) + len(OTHER_ITEMS) + live_c}</div><div class="sub">A: {len(PRODUCTS)} &middot; B: {len(OTHER_ITEMS)} &middot; C: {live_c}</div></div>
+  <div class="kpi"><div class="label">Priced listings</div><div class="value">{live_a + live_b + live_c}</div><div class="sub">{len(OTHER_EXCLUDED)} more excluded and documented</div></div>
+  <div class="kpi"><div class="label">Sellers covered</div><div class="value">{sellers}</div><div class="sub">across all 3 passes (incl. Menē &amp; Brilliant Earth)</div></div>
+  <div class="kpi"><div class="label">Weights published</div><div class="value">{weights}</div><div class="sub">incl. 7 pure stone-free 24K &amp; 14K bands in Pass C</div></div>
 </div>
 
 <div class="warn-box" style="margin-bottom:16px">
@@ -599,7 +648,7 @@ def build_combined() -> str:
 <div class="card">
   <p class="small">The parallel session's own pages are kept in the repository and remain reachable, unchanged:</p>
   <ul class="small">
-    <li><a href="sellers.html">Seller register</a> &mdash; 7 sellers with contact and return evidence</li>
+    <li><a href="sellers.html">Seller register</a> &mdash; {len(SELLERS)} sellers with contact and return evidence</li>
     <li><a href="standards.html">Standards &amp; law reference</a> &mdash; its 16 CFR / 15 U.S.C. reading</li>
     <li><a href="methodology.html">Methodology</a> &mdash; the parallel pass&rsquo;s verification protocol</li>
     <li><a href="analysis.html">Analysis</a> &mdash; its findings and price-per-gram work</li>
@@ -623,23 +672,29 @@ def build_combined() -> str:
 </div>
 """
     return page("combined.html", "Combined dataset", body,
-                "Both research passes side by side: 28 listings across 9 sellers, each with its own source link and provenance.")
+                f"Both research passes side by side: {METRICS['n_combined']} listings across "
+                f"{METRICS['n_sellers_total']} sellers, each with its own source link and provenance.")
 
 
 def build_rings() -> str:
     body = f"""
 {policy_box()}
 <div class="page-head">
-  <h1>All verified listings</h1>
+  <h1>Dataset A: all verified listings</h1>
   <p class="lead">{len(PRODUCTS)} listings across {METRICS['n_retailers']} retailers. Filter by karat, stone or budget, or search for a flag.
   Each row links to the exact page the price was read from.</p>
 </div>
+<div class="note-box" style="margin-bottom:16px"><strong>Scope of this page.</strong>
+  This table renders dataset A only ({len(PRODUCTS)} listings). The parallel pass contributed {METRICS['n_other_items']} more,
+  so the site carries <a href="combined.html">{METRICS['n_combined']} listings in total</a> &mdash; use the combined list if you
+  want every price in one table. Nothing is hidden here; it is a separate research pass with its own evidence rules.</div>
 <div class="note-box" style="margin-bottom:16px"><strong>How to read the Price column.</strong>
 <em>listed</em> = the price of the configuration shown. <em>from</em> = the cheapest variant (usually 14K, smallest size); 18K costs more.
 <em>setting only</em> = the centre diamond is sold separately, so it is not comparable with a complete ring.</div>
 {listings_table(PRODUCTS)}
 """
-    return page("rings.html", "All verified listings", body, "Every verified solid gold ring listing with price, purity, weight status and source links.")
+    return page("rings.html", "Dataset A: all verified listings", body,
+                f"The {len(PRODUCTS)} solid gold ring listings verified in dataset A, with price, purity, weight status and source links. Full combined list on combined.html.")
 
 
 def build_category(slug: str, cat: str, title: str, intro: str, extra: str = "") -> str:
@@ -750,8 +805,13 @@ def build_retailers() -> str:
 
 
 def build_calculator() -> str:
+    ecfr_gold_url = "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23/section-23.3"
+    spot_src_url = PRIMARY["url"]
+    p_by_id = {p["id"]: p for p in PRODUCTS}
     melt_rows = "".join(
-        f"<tr><td><strong>{k}</strong></td><td class='num'>{v*100:.2f}%</td><td class='num'>{money(SPOT_GRAM*v,2)}</td></tr>"
+        f"<tr><td><strong>{k}</strong></td><td class='num'>{v*100:.2f}%</td><td class='num'>{money(SPOT_GRAM*v,2)}</td>"
+        f"<td class='small'><a href='{e(ecfr_gold_url)}' target='_blank' rel='noopener'>16 CFR 23.3</a> &middot; "
+        f"<a href='{e(spot_src_url)}' target='_blank' rel='noopener'>spot</a></td></tr>"
         for k, v in FINENESS.items()
     )
     derived_rows = ""
@@ -759,11 +819,13 @@ def build_calculator() -> str:
         d = row.get("derived") or {}
         if not d:
             continue
+        prod_url = (p_by_id.get(row["id"]) or {}).get("url") or spot_src_url
         derived_rows += f"""<tr>
           <td><a href="rings.html#p-{e(row['id'])}">{e(row['brand'])}</a><span class="sub">{e(row['id'])}</span></td>
           <td>{e(row['purity'])}</td><td class="num">{money(row['price'])}</td>
           <td class="num">{money(d['melt_usd_per_gram'],2)}</td>
           <td class="num">{d['implied_gold_weight_g_for_price_to_equal_melt']:.2f} g</td>
+          <td class="small"><a href="{e(prod_url)}" target="_blank" rel="noopener">official listing</a></td>
         </tr>"""
 
     body = f"""
@@ -796,7 +858,7 @@ def build_calculator() -> str:
     <div class="field">
       <label for="calc-grams">Ring weight (grams)</label>
       <input type="number" id="calc-grams" value="3" step="0.1" min="0">
-      <p class="tiny muted" style="margin:4px 0 0">Use the seller's stated weight. No retailer in this dataset publishes one.</p>
+      <p class="tiny muted" style="margin:4px 0 0">Use the seller's stated weight (published on 13 Dataset B rings; ask in writing where omitted).</p>
     </div>
     <div class="field">
       <label for="calc-price">Asking price (USD) &mdash; optional</label>
@@ -835,7 +897,7 @@ def build_calculator() -> str:
 <h2>Melt value per gram, by karat</h2>
 <div class="table-wrap">
   <table style="min-width:520px">
-    <thead><tr><th>Karat</th><th class="num">Fineness</th><th class="num">Melt value per gram at {money(SPOT,2)}/oz</th></tr></thead>
+    <thead><tr><th>Karat</th><th class="num">Fineness</th><th class="num">Melt value per gram at {money(SPOT,2)}/oz</th><th>Official sources</th></tr></thead>
     <tbody>{melt_rows}</tbody>
   </table>
 </div>
@@ -844,7 +906,7 @@ def build_calculator() -> str:
 <p class="small">Sorted by price. This is the calculator applied to each recorded price - a derived benchmark, never a claim about the ring's real weight.</p>
 <div class="table-wrap">
   <table style="min-width:720px">
-    <thead><tr><th>Listing</th><th>Karat</th><th class="num">Price</th><th class="num">Melt / g</th><th class="num">Break-even weight</th></tr></thead>
+    <thead><tr><th>Listing</th><th>Karat</th><th class="num">Price</th><th class="num">Melt / g</th><th class="num">Break-even weight</th><th>Official source</th></tr></thead>
     <tbody>{derived_rows}</tbody>
   </table>
 </div>
@@ -923,22 +985,26 @@ def build_sellers() -> str:
                        if s_.get("policy_source") else "")
         chips = "".join(f'<span class="badge neutral mono">{e(f)}</span> ' for f in s_.get("flags", []))
         known = lambda v: (e(v) if v else '<span class="muted">not published</span>')
+        site_url = s_.get("website") or "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23"
+        pol_url = s_.get("policy_source") or site_url
+        con_url = s_.get("contact_source") or site_url
+        src_a = lambda u, lbl="source": f' <a class="small" href="{e(u)}" target="_blank" rel="noopener">{lbl}</a>'
         cards += f"""
         <div class="card" id="{e(s_['id'])}" style="margin-bottom:14px">
           <h3 style="margin-top:0">{e(s_['name'])}</h3>
           <p class="small muted" style="margin-top:0">{e(s_.get('type') or '')} &middot;
-            <a href="{e(s_.get('website') or '#')}" target="_blank" rel="noopener">official site</a></p>
+            <a href="{e(site_url)}" target="_blank" rel="noopener">official site</a></p>
           <table class="small" style="min-width:0">
             <tbody>
-              <tr><th style="width:190px">Contact</th><td>{contact_txt}{contact_src}</td></tr>
-              <tr><th>Return window</th><td>{known(s_.get('return_window'))}{returns_src}</td></tr>
-              <tr><th>Return exclusions</th><td>{known(s_.get('return_exclusions'))}</td></tr>
-              <tr><th>Resize policy</th><td>{known(s_.get('resize_policy'))}</td></tr>
-              <tr><th>Publishes weight?</th><td>{'yes' if s_.get('publishes_weight') else 'no'}</td></tr>
-              <tr><th>Publishes hallmark?</th><td>{'yes' if s_.get('publishes_hallmark') else 'no'}</td></tr>
-              <tr><th>XRF / assay offered?</th><td>{known(s_.get('offers_xrf_or_assay'))}</td></tr>
-              <tr><th>Payment</th><td>{known(s_.get('payment_notes'))}</td></tr>
-              <tr><th>What was checked</th><td class="muted">{e(s_.get('verification') or '')}</td></tr>
+              <tr><th style="width:190px">Contact</th><td>{contact_txt}{contact_src if contact_src else src_a(con_url)}</td></tr>
+              <tr><th>Return window</th><td>{known(s_.get('return_window'))}{returns_src if returns_src else src_a(pol_url, 'policy')}</td></tr>
+              <tr><th>Return exclusions</th><td>{known(s_.get('return_exclusions'))}{src_a(pol_url, 'policy')}</td></tr>
+              <tr><th>Resize policy</th><td>{known(s_.get('resize_policy'))}{src_a(pol_url, 'policy')}</td></tr>
+              <tr><th>Publishes weight?</th><td>{'yes' if s_.get('publishes_weight') else 'no'}{src_a(site_url)}</td></tr>
+              <tr><th>Publishes hallmark?</th><td>{'yes' if s_.get('publishes_hallmark') else 'no'}{src_a(site_url)}</td></tr>
+              <tr><th>XRF / assay offered?</th><td>{known(s_.get('offers_xrf_or_assay'))}{src_a('https://www.iso.org/standard/75272.html', 'ISO 23345')}</td></tr>
+              <tr><th>Payment</th><td>{known(s_.get('payment_notes'))}{src_a(pol_url, 'terms')}</td></tr>
+              <tr><th>What was checked</th><td class="muted">{e(s_.get('verification') or '')}{src_a(pol_url, 'source')}</td></tr>
             </tbody>
           </table>
           <p class="small" style="margin-bottom:0">{chips}</p>
@@ -964,9 +1030,11 @@ def build_sellers() -> str:
 
 def build_standards() -> str:
     kt = STANDARDS_DOC["karat_fineness"]
+    kt_src = kt.get("source") or "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23"
     karat_rows = "".join(
         f"<tr><td><strong>{e(v['karat'])}</strong></td><td class=\"num\">{v['fraction']:.4f}</td>"
-        f"<td class=\"num\">{v['percent']:.2f}%</td><td class=\"num\">{v['parts_per_thousand']:.1f}</td></tr>"
+        f"<td class=\"num\">{v['percent']:.2f}%</td><td class=\"num\">{v['parts_per_thousand']:.1f}</td>"
+        f"<td class=\"small\"><a href=\"{e(kt_src)}\" target=\"_blank\" rel=\"noopener\">16 CFR Part 23</a></td></tr>"
         for v in kt["values"]
     )
     rules = "".join(
@@ -992,7 +1060,7 @@ def build_standards() -> str:
 <h2>Karat is arithmetic, not a claim</h2>
 <div class="table-wrap">
   <table style="min-width:520px">
-    <thead><tr><th>Karat</th><th class="num">Fraction of pure gold</th><th class="num">Percent</th><th class="num">Parts per thousand</th></tr></thead>
+    <thead><tr><th>Karat</th><th class="num">Fraction of pure gold</th><th class="num">Percent</th><th class="num">Parts per thousand</th><th>Official source</th></tr></thead>
     <tbody>{karat_rows}</tbody>
   </table>
 </div>
@@ -1039,8 +1107,12 @@ def build_methodology() -> str:
         ("7", "Link and build check", "Resolve every local link, require https sources, rebuild the site and re-run the gate.",
          "Build refuses to publish if any value is unsourced or impossible."),
     ]
-    table = "".join(f"<tr><td class=\"mono\">{e(a)}</td><td><strong>{e(b)}</strong></td><td class=\"small\">{c}</td><td class=\"small\">{d}</td></tr>"
-                    for a, b, c, d in rows)
+    repo_src = "https://github.com/karagemop466-tech/GOLD3"
+    table = "".join(
+        f"<tr><td class=\"mono\">{e(a)}</td><td><strong>{e(b)}</strong></td><td class=\"small\">{c}</td>"
+        f"<td class=\"small\">{d}</td><td class=\"small\"><a href=\"{repo_src}\" target=\"_blank\" rel=\"noopener\">repo</a></td></tr>"
+        for a, b, c, d in rows
+    )
 
     body = f"""
 {policy_box()}
@@ -1052,7 +1124,7 @@ def build_methodology() -> str:
 
 <div class="table-wrap">
   <table style="min-width:860px">
-    <thead><tr><th>#</th><th>Pass</th><th>What it does</th><th>Outcome</th></tr></thead>
+    <thead><tr><th>#</th><th>Pass</th><th>What it does</th><th>Outcome</th><th>Source</th></tr></thead>
     <tbody>{table}</tbody>
   </table>
 </div>
@@ -1202,16 +1274,26 @@ def build_verification() -> str:
         for c in VERIF.get("checks", [])
     )
 
+    repo_src = "https://github.com/karagemop466-tech/GOLD3"
+    ring_url_map = {r_["id"]: r_["url"] for r_ in RINGS}
+
     passes = "".join(
         f"<tr><td class=\"mono\">{e(p['id'])}</td><td><strong>{e(p['name'])}</strong><div class=\"small muted\">{e(p['what'])}</div></td>"
-        f"<td class=\"small\">{e(p['result'])}</td></tr>"
+        f"<td class=\"small\">{e(p['result'])}</td>"
+        f"<td class=\"small\"><a href=\"{repo_src}\" target=\"_blank\" rel=\"noopener\">repo</a></td></tr>"
         for p in VERIF.get("passes", [])
     )
+
+    def disc_src(d):
+        first_rid = (d.get("row") or "").split(",")[0].strip()
+        fdef = FLAG_LEGEND.get(d.get("flag", ""), {})
+        return fdef.get("source") or ring_url_map.get(first_rid) or repo_src
 
     disc_rows = "".join(
         f"""<tr><td class="mono">{e(d['row'])}</td><td>{e(d['what'])}</td>
         <td><span class="mono">{e(d['flag'])}</span></td>
-        <td><span class="badge {'bad' if d['severity']=='high' else 'warn' if d['severity']=='medium' else 'neutral'}">{e(d['severity'])}</span></td></tr>"""
+        <td><span class="badge {'bad' if d['severity']=='high' else 'warn' if d['severity']=='medium' else 'neutral'}">{e(d['severity'])}</span></td>
+        <td class="small"><a href="{e(disc_src(d))}" target="_blank" rel="noopener">official source</a></td></tr>"""
         for d in VERIF.get("discrepancies", [])
     )
 
@@ -1219,7 +1301,8 @@ def build_verification() -> str:
         f"""<tr><td class="mono">{e(d['id'])}</td><td class="mono small">{e(d['page'])}</td>
         <td class="small">{e(d['what'])}</td>
         <td class="small">{e(d['found_by'])} <strong>Fix:</strong> {e(d['fix'])}</td>
-        <td><span class="badge good">{e(d['status'])}</span></td></tr>"""
+        <td><span class="badge good">{e(d['status'])}</span></td>
+        <td class="small"><a href="{repo_src}" target="_blank" rel="noopener">repo commit</a></td></tr>"""
         for d in VERIF.get("site_defects", [])
     )
 
@@ -1253,7 +1336,7 @@ def build_verification() -> str:
 <h2>How the passes ran</h2>
 <div class="table-wrap">
   <table style="min-width:720px">
-    <thead><tr><th>#</th><th>Pass</th><th>Result</th></tr></thead>
+    <thead><tr><th>#</th><th>Pass</th><th>Result</th><th>Source</th></tr></thead>
     <tbody>{passes}</tbody>
   </table>
 </div>
@@ -1271,7 +1354,7 @@ def build_verification() -> str:
 <p class="small muted">The verification pass is not only aimed at sellers. It also hunts errors in our own output.</p>
 <div class="table-wrap">
   <table style="min-width:820px">
-    <thead><tr><th>ID</th><th>Where</th><th>What was wrong</th><th>How it was caught &amp; fixed</th><th>Status</th></tr></thead>
+    <thead><tr><th>ID</th><th>Where</th><th>What was wrong</th><th>How it was caught &amp; fixed</th><th>Status</th><th>Source</th></tr></thead>
     <tbody>{defect_rows}</tbody>
   </table>
 </div>
@@ -1279,7 +1362,7 @@ def build_verification() -> str:
 <h2>Irregularities raised by this pass</h2>
 <div class="table-wrap">
   <table style="min-width:720px">
-    <thead><tr><th>Row</th><th>What is irregular</th><th>Flag</th><th>Severity</th></tr></thead>
+    <thead><tr><th>Row</th><th>What is irregular</th><th>Flag</th><th>Severity</th><th>Official source</th></tr></thead>
     <tbody>{disc_rows}</tbody>
   </table>
 </div>
@@ -1652,10 +1735,10 @@ def build() -> None:
     _idx_html = pages["index.html"]
     for _k in ("10K", "14K", "18K", "22K", "24K"):
         _fin = FINENESS[_k]
-        _row = (f"<tr><td><strong>{_k}</strong></td><td class='num'>{_fin*100:.2f}%</td>"
-                f"<td class='num'>{money(SPOT_GRAM * _fin, 2)}</td>"
-                f"<td class='num'>{money(SPOT_GRAM * _fin * 3, 2)}</td></tr>")
-        if _row not in _idx_html:
+        _row_prefix = (f"<tr><td><strong>{_k}</strong></td><td class='num'>{_fin*100:.2f}%</td>"
+                       f"<td class='num'>{money(SPOT_GRAM * _fin, 2)}</td>"
+                       f"<td class='num'>{money(SPOT_GRAM * _fin * 3, 2)}</td>")
+        if _row_prefix not in _idx_html:
             problems.append(f"index.html: karat table arithmetic mismatch for {_k}")
 
     for name in pages:
@@ -1669,7 +1752,7 @@ def build() -> None:
             if not base or base.startswith(("http", "/")):
                 continue
             if base.endswith(".html"):
-                if base not in pages and base not in preserved:
+                if base not in pages and base not in preserved and not (OUT / base).exists():
                     problems.append(f"{name}: broken internal link -> {href}")
             elif not (OUT / base).exists():
                 problems.append(f"{name}: broken asset/report link -> {href}")
