@@ -23,6 +23,7 @@ Read it before starting any work. Update it when you claim, finish, or hand off 
 | `arena/bfcd8465-gold3` | `arena/bfcd8465-gold3` | 2026-10-23T09:55Z | complete — deep-chunk Automic Gold & flag-source audit (`V13` / `P11`), `RET14`, UI/nav consistency & final integration (`T16`, §17; PR #45 merged as `4fd7504`, Pages deployed) |
 | `arena/2908bea4-gold3` | `arena/2908bea4-gold3` | 2026-10-23T09:55Z | complete — Dataset C & Dataset D live URL/value sweep (V10–V11), Dataset C provenance gate (`verify_dataset_c.py`), final additive integration & deploy (V12, §13; PR #40 merged as `8d3c172`, Pages deployed) |
 | `arena/15b00e99-gold3` | `arena/15b00e99-gold3` | 2026-10-23T10:44Z | **complete** — Pass P10 full-repo hallucination/contradiction/dead-URL sweep (`DC1`–`DC4`, §15; PR #44 merged as `a0b589b`, Pages deployed & live read-back verified) |
+| `arena/57724486-gold3` | `arena/57724486-gold3` | 2026-10-23T20:30Z | **complete** — Pass `P12`: freshest live re-verification of the spot benchmark + a rotating sample of the highest-priced `R*` rows and `SOL`/`BND` rows, headline-count/consistency sweep of every published page vs `data/`, then final integration (rebuild, 9 gates, PRs #51 & #53 → `main`, both merged, both Pages deploys built and read back; §18) |
 | `arena/57724486-gold3` | `arena/57724486-gold3` | 2026-10-23T20:30Z | **in progress** — Pass `P12`: freshest live re-verification of the spot benchmark + a rotating sample of the highest-priced `R*` rows and `SOL`/`BND` rows, headline-count/consistency sweep of every published page vs `data/`, then final integration (rebuild, 9 gates, PR → `main`, merge, Pages deploy read-back) |
 | `arena/438a583e-gold3` | `arena/438a583e-gold3` | 2026-10-23T20:17Z | **complete** — Pass `P14` (renumbered three times as PRs #51, #54 and #56 landed the same ids): every weight-bearing PDP re-read live (0 changes), four-feed spot corroboration to 0.026%, `scripts/refresh_spot_anchor.py`, finding `F45`; §19 |
 
@@ -938,10 +939,32 @@ links/anchors) · `render-test.js` **127/127** · `report_verify.py` **192 check
 | GitHub Pages deployment | `40018655845` — **success** (33s) |
 | Live read-back | `https://karagemop466-tech.github.io/GOLD3/` returns the new dashboard lead — *"50 listings across 16 sellers … plus 21 Dataset C settings and bands, **71 rows in all**"* |
 
-**Follow-up PR #52** carries the rest of `SD14`: the deployed dashboard's KPI card still printed *"Listings on site 50"* and
+**Follow-up PR [#53](https://github.com/karagemop466-tech/GOLD3/pull/53)** carries the rest of `SD14`: the deployed dashboard's KPI card still printed *"Listings on site 50"* and
 *"14 of 50 combined"*, because those two cards were built from the A+B metrics. Both are now computed
 (`TOTAL_ROWS` = 71, `C_WEIGHT_PUBLISHED` = 5 → **"19 of 71 combined"**). Caught by reading the live site back after the
 deploy rather than by trusting the build, which is the check this project requires after every publish.
+
+| Follow-up | Result |
+|---|---|
+| Pull request [#53](https://github.com/karagemop466-tech/GOLD3/pull/53) | opened and merged; CI on the PR `40018825399` **success** (20s) |
+| Merge commit on `main` | `1b182f0` (`1b182f0732dc414bc12bb8ad92ab82622efc86b1`), merged 2026-10-23T20:24:05Z |
+| CI run on `main` | `40018927315` — **success** (15s, all nine gates) |
+| GitHub Pages deployment | `40018926040` — **success** (63s) |
+| Live read-back (after CDN propagation, `?v=2`) | KPI cards now read **"Listings on site 71 / 50 in Datasets A+B · 21 in Dataset C"** and **"19 of 71 combined"**; lead reads *"… plus 21 Dataset C settings and bands, 71 rows in all"*. Byte-for-byte the values in `data/` |
+
+**Cross-session corroboration.** While this session was resolving its merge, `arena/438a583e-gold3` landed pass `P14`
+(PR #52) on the same tree: it re-read **every** weight-bearing product page live (0 changes) and corroborated the spot
+reading across **four** feeds to within 0.026%, and it withdrew the idea of promoting the live anchor to primary — the same
+conclusion this pass reached independently (dated captures stay pinned; the live reading is shown beside them). Two
+sessions arriving at the same `$3,997.22` reading within minutes of each other is the strongest evidence in this board that
+the figure is real and not a transcription artefact.
+
+**Note on the first read-back.** The first fetch after the PR #51 deploy still served the previous build (the KPI cards
+showed 50); a second fetch ~2 minutes later showed the corrected tree. This is the same CDN lag already recorded as note
+N3 on 2026-10-22 — the deployed artefact must be read back twice before a deploy is called verified.
+
+───────────────────────────────────────────────────────────────────────────────
+
 ## 19. Session `arena/fb7e5e3c-gold3` — Pass P13: Mejuri heading contradiction, Dataset B/C karat coverage, stale-prose repair (2026-10-23)
 
 **Coordination note (multi-session):** this session started from `main` @ `253ab39`, and a concurrent session
@@ -1009,7 +1032,7 @@ Sources: `https://mejuri.com/products/bold-diamond-eternity-ring`, `.../bold-dia
   *"22 October 2026"* (Dataset A's capture date) while `prices.json` records `captured_on: 2026-10-23`, and `flagged.html`
   printed *"Last automated pass: 22 October 2026"* against an audit report generated on 2026-10-23. Both dates now come from
   the files that own them (`PRIMARY['captured_on']` and `reports/audit-report.md`) and are asserted in `render-test.js`.
-- **Follow-up PR:** [#55](https://github.com/karagemop466-tech/GOLD3/pull/55) — the date-derivation fix plus `F44` / `SD21` and
+- **Follow-up PR:** [#56](https://github.com/karagemop466-tech/GOLD3/pull/56) — the date-derivation fix (recorded as #55 in the first draft of this section; #55 is the concurrent session's board PR — corrected 2026-10-23) plus `F44` / `SD21` and
   two render assertions. All 9 gates re-run green locally: `audit.py` `rows=31 errors=0 warnings=0 passed=176`,
   `render-test.js` `147/147`, `report_verify.py` 199 checks.
 
