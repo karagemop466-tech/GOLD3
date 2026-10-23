@@ -154,19 +154,36 @@ def render_mandate_banner(compact: bool = False) -> str:
 
 def render_calculator_section(spot_oz: float, include_presets: bool = True) -> str:
     spot_g = spot_oz / 31.1034768
-    default_melt = round(round(4.2 * (14 / 24), 4) * spot_g, 2)
+    bands = json.loads((DATA_DIR / "bands-and-high-karat.json").read_text(encoding="utf-8"))["items"]
+    band_by_id = {b["id"]: b for b in bands}
+    default_band = band_by_id["BND-05"]
+    default_melt = default_band["melt_value_usd"]
+    default_ratio = default_band["price_to_melt_ratio"]
+    default_share = 100 * default_melt / default_band["price_usd"]
+
     presets_html = ""
     if include_presets:
-        presets_html = """
+        # Product names, weights, prices and ratios all come from the verified
+        # Dataset C rows. Only the two explicitly simulated controls are literals.
+        preset_buttons = []
+        for band_id in ("BND-04", "BND-05", "BND-06", "BND-07"):
+            b = band_by_id[band_id]
+            preset_buttons.append(
+                f'<button type="button" class="preset-btn" data-preset="1" '
+                f'data-karat="{b["karat_numeric"]:g}K" data-weight="{b["weight_grams"]:g}" '
+                f'data-gem="0" data-price="{b["price_usd"]:g}">'
+                f'{esc(b["product_name"])} ({b["weight_grams"]:g}g &bull; '
+                f'${b["price_usd"]:,.0f} &bull; {b["price_to_melt_ratio"]:.2f}x melt)</button>'
+            )
+        preset_buttons.extend([
+            '<button type="button" class="preset-btn" data-preset="1" data-karat="14K" data-weight="4.0" data-gem="0" data-price="199">Simulated Below-Melt Scam Alert (4.0g 14K @ $199)</button>',
+            '<button type="button" class="preset-btn" data-preset="1" data-karat="PLATED" data-weight="3.0" data-gem="0" data-price="29">Ross-Simons Plated Control ($29 &bull; 0g Solid Core)</button>',
+        ])
+        presets_html = f"""
       <div>
         <strong style="font-size:0.84rem; display:block; margin-bottom:0.4rem;">Load a Live-Verified Catalog Ring into Calculator:</strong>
         <div class="preset-row">
-          <button type="button" class="preset-btn" data-preset="1" data-karat="14K" data-weight="4.0" data-gem="0" data-price="1195">Ross-Simons 6mm 14K Flat (4.0g &bull; $1,195 &bull; 3.96x)</button>
-          <button type="button" class="preset-btn" data-preset="1" data-karat="14K" data-weight="2.1" data-gem="0" data-price="599">Ross-Simons Italian 14K (2.1g &bull; $599 &bull; 3.78x)</button>
-          <button type="button" class="preset-btn" data-preset="1" data-karat="14K" data-weight="4.2" data-gem="0" data-price="949">Ross-Simons 14K 4mm Band (4.2g &bull; $949 &bull; 2.99x Melt)</button>
-          <button type="button" class="preset-btn" data-preset="1" data-karat="14K" data-weight="1.7" data-gem="0" data-price="400">Ross-Simons 14K 2mm Band (1.7g &bull; $400 &bull; 3.12x Melt)</button>
-          <button type="button" class="preset-btn" data-preset="1" data-karat="14K" data-weight="4.0" data-gem="0" data-price="199">Simulated Below-Melt Scam Alert (4.0g 14K @ $199)</button>
-          <button type="button" class="preset-btn" data-preset="1" data-karat="PLATED" data-weight="3.0" data-gem="0" data-price="29">Ross-Simons Plated Control ($29 &bull; 0g Solid Core)</button>
+          {''.join(preset_buttons)}
         </div>
       </div>"""
 
@@ -244,10 +261,10 @@ def render_calculator_section(spot_oz: float, include_presets: bool = True) -> s
           </div>
           <div class="calc-result-row">
             <span>Retail Asking Price vs. Raw Gold Melt</span>
-            <strong id="out-markup" class="num">2.99x melt (33.4% intrinsic gold value)</strong>
+            <strong id="out-markup" class="num">{default_ratio:.2f}x melt ({default_share:.1f}% intrinsic gold value)</strong>
           </div>
           <div id="out-verdict" class="verdict-box badge-ok">
-            NORMAL FINE RETAIL RANGE (2.99x melt): Consistent with verified traditional 14K solid gold retail bands.
+            NORMAL FINE RETAIL RANGE ({default_ratio:.2f}x melt): Consistent with verified traditional 14K solid gold retail bands.
           </div>
         </div>
       </div>
@@ -427,7 +444,15 @@ def build_all() -> None:
     omitted_wt_count = sum(1 for r in all_rings if r["weight_grams"] is None)
     k14_g = next(k["usd_per_gram_at_spot"] for k in spot_std["karat_purity_reference"] if abs(k["pure_gold_fraction"] - 14 / 24) < 0.001)
     k18_g = next(k["usd_per_gram_at_spot"] for k in spot_std["karat_purity_reference"] if abs(k["pure_gold_fraction"] - 0.75) < 0.001)
-    bnd05_melt = next(b["melt_value_usd"] for b in bands if b["id"] == "BND-05")
+    bnd05 = next(b for b in bands if b["id"] == "BND-05")
+    bnd05_melt = bnd05["melt_value_usd"]
+    bnd05_ratio = bnd05["price_to_melt_ratio"]
+    weighted_bands = [b for b in bands if b.get("price_to_melt_ratio") is not None]
+    band_ratio_min = min(b["price_to_melt_ratio"] for b in weighted_bands)
+    band_ratio_max = max(b["price_to_melt_ratio"] for b in weighted_bands)
+    band_ratio_range = f"{band_ratio_min:.2f}x–{band_ratio_max:.2f}x"
+    entry_ratios = [b["price_to_melt_ratio"] for b in weighted_bands if b["id"] in {"BND-04", "BND-05"}]
+    entry_ratio_range = f"{min(entry_ratios):.2f}x – {max(entry_ratios):.2f}x"
 
     # ======================================================================
     # 1. index.html — Front Page Dashboard + Prominent No-Hallucinations Summary
@@ -453,12 +478,12 @@ def build_all() -> None:
       </div>
       <div class="kpi-card">
         <div class="kpi-label">Best Weight-Verified Band</div>
-        <div class="kpi-value">2.99x Melt</div>
+        <div class="kpi-value">{bnd05_ratio:.2f}x Melt</div>
         <div class="kpi-sub">Ross-Simons 4mm 14K Band ($949 vs. ${bnd05_melt:.2f} gold melt &bull; 4.2g verified in static HTML)</div>
       </div>
       <div class="kpi-card">
         <div class="kpi-label">Best 14K Solid Retail Ratio</div>
-        <div class="kpi-value">2.99x – 3.12x</div>
+        <div class="kpi-value">{entry_ratio_range}</div>
         <div class="kpi-sub">Ross-Simons 4mm ($949 / 4.2g) &amp; 2mm ($400 / 1.7g) &bull; BBB A+ Accredited</div>
       </div>
       <div class="kpi-card">
@@ -480,7 +505,7 @@ def build_all() -> None:
           <div>
             <span class="badge badge-ok">Finding #1 &bull; Weight &amp; Melt Value</span>
             <h3>Most Bridal Jewelers Hide Gram Weight Online</h3>
-            <p>Blue Nile, Brilliant Earth, and Mejuri omit gram weights in static HTML, and Menē renders 24K weights only via client JS. Ross-Simons publishes explicit static-HTML weights on 14K bands (<strong>2.99x–3.96x melt</strong>).</p>
+            <p>Blue Nile, Brilliant Earth, and Mejuri omit gram weights in static HTML, and Menē renders 24K weights only via client JS. Ross-Simons publishes explicit static-HTML weights on 14K bands (<strong>{band_ratio_range} melt</strong>).</p>
           </div>
           <a href="bands-vintage-rings.html">Compare Weight-Verified Bands &rarr;</a>
         </div>
@@ -696,7 +721,7 @@ def build_all() -> None:
       <p class="page-eyebrow">Category Audit 02 &bull; Solid Gold Bands, 24K Bullion Rings, Signets &amp; Coin Rings</p>
       <h1>Verified Solid Gold Wedding/Engagement Bands, 24K Investment Rings &amp; Vintage/Signet Styles (12 Listings)</h1>
       <p class="lead">
-        Head-to-head comparison of static-HTML weight-verified 14K bands (Ross-Simons at <strong>2.99x–3.96x melt</strong>) and Menē pure 24K bands (JS-hydrated weights left null in static HTML per zero-inference rule)
+        Head-to-head comparison of static-HTML weight-verified 14K bands (Ross-Simons at <strong>{band_ratio_range} melt</strong>) and Menē pure 24K bands (JS-hydrated weights left null in static HTML per zero-inference rule)
         against weight-opaque DTC listings (Mejuri 14K solid gold bands with omitted weights) and mixed-alloy coin rings (<code>BND-08</code>).
       </p>
     </section>

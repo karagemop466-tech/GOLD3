@@ -464,6 +464,50 @@
       "source": "https://goldprice.org/",
       "product": null,
       "action": "Read the melt column as dated. To move the anchor, run scripts/refresh_spot_anchor.py against a fresh capture rather than editing JSON by hand."
+    },
+    {
+      "id": "F46",
+      "severity": "medium",
+      "title": "A prior verification record credits a NIST page with a conversion figure it does not print",
+      "detail": "data/reverification-c-6ccbc523.json says NIST Precious Metals Conversion Information 'explicitly confirms 1 oz t = 31.1034768 g'. Pass P15 re-read that URL on 2026-10-23: it returns HTTP 200 and reproduces NIST Handbook 130 sec. 2.17 with a linked conversion PDF, but prints no troy-ounce-to-gram figure. The numeric constant is nevertheless valid: NIST SP 811 Appendix B.9 prints troy ounce = 3.110 348 E+01 g and the boldface/exact grain factor 6.479 891 E-05 kg; exactly 480 grains per troy ounce gives 31.1034768 g.",
+      "evidence": "NIST SP 811 B.9: 'ounce (troy or apothecary) (oz) -> gram (g) | 3.110 348 | E+01'; 'grain (gr) -> kilogram (kg) | 6.479 891 | E-05' (boldface = exact). 480 x 0.06479891 = 31.1034768.",
+      "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9",
+      "action": "No melt figure changes: the constant is correct. The citation and derivation are now explicit in spot-and-standards.json. The peer historical evidence file was not overwritten; CR-P15-1 records the documentation request.",
+      "found_by": "arena/db2fe957-gold3",
+      "date": "2026-10-23"
+    },
+    {
+      "id": "F47",
+      "severity": "medium",
+      "title": "VRAI contradiction flag named the wrong ring and carried an unrelated price",
+      "detail": "SPEC7 was attached only to R28 Petite 4-Prong, but named Signature 6-Prong, linked another product URL and mentioned $1,460. Pass P15 re-read both chunks of the actual R28 URL. The underlying contradiction is real - 'Band: Plain band' beside 'Pav\u00e9 carat weight: 0.11ctw' - but no price appears in the static text and R28 correctly stores price_usd as null.",
+      "evidence": "Live R28: 'Band: Plain band'; 'Metal: 18k Yellow Gold'; 'Metal weight: 2.3g'; 'Pav\u00e9 carat weight: 0.11ctw'. No price was inferred.",
+      "source": "https://www.vrai.com/configure/setting-to-diamond/petite-4-prong-ring/round-brilliant-yellow-gold-41015509221469",
+      "action": "Confirm plain versus pav\u00e9 on the written invoice. SPEC7 now names the Petite 4-Prong, links the R28 URL and makes no price claim.",
+      "found_by": "arena/db2fe957-gold3",
+      "date": "2026-10-23"
+    },
+    {
+      "id": "F48",
+      "severity": "medium",
+      "title": "Automic Gold Coffin Ring gives two production times on the same page",
+      "detail": "Pass P15 read chunk 4 of the official R23 page. The buy box says 'Production time is 1 to 5 business days'; Shipping & Returns in Details says 'This item is made to order. Production time is 1-2 weeks' and 2-3 weeks with engraving. The same page confirms the stored $1,910 price and 'Approximately 6.1g (gold) or 9.2g (platinum)'.",
+      "evidence": "Buy box '1 to 5 business days'; Details '1-2 weeks'; engraved '2-3 weeks' on one official page.",
+      "source": "https://www.automicgold.com/products/coffin-ring",
+      "action": "Use the longer lead time and confirm the current made-to-order/engraving timeline in writing. R23 now carries SPEC5.",
+      "found_by": "arena/db2fe957-gold3",
+      "date": "2026-10-23"
+    },
+    {
+      "id": "F49",
+      "severity": "low",
+      "title": "A calculator preset label did not match the sourced ring, and band ratios were hardcoded",
+      "detail": "The extended calculator labelled the BND-06 preset 'Ross-Simons 6mm 14K Flat', while the official BND-06 product is 'Italian 14kt Yellow Gold Diamond-Cut Dome Ring' with a 3/4-inch width. Preset names, weights, prices and ratios were literals in the template, so they could drift from the verified rows. P15 derives all four real presets and the displayed ratio range from bands-and-high-karat.json; the two simulated controls remain explicitly labelled as simulations.",
+      "evidence": "Official BND-06 page: 'Italian 14kt Yellow Gold Diamond-Cut Dome Ring', Width 3/4 inch, Gold Weight 4.0 grams, $1,195.",
+      "source": "https://www.ross-simons.com/products/823796",
+      "action": "Use the source-linked product table for the exact item. The calculator now takes the real product name, weight, price and ratio from JSON.",
+      "found_by": "arena/db2fe957-gold3",
+      "date": "2026-10-23"
     }
   ]
 }

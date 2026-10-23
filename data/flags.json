@@ -397,11 +397,12 @@
       "id": "SPEC5",
       "severity": "medium",
       "label": "Automic lead time contradicts itself on one page",
-      "what": "Automic Gold product pages (including R22 Radiant Cathedral and R25 Gemstone Flower) print 'Production time is 4-8 business days' in the buy box and 'Production time is 1-2 weeks' (or '2-3 weeks' with engraving) in Shipping & Returns lower down on the exact same page.",
+      "what": "Automic Gold product pages print conflicting production times on the same page. R22 Radiant Cathedral and R25 Gemstone Flower print 'Production time is 4-8 business days' in the buy box and 'Production time is 1-2 weeks' in Shipping & Returns. R23 Coffin Ring prints 'Production time is 1 to 5 business days' in the buy box and 'This item is made to order. Production time is 1-2 weeks' in Shipping & Returns (2-3 weeks with engraving).",
       "why_it_matters": "A buyer choosing between 'in 8 days' and 'in 2 weeks (5 weeks engraved)' cannot plan. When one page gives two lead times, the longer one is the safe assumption.",
       "action": "Confirm the current lead time in writing before ordering, especially for an engraved or made-to-order piece.",
       "source": "https://www.automicgold.com/products/radiant-cut-lab-diamond-cathedral-ring",
-      "first_seen": "2026-10-23"
+      "first_seen": "2026-10-23",
+      "p15_reconfirmed": "2026-10-23: R23 contradiction added from chunk 4 of the official Coffin Ring page."
     },
     {
       "id": "SRC1",
@@ -476,11 +477,12 @@
       "id": "SPEC7",
       "severity": "medium",
       "label": "Selected band style contradicts published pav\u00e9 carat weight on same page",
-      "what": "On VRAI's Signature 6-Prong Solitaire page (R28), the active configuration reads 'Band: Plain' ($1,460), yet the Details block on the exact same page prints 'Pav\u00e9 carat weight: 0.11ctw'.",
-      "why_it_matters": "Shared template specs on configurable ring pages make it unclear whether you are paying $1,460 for a plain shank or a diamond-set shank \u2014 affecting both stone count and resizing limits.",
+      "what": "On VRAI's Petite 4-Prong Solitaire page (R28), the active configuration reads 'Band: Plain band', yet the Setting Details block on the exact same page prints 'Pav\u00e9 carat weight: 0.11ctw'.",
+      "why_it_matters": "Shared template specs on configurable ring pages make it unclear whether the selected plain shank is supposed to carry pav\u00e9 melee, affecting the written order specification and potentially resizing. R28's price remains blank because no price was shown in the static page text; no price is asserted here.",
       "action": "Confirm exact SKU specifications (plain shank vs pav\u00e9 melee carat weight) on the written order invoice before paying.",
-      "source": "https://www.vrai.com/engagement-rings/signature-6-prong/round-brilliant-yellow-gold-41046738731101",
-      "first_seen": "2026-10-23"
+      "source": "https://www.vrai.com/configure/setting-to-diamond/petite-4-prong-ring/round-brilliant-yellow-gold-41015509221469",
+      "first_seen": "2026-10-23",
+      "p15_correction": "2026-10-23: corrected the ring name from Signature 6-Prong to Petite 4-Prong, removed an unrelated $1,460 figure and repointed the source to the R28 page actually read."
     },
     {
       "id": "SPEC8",

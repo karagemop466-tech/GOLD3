@@ -1,11 +1,11 @@
 {
   "metadata": {
-    "project": "GOLD3 — Solid Gold Engagement Ring Verification & Anti-Hallucination Dashboard",
+    "project": "GOLD3 \u2014 Solid Gold Engagement Ring Verification & Anti-Hallucination Dashboard",
     "verified_date_utc": "2026-10-23T10:00:00Z",
     "session_id": "arena/15b00e99-gold3",
     "zero_hallucination_policy": "Strictly enforced. Every numeric rate, legal threshold, conversion constant, price, and weight is extracted verbatim from an official primary source retrieved on 2026-10-23 or an official government/standards statute. Unconfirmed or JS-gated product values are left null and flagged.",
-    "reverified_by_session": "arena/6ccbc523-gold3 · arena/2908bea4-gold3 · arena/15b00e99-gold3",
-    "reverified_date_utc": "2026-10-23T10:34:00Z"
+    "reverified_by_session": "arena/6ccbc523-gold3 \u00b7 arena/2908bea4-gold3 \u00b7 arena/15b00e99-gold3 \u00b7 arena/db2fe957-gold3",
+    "reverified_date_utc": "2026-10-23T20:44:00Z"
   },
   "spot_gold_benchmark": {
     "primary_source_name": "Kitco Live World Spot Price (USD)",
@@ -51,14 +51,20 @@
     "avoirdupois_ounce_to_grams": 28.349523125,
     "official_sources": [
       {
-        "title": "NIST Office of Weights and Measures — Conversion Factors for Precious Metal Sales (Handbook 130 § 2.17)",
-        "url": "https://www.nist.gov/pml/owm/metric-si/unit-conversion/precious-metals-conversion-information"
+        "title": "NIST Special Publication 811, Appendix B.9 - Factors for Units Listed by Kind of Quantity (Mass)",
+        "url": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9",
+        "what_it_actually_prints": "ounce (troy or apothecary) (oz) -> gram (g) | 3.110 348 | E+01 ; grain (gr) -> kilogram (kg) | 6.479 891 | E-05 (boldface/exact)",
+        "supports": "troy_ounce_to_grams via exactly 480 grains/troy oz x 0.06479891 g/grain = 31.1034768 g"
       },
       {
-        "title": "NIST Special Publication 811, Appendix B.9 — Factors for Units Listed by Kind of Quantity (Mass)",
-        "url": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9"
+        "title": "NIST Office of Weights and Measures - Precious Metals Conversion Information (Handbook 130 sec. 2.17)",
+        "url": "https://www.nist.gov/pml/owm/metric-si/unit-conversion/precious-metals-conversion-information",
+        "what_it_actually_prints": "Definitions and method-of-sale requirements in Handbook 130 sec. 2.17; the numeric conversion chart is a linked PDF. No troy-ounce-to-gram figure appears in the page body.",
+        "supports": "Method-of-sale context only; not the source of the full-precision constant."
       }
-    ]
+    ],
+    "derivation": "NIST SP 811 Appendix B.9 (\"Mass and Moment of Inertia\") prints \"ounce (troy or apothecary) (oz) -> gram (g) = 3.110 348 E+01\", i.e. 31.10348 g to six significant figures, and prints \"grain (gr) -> kilogram (kg) = 6.479 891 E-05\" in BOLDFACE, which that page defines as an exact factor. 1 troy ounce = 480 grains exactly, so 480 x 0.06479891 g = 31.1034768 g exactly. The full-precision figure is therefore NIST-derived, not a digit-for-digit quotation from the NIST precious-metals page.",
+    "attribution_correction_p15": "Pass P15 (arena/db2fe957-gold3, 2026-10-23) corrected an overstatement in data/reverification-c-6ccbc523.json, which said the NIST Precious Metals Conversion Information page \"explicitly confirms 1 oz t = 31.1034768 g\". That page returns HTTP 200 and reproduces NIST Handbook 130 sec. 2.17 plus a link to a conversion PDF, but prints no troy-ounce-to-gram figure. The peer historical evidence file was not overwritten; the correct source and derivation are recorded here and in finding F46."
   },
   "karat_purity_reference": [
     {
@@ -70,7 +76,7 @@
       "usd_per_gram_at_spot": 129.33,
       "usd_per_troy_oz_at_spot": 4022.7,
       "legal_status_us_uk": "Legal finest grade in US (FTC 16 CFR Part 23) & UK (Hallmarking Act 1973 Schedule 2 mark 999)",
-      "ring_suitability_note": "Pure gold; zero base alloy tarnish; softer micro-hardness—requires thicker shank (>= 2.0 mm / >= 4–6 g) for daily engagement wear.",
+      "ring_suitability_note": "Pure gold; zero base alloy tarnish; softer micro-hardness\u2014requires thicker shank (>= 2.0 mm / >= 4\u20136 g) for daily engagement wear.",
       "source_url": "https://www.legislation.gov.uk/ukpga/1973/43"
     },
     {
@@ -93,7 +99,7 @@
       "pure_gold_pct": 75.0,
       "usd_per_gram_at_spot": 97.0,
       "usd_per_troy_oz_at_spot": 3017.03,
-      "legal_status_us_uk": "Fine luxury standard worldwide (750 parts per 1,000; US 15 U.S.C. § 295 & UK mark 750)",
+      "legal_status_us_uk": "Fine luxury standard worldwide (750 parts per 1,000; US 15 U.S.C. \u00a7 295 & UK mark 750)",
       "ring_suitability_note": "High intrinsic gold content with rich color and low alloy allergy risk; top choice for fine engagement solitaires.",
       "source_url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title15/html/USCODE-2023-title15-chap8.htm"
     },
@@ -117,7 +123,7 @@
       "pure_gold_pct": 58.33,
       "usd_per_gram_at_spot": 75.44,
       "usd_per_troy_oz_at_spot": 2346.57,
-      "legal_status_us_uk": "Most common US engagement ring alloy; 15 U.S.C. § 295 allows max 0.003 unsoldered / 0.007 soldered tolerance.",
+      "legal_status_us_uk": "Most common US engagement ring alloy; 15 U.S.C. \u00a7 295 allows max 0.003 unsoldered / 0.007 soldered tolerance.",
       "ring_suitability_note": "Strongest balance of daily scratch/prong durability and substantial gold content (58.33% fine gold).",
       "source_url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title15/html/USCODE-2023-title15-chap8.htm"
     },
@@ -129,7 +135,7 @@
       "pure_gold_pct": 41.67,
       "usd_per_gram_at_spot": 53.89,
       "usd_per_troy_oz_at_spot": 1676.13,
-      "legal_status_us_uk": "Minimum legal karat threshold to be called 'Karat Gold' in the United States without qualification (16 CFR § 23.3, up to date as of 10/21/2026).",
+      "legal_status_us_uk": "Minimum legal karat threshold to be called 'Karat Gold' in the United States without qualification (16 CFR \u00a7 23.3, up to date as of 10/21/2026).",
       "ring_suitability_note": "Contains 58.33% base alloy metals; harder and pale yellow, lower intrinsic gold value and higher potential skin sensitivity.",
       "source_url": "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23/section-23.3"
     },
@@ -141,7 +147,7 @@
       "pure_gold_pct": 37.5,
       "usd_per_gram_at_spot": 48.5,
       "usd_per_troy_oz_at_spot": 1508.51,
-      "legal_status_us_uk": "Legal minimum in UK (375 fineness under Hallmarking Act 1973), but CANNOT be marketed simply as 'Gold' in US without percentage disclosure (16 CFR § 23.3).",
+      "legal_status_us_uk": "Legal minimum in UK (375 fineness under Hallmarking Act 1973), but CANNOT be marketed simply as 'Gold' in US without percentage disclosure (16 CFR \u00a7 23.3).",
       "ring_suitability_note": "Buyer warning for US shoppers importing UK/Australian rings: contains only 37.5% pure gold.",
       "source_url": "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23/section-23.3"
     }
@@ -149,18 +155,18 @@
   "regulatory_and_testing_standards": [
     {
       "id": "STD-01",
-      "category": "U.S. Federal Statute — Mandatory Maker's Mark",
-      "title": "National Gold and Silver Marking Act (15 U.S.C. Chapter 8, §§ 291–300)",
-      "key_rule": "Under 15 U.S.C. § 297(b), any article bearing a quality mark (such as 10K, 14K, 18K, 585, or 750) MUST also bear the registered U.S. trademark or legal name of the manufacturer/importer in lettering at least as large as and positioned as close as possible to the quality mark. Under 15 U.S.C. § 295, assay deviation cannot exceed 3 parts per 1,000 (unsoldered) or 7 parts per 1,000 (soldered).",
+      "category": "U.S. Federal Statute \u2014 Mandatory Maker's Mark",
+      "title": "National Gold and Silver Marking Act (15 U.S.C. Chapter 8, \u00a7\u00a7 291\u2013300)",
+      "key_rule": "Under 15 U.S.C. \u00a7 297(b), any article bearing a quality mark (such as 10K, 14K, 18K, 585, or 750) MUST also bear the registered U.S. trademark or legal name of the manufacturer/importer in lettering at least as large as and positioned as close as possible to the quality mark. Under 15 U.S.C. \u00a7 295, assay deviation cannot exceed 3 parts per 1,000 (unsoldered) or 7 parts per 1,000 (soldered).",
       "checklist_relevance": "Directly backs Checklist Item #3: a standalone '14K' or '18K' stamp with NO maker's mark violates federal marking requirements and is a major counterfeit indicator. (Repointed 2026-10-23 from uscode.house.gov HTTP 500 to official GovInfo U.S. Code.)",
       "official_url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title15/html/USCODE-2023-title15-chap8.htm"
     },
     {
       "id": "STD-02",
-      "category": "U.S. FTC Jewelry Guides — Solid Gold, Vermeil & Quality Marks",
-      "title": "FTC Guides for the Jewelry, Precious Metals, and Pewter Industries (16 CFR §§ 23.3, 23.4 & 23.10)",
-      "key_rule": "Under 16 CFR § 23.3 & § 23.4 (eCFR current as of 10/21/2026): Unqualified 'Karat Gold' must be composed throughout of at least 10K gold. 'Gold Plated' / 'Gold Electroplated' requires >= 0.175 microns (electrolytic) or >= 0.5 microns; 'Heavy Gold Electroplate' requires >= 2.5 microns; 'Vermeil' (§ 23.4) is sterling silver plated with >= 2.5 microns (100 millionths of an inch) of >=10K gold; Note to § 23.10 incorporates the 15 U.S.C. § 297 trademark rule whenever any quality mark is stamped.",
-      "checklist_relevance": "Directly backs Checklist Items #1, #2 & #3: reject listings described as plated, vermeil, gold-filled, gold overlay, rolled gold, PVD, or gold-tone, and verify § 23.10 trademark accompaniment.",
+      "category": "U.S. FTC Jewelry Guides \u2014 Solid Gold, Vermeil & Quality Marks",
+      "title": "FTC Guides for the Jewelry, Precious Metals, and Pewter Industries (16 CFR \u00a7\u00a7 23.3, 23.4 & 23.10)",
+      "key_rule": "Under 16 CFR \u00a7 23.3 & \u00a7 23.4 (eCFR current as of 10/21/2026): Unqualified 'Karat Gold' must be composed throughout of at least 10K gold. 'Gold Plated' / 'Gold Electroplated' requires >= 0.175 microns (electrolytic) or >= 0.5 microns; 'Heavy Gold Electroplate' requires >= 2.5 microns; 'Vermeil' (\u00a7 23.4) is sterling silver plated with >= 2.5 microns (100 millionths of an inch) of >=10K gold; Note to \u00a7 23.10 incorporates the 15 U.S.C. \u00a7 297 trademark rule whenever any quality mark is stamped.",
+      "checklist_relevance": "Directly backs Checklist Items #1, #2 & #3: reject listings described as plated, vermeil, gold-filled, gold overlay, rolled gold, PVD, or gold-tone, and verify \u00a7 23.10 trademark accompaniment.",
       "official_url": "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23/section-23.10"
     },
     {
@@ -181,9 +187,9 @@
     },
     {
       "id": "STD-05",
-      "category": "Counterfeit Deception Alert — Heavy Gold-Plated Low-Karat / Electroformed Cores",
+      "category": "Counterfeit Deception Alert \u2014 Heavy Gold-Plated Low-Karat / Electroformed Cores",
       "title": "GIA Carlsbad Lab Notes (Summer 2025 'Gold-Plated Gold' & Spring 2024 'Electroformed Gold')",
-      "key_rule": "GIA laboratories documented deceptive pieces in 2024–2025 where 10K gold coated with heavy pure gold plating read falsely as 14K or 18K on surface XRF, and electroformed wax/resin cores with ~200-micron gold shells passed surface XRF alone.",
+      "key_rule": "GIA laboratories documented deceptive pieces in 2024\u20132025 where 10K gold coated with heavy pure gold plating read falsely as 14K or 18K on surface XRF, and electroformed wax/resin cores with ~200-micron gold shells passed surface XRF alone.",
       "checklist_relevance": "Proves why buyers should ask the independent jeweler for BOTH XRF testing AND calibrated gram weight + specific gravity / microscopic seam inspection. (URL corrected 2026-10-23 to remove trailing '0' 404 typo.)",
       "official_url": "https://www.gia.edu/gems-gemology/summer-2025-lab-notes-gold-plated-gold"
     },
@@ -191,7 +197,7 @@
       "id": "STD-06",
       "category": "Bench Acid Comparison Testing",
       "title": "GIA Bench Tip #9: Touchstone Nitric Acid & Aqua Regia Testing",
-      "key_rule": "Compares metal streak against calibrated 10K, 14K, 18K, and 22K test needles using nitric acid (<=14K) and aqua regia (18K+). Leaves a slight rub mark if taken directly on the shank—never allow scraping without consent before your return window closes.",
+      "key_rule": "Compares metal streak against calibrated 10K, 14K, 18K, and 22K test needles using nitric acid (<=14K) and aqua regia (18K+). Leaves a slight rub mark if taken directly on the shank\u2014never allow scraping without consent before your return window closes.",
       "checklist_relevance": "Explains why non-destructive XRF + specific gravity is strictly preferred while a ring is still inside its return window.",
       "official_url": "https://www.gia.edu/bench-tip-use-the-touchstone-method-for-testing-purity-karat-gold"
     }

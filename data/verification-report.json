@@ -651,6 +651,26 @@
       "id": "F45",
       "severity": "low",
       "title": "The live spot reading is corroborated by four feeds to 0.026% — and is published, not used"
+    },
+    {
+      "id": "F46",
+      "severity": "medium",
+      "title": "A prior verification record credits a NIST page with a conversion figure it does not print"
+    },
+    {
+      "id": "F47",
+      "severity": "medium",
+      "title": "VRAI contradiction flag named the wrong ring and carried an unrelated price"
+    },
+    {
+      "id": "F48",
+      "severity": "medium",
+      "title": "Automic Gold Coffin Ring gives two production times on the same page"
+    },
+    {
+      "id": "F49",
+      "severity": "low",
+      "title": "A calculator preset label did not match the sourced ring, and band ratios were hardcoded"
     }
   ],
   "parallel_dataset": {

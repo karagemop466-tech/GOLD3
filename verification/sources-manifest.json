@@ -1,9 +1,9 @@
 {
-  "generated_at_utc": "2026-10-23T20:36:50Z",
+  "generated_at_utc": "2026-10-23T20:47:24Z",
   "data_file_sha256": {
     "bands-and-high-karat.json": "8061e893bb6b94c3886cb8d5dca41ed8260f75506ca140e5f06440fd27d3a99e",
-    "findings.json": "9b34bf49d43c58c4d6e9b975faedbc3a67d9271b868395bf5ed45f8f86293d91",
-    "flags.json": "36f7e0a0f1672b7dc84bf4165f3bb43c73e716a7ea7d05a0d3d204ecc8dc5c0b",
+    "findings.json": "b4b45c599b0f81c8dee2d278621176b29c30e8b0fb1c3c60b5d5358fd87ee834",
+    "flags.json": "4b2174a3d2dc67b580a56ee12cc4ce30e8ba0c34035163fa9106252fd23a0bed",
     "gold-price.json": "bdb3a741c6696f56ec713c090706cb98fefb53901fe284dfe105308a7d6a7e08",
     "prices.json": "accd2ecb513d2ea1a956d762eb2119b722e8fe6cf15dd42dff4df227e980262f",
     "products.json": "b710535c3310aded606c436d9207276ac91c399d879522aa4861c7c751ef7194",
@@ -15,21 +15,22 @@
     "reverification-c-6ccbc523.json": "52f4a6d610762be546e45e94fd1ffe2f17f201d16215625264fe45c84acc78f2",
     "reverification-dataset-c.json": "2f35e1bb80f76cbc360f51dc2fec996c407f96fdd192b6386f33ad5cf4635e5c",
     "reverification-fb7e5e3c.json": "5b0dfdc516c0cd958d8d600ae85a28d7ad46e73aa743335110b4d1e60f3c792a",
+    "reverification-p15.json": "ed96531e5576f223a77187091275b945ca35c9c5e1dbb9429d97b7973cbc7b6e",
     "reverification-p3.json": "b1dca1669099d66e45b08588f8827b24f59edd65e4f4b4a806ef2a02987b5d16",
     "reverification-p4.json": "2e5ce8fdff92d04a3e1570960caf0bb1daafc91b2d76209a97a0fb94635e801a",
     "reverification-p5.json": "1c5ba33b93efdaa14d423fff0be8ca20622f4436d900bc6208ee44e64158bdda",
     "reverification-p6.json": "dee30027715ce1f89f414ab0bff0140b3684ba009e6b7f1fa3fc3f7322a7b62e",
-    "rings.json": "0d68ca150089fc6ed7a93f54f8f2a901197f3ec6c8d98bf6bca8d56e132529da",
+    "rings.json": "043e4eda28bfe50e5ea02dc3dde189acf1413edba23138a3cc1bdb419fa3cb5a",
     "sellers-policies.json": "6f2edb268c1efd391f4c98102d164665d40d1b2f56cc18702c4492bad6b8cd36",
     "sellers.json": "4d1bd09620f904e833139fa16f7be571e87ade0115df1826472447e324bc033f",
     "solitaire-rings.json": "b14736e9308d559ca542081e0b9dda7b325588b6558486aa288d27753ef5b8d8",
     "sources.json": "781ec94c3f29585fd04a767eaca00917662d166ee4fa292fdc75d8ee869e93f4",
-    "spot-and-standards.json": "fb7febce8b15501221a57f89e4f244635d645ac122963315373bc0137f39a171",
+    "spot-and-standards.json": "b2b4203069b283be7a36228bf776aed7bda1e673435d1e2488c83e3fd890e03b",
     "standards.json": "6b745302667c70fb15800fb830471250551a37e238e507a8b993f8e3c4423ad8",
-    "verification-report.json": "fa4c894dbeb8aab73c67eff67f3972d365cfa2481393c58aba70147020b0db89",
-    "verification.json": "9e06c9372907cb4992f0a9b800ddd299ff53c2f54dfa666999f93f729c7709aa"
+    "verification-report.json": "0de22388378499d135decf8f5666dd0e3e4ef1976e132908ec4d78df945ab0dd",
+    "verification.json": "cfa4ace7ab700cc23f0448ecb9103204a17de0bfeb717a33a43cfd19505ee4b6"
   },
-  "unique_official_urls_count": 180,
+  "unique_official_urls_count": 181,
   "official_sources": [
     {
       "url": "https://auratenewyork.com/",
@@ -544,6 +545,7 @@
         "HTML Link in 14k.html",
         "HTML Link in analysis.html",
         "HTML Link in combined.html",
+        "HTML Link in flagged.html",
         "HTML Link in verify.html"
       ]
     },
@@ -1087,6 +1089,12 @@
       ]
     },
     {
+      "url": "https://www.kitco.com/price/precious-metals/gold",
+      "referenced_by": [
+        "HTML Link in verify.html"
+      ]
+    },
+    {
       "url": "https://www.law.cornell.edu/uscode/text/15/294",
       "referenced_by": [
         "HTML Link in sources.html"
@@ -1153,7 +1161,8 @@
       "url": "https://www.nist.gov/pml/owm/metric-si/unit-conversion/precious-metals-conversion-information",
       "referenced_by": [
         "HTML Link in checklist-standards.html",
-        "NIST Constant (NIST Office of Weights and Measures \u2014 Conversion Factors for Precious Metal Sales (Handbook 130 \u00a7 2.17))"
+        "HTML Link in verify.html",
+        "NIST Constant (NIST Office of Weights and Measures - Precious Metals Conversion Information (Handbook 130 sec. 2.17))"
       ]
     },
     {
@@ -1165,7 +1174,9 @@
     {
       "url": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9",
       "referenced_by": [
-        "NIST Constant (NIST Special Publication 811, Appendix B.9 \u2014 Factors for Units Listed by Kind of Quantity (Mass))"
+        "HTML Link in flagged.html",
+        "HTML Link in verify.html",
+        "NIST Constant (NIST Special Publication 811, Appendix B.9 - Factors for Units Listed by Kind of Quantity (Mass))"
       ]
     },
     {
@@ -1251,6 +1262,8 @@
         "HTML Link in bands-vintage-rings.html",
         "HTML Link in combined.html",
         "HTML Link in flagged-for-review.html",
+        "HTML Link in flagged.html",
+        "HTML Link in verify.html",
         "Ring BND-06 Product Page"
       ]
     },
@@ -1270,6 +1283,7 @@
         "HTML Link in bands-vintage-rings.html",
         "HTML Link in combined.html",
         "HTML Link in flagged-for-review.html",
+        "HTML Link in verify.html",
         "Ring BND-07 Product Page"
       ]
     },
@@ -1300,6 +1314,7 @@
         "HTML Link in bands-vintage-rings.html",
         "HTML Link in combined.html",
         "HTML Link in flagged-for-review.html",
+        "HTML Link in verify.html",
         "Ring BND-08 Product Page"
       ]
     },
@@ -1467,6 +1482,7 @@
         "HTML Link in 18k.html",
         "HTML Link in analysis.html",
         "HTML Link in combined.html",
+        "HTML Link in flagged.html",
         "HTML Link in verify.html"
       ]
     },
@@ -1486,7 +1502,6 @@
     {
       "url": "https://www.vrai.com/engagement-rings/signature-6-prong/round-brilliant-yellow-gold-41046738731101",
       "referenced_by": [
-        "HTML Link in flagged.html",
         "HTML Link in verify.html"
       ]
     },
