@@ -33,8 +33,8 @@
 </div>
 
 <div class="grid cols-3" style="margin-bottom:20px">
-  <div class="kpi"><div class="label">Editorial findings</div><div class="value">12</div><div class="sub">3 high severity</div></div>
-  <div class="kpi"><div class="label">Listing-level flags</div><div class="value">77</div><div class="sub">across 19 listings</div></div>
+  <div class="kpi"><div class="label">Editorial findings</div><div class="value">23</div><div class="sub">8 high severity</div></div>
+  <div class="kpi"><div class="label">Listing-level flags</div><div class="value">80</div><div class="sub">across 19 listings</div></div>
   <div class="kpi"><div class="label">Unverified cells</div><div class="value">0 guesses</div><div class="sub">blank is used instead</div></div>
 </div>
 
@@ -72,6 +72,61 @@
           <p class="small"><strong>Source:</strong> <a href="https://www.law.cornell.edu/uscode/text/15/297" target="_blank" rel="noopener">https://www.law.cornell.edu/uscode/text/15/297</a></p>
           
           <p class="action"><strong>What to do:</strong> Before paying, ask for a close-up photograph of the inside of the band showing both the karat stamp and the maker&#x27;s mark, and have the ring XRF-tested or inspected on arrival.</p>
+        </div>
+        <div class="card finding high" id="F13">
+          <div class="finding-head">
+            <h3>F13 · Aurate&#x27;s $2,858 solitaire is &quot;Exchange for size only. Final Sale!&quot; on a page that also shows a &quot;Free Returns&quot; badge</h3>
+            <span class="badge bad">HIGH</span>
+          </div>
+          <p class="small">The live product page for the 2ct Round Lab Grown Diamond Solitaire Ring carries two notices — &quot;Exchange for size only. Final Sale!&quot; and &quot;Exchange only! Return &amp; cancellation policy.&quot; — both linking to Aurate&#x27;s terms-conditions-exchange-only page. The same page displays a &quot;Free Returns&quot; service badge and &quot;Lifetime Warranty&quot;, and Aurate&#x27;s retailer record already notes that items marked &#x27;exchange only&#x27; cannot be refunded. The listing-level notice is the one that governs this ring, and it removes the refund right entirely.</p>
+          <div class="evidence">&quot;Exchange for size only.&quot; · &quot;Final Sale!&quot; · &quot;Exchange only! Return &amp; cancellation policy.&quot; · same page: &quot;Free Returns&quot; badge · price on the same page &quot;$2,858&quot; for &quot;Rate - 14k GOLD&quot;, &quot;Color - Yellow&quot;, &quot;Size - 7&quot;, &quot;In Stock • Ready to Ship&quot;</div>
+          <p class="small"><strong>Source:</strong> <a href="https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring</a></p>
+          <p class="small"><a href="rings.html#p-aurate-2ct-round-lgd-solitaire">See the listing in the table &rarr;</a></p>
+          <p class="action"><strong>What to do:</strong> Treat this listing as non-refundable until Aurate confirms otherwise in writing. Under the buying checklist this is a walk-away candidate: no refund means no exit if the independent inspection or XRF test on arrival fails. If you still buy it, pay by credit card so the issuer&#x27;s dispute route remains open, and inspect before any resizing.</p>
+        </div>
+        <div class="card finding high" id="F15">
+          <div class="finding-head">
+            <h3>F15 · A 3% fee belonging to Wilson&#x27;s had been attached to Sarraf in the flag legend</h3>
+            <span class="badge bad">HIGH</span>
+          </div>
+          <p class="small">Flag RET7 read: &quot;A cancelled order is charged a 3% card-processing fee (Wilson&#x27;s terms state the same fee structure).&quot; Sarraf&#x27;s return policy was re-read end to end on the live page and contains no such fee. The 3% charge is Wilson&#x27;s, verbatim: &quot;Please note that orders cancelled prior to shipment will not be refunded for credit card processing fees incurred at the rate of 3%.&quot; The fees Sarraf actually publishes are a $25.00 non-refundable engraving fee and, for warranty repair or replacement, &quot;a Shipping and handling fee of $100.00 or 10% of purchase price which ever amount is greater&quot;. RET7 has been rewritten to Sarraf&#x27;s own words and the transplant recorded here.</p>
+          <div class="evidence">Sarraf: &quot;Engraving and shipping Charges are nonrefundable&quot; · &quot;the $25.00 engraving fee is non-refundable&quot; · &quot;$100.00 or 10% of purchase price which ever amount is greater&quot; · no 3% fee anywhere in the policy. Wilson&#x27;s: &quot;credit card processing fees incurred at the rate of 3%&quot; (stated twice, for domestic and international orders).</div>
+          <p class="small"><strong>Source:</strong> <a href="https://www.sarraf.com/products/14k-white-gold-solitaire-ring-0-94-ctw.html" target="_blank" rel="noopener">https://www.sarraf.com/products/14k-white-gold-solitaire-ring-0-94-ctw.html</a></p>
+          
+          <p class="action"><strong>What to do:</strong> None outstanding — corrected. This is logged because it is a live example of cross-seller contamination: a true fact about one seller reused as a fact about another. The hunt that found it was reading a policy page to the end instead of trusting a summary of it.</p>
+        </div>
+        <div class="card finding high" id="F19">
+          <div class="finding-head">
+            <h3>F19 · Sarraf&#x27;s recorded e-mail address was wrong and its cited policy page returns 404</h3>
+            <span class="badge bad">HIGH</span>
+          </div>
+          <p class="small">data/sellers.json listed Sarraf&#x27;s e-mail as info@sarraf.com with contact_source https://www.sarraf.com/pages/contact-us.html. That page (which redirects to https://www.sarraf.com/contact-us/) publishes no e-mail address at all - only a contact form, two phone numbers and business hours - so the recorded address was unsupported by its own citation. Sarraf&#x27;s official About page prints &#x27;E-mail: service@sarraf.com&#x27;, and the returns policy page requires wholesale return requests to go to the same address. Separately, the policy_source recorded for this seller, https://www.sarraf.com/pages/returns-and-refunds.html, returns &#x27;404 Error - Page not found&#x27; with the page title &#x27;Sarraf - Not Found&#x27;; the live policy page is https://www.sarraf.com/30-day-returns-and-exchange-policy/, reached from Sarraf&#x27;s own policy index. Both values were corrected on 2026-10-23 and the dead-link class of defect recorded as flag SRC1.</p>
+          <div class="evidence">About page verbatim: &#x27;Phone: (888) 4-SARRAF ( 888-472-7723)  FAX: (213) 627-5212  E-mail: service@sarraf.com&#x27;. Returns page verbatim: &#x27;All return require prior authorization. You must submit your request for return to service@sarraf.com&#x27;. Dead URL response verbatim: &#x27;404 Error - Page not found ... Uh oh, looks like the page you are looking for has moved or no longer exists.&#x27;</div>
+          <p class="small"><strong>Source:</strong> <a href="https://www.sarraf.com/about-sarraf/" target="_blank" rel="noopener">https://www.sarraf.com/about-sarraf/</a></p>
+          
+          <p class="action"><strong>What to do:</strong> Corrected in data/sellers.json: email service@sarraf.com, contact_source the About page, policy_source the live returns page. Any buyer contacting Sarraf should use service@sarraf.com.</p>
+        </div>
+        <div class="card finding high" id="F20">
+          <div class="finding-head">
+            <h3>F20 · Automic Gold&#x27;s cited return-policy URL returns 404, so its resize claim had no source</h3>
+            <span class="badge bad">HIGH</span>
+          </div>
+          <p class="small">data/sellers.json cited https://www.automicgold.com/pages/return-policy as Automic&#x27;s policy_source. Fetched on 2026-10-23 it returns &#x27;404 Not Found - Automic Gold&#x27;. The live page is https://www.automicgold.com/policies/refund-policy, and it does confirm the recorded window verbatim: &#x27;Automic Gold offers free returns within 30 days of the delivery date for customers who reside in the U.S. You will be provided with one prepaid shipping label per order. For additional returns and exchanges, shipping fees may apply.&#x27; The resize_policy value resting on the dead URL (&#x27;Custom-altered or resized rings beyond standard stock are final sale&#x27;) could not be re-sourced, because the live page&#x27;s resizing clause was not captured verbatim in this pass; it has been set to null with a note rather than carried forward unsourced.</p>
+          <div class="evidence">Live page verbatim: &#x27;Automic Gold offers free returns within 30 days of the delivery date for customers who reside in the U.S. You will be provided with one prepaid shipping label per order.&#x27; Free-label portal verbatim: &#x27;Click the link for your free return label: https://automic.aftership.com. AfterShip is available for U.S residents only.&#x27; Dead URL response: page title &#x27;404 Not Found - Automic Gold&#x27;.</div>
+          <p class="small"><strong>Source:</strong> <a href="https://www.automicgold.com/policies/refund-policy" target="_blank" rel="noopener">https://www.automicgold.com/policies/refund-policy</a></p>
+          
+          <p class="action"><strong>What to do:</strong> policy_source repointed to the live refund-policy page; resize_policy blanked with a note so the owning session can restore it with a verbatim quote. Recorded as flag SRC1.</p>
+        </div>
+        <div class="card finding high" id="F22">
+          <div class="finding-head">
+            <h3>F22 · Two official Sarraf pages contradict each other on whether engraved rings can be returned</h3>
+            <span class="badge bad">HIGH</span>
+          </div>
+          <p class="small">Sarraf&#x27;s About page describes the 30-day policy as covering &#x27;any non-engraved items still in new condition and we&#x27;ll give you a full refund within the first 30 days. No questions asked.&#x27; The returns policy page says the opposite for engraved rings: &#x27;Any ring where personal engraving was added or a special finish may be returned, exchanged, or resized where possible (with the exception of special orders); however, the $25.00 engraving fee or $50.00 finsh charges are non-refundable.&#x27; One page excludes engraved items outright, the other accepts them with non-refundable fees. data/sellers.json had previously recorded the stricter reading as a flat exclusion (&#x27;Custom-sized, special-order, or engraved items do not qualify&#x27;), which is not what either page says on its own. Where two official pages conflict, a buyer should assume the stricter one applies until the seller confirms otherwise in writing.</p>
+          <div class="evidence">About page verbatim: &#x27;30-Day Return Policy - Return any non-engraved items still in new condition and we&#x27;ll give you a full refund within the first 30 days. No questions asked.&#x27; Returns page verbatim: &#x27;CAN I RETURN OR RESIZE AN ENGRAVED RING? Any ring where personal engraving was added or a special finish may be returned, exchanged, or resized where possible (with the exception of special orders); however, the $25.00 engraving fee or $50.00 finsh charges are non-refundable.&#x27;</div>
+          <p class="small"><strong>Source:</strong> <a href="https://www.sarraf.com/about-sarraf/" target="_blank" rel="noopener">https://www.sarraf.com/about-sarraf/</a></p>
+          
+          <p class="action"><strong>What to do:</strong> Recorded as flag SPEC4 with both URLs; S-SARRAF resize_policy corrected to quote both pages. Do not engrave until the return window has passed, or get written confirmation first.</p>
         </div>
         <div class="card finding medium" id="F4">
           <div class="finding-head">
@@ -139,6 +194,61 @@
           <p class="small"><a href="rings.html#p-ringconcierge-2-08-oval-lab-whisper-thin">See the listing in the table &rarr;</a></p>
           <p class="action"><strong>What to do:</strong> Ask which parts are gold and which are platinum, and get both tested.</p>
         </div>
+        <div class="card finding medium" id="F14">
+          <div class="finding-head">
+            <h3>F14 · Dataset A said &quot;no ring weight&quot; for the Aurate solitaire — the listing does publish one, as a range</h3>
+            <span class="badge warn">MEDIUM</span>
+          </div>
+          <p class="small">The record carried weight_status &quot;not published&quot; and a flag note reading &quot;No ring weight in grams on the listing&quot;. The live specs block publishes &quot;Weight: 5.5-8.5g&quot;. It is a range covering the 14k, 18k and platinum versions, so it still cannot be used as this ring&#x27;s weight — weight_g stays null and no midpoint was taken — but the claim that nothing was published was wrong and has been corrected. Recording &quot;the seller publishes nothing&quot; when the seller publishes something is the same class of error as inventing a number: it is a statement about a source that the source does not support.</p>
+          <div class="evidence">Specs block on the product page: &quot;Weight: 5.5-8.5g&quot; (with &quot;Width: 2.75mm&quot;, &quot;Thickness: 1.8mm&quot;, &quot;SKU: AU5760&quot;)</div>
+          <p class="small"><strong>Source:</strong> <a href="https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring</a></p>
+          <p class="small"><a href="rings.html#p-aurate-2ct-round-lgd-solitaire">See the listing in the table &rarr;</a></p>
+          <p class="action"><strong>What to do:</strong> Ask Aurate for the gram weight of the exact variant (14k yellow gold, size 7) in writing, plus whether it is gold-only or includes the stone. Until then the price-per-gram test cannot be run on this ring, and the calculator is left with no weight rather than a guessed one.</p>
+        </div>
+        <div class="card finding medium" id="F16">
+          <div class="finding-head">
+            <h3>F16 · Automic Gold&#x27;s return window was recorded as unstated; the page states 30 days, and states its lead time three ways</h3>
+            <span class="badge warn">MEDIUM</span>
+          </div>
+          <p class="small">Dataset B&#x27;s seller record said only &quot;Free returns stated on the product page, US only&quot;. The same page&#x27;s Shipping &amp; Returns section states &quot;Returns can be made within 30 days of the delivery date. Free return shipping on US orders. Engraved items are final sale and cannot be returned.&quot; — so the window is now sourced. The page also gives its lead time twice with different numbers (&quot;Production time is 4-8 business days&quot; in the buy box; &quot;Production time is 1-2 weeks&quot;, or &quot;2-3 weeks&quot; with engraving, in the policy section), which is recorded as flag SPEC2 rather than resolved by picking one.</p>
+          <div class="evidence">&quot;Returns can be made within 30 days of the delivery date.&quot; · &quot;Free return shipping on US orders.&quot; · &quot;Engraved items are final sale and cannot be returned.&quot; · &quot;Production time is 4-8 business days&quot; vs &quot;Production time is 1-2 weeks&quot; / &quot;2-3 weeks&quot; with engraving</div>
+          <p class="small"><strong>Source:</strong> <a href="https://www.automicgold.com/products/radiant-cut-lab-diamond-cathedral-ring" target="_blank" rel="noopener">https://www.automicgold.com/products/radiant-cut-lab-diamond-cathedral-ring</a></p>
+          
+          <p class="action"><strong>What to do:</strong> Ask Automic to confirm the ship date in writing before ordering; note that the 30-day clock starts at delivery, and that adding engraving both lengthens the wait and makes the ring final sale.</p>
+        </div>
+        <div class="card finding medium" id="F17">
+          <div class="finding-head">
+            <h3>F17 · Ross-Simons and Catbird return policies were &quot;Not verified&quot; in Dataset B while Dataset A already had Catbird&#x27;s quoted</h3>
+            <span class="badge warn">MEDIUM</span>
+          </div>
+          <p class="small">The two datasets disagreed about the same retailer: data/retailers.json carried Catbird&#x27;s 20-day window, $9 fee and final-sale list verbatim from catbirdnyc.com/returns, while data/sellers.json said &quot;Not verified — no official return-policy page was captured&quot; and flagged POL1. Ross-Simons had no policy page in either dataset. Both official pages were read live in this pass; both seller records now carry sourced terms, Ross-Simons&#x27; phone (800-835-0919) and email (customerservice@ross-simons.com) and Catbird&#x27;s email (customerservice@catbirdnyc.com) are filled from their official contact pages, and POL1 now applies only to James Allen, whose product URLs redirect to Blue Nile.</p>
+          <div class="evidence">Ross-Simons: &quot;30-Day No-Risk Return Guarantee&quot; · &quot;30 days from the date you receive your order&quot; · &quot;a flat fee of $4.95 for return shipping and handling&quot; · &quot;Merchandise that has been damaged, altered, or resized by a jeweler other than Ross-Simons cannot be accepted for return.&quot; Catbird: &quot;within 20 days of the date your package was delivered&quot; · &quot;An $9 charge for return shipping will be deducted from your refund&quot; · &quot;All international sales are final.&quot;</div>
+          <p class="small"><strong>Source:</strong> <a href="https://www.ross-simons.com/pages/returns-exchanges" target="_blank" rel="noopener">https://www.ross-simons.com/pages/returns-exchanges</a></p>
+          
+          <p class="action"><strong>What to do:</strong> Closed for both sellers. The residual risk is structural: two datasets describing the same retailer can drift apart, so any future edit to a return policy should be applied to data/retailers.json and data/sellers.json together.</p>
+        </div>
+        <div class="card finding medium" id="F21">
+          <div class="finding-head">
+            <h3>F21 · Sarraf counts returns over $10,000 as &#x27;high-risk&#x27; behaviour under a three-strike policy</h3>
+            <span class="badge warn">MEDIUM</span>
+          </div>
+          <p class="small">Sarraf&#x27;s live returns policy publishes a &#x27;NOTICE OF EXCESSIVE RETURNS&#x27; defining high-risk return behaviour as &#x27;Returning 30 or more items&#x27;, &#x27;Returning purchases greater than $10K&#x27; or an &#x27;Overall return rate of 85%&#x27;. Clients who reach three strikes &#x27;will be prohibited from making any new orders&#x27;. Strikes are not assessed where the fault is Sarraf&#x27;s, for example a damaged or incorrectly listed item. A buyer returning an expensive engagement ring can therefore be counted as high-risk purely because of the item&#x27;s price. This is a seller-reputation and return-friendliness fact that the checklist&#x27;s &#x27;return policy&#x27; item should carry, and it is now recorded as flag RET13 and on the S-SARRAF record.</p>
+          <div class="evidence">Verbatim: &#x27;The Sarraf.com operates on a three strike policy for clients who exhibit high-risk return behavior. High-risk behavior is identified as: Returning 30 or more items; Returning purchases greater than $10K; Overall return rate of 85%.&#x27; and &#x27;Clients who reach three strikes will be prohibited from making any new orders.&#x27;</div>
+          <p class="small"><strong>Source:</strong> <a href="https://www.sarraf.com/30-day-returns-and-exchange-policy/" target="_blank" rel="noopener">https://www.sarraf.com/30-day-returns-and-exchange-policy/</a></p>
+          
+          <p class="action"><strong>What to do:</strong> Published as flag RET13 on the Sarraf record and on the flagged-for-review page. Treat the return right as usable but consequential: return decisively, once.</p>
+        </div>
+        <div class="card finding medium" id="F23">
+          <div class="finding-head">
+            <h3>F23 · Three Catbird values drafted in this pass did not survive contact with the live pages</h3>
+            <span class="badge warn">MEDIUM</span>
+          </div>
+          <p class="small">The same defect class this pass hunts in other sessions appeared in its own draft data. An intermediate version of the S-CB record carried hello@catbirdnyc.com as Catbird&#x27;s e-mail, &#x27;219 Bedford Avenue, Brooklyn, NY 11211&#x27; as a return address, and a final-sale list reading &#x27;pierced earrings, body jewelry, items from the Final Sale collection, gift cards&#x27;. Re-fetching both pages on 2026-10-23 showed: the contact page publishes customerservice@catbirdnyc.com for order, availability, product and shipping questions (plus two role-specific addresses that are not customer service); the returns page publishes no postal return address at all, only a Narvar return portal and in-store returns; and the actual final-sale list is &#x27;Special orders, engraved items, Forever jewelry, earrings from piercing events, home &amp; beauty items, and comestibles&#x27; - the earlier wording had been carried over from data/retailers.json rather than from Catbird&#x27;s own page. All three were corrected or blanked. The page also adds two facts a buyer needs: &#x27;Once your order is placed we are unable to cancel it or make changes&#x27;, and there is no exchange - &#x27;place a new order on line for your new size. This is currently the only way we are able to accomodate exchanges.&#x27;</p>
+          <div class="evidence">Contact page verbatim: &#x27;Order Status, Availability, Product Details or Shipping Questions - customerservice@catbirdnyc.com&#x27;. Returns page verbatim: &#x27;Special orders, engraved items, Forever jewelry, earrings from piercing events, home &amp; beauty items, and comestibles are final sale and cannot be returned.&#x27; and &#x27;An $9 charge for return shipping will be deducted from your refund.&#x27; and &#x27;All international sales are final.&#x27;</div>
+          <p class="small"><strong>Source:</strong> <a href="https://www.catbirdnyc.com/returns" target="_blank" rel="noopener">https://www.catbirdnyc.com/returns</a></p>
+          
+          <p class="action"><strong>What to do:</strong> Corrected in data/sellers.json: email set to customerservice@catbirdnyc.com, return_address set to null with a note, exclusions replaced with the page&#x27;s own list, and the no-cancellation and return-then-reorder rules added as their own fields.</p>
+        </div>
         <div class="card finding low" id="F10">
           <div class="finding-head">
             <h3>F10 · Mejuri&#x27;s dedicated returns page could not be read, so its policy is quoted from the product page</h3>
@@ -172,11 +282,22 @@
           
           <p class="action"><strong>What to do:</strong> None - this is a control check, not a problem.</p>
         </div>
+        <div class="card finding low" id="F18">
+          <div class="finding-head">
+            <h3>F18 · Third independent read of the gold spot anchor: $4,028.53/oz live against $4,026.79 and $4,024.36 on file</h3>
+            <span class="badge info">LOW</span>
+          </div>
+          <p class="small">The World Gold Council page was fetched again in this pass and read &quot;Gold Spot price USD /oz 4,028.53&quot; with &quot;Data as of 21 October, 2026&quot; and &quot;Market Data: Provided by ICE Data Services&quot; — the same publisher and the same market date as the stored snapshot of $4,024.36, +0.10% apart. Two earlier passes recorded the same live figure independently. The stored snapshots are dated captures and are deliberately NOT overwritten: the calculator must keep reproducing the numbers printed on the pages. The live reading is recorded here and in data/reverification-p3.json as corroboration.</p>
+          <div class="evidence">Live 4,028.53 USD/oz (WGC, &quot;Data as of 21 October, 2026&quot;) vs stored 4,024.36 (WGC, same market date) and 4,026.79 (GoldPrice.org, 22 Oct 2026 07:07 NY)</div>
+          <p class="small"><strong>Source:</strong> <a href="https://www.gold.org/goldhub/data/gold-prices" target="_blank" rel="noopener">https://www.gold.org/goldhub/data/gold-prices</a></p>
+          
+          <p class="action"><strong>What to do:</strong> None — control check. If a future pass refreshes the anchor, it must re-run the calculator and rebuild every page so the printed melt values stay reproducible from the data.</p>
+        </div>
 
 <h2 style="margin-top:36px">Every listing-level flag</h2>
 <p class="small">These are the machine-checked flags attached to individual rows. Collapse or expand as needed.</p>
 <details>
-  <summary>Show all 77 listing flags</summary>
+  <summary>Show all 80 listing flags</summary>
   <div class="table-wrap" style="margin-top:10px">
     <table style="min-width:900px">
       <thead><tr><th>Listing</th><th>Flag</th><th>What it means</th><th>Source</th></tr></thead>
@@ -184,22 +305,37 @@
               <td><a href="rings.html#p-aurate-2ct-round-lgd-solitaire">2ct Round Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Brand-level</span><span class="sub mono">SOLID_NOT_ON_LISTING</span></td>
               <td class="small">The listing describes a &#x27;polished 14k, 18k gold or platinum band&#x27; but does not itself use the word &#x27;solid&#x27;; that comes from Aurate&#x27;s help-centre policy.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-round-lgd-solitaire">2ct Round Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">From-price</span><span class="sub mono">PRICE_FROM_LOWEST_VARIANT</span></td>
-              <td class="small">Only the &#x27;From&#x27; price is published on the collection page; the 18k price was not captured.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td class="small">Superseded by the P3 re-read: the live page shows $2,858 against a specific in-stock variant (14k gold, yellow, size 7), so price_type is now &#x27;listed&#x27;. The 18k and platinum prices are still not captured.</td>
+              <td><a href="https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-round-lgd-solitaire">2ct Round Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">No weight</span><span class="sub mono">WEIGHT_NOT_PUBLISHED</span></td>
-              <td class="small">No ring weight in grams on the listing - ask the seller before buying.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td class="small">CORRECTED by the P3 re-read: the listing publishes &quot;Weight: 5.5-8.5g&quot;, a range spanning the 14k/18k/platinum options. No single gram figure exists for the ring a buyer receives, so weight_g stays null and nothing is estimated. Ask the seller for the weight of the exact variant in writing.</td>
+              <td><a href="https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
+            </tr><tr>
+              <td><a href="rings.html#p-aurate-2ct-round-lgd-solitaire">2ct Round Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
+              <td><span class="badge warn">Weight Range Only</span><span class="sub mono">WEIGHT_RANGE_ONLY</span></td>
+              <td class="small">The published weight is a 3.0 g-wide range (5.5-8.5g). At $4,026.79/oz the difference between the ends is more than the entire melt value of a light band, so the range cannot be used for a price-per-gram test.</td>
+              <td><a href="https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
+            </tr><tr>
+              <td><a href="rings.html#p-aurate-2ct-round-lgd-solitaire">2ct Round Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
+              <td><span class="badge warn">Exchange Only Final Sale</span><span class="sub mono">EXCHANGE_ONLY_FINAL_SALE</span></td>
+              <td class="small">The live listing carries the notices &quot;Exchange for size only. Final Sale!&quot; and &quot;Exchange only! Return &amp; cancellation policy.&quot;, both linking to https://auratenewyork.com/pages/terms-conditions-exchange-only — while the same page displays a &quot;Free Returns&quot; service badge and &quot;Lifetime Warranty&quot;. A $2,858 engagement ring that can only be exchanged for size is precisely the case the buying checklist says to walk away from unless the seller confirms otherwise in writing.</td>
+              <td><a href="https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
+            </tr><tr>
+              <td><a href="rings.html#p-aurate-2ct-round-lgd-solitaire">2ct Round Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
+              <td><span class="badge warn">Page Self Contradiction</span><span class="sub mono">PAGE_SELF_CONTRADICTION</span></td>
+              <td class="small">Band width: the copy says &quot;a refined 1.8mm width&quot; while the specs block says &quot;Width: 2.75mm / Thickness: 1.8mm&quot;. Diamond clarity: the copy says &quot;VVS clarity&quot;, the specs say &quot;1 Round VS/EF Lab Grown Diamond&quot;, and a quality badge on the same page says &quot;SI Clarity Only&quot;. All three readings are recorded; none is averaged or chosen.</td>
+              <td><a href="https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-round-lgd-solitaire">2ct Round Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">No hallmark</span><span class="sub mono">HALLMARK_NOT_STATED</span></td>
               <td class="small">No hallmark / maker&#x27;s-mark statement on the listing.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-emerald-lgd-solitaire">2ct Emerald Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Brand-level</span><span class="sub mono">SOLID_NOT_ON_LISTING</span></td>
@@ -493,7 +629,7 @@
             </tr><tr>
               <td><a href="rings.html#p-ringconcierge-2-08-oval-lab-whisper-thin">2.08 Oval Lab Diamond in Whisper Thin® Hidden Halo</a><span class="sub">Ring Concierge</span></td>
               <td><span class="badge warn">Made to order</span><span class="sub mono">MADE_TO_ORDER</span></td>
-              <td class="small">Estimated production time 3-4 weeks; the 30-day return window runs from delivery.</td>
+              <td class="small">Estimated production time 3-4 weeks and every size marked &quot;Made to Order&quot; on the live page (P3 re-read 2026-10-22); the 30-day return window runs from delivery, so the clock starts after a 3-4 week wait. The page also offers a waitlist, so availability is not guaranteed.</td>
               <td><a href="https://ringconcierge.com/products/2-08-oval-lab-diamond-in-whisper-thina-hidden-halo" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-ringconcierge-2-08-oval-lab-whisper-thin">2.08 Oval Lab Diamond in Whisper Thin® Hidden Halo</a><span class="sub">Ring Concierge</span></td>

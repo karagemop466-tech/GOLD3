@@ -120,6 +120,121 @@
       "source": "https://www.gold.org/goldhub/data/gold-prices",
       "product": null,
       "action": "None - this is a control check, not a problem."
+    },
+    {
+      "id": "F13",
+      "severity": "high",
+      "title": "Aurate's $2,858 solitaire is \"Exchange for size only. Final Sale!\" on a page that also shows a \"Free Returns\" badge",
+      "detail": "The live product page for the 2ct Round Lab Grown Diamond Solitaire Ring carries two notices — \"Exchange for size only. Final Sale!\" and \"Exchange only! Return & cancellation policy.\" — both linking to Aurate's terms-conditions-exchange-only page. The same page displays a \"Free Returns\" service badge and \"Lifetime Warranty\", and Aurate's retailer record already notes that items marked 'exchange only' cannot be refunded. The listing-level notice is the one that governs this ring, and it removes the refund right entirely.",
+      "evidence": "\"Exchange for size only.\" · \"Final Sale!\" · \"Exchange only! Return & cancellation policy.\" · same page: \"Free Returns\" badge · price on the same page \"$2,858\" for \"Rate - 14k GOLD\", \"Color - Yellow\", \"Size - 7\", \"In Stock • Ready to Ship\"",
+      "source": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring",
+      "product": "aurate-2ct-round-lgd-solitaire",
+      "action": "Treat this listing as non-refundable until Aurate confirms otherwise in writing. Under the buying checklist this is a walk-away candidate: no refund means no exit if the independent inspection or XRF test on arrival fails. If you still buy it, pay by credit card so the issuer's dispute route remains open, and inspect before any resizing."
+    },
+    {
+      "id": "F14",
+      "severity": "medium",
+      "title": "Dataset A said \"no ring weight\" for the Aurate solitaire — the listing does publish one, as a range",
+      "detail": "The record carried weight_status \"not published\" and a flag note reading \"No ring weight in grams on the listing\". The live specs block publishes \"Weight: 5.5-8.5g\". It is a range covering the 14k, 18k and platinum versions, so it still cannot be used as this ring's weight — weight_g stays null and no midpoint was taken — but the claim that nothing was published was wrong and has been corrected. Recording \"the seller publishes nothing\" when the seller publishes something is the same class of error as inventing a number: it is a statement about a source that the source does not support.",
+      "evidence": "Specs block on the product page: \"Weight: 5.5-8.5g\" (with \"Width: 2.75mm\", \"Thickness: 1.8mm\", \"SKU: AU5760\")",
+      "source": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring",
+      "product": "aurate-2ct-round-lgd-solitaire",
+      "action": "Ask Aurate for the gram weight of the exact variant (14k yellow gold, size 7) in writing, plus whether it is gold-only or includes the stone. Until then the price-per-gram test cannot be run on this ring, and the calculator is left with no weight rather than a guessed one."
+    },
+    {
+      "id": "F15",
+      "severity": "high",
+      "title": "A 3% fee belonging to Wilson's had been attached to Sarraf in the flag legend",
+      "detail": "Flag RET7 read: \"A cancelled order is charged a 3% card-processing fee (Wilson's terms state the same fee structure).\" Sarraf's return policy was re-read end to end on the live page and contains no such fee. The 3% charge is Wilson's, verbatim: \"Please note that orders cancelled prior to shipment will not be refunded for credit card processing fees incurred at the rate of 3%.\" The fees Sarraf actually publishes are a $25.00 non-refundable engraving fee and, for warranty repair or replacement, \"a Shipping and handling fee of $100.00 or 10% of purchase price which ever amount is greater\". RET7 has been rewritten to Sarraf's own words and the transplant recorded here.",
+      "evidence": "Sarraf: \"Engraving and shipping Charges are nonrefundable\" · \"the $25.00 engraving fee is non-refundable\" · \"$100.00 or 10% of purchase price which ever amount is greater\" · no 3% fee anywhere in the policy. Wilson's: \"credit card processing fees incurred at the rate of 3%\" (stated twice, for domestic and international orders).",
+      "source": "https://www.sarraf.com/products/14k-white-gold-solitaire-ring-0-94-ctw.html",
+      "product": null,
+      "action": "None outstanding — corrected. This is logged because it is a live example of cross-seller contamination: a true fact about one seller reused as a fact about another. The hunt that found it was reading a policy page to the end instead of trusting a summary of it."
+    },
+    {
+      "id": "F16",
+      "severity": "medium",
+      "title": "Automic Gold's return window was recorded as unstated; the page states 30 days, and states its lead time three ways",
+      "detail": "Dataset B's seller record said only \"Free returns stated on the product page, US only\". The same page's Shipping & Returns section states \"Returns can be made within 30 days of the delivery date. Free return shipping on US orders. Engraved items are final sale and cannot be returned.\" — so the window is now sourced. The page also gives its lead time twice with different numbers (\"Production time is 4-8 business days\" in the buy box; \"Production time is 1-2 weeks\", or \"2-3 weeks\" with engraving, in the policy section), which is recorded as flag SPEC2 rather than resolved by picking one.",
+      "evidence": "\"Returns can be made within 30 days of the delivery date.\" · \"Free return shipping on US orders.\" · \"Engraved items are final sale and cannot be returned.\" · \"Production time is 4-8 business days\" vs \"Production time is 1-2 weeks\" / \"2-3 weeks\" with engraving",
+      "source": "https://www.automicgold.com/products/radiant-cut-lab-diamond-cathedral-ring",
+      "product": null,
+      "action": "Ask Automic to confirm the ship date in writing before ordering; note that the 30-day clock starts at delivery, and that adding engraving both lengthens the wait and makes the ring final sale."
+    },
+    {
+      "id": "F17",
+      "severity": "medium",
+      "title": "Ross-Simons and Catbird return policies were \"Not verified\" in Dataset B while Dataset A already had Catbird's quoted",
+      "detail": "The two datasets disagreed about the same retailer: data/retailers.json carried Catbird's 20-day window, $9 fee and final-sale list verbatim from catbirdnyc.com/returns, while data/sellers.json said \"Not verified — no official return-policy page was captured\" and flagged POL1. Ross-Simons had no policy page in either dataset. Both official pages were read live in this pass; both seller records now carry sourced terms, Ross-Simons' phone (800-835-0919) and email (customerservice@ross-simons.com) and Catbird's email (customerservice@catbirdnyc.com) are filled from their official contact pages, and POL1 now applies only to James Allen, whose product URLs redirect to Blue Nile.",
+      "evidence": "Ross-Simons: \"30-Day No-Risk Return Guarantee\" · \"30 days from the date you receive your order\" · \"a flat fee of $4.95 for return shipping and handling\" · \"Merchandise that has been damaged, altered, or resized by a jeweler other than Ross-Simons cannot be accepted for return.\" Catbird: \"within 20 days of the date your package was delivered\" · \"An $9 charge for return shipping will be deducted from your refund\" · \"All international sales are final.\"",
+      "source": "https://www.ross-simons.com/pages/returns-exchanges",
+      "product": null,
+      "action": "Closed for both sellers. The residual risk is structural: two datasets describing the same retailer can drift apart, so any future edit to a return policy should be applied to data/retailers.json and data/sellers.json together."
+    },
+    {
+      "id": "F18",
+      "severity": "low",
+      "title": "Third independent read of the gold spot anchor: $4,028.53/oz live against $4,026.79 and $4,024.36 on file",
+      "detail": "The World Gold Council page was fetched again in this pass and read \"Gold Spot price USD /oz 4,028.53\" with \"Data as of 21 October, 2026\" and \"Market Data: Provided by ICE Data Services\" — the same publisher and the same market date as the stored snapshot of $4,024.36, +0.10% apart. Two earlier passes recorded the same live figure independently. The stored snapshots are dated captures and are deliberately NOT overwritten: the calculator must keep reproducing the numbers printed on the pages. The live reading is recorded here and in data/reverification-p3.json as corroboration.",
+      "evidence": "Live 4,028.53 USD/oz (WGC, \"Data as of 21 October, 2026\") vs stored 4,024.36 (WGC, same market date) and 4,026.79 (GoldPrice.org, 22 Oct 2026 07:07 NY)",
+      "source": "https://www.gold.org/goldhub/data/gold-prices",
+      "product": null,
+      "action": "None — control check. If a future pass refreshes the anchor, it must re-run the calculator and rebuild every page so the printed melt values stay reproducible from the data."
+    },
+    {
+      "id": "F19",
+      "severity": "high",
+      "title": "Sarraf's recorded e-mail address was wrong and its cited policy page returns 404",
+      "detail": "data/sellers.json listed Sarraf's e-mail as info@sarraf.com with contact_source https://www.sarraf.com/pages/contact-us.html. That page (which redirects to https://www.sarraf.com/contact-us/) publishes no e-mail address at all - only a contact form, two phone numbers and business hours - so the recorded address was unsupported by its own citation. Sarraf's official About page prints 'E-mail: service@sarraf.com', and the returns policy page requires wholesale return requests to go to the same address. Separately, the policy_source recorded for this seller, https://www.sarraf.com/pages/returns-and-refunds.html, returns '404 Error - Page not found' with the page title 'Sarraf - Not Found'; the live policy page is https://www.sarraf.com/30-day-returns-and-exchange-policy/, reached from Sarraf's own policy index. Both values were corrected on 2026-10-23 and the dead-link class of defect recorded as flag SRC1.",
+      "evidence": "About page verbatim: 'Phone: (888) 4-SARRAF ( 888-472-7723)  FAX: (213) 627-5212  E-mail: service@sarraf.com'. Returns page verbatim: 'All return require prior authorization. You must submit your request for return to service@sarraf.com'. Dead URL response verbatim: '404 Error - Page not found ... Uh oh, looks like the page you are looking for has moved or no longer exists.'",
+      "source": "https://www.sarraf.com/about-sarraf/",
+      "action": "Corrected in data/sellers.json: email service@sarraf.com, contact_source the About page, policy_source the live returns page. Any buyer contacting Sarraf should use service@sarraf.com.",
+      "subject": "S-SARRAF",
+      "product": null
+    },
+    {
+      "id": "F20",
+      "severity": "high",
+      "title": "Automic Gold's cited return-policy URL returns 404, so its resize claim had no source",
+      "detail": "data/sellers.json cited https://www.automicgold.com/pages/return-policy as Automic's policy_source. Fetched on 2026-10-23 it returns '404 Not Found - Automic Gold'. The live page is https://www.automicgold.com/policies/refund-policy, and it does confirm the recorded window verbatim: 'Automic Gold offers free returns within 30 days of the delivery date for customers who reside in the U.S. You will be provided with one prepaid shipping label per order. For additional returns and exchanges, shipping fees may apply.' The resize_policy value resting on the dead URL ('Custom-altered or resized rings beyond standard stock are final sale') could not be re-sourced, because the live page's resizing clause was not captured verbatim in this pass; it has been set to null with a note rather than carried forward unsourced.",
+      "evidence": "Live page verbatim: 'Automic Gold offers free returns within 30 days of the delivery date for customers who reside in the U.S. You will be provided with one prepaid shipping label per order.' Free-label portal verbatim: 'Click the link for your free return label: https://automic.aftership.com. AfterShip is available for U.S residents only.' Dead URL response: page title '404 Not Found - Automic Gold'.",
+      "source": "https://www.automicgold.com/policies/refund-policy",
+      "action": "policy_source repointed to the live refund-policy page; resize_policy blanked with a note so the owning session can restore it with a verbatim quote. Recorded as flag SRC1.",
+      "subject": "S-AUTOMIC",
+      "product": null
+    },
+    {
+      "id": "F21",
+      "severity": "medium",
+      "title": "Sarraf counts returns over $10,000 as 'high-risk' behaviour under a three-strike policy",
+      "detail": "Sarraf's live returns policy publishes a 'NOTICE OF EXCESSIVE RETURNS' defining high-risk return behaviour as 'Returning 30 or more items', 'Returning purchases greater than $10K' or an 'Overall return rate of 85%'. Clients who reach three strikes 'will be prohibited from making any new orders'. Strikes are not assessed where the fault is Sarraf's, for example a damaged or incorrectly listed item. A buyer returning an expensive engagement ring can therefore be counted as high-risk purely because of the item's price. This is a seller-reputation and return-friendliness fact that the checklist's 'return policy' item should carry, and it is now recorded as flag RET13 and on the S-SARRAF record.",
+      "evidence": "Verbatim: 'The Sarraf.com operates on a three strike policy for clients who exhibit high-risk return behavior. High-risk behavior is identified as: Returning 30 or more items; Returning purchases greater than $10K; Overall return rate of 85%.' and 'Clients who reach three strikes will be prohibited from making any new orders.'",
+      "source": "https://www.sarraf.com/30-day-returns-and-exchange-policy/",
+      "action": "Published as flag RET13 on the Sarraf record and on the flagged-for-review page. Treat the return right as usable but consequential: return decisively, once.",
+      "subject": "S-SARRAF",
+      "product": null
+    },
+    {
+      "id": "F22",
+      "severity": "high",
+      "title": "Two official Sarraf pages contradict each other on whether engraved rings can be returned",
+      "detail": "Sarraf's About page describes the 30-day policy as covering 'any non-engraved items still in new condition and we'll give you a full refund within the first 30 days. No questions asked.' The returns policy page says the opposite for engraved rings: 'Any ring where personal engraving was added or a special finish may be returned, exchanged, or resized where possible (with the exception of special orders); however, the $25.00 engraving fee or $50.00 finsh charges are non-refundable.' One page excludes engraved items outright, the other accepts them with non-refundable fees. data/sellers.json had previously recorded the stricter reading as a flat exclusion ('Custom-sized, special-order, or engraved items do not qualify'), which is not what either page says on its own. Where two official pages conflict, a buyer should assume the stricter one applies until the seller confirms otherwise in writing.",
+      "evidence": "About page verbatim: '30-Day Return Policy - Return any non-engraved items still in new condition and we'll give you a full refund within the first 30 days. No questions asked.' Returns page verbatim: 'CAN I RETURN OR RESIZE AN ENGRAVED RING? Any ring where personal engraving was added or a special finish may be returned, exchanged, or resized where possible (with the exception of special orders); however, the $25.00 engraving fee or $50.00 finsh charges are non-refundable.'",
+      "source": "https://www.sarraf.com/about-sarraf/",
+      "action": "Recorded as flag SPEC4 with both URLs; S-SARRAF resize_policy corrected to quote both pages. Do not engrave until the return window has passed, or get written confirmation first.",
+      "subject": "S-SARRAF",
+      "product": null
+    },
+    {
+      "id": "F23",
+      "severity": "medium",
+      "title": "Three Catbird values drafted in this pass did not survive contact with the live pages",
+      "detail": "The same defect class this pass hunts in other sessions appeared in its own draft data. An intermediate version of the S-CB record carried hello@catbirdnyc.com as Catbird's e-mail, '219 Bedford Avenue, Brooklyn, NY 11211' as a return address, and a final-sale list reading 'pierced earrings, body jewelry, items from the Final Sale collection, gift cards'. Re-fetching both pages on 2026-10-23 showed: the contact page publishes customerservice@catbirdnyc.com for order, availability, product and shipping questions (plus two role-specific addresses that are not customer service); the returns page publishes no postal return address at all, only a Narvar return portal and in-store returns; and the actual final-sale list is 'Special orders, engraved items, Forever jewelry, earrings from piercing events, home & beauty items, and comestibles' - the earlier wording had been carried over from data/retailers.json rather than from Catbird's own page. All three were corrected or blanked. The page also adds two facts a buyer needs: 'Once your order is placed we are unable to cancel it or make changes', and there is no exchange - 'place a new order on line for your new size. This is currently the only way we are able to accomodate exchanges.'",
+      "evidence": "Contact page verbatim: 'Order Status, Availability, Product Details or Shipping Questions - customerservice@catbirdnyc.com'. Returns page verbatim: 'Special orders, engraved items, Forever jewelry, earrings from piercing events, home & beauty items, and comestibles are final sale and cannot be returned.' and 'An $9 charge for return shipping will be deducted from your refund.' and 'All international sales are final.'",
+      "source": "https://www.catbirdnyc.com/returns",
+      "action": "Corrected in data/sellers.json: email set to customerservice@catbirdnyc.com, return_address set to null with a note, exclusions replaced with the page's own list, and the no-cancellation and return-then-reorder rules added as their own fields.",
+      "subject": "S-CB",
+      "product": null
     }
   ]
 }

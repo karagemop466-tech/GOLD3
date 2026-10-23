@@ -21,6 +21,7 @@ import argparse
 import datetime as dt
 import hashlib
 import json
+import os
 import re
 import sys
 from html.parser import HTMLParser
@@ -157,7 +158,7 @@ def format_price_tokens(price: float) -> list[str]:
     return tokens
 
 
-def run_audit(pass_label: str) -> int:
+def run_audit(pass_label: str, session_id: str | None = None) -> int:
     now_utc = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     errors: list[str] = []
     warnings_flagged: list[dict] = []
@@ -435,7 +436,9 @@ def run_audit(pass_label: str) -> int:
         "pass_number": len(existing_runs) + 1,
         "pass_label": pass_label,
         "timestamp_utc": now_utc,
-        "session_id": "session-698f08f6",
+        "session_id": (session_id or os.environ.get("GOLD3_SESSION_ID")
+                       or os.environ.get("GITHUB_REF_NAME") or os.environ.get("GITHUB_HEAD_REF")
+                       or "unattributed"),
         "overall_status": "PASS" if not errors else "FAIL",
         "error_count": len(errors),
         "errors": errors,
@@ -533,5 +536,8 @@ def run_audit(pass_label: str) -> int:
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--pass-label", default="Scheduled Verification Pass")
+    ap.add_argument("--session-id", default=None,
+                    help="Session that is running this audit; recorded in verification/audit-log.json. "
+                         "Falls back to the GOLD3_SESSION_ID environment variable.")
     args = ap.parse_args()
-    sys.exit(run_audit(args.pass_label))
+    sys.exit(run_audit(args.pass_label, args.session_id))

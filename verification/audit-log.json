@@ -796,6 +796,198 @@
         }
       ],
       "manual_review_recommendation": "Always run scripts/run_security_audit.py after every review or edit, and inspect flagged-for-review.html directly against linked primary product pages to look for price changes, copy discrepancies, or hallucinations."
+    },
+    {
+      "pass_number": 13,
+      "pass_label": "P3 integration audit (arena/699d8e05-gold3)",
+      "timestamp_utc": "2026-10-23T00:13:34Z",
+      "session_id": "arena/699d8e05-gold3",
+      "overall_status": "PASS",
+      "error_count": 0,
+      "errors": [],
+      "flagged_items_count": 17,
+      "total_flag_notes": 37,
+      "html_pages_audited": 24,
+      "checks": [
+        {
+          "check_id": "SEC-01",
+          "name": "Official HTTPS Source Allowlist & Row Link Completeness",
+          "status": "PASS",
+          "verified_count": 61,
+          "details": "Verified 61 HTTPS source links across 21 rings, 5 sellers, 7 karat standards, and 2 live spot feeds against strict official domain allowlist."
+        },
+        {
+          "check_id": "SEC-02",
+          "name": "Verbatim Price & Gram-Weight Substring Proof (Anti-Hallucination Check)",
+          "status": "PASS",
+          "verified_count": 21,
+          "details": "Confirmed all 21 prices and all 8 published gram weights appear verbatim inside archived 2026-10-22 primary listing excerpts."
+        },
+        {
+          "check_id": "SEC-03",
+          "name": "Zero-Inference Enforcement (Unverified Values Strictly Left Blank/Null)",
+          "status": "PASS",
+          "verified_count": 14,
+          "details": "Confirmed 14 items with unconfirmed metal gram weights or mixed-karat splits keep null numeric cells (never inferred) and carry explicit review flags."
+        },
+        {
+          "check_id": "SEC-04",
+          "name": "NIST Troy-Ounce (31.1034768 g) & Raw Melt Arithmetic Audit",
+          "status": "PASS",
+          "verified_count": 14,
+          "details": "Mathematically verified spot conversion ($4,025.10 / 31.1034768 = $129.4100/g), all 7 karat tiers, and all 7 weight-complete rings to <= $0.02 tolerance."
+        },
+        {
+          "check_id": "SEC-05",
+          "name": "Automated Irregularity, Plated-Control, BBB & Return-Exclusion Scanner",
+          "status": "PASS",
+          "verified_count": 37,
+          "details": "Cataloged 37 line-by-line review flags across 17 flagged ring entries for publication on flagged-for-review.html."
+        },
+        {
+          "check_id": "SEC-06",
+          "name": "Static HTML Internal/External Link Integrity & Anchor Verification",
+          "status": "PASS",
+          "verified_count": 1887,
+          "details": "Parsed 24 HTML pages and verified 1887 links, stylesheets, scripts, and anchor targets with zero broken links."
+        },
+        {
+          "check_id": "SEC-07",
+          "name": "Front-End Security, No-Hallucinations Top Banner & Zero-External-Script Check",
+          "status": "PASS",
+          "verified_count": 24,
+          "details": "Verified zero third-party script dependencies, strict rel='noopener noreferrer' on external links, zero eval() calls, and active Front-Page No-Hallucinations Mandate summary."
+        }
+      ],
+      "manual_review_recommendation": "Always run scripts/run_security_audit.py after every review or edit, and inspect flagged-for-review.html directly against linked primary product pages to look for price changes, copy discrepancies, or hallucinations."
+    },
+    {
+      "pass_number": 14,
+      "pass_label": "P3 final integration audit (post rings.json citation fix)",
+      "timestamp_utc": "2026-10-23T00:14:16Z",
+      "session_id": "arena/699d8e05-gold3",
+      "overall_status": "PASS",
+      "error_count": 0,
+      "errors": [],
+      "flagged_items_count": 17,
+      "total_flag_notes": 37,
+      "html_pages_audited": 24,
+      "checks": [
+        {
+          "check_id": "SEC-01",
+          "name": "Official HTTPS Source Allowlist & Row Link Completeness",
+          "status": "PASS",
+          "verified_count": 61,
+          "details": "Verified 61 HTTPS source links across 21 rings, 5 sellers, 7 karat standards, and 2 live spot feeds against strict official domain allowlist."
+        },
+        {
+          "check_id": "SEC-02",
+          "name": "Verbatim Price & Gram-Weight Substring Proof (Anti-Hallucination Check)",
+          "status": "PASS",
+          "verified_count": 21,
+          "details": "Confirmed all 21 prices and all 8 published gram weights appear verbatim inside archived 2026-10-22 primary listing excerpts."
+        },
+        {
+          "check_id": "SEC-03",
+          "name": "Zero-Inference Enforcement (Unverified Values Strictly Left Blank/Null)",
+          "status": "PASS",
+          "verified_count": 14,
+          "details": "Confirmed 14 items with unconfirmed metal gram weights or mixed-karat splits keep null numeric cells (never inferred) and carry explicit review flags."
+        },
+        {
+          "check_id": "SEC-04",
+          "name": "NIST Troy-Ounce (31.1034768 g) & Raw Melt Arithmetic Audit",
+          "status": "PASS",
+          "verified_count": 14,
+          "details": "Mathematically verified spot conversion ($4,025.10 / 31.1034768 = $129.4100/g), all 7 karat tiers, and all 7 weight-complete rings to <= $0.02 tolerance."
+        },
+        {
+          "check_id": "SEC-05",
+          "name": "Automated Irregularity, Plated-Control, BBB & Return-Exclusion Scanner",
+          "status": "PASS",
+          "verified_count": 37,
+          "details": "Cataloged 37 line-by-line review flags across 17 flagged ring entries for publication on flagged-for-review.html."
+        },
+        {
+          "check_id": "SEC-06",
+          "name": "Static HTML Internal/External Link Integrity & Anchor Verification",
+          "status": "PASS",
+          "verified_count": 1892,
+          "details": "Parsed 24 HTML pages and verified 1892 links, stylesheets, scripts, and anchor targets with zero broken links."
+        },
+        {
+          "check_id": "SEC-07",
+          "name": "Front-End Security, No-Hallucinations Top Banner & Zero-External-Script Check",
+          "status": "PASS",
+          "verified_count": 24,
+          "details": "Verified zero third-party script dependencies, strict rel='noopener noreferrer' on external links, zero eval() calls, and active Front-Page No-Hallucinations Mandate summary."
+        }
+      ],
+      "manual_review_recommendation": "Always run scripts/run_security_audit.py after every review or edit, and inspect flagged-for-review.html directly against linked primary product pages to look for price changes, copy discrepancies, or hallucinations."
+    },
+    {
+      "pass_number": 15,
+      "pass_label": "P3 final integration audit (dead citations repointed)",
+      "timestamp_utc": "2026-10-23T00:15:08Z",
+      "session_id": "arena/699d8e05-gold3",
+      "overall_status": "PASS",
+      "error_count": 0,
+      "errors": [],
+      "flagged_items_count": 17,
+      "total_flag_notes": 37,
+      "html_pages_audited": 24,
+      "checks": [
+        {
+          "check_id": "SEC-01",
+          "name": "Official HTTPS Source Allowlist & Row Link Completeness",
+          "status": "PASS",
+          "verified_count": 61,
+          "details": "Verified 61 HTTPS source links across 21 rings, 5 sellers, 7 karat standards, and 2 live spot feeds against strict official domain allowlist."
+        },
+        {
+          "check_id": "SEC-02",
+          "name": "Verbatim Price & Gram-Weight Substring Proof (Anti-Hallucination Check)",
+          "status": "PASS",
+          "verified_count": 21,
+          "details": "Confirmed all 21 prices and all 8 published gram weights appear verbatim inside archived 2026-10-22 primary listing excerpts."
+        },
+        {
+          "check_id": "SEC-03",
+          "name": "Zero-Inference Enforcement (Unverified Values Strictly Left Blank/Null)",
+          "status": "PASS",
+          "verified_count": 14,
+          "details": "Confirmed 14 items with unconfirmed metal gram weights or mixed-karat splits keep null numeric cells (never inferred) and carry explicit review flags."
+        },
+        {
+          "check_id": "SEC-04",
+          "name": "NIST Troy-Ounce (31.1034768 g) & Raw Melt Arithmetic Audit",
+          "status": "PASS",
+          "verified_count": 14,
+          "details": "Mathematically verified spot conversion ($4,025.10 / 31.1034768 = $129.4100/g), all 7 karat tiers, and all 7 weight-complete rings to <= $0.02 tolerance."
+        },
+        {
+          "check_id": "SEC-05",
+          "name": "Automated Irregularity, Plated-Control, BBB & Return-Exclusion Scanner",
+          "status": "PASS",
+          "verified_count": 37,
+          "details": "Cataloged 37 line-by-line review flags across 17 flagged ring entries for publication on flagged-for-review.html."
+        },
+        {
+          "check_id": "SEC-06",
+          "name": "Static HTML Internal/External Link Integrity & Anchor Verification",
+          "status": "PASS",
+          "verified_count": 1892,
+          "details": "Parsed 24 HTML pages and verified 1892 links, stylesheets, scripts, and anchor targets with zero broken links."
+        },
+        {
+          "check_id": "SEC-07",
+          "name": "Front-End Security, No-Hallucinations Top Banner & Zero-External-Script Check",
+          "status": "PASS",
+          "verified_count": 24,
+          "details": "Verified zero third-party script dependencies, strict rel='noopener noreferrer' on external links, zero eval() calls, and active Front-Page No-Hallucinations Mandate summary."
+        }
+      ],
+      "manual_review_recommendation": "Always run scripts/run_security_audit.py after every review or edit, and inspect flagged-for-review.html directly against linked primary product pages to look for price changes, copy discrepancies, or hallucinations."
     }
   ]
 }

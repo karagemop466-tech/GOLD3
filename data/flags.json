@@ -240,10 +240,11 @@
       "id": "POL1",
       "severity": "medium",
       "label": "Return policy page not read",
-      "what": "No official return-policy page was captured for this seller, so return terms are unknown rather than favourable.",
+      "what": "James Allen's returns were checked twice and its policy page has still not been read, so its return terms remain unknown rather than favourable. This flag was previously also carried by Ross-Simons and Catbird; both policies have now been read on the official sites and the flag was removed from those two sellers.",
       "why_it_matters": "An unread policy is not a permissive one. Assuming a return right that has not been verified is how buyers get stuck.",
       "action": "Read the seller's return policy before ordering and keep a copy.",
-      "source": null
+      "source": null,
+      "correction_note": "Re-scoped 2026-10-23 by arena/699d8e05-gold3: Ross-Simons' 30-Day No-Risk Returns Guarantee was read at https://www.ross-simons.com/pages/returns-exchanges and Catbird's 20-day window at https://www.catbirdnyc.com/returns on 2026-10-22/23. POL1 now applies to James Allen only. Published as finding F17."
     },
     {
       "id": "SPEC1",
@@ -303,10 +304,11 @@
       "id": "RET7",
       "severity": "low",
       "label": "Return window exists but is conditional and short-fused",
-      "what": "Sarraf accepts returns within 30 days of receipt, but damaged or used items do not qualify and orders past 30 days are refused. A cancelled order is charged a 3% card-processing fee (Wilson's terms state the same fee structure).",
+      "what": "Sarraf accepts returns within 30 days of receipt, but the window is heavily conditional: items that are damaged or used do not qualify, orders past 30 days from receipt are refused, items from which the Sarraf.com tag has been removed are not eligible, and anything resized by a jeweller other than Sarraf Jewelry Inc., altered, special-ordered or damaged cannot be accepted for return. The seller's own policy pages charge no card-processing fee on a return; the only fees named are a non-refundable $25.00 engraving fee and $50.00 finish charge.",
       "why_it_matters": "A return right you cannot practically use is not protection. Waiting past the window, or wearing the ring once, can end it.",
       "action": "Inspect on arrival, keep the packaging untouched, and start the return in writing inside the window if anything fails verification.",
-      "source": "https://www.sarraf.com/products/14k-white-gold-solitaire-ring-0-94-ctw.html"
+      "source": "https://www.sarraf.com/30-day-returns-and-exchange-policy/",
+      "correction_note": "Corrected 2026-10-23 by arena/699d8e05-gold3 (third re-verification pass). This entry previously read 'A cancelled order is charged a 3% card-processing fee (Wilson's terms state the same fee structure)'. That is not a Sarraf term. The 3% cancellation fee is Wilson's Estate Jewelry's own wording (recorded at RET2 / S-WE, verified verbatim on two Wilson's product pages on 2026-10-22). Sarraf's returns policy was read end to end on 2026-10-22 and again on 2026-10-23 at https://www.sarraf.com/30-day-returns-and-exchange-policy/ (2 chunks) and on the product-page 'Return Policy' tab; neither mentions any percentage fee. Published as finding F15."
     },
     {
       "id": "POL2",
@@ -361,6 +363,85 @@
       "why_it_matters": "Ordering the wrong size expecting free resizing can force an exchange or custom remake outside the return window.",
       "action": "Confirm exact finger size before ordering and verify resizing/return eligibility in writing.",
       "source": "https://www.brilliantearth.com/Fairmined-2mm-Six-Prong-Solitaire-Ring-Gold-BE1FM0126-24910022/"
+    },
+    {
+      "id": "RET12",
+      "severity": "high",
+      "label": "Resizing by another jeweller voids the return or exchange right",
+      "what": "Ross-Simons' returns page states in capitals that items 'RESIZED BY ANOTHER JEWELLER ARE NOT ELIGIBLE FOR RETURN OR EXCHANGE', and Sarraf's returns policy likewise refuses items 'resized (by a jeweler other than Sarraf Jewelry Inc.)'. Both sellers do offer their own resizing, so the exclusion only bites if the buyer uses a third party.",
+      "why_it_matters": "This is the exact trap behind the brief's 'return policy — resized/custom exclusions' checklist item: a buyer who has the ring sized locally on arrival can lose the return right entirely, and the seller's own XRF or appraisal check may then have to happen on a non-returnable ring.",
+      "action": "Have the seller resize the ring, or confirm the return window has been used, before any third-party jeweller touches it.",
+      "source": "https://www.ross-simons.com/pages/returns-exchanges",
+      "first_seen": "2026-10-23",
+      "source_2": "https://www.sarraf.com/30-day-returns-and-exchange-policy/",
+      "quote": "ITEMS THAT HAVE BEEN ALTERED IN ANY WAY INCLUDING BUT NOT LIMITED TO RESIZED BY ANOTHER JEWELLER ARE NOT ELIGIBLE FOR RETURN OR EXCHANGE."
+    },
+    {
+      "id": "RET13",
+      "severity": "high",
+      "label": "Excessive-returns 'three strike' policy counts returns over $10,000",
+      "what": "Sarraf's returns policy publishes a 'NOTICE OF EXCESSIVE RETURNS': high-risk behaviour is defined as 'Returning 30 or more items', 'Returning purchases greater than $10K' or an 'Overall return rate of 85%'. Clients who reach three strikes 'will be prohibited from making any new orders'. Strikes are not assessed when the fault is Sarraf's (a damaged or incorrectly listed item).",
+      "why_it_matters": "A buyer returning a high-value engagement ring can be counted as high-risk purely because of the item's price, and three such returns end the account. That is a real cost of exercising a return right and belongs in the seller-reputation part of the checklist.",
+      "action": "Treat the return right as usable but not free of consequence: return once, decisively, and ask about the policy before ordering several high-value rings to compare at home.",
+      "source": "https://www.sarraf.com/30-day-returns-and-exchange-policy/",
+      "first_seen": "2026-10-23"
+    },
+    {
+      "id": "WAR1",
+      "severity": "medium",
+      "label": "Warranty repairs cost $100 or 10% of the purchase price",
+      "what": "Sarraf product pages state: 'In the event that your item is defective Sarraf will at its sole discretion, repair or replace the item free of charge... If you choose not to have the item repaired or replaced by Sarraf Jewelry Inc., you will be charged a warranty fee of $100.00 or 10% of the purchase price which ever amount is greater.' Sarraf's About page separately advertises a 'Lifetime Guarantee' with 'Some restrictions apply'.",
+      "why_it_matters": "A 'lifetime guarantee' that charges $100 or 10% of the price (whichever is greater) the moment the buyer uses their own jeweller is not free cover. On a $3,004 ring that is a $300.40 fee.",
+      "action": "Read the warranty clause, not the marketing label, and price the 10% into the total cost of ownership.",
+      "source": "https://www.sarraf.com/products/14k-white-gold-1-00-ctw-round-3-stone-diamond-engagement-ring-g-i1-3-80-gr.html",
+      "first_seen": "2026-10-23",
+      "source_2": "https://www.sarraf.com/about-sarraf/"
+    },
+    {
+      "id": "SPEC4",
+      "severity": "high",
+      "label": "Two official Sarraf pages disagree about engraved rings",
+      "what": "Sarraf's About page says the 30-day policy covers 'any non-engraved items still in new condition ... No questions asked', while the returns policy page says 'Any ring where personal engraving was added or a special finish may be returned, exchanged, or resized where possible (with the exception of special orders); however, the $25.00 engraving fee or $50.00 finsh charges are non-refundable.' One page excludes engraved items outright; the other accepts them with non-refundable fees.",
+      "why_it_matters": "A buyer who engraves a ring on the strength of the returns page may be refused under the About page's narrower wording. Where two official pages conflict, the buyer should assume the stricter one applies until the seller confirms in writing.",
+      "action": "Get written confirmation before engraving, or do not engrave until the return window has passed.",
+      "source": "https://www.sarraf.com/about-sarraf/",
+      "first_seen": "2026-10-23",
+      "source_2": "https://www.sarraf.com/30-day-returns-and-exchange-policy/",
+      "quote": "Return any non-engraved items still in new condition and we'll give you a full refund within the first 30 days. No questions asked."
+    },
+    {
+      "id": "SPEC5",
+      "severity": "medium",
+      "label": "Automic lead time contradicts itself on one page",
+      "what": "The Automic Gold product page prints 'Lead Time: 4-8 Days' in its information table, then 'Please allow 1-2 weeks for your order to ship, plus an additional 2-3 weeks for orders with engraving' lower down, and a separate 'Waitlist / Made to Order' notice appears on comparable made-to-order pieces.",
+      "why_it_matters": "A buyer choosing between 'in 8 days' and 'in 2 weeks (5 weeks engraved)' cannot plan. When one page gives two lead times, the longer one is the safe assumption.",
+      "action": "Confirm the current lead time in writing before ordering, especially for an engraved or made-to-order piece.",
+      "source": "https://www.automicgold.com/products/1-50ctw-pear-shaped-lab-grown-diamond-engagement-ring-bezel-set",
+      "first_seen": "2026-10-23"
+    },
+    {
+      "id": "SRC1",
+      "severity": "high",
+      "label": "Cited official source URL returns 404",
+      "what": "Two source URLs recorded by other sessions do not resolve: Sarraf's policy_source https://www.sarraf.com/pages/returns-and-refunds.html returns '404 Error - Page not found' (title 'Sarraf - Not Found'), and Automic's policy_source https://www.automicgold.com/pages/return-policy returns '404 Not Found - Automic Gold'. The live pages are https://www.sarraf.com/30-day-returns-and-exchange-policy/ and https://www.automicgold.com/policies/refund-policy. Both records were repointed on 2026-10-23.",
+      "why_it_matters": "The brief requires every table row to carry a working source link to an official site. A dead citation is worse than no citation: it looks like evidence but cannot be checked, and the values attributed to it become unverifiable.",
+      "action": "Re-fetch every cited URL before publishing, and prefer the canonical page reached from the site's own policy index over a guessed slug.",
+      "source": "https://www.sarraf.com/30-day-returns-and-exchange-policy/",
+      "first_seen": "2026-10-23",
+      "dead_url_1": "https://www.sarraf.com/pages/returns-and-refunds.html",
+      "dead_url_2": "https://www.automicgold.com/pages/return-policy"
+    },
+    {
+      "id": "RET11",
+      "severity": "medium",
+      "label": "A flat fee is deducted from your refund",
+      "what": "Ross-Simons deducts a USD 4.95 flat return-shipping fee from every refund, and Catbird deducts an $9 return-shipping charge. Neither fee is a restocking charge and neither is waived for a faulty item; both are printed on the seller's own returns page.",
+      "why_it_matters": "The refund you receive is not the price you paid. On a $249 ring a $4.95 fee is 2%; on a $276 ring a $9 fee is 3.3%. A buyer comparing 'free returns' claims across sellers needs the deduction, not the headline.",
+      "action": "Subtract the stated fee before comparing a seller's return terms, and check whether the fee is waived when the item is wrong or faulty.",
+      "source": "https://www.ross-simons.com/pages/returns-exchanges",
+      "first_seen": "2026-10-23",
+      "source_2": "https://www.catbirdnyc.com/returns",
+      "quote": "Ross-Simons: 'A $4.95 flat rate will be deducted from your refund.' Catbird: 'An $9 charge for return shipping will be deducted from your refund.'"
     }
   ]
 }
