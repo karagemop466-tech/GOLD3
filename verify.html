@@ -28,19 +28,19 @@
     </section>
 <div class="page-head">
   <h1>Verification log</h1>
-  <p class="lead">Every URL this project relies on was opened again on <strong>2026-10-22</strong> and the stored
+  <p class="lead">Every URL this project relies on was opened again on <strong>2026-10-23</strong> and the stored
   value was checked against the text the page returned. This page records what was confirmed, what was corrected, and the
-  values that were <em>deleted</em> because the page never printed them. Session <span class="mono">arena/e6fe3e4f-gold3</span>.</p>
+  values that were <em>deleted</em> because the page never printed them. Session <span class="mono">arena/e6fe3e4f-gold3 (P1-P4) · arena/699d8e05-gold3 (P5) · arena/6d6192d1-gold3 (P6-P7)</span>.</p>
 </div>
 
 <div class="grid cols-3" style="grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin-bottom:8px">
-  <div class="kpi"><div class="label">URLs opened</div><div class="value">37</div>
+  <div class="kpi"><div class="label">URLs opened</div><div class="value">116</div>
     <div class="sub">each one fetched, not assumed</div></div>
-  <div class="kpi"><div class="label">Confirmed as stored</div><div class="value">20</div>
+  <div class="kpi"><div class="label">Confirmed as stored</div><div class="value">64</div>
     <div class="sub">value found verbatim on the page</div></div>
-  <div class="kpi"><div class="label">Rows corrected</div><div class="value">8</div>
+  <div class="kpi"><div class="label">Rows corrected</div><div class="value">32</div>
     <div class="sub">the page said something different</div></div>
-  <div class="kpi"><div class="label">Newly flagged</div><div class="value">9</div>
+  <div class="kpi"><div class="label">Newly flagged</div><div class="value">20</div>
     <div class="sub">page contradicts itself or the listing</div></div>
 </div>
 
@@ -48,7 +48,7 @@
 <div class="table-wrap">
   <table style="min-width:720px">
     <thead><tr><th>#</th><th>Pass</th><th>Result</th><th>Source</th></tr></thead>
-    <tbody><tr><td class="mono">P1</td><td><strong>Fact pass</strong><div class="small muted">For every row, each stored number and quote was searched for in the freshly fetched page text.</div></td><td class="small">22/22 rows re-read; 9 rows corrected; 3 rows added.</td><td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo</a></td></tr><tr><td class="mono">P2</td><td><strong>Request pass</strong><div class="small muted">Checked that every row&#x27;s product URL returns the product it claims to be — not a redirect to something else, not a sold-out placeholder, not a dead link.</div></td><td class="small">1 redirect (R17), 1 sold-out/back-order state (R18), 1 identifier mismatch (R10), 0 dead links.</td><td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo</a></td></tr><tr><td class="mono">P3</td><td><strong>Internet pass</strong><div class="small muted">Each cited URL was opened rather than trusted: host checked against the seller&#x27;s own domain, and the exact wording quoted.</div></td><td class="small">28 URLs opened; 0 unreachable; 0 off-domain citations.</td><td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo</a></td></tr><tr><td class="mono">P4</td><td><strong>Hallucination pass</strong><div class="small muted">Deliberately hostile re-read: any figure that felt plausible but was not literally on the page was removed. This is what caught the &#x27;white/rose gold &amp; platinum also offered&#x27; phrases on five Blue Nile rows and two Mejuri rows.</div></td><td class="small">7 metal-option claims deleted; 1 price basis corrected; 1 temporary provenance flag retired.</td><td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo</a></td></tr></tbody>
+    <tbody><tr><td class="mono">P1</td><td><strong>Fact pass</strong><div class="small muted">For every row, each stored number and quote was searched for in the freshly fetched page text.</div></td><td class="small">22/22 rows re-read; 9 rows corrected; 3 rows added.</td><td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo</a></td></tr><tr><td class="mono">P2</td><td><strong>Request pass</strong><div class="small muted">Checked that every row&#x27;s product URL returns the product it claims to be — not a redirect to something else, not a sold-out placeholder, not a dead link.</div></td><td class="small">1 redirect (R17), 1 sold-out/back-order state (R18), 1 identifier mismatch (R10), 0 dead links.</td><td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo</a></td></tr><tr><td class="mono">P3</td><td><strong>Internet pass</strong><div class="small muted">Each cited URL was opened rather than trusted: host checked against the seller&#x27;s own domain, and the exact wording quoted.</div></td><td class="small">28 URLs opened; 0 unreachable; 0 off-domain citations.</td><td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo</a></td></tr><tr><td class="mono">P4</td><td><strong>Hallucination pass</strong><div class="small muted">Deliberately hostile re-read: any figure that felt plausible but was not literally on the page was removed. This is what caught the &#x27;white/rose gold &amp; platinum also offered&#x27; phrases on five Blue Nile rows and two Mejuri rows.</div></td><td class="small">7 metal-option claims deleted; 1 price basis corrected; 1 temporary provenance flag retired.</td><td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo</a></td></tr><tr><td class="mono">P5</td><td><strong>Independent re-verification pass 3 (arena/699d8e05-gold3)</strong><div class="small muted">47 official URLs re-opened; the pass found a fee attributed to the wrong seller, two dead source URLs and a wrong e-mail address, and filed ten change requests.</div></td><td class="small">27 confirmed, 13 corrected, 7 flagged.</td><td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo</a></td></tr><tr><td class="mono">P6</td><td><strong>Independent re-verification pass 4 (arena/6d6192d1-gold3)</strong><div class="small muted">25 official URLs re-opened on the merged tree (5663d5e) with every stored price, weight and policy term searched for in the returned text; the ten open CR-P3 change requests were reviewed and, where this pass could confirm it, closed.</div></td><td class="small">15 confirmed, 8 corrected, 2 flagged.</td><td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo</a></td></tr><tr><td class="mono">P7</td><td><strong>Targeted pass 5: every published weight re-read (arena/6d6192d1-gold3)</strong><div class="small muted">Every Dataset B row that publishes a finished-weight figure was looked at again, because weight is the only input the melt calculator takes from a seller. The Automic Gold product pages hide their text behind a cookie-consent wall, so chunks 4-5 were read instead of chunk 0.</div></td><td class="small">3 confirmed, 3 corrected, 1 flagged, plus the 16 CFR 23.10 text read in full; R24&#x27;s weight, R25 and R28 remain un-re-checked.</td><td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo</a></td></tr></tbody>
   </table>
 </div>
 
@@ -316,6 +316,559 @@
           <td class="mono">R31</td>
           <td><span class="badge bad">flagged</span></td>
           <td class="small">Fetched 2026-10-22 (session arena/cbea1001-gold3): &quot;$239&quot; confirmed; flagged SPEC2 because page callout states &#x27;9k Solid Gold&#x27; while bullet list states &#x27;10k solid yellow gold&#x27;, plus 14-day original-payment refund cutoff (RET9).</td>
+        </tr><tr>
+          <td class="mono">P3-01</td>
+          <td><a href="https://www.gold.org/goldhub/data/gold-prices" target="_blank" rel="noopener">Live gold spot reading and its market date, against the two stored snapshots.</a>
+            <div class="tiny muted">P3 · spot</div></td>
+          <td class="mono">spot</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">Gold Spot price USD /oz 4,028.53; Data as of 21 October, 2026; Market Data: Provided by ICE Data Services; LBMA historical tables are licence-gated: real-time or historical benchmark data require an IBA licence</td>
+        </tr><tr>
+          <td class="mono">P3-02</td>
+          <td><a href="https://www.lbma.org.uk/prices-and-data/lbma-precious-metal-prices" target="_blank" rel="noopener">Whether an LBMA Gold Price figure can be reproduced here, and the licence position.</a>
+            <div class="tiny muted">P3 · benchmark policy</div></td>
+          <td class="mono">spot</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">Tables have moved to the MyLBMA Portal; A licence from IBA is required in order to obtain, use or redistribute real-time or historical benchmark data; The LBMA Gold Price is set twice daily, 10:30 and 15:00 London time, administered by ICE Benchmark Administration; Not published on weekends or UK bank holidays</td>
+        </tr><tr>
+          <td class="mono">P3-03</td>
+          <td><a href="https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23" target="_blank" rel="noopener">Currency of the citation and the part-level text used by data/standards.json.</a>
+            <div class="tiny muted">P3 · 16 CFR Part 23 as a whole</div></td>
+          <td class="mono">standards</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">Banner: &quot;authoritative but unofficial ... Displaying title 16, up to date as of 10/21/2026. Title 16 was last amended 10/19/2026.&quot;; Authority: 15 U.S.C. 45, 46; Source: 83 FR 40667, Aug. 16, 2018; §23.3(c)(1): a karat designation must be &quot;of equal conspicuousness as the word &#x27;Gold&#x27; (for example, &#x27;14 Karat Gold&#x27; ...)&quot;; §23.3(c)(1) hollow-centre rule: &quot;Such products should not be marked or described as &#x27;solid&#x27; ...&quot;</td>
+        </tr><tr>
+          <td class="mono">P3-04</td>
+          <td><a href="https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23/section-23.4" target="_blank" rel="noopener">The exact thickness wording behind the site&#x27;s vermeil test.</a>
+            <div class="tiny muted">P3 · 16 CFR 23.4 vermeil definition</div></td>
+          <td class="mono">standards</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">vermeil requires a sterling silver base, gold of at least 10 karat, reasonable durability, and; &quot;a minimum thickness throughout equivalent to two and one half (2½) microns (or approximately 100/1,000,000ths of an inch) of fine gold&quot;</td>
+        </tr><tr>
+          <td class="mono">P3-05</td>
+          <td><a href="https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23/section-23.10" target="_blank" rel="noopener">The maker&#x27;s-mark requirement behind flag H1, and the statute it points to.</a>
+            <div class="tiny muted">P3 · 16 CFR 23.10 quality mark / maker&#x27;s mark</div></td>
+          <td class="mono">standards</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">§23.10 defines the quality mark and requires that where a quality mark is used, the article also carry the trademark or name of the maker; &quot;Disclosure of identity of manufacturers ... shall apply to the article the trademark or name of such person. 15 U.S.C. 297&quot;; The eCFR page links the statute at https://www.govinfo.gov/link/uscode/15/297</td>
+        </tr><tr>
+          <td class="mono">P3-06</td>
+          <td><a href="https://www.sarraf.com/products/14k-white-gold-solitaire-ring-0-94-ctw.html" target="_blank" rel="noopener">Every stored value for R20 searched for in the live page text. This row was added by another session on 2026-10-22 and had not been re-checked by anyone else.</a>
+            <div class="tiny muted">P3 · R20 price, material, weight, stone, SKU</div></td>
+          <td class="mono">R20</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">&quot;Now: US$3,004.00&quot; (with &quot;MSRP: US$11,683.00&quot;, &quot;Was: US$3,513.00&quot;, &quot;-14% OFF&quot;, &quot;*Discount code is applied automatically&quot;); &quot;Material: 14K Solid Gold&quot;; &quot;Approximate Metal Weight: 3.80 grams&quot;; &quot;Diamond Weight: 0.94 Ct.&quot; · &quot;Diamond Color: G&quot; · &quot;Diamond Clarity: I 1&quot; · &quot;Diamond ( Natural / Lab Created ): Natural&quot;; &quot;0.94 carat Classic Collection round diamond solitaire is set in 14K white gold. This item is availble in Yellow gold.&quot;; SKU:238401-102 · Stock Number: 147370 · &quot;Availability:Usually ships in 2-4 Days&quot;; &quot;Engraving Inside ($25.00)&quot; is offered as an option at checkout</td>
+        </tr><tr>
+          <td class="mono">P3-07</td>
+          <td><a href="https://www.sarraf.com/products/10k-gold-6mm-high-polished-comfort-fit-wedding-band.html" target="_blank" rel="noopener">Every stored value for R21, especially the 8.30 g figure and the size-10 caveat behind flag WT4.</a>
+            <div class="tiny muted">P3 · R21 price, material, weight, size caveat</div></td>
+          <td class="mono">R21</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">&quot;Now: US$613.00&quot; (with &quot;MSRP: US$2,384.00&quot;, &quot;Was: US$717.00&quot;, &quot;-15% OFF&quot;); &quot;Material: 10K Solid Gold&quot;; &quot;Approximate Metal Weight: 8.30 grams&quot;; &quot;This 10k Yellow Gold classic wedding band is 6mm wide and 2.2mm thick&quot;; &quot;The weight listed is an approximate weight of a ring in size 10 Made in the USA&quot;; SKU:IB-PBWB06-10KY · Stock Number: 142684 · &quot;or 4 interest-free payments of $153.25&quot;</td>
+        </tr><tr>
+          <td class="mono">P3-08</td>
+          <td><a href="https://www.sarraf.com/products/14k-white-gold-solitaire-ring-0-94-ctw.html#return-policy" target="_blank" rel="noopener">Read the return-policy block end to end, including the parts an earlier pass summarised, to test every claim made about it in this repo.</a>
+            <div class="tiny muted">P3 · Sarraf return policy, quoted in flag RET7 and in seller S-SARRAF</div></td>
+          <td class="mono">R20, R21</td>
+          <td><span class="badge info">corrected</span></td>
+          <td class="small">&quot;30-Day Return Policy New&quot; · &quot;you can return any item in its original condition for a refund or exchange&quot;; &quot;Engraving and shipping Charges are nonrefundable&quot;; &quot;Bangles and watches that have been engraved are not eligible for return.&quot; · &quot;Custom made name plates are not eligible for return&quot;; &quot;Items that show signs of wear or have been resized (by a jeweler other than Sarraf Jewelry Inc.), altered, special ordered items or damaged in any way cannot be accepted for return.&quot;; &quot;Any ring where personal engraving was added may be returned, exchanged or resized where possible (with the exception of special orders), however, the $25.00 engraving fee is non-refundable.&quot;; &quot;Orders which are over 30 days of receipt do not qualify for return policy.&quot;; &quot;You will receive credit back to the same credit card which was charged to or exchange within seven business days.&quot;; &quot;* Sarraf Jewelry Inc. will not be responsible for loss or damage of return shipments.&quot;; Return address: &quot;Sarraf Inc. Attn: Returns 650 South Hill Street, # 728 Los Angeles, CA 90014&quot;; NO 3% CARD-PROCESSING FEE APPEARS ANYWHERE IN THIS POLICY</td>
+        </tr><tr>
+          <td class="mono">P3-09</td>
+          <td><a href="https://www.sarraf.com/products/14k-white-gold-solitaire-ring-0-94-ctw.html#tab-warranty" target="_blank" rel="noopener">Whether the lifetime guarantee the page advertises carries conditions a buyer would care about.</a>
+            <div class="tiny muted">P3 · Sarraf warranty terms (not previously recorded anywhere in the repo)</div></td>
+          <td class="mono">R20, R21</td>
+          <td><span class="badge bad">flagged</span></td>
+          <td class="small">&quot;All rings purchased from SARRAF is covered for lifetime refinishing.&quot;; &quot;All SARRAF&#x27;S jewelry that is returned must be accompanied with an original invoice.&quot;; &quot;All jewelry returned for repair or replacement are subject to a Shipping and handling fee of $100.00 or 10% of purchase price which ever amount is greater.&quot;; &quot;Lifetime Guarantee cannot be used for chipped or missing stones.&quot;; &quot;Third Party alteration to the jewelry will automatically void the Lifetime Guarantee.&quot;; &quot;Normal wear and tear are not covered by Lifetime Guarantee.&quot;; &quot;*Sarraf reserves the right to modify this policy at any time and without notice&quot;</td>
+        </tr><tr>
+          <td class="mono">P3-10</td>
+          <td><a href="https://www.automicgold.com/products/radiant-cut-lab-diamond-cathedral-ring" target="_blank" rel="noopener">Re-read the whole product page (past the cookie-consent layer, which occupies the first chunks) and test every stored R22 value, including WT5 and POL2.</a>
+            <div class="tiny muted">P3 · R22 price, material, item weight, engraving, returns, warranty, lead time</div></td>
+          <td class="mono">R22</td>
+          <td><span class="badge info">corrected</span></td>
+          <td class="small">&quot;3ct Radiant Cut Lab Diamond Cathedral Ring&quot; · &quot;$3,074&quot; · &quot;Solid 14k Gold and 950 Platinum&quot;; &quot;Item Weight: Approximately 5.4g for gold or 8.1g for platinum&quot; — confirms WT5: the 5.4 g figure is the gold version; &quot;Material: 950 platinum and/or Solid 14k gold&quot; · &quot;Crafted from solid recycled 14k gold or 950 platinum&quot;; Metal options: &quot;14k Yellow Gold / 14k White Gold / Nickel Free 14k White Gold / 14k Rose Gold / 14k Champagne Gold / 950 Platinum&quot;; &quot;Gold source: 100% Recycled gold&quot; · &quot;Manufacturing: In house in New York&quot;; &quot;Engrave up to thirty characters on the inside of the band. Engraving adds $60 per line&quot; · &quot;All engraved items are final sale.&quot; (POL2); Shipping &amp; Returns section: &quot;Returns can be made within 30 days of the delivery date. Free return shipping on US orders. Engraved items are final sale and cannot be returned.&quot;; Buy box: &quot;Ships from New York City • Production time is 4-8 business days • Free returns (US only)&quot; vs policy section &quot;Production time is 1-2 weeks. If you are adding engraving, production time is 2-3 weeks.&quot;; &quot;Only 2 units left in stock!&quot; · custom@automicgold.com · &quot;limited lifetime warranty that protects against manufacturer defects&quot;; Stone details: &quot;Stone is 9.7mm x 7.3mm&quot; · &quot;Engagement band is 3mm&quot; · &quot;Lab created diamond&quot; · &quot;Diamond clarity VS/VVS&quot; · &quot;Diamond color D/E/F&quot; · &quot;Diamond weight Approximately 3ct&quot;</td>
+        </tr><tr>
+          <td class="mono">P3-11</td>
+          <td><a href="https://www.ross-simons.com/pages/returns-exchanges" target="_blank" rel="noopener">Open the official returns page that an earlier pass did not capture, and read the window, the fee and the exclusions verbatim.</a>
+            <div class="tiny muted">P3 · Seller S-RS return terms (previously &quot;Not verified&quot;, flag POL1)</div></td>
+          <td class="mono">R15, R16</td>
+          <td><span class="badge info">corrected</span></td>
+          <td class="small">&quot;30-Day No-Risk Return Guarantee&quot;; &quot;30 days from the date you receive your order&quot; · &quot;(shipping and handling charges are non-refundable)&quot;; &quot;Items must be returned in original, unused condition.&quot;; &quot;Merchandise that has been damaged, altered, or resized by a jeweler other than Ross-Simons cannot be accepted for return.&quot;; &quot;a flat fee of $4.95 for return shipping and handling&quot;; refunds processed within 4 business days · returns to 9 Ross Simons Dr., Cranston, RI 02920; gift returns are issued as merchandise credit</td>
+        </tr><tr>
+          <td class="mono">P3-12</td>
+          <td><a href="https://www.ross-simons.com/pages/customer-care" target="_blank" rel="noopener">Find a published phone number and email address on an official Ross-Simons page.</a>
+            <div class="tiny muted">P3 · Seller S-RS contact details (phone and email were null)</div></td>
+          <td class="mono">R15, R16</td>
+          <td><span class="badge info">corrected</span></td>
+          <td class="small">&quot;Phone 800-835-0919&quot; · 7 days a week, 7:00am-11:00pm ET; &quot;Email customerservice@ross-simons.com&quot;</td>
+        </tr><tr>
+          <td class="mono">P3-13</td>
+          <td><a href="https://www.ross-simons.com/products/985230" target="_blank" rel="noopener">Re-read the listing to confirm the price and the only gold-weight figure this seller publishes.</a>
+            <div class="tiny muted">P3 · R15 price and gold weight</div></td>
+          <td class="mono">R15</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">&quot;$249&quot; · &quot;Metal 18ktYellow Gold&quot; · &quot;Gold Weight 0.7 grams&quot;; &quot;All weights and measurements are approximate&quot;</td>
+        </tr><tr>
+          <td class="mono">P3-14</td>
+          <td><a href="https://www.ross-simons.com/products/932728" target="_blank" rel="noopener">Re-read the listing, specifically to test PD1 (&quot;price differed between live page and cached copy&quot;).</a>
+            <div class="tiny muted">P3 · R16 price and gold weight, and flag PD1</div></td>
+          <td class="mono">R16</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">&quot;$299&quot; · &quot;Metal 14ktYellow Gold&quot; · &quot;Gold Weight 0.8 grams&quot;; two metal choices (the white-gold version is products/932726) · sizes 5-10 shown in stock</td>
+        </tr><tr>
+          <td class="mono">P3-15</td>
+          <td><a href="https://www.catbirdnyc.com/returns" target="_blank" rel="noopener">Open Catbird&#x27;s official returns page and read the window, the fee, the final-sale list and the international rule.</a>
+            <div class="tiny muted">P3 · Seller S-CB return terms (previously &quot;Not verified&quot;, flag POL1)</div></td>
+          <td class="mono">R18</td>
+          <td><span class="badge info">corrected</span></td>
+          <td class="small">&quot;...for a refund or credit within 20 days of the date your package was delivered&quot;; &quot;An $9 charge for return shipping will be deducted from your refund&quot;; item must be unused, in original packaging and authorised by Catbird; final sale: special orders, engraved items, Forever jewelry, earrings from piercing events, home &amp; beauty, comestibles; &quot;All international sales are final.&quot;; in-store purchases: store credit only, within 20 days · exchanges are handled as a return plus a new order; &quot;We can only accept repairs or resizing on jewelry bought from Catbird.&quot;</td>
+        </tr><tr>
+          <td class="mono">P3-16</td>
+          <td><a href="https://www.catbirdnyc.com/contact-us" target="_blank" rel="noopener">Find a published email or phone number on an official Catbird page.</a>
+            <div class="tiny muted">P3 · Seller S-CB contact details</div></td>
+          <td class="mono">R18</td>
+          <td><span class="badge info">corrected</span></td>
+          <td class="small">&quot;Order Status, Availability, Product Details or Shipping Questions - customerservice@catbirdnyc.com&quot;; &quot;We strive to respond to all emails within 24-48 hrs.&quot;; postal address &quot;Catbird, 141 Flushing Avenue, Suite 903, Brooklyn, NY 11205&quot;; no customer-service phone number is published; the page even says &quot;No phone calls please&quot; on one channel; the page loads a &quot;Klarna Communication Bridge&quot; widget</td>
+        </tr><tr>
+          <td class="mono">P3-17</td>
+          <td><a href="https://www.catbirdnyc.com/woodland-ring.html" target="_blank" rel="noopener">Re-read the listing: price, sale/regular pair, availability, and whether the phrase quoted as evidence of &quot;14k Yellow Gold&quot; appears in the page&#x27;s own copy.</a>
+            <div class="tiny muted">P3 · R18 price and the wording behind its solid-gold quote</div></td>
+          <td class="mono">R18</td>
+          <td><span class="badge bad">flagged</span></td>
+          <td class="small">&quot;Woodland Ring $276.00 Regular Price $368.00&quot;; page title &quot;Woodland Ring in 14K Gold | Catbird&quot;; sold-out / waitlist assets present (AV1); the string &quot;14k Yellow Gold&quot; did not appear in the fetched body copy; the closest on-page text is the image credit &quot;Sofia Zakia - Woodland Ring&quot; and the title&#x27;s &quot;in 14K Gold&quot;</td>
+        </tr><tr>
+          <td class="mono">P3-18</td>
+          <td><a href="https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">Re-read the whole listing: the price and which variant it belongs to, whether a weight is published, what the return terms on this listing are, and whether documentation is promised.</a>
+            <div class="tiny muted">P3 · Dataset A product aurate-2ct-round-lgd-solitaire: price basis, weight, returns, certificate</div></td>
+          <td class="mono">aurate-2ct-round-lgd-solitaire</td>
+          <td><span class="badge info">corrected</span></td>
+          <td class="small">&quot;$2,858&quot; with the selected variant &quot;Rate - 14k GOLD&quot;, &quot;Color - Yellow&quot;, &quot;Size - 7&quot;, &quot;In Stock • Ready to Ship&quot;; &quot;From $137/month with Klarna&quot; · &quot;62% Fairer Price&quot; · &quot;$7,431 Traditional Retail&quot; (seller&#x27;s own comparison); &quot;Exchange for size only.&quot; · &quot;Final Sale!&quot; · &quot;Exchange only! Return &amp; cancellation policy.&quot; (all linking to auratenewyork.com/pages/terms-conditions-exchange-only); the same page also shows a &quot;Free Returns&quot; service badge and &quot;Lifetime Warranty&quot;; specs block: &quot;Width: 2.75mm&quot; · &quot;Thickness: 1.8mm&quot; · &quot;Weight: 5.5-8.5g&quot; · &quot;Diamonds: 1 Round VS/EF Lab Grown Diamond&quot; · &quot;Diamonds Size: 8.2mm&quot; · &quot;2tcw&quot; · &quot;SKU: AU5760&quot;; copy says &quot;Sculpted on a sleek 14k, 18k gold or platinum band with a refined 1.8mm width&quot; and &quot;Hand-set with an EF color, VVS clarity diamond&quot;; a quality badge on the same page says &quot;SI Clarity Only&quot;; &quot;All of our engagement diamond solitaire rings come with a certificate certifying the quality (cut, color, clarity and carat) of your diamond. It is run through one of two accredited institutions: The Gemological Institute of America or The International Gemological Institute. Trust but verify, always.&quot;; vermeil definition on the same page: &quot;Made with a 100% sterling silver base and plated in a thick layer of gold measuring at least 2.5 micron ... we actually stand by the official vermeil 2.5 micron minimum guidelines&quot;</td>
+        </tr><tr>
+          <td class="mono">P3-19</td>
+          <td><a href="https://ringconcierge.com/products/2-08-oval-lab-diamond-in-whisper-thina-hidden-halo" target="_blank" rel="noopener">Re-read the listing: price, the stone description, whether it is ready to ship, and whether the karat appears in the page body.</a>
+            <div class="tiny muted">P3 · Dataset A product ringconcierge-2-08-oval-lab-whisper-thin: price, availability, lead time, karat</div></td>
+          <td class="mono">ringconcierge-2-08-oval-lab-whisper-thin</td>
+          <td><span class="badge info">corrected</span></td>
+          <td class="small">&quot;$6,038&quot; · &quot;2.08 Oval Lab Diamond in Whisper Thin® Hidden Halo&quot;; &quot;2.08 Carat E VS1 Oval Lab Grown Diamond set in our Whisper Thin® Hidden Halo&quot;; every size option reads &quot;Made to Order&quot; · &quot;Estimated production time is 3-4 weeks&quot;; &quot;Receive a notification when this item is back in stock!&quot; · &quot;Join the Waitlist&quot;; banners &quot;FREE RETURNS + COMPLIMENTARY WARRANTY&quot; and &quot;COMPLIMENTARY LIFETIME WARRANTY&quot;; the karat is not stated in the body text; image descriptions say &quot;Yellow Gold ... with Platinum Prongs&quot;</td>
+        </tr><tr>
+          <td class="mono">P3-20</td>
+          <td><a href="https://mejuri.com/products/bold-diamond-eternity-ring" target="_blank" rel="noopener">Re-read the listing and the material copy, looking specifically for any surface-plating disclosure.</a>
+            <div class="tiny muted">P3 · R01 price, material, rhodium</div></td>
+          <td class="mono">R01</td>
+          <td><span class="badge bad">flagged</span></td>
+          <td class="small">&quot;From$2,900&quot; · &quot;Solid White Gold (14k)&quot; · 90% recycled gold · free 30-day returns · Klarna shown; &quot;14k solid white gold pieces are finished with rhodium plating&quot;</td>
+        </tr><tr>
+          <td class="mono">P3-21</td>
+          <td><a href="https://mejuri.com/collections/milestone-rings" target="_blank" rel="noopener">Re-read the collection page for both listed prices (R02&#x27;s price basis was corrected by an earlier pass to product level, so the product text was searched for again).</a>
+            <div class="tiny muted">P3 · R02 and R03 prices</div></td>
+          <td class="mono">R02, R03</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">R02 &quot;$1,500&quot; with &quot;Solid Yellow Gold (14k)&quot; (found in the third chunk of the collection listing); R03 &quot;From$648&quot;</td>
+        </tr><tr>
+          <td class="mono">P3-22</td>
+          <td><a href="https://mejuri.com/products/aurora-lab-grown-sapphire-eternity-ring" target="_blank" rel="noopener">Confirm the row that must FAIL the solid-gold test is still described as vermeil.</a>
+            <div class="tiny muted">P3 · R04 vermeil status</div></td>
+          <td class="mono">R04</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">&quot;$228&quot; · &quot;18k Gold Vermeil ... 2.5 Micron Gold Plating&quot;</td>
+        </tr><tr>
+          <td class="mono">P3-23</td>
+          <td><a href="https://mejuri.com/products/duet-mixed-ring" target="_blank" rel="noopener">Confirm R19 (imported from an archived session) against its own live page, which is what allowed L3 to be retired.</a>
+            <div class="tiny muted">P3 · R19 vermeil status and retired flag L3</div></td>
+          <td class="mono">R19</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">&quot;$178&quot; · &quot;18k Gold Vermeil, Sterling Silver&quot;</td>
+        </tr><tr>
+          <td class="mono">P3-24</td>
+          <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/floral-marquise-diamond-engagement-ring-in-18k-white-gold-item-203738" target="_blank" rel="noopener">Re-read the spec table and the description separately to confirm the contradiction is still live on the page.</a>
+            <div class="tiny muted">P3 · R08 price and the metal contradiction behind SPEC1 / finding F1</div></td>
+          <td class="mono">R08</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">&quot;$2,210&quot; · spec &quot;Metal 18K White Gold&quot; · &quot;Width 1.70mm&quot; · &quot;Rhodium Finish Yes&quot;; description: &quot;artfully crafted from warmly lustrous 14k yellow gold&quot;</td>
+        </tr><tr>
+          <td class="mono">P3-25</td>
+          <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/riviera-pave-diamond-engagement-ring-in-14k-white-gold-1-6-ct-tw-item-195326" target="_blank" rel="noopener">Confirm the setting price and check the rhodium line in the spec table.</a>
+            <div class="tiny muted">P3 · R09 price and rhodium finish</div></td>
+          <td class="mono">R09</td>
+          <td><span class="badge bad">flagged</span></td>
+          <td class="small">&quot;$1,500&quot; (setting price) · &quot;Rhodium Finish Yes&quot;</td>
+        </tr><tr>
+          <td class="mono">P3-26</td>
+          <td><a href="https://www.bluenile.com/policies/returns" target="_blank" rel="noopener">Re-read the return policy behind S-BN&#x27;s record, including the resize and resized-item clauses.</a>
+            <div class="tiny muted">P3 · Seller S-BN return terms</div></td>
+          <td class="mono">R05, R06, R07, R08, R09, R14</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">30 days from the shipment date, original unworn condition; exclusions include personalised jewellery, custom orders, engraved items, &quot;items resized after initial purchase&quot;, Diamond Upgrade Program purchases, clearance and Final Sale; two complimentary returns per customer per year; one free resize up or down two sizes within 6 months where the design permits; $150 fee if the diamond report is missing · bank-wire refunds mentioned</td>
+        </tr><tr>
+          <td class="mono">P3-27</td>
+          <td><a href="https://www.costco.com/p/-/round-brilliant-050-ctw-vs2-clarity-i-color-diamond-14kt-gold-band/100675127" target="_blank" rel="noopener">Re-read the listing to confirm that no price is displayed and to re-check the URL-vs-page identifier behind ID1.</a>
+            <div class="tiny muted">P3 · R10 price absence, metal wording, identifier mismatch</div></td>
+          <td class="mono">R10</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">no membership price is rendered in the page text — P2 stands, price_usd stays null; &quot;Item 1596365&quot; on a page whose URL ends /100675127 — ID1 stands; &quot;Metal: 14kt White Gold ( Rhodium Plated ) or 14kt Yellow Gold&quot;; &quot;0.50 ctw&quot; · 12 diamonds · &quot;VS2&quot; · &quot;I&quot; · sizes &quot;5, 6, 7 &amp; 8 - Sizeable within 1 size ( Costco does not provide this service )&quot;; &quot;All diamonds offered by Costco are natural and untreated.&quot; · first-party rating 4.8 from 2841 reviews</td>
+        </tr><tr>
+          <td class="mono">P3-28</td>
+          <td><a href="https://customerservice.costco.com/app/answers/detail/a_id/1191" target="_blank" rel="noopener">Re-read the jewellery return answer, and capture the document identity so a reader can tell which version was read.</a>
+            <div class="tiny muted">P3 · RET1 (precious metals non-refundable) and the document&#x27;s own metadata</div></td>
+          <td class="mono">R10</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">&quot;Precious metals are non-refundable.&quot;; diamonds of 1.00 ct or more need the original IGI/GIA paperwork and are settled with a Jewelry Credit Memo after a 48-hour Graduate Gemologist inspection; Special Order Kiosk and custom items are non-returnable · risk-free 100% satisfaction guarantee on other merchandise; document metadata: Document ID CU2573 · Version 18.0 · Published 10/02/2025</td>
+        </tr><tr>
+          <td class="mono">P3-29</td>
+          <td><a href="https://www.tiffany.com/engagement/engagement-rings/the-tiffany-setting-engagement-ring-in-18k-yellow-gold-GRP10863/" target="_blank" rel="noopener">Re-read the product page and note the path it is actually served at.</a>
+            <div class="tiny muted">P3 · R17 price wording, availability, return status, and the redirect behind RDR1</div></td>
+          <td class="mono">R17</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">served at /jewelry/rings/18k-rose-gold-and-platinum-diamond-rings-1712.html — the slug says rose gold while the content is &quot;Ring Style 18k Yellow Gold and Platinum&quot; (RDR1); &quot;Starting from $1,600&quot; (FP1) · &quot;0.20 CT G VS1&quot;; &quot;This product is currently unavailable&quot; (AV1); &quot;Please note that this item is non returnable.&quot; · &quot;...can only be exchanged.&quot; (RET6); &quot;(800) 843-3269&quot;</td>
+        </tr><tr>
+          <td class="mono">P3-30</td>
+          <td><a href="https://www.tiffany.com/policy/return-policy.html" target="_blank" rel="noopener">Re-read the corporate return policy behind S-TI&#x27;s record.</a>
+            <div class="tiny muted">P3 · Seller S-TI return terms</div></td>
+          <td class="mono">R17</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">&quot;Products are accepted for credit or exchange in the U.S. within 30 days of purchase.&quot;; purchases of $75,000 or more are exchange only, no refunds; &quot;Personalized, altered, or engraved items are not eligible for return or exchange.&quot;; original packaging required · refunds and exchanges only in the original country of purchase</td>
+        </tr><tr>
+          <td class="mono">P3-31</td>
+          <td><a href="https://www.wilsonsestatejewelry.com/products/mid-century-old-european-diamond-14-karat-white-gold-vintage-solitaire-engagement-ring" target="_blank" rel="noopener">Re-read the listing and its full return block, to confirm the 3% cancellation fee that RET7 had wrongly given to Sarraf really is Wilson&#x27;s, and to capture the layaway terms.</a>
+            <div class="tiny muted">P3 · R11 price, stamp, weight, and the return/layaway text behind RET2 and the 3% fee</div></td>
+          <td class="mono">R11</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">&quot;Sale price$3,725.00&quot; · &quot;Stamped for 14 karat gold&quot; · &quot;Total Weight: 6.1 grams&quot;; &quot;Please note that orders cancelled prior to shipment will not be refunded for credit card processing fees incurred at the rate of 3%.&quot; (stated twice: domestic and international); &quot;Return QR codes are sent via email. If Wilson&#x27;s is not contacted within 7 calendar days, and/or we do not receive the items within 3 calendar days from receipt of return label, no refund will be issued.&quot;; &quot;No items will be accepted for return if it is damaged, worn, or altered.&quot;; international: return within 5 days of the label, &quot;International returns are not complimentary. We will invoice you for the cost of international return shipping.&quot;; refund issued &quot;within 3 days of receipt&quot; after condition verification; &quot;We offer complimentary layaway for up to 12 months with 20% down via a PayPal invoice&quot; · no interest · 12 hours to pay the down payment · unpaid after 365 days is re-offered for sale and &quot;store credit will be issued&quot;</td>
+        </tr><tr>
+          <td class="mono">P3-32</td>
+          <td><a href="https://www.wilsonsestatejewelry.com/products/art-deco-old-mine-cut-diamond-18-karat-white-gold-antique-lotus-engagement-ring-gia" target="_blank" rel="noopener">Re-read the listing for the only row in the study that carries both a maker&#x27;s mark and a GIA report number.</a>
+            <div class="tiny muted">P3 · R12 price, stamp, maker&#x27;s mark, weight, GIA report</div></td>
+          <td class="mono">R12</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">&quot;$5,350.00&quot; · &quot;Stamped for 18 karat gold&quot; · &quot;partial maker&#x27;s mark for Hedges &amp; Co.&quot;; &quot;Total Weight: 2.2 grams&quot; · GIA Diamond Dossier 2215945495 · We-17036 · &quot;7 Day Return Policy&quot;</td>
+        </tr><tr>
+          <td class="mono">P3-33</td>
+          <td><a href="https://www.wilsonsestatejewelry.com/products/bailey-banks-biddle-art-deco-diamond-enamel-19-karat-white-gold-vintage-fanning-engagement-ring" target="_blank" rel="noopener">Re-read the listing for the 19-karat row.</a>
+            <div class="tiny muted">P3 · R13 price and the unusual 19K stamp behind K1</div></td>
+          <td class="mono">R13</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">&quot;$2,850.00&quot;; &quot;Stamped for 19 karat gold&quot;; &quot;Signed with maker&#x27;s mark for Bailey Banks &amp; Biddle&quot;; black enamel detailing; &quot;7 Day Return Policy&quot;</td>
+        </tr><tr>
+          <td class="mono">P3-34</td>
+          <td><a href="https://www.wilsonsestatejewelry.com/products/contemporary-0-92-ctw-diamond-14-karat-white-gold-engagement-ring-gia" target="_blank" rel="noopener">Confirm the listing is still unavailable, which is why it is excluded rather than priced.</a>
+            <div class="tiny muted">P3 · excluded_listings: Wilson&#x27;s We-9330 (Contemporary 0.92 CTW Diamond 14 Karat White Gold Engagement Ring)</div></td>
+          <td class="mono">excluded</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">page shows &quot;SOLD OUT&quot;; &quot;Stamped for 14 karat gold&quot;; 2.3 g; GIA 5221406268</td>
+        </tr><tr>
+          <td class="mono">P3-35</td>
+          <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/french-pave-diamond-engagement-ring-in-platinum-1-4-ct-tw-item-195271" target="_blank" rel="noopener">Confirm the item is platinum, i.e. correctly outside a gold study.</a>
+            <div class="tiny muted">P3 · excluded_listings: Blue Nile French Pavé Diamond Engagement Ring in Platinum 1/4 ct tw (item 195271)</div></td>
+          <td class="mono">excluded</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">&quot;$2,150&quot;; &quot;Metal Type: Platinum&quot;</td>
+        </tr><tr>
+          <td class="mono">P3-36</td>
+          <td><a href="https://www.jamesallen.com/engagement-rings/solitaire/14k-white-gold-knife-edge-solitaire-engagement-ring-item-17152" target="_blank" rel="noopener">Re-open the URL to confirm it still redirects and still resolves to a different product.</a>
+            <div class="tiny muted">P3 · excluded_listings: James Allen 14k white gold knife-edge solitaire (item 17152)</div></td>
+          <td class="mono">excluded</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">redirects to bluenile.com with &quot;?jaRedirect=true&quot; and the banner &quot;James Allen is Now Part of Blue Nile&quot;; the page it lands on is titled &quot;18K White Gold 0.25ct Pavé Bail Diamond Pendant&quot; — a pendant, not a ring; the style is sold out</td>
+        </tr><tr>
+          <td class="mono">P3-37</td>
+          <td><a href="https://www.jamesallen.com/engagement-rings/solitaire/14k-yellow-gold-15mm-comfort-fit-engagement-ring-item-41515" target="_blank" rel="noopener">Re-open the URL to confirm the redirect and the sold-out state.</a>
+            <div class="tiny muted">P3 · excluded_listings: James Allen 14k yellow gold 1.5mm comfort fit engagement ring (item 41515)</div></td>
+          <td class="mono">excluded</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">redirects to bluenile.com with &quot;?jaRedirect=true&quot;; &quot;This popular style is sold out&quot;</td>
+        </tr><tr>
+          <td class="mono">P3-38</td>
+          <td><a href="https://www.costco.com/4mm-diamond-cut-wedding-ring-14kt-gold.product.100423493.html" target="_blank" rel="noopener">Re-open the URL to confirm it is still dead rather than temporarily slow.</a>
+            <div class="tiny muted">P3 · excluded_listings: Costco 4mm Comfort Fit Diamond Cut 14kt Gold Wedding Ring (100423493)</div></td>
+          <td class="mono">excluded</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">&quot;Page Not Found!&quot;</td>
+        </tr><tr>
+          <td class="mono">P3-39</td>
+          <td><a href="https://www.sarraf.com/pages/returns-and-refunds.html" target="_blank" rel="noopener">Re-fetch the URL recorded as S-SARRAF&#x27;s policy_source by another session, to confirm the stored return terms still have a live citation.</a>
+            <div class="tiny muted">P3 · Re-fetch the URL recorded as S-SARRAF&#x27;s policy_source by another session, to confirm the stored return terms still have a live citation.</div></td>
+          <td class="mono">S-SARRAF</td>
+          <td><span class="badge bad">flagged</span></td>
+          <td class="small">Response is a 404 page: heading &#x27;404 Error - Page not found&#x27; and body &#x27;Uh oh, looks like the page you are looking for has moved or no longer exists.&#x27; Page title: &#x27;Sarraf - Not Found&#x27;.</td>
+        </tr><tr>
+          <td class="mono">P3-40</td>
+          <td><a href="https://www.sarraf.com/30-day-returns-and-exchange-policy/" target="_blank" rel="noopener">Read the live Sarraf returns policy in full (2 chunks) and test every return-related value stored on S-SARRAF and in flag RET7.</a>
+            <div class="tiny muted">P3 · Read the live Sarraf returns policy in full (2 chunks) and test every return-related value stored on S-SARRAF and in flag RET7.</div></td>
+          <td class="mono">S-SARRAF, RET7, R20, R21</td>
+          <td><span class="badge info">corrected</span></td>
+          <td class="small">&#x27;Return or exchange of an item within 30 days of receipt&#x27; · &#x27;Items that are damaged or used do not qualify for the return policy&#x27; · &#x27;Orders that are over 30 days from receipt do not qualify&#x27;; &#x27;Items from which the Sarraf.com tag has been removed are not eligible for return or exchange&#x27; · &#x27;Items that show signs of wear or have been resized (by a jeweler other than Sarraf Jewelry Inc.), altered, special-ordered items, or damaged in any way cannot be accepted for return&#x27;; &#x27;CAN I RETURN OR RESIZE AN ENGRAVED RING? Any ring where personal engraving was added or a special finish may be returned, exchanged, or resized where possible (with the exception of special orders); however, the $25.00 engraving fee or $50.00 finsh charges are non-refundable.&#x27; (the &#x27;finsh&#x27; spelling is the site&#x27;s own); &#x27;You will receive credit back to the same credit card that was charged or an exchange within seven business days.&#x27; · &#x27;You do not need a return authorization.&#x27; (retail) · return address &#x27;Sarraf Inc. Attn: Returns 650 South Hill Street, # 728 Los Angeles, CA 90014&#x27;; &#x27;NOTICE OF EXCESSIVE RETURNS ... High-risk behavior is identified as: Returning 30 or more items / Returning purchases greater than $10K / Overall return rate of 85% ... Clients who reach three strikes will be prohibited from making any new orders.&#x27;; Wholesale clause: &#x27;Your have two weeks from the date the order was received to return the item ... Engraved items are not eligible for return. All return require prior authorization. You must submit your request for return to service@sarraf.com&#x27;; No percentage or card-processing fee appears anywhere in either chunk - confirming the RET7 correction (F15) a second time on the canonical policy page.</td>
+        </tr><tr>
+          <td class="mono">P3-41</td>
+          <td><a href="https://www.sarraf.com/about-sarraf/" target="_blank" rel="noopener">Read Sarraf&#x27;s About page for the official e-mail address, phone, hours and address, and for the marketing wording of its return and warranty promises.</a>
+            <div class="tiny muted">P3 · Read Sarraf&#x27;s About page for the official e-mail address, phone, hours and address, and for the marketing wording of its return and warranty promises.</div></td>
+          <td class="mono">S-SARRAF</td>
+          <td><span class="badge info">corrected</span></td>
+          <td class="small">&#x27;Phone: (888) 4-SARRAF ( 888-472-7723)&#x27; · &#x27;FAX: (213) 627-5212&#x27; · &#x27;E-mail: service@sarraf.com&#x27;; &#x27;Sarraf Jewelry Inc. 650 S. Hill St., #728 Los Angeles, CA 90014&#x27; · &#x27;The Showroom is for Pickup only (No in-store shopping)&#x27; · &#x27;Monday - Thursday 10:00 AM to 4:00 PM Pacific Standard Time&#x27;; &#x27;30-Day Return Policy - Return any non-engraved items still in new condition and we&#x27;ll give you a full refund within the first 30 days. No questions asked.&#x27;; &#x27;Lifetime Guarantee - Any item purchased at Sarraf Jewelry is guaranteed to be free of defects in both craftsmanship and materials... Some restrictions apply.&#x27;; &#x27;Best Price Guarantee ... If you find a matching product with a lower price, we will give you back the difference in store credit.&#x27; · &#x27;Founded in 1986&#x27; · links to its &#x27;A+ Rating with the Better Business Bureau&#x27;</td>
+        </tr><tr>
+          <td class="mono">P3-42</td>
+          <td><a href="https://www.sarraf.com/pages/contact-us.html" target="_blank" rel="noopener">Fetch the URL recorded as S-SARRAF&#x27;s contact_source, to test whether it supports the phone and e-mail stored against it.</a>
+            <div class="tiny muted">P3 · Fetch the URL recorded as S-SARRAF&#x27;s contact_source, to test whether it supports the phone and e-mail stored against it.</div></td>
+          <td class="mono">S-SARRAF</td>
+          <td><span class="badge bad">flagged</span></td>
+          <td class="small">The URL redirects to https://www.sarraf.com/contact-us/ (page title &#x27;Sarraf Contact Us | Sarraf.com&#x27;).; &#x27;You can also reach us by calling 888-472-7723 or 213-612-4690 during the business hours listed below.&#x27; · &#x27;Normal Business Hours Pacific Standard Time / Monday - Thursday 10:00 AM to 4:00 PM&#x27;; The page contains a contact form only (&#x27;Please fill out the form below if you need assistance. We normally respond to your message within one business day.&#x27;) with fields Full Name, Phone Number, Email Address, Order Number, Company Name, RMA Number, Comments. No Sarraf e-mail address is published anywhere on it.</td>
+        </tr><tr>
+          <td class="mono">P3-43</td>
+          <td><a href="https://www.sarraf.com/" target="_blank" rel="noopener">Read the Sarraf homepage for any independently published contact e-mail, return promise or warranty wording.</a>
+            <div class="tiny muted">P3 · Read the Sarraf homepage for any independently published contact e-mail, return promise or warranty wording.</div></td>
+          <td class="mono">S-SARRAF</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">&#x27;In business since 1986, Sarraf Jewelry has worked tirelessly ... earned us a stellar A+ Rating from the Better Business Bureau ... backing them with a lifetime warranty.&#x27;; &#x27;We offer a range of perks like free shipping and a 30-day satisfaction program because we truly want you to be confident in your purchase.&#x27;; No e-mail address and no telephone number are printed on the homepage.</td>
+        </tr><tr>
+          <td class="mono">P3-44</td>
+          <td><a href="https://www.automicgold.com/pages/return-policy" target="_blank" rel="noopener">Re-fetch the URL recorded as S-AUTOMIC&#x27;s policy_source by another session.</a>
+            <div class="tiny muted">P3 · Re-fetch the URL recorded as S-AUTOMIC&#x27;s policy_source by another session.</div></td>
+          <td class="mono">S-AUTOMIC, R22</td>
+          <td><span class="badge bad">flagged</span></td>
+          <td class="small">Page title is &#x27;404 Not Found - Automic Gold&#x27;. The body served is the site&#x27;s cookie-consent layer followed by a 404; no return terms appear.</td>
+        </tr><tr>
+          <td class="mono">P3-45</td>
+          <td><a href="https://www.automicgold.com/policies/refund-policy" target="_blank" rel="noopener">Read Automic&#x27;s live refund policy and test the 30-day window, the free-return-shipping claim and the final-sale wording stored on S-AUTOMIC.</a>
+            <div class="tiny muted">P3 · Read Automic&#x27;s live refund policy and test the 30-day window, the free-return-shipping claim and the final-sale wording stored on S-AUTOMIC.</div></td>
+          <td class="mono">S-AUTOMIC, R22</td>
+          <td><span class="badge info">corrected</span></td>
+          <td class="small">&#x27;# Refund policy / # Returns &amp; Exchanges / Not in love with your item or want to exchange? Click the link for your free return label: https://automic.aftership.com. AfterShip is available for U.S residents only. Returns and exchanges are subject to our standard return policy.&#x27;; &#x27;Standard Return Policy / US Residents: Automic Gold offers free returns within 30 days of the delivery date for customers who reside in the U.S. You will be provided with one prepaid shipping label per order. For additional returns and exchanges, shipping fees may apply.&#x27;</td>
+        </tr><tr>
+          <td class="mono">P3-46</td>
+          <td><a href="https://www.catbirdnyc.com/contact-us" target="_blank" rel="noopener">Re-read Catbird&#x27;s contact page for the customer-service e-mail, any phone number, response times and postal address.</a>
+            <div class="tiny muted">P3 · Re-read Catbird&#x27;s contact page for the customer-service e-mail, any phone number, response times and postal address.</div></td>
+          <td class="mono">S-CB, R04, R17</td>
+          <td><span class="badge info">corrected</span></td>
+          <td class="small">&#x27;Order Status, Availability, Product Details or Shipping Questions - customerservice@catbirdnyc.com&#x27;; Role-specific addresses that are not customer service: &#x27;Press &amp; partnership inquiries / Please contact Sriya Karumanchi (sriya@catbirdnyc.com)&#x27; and &#x27;Submitting your work ... leigh@catbirdnyc.com&#x27;; &#x27;We strive to respond to all emails within 24-48 hrs.&#x27; · &#x27;For the fastest response, please use the form above&#x27;; &#x27;Catbird, Attn: Leigh, 141 Flushing Avenue, Suite 903, Brooklyn, NY 11205&#x27; - printed under &#x27;Submitting your work&#x27; for mailing design samples, with &#x27;No phone calls please.&#x27;; No telephone number is published anywhere on the page. A Klarna country/currency selector is present.</td>
+        </tr><tr>
+          <td class="mono">P3-47</td>
+          <td><a href="https://www.catbirdnyc.com/returns" target="_blank" rel="noopener">Re-read Catbird&#x27;s returns page in full and test the 20-day window, the $9 fee, the final-sale list and the resizing rule stored on S-CB and on data/retailers.json &#x27;catbird&#x27;.</a>
+            <div class="tiny muted">P3 · Re-read Catbird&#x27;s returns page in full and test the 20-day window, the $9 fee, the final-sale list and the resizing rule stored on S-CB and on data/retailers.json &#x27;catbird&#x27;.</div></td>
+          <td class="mono">S-CB, R04, R17</td>
+          <td><span class="badge info">corrected</span></td>
+          <td class="small">&#x27;you can send it back to us for a refund or credit within 20 days of the date your package was delivered&#x27; · &#x27;the item must be unused and sent back in its original packaging. All returns must be authorized by Catbird.&#x27; · &#x27;An $9 charge for return shipping will be deducted from your refund.&#x27;; &#x27;Special orders, engraved items, Forever jewelry, earrings from piercing events, home &amp; beauty items, and comestibles are final sale and cannot be returned.&#x27;; &#x27;We reserve the right to deny credit if the merchandise returned does not meet our return policy requirements. We are not able to cover lost, stolen or missing packages.&#x27; · &#x27;processing can take up to 7-10 business days before your refund is issued&#x27;; &#x27;Once your order is placed we are unable to cancel it or make changes.&#x27;; &#x27;I NEED THE EXACT SAME RING IN A DIFFERENT SIZE! Please return your ring using the return portal and place a new order on line for your new size. This is currently the only way we are able to accomodate exchanges.&#x27;; &#x27;We can only accept repairs or resizing on jewelry bought from Catbird.&#x27; · &#x27;All international sales are final.&#x27; · returns run through https://returns.narvar.com/catbird/returns or any Catbird store; No postal return address is printed on this page.</td>
+        </tr><tr>
+          <td class="mono">P4-01</td>
+          <td><a href="https://www.sarraf.com/products/14k-white-gold-solitaire-ring-0-94-ctw.html" target="_blank" rel="noopener">Sarraf 14k white gold solitaire - price, karat, published weight</a>
+            <div class="tiny muted">P4 · listing R20</div></td>
+          <td class="mono">R20</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">Page prints &quot;Now: US$3,004.00&quot;, &quot;14K Solid Gold&quot; and &quot;Approximate Metal Weight: 3.80 grams&quot; - every stored value reproduced exactly.</td>
+        </tr><tr>
+          <td class="mono">P4-02</td>
+          <td><a href="https://www.sarraf.com/products/10k-gold-6mm-high-polished-comfort-fit-wedding-band.html" target="_blank" rel="noopener">Sarraf 10k comfort-fit band - price, karat, published weight and its scope</a>
+            <div class="tiny muted">P4 · listing R21</div></td>
+          <td class="mono">R21</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">Page prints &quot;Now: US$613.00&quot;, &quot;10K Solid Gold&quot; and &quot;8.30 grams&quot;, plus &quot;The weight listed is an approximate weight of a ring in size 10&quot; - which is exactly the caveat stored against this row (WT3 + WT4).</td>
+        </tr><tr>
+          <td class="mono">P4-03</td>
+          <td><a href="https://www.sarraf.com/products/18k-yellow-gold-mens-solitaire-diamond-ring-3-4-ct.html" target="_blank" rel="noopener">Sarraf 18k men&#x27;s solitaire - price, karat, published weight</a>
+            <div class="tiny muted">P4 · listing R26</div></td>
+          <td class="mono">R26</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">Page prints &quot;Now: US$4,068.00&quot;, &quot;18K Solid Gold&quot; and &quot;6.30 grams&quot;; stored values match.</td>
+        </tr><tr>
+          <td class="mono">P4-04</td>
+          <td><a href="https://www.automicgold.com/products/radiant-cut-lab-diamond-cathedral-ring" target="_blank" rel="noopener">Automic Gold radiant cathedral ring - price and solid-gold wording</a>
+            <div class="tiny muted">P4 · listing R22</div></td>
+          <td class="mono">R22</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">Page prints &quot;$3,074&quot; and &quot;Crafted from solid recycled 14k gold&quot;, and repeats &quot;All engraved items are final sale&quot; (POL2). The fetch ended mid-line at &quot;Item Weight Appr...&quot;, so the 5.4 g weight was NOT re-read in this pass and remains as captured on 2026-10-22.</td>
+        </tr><tr>
+          <td class="mono">P4-05</td>
+          <td><a href="https://www.wilsonsestatejewelry.com/products/mid-century-old-european-diamond-14-karat-white-gold-vintage-solitaire-engagement-ring" target="_blank" rel="noopener">Wilson&#x27;s Estate Jewelry mid-century solitaire - price, stamp, weight, return window</a>
+            <div class="tiny muted">P4 · listing R11</div></td>
+          <td class="mono">R11</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">Page prints &quot;Sale price$3,725.00&quot;, &quot;Stamped for 14 karat gold&quot;, &quot;Total Weight: 6.1 grams&quot; and &quot;7 Day Return Policy&quot;; stored values match, and the weight is still a total-item weight including the 0.78 ct stone (WT1).</td>
+        </tr><tr>
+          <td class="mono">P4-06</td>
+          <td><a href="https://www.ross-simons.com/products/985230" target="_blank" rel="noopener">Ross-Simons 2mm 18kt ring - price, karat, published gold weight</a>
+            <div class="tiny muted">P4 · listing R15</div></td>
+          <td class="mono">R15</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">Page prints &quot;$249&quot;, &quot;Metal 18kt Yellow Gold&quot; and &quot;Gold Weight 0.7 grams&quot;, plus &quot;All weights and measurements are approximate&quot; (WT3).</td>
+        </tr><tr>
+          <td class="mono">P4-07</td>
+          <td><a href="https://www.ross-simons.com/products/932728" target="_blank" rel="noopener">Ross-Simons Italian 14kt diamond-cut ring - price, karat, weight, and the PD1 premise</a>
+            <div class="tiny muted">P4 · listing R16</div></td>
+          <td class="mono">R16</td>
+          <td><span class="badge info">corrected</span></td>
+          <td class="small">Page prints &quot;$299&quot;, &quot;14kt Yellow Gold&quot; and &quot;Gold Weight 0.8 grams&quot;. The live price equals the stored price, so flag PD1 (&quot;price differed between live page and cached copy&quot;) no longer describes anything: it was retired and removed from this row.</td>
+        </tr><tr>
+          <td class="mono">P4-08</td>
+          <td><a href="https://www.ross-simons.com/pages/returns-exchanges" target="_blank" rel="noopener">Ross-Simons returns and exchanges policy</a>
+            <div class="tiny muted">P4 · policy S-RS</div></td>
+          <td class="mono">R15, R16, S-RS</td>
+          <td><span class="badge info">corrected</span></td>
+          <td class="small">Page prints &quot;30-Day No-Risk Return Guarantee&quot;, &quot;within 30 days&quot;, &quot;resized by a jeweller other than Ross-Simons cannot be accepted for return&quot;, &quot;a flat fee of $4.95 for return shipping and handling&quot;, phone 800-835-0919 and customerservice@ross-simons.com. Rows R15 and R16 previously said the policy was not verified and carried POL1; both now quote these terms and POL1 is removed.</td>
+        </tr><tr>
+          <td class="mono">P4-09</td>
+          <td><a href="https://www.catbirdnyc.com/returns" target="_blank" rel="noopener">Catbird returns policy</a>
+            <div class="tiny muted">P4 · policy S-CB</div></td>
+          <td class="mono">R18, S-CB</td>
+          <td><span class="badge info">corrected</span></td>
+          <td class="small">Page prints &quot;within 20 days of the date your package was delivered&quot;, &quot;An $9 charge for return shipping will be deducted from your refund&quot;, the final-sale list, and &quot;All international sales are final&quot;. R18 previously said the policy was not verified and carried POL1; it now quotes these terms and POL1 is removed.</td>
+        </tr><tr>
+          <td class="mono">P4-10</td>
+          <td><a href="https://www.catbirdnyc.com/contact-us" target="_blank" rel="noopener">Catbird contact page - the source for the recorded e-mail address</a>
+            <div class="tiny muted">P4 · contact S-CB</div></td>
+          <td class="mono">S-CB</td>
+          <td><span class="badge bad">flagged</span></td>
+          <td class="small">Two attempts returned &quot;500 Internal Server Error&quot; (nginx). The e-mail recorded against S-CB therefore could not be re-confirmed on 2026-10-23; new flag SRC2 was raised and the seller record says so. The rest of the site loaded normally in the same session, so this is one broken page, not a dead domain.</td>
+        </tr><tr>
+          <td class="mono">P4-11</td>
+          <td><a href="https://www.catbirdnyc.com/woodland-ring.html" target="_blank" rel="noopener">Catbird Woodland Ring - price and listing state</a>
+            <div class="tiny muted">P4 · listing R18</div></td>
+          <td class="mono">R18</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">Page prints &quot;Woodland Ring&quot; and &quot;$276.00Regular Price$368.00&quot; - the stored $276 matches. The page also carries a sold-out / waitlist badge, which is recorded on the row.</td>
+        </tr><tr>
+          <td class="mono">P4-12</td>
+          <td><a href="https://www.sarraf.com/about-sarraf/" target="_blank" rel="noopener">Sarraf About page - contact details and the engraving contradiction</a>
+            <div class="tiny muted">P4 · seller S-SARRAF</div></td>
+          <td class="mono">S-SARRAF</td>
+          <td><span class="badge bad">flagged</span></td>
+          <td class="small">Page prints &quot;E-mail: service@sarraf.com&quot; and &quot;888-472-7723&quot;, confirming the corrected contact record, and repeats &quot;30-Day Return Policy - Return any non-engraved items still in new condition ... No questions asked&quot;, which contradicts the returns page&#x27;s engraved-ring paragraph. That is flag SPEC4, reproduced live.</td>
+        </tr><tr>
+          <td class="mono">P4-13</td>
+          <td><a href="https://www.automicgold.com/policies/refund-policy" target="_blank" rel="noopener">Automic Gold refund policy</a>
+            <div class="tiny muted">P4 · policy S-AUTOMIC</div></td>
+          <td class="mono">S-AUTOMIC</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">Page prints &quot;free returns within 30 days of the delivery date&quot;, &quot;one prepaid shipping label per order&quot;, &quot;For additional returns and exchanges, shipping fees may apply&quot;, and lists Gift Cards / Engraved items / Custom items / Modified Items as final sale. Stored seller terms match.</td>
+        </tr><tr>
+          <td class="mono">P4-14</td>
+          <td><a href="https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23" target="_blank" rel="noopener">16 CFR Part 23 - section list, currency banner and the maker&#x27;s-mark paragraph</a>
+            <div class="tiny muted">P4 · standards</div></td>
+          <td class="mono">standards</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">Part 23 prints the currency banner &quot;Displaying title 16, up to date as of 10/21/2026. Title 16 was last amended 10/19/2026&quot;, and §23.10&#x27;s own page prints the paragraph &quot;Disclosure of identity of manufacturers, processors, or distributors&quot;, which is what this project cites for the maker&#x27;s mark (15 U.S.C. 297). Both were added to data/sources.json with the banner text so a reader can tell which version was read.</td>
+        </tr><tr>
+          <td class="mono">P4-15</td>
+          <td><a href="https://mejuri.com/products/bold-diamond-eternity-ring" target="_blank" rel="noopener">Mejuri Bold Diamond Eternity Ring - price, solid-gold wording, rhodium disclosure</a>
+            <div class="tiny muted">P4 · listing R01</div></td>
+          <td class="mono">R01</td>
+          <td><span class="badge info">corrected</span></td>
+          <td class="small">Page prints &quot;From$2,900&quot;, &quot;Solid White Gold (14k)&quot; and &quot;a bold ring handcrafted in 14k solid gold&quot;, all matching. It also prints &quot;14k solid white gold pieces are finished with rhodium plating&quot; - a surface-layer disclosure this row did not carry. RH1 was added, with the quote and the URL stored on the row.</td>
+        </tr><tr>
+          <td class="mono">P4-16</td>
+          <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/classic-simple-solitaire-engagement-ring-in-14k-white-gold-item-195730" target="_blank" rel="noopener">Blue Nile classic solitaire setting - price and rhodium finish</a>
+            <div class="tiny muted">P4 · listing R14</div></td>
+          <td class="mono">R14</td>
+          <td><span class="badge info">corrected</span></td>
+          <td class="small">Page prints &quot;$1,145(Setting Price)&quot;, &quot;Metal 14K White Gold&quot; and &quot;Rhodium Finish Yes&quot;. The stored setting-only price matches and RH1 was added.</td>
+        </tr><tr>
+          <td class="mono">P4-17</td>
+          <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/floral-marquise-diamond-engagement-ring-in-18k-white-gold-item-203738" target="_blank" rel="noopener">Blue Nile floral marquise setting - price, rhodium finish, and the on-page contradiction</a>
+            <div class="tiny muted">P4 · listing R08</div></td>
+          <td class="mono">R08</td>
+          <td><span class="badge bad">flagged</span></td>
+          <td class="small">The spec table prints &quot;Metal 18K White Gold&quot; and &quot;Rhodium Finish Yes&quot;, and the price is &quot;$2,210(Setting Price)&quot;. The Product Details paragraph on the same page still says the ring is &quot;artfully crafted from warmly lustrous 14k yellow gold&quot; - flag SPEC1 reproduces a day later, unchanged. RH1 was added.</td>
+        </tr><tr>
+          <td class="mono">P4-18</td>
+          <td><a href="https://www.costco.com/p/-/round-brilliant-050-ctw-vs2-clarity-i-color-diamond-14kt-gold-band/100675127" target="_blank" rel="noopener">Costco 0.50 ctw diamond band - missing price, identifier mismatch, metal wording</a>
+            <div class="tiny muted">P4 · listing R10</div></td>
+          <td class="mono">R10</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">No price was rendered (the buy box prints &quot;Loading&quot;), so the stored null price is correct and must stay null. The page prints &quot;Item 1596365&quot; against a URL ending 100675127 (flag ID1) and &quot;Metal: 14kt White Gold ( Rhodium Plated ) or 14kt Yellow Gold&quot;, which is why RH1 was added for the white-gold option. The page never uses the word &quot;solid&quot;.</td>
+        </tr><tr>
+          <td class="mono">P4-19</td>
+          <td><a href="https://mene.com/products/wrap-ring-gold" target="_blank" rel="noopener">Mene Wrap Ring - price has moved since capture</a>
+            <div class="tiny muted">P4 · listing R30</div></td>
+          <td class="mono">R30</td>
+          <td><span class="badge info">corrected</span></td>
+          <td class="small">Page prints &quot;$3,228&quot; on 2026-10-23 against the $3,253 captured on 2026-10-22 (-0.8%). Mene sells by weight and re-quotes continuously, so the captured figure is a dated observation. The row keeps $3,253, gains a live_recheck block with today&#x27;s figure and quote, and carries new flag PRC1.</td>
+        </tr><tr>
+          <td class="mono">P4-20</td>
+          <td><a href="https://mene.com/collections/bands-gold" target="_blank" rel="noopener">Mene 24k bands - all three captured prices have moved</a>
+            <div class="tiny muted">P4 · bands BND-01..BND-03</div></td>
+          <td class="mono">bands</td>
+          <td><span class="badge info">corrected</span></td>
+          <td class="small">The collection prints &quot;Classic Band From $1,664&quot;, &quot;Narrow Flat Band From $1,544&quot; and &quot;Wide Flat Band From $2,315&quot;; the Classic Band product page prints &quot;$1,707&quot;. Captured on 2026-10-22 were $1,720 / $1,556 / $2,333. Each band row keeps its captured price, gains a live_recheck block and the corrected Hallmark field, and carries PRC1.</td>
+        </tr><tr>
+          <td class="mono">P4-21</td>
+          <td><a href="https://mene.com/products/mene-classic-band-gold" target="_blank" rel="noopener">Mene Classic Band product page - URL resolves and price</a>
+            <div class="tiny muted">P4 · bands BND-01</div></td>
+          <td class="mono">bands</td>
+          <td><span class="badge info">corrected</span></td>
+          <td class="small">The product_url stored on BND-01 resolves (no 404) and prints &quot;Classic Band / $1,707 / USD&quot;, 5mm x 2mm, &quot;Products are sold by weight, not size.&quot; - so the URL is sound and the price has moved, not broken.</td>
+        </tr><tr>
+          <td class="mono">P4-22</td>
+          <td><a href="https://mejuri.com/shop/products/diamonds-band?Material=Solid+Yellow+Gold+%2814k%29&amp;Stone=Natural+Diamond" target="_blank" rel="noopener">Mejuri Diamonds Band - /shop/products/ URL resolves and price</a>
+            <div class="tiny muted">P4 · bands BND-11</div></td>
+          <td class="mono">bands</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">The /shop/products/ path used by the band records resolves normally and prints &quot;$648&quot; with &quot;Solid Yellow Gold (14k)&quot; and &quot;Handcrafted in 14k solid gold with diamonds&quot; - matching BND-11. A guessed URL variant without the path prefix 404s, so the stored form is the correct one.</td>
+        </tr><tr>
+          <td class="mono">P4-23</td>
+          <td><a href="https://www.ross-simons.com/products/571221" target="_blank" rel="noopener">Ross-Simons women&#x27;s 2mm band - price and published gold weight</a>
+            <div class="tiny muted">P4 · bands BND-04</div></td>
+          <td class="mono">bands</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">Page prints &quot;$400&quot;, &quot;Metal 14kt Yellow Gold&quot; and &quot;Gold Weight 1.7 grams&quot;, matching BND-04&#x27;s stored $400 / 1.7 g / 3.12x melt ratio inputs.</td>
+        </tr><tr>
+          <td class="mono">P4-24</td>
+          <td><a href="https://goldprice.org/" target="_blank" rel="noopener">GoldPrice.org spot price on the day of this pass</a>
+            <div class="tiny muted">P4 · spot</div></td>
+          <td class="mono">spot</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">The page printed &quot;Spot Gold Price: USD 4,022.22 / Ounce ... Oct 23rd, 2026 at 05:55 NY Time&quot; (ticker 4,022.07, -0.56%), 0.11% below the $4,026.79/oz snapshot the melt values use. That is inside the project&#x27;s noise tolerance, so no stored value was changed; the snapshot stays a dated capture.</td>
+        </tr><tr>
+          <td class="mono">P4-25</td>
+          <td><a href="https://www.sarraf.com/30-day-returns-and-exchange-policy/" target="_blank" rel="noopener">Sarraf 30-day returns policy - fees, exclusions and the excessive-returns clause</a>
+            <div class="tiny muted">P4 · policy S-SARRAF</div></td>
+          <td class="mono">S-SARRAF</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">Page prints the extended-holiday clause, &quot;Items from which the Sarraf.com tag has been removed are not eligible for return or exchange&quot;, &quot;resized (by a jeweler other than Sarraf Jewelry Inc.) ... cannot be accepted for return&quot;, the $25.00 engraving / $50.00 finish charges, and the return address. No percentage card fee appears anywhere on it - which is what flag RET7 originally got wrong and what the correction note records.</td>
+        </tr><tr>
+          <td class="mono">P5-01</td>
+          <td><a href="https://www.wilsonsestatejewelry.com/products/art-deco-old-mine-cut-diamond-18-karat-white-gold-antique-lotus-engagement-ring-gia" target="_blank" rel="noopener">Wilson&#x27;s Art Deco lotus ring - price, hallmark, maker&#x27;s mark, total weight</a>
+            <div class="tiny muted">listing</div></td>
+          <td class="mono">R12</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">Page prints &#x27;Sale price$5,350.00&#x27;, &#x27;Stamped for 18 karat gold&#x27;, &#x27;With partial maker&#x27;s mark for Hedges &amp; Co.&#x27;, &#x27;Total Weight: 2.2 grams&#x27;, GIA Dossier 2215945495 and &#x27;7 Day Return Policy&#x27;. All five stored values match. This is one of only three rows in the dataset whose seller publishes a hallmark, and one of two that publishes a partial maker&#x27;s mark - the checklist&#x27;s hallmark item is met by evidence here, not by inference.</td>
+        </tr><tr>
+          <td class="mono">P5-02</td>
+          <td><a href="https://www.sarraf.com/products/18k-yellow-gold-mens-solitaire-diamond-ring-3-4-ct.html" target="_blank" rel="noopener">Sarraf 18K men&#x27;s solitaire - price and &#x27;Approximate Metal Weight&#x27;</a>
+            <div class="tiny muted">listing</div></td>
+          <td class="mono">R26</td>
+          <td><span class="badge info">corrected</span></td>
+          <td class="small">Page prints &#x27;Now: US$4,068.00&#x27;, &#x27;Material 18K Solid Gold&#x27;, &#x27;Approximate Metal Weight: 6.30 grams&#x27;. Price and weight confirmed. The stored weight_quote carried an unquoted annotation &#x27;(±5% seller accuracy note)&#x27;; the product page prints no tolerance of any kind, so the annotation was removed and replaced with the fact that the seller calls the figure approximate without defining the tolerance.</td>
+        </tr><tr>
+          <td class="mono">P5-03</td>
+          <td><a href="https://www.sarraf.com/products/14k-yellow-gold-round-cut-8-8mm-wide-1-0ct-cz-engagement-ring.html" target="_blank" rel="noopener">Sarraf 14K CZ engagement ring - price, karat and weight</a>
+            <div class="tiny muted">listing</div></td>
+          <td class="mono">R27</td>
+          <td><span class="badge info">corrected</span></td>
+          <td class="small">Page prints &#x27;Now: US$695.00&#x27;, &#x27;Material 14K Solid Gold&#x27;, &#x27;Approximate Metal Weight: 2.50 grams&#x27;, and the description says &#x27;Solid and Pure 14k Yellow Gold&#x27;. Price, karat and weight confirmed. Same unsupported &#x27;(±5%)&#x27; annotation removed from the stored quote.</td>
+        </tr><tr>
+          <td class="mono">P5-04</td>
+          <td><a href="https://www.automicgold.com/products/coffin-ring" target="_blank" rel="noopener">Automic Gold coffin ring - price and metal-dependent item weight</a>
+            <div class="tiny muted">listing</div></td>
+          <td class="mono">R23</td>
+          <td><span class="badge info">corrected</span></td>
+          <td class="small">Page prints &#x27;$1,910&#x27;, &#x27;Solid 14k Gold and 950 Platinum&#x27;, &#x27;Item Weight Approximately 6.1g (gold) or 9.2g (platinum)&#x27;. Price confirmed. The stored quote recorded only &#x27;Approximately 6.1g&#x27; and dropped the platinum figure, which makes the gold weight look unconditional; the quote now carries both, matching how the same seller&#x27;s radiant ring is stored.</td>
+        </tr><tr>
+          <td class="mono">P5-05</td>
+          <td><a href="https://www.automicgold.com/products/radiant-cut-lab-diamond-cathedral-ring" target="_blank" rel="noopener">Automic Gold radiant cathedral ring - price, solid wording and weight</a>
+            <div class="tiny muted">listing</div></td>
+          <td class="mono">R22</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">Re-read after the cookie wall (text begins in chunk 4): &#x27;$3,074&#x27;, &#x27;Solid 14k Gold and 950 Platinum&#x27;, &#x27;Crafted from solid recycled 14k gold&#x27;, &#x27;Item Weight Approximately 5.4g for gold or 8.1g for platinum&#x27;, &#x27;Returns can be made within 30 days of the delivery date&#x27;, &#x27;Engraved items are final sale and cannot be returned&#x27;. Every stored field matches, including the platinum alternative.</td>
+        </tr><tr>
+          <td class="mono">P5-06</td>
+          <td><a href="https://www.automicgold.com/products/claddagh-ring" target="_blank" rel="noopener">Automic Gold Claddagh ring - price and solid-gold wording</a>
+            <div class="tiny muted">listing</div></td>
+          <td class="mono">R24</td>
+          <td><span class="badge bad">flagged</span></td>
+          <td class="small">Price &#x27;$875&#x27;, &#x27;Solid 14k Gold and 950 Platinum&#x27; and &#x27;crafted in solid recycled 14k gold&#x27; all confirmed. The Details block fell past the end of the chunk read (&#x27;We can customize&#x27; is the last line before the weight field), so the 2.3 g figure was NOT re-read this pass and is recorded as not re-checked rather than confirmed.</td>
+        </tr><tr>
+          <td class="mono">P5-07</td>
+          <td><a href="https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23/section-23.10" target="_blank" rel="noopener">16 CFR 23.10 - the maker&#x27;s-mark paragraph behind checklist item 3</a>
+            <div class="tiny muted">authority</div></td>
+          <td class="mono">R11, R12, R13</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">The section was opened in full (both parts of the page). Its title is &#x27;Additional guidance for the use of quality marks&#x27;, it defines &#x27;quality mark&#x27; to include the words gold, karat, carat, silver, vermeil, platinum, iridium, palladium, ruthenium, rhodium and osmium and their abbreviations, and it closes with the paragraph our L4 rule relies on: &#x27;Disclosure of identity of manufacturers, processors, or distributors. The National Stamping Act provides that any person ... who applies or causes to be applied a quality mark ... shall apply to the article the trademark or name of such person. [15 U.S.C. 297]&#x27;. The citation was therefore correct; the paragraph is now stored verbatim with the rule so the next reader does not have to take it on faith.</td>
         </tr></tbody>
   </table>
 </div>
@@ -349,6 +902,22 @@
         <td class="small">Two footnotes still claimed &#x27;none of the listings publishes a weight&#x27; / &#x27;No retailer in this dataset publishes one&#x27; and 6 summary/reference tables lacked row-level official https:// source links.</td>
         <td class="small">Session arena/cbea1001-gold3 line-by-line review &amp; row-link scanner. <strong>Fix:</strong> Updated prose to distinguish Dataset A (0 published weights) from Dataset B (13 published weights) and added official https:// source links to 100% of &lt;tbody&gt;&lt;tr&gt; rows across all root pages.</td>
         <td><span class="badge good">fixed</span></td>
+        <td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo commit</a></td></tr><tr><td class="mono">SD6</td><td class="mono small">bands-vintage-rings.html (data/bands-and-high-karat.json)</td>
+        <td class="small">Seven band records stated a hallmark in the seller&#x27;s voice (&quot;14K quality mark + maker&#x27;s trademark&quot;, &quot;Mene maker&#x27;s mark + 24K stamp + Certificate of Authenticity&quot;) although none of the cited pages prints any hallmark or maker&#x27;s-mark statement. The words came from general jewellery practice, not from the source.</td>
+        <td class="small">Fourth verification pass (P4), reading each band source page line by line. <strong>Fix:</strong> hallmark_disclosure rewritten to &quot;not published by the seller&quot; on BND-01 to BND-07, with the 16 CFR 23.10 / 15 U.S.C. 297 check stated as a to-do rather than a fact.</td>
+        <td><span class="badge good">fixed 2026-10-23</span></td>
+        <td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo commit</a></td></tr><tr><td class="mono">SD7</td><td class="mono small">flagged.html / rings.html (data/flags.json, data/rings.json)</td>
+        <td class="small">Flag PD1 (&quot;price differed between live page and cached copy&quot;) was still attached to R16 although the live page prints the same $299 the record stores, so the flag described nothing.</td>
+        <td class="small">Fourth verification pass (P4), re-reading R16. <strong>Fix:</strong> PD1 removed from R16 and its definition deleted; the retirement is recorded in the pass report.</td>
+        <td><span class="badge good">fixed 2026-10-23</span></td>
+        <td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo commit</a></td></tr><tr><td class="mono">SD8</td><td class="mono small">bands-vintage-rings.html, rings.html</td>
+        <td class="small">Four Mene listings were presented with a single captured price and no statement that the seller re-quotes as the metal moves. All four had moved by 0.7-1% within one day.</td>
+        <td class="small">Fourth verification pass (P4), re-reading the Mene product and collection pages. <strong>Fix:</strong> live_recheck blocks added to R30 and BND-01/02/03 and new flag PRC1 documents the movement; captured prices are kept, not overwritten.</td>
+        <td><span class="badge good">fixed 2026-10-23</span></td>
+        <td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo commit</a></td></tr><tr><td class="mono">SD9</td><td class="mono small">verify.html</td>
+        <td class="small">The pass table&#x27;s P4 row (the first session&#x27;s &#x27;Hallucination pass&#x27;) had been overwritten by a later bulk edit: its abridged result was replaced with the fourth pass&#x27;s tally, so the table showed the same &#x27;15 confirmed, 8 corrected, 2 flagged&#x27; twice and lost the original &#x27;7 metal-option claims deleted&#x27; record. The defect was caught by reading the deployed verify.html rather than the local file.</td>
+        <td class="small">arena/6d6192d1-gold3, fifth pass <strong>Fix:</strong> P4&#x27;s abridged result restored and the pass ids made unique (P1-P4 first session, P5-P7 independent passes) so a later edit cannot hit two rows at once.</td>
+        <td><span class="badge good">fixed 2026-10-23</span></td>
         <td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo commit</a></td></tr></tbody>
   </table>
 </div>
@@ -387,7 +956,13 @@
         <td class="small"><a href="https://www.localeclectic.com/products/solid-gold-simple-knot-ring" target="_blank" rel="noopener">official source</a></td></tr><tr><td class="mono">R29</td><td>Trust badge advertises &#x27;Free 1-Year Resizing&#x27; while Product Details states &#x27;resizing is not available for this ring&#x27;.</td>
         <td><span class="mono">SPEC3</span></td>
         <td><span class="badge warn">medium</span></td>
-        <td class="small"><a href="https://www.brilliantearth.com/Fairmined-2mm-Six-Prong-Solitaire-Ring-Gold-BE1FM0126-24910022/" target="_blank" rel="noopener">official source</a></td></tr></tbody>
+        <td class="small"><a href="https://www.brilliantearth.com/Fairmined-2mm-Six-Prong-Solitaire-Ring-Gold-BE1FM0126-24910022/" target="_blank" rel="noopener">official source</a></td></tr><tr><td class="mono">R30 / BND-01 / BND-02 / BND-03</td><td>Mene prices are metal-linked: every captured price had moved by 0.7-1% within one day.</td>
+        <td><span class="mono">PRC1</span></td>
+        <td><span class="badge warn">medium</span></td>
+        <td class="small"><a href="https://mene.com/collections/bands-gold" target="_blank" rel="noopener">official source</a></td></tr><tr><td class="mono">S-CB</td><td>Catbird&#x27;s cited contact page returned HTTP 500 on 2026-10-23, so the recorded e-mail could not be re-confirmed.</td>
+        <td><span class="mono">SRC2</span></td>
+        <td><span class="badge warn">medium</span></td>
+        <td class="small"><a href="https://www.catbirdnyc.com/contact-us" target="_blank" rel="noopener">official source</a></td></tr></tbody>
   </table>
 </div>
 
@@ -395,7 +970,7 @@
 <div class="card">
   <p class="small muted" style="margin-top:0">Links kept in the dataset but not opened in this pass are declared here rather
   than implied to be verified.</p>
-  <ul class="small"><li><a href="https://www.bluenile.com/engagement-rings" target="_blank" rel="noopener">https://www.bluenile.com/engagement-rings</a> &mdash; Collection page cited by four rows as context only; the product pages themselves were re-fetched and they carry every value used.</li><li><a href="https://www.lbma.org.uk/prices-and-data/lbma-precious-metal-prices" target="_blank" rel="noopener">https://www.lbma.org.uk/prices-and-data/lbma-precious-metal-prices</a> &mdash; LBMA states its historical benchmark tables are licence-gated, so no LBMA figure is used anywhere in this project. The claim itself was not re-opened this pass.</li></ul>
+  <ul class="small"><li><a href="https://www.bluenile.com/engagement-rings" target="_blank" rel="noopener">https://www.bluenile.com/engagement-rings</a> &mdash; Collection page cited by four rows as context only; the product pages themselves were re-fetched and they carry every value used.</li><li><a href="https://www.lbma.org.uk/prices-and-data/lbma-precious-metal-prices" target="_blank" rel="noopener">https://www.lbma.org.uk/prices-and-data/lbma-precious-metal-prices</a> &mdash; LBMA states its historical benchmark tables are licence-gated, so no LBMA figure is used anywhere in this project. The claim itself was not re-opened this pass.</li><li><a href="https://mejuri.com/products/bold-diamond-half-eternity-ring" target="_blank" rel="noopener">https://mejuri.com/products/bold-diamond-half-eternity-ring</a> &mdash; R02 not re-opened in the 2026-10-23 pass; value remains the 2026-10-22 capture.</li><li><a href="https://mejuri.com/collections/milestone-rings" target="_blank" rel="noopener">https://mejuri.com/collections/milestone-rings</a> &mdash; R03&#x27;s $648 sits on a collection page. The 2026-10-23 fetch returned the first part of the page only, so the card was not located and the price is not claimed as re-verified.</li><li><a href="https://mejuri.com/products/duet-mixed-ring" target="_blank" rel="noopener">https://mejuri.com/products/duet-mixed-ring</a> &mdash; R19 not re-opened in the 2026-10-23 pass (excluded vermeil row); value remains the 2026-10-22 capture.</li><li><a href="https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring</a> &mdash; All seven Aurate rows: not re-opened in the 2026-10-23 pass. Their prices remain the 2026-10-22 capture and are flagged accordingly.</li><li><a href="https://ringconcierge.com/products/2-08-oval-lab-diamond-in-14k-gold-whisper-thin-solitaire" target="_blank" rel="noopener">https://ringconcierge.com/products/2-08-oval-lab-diamond-in-14k-gold-whisper-thin-solitaire</a> &mdash; Ring Concierge rows not re-opened in the 2026-10-23 pass.</li><li><a href="https://www.tiffany.com/engagement/engagement-rings/the-tiffany-setting-engagement-ring-in-18k-yellow-gold-GRP10863/" target="_blank" rel="noopener">https://www.tiffany.com/engagement/engagement-rings/the-tiffany-setting-engagement-ring-in-18k-yellow-gold-GRP10863/</a> &mdash; R17 not re-opened in the 2026-10-23 pass.</li><li><a href="https://www.vrai.com/configure/setting-to-diamond/petite-4-prong-ring/round-brilliant-yellow-gold-41015509221469" target="_blank" rel="noopener">https://www.vrai.com/configure/setting-to-diamond/petite-4-prong-ring/round-brilliant-yellow-gold-41015509221469</a> &mdash; R28 is a client-side configurator with no static price; not re-opened in the 2026-10-23 pass.</li><li><a href="https://www.brilliantearth.com/Fairmined-2mm-Six-Prong-Solitaire-Ring-Gold-BE1FM0126-24910022/" target="_blank" rel="noopener">https://www.brilliantearth.com/Fairmined-2mm-Six-Prong-Solitaire-Ring-Gold-BE1FM0126-24910022/</a> &mdash; R29 not re-opened in the 2026-10-23 pass.</li><li><a href="https://www.localeclectic.com/products/solid-gold-simple-knot-ring" target="_blank" rel="noopener">https://www.localeclectic.com/products/solid-gold-simple-knot-ring</a> &mdash; R31 not re-opened in the 2026-10-23 pass; the 9k/10k contradiction (SPEC2) therefore remains as captured.</li><li><a href="https://www.ross-simons.com/products/993085" target="_blank" rel="noopener">https://www.ross-simons.com/products/993085</a> &mdash; BND-08 (22K/14K coin ring) not re-opened in the 2026-10-23 pass.</li><li><a href="https://www.ross-simons.com/products/823796" target="_blank" rel="noopener">https://www.ross-simons.com/products/823796</a> &mdash; BND-06 not re-opened in the 2026-10-23 pass.</li><li><a href="https://www.ross-simons.com/products/964717" target="_blank" rel="noopener">https://www.ross-simons.com/products/964717</a> &mdash; BND-07 not re-opened in the 2026-10-23 pass.</li><li><a href="https://www.ross-simons.com/products/571212" target="_blank" rel="noopener">https://www.ross-simons.com/products/571212</a> &mdash; BND-05 not re-opened in the 2026-10-23 pass.</li><li><a href="https://www.catbirdnyc.com/catbird-classic-wedding-bands-solid-gold" target="_blank" rel="noopener">https://www.catbirdnyc.com/catbird-classic-wedding-bands-solid-gold</a> &mdash; Dataset A Catbird row not re-opened in the 2026-10-23 pass.</li><li><a href="https://www.automicgold.com/products/claddagh-ring" target="_blank" rel="noopener">https://www.automicgold.com/products/claddagh-ring</a> &mdash; Price and solid-gold wording re-confirmed 2026-10-23, but the Details block fell past the end of the chunk read, so the 2.3 g figure was NOT re-read this pass (check P5-06).</li><li><a href="https://www.automicgold.com/products/gemstone-flower-ring" target="_blank" rel="noopener">https://www.automicgold.com/products/gemstone-flower-ring</a> &mdash; Not opened this pass; R25&#x27;s 1.4 g still rests on the earlier session&#x27;s read.</li><li><a href="https://www.vrai.com/configure/setting-to-diamond/petite-4-prong-ring/round-brilliant-yellow-gold-41015509221469" target="_blank" rel="noopener">https://www.vrai.com/configure/setting-to-diamond/petite-4-prong-ring/round-brilliant-yellow-gold-41015509221469</a> &mdash; VRAI renders price and weight through JavaScript; the row stays flagged as not machine-verifiable rather than being filled in from the rendered summary.</li></ul>
 </div>
 
 <h2>What no website can verify</h2>

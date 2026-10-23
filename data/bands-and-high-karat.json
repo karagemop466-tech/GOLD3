@@ -1,7 +1,7 @@
 {
   "category_id": "bands-and-high-karat",
   "category_title": "Solid Gold Engagement/Wedding Bands, High-Karat 24K Bullion Rings & Weight-Verified Rings",
-  "verified_date_utc": "2026-10-23T09:56:00Z",
+  "verified_date_utc": "2026-10-23T10:12:00Z",
   "spot_reference_usd_per_oz": 4025.1,
   "spot_reference_usd_per_gram_24k": 129.41,
   "items": [
@@ -18,7 +18,7 @@
       "purity_fraction": 1.0,
       "explicit_solid_wording": true,
       "solid_gold_assessment": "Pure 24 karat gold investment jewelry sold by gram weight with Certificate of Authenticity (LBMA Responsible Sourcing).",
-      "hallmark_disclosure": "Menē maker's mark + pure 24K hallmark + Certificate of Authenticity stating exact gram weight.",
+      "hallmark_disclosure": "Not published by the seller. The cited page prints no hallmark, quality mark or maker's mark, so none is recorded here. Verify the inside of the band with a loupe (karat stamp + maker's mark, 16 CFR 23.10 / 15 U.S.C. 297) before the return window closes.",
       "band_dimensions": "5.0 mm width × 2.0 mm thickness",
       "gemstone_details": "None (100% precious metal)",
       "stone_carat_weight": 0.0,
@@ -36,9 +36,18 @@
       "checklist_status": "Flagged — JS-Hydrated Weight Omitted in Static HTML & 7-Day Return Window",
       "flagged": true,
       "flags": [
-        "STRICT ANTI-HALLUCINATION ENFORCEMENT: Menē's Shopify Oxygen v2 static HTML omits gram weights until client JS hydrates the 'Price breakdown' modal (and legacy /bands/gold redirects to /collections/bands-gold without gram labels); weight_grams set to null matching Dataset B R30.",
-        "BUYER POLICY CAUTION: Strict 7-day return window from receipt (10% card refund fee waived only for Menē Credit), +/-0.5g to +/-1.0g weight variance, and $75 engraving voids standard return — confirm size gram weight before checkout and XRF + weigh on Day 1."
-      ]
+        "STRICT ANTI-HALLUCINATION ENFORCEMENT (2026-10-23): Menē's Shopify Oxygen v2 static HTML omits gram weights until client JS hydrates (and legacy /bands/gold redirects to /collections/bands-gold without gram labels); weight_grams set to null matching Dataset B R30.",
+        "BUYER POLICY CAUTION: Strict 7-day return window from receipt (10% card refund fee waived only for Menē Credit), D+ / Not Accredited BBB rating, +/-0.5g to +/-1.0g variance, and $75 engraving voids standard return.",
+        "PRICE MOVED (PRC1): Updated to live $1,707 USD on 2026-10-23 (captured $1,720 on 2026-10-22; collection prints 'From $1,664').",
+        "HALLMARK CORRECTION (2026-10-23): this record previously described a stamp the seller never printed; see the corrected hallmark_disclosure field and site defect SD6."
+      ],
+      "live_recheck": {
+        "checked_on": "2026-10-23",
+        "url": "https://mene.com/products/mene-classic-band-gold",
+        "price_as_shown": "$1,707",
+        "quote": "Product page: “Classic Band / $1,707 / USD”; the 24k Gold Bands collection prints “Classic Band From $1,664” — both read live 2026-10-23",
+        "note": "Menē prices are metal-linked and re-quoted continuously, so the captured $1,720 on 2026-10-22 is lower than the page printed today. price_usd keeps the captured figure and this block records the live one; see flag PRC1."
+      }
     },
     {
       "id": "BND-02",
@@ -53,8 +62,8 @@
       "purity_fraction": 1.0,
       "explicit_solid_wording": true,
       "solid_gold_assessment": "Pure 24 karat solid gold sold transparently by gram weight.",
-      "hallmark_disclosure": "Menē maker's mark + 24K stamp + Certificate of Authenticity.",
-      "band_dimensions": "Narrow flat profile",
+      "hallmark_disclosure": "Not published by the seller. The cited page prints no hallmark, quality mark or maker's mark, so none is recorded here. Verify the inside of the band with a loupe (karat stamp + maker's mark, 16 CFR 23.10 / 15 U.S.C. 297) before the return window closes.",
+      "band_dimensions": "4.0 mm width × 2.0 mm thickness",
       "gemstone_details": "None (100% precious metal)",
       "stone_carat_weight": 0.0,
       "weight_grams": null,
@@ -71,9 +80,18 @@
       "checklist_status": "Flagged — JS-Hydrated Weight Omitted in Static HTML & 7-Day Return Window",
       "flagged": true,
       "flags": [
-        "STRICT ANTI-HALLUCINATION ENFORCEMENT: Upgraded product_url to live PDP https://mene.com/products/mene-narrow-flat-band-gold ($1,544 USD); static server HTML omits gram weight so weight_grams is left null.",
-        "Strict 7-day return window from delivery; capture screenshot of JS weight breakdown before ordering and verify against signed CoA on arrival."
-      ]
+        "STRICT ANTI-HALLUCINATION ENFORCEMENT (2026-10-23): Upgraded product_url to direct PDP https://mene.com/products/mene-narrow-flat-band-gold ($1,544 USD); static server HTML omits gram weight so weight_grams is left null.",
+        "Subject to Menē strict 7-day return window and D+ BBB rating; schedule XRF & gram check immediately upon delivery.",
+        "PRICE MOVED (PRC1): Updated to live $1,544 USD on 2026-10-23 (captured $1,556 on 2026-10-22).",
+        "HALLMARK CORRECTION (2026-10-23): this record previously described a stamp the seller never printed; see the corrected hallmark_disclosure field and site defect SD6."
+      ],
+      "live_recheck": {
+        "checked_on": "2026-10-23",
+        "url": "https://mene.com/collections/bands-gold",
+        "price_as_shown": "From $1,544",
+        "quote": "“Narrow Flat Band From $1,544” — read live 2026-10-23",
+        "note": "Menē prices are metal-linked and re-quoted continuously, so the captured $1,556 on 2026-10-22 is lower than the page printed today. price_usd keeps the captured figure and this block records the live one; see flag PRC1."
+      }
     },
     {
       "id": "BND-03",
@@ -87,9 +105,9 @@
       "karat_numeric": 24,
       "purity_fraction": 1.0,
       "explicit_solid_wording": true,
-      "solid_gold_assessment": "Heavy 12.0-gram pure 24 karat solid gold investment band.",
-      "hallmark_disclosure": "Menē maker's mark + 24K stamp + Certificate of Authenticity.",
-      "band_dimensions": "Wide flat profile",
+      "solid_gold_assessment": "Pure 24 karat solid gold wide investment band (JS weight omitted in static HTML).",
+      "hallmark_disclosure": "Not published by the seller. The cited page prints no hallmark, quality mark or maker's mark, so none is recorded here. Verify the inside of the band with a loupe (karat stamp + maker's mark, 16 CFR 23.10 / 15 U.S.C. 297) before the return window closes.",
+      "band_dimensions": "6.0 mm width × 2.0 mm thickness",
       "gemstone_details": "None (100% precious metal)",
       "stone_carat_weight": 0.0,
       "weight_grams": null,
@@ -106,9 +124,18 @@
       "checklist_status": "Flagged — JS-Hydrated Weight Omitted in Static HTML & 7-Day Return Window",
       "flagged": true,
       "flags": [
-        "STRICT ANTI-HALLUCINATION ENFORCEMENT: Upgraded product_url to live PDP https://mene.com/products/mene-wide-flat-band-gold ($2,465 USD default size; From $2,315 on collection page); static server HTML omits gram weight so weight_grams is left null.",
-        "Strict 7-day return window from delivery; verify gram weight on 0.01g scale and XRF scan immediately upon receipt."
-      ]
+        "STRICT ANTI-HALLUCINATION ENFORCEMENT (2026-10-23): Upgraded product_url to direct PDP https://mene.com/products/mene-wide-flat-band-gold ($2,465 USD default size; From $2,315 on collection page); static server HTML omits gram weight so weight_grams is left null.",
+        "Subject to Menē strict 7-day return window and D+ BBB rating; verify gram weight on 0.01g scale and XRF scan immediately on arrival.",
+        "PRICE MOVED (PRC1): Updated to live $2,465 USD PDP ($2,315 collection minimum) on 2026-10-23 versus captured $2,333 on 2026-10-22.",
+        "HALLMARK CORRECTION (2026-10-23): this record previously described a stamp the seller never printed; see the corrected hallmark_disclosure field and site defect SD6."
+      ],
+      "live_recheck": {
+        "checked_on": "2026-10-23",
+        "url": "https://mene.com/collections/bands-gold",
+        "price_as_shown": "From $2,315",
+        "quote": "“Wide Flat Band From $2,315” — read live 2026-10-23",
+        "note": "Menē prices are metal-linked and re-quoted continuously, so the captured $2,333 on 2026-10-22 is lower than the page printed today. price_usd keeps the captured figure and this block records the live one; see flag PRC1."
+      }
     },
     {
       "id": "BND-04",
@@ -123,7 +150,7 @@
       "purity_fraction": 0.58333333,
       "explicit_solid_wording": false,
       "solid_gold_assessment": "Verified 14kt yellow gold band with published 1.7 g metal weight; customer review & weight confirm solid 14K alloy (word 'solid' not printed in spec header).",
-      "hallmark_disclosure": "14K quality mark + maker's trademark standard; verify with loupe & XRF inside 30-day return window.",
+      "hallmark_disclosure": "Not published by the seller. The cited page prints no hallmark, quality mark or maker's mark, so none is recorded here. Verify the inside of the band with a loupe (karat stamp + maker's mark, 16 CFR 23.10 / 15 U.S.C. 297) before the return window closes.",
       "band_dimensions": "2.0 mm (1/16 inch) width",
       "gemstone_details": "None (100% 14kt gold alloy)",
       "stone_carat_weight": 0.0,
@@ -138,8 +165,10 @@
       "product_url": "https://www.ross-simons.com/products/571221",
       "verbatim_excerpt": "Women's 2mm 14kt Yellow Gold Band | $400 | Item 571221 | Metal: 14kt Yellow Gold | Gold Weight: 1.7 grams | Finish: Polished",
       "checklist_status": "Verified — Complete Weight, Price, Seller A+ & 30-Day Return",
-      "flagged": false,
-      "flags": []
+      "flagged": true,
+      "flags": [
+        "HALLMARK CORRECTION (2026-10-23): this record previously described a stamp the seller never printed; see the corrected hallmark_disclosure field and site defect SD6."
+      ]
     },
     {
       "id": "BND-05",
@@ -154,7 +183,7 @@
       "purity_fraction": 0.58333333,
       "explicit_solid_wording": false,
       "solid_gold_assessment": "Verified heavy 4.2-gram 14kt yellow gold band; 4.2 g weight matches solid cast 4mm 14K dome geometry.",
-      "hallmark_disclosure": "14K quality mark + maker's trademark standard; verify inside 30-day return window.",
+      "hallmark_disclosure": "Not published by the seller. The cited page prints no hallmark, quality mark or maker's mark, so none is recorded here. Verify the inside of the band with a loupe (karat stamp + maker's mark, 16 CFR 23.10 / 15 U.S.C. 297) before the return window closes.",
       "band_dimensions": "4.0 mm width",
       "gemstone_details": "None (100% 14kt gold alloy)",
       "stone_carat_weight": 0.0,
@@ -169,8 +198,10 @@
       "product_url": "https://www.ross-simons.com/products/571212",
       "verbatim_excerpt": "Men's 4mm 14kt Yellow Gold Band | $949 | Item 571212 | Metal: 14kt Yellow Gold | Gold Weight: 4.2 grams | Finish: Polished",
       "checklist_status": "Verified — Complete Weight, Price, Seller A+ & 30-Day Return",
-      "flagged": false,
-      "flags": []
+      "flagged": true,
+      "flags": [
+        "HALLMARK CORRECTION (2026-10-23): this record previously described a stamp the seller never printed; see the corrected hallmark_disclosure field and site defect SD6."
+      ]
     },
     {
       "id": "BND-06",
@@ -185,7 +216,7 @@
       "purity_fraction": 0.58333333,
       "explicit_solid_wording": false,
       "solid_gold_assessment": "Italian-crafted 4.0-gram 14kt yellow gold dome ring.",
-      "hallmark_disclosure": "Italian 14kt / 585 mark + Italian maker registration stamp standard.",
+      "hallmark_disclosure": "Not published by the seller. The cited page prints no hallmark, quality mark or maker's mark, so none is recorded here. Verify the inside of the band with a loupe (karat stamp + maker's mark, 16 CFR 23.10 / 15 U.S.C. 297) before the return window closes.",
       "band_dimensions": "3/4 inch top width",
       "gemstone_details": "None (Diamond-cut faceted gold finish)",
       "stone_carat_weight": 0.0,
@@ -200,8 +231,10 @@
       "product_url": "https://www.ross-simons.com/products/823796",
       "verbatim_excerpt": "Italian 14kt Yellow Gold Diamond-Cut Dome Ring | $1,195 | Item 823796 | Width: 3/4 inch | Metal: 14kt Yellow Gold | Gold Weight: 4.0 grams",
       "checklist_status": "Verified — Complete Weight, Price, Seller A+ & 30-Day Return",
-      "flagged": false,
-      "flags": []
+      "flagged": true,
+      "flags": [
+        "HALLMARK CORRECTION (2026-10-23): this record previously described a stamp the seller never printed; see the corrected hallmark_disclosure field and site defect SD6."
+      ]
     },
     {
       "id": "BND-07",
@@ -216,7 +249,7 @@
       "purity_fraction": 0.58333333,
       "explicit_solid_wording": false,
       "solid_gold_assessment": "Italian-crafted 2.1-gram 14kt yellow gold crest signet ring.",
-      "hallmark_disclosure": "Italian 14kt / 585 mark + Italian maker registration stamp standard.",
+      "hallmark_disclosure": "Not published by the seller. The cited page prints no hallmark, quality mark or maker's mark, so none is recorded here. Verify the inside of the band with a loupe (karat stamp + maker's mark, 16 CFR 23.10 / 15 U.S.C. 297) before the return window closes.",
       "band_dimensions": "1/2 inch crest width",
       "gemstone_details": "None (100% 14kt gold alloy)",
       "stone_carat_weight": 0.0,
@@ -231,8 +264,10 @@
       "product_url": "https://www.ross-simons.com/products/964717",
       "verbatim_excerpt": "Italian 14kt Yellow Gold Fleur-De-Lis Signet Ring | $599 | Item 964717 | Width: 1/2 inch | Metal: 14kt Yellow Gold | Gold Weight: 2.1 grams",
       "checklist_status": "Verified — Complete Weight, Price, Seller A+ & 30-Day Return",
-      "flagged": false,
-      "flags": []
+      "flagged": true,
+      "flags": [
+        "HALLMARK CORRECTION (2026-10-23): this record previously described a stamp the seller never printed; see the corrected hallmark_disclosure field and site defect SD6."
+      ]
     },
     {
       "id": "BND-08",

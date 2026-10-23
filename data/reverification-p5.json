@@ -1,0 +1,94 @@
+{
+  "pass_name": "Fifth pass - weight-bearing rows (targeted)",
+  "pass_id": "P5",
+  "session": "arena/6d6192d1-gold3",
+  "checked_on": "2026-10-23",
+  "method": "Every row in Dataset B that publishes a finished-weight figure was looked at again, because weight is the only input the melt calculator takes from the seller. The four Automic Gold pages hide their product text behind a cookie-consent wall, so chunks 4-5 were read instead of chunk 0.",
+  "scope": "Dataset B weight-bearing rows: R11, R12, R15, R16, R20, R21, R22, R23, R24, R26, R27 (R25 and R28 not completed - see checks).",
+  "checks": [
+    {
+      "id": "P5-01",
+      "label": "Wilson's Art Deco lotus ring - price, hallmark, maker's mark, total weight",
+      "kind": "listing",
+      "url": "https://www.wilsonsestatejewelry.com/products/art-deco-old-mine-cut-diamond-18-karat-white-gold-antique-lotus-engagement-ring-gia",
+      "rows": [
+        "R12"
+      ],
+      "outcome": "confirmed",
+      "findings": "Page prints 'Sale price$5,350.00', 'Stamped for 18 karat gold', 'With partial maker's mark for Hedges & Co.', 'Total Weight: 2.2 grams', GIA Dossier 2215945495 and '7 Day Return Policy'. All five stored values match. This is one of only three rows in the dataset whose seller publishes a hallmark, and one of two that publishes a partial maker's mark - the checklist's hallmark item is met by evidence here, not by inference.",
+      "checked_on": "2026-10-23",
+      "session": "arena/6d6192d1-gold3"
+    },
+    {
+      "id": "P5-02",
+      "label": "Sarraf 18K men's solitaire - price and 'Approximate Metal Weight'",
+      "kind": "listing",
+      "url": "https://www.sarraf.com/products/18k-yellow-gold-mens-solitaire-diamond-ring-3-4-ct.html",
+      "rows": [
+        "R26"
+      ],
+      "outcome": "corrected",
+      "findings": "Page prints 'Now: US$4,068.00', 'Material 18K Solid Gold', 'Approximate Metal Weight: 6.30 grams'. Price and weight confirmed. The stored weight_quote carried an unquoted annotation '(±5% seller accuracy note)'; the product page prints no tolerance of any kind, so the annotation was removed and replaced with the fact that the seller calls the figure approximate without defining the tolerance.",
+      "checked_on": "2026-10-23",
+      "session": "arena/6d6192d1-gold3"
+    },
+    {
+      "id": "P5-03",
+      "label": "Sarraf 14K CZ engagement ring - price, karat and weight",
+      "kind": "listing",
+      "url": "https://www.sarraf.com/products/14k-yellow-gold-round-cut-8-8mm-wide-1-0ct-cz-engagement-ring.html",
+      "rows": [
+        "R27"
+      ],
+      "outcome": "corrected",
+      "findings": "Page prints 'Now: US$695.00', 'Material 14K Solid Gold', 'Approximate Metal Weight: 2.50 grams', and the description says 'Solid and Pure 14k Yellow Gold'. Price, karat and weight confirmed. Same unsupported '(±5%)' annotation removed from the stored quote.",
+      "checked_on": "2026-10-23",
+      "session": "arena/6d6192d1-gold3"
+    },
+    {
+      "id": "P5-04",
+      "label": "Automic Gold coffin ring - price and metal-dependent item weight",
+      "kind": "listing",
+      "url": "https://www.automicgold.com/products/coffin-ring",
+      "rows": [
+        "R23"
+      ],
+      "outcome": "corrected",
+      "findings": "Page prints '$1,910', 'Solid 14k Gold and 950 Platinum', 'Item Weight Approximately 6.1g (gold) or 9.2g (platinum)'. Price confirmed. The stored quote recorded only 'Approximately 6.1g' and dropped the platinum figure, which makes the gold weight look unconditional; the quote now carries both, matching how the same seller's radiant ring is stored.",
+      "checked_on": "2026-10-23",
+      "session": "arena/6d6192d1-gold3"
+    },
+    {
+      "id": "P5-05",
+      "label": "Automic Gold radiant cathedral ring - price, solid wording and weight",
+      "kind": "listing",
+      "url": "https://www.automicgold.com/products/radiant-cut-lab-diamond-cathedral-ring",
+      "rows": [
+        "R22"
+      ],
+      "outcome": "confirmed",
+      "findings": "Re-read after the cookie wall (text begins in chunk 4): '$3,074', 'Solid 14k Gold and 950 Platinum', 'Crafted from solid recycled 14k gold', 'Item Weight Approximately 5.4g for gold or 8.1g for platinum', 'Returns can be made within 30 days of the delivery date', 'Engraved items are final sale and cannot be returned'. Every stored field matches, including the platinum alternative.",
+      "checked_on": "2026-10-23",
+      "session": "arena/6d6192d1-gold3"
+    },
+    {
+      "id": "P5-06",
+      "label": "Automic Gold Claddagh ring - price and solid-gold wording",
+      "kind": "listing",
+      "url": "https://www.automicgold.com/products/claddagh-ring",
+      "rows": [
+        "R24"
+      ],
+      "outcome": "flagged",
+      "findings": "Price '$875', 'Solid 14k Gold and 950 Platinum' and 'crafted in solid recycled 14k gold' all confirmed. The Details block fell past the end of the chunk read ('We can customize' is the last line before the weight field), so the 2.3 g figure was NOT re-read this pass and is recorded as not re-checked rather than confirmed.",
+      "checked_on": "2026-10-23",
+      "session": "arena/6d6192d1-gold3"
+    }
+  ],
+  "summary": {
+    "urls_opened": 6,
+    "confirmed": 2,
+    "corrected": 3,
+    "flagged": 1
+  }
+}
