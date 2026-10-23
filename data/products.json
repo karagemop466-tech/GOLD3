@@ -68,6 +68,14 @@
         {
           "code": "FINAL_SALE_PDP_OVERRIDE",
           "note": "Live PDP states 'Final Sale! / Exchange for size only.' alongside a 'Free Returns' badge, plus a 30% MTO cancellation fee after 24 hours (https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale)."
+        },
+        {
+          "code": "WEIGHT_RANGE_ONLY",
+          "note": "The published weight is a 3.0 g-wide range (5.5-8.5g). At $4,026.79/oz the difference between the ends is more than the entire melt value of a light band, so the range cannot be used for a price-per-gram test."
+        },
+        {
+          "code": "EXCHANGE_ONLY_FINAL_SALE",
+          "note": "The live listing carries the notices \"Exchange for size only. Final Sale!\" and \"Exchange only! Return & cancellation policy.\", linking to https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale (30% cancellation fee after 24 hours on made-to-order items; exchange for size only; no refunds) — while displaying a \"Free Returns\" service badge on the same page."
         }
       ],
       "notes": "Diamond described as \"EF color, VVS clarity\" in the product copy, \"VS/EF\" in the specs block, with an \"SI Clarity Only\" quality badge elsewhere on the same page. Re-read live on 2026-10-22 (pass P3, session arena/699d8e05-gold3): price unchanged, and the exchange-only/final-sale notices were present.",
@@ -130,6 +138,18 @@
         {
           "code": "FINAL_SALE_PDP_OVERRIDE",
           "note": "Live PDP states 'Final Sale! / Exchange for size only.' alongside a 'Free Returns' badge, plus a 30% MTO cancellation fee after 24 hours (https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale)."
+        },
+        {
+          "code": "WEIGHT_RANGE_ONLY",
+          "note": "Published weight \"Weight: 5.5-8.5g\" spans a 3.0 g range across three metals of different densities and cannot be used for a single melt ratio."
+        },
+        {
+          "code": "EXCHANGE_ONLY_FINAL_SALE",
+          "note": "The live listing carries the notices \"Exchange for size only. Final Sale!\" and \"Exchange only! Return & cancellation policy.\", linking to https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale (30% cancellation fee after 24 hours on made-to-order items; exchange for size only; no refunds) — while displaying a \"Free Returns\" service badge on the same page."
+        },
+        {
+          "code": "PAGE_SELF_CONTRADICTION",
+          "note": "Same 3-way diamond clarity contradiction as AU5760 (\"VVS clarity\" in body copy, \"VS/EF\" in Specs, and \"SI Clarity Only\" badge) plus \"1.8mm width\" in prose vs \"Width: 2.75mm\" in Specs."
         }
       ],
       "notes": "",
@@ -186,6 +206,14 @@
         {
           "code": "FINAL_SALE_PDP_OVERRIDE",
           "note": "Live PDP states 'Final Sale! / Exchange for size only.' alongside a 'Free Returns' badge, plus a 30% MTO cancellation fee after 24 hours (https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale)."
+        },
+        {
+          "code": "EXCHANGE_ONLY_FINAL_SALE",
+          "note": "The live listing carries the notices \"Exchange for size only. Final Sale!\" and \"Exchange only! Return & cancellation policy.\", linking to https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale (30% cancellation fee after 24 hours on made-to-order items; exchange for size only; no refunds) — while displaying a \"Free Returns\" service badge on the same page."
+        },
+        {
+          "code": "PAGE_SELF_CONTRADICTION",
+          "note": "Title says '1ct' while Specs print '1.05tcw' (0.21 g stone included in 'Weight: 2.23g', shared across 14k, 18k and platinum). Page also prints \"VVS clarity\" in copy vs \"VS/EF\" in Specs vs \"SI Clarity Only\" badge."
         }
       ],
       "notes": "Lowest-priced lab-grown entry in this dataset.",
@@ -242,6 +270,14 @@
         {
           "code": "FINAL_SALE_PDP_OVERRIDE",
           "note": "Live PDP states 'Final Sale! / Exchange for size only.' alongside a 'Free Returns' badge, plus a 30% MTO cancellation fee after 24 hours (https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale)."
+        },
+        {
+          "code": "EXCHANGE_ONLY_FINAL_SALE",
+          "note": "The live listing carries the notices \"Exchange for size only. Final Sale!\" and \"Exchange only! Return & cancellation policy.\", linking to https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale (30% cancellation fee after 24 hours on made-to-order items; exchange for size only; no refunds) — while displaying a \"Free Returns\" service badge on the same page."
+        },
+        {
+          "code": "PAGE_SELF_CONTRADICTION",
+          "note": "CARAT MISMATCH: Product title advertises '2ct Emerald Lab Grown Diamond Bezel Ring', whereas Specs print '1.8tcw' (-10% below advertised 2.00 ct!) and 'Weight: 2.36g' (shared across 14k, 18k and platinum, including 0.36 g stone). Page also prints \"VVS clarity\" in copy vs \"VS/EF\" in Specs vs \"SI Clarity Only\" badge."
         }
       ],
       "notes": "",
@@ -297,6 +333,18 @@
         {
           "code": "FINAL_SALE_PDP_OVERRIDE",
           "note": "Live PDP states 'Final Sale! / Exchange for size only.' alongside a 'Free Returns' badge, plus a 30% MTO cancellation fee after 24 hours (https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale)."
+        },
+        {
+          "code": "WEIGHT_RANGE_ONLY",
+          "note": "Published weight \"Weight: 5.7-8.7g\" spans a 3.0 g range across three metals of different densities and cannot be used for a single melt ratio."
+        },
+        {
+          "code": "EXCHANGE_ONLY_FINAL_SALE",
+          "note": "The live listing carries the notices \"Exchange for size only. Final Sale!\" and \"Exchange only! Return & cancellation policy.\", linking to https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale (30% cancellation fee after 24 hours on made-to-order items; exchange for size only; no refunds) — while displaying a \"Free Returns\" service badge on the same page."
+        },
+        {
+          "code": "PAGE_SELF_CONTRADICTION",
+          "note": "Same 3-way diamond clarity contradiction as AU5760 (\"VVS clarity\" in body copy, \"VS/EF\" in Specs, and \"SI Clarity Only\" badge) plus \"1.8mm width\" in prose vs \"Width: 2.75mm\" in Specs."
         }
       ],
       "notes": "",
@@ -352,6 +400,18 @@
         {
           "code": "FINAL_SALE_PDP_OVERRIDE",
           "note": "Live PDP states 'Final Sale! / Exchange for size only.' alongside a 'Free Returns' badge, plus a 30% MTO cancellation fee after 24 hours (https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale)."
+        },
+        {
+          "code": "WEIGHT_RANGE_ONLY",
+          "note": "Published weight \"Weight: 5.9-8.9g\" spans a 3.0 g range across three metals of different densities and cannot be used for a single melt ratio."
+        },
+        {
+          "code": "EXCHANGE_ONLY_FINAL_SALE",
+          "note": "The live listing carries the notices \"Exchange for size only. Final Sale!\" and \"Exchange only! Return & cancellation policy.\", linking to https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale (30% cancellation fee after 24 hours on made-to-order items; exchange for size only; no refunds) — while displaying a \"Free Returns\" service badge on the same page."
+        },
+        {
+          "code": "PAGE_SELF_CONTRADICTION",
+          "note": "Same 3-way diamond clarity contradiction as AU5760 (\"VVS clarity\" in body copy, \"VS/EF\" in Specs, and \"SI Clarity Only\" badge) plus \"1.8mm width\" in prose vs \"Width: 2.75mm\" in Specs."
         }
       ],
       "notes": "",
@@ -407,6 +467,14 @@
         {
           "code": "FINAL_SALE_PDP_OVERRIDE",
           "note": "Live PDP states 'Final Sale! / Exchange for size only.' alongside a 'Free Returns' badge, plus a 30% MTO cancellation fee after 24 hours (https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale)."
+        },
+        {
+          "code": "EXCHANGE_ONLY_FINAL_SALE",
+          "note": "The live listing carries the notices \"Exchange for size only. Final Sale!\" and \"Exchange only! Return & cancellation policy.\", linking to https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale (30% cancellation fee after 24 hours on made-to-order items; exchange for size only; no refunds) — while displaying a \"Free Returns\" service badge on the same page."
+        },
+        {
+          "code": "PAGE_SELF_CONTRADICTION",
+          "note": "CARAT MISMATCH: Product title advertises '3ct Pear Lab Grown Diamond Bezel Ring', whereas Specs print '3.6tcw' (0.72 g stone weight included inside 'Weight: 3.33g', shared across 14k, 18k and platinum). Page also prints \"VVS clarity\" in copy vs \"VS/EF\" in Specs vs \"SI Clarity Only\" badge."
         }
       ],
       "notes": "",
@@ -856,6 +924,18 @@
         {
           "code": "HALLMARK_NOT_STATED",
           "note": "No hallmark / maker's-mark statement."
+        },
+        {
+          "code": "PURITY_NOT_IN_BODY_TEXT",
+          "note": "The karat is not stated in the page body; 'Yellow Gold ... with Platinum Prongs' appears only in the product image descriptions, and the collection filter lists '14k Yellow Gold'. Confirm the karat in writing."
+        },
+        {
+          "code": "MIXED_METAL",
+          "note": "Band in yellow gold with platinum prongs - two different metals in one ring, so a single purity claim does not describe the whole piece."
+        },
+        {
+          "code": "MADE_TO_ORDER",
+          "note": "Estimated production time 3-4 weeks and every size marked \"Made to Order\" on the live page (P3 re-read 2026-10-22); the 30-day return window runs from delivery, so the clock starts after a 3-4 week wait. The page also offers a waitlist, so availability is not guaranteed."
         }
       ],
       "notes": "Re-read live 2026-10-23 (session arena/15b00e99-gold3): caught major stone spec conflict (2.08 ct E VS1 vs 5.63 ct D VVS2), confirmed 'Metal: 14K Yellow Gold with Platinum Prongs', info@ringconcierge.com, and 7-day bridal return window.",
@@ -925,6 +1005,14 @@
         {
           "code": "MADE_TO_ORDER",
           "note": "Every size option reads \"Made to Order\" (\"Estimated production time is 3-4 weeks\") with a \"Join the Waitlist\" prompt on the live product page (re-read 2026-10-23)."
+        },
+        {
+          "code": "PURITY_NOT_IN_BODY_TEXT",
+          "note": "Karat inferred from the collection's '14k Yellow Gold' metal filter and image descriptions, not stated in body text."
+        },
+        {
+          "code": "MIXED_METAL",
+          "note": "Yellow gold band with platinum prongs."
         }
       ],
       "notes": "Product page opened directly on 2026-10-23 (session arena/15b00e99-gold3): $7,268, 'Metal: 14K Yellow Gold with Platinum Prongs', 2.72 ct E VS1, and 7-day bridal return window confirmed."

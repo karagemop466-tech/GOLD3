@@ -43,7 +43,9 @@
         "EXCHANGE_ONLY_FINAL_SALE",
         "PAGE_SELF_CONTRADICTION",
         "HALLMARK_NOT_STATED",
-        "FINAL_SALE_PDP_OVERRIDE"
+        "FINAL_SALE_PDP_OVERRIDE",
+        "WEIGHT_RANGE_ONLY",
+        "EXCHANGE_ONLY_FINAL_SALE"
       ],
       "derived": {
         "karat": "14K",
@@ -62,7 +64,10 @@
         "SOLID_NOT_ON_LISTING",
         "WEIGHT_NOT_PUBLISHED",
         "HALLMARK_NOT_STATED",
-        "FINAL_SALE_PDP_OVERRIDE"
+        "FINAL_SALE_PDP_OVERRIDE",
+        "WEIGHT_RANGE_ONLY",
+        "EXCHANGE_ONLY_FINAL_SALE",
+        "PAGE_SELF_CONTRADICTION"
       ],
       "derived": {
         "karat": "14K",
@@ -81,7 +86,9 @@
         "SOLID_NOT_ON_LISTING",
         "WEIGHT_NOT_PUBLISHED",
         "HALLMARK_NOT_STATED",
-        "FINAL_SALE_PDP_OVERRIDE"
+        "FINAL_SALE_PDP_OVERRIDE",
+        "EXCHANGE_ONLY_FINAL_SALE",
+        "PAGE_SELF_CONTRADICTION"
       ],
       "derived": {
         "karat": "14K",
@@ -100,7 +107,9 @@
         "SOLID_NOT_ON_LISTING",
         "WEIGHT_NOT_PUBLISHED",
         "HALLMARK_NOT_STATED",
-        "FINAL_SALE_PDP_OVERRIDE"
+        "FINAL_SALE_PDP_OVERRIDE",
+        "EXCHANGE_ONLY_FINAL_SALE",
+        "PAGE_SELF_CONTRADICTION"
       ],
       "derived": {
         "karat": "14K",
@@ -119,7 +128,10 @@
         "SOLID_NOT_ON_LISTING",
         "WEIGHT_NOT_PUBLISHED",
         "HALLMARK_NOT_STATED",
-        "FINAL_SALE_PDP_OVERRIDE"
+        "FINAL_SALE_PDP_OVERRIDE",
+        "WEIGHT_RANGE_ONLY",
+        "EXCHANGE_ONLY_FINAL_SALE",
+        "PAGE_SELF_CONTRADICTION"
       ],
       "derived": {
         "karat": "14K",
@@ -138,7 +150,10 @@
         "SOLID_NOT_ON_LISTING",
         "WEIGHT_NOT_PUBLISHED",
         "HALLMARK_NOT_STATED",
-        "FINAL_SALE_PDP_OVERRIDE"
+        "FINAL_SALE_PDP_OVERRIDE",
+        "WEIGHT_RANGE_ONLY",
+        "EXCHANGE_ONLY_FINAL_SALE",
+        "PAGE_SELF_CONTRADICTION"
       ],
       "derived": {
         "karat": "14K",
@@ -157,7 +172,9 @@
         "SOLID_NOT_ON_LISTING",
         "WEIGHT_NOT_PUBLISHED",
         "HALLMARK_NOT_STATED",
-        "FINAL_SALE_PDP_OVERRIDE"
+        "FINAL_SALE_PDP_OVERRIDE",
+        "EXCHANGE_ONLY_FINAL_SALE",
+        "PAGE_SELF_CONTRADICTION"
       ],
       "derived": {
         "karat": "14K",
@@ -311,7 +328,10 @@
         "MIXED_METAL",
         "MADE_TO_ORDER",
         "WEIGHT_NOT_PUBLISHED",
-        "HALLMARK_NOT_STATED"
+        "HALLMARK_NOT_STATED",
+        "PURITY_NOT_IN_BODY_TEXT",
+        "MIXED_METAL",
+        "MADE_TO_ORDER"
       ],
       "derived": {
         "karat": "14K",
@@ -333,7 +353,9 @@
         "MADE_TO_ORDER",
         "WEIGHT_NOT_PUBLISHED",
         "HALLMARK_NOT_STATED",
-        "MADE_TO_ORDER"
+        "MADE_TO_ORDER",
+        "PURITY_NOT_IN_BODY_TEXT",
+        "MIXED_METAL"
       ],
       "derived": {
         "karat": "14K",
@@ -549,6 +571,41 @@
       "id": "F29",
       "severity": "high",
       "title": "Systematic URL sweep caught five more 404 citations, two mis-transcribed phone numbers, and Menē's JS-gated weights"
+    },
+    {
+      "id": "F30",
+      "severity": "high",
+      "title": "All seven Aurate engagement listings conflict 'Free Returns' with 'Exchange for size only. Final Sale!' — and two bezels misstate carat weight in their titles"
+    },
+    {
+      "id": "F31",
+      "severity": "high",
+      "title": "Mejuri's Milestone collection card prints 'From $648' for Slim Diamond Eternity Band (R03), while clicking through to the 14k White Gold product page prints 'From $898' (+38.6%)"
+    },
+    {
+      "id": "F32",
+      "severity": "high",
+      "title": "Wilson's Bailey Banks & Biddle 19K Art Deco ring (R13) DOES publish 'Total Weight: 6.5 grams' in chunk 1 — missed by five prior passes"
+    },
+    {
+      "id": "F33",
+      "severity": "high",
+      "title": "Menē BBB profiles (0107-1413670 & 0107-1378080) are both 'Not Rated' — removing unverified 'D+' BBB grade on SEL-MENE"
+    },
+    {
+      "id": "F34",
+      "severity": "high",
+      "title": "Two hallucinated 404 product URLs caught inside data/flags.json (WAR1 & SPEC5) plus four dead seller policy/contact URLs"
+    },
+    {
+      "id": "F35",
+      "severity": "medium",
+      "title": "Wilson's standalone refund-policy page contradicts its product-page Domestic Returns tab on free US return labels"
+    },
+    {
+      "id": "F36",
+      "severity": "medium",
+      "title": "Sarraf's '± 5%' weight accuracy statement IS printed verbatim in chunk 4 (#tab-education) of R20, R26, and R27"
     }
   ],
   "parallel_dataset": {

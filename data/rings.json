@@ -127,7 +127,8 @@
         "W1",
         "H1",
         "M1",
-        "RH1"
+        "RH1",
+        "PRC2"
       ],
       "verified_fields": [
         "price_usd",
@@ -579,8 +580,8 @@
       "price_as_shown": "Sale price $2,850.00",
       "solid_gold_quote": "Seller's listing: \"Stamped for 19 karat gold\" · \"Signed with maker's mark for Bailey Banks & Biddle\"",
       "solid_gold_verdict": "UNVERIFIED — seller attests the karat by stamp, but does not use the word \"solid\"",
-      "weight_g": null,
-      "weight_quote": null,
+      "weight_g": 6.5,
+      "weight_quote": "- Total Weight: 6.5 grams (read verbatim in chunk 1 of the live product page on 2026-10-23; gross piece weight including diamonds)",
       "hallmark_reported": "Stamped for 19 karat gold",
       "maker_mark_reported": "Signed with maker's mark for Bailey Banks & Biddle",
       "return_window": "7 calendar days to request; 3 days to ship back",
@@ -1187,7 +1188,7 @@
       "solid_gold_quote": "Material: \"18K Solid Gold\"",
       "solid_gold_verdict": "PASS",
       "weight_g": 6.3,
-      "weight_quote": "Approximate Metal Weight: \"6.30 grams\" — the seller calls it \"approximate\" and prints no tolerance on the page.",
+      "weight_quote": "Approximate Metal Weight: 6.30 grams — plus verbatim #tab-education tolerance on the same page: 'we strive to maintain an accuracy of ± 5%.'",
       "hallmark_reported": null,
       "maker_mark_reported": null,
       "return_window": "30 days from receipt; damaged, used, or engraved items do not qualify",
@@ -1233,7 +1234,7 @@
       "solid_gold_quote": "Material: \"14K Solid Gold\"",
       "solid_gold_verdict": "PASS",
       "weight_g": 2.5,
-      "weight_quote": "Approximate Metal Weight: \"2.50 grams\" — the seller calls it \"approximate\" and prints no tolerance on the page.",
+      "weight_quote": "Approximate Metal Weight: 2.50 grams — plus verbatim #tab-education tolerance on the same page: 'we strive to maintain an accuracy of ± 5%.'",
       "hallmark_reported": null,
       "maker_mark_reported": null,
       "return_window": "30 days from receipt; damaged, used, or engraved items do not qualify",
