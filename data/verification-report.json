@@ -32,7 +32,7 @@
     {
       "id": "aurate-2ct-round-lgd-solitaire",
       "brand": "Aurate New York",
-      "price": 2858.0,
+      "price": 2858,
       "purity": "14K",
       "solid_gold": true,
       "flags": [
@@ -57,7 +57,7 @@
     {
       "id": "aurate-2ct-emerald-lgd-solitaire",
       "brand": "Aurate New York",
-      "price": 2638.0,
+      "price": 2638,
       "purity": "14K",
       "solid_gold": true,
       "flags": [
@@ -79,7 +79,7 @@
     {
       "id": "aurate-1ct-round-lgd-bezel",
       "brand": "Aurate New York",
-      "price": 1498.0,
+      "price": 1498,
       "purity": "14K",
       "solid_gold": true,
       "flags": [
@@ -100,7 +100,7 @@
     {
       "id": "aurate-2ct-emerald-lgd-bezel",
       "brand": "Aurate New York",
-      "price": 1968.0,
+      "price": 1968,
       "purity": "14K",
       "solid_gold": true,
       "flags": [
@@ -121,7 +121,7 @@
     {
       "id": "aurate-2ct-oval-lgd-solitaire",
       "brand": "Aurate New York",
-      "price": 2858.0,
+      "price": 2858,
       "purity": "14K",
       "solid_gold": true,
       "flags": [
@@ -143,7 +143,7 @@
     {
       "id": "aurate-3ct-oval-lgd-solitaire",
       "brand": "Aurate New York",
-      "price": 3958.0,
+      "price": 3958,
       "purity": "14K",
       "solid_gold": true,
       "flags": [
@@ -165,7 +165,7 @@
     {
       "id": "aurate-3ct-pear-lgd-bezel",
       "brand": "Aurate New York",
-      "price": 2498.0,
+      "price": 2498,
       "purity": "14K",
       "solid_gold": true,
       "flags": [
@@ -550,7 +550,7 @@
     {
       "id": "F25",
       "severity": "high",
-      "title": "All 7 Aurate lab-grown engagement ring PDPs enforce 'Final Sale! / Exchange for size only.' + 30% MTO cancellation fee after 24h"
+      "title": "All 7 Aurate lab-grown engagement ring PDPs enforce 'Exchange for size only. Final Sale!' beside 'Free Returns' and omit listing-level 'solid' wording"
     },
     {
       "id": "F26",
@@ -606,6 +606,11 @@
       "id": "F36",
       "severity": "medium",
       "title": "Sarraf's '± 5%' weight accuracy statement IS printed verbatim in chunk 4 (#tab-education) of R20, R26, and R27"
+    },
+    {
+      "id": "F37",
+      "severity": "medium",
+      "title": "Post-deploy live read caught mismatched variant quotes on Aurate & Ring Concierge rows from an initial Pass P9 script"
     }
   ],
   "parallel_dataset": {

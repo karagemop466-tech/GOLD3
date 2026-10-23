@@ -1,9 +1,9 @@
 # GOLD3 — Anti-Hallucination & Security Verification Report
 
-- **Latest Audit Pass:** Pass #24 — `Pass P11 Full Multi-Chunk & Manifest Audit (arena/a05b3c00-gold3)`
-- **Timestamp (UTC):** `2026-10-23T10:42:47Z`
+- **Latest Audit Pass:** Pass #25 — `Pass P9b — Additive Integration on PR #42/#44 + Exact Aurate PDP Quotes (PR #46)`
+- **Timestamp (UTC):** `2026-10-23T10:44:45Z`
 - **Overall Result:** **PASS** (`0` integrity errors)
-- **Unique Official HTTPS URLs Verified:** `180`
+- **Unique Official HTTPS URLs Verified:** `179`
 - **Catalog Entries Audited:** `21` rings + `5` sellers + `7` karat standards
 - **Items Published on Flagged for Review (`flagged-for-review.html`):** `21` entries (`63` specific findings)
 
@@ -26,11 +26,11 @@
 | File | SHA-256 Digest |
 |---|---|
 | `data/bands-and-high-karat.json` | `45fb55cde7cba506ea62b7b6423a98db0b2eeed15b11d2c116c90b704769129f` |
-| `data/findings.json` | `2e6b2157b05ae6f02a02ca9051dd74677487804ad7e4bbbea04c24a7026feca0` |
+| `data/findings.json` | `4fd26cbc03e5ad7d697b825f259236fcd019bb03009d0f44e594dafeefe1e101` |
 | `data/flags.json` | `a966192e8ad89dfa77b43a43313591fe09e14b1b08da2fcf9ee1371f8bb9e743` |
 | `data/gold-price.json` | `bdb3a741c6696f56ec713c090706cb98fefb53901fe284dfe105308a7d6a7e08` |
 | `data/prices.json` | `509ec5ee9ef43541fc4298458e8b1b79ecb522a4eeddd5204c3863f29d7d9e58` |
-| `data/products.json` | `e2e03e32411f0411d57a7a4df3710bc327c9f21ca8d73794c8502cf3f1b4948f` |
+| `data/products.json` | `9709ace6f9d7e6ae7397f8c6a4a792e55db8e3a7c0aa8dbbf195abe5b0e97b4a` |
 | `data/retailers.json` | `e780a16102e4278cd4c8803871c50f2527bb7a73baa5db24ead1558e5e5d50e8` |
 | `data/reverification-1162b2db.json` | `803157bd7daddc10ea8ab4773c5ee1df1b5573c259c53c18c74c025263cea4b3` |
 | `data/reverification-c-15b00e99.json` | `34ac65f9dc2ee5d078b5a4a7128eb41fd2e7316efbd4e5d125ebe71b0b946332` |
@@ -47,5 +47,5 @@
 | `data/sources.json` | `7bb6c9ab27bad24c82e780193a3dad5b7610e09df66ca36f69b65dc05b9da48c` |
 | `data/spot-and-standards.json` | `fb7febce8b15501221a57f89e4f244635d645ac122963315373bc0137f39a171` |
 | `data/standards.json` | `6b745302667c70fb15800fb830471250551a37e238e507a8b993f8e3c4423ad8` |
-| `data/verification-report.json` | `5c6ed1b9c749c34afddf3de51f82ab8e48b7da699131e06ac3964519738f5422` |
-| `data/verification.json` | `e487b4a9a493f027623e5974989a8b20d0c7181235561da7b2be2b666a3833d5` |
+| `data/verification-report.json` | `6b7c03bfd8b7004218fcd7ab4285b972fe342e814d692ffec842b0794ddc31a7` |
+| `data/verification.json` | `4bd1bb0b47a643fb60c782ecc189963b9833dd3c655579e2b1d152ee56396595` |

@@ -33,7 +33,7 @@
 </div>
 
 <div class="grid cols-3" style="margin-bottom:20px">
-  <div class="kpi"><div class="label">Editorial findings</div><div class="value">36</div><div class="sub">17 high severity</div></div>
+  <div class="kpi"><div class="label">Editorial findings</div><div class="value">37</div><div class="sub">17 high severity</div></div>
   <div class="kpi"><div class="label">Listing-level flags</div><div class="value">101</div><div class="sub">across 19 listings</div></div>
   <div class="kpi"><div class="label">Unverified cells</div><div class="value">0 guesses</div><div class="sub">blank is used instead</div></div>
 </div>
@@ -130,12 +130,12 @@
         </div>
         <div class="card finding high" id="F25">
           <div class="finding-head">
-            <h3>F25 · All 7 Aurate lab-grown engagement ring PDPs enforce &#x27;Final Sale! / Exchange for size only.&#x27; + 30% MTO cancellation fee after 24h</h3>
+            <h3>F25 · All 7 Aurate lab-grown engagement ring PDPs enforce &#x27;Exchange for size only. Final Sale!&#x27; beside &#x27;Free Returns&#x27; and omit listing-level &#x27;solid&#x27; wording</h3>
             <span class="badge bad">HIGH</span>
           </div>
-          <p class="small">Re-opening all seven Aurate engagement ring PDPs live on 2026-10-23 revealed every single listing prints &#x27;Final Sale! / Exchange for size only.&#x27; beside a &#x27;Free Returns&#x27; badge, imposes a 30% cancellation fee after 24 hours on made-to-order rings, repeats identical gram-weight ranges across 14K gold, 18K gold, and 950 platinum, and mislabels Emerald Bezel SKU AU5093 as a &#x27;classic oval diamond&#x27; in body copy.</p>
-          <div class="evidence">&#x27;Final Sale! / Exchange for size only.&#x27; on AU5760, AU5769, AU5000, AU5093, AU5763, AU5764, AU5107 + &#x27;30% cancellation fee&#x27; after 24 hours on auratenewyork.com/pages/terms-conditions-exchange-only-final-sale.</div>
-          <p class="small"><strong>Source:</strong> <a href="https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale" target="_blank" rel="noopener">https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale</a></p>
+          <p class="small">Opening all seven exact Aurate PDPs live on 2026-10-23 (AU5760 $2,858, AU5769 $2,638, AU5000 $1,498, AU5093 $1,968, AU5763 $2,858, AU5764 $3,958, AU5107 $2,498) confirmed every page prints &#x27;Exchange for size only. Final Sale!&#x27; directly beside a &#x27;Free Returns&#x27; badge, prints only &#x27;Rate - 14k GOLD&#x27; (no &#x27;solid&#x27; on the PDP itself), shares multi-variant weights (&#x27;5.5-8.5g&#x27;, &#x27;5.7-8.7g&#x27;, &#x27;5.9-8.9g&#x27;, &#x27;2.23g&#x27;, &#x27;2.36g&#x27;, &#x27;3.33g&#x27;) inclusive of stone carats, and misstates &#x27;classic oval diamond&#x27; on Emerald Bezel SKU AU5093.</p>
+          <div class="evidence">AU5760 ($2,858, 5.5-8.5g), AU5769 ($2,638, 5.5-8.5g), AU5000 ($1,498, 2.23g), AU5093 ($1,968, 2.36g, &#x27;classic oval diamond&#x27;), AU5763 ($2,858, 5.7-8.7g), AU5764 ($3,958, 5.9-8.9g), AU5107 ($2,498, 3.33g) — all print &#x27;Exchange for size only. Final Sale!&#x27;.</div>
+          <p class="small"><strong>Source:</strong> <a href="https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-bezel-ring</a></p>
           <p class="small"><a href="rings.html#p-aurate-2ct-emerald-lgd-bezel">See the listing in the table &rarr;</a></p>
           <p class="action"><strong>What to do:</strong> Do not treat Aurate&#x27;s 60-day sitewide return window as applying to lab-grown engagement rings; confirm cash refund eligibility and single-metal gram weight in writing before paying.</p>
         </div>
@@ -392,6 +392,17 @@
           
           <p class="action"><strong>What to do:</strong> Updated R26 and R27 weight_quote to cite both the chunk-0 spec line and the verbatim chunk-4 #tab-education tolerance sentence.</p>
         </div>
+        <div class="card finding medium" id="F37">
+          <div class="finding-head">
+            <h3>F37 · Post-deploy live read caught mismatched variant quotes on Aurate &amp; Ring Concierge rows from an initial Pass P9 script</h3>
+            <span class="badge warn">MEDIUM</span>
+          </div>
+          <p class="small">Following the standing hallucination-hunt rule immediately after deploying PR #43 (b92017b), re-reading live combined.html exposed that 5 Aurate rows still pointed price_source at /collections/engagement-rings with drafted range strings (&#x27;2.09g-4.27g&#x27; / &#x27;14K Solid Yellow Gold&#x27;), while P9-06 cited earlier Ring Concierge slugs ($5,900/$6,900) rather than Whisper Thin PDPs ($6,038 / $7,268). Re-fetching all exact p[&#x27;url&#x27;] pages end-to-end synced every quote to literal page substrings.</p>
+          <div class="evidence">AU5769/AU5760 print &#x27;Weight: 5.5-8.5g&#x27; &amp; &#x27;Rate - 14k GOLD&#x27;; AU5000 &#x27;2.23g&#x27; ($1,498); AU5093 &#x27;2.36g&#x27; ($1,968); AU5763 &#x27;5.7-8.7g&#x27; ($2,858); AU5764 &#x27;5.9-8.9g&#x27; ($3,958); AU5107 &#x27;3.33g&#x27; ($2,498); Ring Concierge Whisper Thin PDPs print &#x27;$6,038&#x27; &amp; &#x27;$7,268&#x27;.</div>
+          <p class="small"><strong>Source:</strong> <a href="https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-bezel-ring</a></p>
+          <p class="small"><a href="rings.html#p-aurate-2ct-emerald-lgd-bezel">See the listing in the table &rarr;</a></p>
+          <p class="action"><strong>What to do:</strong> Corrected in PR #46: all 7 Aurate rows now point price_source to their exact p[&#x27;url&#x27;] with literal verbatim substrings.</p>
+        </div>
         <div class="card finding low" id="F10">
           <div class="finding-head">
             <h3>F10 · Mejuri&#x27;s main /help hub requires JavaScript, while direct leaf FAQ articles render server-side</h3>
@@ -498,197 +509,197 @@
               <td><a href="rings.html#p-aurate-2ct-emerald-lgd-solitaire">2ct Emerald Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Brand-level</span><span class="sub mono">SOLID_NOT_ON_LISTING</span></td>
               <td class="small">Purity statement is at brand level, not on the listing.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-emerald-lgd-solitaire">2ct Emerald Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">No weight</span><span class="sub mono">WEIGHT_NOT_PUBLISHED</span></td>
               <td class="small">Live product page prints &quot;Weight: 5.5-8.5g&quot; across 14k gold, 18k gold, and platinum variants — no single ring weight is published, so weight_g stays null.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-emerald-lgd-solitaire">2ct Emerald Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">No hallmark</span><span class="sub mono">HALLMARK_NOT_STATED</span></td>
               <td class="small">No hallmark / maker&#x27;s-mark statement on the listing.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-emerald-lgd-solitaire">2ct Emerald Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Final Sale Pdp Override</span><span class="sub mono">FINAL_SALE_PDP_OVERRIDE</span></td>
               <td class="small">Live PDP states &#x27;Final Sale! / Exchange for size only.&#x27; alongside a &#x27;Free Returns&#x27; badge, plus a 30% MTO cancellation fee after 24 hours (https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale).</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-emerald-lgd-solitaire">2ct Emerald Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Weight Range Only</span><span class="sub mono">WEIGHT_RANGE_ONLY</span></td>
               <td class="small">Published weight &quot;Weight: 5.5-8.5g&quot; spans a 3.0 g range across three metals of different densities and cannot be used for a single melt ratio.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-emerald-lgd-solitaire">2ct Emerald Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Exchange Only Final Sale</span><span class="sub mono">EXCHANGE_ONLY_FINAL_SALE</span></td>
               <td class="small">The live listing carries the notices &quot;Exchange for size only. Final Sale!&quot; and &quot;Exchange only! Return &amp; cancellation policy.&quot;, linking to https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale (30% cancellation fee after 24 hours on made-to-order items; exchange for size only; no refunds) — while displaying a &quot;Free Returns&quot; service badge on the same page.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-emerald-lgd-solitaire">2ct Emerald Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Page Self Contradiction</span><span class="sub mono">PAGE_SELF_CONTRADICTION</span></td>
               <td class="small">Same 3-way diamond clarity contradiction as AU5760 (&quot;VVS clarity&quot; in body copy, &quot;VS/EF&quot; in Specs, and &quot;SI Clarity Only&quot; badge) plus &quot;1.8mm width&quot; in prose vs &quot;Width: 2.75mm&quot; in Specs.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-1ct-round-lgd-bezel">1ct Round Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Brand-level</span><span class="sub mono">SOLID_NOT_ON_LISTING</span></td>
               <td class="small">Purity statement is at brand level, not on the listing.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/1ct-round-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-1ct-round-lgd-bezel">1ct Round Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">No weight</span><span class="sub mono">WEIGHT_NOT_PUBLISHED</span></td>
               <td class="small">Live product page prints one static &quot;Weight: 2.23g&quot; figure across 14k gold, 18k gold, and platinum without deducting the center diamond, so net gold weight is unknowable and weight_g stays null.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/1ct-round-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-1ct-round-lgd-bezel">1ct Round Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">No hallmark</span><span class="sub mono">HALLMARK_NOT_STATED</span></td>
               <td class="small">No hallmark / maker&#x27;s-mark statement on the listing.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/1ct-round-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-1ct-round-lgd-bezel">1ct Round Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Final Sale Pdp Override</span><span class="sub mono">FINAL_SALE_PDP_OVERRIDE</span></td>
               <td class="small">Live PDP states &#x27;Final Sale! / Exchange for size only.&#x27; alongside a &#x27;Free Returns&#x27; badge, plus a 30% MTO cancellation fee after 24 hours (https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale).</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/1ct-round-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-1ct-round-lgd-bezel">1ct Round Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Exchange Only Final Sale</span><span class="sub mono">EXCHANGE_ONLY_FINAL_SALE</span></td>
               <td class="small">The live listing carries the notices &quot;Exchange for size only. Final Sale!&quot; and &quot;Exchange only! Return &amp; cancellation policy.&quot;, linking to https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale (30% cancellation fee after 24 hours on made-to-order items; exchange for size only; no refunds) — while displaying a &quot;Free Returns&quot; service badge on the same page.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/1ct-round-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-1ct-round-lgd-bezel">1ct Round Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Page Self Contradiction</span><span class="sub mono">PAGE_SELF_CONTRADICTION</span></td>
               <td class="small">Title says &#x27;1ct&#x27; while Specs print &#x27;1.05tcw&#x27; (0.21 g stone included in &#x27;Weight: 2.23g&#x27;, shared across 14k, 18k and platinum). Page also prints &quot;VVS clarity&quot; in copy vs &quot;VS/EF&quot; in Specs vs &quot;SI Clarity Only&quot; badge.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/1ct-round-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-emerald-lgd-bezel">2ct Emerald Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Brand-level</span><span class="sub mono">SOLID_NOT_ON_LISTING</span></td>
               <td class="small">Purity statement is at brand level, not on the listing.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-emerald-lgd-bezel">2ct Emerald Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">No weight</span><span class="sub mono">WEIGHT_NOT_PUBLISHED</span></td>
               <td class="small">Live product page prints one static &quot;Weight: 2.36g&quot; figure across 14k gold, 18k gold, and platinum without deducting the center diamond, so net gold weight is unknowable and weight_g stays null.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-emerald-lgd-bezel">2ct Emerald Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">No hallmark</span><span class="sub mono">HALLMARK_NOT_STATED</span></td>
               <td class="small">No hallmark / maker&#x27;s-mark statement on the listing.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-emerald-lgd-bezel">2ct Emerald Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Final Sale Pdp Override</span><span class="sub mono">FINAL_SALE_PDP_OVERRIDE</span></td>
               <td class="small">Live PDP states &#x27;Final Sale! / Exchange for size only.&#x27; alongside a &#x27;Free Returns&#x27; badge, plus a 30% MTO cancellation fee after 24 hours (https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale).</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-emerald-lgd-bezel">2ct Emerald Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Exchange Only Final Sale</span><span class="sub mono">EXCHANGE_ONLY_FINAL_SALE</span></td>
               <td class="small">The live listing carries the notices &quot;Exchange for size only. Final Sale!&quot; and &quot;Exchange only! Return &amp; cancellation policy.&quot;, linking to https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale (30% cancellation fee after 24 hours on made-to-order items; exchange for size only; no refunds) — while displaying a &quot;Free Returns&quot; service badge on the same page.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-emerald-lgd-bezel">2ct Emerald Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Page Self Contradiction</span><span class="sub mono">PAGE_SELF_CONTRADICTION</span></td>
               <td class="small">CARAT MISMATCH: Product title advertises &#x27;2ct Emerald Lab Grown Diamond Bezel Ring&#x27;, whereas Specs print &#x27;1.8tcw&#x27; (-10% below advertised 2.00 ct!) and &#x27;Weight: 2.36g&#x27; (shared across 14k, 18k and platinum, including 0.36 g stone). Page also prints &quot;VVS clarity&quot; in copy vs &quot;VS/EF&quot; in Specs vs &quot;SI Clarity Only&quot; badge.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-oval-lgd-solitaire">2ct Oval Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Brand-level</span><span class="sub mono">SOLID_NOT_ON_LISTING</span></td>
               <td class="small">Purity statement is at brand level, not on the listing.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-oval-lgd-solitaire">2ct Oval Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">No weight</span><span class="sub mono">WEIGHT_NOT_PUBLISHED</span></td>
               <td class="small">Live product page prints &quot;Weight: 5.7-8.7g&quot; across 14k gold, 18k gold, and platinum variants — no single ring weight is published, so weight_g stays null.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-oval-lgd-solitaire">2ct Oval Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">No hallmark</span><span class="sub mono">HALLMARK_NOT_STATED</span></td>
               <td class="small">No hallmark / maker&#x27;s-mark statement on the listing.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-oval-lgd-solitaire">2ct Oval Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Final Sale Pdp Override</span><span class="sub mono">FINAL_SALE_PDP_OVERRIDE</span></td>
               <td class="small">Live PDP states &#x27;Final Sale! / Exchange for size only.&#x27; alongside a &#x27;Free Returns&#x27; badge, plus a 30% MTO cancellation fee after 24 hours (https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale).</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-oval-lgd-solitaire">2ct Oval Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Weight Range Only</span><span class="sub mono">WEIGHT_RANGE_ONLY</span></td>
               <td class="small">Published weight &quot;Weight: 5.7-8.7g&quot; spans a 3.0 g range across three metals of different densities and cannot be used for a single melt ratio.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-oval-lgd-solitaire">2ct Oval Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Exchange Only Final Sale</span><span class="sub mono">EXCHANGE_ONLY_FINAL_SALE</span></td>
               <td class="small">The live listing carries the notices &quot;Exchange for size only. Final Sale!&quot; and &quot;Exchange only! Return &amp; cancellation policy.&quot;, linking to https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale (30% cancellation fee after 24 hours on made-to-order items; exchange for size only; no refunds) — while displaying a &quot;Free Returns&quot; service badge on the same page.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-oval-lgd-solitaire">2ct Oval Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Page Self Contradiction</span><span class="sub mono">PAGE_SELF_CONTRADICTION</span></td>
               <td class="small">Same 3-way diamond clarity contradiction as AU5760 (&quot;VVS clarity&quot; in body copy, &quot;VS/EF&quot; in Specs, and &quot;SI Clarity Only&quot; badge) plus &quot;1.8mm width&quot; in prose vs &quot;Width: 2.75mm&quot; in Specs.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-3ct-oval-lgd-solitaire">3ct Oval Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Brand-level</span><span class="sub mono">SOLID_NOT_ON_LISTING</span></td>
               <td class="small">Purity statement is at brand level, not on the listing.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-3ct-oval-lgd-solitaire">3ct Oval Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">No weight</span><span class="sub mono">WEIGHT_NOT_PUBLISHED</span></td>
               <td class="small">Live product page prints &quot;Weight: 5.9-8.9g&quot; across 14k gold, 18k gold, and platinum variants — no single ring weight is published, so weight_g stays null.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-3ct-oval-lgd-solitaire">3ct Oval Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">No hallmark</span><span class="sub mono">HALLMARK_NOT_STATED</span></td>
               <td class="small">No hallmark / maker&#x27;s-mark statement on the listing.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-3ct-oval-lgd-solitaire">3ct Oval Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Final Sale Pdp Override</span><span class="sub mono">FINAL_SALE_PDP_OVERRIDE</span></td>
               <td class="small">Live PDP states &#x27;Final Sale! / Exchange for size only.&#x27; alongside a &#x27;Free Returns&#x27; badge, plus a 30% MTO cancellation fee after 24 hours (https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale).</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-3ct-oval-lgd-solitaire">3ct Oval Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Weight Range Only</span><span class="sub mono">WEIGHT_RANGE_ONLY</span></td>
               <td class="small">Published weight &quot;Weight: 5.9-8.9g&quot; spans a 3.0 g range across three metals of different densities and cannot be used for a single melt ratio.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-3ct-oval-lgd-solitaire">3ct Oval Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Exchange Only Final Sale</span><span class="sub mono">EXCHANGE_ONLY_FINAL_SALE</span></td>
               <td class="small">The live listing carries the notices &quot;Exchange for size only. Final Sale!&quot; and &quot;Exchange only! Return &amp; cancellation policy.&quot;, linking to https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale (30% cancellation fee after 24 hours on made-to-order items; exchange for size only; no refunds) — while displaying a &quot;Free Returns&quot; service badge on the same page.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-3ct-oval-lgd-solitaire">3ct Oval Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Page Self Contradiction</span><span class="sub mono">PAGE_SELF_CONTRADICTION</span></td>
               <td class="small">Same 3-way diamond clarity contradiction as AU5760 (&quot;VVS clarity&quot; in body copy, &quot;VS/EF&quot; in Specs, and &quot;SI Clarity Only&quot; badge) plus &quot;1.8mm width&quot; in prose vs &quot;Width: 2.75mm&quot; in Specs.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-3ct-pear-lgd-bezel">3ct Pear Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Brand-level</span><span class="sub mono">SOLID_NOT_ON_LISTING</span></td>
               <td class="small">Purity statement is at brand level, not on the listing.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/3ct-pear-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-3ct-pear-lgd-bezel">3ct Pear Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">No weight</span><span class="sub mono">WEIGHT_NOT_PUBLISHED</span></td>
               <td class="small">Live product page prints one static &quot;Weight: 3.33g&quot; figure across 14k gold, 18k gold, and platinum without deducting the center diamond, so net gold weight is unknowable and weight_g stays null.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/3ct-pear-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-3ct-pear-lgd-bezel">3ct Pear Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">No hallmark</span><span class="sub mono">HALLMARK_NOT_STATED</span></td>
               <td class="small">No hallmark / maker&#x27;s-mark statement on the listing.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/3ct-pear-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-3ct-pear-lgd-bezel">3ct Pear Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Final Sale Pdp Override</span><span class="sub mono">FINAL_SALE_PDP_OVERRIDE</span></td>
               <td class="small">Live PDP states &#x27;Final Sale! / Exchange for size only.&#x27; alongside a &#x27;Free Returns&#x27; badge, plus a 30% MTO cancellation fee after 24 hours (https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale).</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/3ct-pear-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-3ct-pear-lgd-bezel">3ct Pear Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Exchange Only Final Sale</span><span class="sub mono">EXCHANGE_ONLY_FINAL_SALE</span></td>
               <td class="small">The live listing carries the notices &quot;Exchange for size only. Final Sale!&quot; and &quot;Exchange only! Return &amp; cancellation policy.&quot;, linking to https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale (30% cancellation fee after 24 hours on made-to-order items; exchange for size only; no refunds) — while displaying a &quot;Free Returns&quot; service badge on the same page.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/3ct-pear-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-3ct-pear-lgd-bezel">3ct Pear Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Page Self Contradiction</span><span class="sub mono">PAGE_SELF_CONTRADICTION</span></td>
               <td class="small">CARAT MISMATCH: Product title advertises &#x27;3ct Pear Lab Grown Diamond Bezel Ring&#x27;, whereas Specs print &#x27;3.6tcw&#x27; (0.72 g stone weight included inside &#x27;Weight: 3.33g&#x27;, shared across 14k, 18k and platinum). Page also prints &quot;VVS clarity&quot; in copy vs &quot;VS/EF&quot; in Specs vs &quot;SI Clarity Only&quot; badge.</td>
-              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://auratenewyork.com/products/3ct-pear-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-bluenile-petite-solitaire-14k-yg">Petite Solitaire Engagement Ring in 14k Yellow Gold</a><span class="sub">Blue Nile</span></td>
               <td><span class="badge warn">Setting only</span><span class="sub mono">SETTING_PRICE_ONLY</span></td>

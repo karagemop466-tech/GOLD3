@@ -803,7 +803,8 @@ not-re-checked; `R22`'s weight line was cut off by the fetch. All of it is liste
    - `verify.py` **PASS** · `verify_dataset_c.py` **PASS** · `build_ext_pages.py` + `build_site.py` **PASS** (`24` pages) · `audit.py` **PASS** (`rows=31 errors=0 warnings=0 passed=173`) · `run_security_audit.py` **PASS** (`Pass #22`, `SEC-01..SEC-07`, `2,084` links/scripts/anchors) · `render-test.js` **PASS** (`120/120`) · `report_verify.py` **PASS** (`137` checks) · root HTML table-row `https://` gate **PASS** (`850/850`) · `archive/session-cbea1001` **PASS** (`7/7`).
 
 ### 14.2 Pull Request & Live GitHub Pages Deployment Record
-- **Pull Request:** [#43](https://github.com/karagemop466-tech/GOLD3/pull/43) (`arena/1162b2db-gold3` → `main`)
+- **Pull Request #43:** [#43](https://github.com/karagemop466-tech/GOLD3/pull/43) (`arena/1162b2db-gold3` → `main`) — **MERGED** as `b92017bf4fa3df06987109f1f8bf8593eb888d9a` (`2026-10-23T10:39:31Z`; CI `39940654130` SUCCESS; Pages build `1307921897` / `39940653366` `built`)
+- **Post-Deploy Self-Audit PR #46 (`F30`):** [#46](https://github.com/karagemop466-tech/GOLD3/pull/46) — synced literal verbatim quotes & `price_source = p['url']` across all 7 Aurate PDPs after live post-deploy read of `combined.html`, additively preserving 100% of PR #44 (`a0b589b`, `163` checks).
 
 ---
 
