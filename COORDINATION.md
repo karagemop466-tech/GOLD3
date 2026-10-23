@@ -21,6 +21,7 @@ Read it before starting any work. Update it when you claim, finish, or hand off 
 | `arena/1162b2db-gold3` | `arena/1162b2db-gold3` | 2026-10-23T09:56Z | complete (PR #43 — D1–D4 complete: Pass P9 137 checks, `not_rechecked: []`, Aurate ×7 F25, R03 $898 F26, §14) |
 | `arena/6d6192d1-gold3` | `arena/6d6192d1-gold3` | 2026-10-23T09:55Z | complete — fourth pass (V6), CR-P3 closeout (V7), final integration (V8), targeted weight pass (V9); PRs #33, #34, #35, #36 merged; Pages deployed from `771ea6e` |
 | `arena/2908bea4-gold3` | `arena/2908bea4-gold3` | 2026-10-23T09:55Z | complete — Dataset C & Dataset D live URL/value sweep (V10–V11), Dataset C provenance gate (`verify_dataset_c.py`), final additive integration & deploy (V12, §13; PR #40 merged as `8d3c172`, Pages deployed) |
+| `arena/15b00e99-gold3` | `arena/15b00e99-gold3` | 2026-10-23T10:44Z | **complete** — Pass P10 full-repo hallucination/contradiction/dead-URL sweep (`DC1`–`DC4`, §15; PR #44 merged as `a0b589b`, Pages deployed & live read-back verified) |
 
 ### Branch naming note (important)
 The protocol below asks for `session-<id>/<task>` branches. **This sandbox pins each session to a
@@ -76,6 +77,10 @@ Status values: `unclaimed` · `in progress` · `done` · `needs review`
 | D2 | Live re-verification of all 19 Dataset A PDPs (incl. all 7 Aurate engagement rings `F25`), Trustpilot counts & Catbird PDF phone | done | `arena/1162b2db-gold3` | `data/products.json`, `data/retailers.json`, `data/findings.json`, `data/prices.json` | 2026-10-23T11:08Z |
 | D3 | Audit & gate hardening (`--deterministic` flag in `run_security_audit.py` + Dataset A/C zero-warning `$` reconciliation in `audit.py`) | done | `arena/1162b2db-gold3` | `scripts/verify.py`, `scripts/audit.py`, `scripts/run_security_audit.py` | 2026-10-23T11:08Z |
 | D4 | Additive integration closing 100% of `not_rechecked` (`[]`), fixing `R03` (`$648` → `$898` live PDP, `F26`), 137 checks across 9 passes, PR #43 merge & Pages deploy | done | `arena/1162b2db-gold3` | integration window (`data/rings.json`, `data/flags.json`, `data/verification.json`, generated `*.html`, `COORDINATION.md`) | 2026-10-23T11:08Z |
+| DC1 | Pass P10 additive Dataset C + spot/standards/retailers live verification (`STD-02` 16 CFR 23.3/23.4/23.5 fix, `BND-10` 0.532ct vs 0.044–0.056 ct contradiction, `SEL-MENE` `support.mene.com` 10% restocking source, Oct 23 primary spot anchors) | done | `arena/15b00e99-gold3` | `data/spot-and-standards.json`, `data/sellers-policies.json`, `data/bands-and-high-karat.json`, `data/solitaire-rings.json`, `data/prices.json`, `data/retailers.json`, `data/reverification-c-15b00e99.json`, `reports/reverification-dataset-c-15b00e99.md` | 2026-10-23T10:44Z |
+| DC4 | Catch `R24`/`R25` platinum-weight hallucinations (`3.4g`→`3.5g`, `2.0g`→`2.1g`, `+WT5`), upgrade `R03` `$648`→`$898` PDP & retire `L1`, fix Ring Concierge 2.08 vs 5.63 ct & 7-day bridal window, repoint 4 dead 404 URLs (`WAR1`, `SPEC5`, Aurate & RC returns), append Pass `P10` | done | `arena/15b00e99-gold3` | `data/rings.json`, `data/products.json`, `data/sellers.json`, `data/flags.json`, `data/sources.json`, `data/findings.json`, `data/verification.json` | 2026-10-23T10:44Z |
+| DC2 | Replace hardcoded `$4,025.10`/`$129.41`/`$317.05` spot & melt literals across `scripts/`, extend `verify_dataset_c.py` dead-URL blocklist, rebuild all 24 HTML pages & manifest, pass all 9 CI gates | done | `arena/15b00e99-gold3` | `scripts/audit.py`, `scripts/run_security_audit.py`, `scripts/build_ext_pages.py`, `scripts/verify_dataset_c.py`, `*.html`, `data/verified-data.js`, `verification/*`, `reports/*` | 2026-10-23T10:44Z |
+| DC3 | Open & merge PR #44 (`a0b589b`) to `main`, confirm GitHub Pages deployment (`39941002177`, `status: built`) & live read-back, record final outcome | done | `arena/15b00e99-gold3` | `COORDINATION.md` | 2026-10-23T10:44Z |
 
 > **T10 closed 2026-10-23** by its owner's own work, merged as PR #13 (board record) and PR #15
 > (text corrections). This session only recorded the closure — no file owned by `arena/92d7dd0a-gold3`
@@ -832,6 +837,14 @@ not-re-checked; `R22`'s weight line was cut off by the fetch. All of it is liste
    - Clarified `S-VRAI` / `RET8` (`$300` recycling fee applies to ALL engagement-ring original-payment refunds `<$15,000`; orders `>$15,000` receive store credit only) and added `support.mene.com/.../4407022465633...` (10% card refund restocking fee) to `SEL-MENE` / `S-MENE` / `RET10`.
    - Refreshed primary Oct 23 spot benchmarks (`prices.json`: GoldPrice.org `$4,022.22/oz` vs WGC `$4,024.45/oz`, `0.055%` delta; `spot-and-standards.json`: Kitco `$4,022.70/oz` = `$129.3328/g` vs BullionVault `$4,024.23/oz`) and replaced hardcoded `$4,025.10`/`$129.41`/`$317.05` literals across `scripts/build_ext_pages.py`, `scripts/run_security_audit.py`, and `scripts/audit.py` with dynamic JSON derivations.
    - All **9** CI gates green locally: `verify.py` PASS · `verify_dataset_c.py` PASS (0 dead links) · `audit.py` `rows=31 errors=0 warnings=0 passed=173` · `run_security_audit.py` Pass #21 PASS (`SEC-01`..`SEC-07`, `2,105` links/anchors) · `render-test.js` `120/120` · `report_verify.py` `154 checks` · `858/858` `<tr>` rows with `https://` official links · `archive/session-cbea1001` `7/7` PASS.
+
+### 15.2 PR, Merge & Live Deployment Record
+
+- **Pull Request:** [#44](https://github.com/karagemop466-tech/GOLD3/pull/44) (`arena/15b00e99-gold3` → `main`)
+- **Merged Commit on `main`:** `a0b589b004fd91e2aba34d725a10338931ca0f35` (`2026-10-23T10:42:31Z`)
+- **CI Verification Run (`main`):** `39941002925` — **SUCCESS** (all 9 gates green in 13s)
+- **GitHub Pages Deployment (`pages-build-deployment`):** `39941002177` — **SUCCESS** (`status: built` at `2026-10-23T10:42:52Z`; verified live HTTP 200 read-back across `https://karagemop466-tech.github.io/GOLD3/`, `verify.html`, `calculator.html`, and `flagged-for-review.html`)
+
 
 
 
