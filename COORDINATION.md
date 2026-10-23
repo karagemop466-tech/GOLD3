@@ -63,7 +63,8 @@ Status values: `unclaimed` · `in progress` · `done` · `needs review`
 | V5 | Third independent re-verification pass: re-open every official source behind Dataset A + Dataset B live, hunt for values that do not survive contact with the page, publish `data/reverification-p3.json` + `reports/reverification-pass-p3.md` | done | `arena/699d8e05-gold3` | `data/reverification-p3.json`, `reports/reverification-pass-p3.md` (sole owner); `data/flags.json`, `data/sellers.json`, `data/products.json`, `data/findings.json` (integration window) | 2026-10-23T00:12Z |
 | V6 | Fourth independent re-verification pass on the merged tree (`5663d5e`): 25 official URLs re-opened live, every stored price/weight/policy value searched for verbatim. Result **15 confirmed · 8 corrected · 2 flagged**. Published `data/reverification-p4.json` + `reports/reverification-pass-p4.md`, and merged all 109 checks into `data/verification.json` so `verify.html` now shows three independent passes. | done | `arena/6d6192d1-gold3` | `data/reverification-p4.json`, `reports/reverification-pass-p4.md`, `data/verification.json`, `COORDINATION.md` | 2026-10-23T10:30Z |
 | V7 | Close out the open `CR-P3-*` change requests. **Closed:** CR-P3-1 (R15/R16/R18 return terms + POL1 removed), CR-P3-2 (PD1 retired), CR-P3-4 (RH1 on six white-gold rows), CR-P3-6 (govinfo.gov was already allowlisted), CR-P3-7 (`weight_status` may say "published as a range"; `verify.py` updated), CR-P3-8 (P3's 47 checks merged into the verification log), CR-P3-9 (site rebuilt), CR-P3-10 (dead links already repointed). **Partially closed:** CR-P3-5 (eCFR banner added; Costco document metadata is NOT on the product page, so it was not added). **Open:** CR-P3-3 (scope labels — the affected rows already say "Listing title" / "Product title"). | done | `arena/6d6192d1-gold3` | `data/rings.json`, `data/flags.json`, `data/sellers.json`, `data/sources.json`, `data/verification.json`, `data/products.json`, `scripts/verify.py`, `scripts/audit.py` | 2026-10-23T10:30Z |
-| V8 | Final integration: re-verify combined data line by line, regenerate every page, run all eight CI gates, PR → `main`, merge, confirm Pages deploy, record result | in progress | `arena/6d6192d1-gold3` | repo root (integration window), generated `*.html`, `verification/` | 2026-10-23T09:55Z |
+| V8 | Final integration: re-verify combined data line by line, regenerate every page, run all eight CI gates, PR → `main`, merge, confirm Pages deploy, record result. **PR #33 merged as `796362b` at 10:03:09Z; Pages built from `796362b`; live read-back confirmed.** | done | `arena/6d6192d1-gold3` | repo root (integration window), generated `*.html`, `verification/` | 2026-10-23T10:30Z |
+| V9 | Fifth pass, targeted: re-open **every Dataset-B row that publishes a gram weight**, because weight is the only seller figure the melt calculator consumes. Result **3 confirmed · 3 corrected · 1 flagged** — one weight stored as a single figure where the page prints two (R23), two invented `±5%` tolerance annotations removed (R26/R27), and 16 CFR 23.10 read in full to check the maker's-mark citation. Published `data/reverification-p5.json` + `reports/reverification-pass-p5.md`; verification log now **116 checks across four independent passes**. | done | `arena/6d6192d1-gold3` | `data/reverification-p5.json`, `reports/reverification-pass-p5.md`, `data/rings.json`, `data/standards.json`, `data/verification.json` | 2026-10-23T10:55Z |
 
 > **T10 closed 2026-10-23** by its owner's own work, merged as PR #13 (board record) and PR #15
 > (text corrections). This session only recorded the closure — no file owned by `arena/92d7dd0a-gold3`
@@ -171,6 +172,36 @@ build → audit → render-test → report and uploads both reports.
 - **Dataset A corrections:** Aurate's 2ct lab-grown solitaire price basis fixed to the product page's own `$2,858` (14k / Yellow / Size 7 / In Stock) with the page's "Exchange for size only. Final Sale!" recorded against its "Free Returns" badge (**F13**), its 5.5–8.5 g weight range restored (**F14**) with `weight_g` still `null`, and its GIA-or-IGI certificate quoted; Ring Concierge's "ready-to-ship" claim replaced with the page's own made-to-order / 3–4 weeks / waitlist wording.
 - **Merge with `origin/main` (`1f6f7b1`, PRs #22–#30 landed mid-pass):** resolved additively — `data/flags.json` and `data/sellers.json` taken from `main` as the base and this pass's corrections re-applied on top, `COORDINATION.md` hand-merged with nothing removed. Three flag ids this pass had allocated were already taken with different meanings, so they were renamed before the merge: **RET8→RET11, RET9→RET12, SPEC2→SPEC5**; `POL2` needed no rename. Two of this pass's fills (Automic's 30-day window, Sarraf's phone) had been made independently by another session — **that session's values were kept** and only the missing fields added.
 - **Gates after the merge:** `verify.py` PASS (0 errors, 0 warnings) · `audit.py` 31 rows, 0 errors, 0 warnings, 173 checks · `build_site.py` + `build_ext_pages.py` regenerated · `run_security_audit.py` · `render-test.js` · `report_verify.py` — see §5 for the PR and deploy record.
+
+### 2026-10-23 — `arena/6d6192d1-gold3` — fifth pass, weight-bearing rows (V9)
+
+**Scope:** the 11 Dataset-B rows that publish a finished-weight figure, plus 16 CFR 23.10. **7 checks — 3 confirmed /
+3 corrected / 1 flagged.** Every Automic Gold page hides its text behind a cookie-consent wall (chunks 0–3), so chunk 4
+was read instead.
+
+* **R23 corrected** — stored `"Approximately 6.1g"`; the page prints `Approximately 6.1g (gold) or 9.2g (platinum)`.
+  Storing one figure made a metal-dependent weight look unconditional.
+* **R26 and R27 corrected** — both quotes carried `(±5% seller accuracy note)`. Sarraf prints "Approximate Metal Weight"
+  and no tolerance anywhere in the specification block or description. The figure was right and the justification was
+  invented, which is the exact failure mode this project exists to catch.
+* **R12 confirmed** — `Sale price$5,350.00`, `Stamped for 18 karat gold`, `With partial maker's mark for Hedges & Co.`,
+  `Total Weight: 2.2 grams`, GIA 2215945495. One of only three rows whose seller publishes a hallmark, and one of two
+  that publishes a maker's mark.
+* **R22 confirmed** — `$3,074`, `Crafted from solid recycled 14k gold`, `Item Weight Approximately 5.4g for gold or 8.1g
+  for platinum`, 30-day returns, engraving final sale.
+* **R24 flagged** — price `$875` and the solid-gold wording confirmed; the Details block fell past the end of the text
+  read, so the 2.3 g figure was **not** re-read and is left as captured.
+* **16 CFR 23.10 confirmed** — opened in full. Title: *Additional guidance for the use of quality marks*; the closing
+  paragraph is the one our L4 rule cites (`Disclosure of identity of manufacturers, processors, or distributors … [15
+  U.S.C. 297]`). The paragraph is now stored verbatim beside the rule in `data/standards.json`.
+* **Verification log** — `data/verification.json` now holds **116 checks** across four independent passes; the pass list
+  was given unique ids (P1–P4 from the first session, P5–P7 for the three independent passes) because two earlier
+  entries had reused the id `P3`/`P4`.
+
+**Gates:** verify PASS · builders OK (18 pages) · audit 31 rows 0/0/173 · security SEC-01…07 PASS · render 120/120 ·
+report 116 checks · **790** root table rows / 0 missing official links · archive suite PASS.
+
+---
 
 ## 4. Change requests / conflicts
 
@@ -359,6 +390,26 @@ links OK · `audit.py` rows=22 errors=0 warnings=0 passed=124 · `render-test.js
 | Merge | **merged** — merge commit `142be62` | 2026-10-23T00:17:31Z |
 | GitHub Pages deploy | **built** — commit `142be628dc4e1644c1cd728128c2a2f4e2652b50`, source `main` `/`. Live read-back: https://karagemop466-tech.github.io/GOLD3/ serves `data/reverification-p3.json` (session `arena/699d8e05-gold3`, 47 checks) and every page shows "Pass #15 — PASS (0 errors)" | 2026-10-23T00:17:33Z |
 | Follow-up record PR | this row's commit — §5 record, `scope` block corrected in `data/reverification-p3.json`, §10 addendum in the report | 2026-10-23T00:19Z |
+
+### `arena/6d6192d1-gold3` — fourth re-verification pass (V6), CR closeout (V7), final integration (V8), PR #33
+
+| Step | Result | When (UTC) |
+|---|---|---|
+| Board claim committed and pushed | `3b594b7` — V6/V7/V8 claimed with a non-overlapping file scope before any edit | 2026-10-23T09:4xZ |
+| Pass run | **25 official URLs** reopened live: **15 confirmed · 8 corrected · 2 flagged** → `data/reverification-p4.json`, `reports/reverification-pass-p4.md`; all 47 checks from the third pass merged into `data/verification.json` (log now **109 checks across three passes**) | 2026-10-23T09:20Z–10:15Z |
+| All eight CI gates run locally | verify PASS · builders OK (18 pages) · audit 31 rows 0/0/173 · security SEC-01…07 PASS · render 120/120 · report 109 · **782** root table rows / 0 missing official links · npm PASS | 2026-10-23T10:20Z |
+| Branch pushed | `arena/6d6192d1-gold3` @ `e78c956` (2 commits, 0 behind `main`) | 2026-10-23T10:02Z |
+| PR → `main` | **#33** https://github.com/karagemop466-tech/GOLD3/pull/33 — body carries the change summary, the sources used and every flagged irregularity | 2026-10-23T10:02Z |
+| CI on the PR | **pass** — `Gate, build, audit and render`, 12 s | 2026-10-23T10:03Z |
+| Merge | **merged** (no approval requested, per standing instruction) — merge commit `796362b` | 2026-10-23T10:03Z |
+| GitHub Pages deploy | **built** — `pages build and deployment` for `796362b`, completed/success; live read-back of https://karagemop466-tech.github.io/GOLD3/ shows "Last automated verification pass: 23 October 2026" and the Mene price-drift finding | 2026-10-23T10:06Z |
+| Follow-up record PR | this section — §5 record, §11 report, board rows closed, plus a note on `security-audit.html` explaining why its banner is one pass behind the log | 2026-10-23T10:2xZ |
+
+**Why `security-audit.html` shows "Pass #16" while `verification/audit-log.json` holds 17 runs.** The CI workflow
+builds the pages *first* and runs the scheduled security check *afterwards*, which appends the next pass to the log. The
+banner on every generated page is therefore always the pass that existed when the pages were rendered; the newest log row is
+one ahead. Both files come from the same workflow run and neither is stale. The page now says so in its own words so the
+state is not re-reported as a defect by the next session.
 
 ## 6. Session `arena/92d7dd0a-gold3` — revalidation and final integration (T10)
 

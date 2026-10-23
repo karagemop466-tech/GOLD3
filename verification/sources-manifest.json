@@ -1,26 +1,27 @@
 {
-  "generated_at_utc": "2026-10-23T09:59:17Z",
+  "generated_at_utc": "2026-10-23T10:07:49Z",
   "data_file_sha256": {
-    "bands-and-high-karat.json": "32d8691208484fb2b23e59bfa0cf66d4b5639c6a00cba55fa339a279034dc31c",
+    "bands-and-high-karat.json": "b8b444086fe8dc13a1ec6b5579b5eae627afc549631660ff20e5601598d6d657",
     "findings.json": "ab9bc570436602ab1166ad274e53a3b80dd1cb3c1b691cd1758e90950fb54873",
-    "flags.json": "e4abf069bb1007d2ebf5e2c9b364cc66850e365d4b1c7bdf197bb0261859140d",
+    "flags.json": "22c51ea5b81ecc74f5f27cf28fedde495c5ccc5ed05d9177f01d271f29f60161",
     "gold-price.json": "bdb3a741c6696f56ec713c090706cb98fefb53901fe284dfe105308a7d6a7e08",
     "prices.json": "639b30ebe844d1e7740046c0c1aa474117ab0a34d14df6077be23ca532226f0a",
-    "products.json": "b4e3bc9db3b692ea0daef9da146198ed29a7f0e2ddf451cdefbeb1600eb31ccb",
+    "products.json": "d4c36640860f639be29f18c6fe5c601389eb736ed8e1df2c1ae6cdeaa7a8efe7",
     "retailers.json": "fc2130447e547458e380d666c0b6598352464a2dedffbd8d0aefc7ce7ffabab3",
     "reverification-p3.json": "b1dca1669099d66e45b08588f8827b24f59edd65e4f4b4a806ef2a02987b5d16",
     "reverification-p4.json": "2e5ce8fdff92d04a3e1570960caf0bb1daafc91b2d76209a97a0fb94635e801a",
-    "rings.json": "4175621b0823df11c341888d0a3f9254c166ce3af6e2a5f9af481e6dabca3e89",
+    "reverification-p5.json": "1c5ba33b93efdaa14d423fff0be8ca20622f4436d900bc6208ee44e64158bdda",
+    "rings.json": "6d7abec39efdd8248a24af86aceb388ef035999e7d12051282dcc21322457004",
     "sellers-policies.json": "372689ba815fb011c15b17e52773385718f972b174023f8bd67e01bc10d27ea6",
-    "sellers.json": "1318c1dbcdfca02a72c72b5d151a1046ab227a38d5f601afd66f3cf19c6aa9d9",
+    "sellers.json": "59b5f13800c63b7123efb822cc640ea7f20caf34ad2ee589aa46c54ba4e5c2e2",
     "solitaire-rings.json": "1b0d493a2835471df5bf8610622bf2f668a0c2d62e7961c112d46591ae19f769",
-    "sources.json": "5a8a22ee7ce34272bce1f17186812a3b74fc7d81c95d9ab1a81f61d301b712d4",
+    "sources.json": "e59992bc2419cc8e9bed56c64b49c8ae91394ec5c8bbdf78881320caaf2fa77b",
     "spot-and-standards.json": "77a3ff10db7fe885bc1f51eece4311fa6a62034f73ce2292d2e4bf1841b9a5ed",
-    "standards.json": "7d10a2520465c2b2734d236d9dfe93e4db44bc5d0649cb6cf82bb35cc94b668c",
+    "standards.json": "6b745302667c70fb15800fb830471250551a37e238e507a8b993f8e3c4423ad8",
     "verification-report.json": "082b64519c8a8da51db345ac6c82731ca875cf178e395998dce0315db7622fde",
-    "verification.json": "d0991a6a73d73938b1361b91d8dadc3b6bb870cc4c324c2bf649647e25db4aae"
+    "verification.json": "23a4b3a7d35cd2d2b459c75b60dfb244e37006d719095de7e3b40526a013720e"
   },
-  "unique_official_urls_count": 172,
+  "unique_official_urls_count": 174,
   "official_sources": [
     {
       "url": "https://auratenewyork.com/",
@@ -158,6 +159,7 @@
     {
       "url": "https://customerservice.costco.com/app/answers/detail/a_id/1191",
       "referenced_by": [
+        "HTML Link in flagged.html",
         "HTML Link in security-audit.html",
         "HTML Link in sellers.html",
         "HTML Link in verify.html"
@@ -189,6 +191,7 @@
     {
       "url": "https://help.vrai.com/hc/en-us/articles/360000836514-What-is-your-return-policy",
       "referenced_by": [
+        "HTML Link in flagged.html",
         "HTML Link in security-audit.html",
         "HTML Link in sellers.html"
       ]
@@ -208,6 +211,7 @@
       "url": "https://mejuri.com/collections/milestone-rings",
       "referenced_by": [
         "HTML Link in combined.html",
+        "HTML Link in flagged.html",
         "HTML Link in security-audit.html",
         "HTML Link in verify.html"
       ]
@@ -241,6 +245,7 @@
     {
       "url": "https://mejuri.com/faq/return-exchanges/what-is-the-standard-return-policy",
       "referenced_by": [
+        "HTML Link in flagged.html",
         "HTML Link in security-audit.html",
         "HTML Link in sellers-policies.html",
         "HTML Link in sellers.html",
@@ -390,6 +395,7 @@
         "HTML Link in bands-vintage-rings.html",
         "HTML Link in combined.html",
         "HTML Link in flagged-for-review.html",
+        "HTML Link in flagged.html",
         "HTML Link in security-audit.html",
         "HTML Link in verify.html",
         "Ring BND-02 Product Page",
@@ -433,6 +439,7 @@
     {
       "url": "https://mene.com/terms-of-service",
       "referenced_by": [
+        "HTML Link in flagged.html",
         "HTML Link in security-audit.html",
         "HTML Link in sellers-policies.html",
         "HTML Link in sellers.html",
@@ -480,6 +487,7 @@
     {
       "url": "https://ringconcierge.com/products/2-08-oval-lab-diamond-in-14k-gold-whisper-thin-solitaire",
       "referenced_by": [
+        "HTML Link in security-audit.html",
         "HTML Link in verify.html"
       ]
     },
@@ -541,6 +549,7 @@
     {
       "url": "https://www.automicgold.com/pages/return-policy",
       "referenced_by": [
+        "HTML Link in security-audit.html",
         "HTML Link in verify.html"
       ]
     },
@@ -551,6 +560,13 @@
         "HTML Link in security-audit.html",
         "HTML Link in sellers.html",
         "HTML Link in verify.html"
+      ]
+    },
+    {
+      "url": "https://www.automicgold.com/products/1-50ctw-pear-shaped-lab-grown-diamond-engagement-ring-bezel-set",
+      "referenced_by": [
+        "HTML Link in flagged.html",
+        "HTML Link in security-audit.html"
       ]
     },
     {
@@ -804,6 +820,7 @@
       "referenced_by": [
         "HTML Link in combined.html",
         "HTML Link in flagged-for-review.html",
+        "HTML Link in flagged.html",
         "HTML Link in security-audit.html",
         "HTML Link in solitaire-settings.html",
         "HTML Link in verify.html",
@@ -877,6 +894,7 @@
     {
       "url": "https://www.catbirdnyc.com/catbird-classic-wedding-bands-solid-gold",
       "referenced_by": [
+        "HTML Link in security-audit.html",
         "HTML Link in verify.html"
       ]
     },
@@ -895,6 +913,7 @@
     {
       "url": "https://www.catbirdnyc.com/contact-us",
       "referenced_by": [
+        "HTML Link in flagged.html",
         "HTML Link in retailers.html",
         "HTML Link in security-audit.html",
         "HTML Link in sellers.html",
@@ -919,6 +938,7 @@
       "url": "https://www.catbirdnyc.com/woodland-ring.html",
       "referenced_by": [
         "HTML Link in combined.html",
+        "HTML Link in flagged.html",
         "HTML Link in security-audit.html",
         "HTML Link in verify.html"
       ]
@@ -948,6 +968,7 @@
       "url": "https://www.costco.com/p/-/round-brilliant-050-ctw-vs2-clarity-i-color-diamond-14kt-gold-band/100675127",
       "referenced_by": [
         "HTML Link in combined.html",
+        "HTML Link in flagged.html",
         "HTML Link in security-audit.html",
         "HTML Link in verify.html"
       ]
@@ -957,6 +978,7 @@
       "referenced_by": [
         "HTML Link in checklist-standards.html",
         "HTML Link in excluded.html",
+        "HTML Link in flagged.html",
         "HTML Link in security-audit.html",
         "HTML Link in sources.html",
         "HTML Link in standards.html",
@@ -969,6 +991,7 @@
     {
       "url": "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23/section-23.10",
       "referenced_by": [
+        "HTML Link in security-audit.html",
         "HTML Link in verify.html"
       ]
     },
@@ -983,6 +1006,7 @@
     {
       "url": "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23/section-23.4",
       "referenced_by": [
+        "HTML Link in security-audit.html",
         "HTML Link in verify.html"
       ]
     },
@@ -1152,6 +1176,7 @@
     {
       "url": "https://www.localeclectic.com/pages/frequently-asked-questions",
       "referenced_by": [
+        "HTML Link in flagged.html",
         "HTML Link in security-audit.html",
         "HTML Link in sellers.html"
       ]
@@ -1160,6 +1185,7 @@
       "url": "https://www.localeclectic.com/products/solid-gold-simple-knot-ring",
       "referenced_by": [
         "HTML Link in combined.html",
+        "HTML Link in flagged.html",
         "HTML Link in security-audit.html",
         "HTML Link in verify.html"
       ]
@@ -1307,6 +1333,7 @@
       "referenced_by": [
         "HTML Link in analysis.html",
         "HTML Link in combined.html",
+        "HTML Link in flagged.html",
         "HTML Link in security-audit.html",
         "HTML Link in verify.html"
       ]
@@ -1368,6 +1395,7 @@
     {
       "url": "https://www.sarraf.com/pages/returns-and-refunds.html",
       "referenced_by": [
+        "HTML Link in security-audit.html",
         "HTML Link in verify.html"
       ]
     },
@@ -1376,8 +1404,16 @@
       "referenced_by": [
         "HTML Link in analysis.html",
         "HTML Link in combined.html",
+        "HTML Link in flagged.html",
         "HTML Link in security-audit.html",
         "HTML Link in verify.html"
+      ]
+    },
+    {
+      "url": "https://www.sarraf.com/products/14k-white-gold-1-00-ctw-round-3-stone-diamond-engagement-ring-g-i1-3-80-gr.html",
+      "referenced_by": [
+        "HTML Link in flagged.html",
+        "HTML Link in security-audit.html"
       ]
     },
     {
@@ -1393,12 +1429,14 @@
     {
       "url": "https://www.sarraf.com/products/14k-white-gold-solitaire-ring-0-94-ctw.html#return-policy",
       "referenced_by": [
+        "HTML Link in security-audit.html",
         "HTML Link in verify.html"
       ]
     },
     {
       "url": "https://www.sarraf.com/products/14k-white-gold-solitaire-ring-0-94-ctw.html#tab-warranty",
       "referenced_by": [
+        "HTML Link in security-audit.html",
         "HTML Link in verify.html"
       ]
     },
@@ -1431,6 +1469,7 @@
       "url": "https://www.tiffany.com/engagement/engagement-rings/the-tiffany-setting-engagement-ring-in-18k-yellow-gold-GRP10863/",
       "referenced_by": [
         "HTML Link in combined.html",
+        "HTML Link in flagged.html",
         "HTML Link in security-audit.html",
         "HTML Link in sellers.html",
         "HTML Link in verify.html"
@@ -1439,6 +1478,7 @@
     {
       "url": "https://www.tiffany.com/policy/return-policy.html",
       "referenced_by": [
+        "HTML Link in flagged.html",
         "HTML Link in security-audit.html",
         "HTML Link in sellers.html",
         "HTML Link in verify.html"
@@ -1534,6 +1574,7 @@
       "referenced_by": [
         "HTML Link in analysis.html",
         "HTML Link in combined.html",
+        "HTML Link in flagged.html",
         "HTML Link in security-audit.html",
         "HTML Link in sellers.html",
         "HTML Link in verify.html"
@@ -1543,6 +1584,7 @@
       "url": "https://www.wilsonsestatejewelry.com/products/bailey-banks-biddle-art-deco-diamond-enamel-19-karat-white-gold-vintage-fanning-engagement-ring",
       "referenced_by": [
         "HTML Link in combined.html",
+        "HTML Link in flagged.html",
         "HTML Link in security-audit.html",
         "HTML Link in verify.html"
       ]
