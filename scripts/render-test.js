@@ -145,7 +145,7 @@ check("SD7 rings.html renders Aurate published weight range",
 
 // SD8: combined.html filter toolbar & data-cats attributes on all 3 passes
 check("SD8 combined.html toolbar has Dataset C filter", html["combined.html"].includes('data-filter="c"'));
-check("SD8 combined.html toolbar has 24K filter", html["combined.html"].includes('data-filter="24k"'));
+check("SD8 combined.html toolbar has 22K-24K filter", html["combined.html"].includes('data-filter="22k-24k"'));
 check("SD8 combined.html toolbar has Weight published filter", html["combined.html"].includes('data-filter="weighted"'));
 const _combinedTb = (html["combined.html"].match(/<table id="combined-table">[\s\S]*?<tbody>([\s\S]*?)<\/tbody>/) || ["", ""])[1];
 const _combinedRows = [..._combinedTb.matchAll(/<tr([^>]*)>/g)];
