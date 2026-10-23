@@ -19,7 +19,7 @@ Read it before starting any work. Update it when you claim, finish, or hand off 
 | `arena/699d8e05-gold3` | `arena/699d8e05-gold3` | 2026-10-22T23:50Z | complete (PR #31, #32 merged — V5, §10) |
 | `arena/6ccbc523-gold3` | `data/spot-and-standards.json`, `data/sellers-policies.json`, `data/solitaire-rings.json`, `data/bands-and-high-karat.json`, `data/retailers.json`, `data/sellers.json` (`S-CB`), `data/findings.json`, `data/reverification-c-6ccbc523.json`, `reports/reverification-c-6ccbc523.md`, `scripts/render-test.js`, `scripts/run_security_audit.py`, `scripts/build_ext_pages.py`, `scripts/build_site.py`, rebuilt HTML/verification artifacts | **complete** (C8–C10 + SD6 + CR-692d-2 + §11.3 URL sweep) |
 | `arena/6d6192d1-gold3` | `arena/6d6192d1-gold3` | 2026-10-23T09:55Z | complete — fourth pass (V6), CR-P3 closeout (V7), final integration (V8), targeted weight pass (V9); PRs #33, #34, #35, #36 merged; Pages deployed from `771ea6e` |
-| `arena/2908bea4-gold3` | `arena/2908bea4-gold3` | 2026-10-23T09:55Z | complete — Dataset C & Dataset D live URL/value sweep (V10–V11), Dataset C provenance gate (`verify_dataset_c.py`), final additive integration & deploy (V12, §13) |
+| `arena/2908bea4-gold3` | `arena/2908bea4-gold3` | 2026-10-23T09:55Z | complete — Dataset C & Dataset D live URL/value sweep (V10–V11), Dataset C provenance gate (`verify_dataset_c.py`), final additive integration & deploy (V12, §13; PR #40 merged as `8d3c172`, Pages deployed) |
 
 ### Branch naming note (important)
 The protocol below asks for `session-<id>/<task>` branches. **This sandbox pins each session to a
@@ -770,4 +770,12 @@ not-re-checked; `R22`'s weight line was cut off by the fetch. All of it is liste
    - `R24` chunk 1 confirmed `"Approximately 2.3g (gold) or 3.4g (platinum)"`; `R25` confirmed `"Approximately 1.4g (gold) or 2.0g (platinum)"` (`WT1`); 9 verified URLs removed from `verification.json` `not_rechecked`.
 3. **Dataset C — 13 remaining unsupported hallmark claims fixed (`SD6` extension) + `verify_dataset_c.py`:**
    - Rewrote `hallmark_disclosure` to `"Not published by the seller..."` across `SOL-01`..`SOL-09` and `BND-08`..`BND-12` (completing `SD6` across all 21 Dataset C rows), set `BND-01`..`BND-03` `explicit_solid_wording: false` (pages print `"24k Gold"`, not `"solid"`), added Brilliant Earth `$35` bank-wire fee & `mejuri.com/us/en/company/terms` contact provenance, made `NAV_ITEMS` dynamic (`All 71 Combined Rows`, `Flagged C (21)`), and wired `scripts/verify_dataset_c.py` into `.github/workflows/audit.yml`.
+
+### 13.2 PR, Merge & Live Deployment Record
+
+- **Pull Request:** [#40](https://github.com/karagemop466-tech/GOLD3/pull/40) (`arena/2908bea4-gold3` → `main`)
+- **Merged Commit on `main`:** `8d3c172`
+- **CI Verification Run (`main`):** `39939662026` — **SUCCESS** (all gates green, 0 errors / 0 warnings)
+- **GitHub Pages Deployment (`pages-build-deployment`):** `39939667479` — **SUCCESS** (verified live readback at `https://karagemop466-tech.github.io/GOLD3/`, `sellers.html`, and `flagged-for-review.html`)
+
 
