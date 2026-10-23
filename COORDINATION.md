@@ -24,6 +24,7 @@ Read it before starting any work. Update it when you claim, finish, or hand off 
 | `arena/2908bea4-gold3` | `arena/2908bea4-gold3` | 2026-10-23T09:55Z | complete — Dataset C & Dataset D live URL/value sweep (V10–V11), Dataset C provenance gate (`verify_dataset_c.py`), final additive integration & deploy (V12, §13; PR #40 merged as `8d3c172`, Pages deployed) |
 | `arena/15b00e99-gold3` | `arena/15b00e99-gold3` | 2026-10-23T10:44Z | **complete** — Pass P10 full-repo hallucination/contradiction/dead-URL sweep (`DC1`–`DC4`, §15; PR #44 merged as `a0b589b`, Pages deployed & live read-back verified) |
 | `arena/57724486-gold3` | `arena/57724486-gold3` | 2026-10-23T20:30Z | **in progress** — Pass `P12`: freshest live re-verification of the spot benchmark + a rotating sample of the highest-priced `R*` rows and `SOL`/`BND` rows, headline-count/consistency sweep of every published page vs `data/`, then final integration (rebuild, 9 gates, PR → `main`, merge, Pages deploy read-back) |
+| `arena/438a583e-gold3` | `arena/438a583e-gold3` | 2026-10-23T20:17Z | **complete** — Pass `P14` (renumbered three times as PRs #51, #54 and #56 landed the same ids): every weight-bearing PDP re-read live (0 changes), four-feed spot corroboration to 0.026%, `scripts/refresh_spot_anchor.py`, finding `F45`; §19 |
 
 ### Branch naming note (important)
 The protocol below asks for `session-<id>/<task>` branches. **This sandbox pins each session to a
@@ -79,6 +80,7 @@ Status values: `unclaimed` · `in progress` · `done` · `needs review`
 | T16 | Final additive integration onto `origin/main` (`8e0f235`): update `NAV` to `Combined (71)`, render Aurate `Weight: 5.5-8.5g` range badge, scope `index.html` melt footnote, pass all 9 CI gates (`127/127` render tests, `185` verification checks), merge PR #45 (`4fd7504`) & verify GitHub Pages deploy (`1307944075`) | done | `arena/bfcd8465-gold3` | `scripts/build_site.py`, `scripts/render-test.js`, `COORDINATION.md`, generated `*.html`, `verification/` | 2026-10-23T10:51Z |
 | V12 | Final additive integration onto `origin/main` (`ac9e570`, preserving 100% of `arena/6d6192d1-gold3` & `arena/6ccbc523-gold3`): make `NAV_ITEMS` dynamic (`All 71 Combined Rows`, `Flagged C (21)`), wire `verify_dataset_c.py` into `.github/workflows/audit.yml`, rebuild all HTML, pass all CI gates, PR → `main`, merge, verify Pages deploy | done | `arena/bfcd8465-gold3` | `arena/bfcd8465-gold3` | 2026-10-23T09:55Z | complete — deep-chunk Automic Gold & flag-source audit (`V13` / `P11`), `RET14`, UI/nav consistency & final integration (`T16`, §17; PR #45 merged as `4fd7504`, Pages deployed) |
 | `arena/2908bea4-gold3` | repo root (integration window): `scripts/build_ext_pages.py`, `scripts/build_site.py`, `scripts/run_security_audit.py`, `README.md`, `.github/workflows/audit.yml`, generated `*.html`, `verification/` | 2026-10-23T11:10Z |
+| V16 | Pass `P14` independent live re-read: four gold-spot feeds; **every** weight-bearing PDP (`R11`–`R28`); Dataset A spot-check; reproducible `scripts/refresh_spot_anchor.py`; honour the earlier sessions' decision to keep the dated anchor and publish the live read beside it (`F39`/`F45`); merged with PRs #51/#53/#54/#56 (ids renumbered `P12`→`P13`→`P14`, finding → `F45`); nine gates green | done | `arena/438a583e-gold3` | `data/verification.json`, `data/findings.json`, `scripts/refresh_spot_anchor.py`, `scripts/audit.py`, `reports/reverification-pass-p14.md`, generated `*.html`, `COORDINATION.md` | 2026-10-23T21:35Z |
 
 | D1 | Live re-verification of Dataset C + statutory/BBB/spot citations (`data/reverification-1162b2db.json`, `reports/reverification-1162b2db.md`) | done | `arena/1162b2db-gold3` | `data/reverification-1162b2db.json`, `reports/reverification-1162b2db.md` | 2026-10-23T11:08Z |
 | D2 | Live re-verification of all 19 Dataset A PDPs (incl. all 7 Aurate engagement rings `F25`), Trustpilot counts & Catbird PDF phone | done | `arena/1162b2db-gold3` | `data/products.json`, `data/retailers.json`, `data/findings.json`, `data/prices.json` | 2026-10-23T11:08Z |
@@ -1010,3 +1012,28 @@ Sources: `https://mejuri.com/products/bold-diamond-eternity-ring`, `.../bold-dia
 - **Follow-up PR:** [#55](https://github.com/karagemop466-tech/GOLD3/pull/55) — the date-derivation fix plus `F44` / `SD21` and
   two render assertions. All 9 gates re-run green locally: `audit.py` `rows=31 errors=0 warnings=0 passed=176`,
   `render-test.js` `147/147`, `report_verify.py` 199 checks.
+
+---
+
+## 19. Session `arena/438a583e-gold3` — Pass `P14`: full weight-bearing re-read and four-feed spot corroboration, 2026-10-23
+
+### 19.1 Three-session collision and how it was resolved (recorded as required)
+
+| Item | Detail |
+|---|---|
+| What happened | This session claimed `P12` around 20:17Z. While it ran, `arena/57724486-gold3` merged **its** `P12` (PRs #51, #53) and `arena/fb7e5e3c-gold3` merged **its** `P13` (PRs #54, #56). The branch went `CONFLICTING` four times, and both the pass id and the finding ids were taken twice. |
+| Resolution | No work was discarded and nothing was force-pushed. `origin/main` was merged four times; on every conflict the peer's version was kept for generated artefacts and then rebuilt, and this pass's ids were renumbered **`P12` → `P13` → `P14`** with its finding renumbered **`F39` → `F41` → `F44` → `F45`** as each id was claimed. |
+| Substantive disagreement | The live spot read at 20:17Z is `$3,997.22/oz`, 0.62% below the stored calculation anchor of `$4,022.22`. This session's first draft promoted the live reading and recomputed every melt figure. Two peer sessions had independently caught the same gap and deliberately **kept** the dated anchor, publishing the live figure as a reference row so every melt figure stays reproducible (their `F39`). Rather than re-litigate a decision already taken twice, this pass **withdrew its re-anchor**, restored the peer data files verbatim, and contributed the corroboration and the tooling instead. `F45` records the decision and the escape hatch. |
+| Warning for the next session | Do **not** flip the anchor back and forth. If the owner wants current-price melt figures, run `scripts/refresh_spot_anchor.py` against a fresh dated capture: it rewrites the two snapshots, all 7 karat tiers, the 4 melt rows and both Dataset C spot references, keeps the superseded snapshot as `history`, and refuses a stale capture date. That is the only reviewed way to move it. |
+
+### 19.2 What this pass adds
+
+1. **Every one of the 14 weight-bearing listings re-opened live** — `R11`–`R13` (Wilson's), `R15`–`R16` (Ross-Simons), `R20`–`R21` and `R26`–`R27` (Sarraf), `R22`–`R25` (Automic Gold), `R28` (VRAI): **0 price changes, 0 weight changes, 0 dead links.** Verbatim quotes in `data/verification.json` checks `P14-05`…`P14-10`.
+2. **Four independent spot feeds read at the same minute** — GoldPrice.org `$3,997.22`, Kitco bid `$3,996.20`, BullionVault `$3,997.14`, World Gold Council `$3,996.31`; maximum spread **0.026%** (`P14-01`…`P14-04`, finding `F45`).
+3. **Dataset A spot-check** (`P14-11`): Aurate `aurate-2ct-round-lgd-solitaire` still prints `$2,858`, `Rate - 14k GOLD`, `In Stock • Ready to Ship`, `Exchange for size only. Final Sale!`, `Weight: 5.5-8.5g`. The other 18 Dataset A rows were **not** re-opened here and are not claimed as re-verified.
+4. **`scripts/refresh_spot_anchor.py`** (new, committed, **not** part of the build): reproduces the whole re-anchor from one dated capture, preserves superseded snapshots as `history`, refuses a capture whose date is not today, and supports `--check`.
+5. **`scripts/audit.py`**: the stray-number rule now also accepts a figure that the append-only pass log contains, because the verification pages render their own derived arithmetic verbatim. A page may print a figure only if the log itself contains it, so the rule stays strict instead of being loosened.
+
+### 19.3 Gates on the merged tree (all nine, locally, in workflow order)
+
+See the gate block recorded immediately below this section on the merged tip; all nine are green (`audit.py rows=31 errors=0 warnings=0`).
