@@ -284,3 +284,108 @@ Standing recommendation, unchanged in substance and repeated here because this p
 7. **Never reconstruct a URL from memory.** During this pass, seven URLs were first written from recall with
    plausible slugs and only caught by diffing the new file's URLs against the URLs already recorded in `data/*.json`.
    A reconstructed URL inside an anti-hallucination record is itself a hallucination. Copy URLs; do not type them.
+
+
+---
+
+## 10. Post-merge addendum (2026-10-23) — nine more URLs, three ID renames, two dead citations repaired
+
+The table in §8 covers P3-01 to P3-38, opened during the pass. While the pass was running, `origin/main` advanced
+from `cdf62fd` to `1f6f7b1` (PRs #22-#30, 74 files, +23,688 lines), which brought in four more sellers, five more
+flag definitions and two new builders. Reconciling against that newer tree required nine further live fetches, and
+produced this pass's two most consequential repairs.
+
+### 10.1 The nine additional URLs
+
+| Check | URL | Outcome | Action taken |
+|---|---|---|---|
+| P3-39 | https://www.sarraf.com/pages/returns-and-refunds.html | flagged | policy_source repointed to the live page (see P3-40) and the dead-link defect recorded as new flag SRC1 and finding F19. The same URL still appears in data/rings.json, da … |
+| P3-40 | https://www.sarraf.com/30-day-returns-and-exchange-policy/ | corrected | S-SARRAF return_window, return_exclusions and resize_policy rewritten from this page; new fields excessive_returns_notice and wholesale_note added; new flags RET13 (three … |
+| P3-41 | https://www.sarraf.com/about-sarraf/ | corrected | S-SARRAF email corrected from info@sarraf.com to service@sarraf.com and contact_source repointed to this page; phone_as_printed, contact_hours and the pickup-only address … |
+| P3-42 | https://www.sarraf.com/pages/contact-us.html | flagged | The phone number this URL was cited for is confirmed verbatim (and a second line, 213-612-4690, was found), but the e-mail recorded against the same citation is not on th … |
+| P3-43 | https://www.sarraf.com/ | confirmed | No change needed. Confirms the 30-day programme and the lifetime-warranty marketing claim (both narrower in practice - see WAR1 and SPEC4), and confirms that the homepage … |
+| P3-44 | https://www.automicgold.com/pages/return-policy | flagged | policy_source repointed to the live refund-policy page (see P3-45); the resize_policy claim that rested on this dead URL was set to null with a note rather than kept unso … |
+| P3-45 | https://www.automicgold.com/policies/refund-policy | corrected | policy_source repointed here; return_window kept (the stored 30-days-from-delivery value is confirmed verbatim) and extended with the one-prepaid-label-per-order limit an … |
+| P3-46 | https://www.catbirdnyc.com/contact-us | corrected | S-CB email corrected to customerservice@catbirdnyc.com (an earlier draft of this pass had recorded hello@catbirdnyc.com, which the page does not contain) and contact_hour … |
+| P3-47 | https://www.catbirdnyc.com/returns | corrected | S-CB return_window, return_exclusions and resize_policy rewritten from this page's own words, and two new fields added: cancellation_policy ('unable to cancel it or make  … |
+
+### 10.2 Two source citations on the published site were dead
+
+The brief requires every table row to carry a working source link to an official site. Two did not:
+
+| Recorded citation | What it returns when fetched | Live replacement |
+|---|---|---|
+| `https://www.sarraf.com/pages/returns-and-refunds.html` | `404 Error - Page not found` (page title `Sarraf - Not Found`) | `https://www.sarraf.com/30-day-returns-and-exchange-policy/` |
+| `https://www.automicgold.com/pages/return-policy` | `404 Not Found - Automic Gold` | `https://www.automicgold.com/policies/refund-policy` |
+
+Both were reachable as clickable links in `security-audit.html` and were cited by five rows of `data/rings.json`.
+They also sat in a feedback loop: `run_security_audit.py` writes `data/verified-data.js` and the sources manifest by
+scanning the built pages, and `build_ext_pages.py` renders the manifest back into `security-audit.html`, so a dead
+link reproduced itself on every rebuild. The loop was broken at `verification/sources-manifest.json` (two entries
+repointed, one duplicate dropped, 164 unique URLs), then everything was regenerated. **No published page now links to
+a dead URL** — the only remaining mentions of those two strings are the prose in findings F19 and F20, which quote
+them as the defect. New flag `SRC1` covers the class.
+
+Automic's `resize_policy` value rested on the dead URL and could not be re-sourced from the live page in this pass,
+so it was **set to `null` with a note** rather than carried forward. The live page does confirm the 30-day window
+verbatim, and adds a limit the record did not have: "You will be provided with one prepaid shipping label per order."
+
+### 10.3 A recorded email address was wrong
+
+`S-SARRAF` listed `info@sarraf.com` and cited `https://www.sarraf.com/pages/contact-us.html`. That page (which
+redirects to `/contact-us/`) publishes **no email address at all** — only a contact form, two phone numbers
+(`888-472-7723`, `213-612-4690`) and the hours "Monday - Thursday 10:00 AM to 4:00 PM" Pacific. Sarraf's About page
+prints `E-mail: service@sarraf.com`, and its returns page requires wholesale return requests to go to the same
+address. The email is corrected and `contact_source` repointed to the page that actually contains it.
+
+### 10.4 Flag IDs renamed at the merge
+
+Three IDs this pass had allocated were already taken on `main` with unrelated meanings (`RET8` a VRAI recycling fee,
+`RET9` a Local Eclectic cash-refund cutoff, `SPEC2` a Local Eclectic 9k-vs-10k contradiction). Renamed before
+committing, so no definition was overwritten:
+
+| This pass's draft ID | Final ID | Meaning |
+|---|---|---|
+| `RET8` | **`RET11`** | A flat fee is deducted from the refund ($4.95 Ross-Simons, $9 Catbird) |
+| `RET9` | **`RET12`** | Resizing by another jeweller voids the return or exchange right |
+| `SPEC2` | **`SPEC5`** | Automic's page states two different lead times |
+
+`POL2` needed no rename — `main`'s definition ("Engraving makes the item final sale") is the same one this pass used.
+Four further definitions were added during the merge itself: `RET13` (Sarraf's three-strike excessive-returns policy),
+`WAR1` (Sarraf's warranty fee), `SPEC4` (Sarraf's About page contradicting its Returns page on engraved rings) and
+`SRC1` (a cited source URL returns 404). `flags.json` now holds 46 definitions.
+
+Two fills this pass had prepared turned out to be redundant — another session had independently recorded Automic's
+30-day window and Sarraf's phone number. **That session's values were kept** and only the missing fields added.
+
+### 10.5 This pass's own drafts failed the same test
+
+Three values written during the pass were contradicted by the live pages and were corrected or blanked (finding F23):
+
+| Drafted | What the page actually says | Resolution |
+|---|---|---|
+| Catbird email `hello@catbirdnyc.com` | "Order Status, Availability, Product Details or Shipping Questions - customerservice@catbirdnyc.com" | corrected; the page's other two addresses (`sriya@` press, `leigh@` sample submissions) are role-specific and were not used |
+| Catbird return address `219 Bedford Avenue, Brooklyn, NY 11211` | The returns page publishes **no postal address** — returns go through `returns.narvar.com/catbird/returns` or any Catbird store | set to `null` with a note |
+| Catbird final-sale list "pierced earrings, body jewelry, items from the Final Sale collection, gift cards" | "Special orders, engraved items, Forever jewelry, earrings from piercing events, home & beauty items, and comestibles are final sale" | replaced with the page's own words; the earlier wording had been carried over from `data/retailers.json` |
+
+This is recorded deliberately rather than quietly fixed. The pass exists to catch values that do not survive contact
+with the source, and the only reason these three were caught is that the pages were re-opened after the values were
+written. Two more Catbird facts came out of the same re-read and are now on the record: "Once your order is placed we
+are unable to cancel it or make changes", and there is no exchange route at all — "place a new order on line for your
+new size. This is currently the only way we are able to accomodate exchanges."
+
+### 10.6 Integration result
+
+All eight CI gates were run locally in workflow order after the merge: `verify.py` **PASS** (0 errors, 0 warnings,
+11 notes) · `build_ext_pages.py` + `build_site.py` **OK** (18 pages, 19 listings, 5 retailers) · `audit.py` **PASS**
+(31 rows, 0 errors, 0 warnings, 173 checks) · `run_security_audit.py` **PASS** (SEC-01…SEC-07, 0 errors, 24 pages,
+1,892 links) · `render-test.js` **PASS** (120/120) · `report_verify.py` **PASS** (37 checks) · row source-link
+enforcement **PASS** (690 root HTML table rows, 0 missing `https://` official links) · `npm --prefix
+archive/session-cbea1001 test` **PASS** (7/7 plus the link verifier).
+
+CI on the pull request: **pass**. Merged to `main` as `142be62`; GitHub Pages **built** that commit and the live site
+was read back to confirm the corrections are deployed.
+
+CR-692d-1 on the board (the security audit hardcoding another session's ID into every log entry) was closed while
+integrating: `run_security_audit.py` now takes `--session-id`, falling back to `GOLD3_SESSION_ID`, then
+`GITHUB_REF_NAME`/`GITHUB_HEAD_REF`, then `unattributed`.

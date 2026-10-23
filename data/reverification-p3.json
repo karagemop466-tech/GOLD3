@@ -15,16 +15,18 @@
       "data/findings.json",
       "data/reverification-p3.json (new)",
       "reports/reverification-pass-p3.md (new)",
+      "data/rings.json (integration window: 5 dead source URLs repointed)",
+      "verification/sources-manifest.json (integration window: 2 dead entries repointed, 1 duplicate dropped)",
+      "scripts/run_security_audit.py (integration window: --session-id, closing CR-692d-1)",
+      "data/verified-data.js, every built *.html page, reports/audit-report.md, reports/verification-report.md, VERIFICATION_REPORT.md, data/verification-report.json (regenerated)",
       "COORDINATION.md"
     ],
     "not_edited_change_requests_instead": [
-      "data/rings.json — inside open PR #20's diff",
-      "data/verification.json — inside open PR #22's diff",
-      "data/retailers.json — inside open PR #20's diff",
-      "scripts/*.py, scripts/*.js, .github/workflows/audit.yml — inside open PRs #20 and #22",
-      "every *.html page — written only by scripts/build_site.py, which is inside both open PRs' diffs"
+      "data/verification.json - CR-P3-8 asks the owner to append this pass's checks",
+      "data/retailers.json - CR-P3-1 asks for the Catbird/Ross-Simons wording to be reconciled with the seller records",
+      "scripts/verify.py, scripts/audit.py, scripts/build_site.py, .github/workflows/audit.yml - CR-P3-5/6/7/9"
     ],
-    "reason": "Two PRs (#20 arena/8aaa18bf-gold3, #22 arena/e6fe3e4f-gold3) were open and being pushed while this pass ran, and they touch those files. The board's rule is to log a change request rather than edit inside another session's scope, so this pass kept to files in neither diff and left the rest as CR-1..CR-7 in COORDINATION.md §4."
+    "reason": "During the pass itself two PRs were open and pushing (arena/8aaa18bf-gold3, arena/e6fe3e4f-gold3), so files inside their diffs were left alone and change requests were filed instead. That changed at integration: PRs #22-#30 merged, every other session on the board is marked complete, and this session became the integration session, so it also applied the citation repair to data/rings.json (5 dead URLs), corrected 2 entries in verification/sources-manifest.json, regenerated data/verified-data.js and every built page, and closed CR-692d-1 in scripts/run_security_audit.py. The remaining change requests above are still open for their owners."
   },
   "checks": [
     {
@@ -1101,5 +1103,6 @@
     "flag_ids_after_merge": "RET7 corrected · POL1 re-scoped · new RET11 (flat return fee), RET12 (third-party resizing voids the return), RET13 (three-strike excessive-returns policy), WAR1 (warranty fee), SPEC4 (About-vs-Returns engraved contradiction), SPEC5 (lead-time contradiction), SRC1 (cited source URL returns 404). Renamed during the merge because main had taken RET8, RET9 and SPEC2 for other meanings."
   },
   "url_hygiene_note": "Every URL in this file was checked against the URLs already recorded in data/*.json before the file was committed. Seven entries had been written from memory with plausible-looking slugs (Wilson's R13, the four excluded listings, and two others) and were corrected to the exact URLs the repository records, because a reconstructed URL in an anti-hallucination record is itself a hallucination. One entry (Mejuri's returns FAQ) was deleted rather than kept with an unpinnable URL.",
-  "post_merge_note": "Merged with origin/main at commit 1f6f7b1 on 2026-10-23 (PRs #22-#30 landed while this pass was running). Three flag ids this pass had allocated were already taken by other sessions with different meanings (RET8 = a VRAI recycling fee, RET9 = a Local Eclectic cash-refund cutoff, SPEC2 = a Local Eclectic 9k-vs-10k contradiction), so this pass's new definitions were renamed before the merge: the $4.95/$9 flat return fee is now RET11, third-party resizing voiding a return is now RET12, and the Automic lead-time contradiction is now SPEC5. POL2 needed no rename - main's definition ('Engraving makes the item final sale') is the same one this pass used. Four further definitions were added during the merge itself after re-fetching source URLs that other sessions had recorded: RET13 (Sarraf three-strike excessive-returns policy), WAR1 (Sarraf warranty fee), SPEC4 (Sarraf About-vs-Returns contradiction on engraved rings) and SRC1 (cited official source URL returns 404). Two corrections this pass had already made were found to be redundant after the merge and were dropped: S-AUTOMIC's 30-day window and S-SARRAF's phone number had been filled independently by another session, and that session's values were kept."
+  "post_merge_note": "Merged with origin/main at commit 1f6f7b1 on 2026-10-23 (PRs #22-#30 landed while this pass was running). Three flag ids this pass had allocated were already taken by other sessions with different meanings (RET8 = a VRAI recycling fee, RET9 = a Local Eclectic cash-refund cutoff, SPEC2 = a Local Eclectic 9k-vs-10k contradiction), so this pass's new definitions were renamed before the merge: the $4.95/$9 flat return fee is now RET11, third-party resizing voiding a return is now RET12, and the Automic lead-time contradiction is now SPEC5. POL2 needed no rename - main's definition ('Engraving makes the item final sale') is the same one this pass used. Four further definitions were added during the merge itself after re-fetching source URLs that other sessions had recorded: RET13 (Sarraf three-strike excessive-returns policy), WAR1 (Sarraf warranty fee), SPEC4 (Sarraf About-vs-Returns contradiction on engraved rings) and SRC1 (cited official source URL returns 404). Two corrections this pass had already made were found to be redundant after the merge and were dropped: S-AUTOMIC's 30-day window and S-SARRAF's phone number had been filled independently by another session, and that session's values were kept.",
+  "repo_state_at_end": "main @ 142be62 after PR #31 (31 audited rows, 46 flag definitions, 23 findings, 15 security-audit passes, 690 root HTML table rows all carrying an official https:// source link)"
 }

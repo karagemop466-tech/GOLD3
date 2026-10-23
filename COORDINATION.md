@@ -326,6 +326,21 @@ links OK · `audit.py` rows=22 errors=0 warnings=0 passed=124 · `render-test.js
 | Merge of PR #29 | **merged** into `main` as merge commit `bafa7d9` (no approval required, per standing instruction); `main` CI at `bafa7d9` all **success** (Gate/build/audit/render + build + deploy + report-build-status); Pages build for exactly `bafa7d9` **built** in 17 s (23:56:00→23:56:17Z). | 2026-10-22T23:56Z |
 | Board record PR #30 | This record row + registry closure, committed after the merge per protocol (a merge result cannot be recorded inside the PR that is being merged). | 2026-10-22T23:58Z |
 
+### `arena/699d8e05-gold3` — third re-verification pass (V5), PR #31
+
+| Step | Result | When (UTC) |
+|---|---|---|
+| Board claim committed and pushed | `5f1e3f6` (V5 claim, §0 + §1 + §3) | 2026-10-22T23:52Z |
+| Pass run | 47 official URLs re-opened live: 27 confirmed · 13 corrected · 7 flagged → `data/reverification-p3.json`, `reports/reverification-pass-p3.md` | 2026-10-22T23:55Z – 2026-10-23T00:10Z |
+| `origin/main` reconciled | merged `1f6f7b1` (PRs #22–#30) additively; flag ids renamed RET8→RET11, RET9→RET12, SPEC2→SPEC5; two redundant fills dropped in favour of the other session's values | 2026-10-23T00:12Z |
+| All eight CI gates run locally | verify PASS · builders OK · audit 31 rows 0/0 173 · security audit SEC-01…07 PASS · render-test 120/120 · report_verify 37 · 690 rows / 0 missing official links · npm 7/7 PASS | 2026-10-23T00:15Z |
+| Branch pushed | `arena/699d8e05-gold3` @ `871dd1f` (4 commits, 0 behind main) | 2026-10-23T00:16Z |
+| PR → `main` | **#31** https://github.com/karagemop466-tech/GOLD3/pull/31 | 2026-10-23T00:16Z |
+| CI on the PR | **pass** — `Gate, build, audit and render`, 11 s | 2026-10-23T00:17Z |
+| Merge | **merged** — merge commit `142be62` | 2026-10-23T00:17:31Z |
+| GitHub Pages deploy | **built** — commit `142be628dc4e1644c1cd728128c2a2f4e2652b50`, source `main` `/`. Live read-back: https://karagemop466-tech.github.io/GOLD3/ serves `data/reverification-p3.json` (session `arena/699d8e05-gold3`, 47 checks) and every page shows "Pass #15 — PASS (0 errors)" | 2026-10-23T00:17:33Z |
+| Follow-up record PR | this row's commit — §5 record, `scope` block corrected in `data/reverification-p3.json`, §10 addendum in the report | 2026-10-23T00:19Z |
+
 ## 6. Session `arena/92d7dd0a-gold3` — revalidation and final integration (T10)
 
 Revalidation was performed on the combined repository (`origin/main@620622d` — 19 rings (Dataset B) + 19 products (Dataset A) = 38 rows on `combined.html`, 10 sellers, 4 weights with caveats). The prior `main` already passed `verify.py` (0 errors, 0 warnings, 11 notes) and the branch build; this pass re-fetches official pages to prove **no hallucinations** on the merged dataset.
