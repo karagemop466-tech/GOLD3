@@ -996,4 +996,17 @@ Sources: `https://mejuri.com/products/bold-diamond-eternity-ring`, `.../bold-dia
 
 ### 19.4 PR, merge and deployment record
 
-_TO BE COMPLETED after the pull request is opened, merged and GitHub Pages redeployed._
+- **Pull Request:** [#54](https://github.com/karagemop466-tech/GOLD3/pull/54) (`arena/fb7e5e3c-gold3` → `main`) — **MERGED**
+- **Merged commit on `main`:** `f3b78872585233a062e43e8446240f1fce8126bf` (`2026-10-23T20:26:04Z`)
+- **CI verification run on `main`:** `40019185403` — **SUCCESS** (all 9 gates; the PR head `0c985d3` also ran green)
+- **GitHub Pages deployment:** run `40019182968` — **SUCCESS** (`built` at `2026-10-23T20:26:18Z`; deployment id `7288065246`, ref `main`)
+- **Live read-back after deploy:** `https://karagemop466-tech.github.io/GOLD3/18k.html` renders the Dataset B/C 18K table
+  (8 B rows + 5 C rows, every row with an `https://` source link) and the corrected intro; `calculator.html` prints the
+  labelled live-check reading `$3,997.22/oz … 0.62% below the pre-filled snapshot`.
+- **Post-deploy defect caught by that read-back (F44 / SD21, low):** the calculator labelled the pre-filled spot snapshot
+  *"22 October 2026"* (Dataset A's capture date) while `prices.json` records `captured_on: 2026-10-23`, and `flagged.html`
+  printed *"Last automated pass: 22 October 2026"* against an audit report generated on 2026-10-23. Both dates now come from
+  the files that own them (`PRIMARY['captured_on']` and `reports/audit-report.md`) and are asserted in `render-test.js`.
+- **Follow-up PR:** [#55](https://github.com/karagemop466-tech/GOLD3/pull/55) — the date-derivation fix plus `F44` / `SD21` and
+  two render assertions. All 9 gates re-run green locally: `audit.py` `rows=31 errors=0 warnings=0 passed=176`,
+  `render-test.js` `147/147`, `report_verify.py` 199 checks.
