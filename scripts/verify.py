@@ -146,6 +146,11 @@ def main() -> int:
     sources_doc = load("sources.json")
     retailers_doc = load("retailers.json")
     products_doc = load("products.json")
+    dataset_c_items = []
+    for dataset_c_file in ("solitaire-rings.json", "bands-and-high-karat.json"):
+        dataset_c_doc = load(dataset_c_file)
+        if dataset_c_doc:
+            dataset_c_items.extend(dataset_c_doc.get("items", []))
 
     # ---------------------------------------------------------------- spot price
     snapshots = prices_doc.get("snapshots", [])
@@ -485,6 +490,17 @@ def main() -> int:
                                     + len([i for i in other_items if i.get("weight_g") is not None]),
         "n_sellers_total": len({r.get("name") for r in retailers}
                                | {i.get("seller") for i in other_items}),
+        # Full-site totals include Dataset C. Keep n_combined and
+        # n_weight_published_total scoped to A+B for existing references.
+        "n_dataset_c_items": len(dataset_c_items),
+        "n_dataset_c_weight": len([i for i in dataset_c_items if i.get("weight_grams") is not None]),
+        "n_all_listings": len(products) + len(other_items) + len(dataset_c_items),
+        "n_all_weights": (len([p for p in products if p.get("weight_g") is not None])
+                          + len([i for i in other_items if i.get("weight_g") is not None])
+                          + len([i for i in dataset_c_items if i.get("weight_grams") is not None])),
+        "n_sellers_all": len({r.get("name") for r in retailers}
+                             | {i.get("seller") for i in other_items}
+                             | {i.get("seller_name") for i in dataset_c_items}),
     }
     if metrics["n_solid_gold"] + metrics["n_excluded"] != metrics["n_products"]:
         err("metrics: gold + excluded does not equal total products - every product must be either a "

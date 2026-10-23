@@ -424,7 +424,12 @@
     "n_other_hallmark": 3,
     "n_combined": 50,
     "n_weight_published_total": 14,
-    "n_sellers_total": 16
+    "n_sellers_total": 16,
+    "n_dataset_c_items": 21,
+    "n_dataset_c_weight": 5,
+    "n_all_listings": 71,
+    "n_all_weights": 19,
+    "n_sellers_all": 16
   },
   "findings": [
     {
@@ -435,7 +440,7 @@
     {
       "id": "F2",
       "severity": "high",
-      "title": "Only {n_weight_published_total} of {n_combined} listings publish a weight - none from this pass's five retailers"
+      "title": "Only {n_all_weights} of {n_all_listings} listings publish a weight - none from Dataset A's five retailers"
     },
     {
       "id": "F3",

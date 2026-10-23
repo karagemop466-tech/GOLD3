@@ -1,8 +1,8 @@
 {
-  "generated_at_utc": "2026-10-23T20:47:24Z",
+  "generated_at_utc": "2026-10-23T20:51:40Z",
   "data_file_sha256": {
     "bands-and-high-karat.json": "8061e893bb6b94c3886cb8d5dca41ed8260f75506ca140e5f06440fd27d3a99e",
-    "findings.json": "b4b45c599b0f81c8dee2d278621176b29c30e8b0fb1c3c60b5d5358fd87ee834",
+    "findings.json": "40e3093c56aca9a2e4935b04c0db0370a1546c1a0a2265774b91debc04b41ab2",
     "flags.json": "4b2174a3d2dc67b580a56ee12cc4ce30e8ba0c34035163fa9106252fd23a0bed",
     "gold-price.json": "bdb3a741c6696f56ec713c090706cb98fefb53901fe284dfe105308a7d6a7e08",
     "prices.json": "accd2ecb513d2ea1a956d762eb2119b722e8fe6cf15dd42dff4df227e980262f",
@@ -27,8 +27,8 @@
     "sources.json": "781ec94c3f29585fd04a767eaca00917662d166ee4fa292fdc75d8ee869e93f4",
     "spot-and-standards.json": "b2b4203069b283be7a36228bf776aed7bda1e673435d1e2488c83e3fd890e03b",
     "standards.json": "6b745302667c70fb15800fb830471250551a37e238e507a8b993f8e3c4423ad8",
-    "verification-report.json": "0de22388378499d135decf8f5666dd0e3e4ef1976e132908ec4d78df945ab0dd",
-    "verification.json": "cfa4ace7ab700cc23f0448ecb9103204a17de0bfeb717a33a43cfd19505ee4b6"
+    "verification-report.json": "825e71bca9e0dbae493607adade74a2a4060bdad40d962b25e523b3c9f297881",
+    "verification.json": "05abb82a5f5a8c88f2c2f3d780638016e00549987c29de0f6963af970205d4a3"
   },
   "unique_official_urls_count": 181,
   "official_sources": [
