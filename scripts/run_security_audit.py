@@ -390,7 +390,7 @@ def run_audit(pass_label: str, session_id: str | None = None, record_pass: bool 
                     continue
                 checked_links += 1
                 if href.startswith(("http://", "https://")):
-                    check_official_url(href, f"HTML Link in {name}", errors, sources_out)
+                    check_official_url(href, f"HTML Link in {name}", errors, [] if name == "security-audit.html" else sources_out)
                     if lk["target"] == "_blank" and "noopener" not in lk["rel"]:
                         errors.append(f"[TABNABBING] {name}: external link missing rel='noopener' ({href}).")
                 else:

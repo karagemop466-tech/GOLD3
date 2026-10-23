@@ -1014,6 +1014,10 @@ def build_all() -> None:
         ("security-audit.html", "Security & Anti-Hallucination Verification Log", security_body),
     ]
 
+    n_a = len(json.loads((DATA_DIR / "products.json").read_text(encoding="utf-8"))["products"])
+    n_b = len(json.loads((DATA_DIR / "rings.json").read_text(encoding="utf-8"))["rings"])
+    n_combined_total = n_a + n_b + len(all_rings)
+
     for filename, page_title, content in pages:
         full_html = render_shell(filename, page_title, content, bench, latest_pass, nav_items)
         (ROOT / filename).write_text(full_html, encoding="utf-8")

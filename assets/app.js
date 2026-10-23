@@ -53,12 +53,15 @@
     var spotEl = document.getElementById("calc-spot");
     var karatEl = document.getElementById("calc-karat");
     var gramsEl = document.getElementById("calc-grams");
+    var stoneCtEl = document.getElementById("calc-stone-ct");
+    var tolEl = document.getElementById("calc-tolerance");
     var priceEl = document.getElementById("calc-price");
 
     var out = {
       perGramSpot: document.getElementById("out-spot-gram"),
       meltPerGram: document.getElementById("out-melt-gram"),
       meltValue: document.getElementById("out-melt-value"),
+      tolNote: document.getElementById("out-tolerance-note"),
       purity: document.getElementById("out-purity"),
       implied: document.getElementById("out-implied"),
       ratio: document.getElementById("out-ratio"),
@@ -66,7 +69,7 @@
       verdict: document.getElementById("out-verdict")
     };
 
-    var FINENESS = { "10K": 10 / 24, "14K": 14 / 24, "18K": 18 / 24, "22K": 22 / 24, "24K": 24 / 24 };
+    var FINENESS = { "10K": 10 / 24, "14K": 14 / 24, "18K": 18 / 24, "19K": 19 / 24, "22K": 22 / 24, "24K": 24 / 24 };
     var OZ_GRAMS = 31.1034768;
 
     function money(n) {
@@ -82,17 +85,35 @@
       var spot = parseFloat(spotEl.value);
       var karat = karatEl.value;
       var f = FINENESS[karat];
-      var w = parseFloat(gramsEl.value);
+      var wRaw = parseFloat(gramsEl.value);
+      var stoneCt = stoneCtEl ? parseFloat(stoneCtEl.value) : 0;
+      var stoneGrams = isFinite(stoneCt) && stoneCt > 0 ? stoneCt * 0.2 : 0;
+      var w = Math.max(0, (isFinite(wRaw) ? wRaw : 0) - stoneGrams);
+      var tol = tolEl ? tolEl.value : "none";
       var price = parseFloat(priceEl.value);
 
       var spotPerGram = spot / OZ_GRAMS;
       var meltPerGram = spotPerGram * f;
-      var meltValue = meltPerGram * (isFinite(w) ? w : 0);
+      var meltValue = meltPerGram * w;
 
       out.perGramSpot.textContent = money(spotPerGram);
       out.meltPerGram.textContent = money(meltPerGram);
       out.meltValue.textContent = money(meltValue);
-      out.purity.textContent = karat + " · " + (f * 100).toFixed(1) + "% fine";
+      out.purity.textContent = karat + " · " + (f * 100).toFixed(1) + "% fine" +
+        (stoneGrams > 0 ? " · net " + w.toFixed(2) + " g gold" : "");
+
+      if (out.tolNote) {
+        var deltaG = tol === "pct5" ? w * 0.05 : tol === "g05" ? 0.5 : tol === "g10" ? 1.0 : 0;
+        if (deltaG > 0) {
+          var lowMelt = meltPerGram * Math.max(0, w - deltaG);
+          var highMelt = meltPerGram * (w + deltaG);
+          out.tolNote.textContent = "range: " + money(lowMelt) + " – " + money(highMelt);
+        } else {
+          out.tolNote.textContent = stoneGrams > 0
+            ? "after −" + stoneGrams.toFixed(2) + " g stone deduction"
+            : "weight × melt per gram";
+        }
+      }
 
       if (isFinite(price) && price > 0) {
         var implied = price / meltPerGram;
@@ -133,7 +154,8 @@
       }
     }
 
-    [spotEl, karatEl, gramsEl, priceEl].forEach(function (el) {
+    [spotEl, karatEl, gramsEl, stoneCtEl, tolEl, priceEl].forEach(function (el) {
+      if (!el) return;
       el.addEventListener("input", compute);
       el.addEventListener("change", compute);
     });
