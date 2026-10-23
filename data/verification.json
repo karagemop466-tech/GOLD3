@@ -3061,7 +3061,15 @@
       "found_by": "arena/57724486-gold3, reading sources.html back on the live site after the PR #55 deploy",
       "fix": "The card now states both readings: the $4,022.22/oz primary capture used in every calculation, and the $3,997.22/oz later read shown only as a labelled live-check that is not used in any calculation. Both quotes are printed verbatim with their own page timestamps.",
       "status": "fixed 2026-10-23"
+    },
+    {
+      "id": "SD23",
+      "page": "README.md (repository front page)",
+      "what": "The README headline still described an earlier state of the tree: '41 listings across both passes (19 + 22), plus 31 Dataset-B/C band studies · 12 sellers · 7 published weights' and 're-verified live 23 October 2026 (fourth pass)'. The data now holds 71 rows (Dataset A 19, Dataset B 31, Dataset C 21), 16 distinct sellers and 19 published weights, and the verification log has run through pass P14 with 211 checks.",
+      "found_by": "arena/57724486-gold3, count sweep of every published surface against data/*.json after the SD22 catch",
+      "fix": "All figures in the README headline are now the computed ones, with the pass range and the check count taken from data/verification.json.",
+      "status": "fixed 2026-10-23"
     }
   ],
-  "site_defects_fixed": 20
+  "site_defects_fixed": 21
 }
