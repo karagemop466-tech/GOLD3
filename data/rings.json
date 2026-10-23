@@ -998,17 +998,14 @@
       "certification": "None stated for the diamond beyond the seller's own VS/VVS and D/E/F ranges",
       "url": "https://www.automicgold.com/products/radiant-cut-lab-diamond-cathedral-ring",
       "sources": [
-        "https://www.automicgold.com/products/radiant-cut-lab-diamond-cathedral-ring",
-        "https://www.automicgold.com/policies/refund-policy"
+        "https://www.automicgold.com/products/radiant-cut-lab-diamond-cathedral-ring"
       ],
       "flags": [
         "WT5",
         "H1",
         "X1",
         "M1",
-        "POL2",
-        "SPEC5",
-        "RET14"
+        "POL2"
       ],
       "verified_fields": [
         "price_usd",
@@ -1023,8 +1020,8 @@
         "hallmark_reported",
         "maker_mark_reported"
       ],
-      "last_verified": "2026-10-23",
-      "verification": "Product page re-fetched and re-read on 2026-10-22; price, material wording, item weight and return line copied from that page. Automic's page is served with a cookie-consent layer that dominates the first fetch chunks; the product block was read in full. Refund policy chunk 4 adds a 14-day mailing rule to avoid a restocking fee (RET14)."
+      "last_verified": "2026-10-22",
+      "verification": "Product page re-fetched and re-read on 2026-10-22; price, material wording, item weight and return line copied from that page. Automic's page is served with a cookie-consent layer that dominates the first fetch chunks; the product block was read in full."
     },
     {
       "id": "R23",
@@ -1032,7 +1029,7 @@
       "product": "Coffin Ring (Solid 14k Gold)",
       "condition": "New",
       "karat": "14K",
-      "metal_color": "Solid 14k gold (950 platinum also offered)",
+      "metal_color": "Solid 14k gold",
       "price_usd": 1910,
       "price_basis": "Listed complete-ring price",
       "price_as_shown": "$1,910",
@@ -1042,7 +1039,7 @@
       "weight_quote": "Item Weight: \"Approximately 6.1g (gold) or 9.2g (platinum)\" — the page abbreviates grams as \"g\"; the figure is metal-dependent, so 6.1 g is the gold option only.",
       "hallmark_reported": null,
       "maker_mark_reported": null,
-      "return_window": "30 days from delivery (free US return shipping; mail within 14 days to avoid a restocking fee); engraved items final sale",
+      "return_window": "30 days from delivery (free US return shipping); engraved items final sale",
       "certification": null,
       "url": "https://www.automicgold.com/products/coffin-ring",
       "sources": [
@@ -1051,11 +1048,9 @@
       ],
       "flags": [
         "WT2",
-        "WT5",
         "H1",
         "X1",
-        "POL2",
-        "RET14"
+        "POL2"
       ],
       "verified_fields": [
         "price_usd",
@@ -1071,8 +1066,8 @@
         "maker_mark_reported",
         "certification"
       ],
-      "last_verified": "2026-10-23",
-      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3) and re-verified live on 2026-10-23: price $1,910, Solid 14k gold, and Item Weight Approximately 6.1g (gold) or 9.2g (platinum) confirmed verbatim."
+      "last_verified": "2026-10-22",
+      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3): price $1,910, Solid 14k gold, and Item Weight Approximately 6.1g confirmed verbatim."
     },
     {
       "id": "R24",
@@ -1080,17 +1075,17 @@
       "product": "Claddagh Ring (Solid 14k Gold)",
       "condition": "New",
       "karat": "14K",
-      "metal_color": "Solid 14k gold (950 platinum also offered)",
+      "metal_color": "Solid 14k gold",
       "price_usd": 875,
       "price_basis": "Listed complete-ring price (unengraved)",
       "price_as_shown": "$875",
       "solid_gold_quote": "Material: \"Solid 14k gold\" · \"100% Recycled gold, In house in New York\"",
       "solid_gold_verdict": "PASS",
       "weight_g": 2.3,
-      "weight_quote": "Item Weight: \"Approximately 2.3g (gold) or 3.5g (platinum)\" — the page abbreviates grams as \"g\".",
+      "weight_quote": "Item Weight: \"Approximately 2.3g (gold) or 3.5g (platinum)\" — read verbatim in chunk 5 on 2026-10-23; the page abbreviates grams as \"g\".",
       "hallmark_reported": null,
       "maker_mark_reported": null,
-      "return_window": "30 days from delivery (mail within 14 days to avoid a restocking fee); optional +$60 engraving states 'All engraved items are final sale'",
+      "return_window": "30 days from delivery (mail within 14 days to avoid a restocking fee); optional +$60 engraving states 'No returns on engraved rings'",
       "certification": null,
       "url": "https://www.automicgold.com/products/claddagh-ring",
       "sources": [
@@ -1120,7 +1115,7 @@
         "certification"
       ],
       "last_verified": "2026-10-23",
-      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3) and re-verified live on 2026-10-23 (pass P6, session arena/bfcd8465-gold3, chunk 5): price $875, Solid 14k gold, and 'Item Weight: Approximately 2.3g (gold) or 3.5g (platinum)' confirmed verbatim."
+      "verification": "Re-verified live 2026-10-23 in chunk 5 (session arena/bfcd8465-gold3): price $875, Solid 14k gold, and Item Weight 'Approximately 2.3g (gold) or 3.5g (platinum)' confirmed verbatim."
     },
     {
       "id": "R25",
@@ -1128,14 +1123,14 @@
       "product": "Gemstone Flower Ring (Solid 14k Gold)",
       "condition": "New",
       "karat": "14K",
-      "metal_color": "Solid 14k gold (950 platinum also offered)",
+      "metal_color": "Solid 14k gold",
       "price_usd": 551,
       "price_basis": "Listed complete-ring price",
       "price_as_shown": "$551",
       "solid_gold_quote": "Material: \"Solid 14k gold\" · \"100% Recycled gold, In house in New York\"",
       "solid_gold_verdict": "PASS",
       "weight_g": 1.4,
-      "weight_quote": "Item Weight: \"Approximately 1.4g (gold) or 2.1g (platinum)\" — the page abbreviates grams as \"g\".",
+      "weight_quote": "Item Weight: \"Approximately 1.4g (gold) or 2.1g (platinum)\" (total item weight includes 3mm centre stone) — the page abbreviates grams as \"g\".",
       "hallmark_reported": null,
       "maker_mark_reported": null,
       "return_window": "30 days from delivery (free US return shipping; mail within 14 days to avoid a restocking fee)",
@@ -1146,6 +1141,7 @@
         "https://www.automicgold.com/policies/refund-policy"
       ],
       "flags": [
+        "WT1",
         "WT2",
         "WT5",
         "H1",
@@ -1168,7 +1164,7 @@
         "certification"
       ],
       "last_verified": "2026-10-23",
-      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3) and re-verified live on 2026-10-23 (pass P6, session arena/bfcd8465-gold3): price $551, Solid 14k gold, 'Approximately 1.4g (gold) or 2.1g (platinum)', and conflicting lead times ('4-8 business days' vs '1-2 weeks', SPEC5) confirmed verbatim."
+      "verification": "Re-verified live 2026-10-23 in chunk 2 (session arena/bfcd8465-gold3): price $551, Solid 14k gold, Item Weight 'Approximately 1.4g (gold) or 2.1g (platinum)' (including 3mm gemstone, WT1), and conflicting lead times ('4-8 business days' vs '1-2 weeks', SPEC5) confirmed verbatim."
     },
     {
       "id": "R26",
@@ -1186,7 +1182,7 @@
       "weight_quote": "Approximate Metal Weight: \"6.30 grams\" — the seller calls it \"approximate\" and prints no tolerance on the page.",
       "hallmark_reported": null,
       "maker_mark_reported": null,
-      "return_window": "30 days from receipt; damaged, used, or third-party-resized items do not qualify",
+      "return_window": "30 days from receipt; damaged, used, or engraved items do not qualify",
       "certification": null,
       "url": "https://www.sarraf.com/products/18k-yellow-gold-mens-solitaire-diamond-ring-3-4-ct.html",
       "sources": [
@@ -1197,9 +1193,7 @@
         "WT3",
         "H1",
         "X1",
-        "RET7",
-        "WAR1",
-        "SPEC4"
+        "RET7"
       ],
       "verified_fields": [
         "price_usd",
@@ -1215,8 +1209,8 @@
         "maker_mark_reported",
         "certification"
       ],
-      "last_verified": "2026-10-23",
-      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3) and re-verified live on 2026-10-23: Now US$4,068.00, Material 18K Solid Gold, and 6.30 grams confirmed verbatim."
+      "last_verified": "2026-10-22",
+      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3): Now US$4,068.00, Material 18K Solid Gold, and 6.30 grams confirmed verbatim."
     },
     {
       "id": "R27",
@@ -1228,13 +1222,13 @@
       "price_usd": 695,
       "price_basis": "Sale price (Now: US$695.00)",
       "price_as_shown": "Now: US$695.00",
-      "solid_gold_quote": "Material: \"14K Solid Gold\" · Description: \"Solid and Pure 14k Yellow Gold Round Cut totaling to Approximately 1.0ct CZ Engagement Ring\" (note: 14K is 58.33% gold alloy, not 'Pure' 24K gold)",
+      "solid_gold_quote": "Material: \"14K Solid Gold\"",
       "solid_gold_verdict": "PASS",
       "weight_g": 2.5,
       "weight_quote": "Approximate Metal Weight: \"2.50 grams\" — the seller calls it \"approximate\" and prints no tolerance on the page.",
       "hallmark_reported": null,
       "maker_mark_reported": null,
-      "return_window": "30 days from receipt; damaged, used, or third-party-resized items do not qualify",
+      "return_window": "30 days from receipt; damaged, used, or engraved items do not qualify",
       "certification": null,
       "url": "https://www.sarraf.com/products/14k-yellow-gold-round-cut-8-8mm-wide-1-0ct-cz-engagement-ring.html",
       "sources": [
@@ -1245,9 +1239,7 @@
         "WT3",
         "H1",
         "X1",
-        "RET7",
-        "WAR1",
-        "SPEC4"
+        "RET7"
       ],
       "verified_fields": [
         "price_usd",
@@ -1263,8 +1255,8 @@
         "maker_mark_reported",
         "certification"
       ],
-      "last_verified": "2026-10-23",
-      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3) and re-verified live on 2026-10-23: Now US$695.00, Material 14K Solid Gold, and 2.50 grams confirmed verbatim."
+      "last_verified": "2026-10-22",
+      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3): Now US$695.00, Material 14K Solid Gold, and 2.50 grams confirmed verbatim."
     },
     {
       "id": "R28",
@@ -1282,18 +1274,19 @@
       "weight_quote": "Setting Details: \"Metal weight: 2.3g\" — the page abbreviates grams as \"g\".",
       "hallmark_reported": null,
       "maker_mark_reported": null,
-      "return_window": "30 days from delivery; $300 USD recycling fee on engagement-ring original-payment returns (items >$15,000 store credit only)",
+      "return_window": "30 days from delivery; $300 USD recycling fee on engraved or setting-only original-payment returns",
       "certification": null,
       "url": "https://www.vrai.com/configure/setting-to-diamond/petite-4-prong-ring/round-brilliant-yellow-gold-41015509221469",
       "sources": [
         "https://www.vrai.com/configure/setting-to-diamond/petite-4-prong-ring/round-brilliant-yellow-gold-41015509221469",
-        "https://www.vrai.com/returns-exchanges"
+        "https://help.vrai.com/en/knowledge/what-is-your-return-policy"
       ],
       "flags": [
         "P2",
         "RET8",
         "H1",
-        "X1"
+        "X1",
+        "SRC1"
       ],
       "verified_fields": [
         "karat",
@@ -1309,7 +1302,7 @@
         "certification"
       ],
       "last_verified": "2026-10-23",
-      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3) and re-verified live on 2026-10-23 (pass P6, session arena/bfcd8465-gold3): Metal weight 2.3g and solid gold band wording verified; return policy source repointed from redirecting Zendesk URL to https://www.vrai.com/returns-exchanges."
+      "verification": "Re-verified live 2026-10-23 (session arena/2908bea4-gold3): Metal weight 2.3g and solid gold band wording verified in static HTML; price remains JS-only (null); repointed return-policy source to https://help.vrai.com/en/knowledge/what-is-your-return-policy (SRC1)."
     },
     {
       "id": "R29",
@@ -1327,11 +1320,11 @@
       "weight_quote": null,
       "hallmark_reported": null,
       "maker_mark_reported": null,
-      "return_window": "30 days from shipment/pickup availability (free US return shipping); resizing is not available for this ring",
+      "return_window": "30 days from delivery (free US return shipping); resizing is not available for this ring",
       "certification": null,
-      "url": "https://www.brilliantearth.com/Fairmined-2mm-Six-Prong-Solitaire-Ring-Gold-BE1FM0126-24910022/",
+      "url": "https://www.brilliantearth.com/Fairmined-2mm-Six-Prong-Solitaire-Ring-Gold-BE1FM0126-24910022/?currency=USD",
       "sources": [
-        "https://www.brilliantearth.com/Fairmined-2mm-Six-Prong-Solitaire-Ring-Gold-BE1FM0126-24910022/",
+        "https://www.brilliantearth.com/Fairmined-2mm-Six-Prong-Solitaire-Ring-Gold-BE1FM0126-24910022/?currency=USD",
         "https://www.brilliantearth.com/30-Day-Returns/"
       ],
       "flags": [
@@ -1340,7 +1333,8 @@
         "W1",
         "H1",
         "X1",
-        "SPEC3"
+        "SPEC3",
+        "SRC1"
       ],
       "verified_fields": [
         "price_usd",
@@ -1356,7 +1350,7 @@
         "certification"
       ],
       "last_verified": "2026-10-23",
-      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3) and re-verified live on 2026-10-23 (pass P6, session arena/bfcd8465-gold3): $1,090 USD setting price (page also geo-renders €1,250.00 when EUR is selected), resizing badge contradiction (SPEC3), and 'Band Width: 2 ct. tw.' unit mislabelling confirmed; policy source repointed to https://www.brilliantearth.com/30-Day-Returns/."
+      "verification": "Re-verified live 2026-10-23 with ?currency=USD (session arena/2908bea4-gold3): $1,090 setting price confirmed; reproduced resizing badge contradiction (SPEC3), caught Ring Information unit bug ('Band Width: 2 ct. tw.'), and repointed dead /returns/ 404 to /30-Day-Returns/ (SRC1)."
     },
     {
       "id": "R30",

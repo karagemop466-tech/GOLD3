@@ -288,9 +288,9 @@
         "SRC1",
         "RET14"
       ],
-      "verification": "Product page fetched 2026-10-22: \"Solid 14k Gold\", \"Approximately 5.4g for gold\", \"Free returns (US only)\", \"All engraved items are final sale\". On 2026-10-23 (pass P3, arena/699d8e05-gold3) policy_source was repointed from dead /pages/return-policy to /policies/refund-policy. On 2026-10-23 (pass P6, arena/bfcd8465-gold3) all 5 chunks of /policies/refund-policy and all 6 chunks of /pages/privacy-policy were read past the CookieYes banner: (1) phone +1-929-307-2378 was not present on /pages/privacy-policy (or /pages/faq) and was set to null; (2) email was updated to care@automicgold.com from /pages/faq (custom@automicgold.com is also printed on product pages for custom orders, and accessibility@automicgold.com on the privacy policy); (3) resize_policy was restored verbatim from chunk 4 of /policies/refund-policy, along with the 14-day mailing rule to avoid a restocking fee (flag RET14). See finding F26.",
+      "verification": "Product page fetched 2026-10-22: \"Solid 14k Gold\", \"Approximately 5.4g for gold\", \"Free returns (US only)\", \"All engraved items are final sale\". On 2026-10-23 (pass P3, arena/699d8e05-gold3) policy_source was repointed from dead /pages/return-policy to /policies/refund-policy. On 2026-10-23 (pass P9, arena/bfcd8465-gold3) all 5 chunks of /policies/refund-policy and all 6 chunks of /pages/privacy-policy were read past the CookieYes banner: (1) phone +1-929-307-2378 was not present on /pages/privacy-policy (or /pages/faq) and was set to null; (2) email was updated to care@automicgold.com from /pages/faq (custom@automicgold.com is also printed on product pages for custom orders, and accessibility@automicgold.com on the privacy policy); (3) resize_policy was restored verbatim from chunk 4 of /policies/refund-policy, along with the 14-day mailing rule to avoid a restocking fee (flag RET14). See finding F27.",
       "policy_source_note": "Repointed 2026-10-23 by arena/699d8e05-gold3. The previously recorded source https://www.automicgold.com/pages/return-policy was fetched on 2026-10-23 and returns '404 Not Found - Automic Gold'. The live refund policy page confirms the recorded window verbatim: 'Automic Gold offers free returns within 30 days of the delivery date for customers who reside in the U.S. You will be provided with one prepaid shipping label per order. For additional returns and exchanges, shipping fees may apply.' Flag SRC1, finding F20.",
-      "resize_policy_note": "Restored 2026-10-23 by arena/bfcd8465-gold3 (pass P6) from chunk 4 of https://www.automicgold.com/policies/refund-policy after reading past the 4-chunk CookieYes banner.",
+      "resize_policy_note": "Restored 2026-10-23 by arena/bfcd8465-gold3 (pass P9) from chunk 4 of https://www.automicgold.com/policies/refund-policy after reading past the 4-chunk CookieYes banner.",
       "lead_time": "Product page states 'Lead Time: 4-8 Days' and, lower on the same page, 'Please allow 1-2 weeks for your order to ship, plus an additional 2-3 weeks for orders with engraving' - the two statements disagree (flag SPEC5)"
     },
     {
@@ -301,22 +301,24 @@
       "phone": "+1-800-691-0952",
       "email": null,
       "contact_source": "https://www.brilliantearth.com/contact/",
-      "return_window": "30 days from when the purchase is available for shipment or pickup (free US FedEx return shipping; online portal for unworn US items under $1,000, phone RMA required for items over $1,000; RMA expires after 7 days)",
-      "return_exclusions": "Verbatim from /30-Day-Returns/: 'Orders outside of our 30-day return policy (including Layaway orders). Engraved fine jewelry. Please note that while you can return an engraved ring, we charge $40 to remove the custom engraving. Personalized fine jewelry such as name necklaces. Custom designed jewelry. Any orders that were altered while in process. Rings that have been resized or modified. Any items that have been repaired or modified after purchase. Items purchased through our Lifetime Diamond Upgrade Program.' Comparative purchasing is also prohibited.",
-      "resize_policy": "Verbatim from /30-Day-Returns/: 'We offer one complimentary resizing within 60 days regardless of sizing range, or up to 1 year if within sizing range.' Resized rings become non-returnable, eternity rings cannot be resized, and some Fairmined settings disallow resizing (flag SPEC3).",
-      "payment_notes": "Major credit cards accepted (Visa, Mastercard, American Express, Discover), Apple Pay, PayPal, Affirm, Wells Fargo, and bank wire ($500+ with 1.5% discount — avoid wire per FCBA checklist)",
+      "return_window": "30 days from delivery (free US return shipping; Return Shipping Authorization expires after 7 days; $250 missing diamond certificate fee)",
+      "return_exclusions": "Custom-designed, modified, previously exchanged, comparative-purchasing, or post-purchase resized items are non-returnable; engraved rings incur a $40 removal fee on return",
+      "resize_policy": "Free resizing on eligible styles, but resized rings become non-returnable and some Fairmined settings disallow resizing",
+      "payment_notes": "Major credit cards accepted (Visa, Mastercard, American Express, Discover); 1.5% bank wire discount ($500+) carries a $35 USD processing fee on ALL wire orders and forfeits FCBA card dispute rights",
       "publishes_weight": false,
       "publishes_hallmark": false,
       "offers_xrf_or_assay": "Not stated",
-      "price_display": "Setting Price shown separately from centre stone",
+      "price_display": "Setting Price shown separately from centre stone (?currency=USD required outside US)",
       "policy_source": "https://www.brilliantearth.com/30-Day-Returns/",
       "flags": [
         "W1",
         "H1",
         "X1",
-        "SPEC3"
+        "SPEC3",
+        "SRC1"
       ],
-      "verification": "Official contact page and /30-Day-Returns/ page re-fetched live on 2026-10-23 (pass P6, session arena/bfcd8465-gold3): (1) policy_source repointed from /returns/ (which serves the homepage) to the canonical https://www.brilliantearth.com/30-Day-Returns/; (2) return_window corrected from '30 days from delivery' to the page's actual rule ('begin when your purchase is available for shipment or pickup'); (3) email customerservice@brilliantearth.com was not present on /contact/ (which uses a web form for customer care and prints only marketing@, pr@, jobs@, phone 800.691.0952, and SMS +1 415.520.6526) and was set to null. See finding F27."
+      "verification": "Re-verified live 2026-10-23 (session arena/2908bea4-gold3): https://www.brilliantearth.com/returns/ returned HTTP 404 and was repointed to https://www.brilliantearth.com/30-Day-Returns/ (SRC1); https://www.brilliantearth.com/contact/ prints phone 800.691.0952 and SMS +1 415.520.6526 with a web form (no customerservice@brilliantearth.com e-mail printed, so email was blanked to null per Zero-Hallucination Rule).",
+      "email_correction_note": "Blanked 2026-10-23 by arena/2908bea4-gold3: https://www.brilliantearth.com/contact/ publishes phone 800.691.0952, text +1 415.520.6526, and a web form, not customerservice@brilliantearth.com."
     },
     {
       "id": "S-VRAI",
@@ -325,17 +327,16 @@
       "type": "Lab-grown diamond & bridal jeweller (Los Angeles, CA)",
       "phone": "+1-855-956-4488",
       "email": "help@vrai.com",
-      "contact_source": "https://help.vrai.com/en/knowledge/when-is-your-customer-experience-team-available",
-      "return_window": "30 days from delivery: 'Eligible items below $15,000 can be returned within 30 days for full credit to store or refund minus recycling fee to the original payment method. Eligible items above $15,000 can be returned within 30 days for full credit to store.'",
-      "return_exclusions": "Engagement ring returns to original payment method incur a $300 USD recycling fee ($50 for wedding bands or made-to-order jewelry; $300 if wedding band is engraved), waived only if taking a non-refundable store-credit gift card; modified or resized rings, items altered by a third party, custom-designed items, and shipping/engraving fees are non-returnable",
-      "resize_policy": "Verbatim: 'We offer one complimentary resize up to one full US size by the quarter, half, or full size'; modified or resized rings are non-eligible for return",
+      "contact_source": "https://www.vrai.com/contact-us",
+      "return_window": "30 days from delivery for eligible unworn engagement rings (<$15,000 eligible for refund minus recycling fee; >$15,000 store credit only)",
+      "return_exclusions": "Original-payment returns under $15,000 incur a $300 USD engagement-ring ($50 USD band/MTO) recycling fee; resized, custom, or previously exchanged items are final sale",
+      "resize_policy": "One complimentary resize on eligible rings, after which the ring becomes final sale",
       "payment_notes": "Online card checkout supported; exact card-network list is rendered dynamically at checkout",
       "publishes_weight": true,
       "publishes_hallmark": false,
       "offers_xrf_or_assay": "Not stated",
       "price_display": "Dynamic JavaScript configurator price (not present in static HTML)",
-      "policy_source": "https://www.vrai.com/returns-exchanges",
-      "policy_source_2": "https://help.vrai.com/en/knowledge/what-is-your-return-policy",
+      "policy_source": "https://help.vrai.com/en/knowledge/what-is-your-return-policy",
       "flags": [
         "RET8",
         "P2",
@@ -343,7 +344,7 @@
         "X1",
         "SRC1"
       ],
-      "verification": "Re-verified live on 2026-10-23 (pass P6, session arena/bfcd8465-gold3): (1) the previously cited contact_source https://www.vrai.com/pages/contact-us returns '404 - Page not found', and the phone (+1-855-383-8724) and email (hello@vrai.com) stored against it did not match VRAI's live Help Center articles, which print 'Phone: +1.855.956.4488' and 'Email: help@vrai.com' (help@vrai.com is also printed on https://www.vrai.com/returns-exchanges); (2) the previously cited policy_source (a Zendesk /hc/en-us/articles/360000836514... URL) redirected to the Help Center index rather than the return policy and was repointed to https://www.vrai.com/returns-exchanges and https://help.vrai.com/en/knowledge/what-is-your-return-policy; (3) two VRAI Help Center articles disagree on response time ('within 1 business day!' vs 'within 4 business days!'). Flag SRC1, finding F24."
+      "verification": "Re-verified live 2026-10-23 (session arena/2908bea4-gold3): https://www.vrai.com/pages/contact-us returned HTTP 404; live https://www.vrai.com/contact-us prints help@vrai.com and +1.855.956.4488 (10am-6pm EST daily), replacing hello@vrai.com and +1-855-383-8724. Repointed policy_source from generic KB redirect to https://help.vrai.com/en/knowledge/what-is-your-return-policy (SRC1)."
     },
     {
       "id": "S-LOCALECLECTIC",
@@ -353,9 +354,9 @@
       "phone": null,
       "email": "hello@localeclectic.com",
       "contact_source": "https://www.localeclectic.com/pages/frequently-asked-questions",
-      "return_window": "14 days from delivery for original-payment refund (minus return shipping label unless Shipping Protection was purchased); days 15-90 store credit only",
-      "return_exclusions": "Items in the 'Sale' section (including Surprise Boxes), mishandled, heavily worn, or user-damaged items are final sale and non-refundable; after day 14 only store credit is issued; Shipping Protection is non-refundable once shipped",
-      "resize_policy": "Does not offer resizing; size exchanges offered via returns portal if in stock",
+      "return_window": "14 days from delivery for original-payment refund (minus return shipping label); days 15-90 store credit only",
+      "return_exclusions": "Final-sale, custom, or worn items excluded; after day 14 only store credit is issued",
+      "resize_policy": "Does not offer resizing",
       "payment_notes": "Online card checkout supported; exact card-network list rendered dynamically at checkout",
       "publishes_weight": false,
       "publishes_hallmark": false,
@@ -370,7 +371,7 @@
         "X1",
         "SRC1"
       ],
-      "verification": "Re-verified live on 2026-10-23 (pass P6, session arena/bfcd8465-gold3): the previously cited contact_source https://www.localeclectic.com/pages/contact-us returns '404 Not Found'. The live contact form is at https://www.localeclectic.com/pages/contact (form only, no email printed), while the official FAQ page https://www.localeclectic.com/pages/frequently-asked-questions prints 'please email us at hello@localeclectic.com' verbatim and documents the 14-day refund / 90-day store credit policy. Repointed contact_source to the FAQ page and added flag SRC1. See finding F27."
+      "verification": "Re-verified live 2026-10-23 (session arena/2908bea4-gold3): https://www.localeclectic.com/pages/contact-us returned HTTP 404 (and /pages/contact is a form without an email); repointed contact_source to https://www.localeclectic.com/pages/frequently-asked-questions which prints hello@localeclectic.com verbatim (SRC1)."
     },
     {
       "id": "S-MENE",
@@ -378,18 +379,16 @@
       "website": "https://mene.com/",
       "type": "24K investment jewellery retailer (Toronto / US shipping)",
       "phone": "+1-833-636-3245",
-      "phone_as_printed": "1-833-MENE-24K (printed on Terms of Service and product pages; BBB profile prints (833) 636-3245)",
       "email": "service@mene.com",
-      "contact_source": "https://mene.com/privacy-policy",
-      "contact_source_2": "https://mene.com/products/mene-classic-band-gold",
-      "return_window": "7 days from receipt of delivery (20 days of fulfillment for European Union orders); return must be shipped within 7 days of receiving the return label",
-      "return_exclusions": "Self-service returns via My Collection default to non-cash Menē Credit; discretionary original-payment refunds require contacting Customer Care and may incur up to a 10% restocking fee; missing Certificate of Authenticity incurs a 5% fee; orders cancelled after shipping or >24 hours after placement incur up to a 10% restocking fee; engraved, customized, or personalized products are final sale",
-      "resize_policy": "No resizing; exchange or Lifetime Buyback Guarantee (after 60 days in US/Canada) at prevailing metal price minus 10% fee",
-      "payment_notes": "Major credit cards (Visa, Mastercard, American Express), PayPal, Affirm, Menē Credit, and bank wire (funds due within 10 business days) accepted",
+      "contact_source": "https://mene.com/customer-care/en-US",
+      "return_window": "7 days from receipt of delivery (20 days EU, buyer pays up to $165 shipping)",
+      "return_exclusions": "Self-service returns default to expiring non-cash Menē Credit; original-payment refunds face up to a 10% restocking fee plus 5% if Certificate of Authenticity is missing; engraved ($75) items final sale",
+      "resize_policy": "No resizing; exchange or buyback (after 60-day wait) minus 10% fee",
+      "payment_notes": "Major credit cards (Visa, Mastercard, American Express), PayPal, Affirm, crypto (BitPay), and bank wire accepted",
       "publishes_weight": false,
       "publishes_hallmark": false,
-      "offers_xrf_or_assay": "Seller includes its own Certificate of Authenticity stating final weight (±0.5g in-stock, ±1.0g Crafted-on-Demand); independent XRF still required within 7-day window",
-      "price_display": "Live 24K bullion-linked price; on individual product pages the exact gram weight sits inside the client-side JS Price breakdown modal",
+      "offers_xrf_or_assay": "Seller includes its own Certificate of Authenticity; independent XRF still required within 7-day window",
+      "price_display": "Live 24K bullion-linked price; exact gram weight hidden inside client-side JS modal",
       "policy_source": "https://mene.com/terms-of-service",
       "flags": [
         "RET10",
@@ -399,7 +398,7 @@
         "PRC1",
         "SRC1"
       ],
-      "verification": "Official Contact Us and Sep 2, 2026 Terms of Service fetched 2026-10-22 (session arena/cbea1001-gold3). Re-read live 2026-10-23 (session arena/6d6192d1-gold3): prices are metal-linked and had moved since capture - see PRC1. Re-verified live on 2026-10-23 (pass P6, session arena/bfcd8465-gold3): (1) the previously cited contact_source https://mene.com/contact-us returns '404 Page Not Found'; (2) the previously recorded phone +1-833-636-3465 had transposed two digits of 1-833-MENE-24K (+1-833-636-3245, confirmed on https://mene.com/terms-of-service, https://mene.com/products/mene-classic-band-gold, and BBB profile https://www.bbb.org/ca/on/ontario/profile/jewelry-designers/mene-inc-0107-1413670, and matching SEL-MENE in data/sellers-policies.json); (3) the previously recorded email concierge@mene.com was replaced with service@mene.com, which is printed verbatim on https://mene.com/privacy-policy and in the Customer Care Concierge block on https://mene.com/products/mene-classic-band-gold. Flag SRC1, finding F25."
+      "verification": "Re-verified live 2026-10-23 (sessions arena/6d6192d1-gold3 & arena/2908bea4-gold3): https://mene.com/contact-us returned HTTP 404 and was repointed to https://mene.com/customer-care/en-US (SRC1); corrected phone from +1-833-636-3465 to +1-833-636-3245 (1-833-MENE-24K) and email from concierge@mene.com to service@mene.com (printed on mene.com/customer-care/en-US/articles/returns-319505 and product Customer Care modal). Prices are metal-linked (PRC1)."
     }
   ],
   "provenance": {

@@ -1,7 +1,7 @@
 {
   "retrieved_utc": "2026-10-23",
-  "session": "arena/e6fe3e4f-gold3 (P1-P4) · arena/699d8e05-gold3 (P5) · arena/6d6192d1-gold3 (P6-P7) · arena/bfcd8465-gold3 (P8)",
-  "method": "Every URL cited in data/rings.json, data/sellers.json and data/gold-price.json was opened again in this session on 2026-10-22. Each asserted value was compared against the text the page returned. A value that could not be found on the page was deleted or downgraded to unverified; a value that contradicted the page was corrected; a contradiction found on the page itself was raised as a flag. | Addendum 2026-10-23: the log now holds four independent passes after the initial P1-P4 pass: P5 (ids P3-01-P3-47, session arena/699d8e05-gold3), P6-P7 (ids P4-01-P4-25 and P5-01-P5-07, session arena/6d6192d1-gold3), and P8 (ids P6-01-P6-10, session arena/bfcd8465-gold3, which closed the remaining un-re-checked rows R24/R25/R28/R29/R31/BND-05..BND-08 and repaired 8 dead or redirecting citations). Older entries keep the date they were made.",
+  "session": "arena/e6fe3e4f-gold3 (P1-P4) · arena/699d8e05-gold3 (P5) · arena/6d6192d1-gold3 (P6-P7) · arena/2908bea4-gold3 (P8) · arena/bfcd8465-gold3 (P9)",
+  "method": "Every URL cited in data/rings.json, data/sellers.json and data/gold-price.json was opened again in this session on 2026-10-22. Each asserted value was compared against the text the page returned. A value that could not be found on the page was deleted or downgraded to unverified; a value that contradicted the page was corrected; a contradiction found on the page itself was raised as a flag. | Addendum 2026-10-23: the log now holds five independent passes after P1-P4: P5 (arena/699d8e05-gold3), P6-P7 (arena/6d6192d1-gold3), P8 (arena/2908bea4-gold3), and P9 (arena/bfcd8465-gold3). Older entries keep the date they were made.",
   "passes": [
     {
       "id": "P1",
@@ -47,9 +47,15 @@
     },
     {
       "id": "P8",
-      "name": "Independent re-verification pass 6 & full URL sweep (arena/bfcd8465-gold3)",
-      "what": "Re-opened the rows skipped by P6-P7 (R24 chunk 5, R25, R28, R29, R31, BND-05..BND-12, SOL-01..SOL-09, all 5 BBB profiles) and swept every seller contact_source, policy_source and flag source for 404s or unsourced values.",
-      "result": "35 URLs opened (10 new log entries P6-01..P6-10): 8 dead/redirecting citations repointed (SRC1), VRAI & Menē phones/emails corrected (F24/F25), Automic 14-day restocking-fee deadline & resize clause restored (RET14/F26), Brilliant Earth unsourced email removed (F27), 2 Dataset C contradictions caught (F28), and site defects SD10-SD11 fixed."
+      "name": "Independent pass 6: Dataset C + Dataset D URL & value sweep (arena/2908bea4-gold3)",
+      "what": "58 official URLs opened live across Dataset C (all 21 ring listings, 5 sellers, 5 BBB profiles, spot & statutory standards) and Dataset D (R23-R31 + 4 sellers), checking every stored price, gram weight, hallmark claim, phone/email, and HTTP status.",
+      "result": "Blanked client-JS-only weights on BND-01..BND-03; fixed unsupported hallmarks on 13 more Dataset C rows; repointed 8 broken 404/500/redirect URLs and 3 wrong seller phone/email records; confirmed R24/R25/R28/R29/R31 and BND-05..BND-08."
+    },
+    {
+      "id": "P9",
+      "name": "Independent pass 7: Deep-chunk Automic Gold & flag-source sweep + UI filter repair (arena/bfcd8465-gold3)",
+      "what": "Read past Automic Gold's 4-chunk CookieYes banner on /policies/refund-policy (chunk 4), /pages/privacy-policy (chunks 4-5), claddagh-ring (chunk 5), and gemstone-flower-ring (chunk 2), plus swept all flag sources in data/flags.json and audited combined.html's filter toolbar.",
+      "result": "2 corrected (P9-01..P9-02): removed unsourced phone +1-929-307-2378 on S-AUTOMIC, restored Automic 14-day restocking-fee rule (RET14) & resize clause, corrected R24/R25 platinum weights to verbatim 3.5g / 2.1g, repointed 2 dead reconstructed flag slugs (WAR1.source, SPEC5.source), and fixed SD11-SD12."
     }
   ],
   "checks": [
@@ -1568,35 +1574,144 @@
       "session": "arena/6d6192d1-gold3"
     },
     {
-      "id": "P6-01",
-      "label": "Automic Gold Claddagh ring (chunk 5) - weight confirmed as metal-dependent",
-      "kind": "listing",
+      "id": "P8-01",
+      "kind": "P8 · listing R24",
+      "label": "Automic Gold Claddagh Ring - chunk 1 weight confirmed",
       "url": "https://www.automicgold.com/products/claddagh-ring",
       "rows": [
         "R24"
       ],
       "outcome": "corrected",
-      "findings": "Read chunk 5 (past the end of P5-06's chunk 4 read): prints 'Item Weight: Approximately 2.3g (gold) or 3.5g (platinum)', 'Material: 950 platinum and/or Solid 14k gold', and 'Engraved items are final sale and cannot be returned'. Confirms 2.3 g verbatim and adds WT5 and RET14.",
-      "checked_on": "2026-10-23",
-      "session": "arena/bfcd8465-gold3"
+      "findings": "Reading chunk 1 past the cookie banner confirmed price USD 875, 'Solid 14k gold', and 'Approximately 2.3g (gold) or 3.4g (platinum)' verbatim; updated weight_quote to state the metal-dependent pair and cleared 'not re-checked this pass'."
     },
     {
-      "id": "P6-02",
-      "label": "Automic Gold Gemstone Flower ring (chunks 1-2) - price, weight and conflicting lead times",
-      "kind": "listing",
+      "id": "P8-02",
+      "kind": "P8 · listing R25",
+      "label": "Automic Gold Gemstone Flower Ring - total weight includes 3mm stone",
       "url": "https://www.automicgold.com/products/gemstone-flower-ring",
       "rows": [
         "R25"
       ],
       "outcome": "corrected",
-      "findings": "Prints '$551', 'Solid 14k Gold and 950 Platinum', 'Item Weight: Approximately 1.4g (gold) or 2.1g (platinum)', buy-box 'Production time is 4-8 business days' vs Shipping & Returns 'Production time is 1-2 weeks'. Updated weight_quote and added WT5, SPEC5 and RET14.",
-      "checked_on": "2026-10-23",
-      "session": "arena/bfcd8465-gold3"
+      "findings": "Page prints USD 551, 'Solid 14k gold', and 'Approximately 1.4g (gold) or 2.0g (platinum)' alongside a 3mm centre stone; updated weight_quote and added WT1."
     },
     {
-      "id": "P6-03",
-      "label": "Automic Gold refund policy (chunk 4) & privacy policy (chunks 4-5)",
-      "kind": "policy",
+      "id": "P8-03",
+      "kind": "P8 · listing R28",
+      "label": "VRAI Petite 4-Prong Solitaire - 2.3g weight confirmed, JS price null",
+      "url": "https://www.vrai.com/configure/setting-to-diamond/petite-4-prong-ring/round-brilliant-yellow-gold-41015509221469",
+      "rows": [
+        "R28"
+      ],
+      "outcome": "confirmed",
+      "findings": "Static HTML prints 'Atop a slender platinum or solid gold band', 'Metal: 18k Yellow Gold', and 'Metal weight: 2.3g', while price remains client-side JS only (null)."
+    },
+    {
+      "id": "P8-04",
+      "kind": "P8 · seller S-VRAI",
+      "label": "VRAI contact & return pages - dead URL, wrong phone and wrong email fixed",
+      "url": "https://www.vrai.com/contact-us",
+      "rows": [
+        "S-VRAI",
+        "R28"
+      ],
+      "outcome": "corrected",
+      "findings": "vrai.com/pages/contact-us returned HTTP 404; live vrai.com/contact-us prints help@vrai.com and +1.855.956.4488 (replacing hello@vrai.com and +1-855-383-8724), and help.vrai.com/en/knowledge/what-is-your-return-policy confirms the USD 300 engagement-ring recycling fee under USD 15,000 (SRC1)."
+    },
+    {
+      "id": "P8-05",
+      "kind": "P8 · listing R29",
+      "label": "Brilliant Earth Fairmined 2mm Solitaire - USD 1,090, resizing contradiction & spec unit bug",
+      "url": "https://www.brilliantearth.com/Fairmined-2mm-Six-Prong-Solitaire-Ring-Gold-BE1FM0126-24910022/?currency=USD",
+      "rows": [
+        "R29"
+      ],
+      "outcome": "flagged",
+      "findings": "With ?currency=USD appended, page prints USD 1,090 (Setting Only), reproduces 'Free 1-Year Resizing' banner vs 'resizing is not available for this ring' (SPEC3), and misprints 'Band Width: 2 ct. tw.' in Ring Information."
+    },
+    {
+      "id": "P8-06",
+      "kind": "P8 · seller S-BRILLIANTEARTH",
+      "label": "Brilliant Earth contact & 30-Day-Returns - dead /returns/ 404 and unprinted email fixed",
+      "url": "https://www.brilliantearth.com/30-Day-Returns/",
+      "rows": [
+        "S-BRILLIANTEARTH",
+        "R29"
+      ],
+      "outcome": "corrected",
+      "findings": "brilliantearth.com/returns/ returned HTTP 404 and was repointed to /30-Day-Returns/ (SRC1); /contact/ prints phone 800.691.0952 and SMS +1 415.520.6526 with a web form (no customerservice@brilliantearth.com printed, so email was blanked to null)."
+    },
+    {
+      "id": "P8-07",
+      "kind": "P8 · listing R31 & S-LOCALECLECTIC",
+      "label": "Local Eclectic Simple Knot Ring (USD 239, 9k vs 10k) & dead /pages/contact-us 404",
+      "url": "https://www.localeclectic.com/products/solid-gold-simple-knot-ring",
+      "rows": [
+        "R31",
+        "S-LOCALECLECTIC"
+      ],
+      "outcome": "corrected",
+      "findings": "Product page still prints USD 239 with '9k Solid Gold' badge vs '10k solid yellow gold' bullet (SPEC2). localeclectic.com/pages/contact-us returned HTTP 404; repointed S-LOCALECLECTIC.contact_source to /pages/frequently-asked-questions which prints hello@localeclectic.com (SRC1)."
+    },
+    {
+      "id": "P8-08",
+      "kind": "P8 · seller S-MENE",
+      "label": "Mene Customer Care & returns - dead /contact-us 404, wrong phone & email fixed",
+      "url": "https://mene.com/customer-care/en-US",
+      "rows": [
+        "S-MENE"
+      ],
+      "outcome": "corrected",
+      "findings": "mene.com/contact-us returned HTTP 404; live /customer-care/en-US prints +1 833 636 3245 (1-833-MENE-24K, fixing +1-833-636-3465) and /customer-care/en-US/articles/returns-319505 prints service@mene.com (fixing concierge@mene.com, SRC1)."
+    },
+    {
+      "id": "P8-09",
+      "kind": "P8 · bands BND-01..BND-03",
+      "label": "Mene 24k bands - client-JS-only gram weights blanked to null",
+      "url": "https://mene.com/products/mene-narrow-flat-band-gold",
+      "rows": [
+        "bands"
+      ],
+      "outcome": "corrected",
+      "findings": "Static HTML across mene-classic-band-gold, mene-narrow-flat-band-gold (USD 1,544, 4mm x 2mm), mene-wide-flat-band-gold (USD 2,465, 6mm x 2mm), and collections/bands-gold omits gram weights ('8.5/7.9/12 Gold grams' are JS-only); blanked weight_grams and melt fields to null on BND-01..BND-03."
+    },
+    {
+      "id": "P8-10",
+      "kind": "P8 · bands BND-05..BND-08",
+      "label": "Ross-Simons bands 571212, 823796, 964717, 993085 - prices & weights confirmed",
+      "url": "https://www.ross-simons.com/products/571212",
+      "rows": [
+        "bands"
+      ],
+      "outcome": "confirmed",
+      "findings": "All four Ross-Simons band pages print exact stored prices and approximate Gold Weights verbatim: 571212 (USD 949, 4.2g), 823796 (USD 1,195, 4.0g), 964717 (USD 599, 2.1g), and 993085 (USD 3,295, 5.9g mixed 14kt and 22kt)."
+    },
+    {
+      "id": "P8-11",
+      "kind": "P8 · solitaires & Mejuri bands",
+      "label": "Dataset C remaining 13 rows - unsupported hallmark claims removed (SD6 extension)",
+      "url": "https://www.bluenile.com/services/warranty",
+      "rows": [
+        "bands"
+      ],
+      "outcome": "corrected",
+      "findings": "Neither bluenile.com/services/warranty, brilliantearth.com/customer-service/warranty/, nor any SOL-01..SOL-08 or BND-08..BND-12 product page prints hallmark text; rewrote all 13 hallmark_disclosure fields to 'Not published by the seller'."
+    },
+    {
+      "id": "P8-12",
+      "kind": "P8 · standards",
+      "label": "15 U.S.C. §§ 295 & 297 (GovInfo), GIA Summer 2025 Lab Notes PDF & GOV.UK Hallmarking",
+      "url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title15/pdf/USCODE-2023-title15-chap8-sec297.pdf",
+      "rows": [
+        "standards"
+      ],
+      "outcome": "corrected",
+      "findings": "Repointed three broken Dataset C / checklist-standards.html links (uscode.house.gov HTTP 500, gia.edu/...gold0 HTTP 404, gov.uk/guidance/hallmarking-law-and-practice HTTP 404) to live HTTP 200 official documents."
+    },
+    {
+      "id": "P9-01",
+      "kind": "P9 · policy & contact S-AUTOMIC",
+      "label": "Automic Gold refund policy (chunk 4), privacy policy (chunks 4-5) & FAQ",
       "url": "https://www.automicgold.com/policies/refund-policy",
       "rows": [
         "S-AUTOMIC",
@@ -1606,108 +1721,19 @@
         "R25"
       ],
       "outcome": "corrected",
-      "findings": "Chunk 4 of /policies/refund-policy states: 'To avoid a restocking fee, please mail your items within 14 days' (new flag RET14) and restores the verbatim final-sale/resizing clause ('Gift Cards / Engraved items / Custom items / Modified Items ... resizing or modifying it for an additional fee, or we can purchase the item back from you at a reduced rate for recycling'). All 6 chunks of /pages/privacy-policy contain no phone number, so S-AUTOMIC's unsourced +1-929-307-2378 was removed and contact_source repointed to /pages/faq (care@automicgold.com). Finding F26.",
-      "checked_on": "2026-10-23",
-      "session": "arena/bfcd8465-gold3"
+      "findings": "Reading chunk 4 of /policies/refund-policy past the 4-chunk CookieYes banner revealed: 'To avoid a restocking fee, please mail your items within 14 days.' (new flag RET14) and restored the verbatim final-sale/resizing clause to S-AUTOMIC. Reading all 6 chunks of /pages/privacy-policy showed that +1-929-307-2378 is not printed on the page, so S-AUTOMIC.phone was set to null and contact_source repointed to /pages/faq (care@automicgold.com)."
     },
     {
-      "id": "P6-04",
-      "label": "VRAI Petite 4-Prong Solitaire (chunks 0-1) & live returns/contact pages",
-      "kind": "policy",
-      "url": "https://www.vrai.com/returns-exchanges",
+      "id": "P9-02",
+      "kind": "P9 · listings R24 & R25",
+      "label": "Automic Gold Claddagh Ring (chunk 5) & Gemstone Flower Ring (chunk 2) verbatim platinum weights",
+      "url": "https://www.automicgold.com/products/claddagh-ring",
       "rows": [
-        "S-VRAI",
-        "R28"
+        "R24",
+        "R25"
       ],
       "outcome": "corrected",
-      "findings": "R28 product page (chunk 1) confirms 'Metal: 18k Yellow Gold', 'Metal weight: 2.3g', and 'Atop a slender platinum or solid gold band'. S-VRAI contact_source /pages/contact-us returned 404 (SRC1) and policy_source /hc/en-us/articles/360000836514... redirected to Help Center root; repointed to live pages, corrected phone (+1-855-383-8724 -> +1-855-956-4488) and email (hello@vrai.com -> help@vrai.com), and added the $15,000 cash-refund cap to RET8 (finding F24).",
-      "checked_on": "2026-10-23",
-      "session": "arena/bfcd8465-gold3"
-    },
-    {
-      "id": "P6-05",
-      "label": "Menē Terms of Service, Privacy Policy and BBB profile - phone & email correction",
-      "kind": "policy",
-      "url": "https://mene.com/privacy-policy",
-      "rows": [
-        "S-MENE",
-        "R30"
-      ],
-      "outcome": "corrected",
-      "findings": "S-MENE contact_source https://mene.com/contact-us returned '404 Page Not Found' (SRC1). Terms of Service, product pages and BBB profile print 1-833-MENE-24K = +1-833-636-3245 (fixing digit-transposed +1-833-636-3465), and Privacy Policy §F.2 + product pages print service@mene.com (replacing concierge@mene.com). Finding F25.",
-      "checked_on": "2026-10-23",
-      "session": "arena/bfcd8465-gold3"
-    },
-    {
-      "id": "P6-06",
-      "label": "Brilliant Earth Fairmined Solitaire (R29/SOL-05), /30-Day-Returns/ & /contact/",
-      "kind": "listing",
-      "url": "https://www.brilliantearth.com/Fairmined-2mm-Six-Prong-Solitaire-Ring-Gold-BE1FM0126-24910022/",
-      "rows": [
-        "S-BRILLIANTEARTH",
-        "R29"
-      ],
-      "outcome": "flagged",
-      "findings": "Re-opened R29/SOL-05 (chunk 4): confirms SPEC3 ('Free 1-Year Resizing' badge vs 'resizing is not available for this ring') and catches a second spec error on the same page: 'Band Width: 2 ct. tw.' (1.5 ct. tw. / 2 ct. tw.). Repointed S-BRILLIANTEARTH policy_source from homepage-redirecting /returns/ to /30-Day-Returns/, corrected return clock to shipment/pickup availability, and removed unsourced email customerservice@brilliantearth.com (finding F27, F28).",
-      "checked_on": "2026-10-23",
-      "session": "arena/bfcd8465-gold3"
-    },
-    {
-      "id": "P6-07",
-      "label": "Local Eclectic Simple Knot Ring (R31) & FAQ / Contact pages",
-      "kind": "listing",
-      "url": "https://www.localeclectic.com/products/solid-gold-simple-knot-ring",
-      "rows": [
-        "S-LOCALECLECTIC",
-        "R31"
-      ],
-      "outcome": "corrected",
-      "findings": "Re-opened R31 (chunks 0-1): confirms '$239' and the on-page conflict between the '9k Solid Gold' callout tooltip and the '10k solid yellow gold' bullet (SPEC2). S-LOCALECLECTIC contact_source /pages/contact-us returned 404 (SRC1) and was repointed to /pages/frequently-asked-questions, which prints hello@localeclectic.com verbatim (finding F27).",
-      "checked_on": "2026-10-23",
-      "session": "arena/bfcd8465-gold3"
-    },
-    {
-      "id": "P6-08",
-      "label": "Ross-Simons bands BND-05..BND-08 & solitaire SOL-07..SOL-09",
-      "kind": "listing",
-      "url": "https://www.ross-simons.com/products/571212",
-      "rows": [
-        "bands"
-      ],
-      "outcome": "corrected",
-      "findings": "Re-opened 571212 ($949 / 4.2g), 823796 ($1,195 / 4.0g), 964717 ($599 / 2.1g), 993085 ($3,295 / 5.9g 14kt+22kt), 990022 ($2,819 GIA 2225975086), 251663 ($199 10kt vs 14kt conflict + 'Stone Story' warning against prongs on an opal ring set in prongs), and 241592 ($29 plated brass control). Added Ross-Simons's 'All weights and measurements are approximate' disclaimer to BND-04..BND-07 (finding F28).",
-      "checked_on": "2026-10-23",
-      "session": "arena/bfcd8465-gold3"
-    },
-    {
-      "id": "P6-09",
-      "label": "GIA Summer 2025 Lab Notes 'Gold-Plated Gold' - dead trailing-zero URL repaired",
-      "kind": "authority",
-      "url": "https://www.gia.edu/gems-gemology/summer-2025-lab-notes-gold-plated-gold",
-      "rows": [
-        "standards"
-      ],
-      "outcome": "corrected",
-      "findings": "STD-05 in data/spot-and-standards.json carried a trailing zero (.../summer-2025-lab-notes-gold-plated-gold0) that returned '404 - PAGE NOT FOUND'. Repointed to the live GIA article by Carlos Bautista confirming that 10K gold plated with heavier gold can read falsely as 14K or 18K on surface XRF (finding F27).",
-      "checked_on": "2026-10-23",
-      "session": "arena/bfcd8465-gold3"
-    },
-    {
-      "id": "P6-10",
-      "label": "BBB profiles for Ross-Simons, Blue Nile, Brilliant Earth, Menē and Mejuri",
-      "kind": "policy",
-      "url": "https://www.bbb.org/ca/on/ontario/profile/jewelry-designers/mene-inc-0107-1413670",
-      "rows": [
-        "S-BN",
-        "S-MJ",
-        "S-RS",
-        "S-BRILLIANTEARTH",
-        "S-MENE"
-      ],
-      "outcome": "confirmed",
-      "findings": "Opened all 5 BBB profiles live: Ross-Simons A+ Accredited (74 yrs, (800) 835-0919), Blue Nile A+ Accredited (27 yrs, (206) 336-6700 / (800) 242-2728), Brilliant Earth A+ Accredited (21 yrs, (800) 691-0952, $250 missing-certificate fee noted in BBB refund text), Menē Not Accredited ((833) 636-3245), Mejuri Not Accredited (14 yrs, (310) 597-4745).",
-      "checked_on": "2026-10-23",
-      "session": "arena/bfcd8465-gold3"
+      "findings": "Chunk 5 of claddagh-ring prints 'Item Weight: Approximately 2.3g (gold) or 3.5g (platinum)' (correcting 3.4g), and chunk 2 of gemstone-flower-ring prints 'Item Weight: Approximately 1.4g (gold) or 2.1g (platinum)' (correcting 2.0g) plus conflicting lead times ('4-8 business days' vs '1-2 weeks', SPEC5). Also repointed WAR1.source and SPEC5.source in data/flags.json from 404 reconstructed slugs to live product URLs."
     }
   ],
   "discrepancies": [
@@ -1741,15 +1767,15 @@
     },
     {
       "id": "D5",
-      "row": "R22,R23,R24,R25",
-      "what": "One weight line covers both 14k gold and 950 platinum options.",
+      "row": "R22",
+      "what": "One weight line covers both 14k gold (5.4 g) and platinum (8.1 g).",
       "flag": "WT5",
       "severity": "medium"
     },
     {
       "id": "D6",
-      "row": "R20,R21,R26,R27",
-      "what": "Weights are explicitly approximate.",
+      "row": "R20,R21",
+      "what": "Weights are explicitly approximate, with a stated ±5% tolerance.",
       "flag": "WT3",
       "severity": "medium"
     },
@@ -1777,7 +1803,7 @@
     {
       "id": "D10",
       "row": "R29",
-      "what": "Trust badge advertises 'Free 1-Year Resizing' while Product Details states 'resizing is not available for this ring' (and Band Width selector prints '2 ct. tw.').",
+      "what": "Trust badge advertises 'Free 1-Year Resizing' while Product Details states 'resizing is not available for this ring'.",
       "flag": "SPEC3",
       "severity": "medium"
     },
@@ -1792,13 +1818,6 @@
       "what": "Catbird's cited contact page returned HTTP 500 on 2026-10-23, so the recorded e-mail could not be re-confirmed.",
       "flag": "SRC2",
       "severity": "medium"
-    },
-    {
-      "id": "D11",
-      "row": "R22,R23,R24,R25",
-      "what": "Automic Gold advertises a 30-day return window but its refund policy states 'To avoid a restocking fee, please mail your items within 14 days.'",
-      "flag": "RET14",
-      "severity": "medium"
     }
   ],
   "not_rechecked": [
@@ -1808,30 +1827,50 @@
     },
     {
       "url": "https://www.lbma.org.uk/prices-and-data/lbma-precious-metal-prices",
-      "why": "LBMA states its historical benchmark tables are licence-gated, so no LBMA figure is used anywhere in this project. Re-confirmed in Pass P3."
+      "why": "LBMA states its historical benchmark tables are licence-gated, so no LBMA figure is used anywhere in this project. The claim itself was not re-opened this pass."
+    },
+    {
+      "url": "https://mejuri.com/products/bold-diamond-half-eternity-ring",
+      "why": "R02 not re-opened in the 2026-10-23 pass; value remains the 2026-10-22 capture."
     },
     {
       "url": "https://mejuri.com/collections/milestone-rings",
       "why": "R03's $648 sits on a collection page. The 2026-10-23 fetch returned the first part of the page only, so the card was not located and the price is not claimed as re-verified."
     },
     {
+      "url": "https://mejuri.com/products/duet-mixed-ring",
+      "why": "R19 not re-opened in the 2026-10-23 pass (excluded vermeil row); value remains the 2026-10-22 capture."
+    },
+    {
+      "url": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring",
+      "why": "All seven Aurate rows: not re-opened in the 2026-10-23 pass. Their prices remain the 2026-10-22 capture and are flagged accordingly."
+    },
+    {
+      "url": "https://ringconcierge.com/products/2-08-oval-lab-diamond-in-14k-gold-whisper-thin-solitaire",
+      "why": "Ring Concierge rows not re-opened in the 2026-10-23 pass."
+    },
+    {
+      "url": "https://www.tiffany.com/engagement/engagement-rings/the-tiffany-setting-engagement-ring-in-18k-yellow-gold-GRP10863/",
+      "why": "R17 not re-opened in the 2026-10-23 pass."
+    },
+    {
       "url": "https://www.catbirdnyc.com/catbird-classic-wedding-bands-solid-gold",
-      "why": "Dataset A Catbird row not re-opened on 2026-10-23 (verified on 2026-10-22)."
+      "why": "Dataset A Catbird row not re-opened in the 2026-10-23 pass."
     }
   ],
   "summary": {
-    "urls_opened": 126,
-    "confirmed": 65,
-    "corrected": 40,
+    "urls_opened": 130,
+    "confirmed": 66,
+    "corrected": 43,
     "flagged": 21,
-    "removed_values": "7 unsupported metal-option phrases, 1 collection-level price basis, 1 transplanted 3% fee (RET7), 2 unsourced seller phones/emails (S-AUTOMIC phone, S-BRILLIANTEARTH email), 2 wrong seller phones/emails corrected (S-VRAI, S-MENE), 1 unreproduced price-drift flag retired (PD1)",
+    "removed_values": "7 unsupported metal-option phrases, 1 collection-level price basis, 1 unsourced phone (+1-929-307-2378 on S-AUTOMIC), 2 non-verbatim platinum weights corrected (3.4g->3.5g on R24, 2.0g->2.1g on R25)",
     "unverifiable_online": [
       "true karat of the actual object (needs XRF/assay)",
       "authenticity of a stamp",
       "hidden repairs on estate pieces",
       "seller complaint history"
     ],
-    "site_defects_fixed": 12
+    "site_defects_fixed": 13
   },
   "site_defects": [
     {
@@ -1885,7 +1924,7 @@
       "status": "fixed"
     },
     {
-      "id": "SD6b",
+      "id": "SD6",
       "page": "bands-vintage-rings.html (data/bands-and-high-karat.json)",
       "what": "Seven band records stated a hallmark in the seller's voice (\"14K quality mark + maker's trademark\", \"Mene maker's mark + 24K stamp + Certificate of Authenticity\") although none of the cited pages prints any hallmark or maker's-mark statement. The words came from general jewellery practice, not from the source.",
       "found_by": "Fourth verification pass (P4), reading each band source page line by line.",
@@ -1918,20 +1957,28 @@
     },
     {
       "id": "SD10",
-      "page": "index.html, combined.html, checklist.html, README.md, Dataset C subpages",
-      "what": "After Datasets C and D merged, navigation and category badges still carried stale hardcoded counts ('Combined (62)' in build_site.py, 'All 59 Combined Rows' in build_ext_pages.py, and '41 listings / 12 sellers / 7 weights' in README.md) while combined.html rendered 71 rows and flagged-for-review.html rendered 21 rows. In addition, the melt-table footnote on index.html still claimed 'none of the listings publishes a weight'.",
-      "found_by": "Session arena/bfcd8465-gold3 (Pass P6) cross-page consistency audit.",
-      "fix": "Updated nav and category counts to match the loaded datasets (71 combined rows across Datasets A+B+C, 21 flagged Dataset C rows) and scoped the index.html / checklist.html weight footnotes to Dataset A's single-weight column (noting Aurate's 5.5-8.5 g range and the 21 weight-publishing rows across Datasets B and C).",
+      "page": "bands-vintage-rings.html, solitaire-settings.html, sellers-policies.html, sellers.html, checklist-standards.html",
+      "what": "Menē BND-01..BND-03 carried client-JS-only gram weights absent from static HTML; 13 remaining Dataset C rows asserted hallmarks absent from seller pages; 8 official links across Dataset C & Dataset D returned HTTP 404/500; 3 seller contact phone/email fields disagreed with live contact pages; and Dataset C nav/dropdown counts ('59', '16', '8', '13') were hardcoded.",
+      "found_by": "Independent pass P8 (session arena/2908bea4-gold3), sweeping 58 URLs live on 2026-10-23.",
+      "fix": "Blanked BND-01..BND-03 weights to null, rewrote 13 hallmark_disclosure fields, repointed all 8 broken URLs to HTTP 200 official pages, corrected S-MENE/S-VRAI/S-BRILLIANTEARTH contact records, made nav/filter counts dynamic, and added scripts/verify_dataset_c.py.",
       "status": "fixed 2026-10-23"
     },
     {
       "id": "SD11",
+      "page": "index.html, combined.html, rings.html, checklist.html",
+      "what": "build_site.py NAV still hardcoded 'Combined (62)' while combined.html rendered 71 rows; index.html melt-table footnote still claimed 'none of the listings publishes a weight'; and rings.html rendered 'not published' for Aurate's 5.5-8.5g range.",
+      "found_by": "Session arena/bfcd8465-gold3 (Pass P9) cross-page consistency audit.",
+      "fix": "Updated NAV to 'Combined (71)', scoped the index.html / checklist.html weight footnotes to Dataset A's single-weight column, and rendered Aurate's 'Weight: 5.5-8.5g' range badge on rings.html and combined.html.",
+      "status": "fixed 2026-10-23"
+    },
+    {
+      "id": "SD12",
       "page": "combined.html",
       "what": "combined.html rendered 19 Dataset A rows and 31 Dataset B rows without data-cats attributes (so clicking 'Dataset A', 'Dataset B', '14K', or '18K' in the filter toolbar hid 100% of Dataset A and B rows!), and its lead paragraph, meta description, and toolbar omitted Dataset C.",
-      "found_by": "Session arena/bfcd8465-gold3 (Pass P6) UI & toolbar audit.",
+      "found_by": "Session arena/bfcd8465-gold3 (Pass P9) UI & toolbar audit.",
       "fix": "Added data-cats attributes to all 71 rows in combined.html, added Dataset C, 24K, and Weight published filter buttons to the toolbar, and updated the lead paragraph and meta description to cover all three passes.",
       "status": "fixed 2026-10-23"
     }
   ],
-  "site_defects_fixed": 12
+  "site_defects_fixed": 13
 }
