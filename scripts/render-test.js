@@ -206,6 +206,12 @@ const _r03 = _ringsDoc.rings.find((r) => r.id === "R03");
 check("SD19 R01 and R03 carry SPEC8", _r01.flags.includes("SPEC8") && _r03.flags.includes("SPEC8"));
 check("SD19 R03 no longer carries the misapplied SPEC2", !_r03.flags.includes("SPEC2"));
 
+check("SD21 calculator labels the pre-filled snapshot with its own capture date",
+  /Pre-filled with the 23 October 2026 snapshot/.test(html["calculator.html"]) &&
+  !/Pre-filled with the 22 October 2026 snapshot/.test(html["calculator.html"]));
+check("SD21 flagged.html audit date comes from the audit report, not a typed literal",
+  /Last automated pass: 23 October 2026/.test(html["flagged.html"]));
+
 // ------------------------------------------------------------------- report
 let failed = 0;
 console.log("render test (static site)\n" + "=".repeat(66));

@@ -515,14 +515,14 @@
         </div>
         <div class="card finding low" id="F44">
           <div class="finding-head">
-            <h3>F44 · The live spot reading is corroborated by four feeds to 0.026% — and is published, not used</h3>
+            <h3>F44 · The calculator dated its pre-filled spot snapshot from Dataset A&#x27;s capture date, not the snapshot&#x27;s own</h3>
             <span class="badge info">LOW</span>
           </div>
-          <p class="small">Pass P14 read four independent publishers at 2026-10-23T20:17Z: GoldPrice.org $3,997.22/oz, Kitco bid $3,996.20/oz, BullionVault $3,997.14/oz and the World Gold Council tile $3,996.31/oz. The widest gap between any two is $1.02 (0.026%), so the reference reading shown beside the calculation anchor is not a single-publisher claim. It is deliberately NOT promoted to the calculation anchor: two earlier sessions kept the dated $4,022.22 snapshot so that every melt figure stays reproducible (F39), and the stored numbers were left untouched. If the owner prefers current-price melt figures, `scripts/refresh_spot_anchor.py` performs the re-anchor reproducibly from one dated capture and keeps the superseded snapshot as history.</p>
-          <div class="evidence">GoldPrice.org $3,997.22 · Kitco $3,996.20 · BullionVault $3,997.14 · WGC $3,996.31 · max spread 0.026% · calculation anchor unchanged at $4,022.22</div>
+          <p class="small">Reading the deployed page back after PR #54 (f3b7887) showed &#x27;Pre-filled with the 22 October 2026 snapshot: $4,022.22/oz (Oct 23rd, 2026 at 05:55 NY Time)&#x27; - two different dates in one sentence. data/prices.json records that snapshot&#x27;s captured_on as 2026-10-23; 22 October is Dataset A&#x27;s product capture date, which the build script applied to every page regardless of what the number described. flagged.html had the same problem with &#x27;Last automated pass: 22 October 2026&#x27; while reports/audit-report.md was generated on 2026-10-23.</p>
+          <div class="evidence">Live calculator.html (deployed from f3b7887) printed &#x27;Pre-filled with the 22 October 2026 snapshot ... (Oct 23rd, 2026 at 05:55 NY Time)&#x27;; reports/audit-report.md prints &#x27;Run: 2026-10-23 20:24 UTC&#x27; while flagged.html printed &#x27;Last automated pass: 22 October 2026&#x27;.</div>
           <p class="small"><strong>Source:</strong> <a href="https://goldprice.org/" target="_blank" rel="noopener">https://goldprice.org/</a></p>
           
-          <p class="action"><strong>What to do:</strong> Read the melt column as dated. To move the anchor, run scripts/refresh_spot_anchor.py against a fresh capture rather than editing JSON by hand.</p>
+          <p class="action"><strong>What to do:</strong> Both dates are now read from the files that own them - the snapshot&#x27;s captured_on from data/prices.json and the audit run date from reports/audit-report.md - and asserted in scripts/render-test.js (SD21).</p>
         </div>
 
 <h2 style="margin-top:36px">Every listing-level flag</h2>
@@ -1483,7 +1483,7 @@ exists. A flag with no source of its own is a question about one specific listin
 
 <h2 id="verification">Verification passes</h2>
 <div class="card">
-  <p><strong>Last automated pass: 22 October 2026 &middot; result <span class="badge good">PASS</span></strong>
+  <p><strong>Last automated pass: 23 October 2026 &middot; result <span class="badge good">PASS</span></strong>
   &middot; 0 errors &middot; 0 warnings &middot;
   12 notes.</p>
   <p class="small">The build refuses to run unless this pass is clean, so an unsourced or contradictory value cannot reach the

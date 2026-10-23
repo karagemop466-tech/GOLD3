@@ -645,7 +645,7 @@
     {
       "id": "F44",
       "severity": "low",
-      "title": "The live spot reading is corroborated by four feeds to 0.026% — and is published, not used"
+      "title": "The calculator dated its pre-filled spot snapshot from Dataset A's capture date, not the snapshot's own"
     }
   ],
   "parallel_dataset": {

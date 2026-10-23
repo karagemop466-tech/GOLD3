@@ -22,7 +22,8 @@ OUT = ROOT
 
 SITE_NAME = "GOLD3"
 SITE_TAG = "Gold engagement ring buyer's guide"
-CAPTURED = "22 October 2026"
+CAPTURED = "22 October 2026"          # Dataset A capture date (data/products.json)
+AUDIT_RUN_DATE = CAPTURED            # filled from reports/audit-report.md below
 RECHECKED = "23 October 2026"   # date of the most recent verification pass (P4)
 
 NAV = [
@@ -137,6 +138,23 @@ try:
                          else "The script prints its own pass count; the gate that matters is 0 errors.")
 except Exception:  # pragma: no cover
     AUDIT_CHECKS_TEXT = "The script prints its own pass count; the gate that matters is 0 errors."
+
+try:
+    _rd = re.search(r"- Run: (\d{4})-(\d{2})-(\d{2})", _audit_md)
+    if _rd:
+        AUDIT_RUN_DATE = (f"{int(_rd.group(3))} "
+                          f"{['January','February','March','April','May','June','July','August','September','October','November','December'][int(_rd.group(2))-1]} "
+                          f"{_rd.group(1)}")
+except Exception:  # pragma: no cover
+    pass
+
+# the pre-filled spot snapshot carries its own capture date; it is NOT Dataset A's date
+SPOT_CAPTURED = PRIMARY.get("captured_on") or ""
+if re.fullmatch(r"\d{4}-\d{2}-\d{2}", SPOT_CAPTURED):
+    _y, _mo, _d = SPOT_CAPTURED.split("-")
+    SPOT_CAPTURED = (f"{int(_d)} "
+                     f"{['January','February','March','April','May','June','July','August','September','October','November','December'][int(_mo)-1]} "
+                     f"{_y}")
 
 # Pass P13: the third snapshot in prices.json is an explicitly labelled live-check reading
 # that no calculation consumes. Show it beside the pre-filled field, never instead of it.
@@ -1013,7 +1031,7 @@ def build_calculator() -> str:
     <div class="field">
       <label for="calc-spot">Gold spot price (USD per troy ounce)</label>
       <input type="number" id="calc-spot" value="{SPOT}" step="0.01" min="0">
-      <p class="tiny muted" style="margin:4px 0 0">Pre-filled with the {CAPTURED} snapshot: {money(SPOT,2)}/oz ({e(PRIMARY['as_of_text'])}).
+      <p class="tiny muted" style="margin:4px 0 0">Pre-filled with the {SPOT_CAPTURED or CAPTURED} snapshot: {money(SPOT,2)}/oz ({e(PRIMARY['as_of_text'])}).
       Change it to test another price.</p>
       {f'<p class="tiny" style="margin:4px 0 0;color:#8a5a00"><strong>{LIVE_NOTE}</strong></p>' if LIVE_NOTE else ''}
     </div>
@@ -1125,7 +1143,7 @@ def verification_block() -> str:
     return f"""
 <h2 id="verification">Verification passes</h2>
 <div class="card">
-  <p><strong>Last automated pass: {CAPTURED} &middot; result <span class="badge good">PASS</span></strong>
+  <p><strong>Last automated pass: {AUDIT_RUN_DATE} &middot; result <span class="badge good">PASS</span></strong>
   &middot; {report['counts']['errors']} errors &middot; {report['counts']['warnings']} warnings &middot;
   {len(report.get('notes', []))} notes.</p>
   <p class="small">The build refuses to run unless this pass is clean, so an unsourced or contradictory value cannot reach the
