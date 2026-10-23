@@ -1,6 +1,6 @@
 {
   "retrieved_utc": "2026-10-23",
-  "session": "arena/e6fe3e4f-gold3 (P1-P3) · arena/699d8e05-gold3 (P3) · arena/6d6192d1-gold3 (P4) · arena/6d6192d1-gold3 (P5, weight-bearing rows)",
+  "session": "arena/e6fe3e4f-gold3 (P1-P4) · arena/699d8e05-gold3 (P5) · arena/6d6192d1-gold3 (P6-P7)",
   "method": "Every URL cited in data/rings.json, data/sellers.json and data/gold-price.json was opened again in this session on 2026-10-22. Each asserted value was compared against the text the page returned. A value that could not be found on the page was deleted or downgraded to unverified; a value that contradicted the page was corrected; a contradiction found on the page itself was raised as a flag. | Addendum 2026-10-23: the log now holds three independent passes. P1-P3 are the checks recorded by arena/e6fe3e4f-gold3 (ids V01-V37); the third pass (ids P3-01-P3-47, session arena/699d8e05-gold3) was appended from data/reverification-p3.json so that its 47 checks appear in this log instead of only in a separate file; the fourth pass (ids P4-01-P4-25, session arena/6d6192d1-gold3) was run on the merged tree on 2026-10-23 against the official pages. Older entries keep the date they were made.",
   "passes": [
     {
@@ -25,7 +25,7 @@
       "id": "P4",
       "name": "Hallucination pass",
       "what": "Deliberately hostile re-read: any figure that felt plausible but was not literally on the page was removed. This is what caught the 'white/rose gold & platinum also offered' phrases on five Blue Nile rows and two Mejuri rows.",
-      "result": "15 confirmed, 8 corrected, 2 flagged."
+      "result": "7 metal-option claims deleted; 1 price basis corrected; 1 temporary provenance flag retired."
     },
     {
       "id": "P5",
@@ -1736,7 +1736,7 @@
       "hidden repairs on estate pieces",
       "seller complaint history"
     ],
-    "site_defects_fixed": 9
+    "site_defects_fixed": 10
   },
   "site_defects": [
     {
@@ -1811,6 +1811,14 @@
       "what": "Four Mene listings were presented with a single captured price and no statement that the seller re-quotes as the metal moves. All four had moved by 0.7-1% within one day.",
       "found_by": "Fourth verification pass (P4), re-reading the Mene product and collection pages.",
       "fix": "live_recheck blocks added to R30 and BND-01/02/03 and new flag PRC1 documents the movement; captured prices are kept, not overwritten.",
+      "status": "fixed 2026-10-23"
+    },
+    {
+      "id": "SD9",
+      "page": "verify.html",
+      "what": "The pass table's P4 row (the first session's 'Hallucination pass') had been overwritten by a later bulk edit: its abridged result was replaced with the fourth pass's tally, so the table showed the same '15 confirmed, 8 corrected, 2 flagged' twice and lost the original '7 metal-option claims deleted' record. The defect was caught by reading the deployed verify.html rather than the local file.",
+      "found_by": "arena/6d6192d1-gold3, fifth pass",
+      "fix": "P4's abridged result restored and the pass ids made unique (P1-P4 first session, P5-P7 independent passes) so a later edit cannot hit two rows at once.",
       "status": "fixed 2026-10-23"
     }
   ],
