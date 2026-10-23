@@ -155,6 +155,9 @@ for _c_name in ("solitaire-rings.json", "bands-and-high-karat.json"):
     if _c_path.exists():
         DATASET_C_ITEMS.extend(json.loads(_c_path.read_text(encoding="utf-8")).get("items", []))
 
+TOTAL_ROWS = len(PRODUCTS) + len(OTHER_ITEMS) + len(DATASET_C_ITEMS)
+C_WEIGHT_PUBLISHED = sum(1 for _i in DATASET_C_ITEMS if isinstance(_i.get("weight_grams"), (int, float)))
+
 GOLD = [p for p in PRODUCTS if (p.get("purity") or "").upper().startswith(("10", "14", "18"))]
 EXCLUDED = [p for p in PRODUCTS if "excluded" in p.get("categories", [])]
 
@@ -171,7 +174,7 @@ CAT_LABELS = {
 }
 
 
-NAV[2] = ("combined.html", f"Combined ({len(PRODUCTS) + len(OTHER_ITEMS) + len(DATASET_C_ITEMS)})")
+NAV[2] = ("combined.html", f"Combined ({TOTAL_ROWS})")
 
 VERIF = load("verification.json") if (DATA / "verification.json").exists() else None
 
@@ -366,11 +369,11 @@ def build_index() -> str:
     melt = {k: SPOT_GRAM * v for k, v in FINENESS.items() if k in ("10K", "14K", "18K", "22K", "24K")}
 
     kpis = [
-        ("Listings on site", str(METRICS['n_combined']), f"{len(PRODUCTS)} this pass &middot; {METRICS['n_other_items']} parallel pass"),
+        ("Listings on site", str(TOTAL_ROWS), f"{METRICS['n_combined']} in Datasets A+B &middot; {len(DATASET_C_ITEMS)} in Dataset C"),
         ("Sellers covered", str(METRICS["n_sellers_total"]), "returns, contact, independent reviews"),
         ("Gold spot (USD/oz)", money(SPOT, 2), e(PRIMARY["as_of_text"])),
         ("14K melt value", money(melt["14K"], 2) + "/g", "raw gold, before labour &amp; stones"),
-        ("Weights in this pass", f"{METRICS['n_weight_published']} of {METRICS['n_solid_gold']}", f"{METRICS['n_weight_published_total']} of {METRICS['n_combined']} combined - see F2"),
+        ("Weights in this pass", f"{METRICS['n_weight_published']} of {METRICS['n_solid_gold']}", f"{METRICS['n_weight_published_total'] + C_WEIGHT_PUBLISHED} of {TOTAL_ROWS} combined - see F2"),
         ("Hallmark policies", f"{METRICS['n_hallmark_stated']} of {METRICS['n_retailers']}", "no retailer states one in writing"),
     ]
     kpi_html = "".join(

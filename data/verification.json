@@ -2732,10 +2732,10 @@
     },
     {
       "id": "SD14",
-      "page": "index.html, combined.html, rings.html (scripts/build_site.py)",
-      "what": "Three published counts described the site as smaller than it is. The dashboard lead and the combined.html meta description said '50 listings across 16 sellers', the rings.html note said 'the site carries 50 listings in total', while combined.html itself renders 71 rows and the navigation says 'Combined (71)'. 50 is the Datasets A+B subtotal (19 + 31); it silently omitted the 21 Dataset C settings and bands that the same page displays.",
+      "page": "index.html (lead, KPI cards), combined.html (meta), rings.html (scripts/build_site.py)",
+      "what": "Published counts described the site as smaller than it is. The dashboard lead and the combined.html meta description said '50 listings across 16 sellers', rings.html said 'the site carries 50 listings in total', the KPI card 'Listings on site' printed 50 with the sub-line '19 this pass - 31 parallel pass', and the weights card said '14 of 50 combined' - while combined.html renders 71 rows and the navigation says 'Combined (71)'. 50 is the Datasets A+B subtotal; it silently omitted the 21 Dataset C settings and bands shown on the same page, and the weight count omitted Dataset C's 5 published weights (19 of 71 in fact).",
       "found_by": "arena/57724486-gold3, Pass P12 headline-count sweep against data/*.json",
-      "fix": "All three strings now state the Datasets A+B subtotal AND the Dataset C addition, computed from the loaded JSON (len(PRODUCTS), len(OTHER_ITEMS), len(DATASET_C_ITEMS)) instead of being typed as prose.",
+      "fix": "All of those strings are now computed from the loaded JSON (len(PRODUCTS), len(OTHER_ITEMS), len(DATASET_C_ITEMS), C_WEIGHT_PUBLISHED) instead of being typed as prose: the lead and meta state both numbers, rings.html points to the Dataset C pages, the KPI card reads 71 with the A+B / Dataset C split, and the weights card reads '19 of 71 combined'.",
       "status": "fixed 2026-10-23"
     },
     {

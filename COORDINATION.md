@@ -930,8 +930,13 @@ links/anchors) · `render-test.js` **127/127** · `report_verify.py` **192 check
 
 | Step | Result |
 |---|---|
-| Pull request | _recorded below after merge_ |
-| Merge commit on `main` | _recorded below after merge_ |
-| CI run on `main` | _recorded below after merge_ |
-| GitHub Pages deployment | _recorded below after merge_ |
-| Live read-back | _recorded below after merge_ |
+| Pull request [#51](https://github.com/karagemop466-tech/GOLD3/pull/51) (`arena/57724486-gold3` → `main`) | opened and merged; CI on the PR `40018544270` **success** (12s) |
+| Merge commit on `main` | `7406ee9` (`7406ee98f090bd8178044c06de743798474e828f`), merged 2026-10-23T20:22:00Z |
+| CI run on `main` | `40018656780` — **success** (16s, all nine gates) |
+| GitHub Pages deployment | `40018655845` — **success** (33s) |
+| Live read-back | `https://karagemop466-tech.github.io/GOLD3/` returns the new dashboard lead — *"50 listings across 16 sellers … plus 21 Dataset C settings and bands, **71 rows in all**"* |
+
+**Follow-up PR #52** carries the rest of `SD14`: the deployed dashboard's KPI card still printed *"Listings on site 50"* and
+*"14 of 50 combined"*, because those two cards were built from the A+B metrics. Both are now computed
+(`TOTAL_ROWS` = 71, `C_WEIGHT_PUBLISHED` = 5 → **"19 of 71 combined"**). Caught by reading the live site back after the
+deploy rather than by trusting the build, which is the check this project requires after every publish.
