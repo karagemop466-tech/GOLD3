@@ -249,10 +249,10 @@
     {
       "id": "F25",
       "severity": "high",
-      "title": "All 7 Aurate lab-grown engagement ring PDPs enforce 'Final Sale! / Exchange for size only.' + 30% MTO cancellation fee after 24h",
-      "detail": "Re-opening all seven Aurate engagement ring PDPs live on 2026-10-23 revealed every single listing prints 'Final Sale! / Exchange for size only.' beside a 'Free Returns' badge, imposes a 30% cancellation fee after 24 hours on made-to-order rings, repeats identical gram-weight ranges across 14K gold, 18K gold, and 950 platinum, and mislabels Emerald Bezel SKU AU5093 as a 'classic oval diamond' in body copy.",
-      "evidence": "'Final Sale! / Exchange for size only.' on AU5760, AU5769, AU5000, AU5093, AU5763, AU5764, AU5107 + '30% cancellation fee' after 24 hours on auratenewyork.com/pages/terms-conditions-exchange-only-final-sale.",
-      "source": "https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale",
+      "title": "All 7 Aurate lab-grown engagement ring PDPs enforce 'Exchange for size only. Final Sale!' beside 'Free Returns' and omit listing-level 'solid' wording",
+      "detail": "Opening all seven exact Aurate PDPs live on 2026-10-23 (AU5760 $2,858, AU5769 $2,638, AU5000 $1,498, AU5093 $1,968, AU5763 $2,858, AU5764 $3,958, AU5107 $2,498) confirmed every page prints 'Exchange for size only. Final Sale!' directly beside a 'Free Returns' badge, prints only 'Rate - 14k GOLD' (no 'solid' on the PDP itself), shares multi-variant weights ('5.5-8.5g', '5.7-8.7g', '5.9-8.9g', '2.23g', '2.36g', '3.33g') inclusive of stone carats, and misstates 'classic oval diamond' on Emerald Bezel SKU AU5093.",
+      "evidence": "AU5760 ($2,858, 5.5-8.5g), AU5769 ($2,638, 5.5-8.5g), AU5000 ($1,498, 2.23g), AU5093 ($1,968, 2.36g, 'classic oval diamond'), AU5763 ($2,858, 5.7-8.7g), AU5764 ($3,958, 5.9-8.9g), AU5107 ($2,498, 3.33g) \u2014 all print 'Exchange for size only. Final Sale!'.",
+      "source": "https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-bezel-ring",
       "product": "aurate-2ct-emerald-lgd-bezel",
       "action": "Do not treat Aurate's 60-day sitewide return window as applying to lab-grown engagement rings; confirm cash refund eligibility and single-metal gram weight in writing before paying."
     },
@@ -275,6 +275,16 @@
       "source": "https://www.brilliantearth.com/rings/yellow-gold-settings/engagement-rings/?sid=39897151",
       "product": null,
       "action": "Verify invoice specifications line by line before checkout and screenshot all selected variant attributes."
+    },
+    {
+      "id": "F28",
+      "severity": "medium",
+      "title": "Post-deploy live read caught mismatched variant quotes on 6 Aurate & 2 Ring Concierge rows from an initial Pass P9 script",
+      "detail": "Following the standing hallucination-hunt rule immediately after deploying PR #43, re-reading live https://karagemop466-tech.github.io/GOLD3/combined.html exposed that 5 Aurate rows still pointed price_source at /collections/engagement-rings and carried drafted range strings ('2.09g-4.27g' / '14K Solid Yellow Gold'), while P9-06 cited earlier Ring Concierge slugs ($5,900/$6,900) rather than the exact Whisper Thin PDPs ($6,038 / $7,268). Re-fetching all 8 exact p['url'] pages end-to-end replaced every quote with literal page substrings.",
+      "evidence": "AU5769/AU5760 print 'Weight: 5.5-8.5g' & 'Rate - 14k GOLD'; AU5000 '2.23g' ($1,498); AU5093 '2.36g' ($1,968); AU5763 '5.7-8.7g' ($2,858); AU5764 '5.9-8.9g' ($3,958); AU5107 '3.33g' ($2,498); Ring Concierge Whisper Thin PDPs print '$6,038' & '$7,268' ('Metal: 14K Yellow Gold with Platinum Prongs').",
+      "source": "https://ringconcierge.com/products/2-72-round-lab-diamond-in-whisper-thina",
+      "product": "ringconcierge-2-72-round-lab-whisper-thin",
+      "action": "Corrected immediately in PR #44: all 8 rows now point price_source to their exact p['url'] with literal verbatim substrings."
     }
   ]
 }

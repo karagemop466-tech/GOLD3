@@ -1717,7 +1717,7 @@
         "aurate-2ct-round-lgd-solitaire"
       ],
       "outcome": "flagged",
-      "findings": "All 7 prices confirmed ($2,858, $2,638, $1,498, $2,638, $2,858, $3,958, $3,958); every PDP states 'Final Sale! / Exchange for size only.' + 30% MTO cancellation fee after 24h (F25); AU5093 body copy misstates 'classic oval diamond' on Emerald Bezel ring."
+      "findings": "Opened all 7 exact Aurate PDPs (AU5760 $2,858 / 5.5-8.5g, AU5769 $2,638 / 5.5-8.5g, AU5000 $1,498 / 2.23g, AU5093 $1,968 / 2.36g + 'classic oval diamond' bug, AU5763 $2,858 / 5.7-8.7g, AU5764 $3,958 / 5.9-8.9g, AU5107 $2,498 / 3.33g): every PDP prints 'Rate - 14k GOLD' (no 'solid') and 'Exchange for size only. Final Sale!' beside 'Free Returns' (F25, F28)."
     },
     {
       "id": "P9-02",
@@ -1766,13 +1766,13 @@
     {
       "id": "P9-06",
       "kind": "P9 \u00b7 ringconcierge-2-08-oval-lab-whisper-thin",
-      "label": "Ring Concierge 2.08 ct Oval ($5,900) & 2.72 ct Round ($6,900) live PDPs",
-      "url": "https://ringconcierge.com/products/2-08-oval-lab-diamond-in-14k-gold-whisper-thin-solitaire",
+      "label": "Ring Concierge 2.08 Oval ($6,038) & 2.72 Round ($7,268) Whisper Thin live PDPs",
+      "url": "https://ringconcierge.com/products/2-08-oval-lab-diamond-in-whisper-thina-hidden-halo",
       "rows": [
         "ringconcierge-2-08-oval-lab-whisper-thin"
       ],
       "outcome": "confirmed",
-      "findings": "Both PDPs print '$5,900' / '$6,900', '14k Solid Yellow Gold', and 'Made to order' verbatim; zero gram weight published."
+      "findings": "Opened both exact Whisper Thin PDPs: Regular price $6,038 (2.08 ct E VS1 Oval) & $7,268 (2.72 ct E VVS2 Round, 'Metal: 14K Yellow Gold with Platinum Prongs'), 'Estimated production time is 3-4 weeks. Made to Order', no gram weight published."
     },
     {
       "id": "P9-07",
