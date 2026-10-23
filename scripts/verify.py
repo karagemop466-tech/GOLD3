@@ -314,9 +314,11 @@ def main() -> int:
             ws = p.get("weight_status") or ""
             if (ws != "not published"
                     and not ws.startswith("published as a range")
+                    and not ws.startswith("published as unscoped weight")
                     and not ws.startswith("published as unscoped total weight")):
                 err(f"product {pid}: null weight must carry weight_status='not published', "
-                    f"'published as a range...', or 'published as unscoped total weight...' (got {ws!r})")
+                    f"'published as a range...', 'published as unscoped weight...', or "
+                    f"'published as unscoped total weight...' (got {ws!r})")
         if p.get("carat") is not None and not domain_ok(p.get("carat_source")):
             err(f"product {pid}: carat present without carat_source")
         if p.get("hallmark_stated") is not None:
@@ -385,10 +387,15 @@ def main() -> int:
             "derived": derived,
         })
 
-        # --- flags must be explained
+        # --- flags must be explained and must not duplicate the same issue
+        seen_flag_codes = set()
         for flag in p.get("flags", []):
             if not flag.get("code") or not flag.get("note"):
                 err(f"product {pid}: flag without code or note")
+                continue
+            if flag["code"] in seen_flag_codes:
+                err(f"product {pid}: duplicate flag code {flag['code']}")
+            seen_flag_codes.add(flag["code"])
 
     # --------------------------------------------------- duplicate listing check
     urls = [p.get("url") for p in products]

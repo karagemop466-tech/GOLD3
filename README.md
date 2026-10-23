@@ -9,7 +9,7 @@ It publishes as a static site on GitHub Pages and is generated entirely from mac
 > **blank** and marked **unverified** — it is never estimated, inferred, or filled in to make a row
 > look complete. **Recommendation:** actively look for hallucinations on every review pass by clicking the official source link on every row, re-checking live prices/weights before buying, and running all automated security checks below.
 
-**Prices captured:** 22 October 2026 · **re-verified live:** 23 October 2026 (passes `P1`–`P15`, **222 logged checks**) · **71 rows** — Dataset A 19, Dataset B 31, Dataset C 21 · **16 sellers** · **19 published weights** (14 in Dataset B, 5 in Dataset C)
+**Price snapshots:** 22–23 October 2026 · **P17 official-source review:** 23 October 2026 (passes `P1`–`P17`, **253 logged checks**) · **71 rows** — Dataset A 19, Dataset B 31, Dataset C 21 · **16 sellers** · **19 published weights** (14 in Dataset B, 5 in Dataset C)
 
 ---
 
@@ -60,6 +60,17 @@ npm --prefix archive/session-cbea1001 test  # Node anti-hallucination, melt-math
 
 All checks run in CI on every push and pull request (`.github/workflows/audit.yml`). The site is generated, so
 editing HTML by hand is pointless: change `data/*.json` or `scripts/build_site.py`, then rebuild.
+
+## What Pass P17 changed (23 October 2026)
+
+All **19 Dataset A official product sources**, five seller-policy records, five Trustpilot profiles, Ross-Simons Item 571221 and four spot publishers were re-read: **31 checks — 10 confirmed, 18 corrected, 3 flagged**. Every Dataset A numeric price was confirmed with **zero price changes**; no published gram weight changed. See `reports/reverification-pass-p17.md` and `data/reverification-p17.json`.
+
+* Removed unsupported assertions that Aurate's listed diamond mass was included in its listed ring weight. Ambiguous weights stay null, and conflicting bezel title/spec carat values are no longer assigned one numeric value.
+* Corrected current Blue Nile stock/width pairs, Mejuri Stacker's `Width: 1 mm`, Aurate bezel dimensions/clarity, Ring Concierge metal provenance, seller-policy drift and Trustpilot sample counts.
+* Replaced Mejuri's blanket no-hallmark flag with an explicit **alt-text-only purity stamp** warning: alt text is not visual verification and does not establish a maker's mark.
+* Ross-Simons weights remain published but are correctly labelled **approximate**, not exact; weight, geometry and customer reviews are not treated as proof of solid construction.
+* The live spot reference is corroborated by four feeds within **0.025%** and sits **0.65% below** the morning anchor. Calculations still use the dated **$4,022.22/oz** primary snapshot for reproducibility.
+* Published findings **F50–F55** and added guards for duplicate flags, stale source wording and unsupported inclusion/solidity inferences.
 
 ## What the ninth pass changed (23 October 2026 — Pass P13)
 

@@ -36,16 +36,16 @@
       "quote": "Gold Spot price USD /oz - 4,024.45 ... Data as of 22 October, 2026"
     },
     {
-      "id": "goldprice-org-2026-10-23T20-17Z",
+      "id": "goldprice-org-2026-10-23T23-43Z",
       "publisher": "GoldPrice.org",
       "url": "https://goldprice.org/",
       "metal": "gold",
-      "price_usd_per_troy_oz": 3997.22,
-      "as_of_text": "Oct 23rd, 2026 at 04:17 NY Time",
+      "price_usd_per_troy_oz": 3995.88,
+      "as_of_text": "Oct 23rd, 2026 at 07:41 NY Time",
       "captured_on": "2026-10-23",
       "role": "live-check (shown for reference, not used in any calculation)",
-      "quote": "Spot Gold Price: USD 3,997.22 / Ounce | Spot Silver Price: USD 53.92 / Ounce Oct 23rd, 2026 at 04:17 NY Time",
-      "note": "Read live at 2026-10-23T20:17Z. 0.6215% below the primary snapshot captured the same morning, on the same market date. The page's clock label (04:17 NY) is EARLIER than the 05:55 NY label on that morning's capture even though it was read later in the day; both labels are recorded as printed and neither is explained away (finding F39)."
+      "quote": "Spot Gold Price: USD 3,995.88 / Ounce | Spot Silver Price: USD 53.92 / Ounce Oct 23rd, 2026 at 07:41 NY Time",
+      "note": "Read live at 2026-10-23T23:43Z; 0.6549% below the dated primary snapshot. The page's '07:41 NY Time' label is recorded verbatim without inferring a meridiem or correcting its clock. Kitco bid $3,994.90, BullionVault $3,995.74 and the World Gold Council tile $3,995.47 corroborate the reading within 0.025%; none is used in calculations."
     }
   ],
   "cross_check": {
