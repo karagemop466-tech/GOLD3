@@ -1531,6 +1531,10 @@
         <td class="small">Prose typed into scripts/build_site.py had drifted from the data: the gold anchor printed $4,024.36 and $4,026.79 with &#x27;0.06% apart&#x27; while prices.json holds 4,022.22 / 4,024.45 (0.055%); methodology said &#x27;15 of 22 rows do not publish a weight&#x27; (now 17 of 31) and &#x27;115 checks, 0 errors&#x27; (the audit reports 176). The labelled live-check snapshot was not surfaced on the calculator at all.</td>
         <td class="small">Pass P13 stray-number check against data/*.json (finding F43) <strong>Fix:</strong> Every figure is now computed at build time from prices.json, rings.json and reports/audit-report.md, and the calculator prints the live-check reading with its delta under the pre-filled spot field.</td>
         <td><span class="badge good">fixed</span></td>
+        <td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo commit</a></td></tr><tr><td class="mono">SD21</td><td class="mono small">calculator.html, flagged.html</td>
+        <td class="small">Two dates were typed in and therefore wrong: the calculator labelled the pre-filled spot snapshot &#x27;22 October 2026&#x27; while data/prices.json records captured_on 2026-10-23 (the page printed both dates in one sentence), and flagged.html printed &#x27;Last automated pass: 22 October 2026&#x27; while reports/audit-report.md was generated 2026-10-23. Found by reading the live site back after the PR #54 deploy.</td>
+        <td class="small">Post-deploy live read-back, Pass P13 follow-up (finding F44) <strong>Fix:</strong> The snapshot date now comes from PRIMARY[&#x27;captured_on&#x27;] and the audit date from reports/audit-report.md at build time; both are asserted in scripts/render-test.js.</td>
+        <td><span class="badge good">fixed</span></td>
         <td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo commit</a></td></tr></tbody>
   </table>
 </div>

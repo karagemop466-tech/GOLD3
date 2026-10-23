@@ -2719,7 +2719,7 @@
     "corrected": 74,
     "flagged": 35,
     "urls_opened": 199,
-    "site_defects_fixed": 18
+    "site_defects_fixed": 19
   },
   "site_defects": [
     {
@@ -2870,6 +2870,15 @@
       "what": "Prose typed into scripts/build_site.py had drifted from the data: the gold anchor printed $4,024.36 and $4,026.79 with '0.06% apart' while prices.json holds 4,022.22 / 4,024.45 (0.055%); methodology said '15 of 22 rows do not publish a weight' (now 17 of 31) and '115 checks, 0 errors' (the audit reports 176). The labelled live-check snapshot was not surfaced on the calculator at all.",
       "found_by": "Pass P13 stray-number check against data/*.json (finding F43)",
       "fix": "Every figure is now computed at build time from prices.json, rings.json and reports/audit-report.md, and the calculator prints the live-check reading with its delta under the pre-filled spot field."
+    },
+    {
+      "id": "SD21",
+      "page": "calculator.html, flagged.html",
+      "severity": "low",
+      "status": "fixed",
+      "what": "Two dates were typed in and therefore wrong: the calculator labelled the pre-filled spot snapshot '22 October 2026' while data/prices.json records captured_on 2026-10-23 (the page printed both dates in one sentence), and flagged.html printed 'Last automated pass: 22 October 2026' while reports/audit-report.md was generated 2026-10-23. Found by reading the live site back after the PR #54 deploy.",
+      "found_by": "Post-deploy live read-back, Pass P13 follow-up (finding F44)",
+      "fix": "The snapshot date now comes from PRIMARY['captured_on'] and the audit date from reports/audit-report.md at build time; both are asserted in scripts/render-test.js."
     }
   ],
   "site_defects_fixed": 15
