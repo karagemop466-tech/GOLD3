@@ -52,7 +52,9 @@
         "certification"
       ],
       "last_verified": "2026-10-22",
-      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3)."
+      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3).",
+      "rhodium_note": "Mejuri, Materials & Specifications: “14k solid white gold pieces are finished with rhodium plating” — read live 2026-10-23",
+      "rhodium_source": "https://mejuri.com/products/bold-diamond-eternity-ring"
     },
     {
       "id": "R02",
@@ -140,7 +142,9 @@
         "certification"
       ],
       "last_verified": "2026-10-22",
-      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3)."
+      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3).",
+      "rhodium_note": "Mejuri's material note on its diamond bands: “14k solid white gold pieces are finished with rhodium plating” — quote captured 2026-10-22 from the same brand's product pages",
+      "rhodium_source": "https://mejuri.com/collections/milestone-rings"
     },
     {
       "id": "R04",
@@ -368,7 +372,9 @@
         "maker_mark_reported"
       ],
       "last_verified": "2026-10-22",
-      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3)."
+      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3).",
+      "rhodium_note": "Blue Nile spec table: “Rhodium Finish Yes” (Metal 18K White Gold, Stock Number 502820w) — read live 2026-10-23",
+      "rhodium_source": "https://www.bluenile.com/engagement-rings/design-your-own-ring/floral-marquise-diamond-engagement-ring-in-18k-white-gold-item-203738"
     },
     {
       "id": "R09",
@@ -415,7 +421,9 @@
         "maker_mark_reported"
       ],
       "last_verified": "2026-10-22",
-      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3)."
+      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3).",
+      "rhodium_note": "Blue Nile spec table: “Rhodium Finish Yes” for this 14K white gold setting — quote captured 2026-10-22; re-confirm on the page",
+      "rhodium_source": "https://www.bluenile.com/engagement-rings/design-your-own-ring/riviera-pave-diamond-engagement-ring-in-14k-white-gold-1-6-ct-tw-item-195326"
     },
     {
       "id": "R10",
@@ -433,7 +441,7 @@
       "weight_quote": null,
       "hallmark_reported": null,
       "maker_mark_reported": null,
-      "return_window": "Return policy states: precious metals are non-refundable (Costco Document ID CU2573, Version 18.0, Published 10/02/2025)",
+      "return_window": "Return policy states: precious metals are non-refundable",
       "certification": "None stated; diamonds described as \"natural and untreated\"",
       "url": "https://www.costco.com/p/-/round-brilliant-050-ctw-vs2-clarity-i-color-diamond-14kt-gold-band/100675127",
       "sources": [
@@ -446,7 +454,8 @@
         "W1",
         "H1",
         "S2",
-        "ID1"
+        "ID1",
+        "RH1"
       ],
       "verified_fields": [
         "karat",
@@ -461,7 +470,9 @@
         "maker_mark_reported"
       ],
       "last_verified": "2026-10-22",
-      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3); Costco Customer Service Document ID CU2573, Version 18.0, Published 10/02/2025 confirmed."
+      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3).",
+      "rhodium_note": "Costco features list: “Metal: 14kt White Gold ( Rhodium Plated ) or 14kt Yellow Gold” — read live 2026-10-23; the plating applies to the white-gold option only",
+      "rhodium_source": "https://www.costco.com/p/-/round-brilliant-050-ctw-vs2-clarity-i-color-diamond-14kt-gold-band/100675127"
     },
     {
       "id": "R11",
@@ -640,7 +651,9 @@
         "maker_mark_reported"
       ],
       "last_verified": "2026-10-22",
-      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3)."
+      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3).",
+      "rhodium_note": "Blue Nile spec table: “Rhodium Finish Yes” (Metal 14K White Gold, Stock Number 502120w14) — read live 2026-10-23",
+      "rhodium_source": "https://www.bluenile.com/engagement-rings/design-your-own-ring/classic-simple-solitaire-engagement-ring-in-14k-white-gold-item-195730"
     },
     {
       "id": "R15",
@@ -658,7 +671,7 @@
       "weight_quote": "Gold Weight 0.7 grams",
       "hallmark_reported": null,
       "maker_mark_reported": null,
-      "return_window": "30 days from receipt ('30-Day No-Risk Returns Guarantee'); $4.95 flat return-shipping fee deducted; items altered or resized by another jeweller cannot be returned",
+      "return_window": "30 days from receipt of the item for a refund or exchange (the site's '30-Day No-Risk Return Guarantee'); merchandise that has been damaged, altered, or resized by a jeweller other than Ross-Simons cannot be accepted; a flat fee of $4.95 for return shipping and handling may be deducted from the refund.",
       "certification": null,
       "url": "https://www.ross-simons.com/products/985230",
       "sources": [
@@ -670,24 +683,22 @@
         "LT1",
         "S2",
         "H1",
-        "RET11",
-        "RET12",
         "M1"
       ],
       "verified_fields": [
         "price_usd",
         "karat",
         "metal_color",
-        "weight_g",
-        "return_window"
+        "weight_g"
       ],
       "unverified_fields": [
         "hallmark_reported",
         "maker_mark_reported",
         "certification"
       ],
-      "last_verified": "2026-10-22",
-      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3); Ross-Simons 30-day return terms verified at https://www.ross-simons.com/pages/returns-exchanges (CR-P3-1 closed)."
+      "last_verified": "2026-10-23",
+      "verification": "Re-read live 2026-10-23 (session arena/6d6192d1-gold3): price, karat and the published gold weight were found verbatim on the product page, and the return terms were read on Ross-Simons' own returns page. POL1 removed; PD1 retired because the live page prints the same figure this record stores.",
+      "return_policy_source": "https://www.ross-simons.com/pages/returns-exchanges"
     },
     {
       "id": "R16",
@@ -705,7 +716,7 @@
       "weight_quote": "Gold Weight 0.8 grams",
       "hallmark_reported": null,
       "maker_mark_reported": null,
-      "return_window": "30 days from receipt ('30-Day No-Risk Returns Guarantee'); $4.95 flat return-shipping fee deducted; items altered or resized by another jeweller cannot be returned",
+      "return_window": "30 days from receipt of the item for a refund or exchange (the site's '30-Day No-Risk Return Guarantee'); merchandise that has been damaged, altered, or resized by a jeweller other than Ross-Simons cannot be accepted; a flat fee of $4.95 for return shipping and handling may be deducted from the refund.",
       "certification": null,
       "url": "https://www.ross-simons.com/products/932728",
       "sources": [
@@ -717,24 +728,22 @@
         "LT1",
         "S2",
         "H1",
-        "RET11",
-        "RET12",
         "M1"
       ],
       "verified_fields": [
         "price_usd",
         "karat",
         "metal_color",
-        "weight_g",
-        "return_window"
+        "weight_g"
       ],
       "unverified_fields": [
         "hallmark_reported",
         "maker_mark_reported",
         "certification"
       ],
-      "last_verified": "2026-10-22",
-      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3) and 2026-10-23 (pass P3): live price $299 matches stored figure, so PD1 was retired (CR-P3-2) and Ross-Simons 30-day return terms added (CR-P3-1)."
+      "last_verified": "2026-10-23",
+      "verification": "Re-read live 2026-10-23 (session arena/6d6192d1-gold3): price, karat and the published gold weight were found verbatim on the product page, and the return terms were read on Ross-Simons' own returns page. POL1 removed; PD1 retired because the live page prints the same figure this record stores.",
+      "return_policy_source": "https://www.ross-simons.com/pages/returns-exchanges"
     },
     {
       "id": "R17",
@@ -797,13 +806,13 @@
       "price_usd": 276,
       "price_basis": "Sale price (regular $368)",
       "price_as_shown": "$276.00 Regular Price $368.00",
-      "solid_gold_quote": "Product title: \"Woodland Ring in 14K Gold\" · product-image alt/title text: \"Sofia Zakia - Woodland Ring 14k Yellow Gold\" — the body copy captured does not use the word \"solid\"",
+      "solid_gold_quote": "Product title: \"Woodland Ring in 14K Gold\" · page text: \"Sofia Zakia - Woodland Ring 14k Yellow Gold\" — the product text captured does not use the word \"solid\"",
       "solid_gold_verdict": "UNVERIFIED — karat stated, \"solid\" not stated in the product text",
       "weight_g": null,
       "weight_quote": null,
       "hallmark_reported": null,
       "maker_mark_reported": null,
-      "return_window": "20 days from delivery (online, domestic); $9 return-shipping charge deducted; special orders, engraved items and international sales are final",
+      "return_window": "20 days from the date the package was delivered (online, domestic shipments only); an $9 return-shipping charge is deducted from the refund; special orders, engraved items, Forever jewelry, earrings from piercing events, home & beauty items and comestibles are final sale; all international sales are final.",
       "certification": null,
       "url": "https://www.catbirdnyc.com/woodland-ring.html",
       "sources": [
@@ -815,15 +824,12 @@
         "S2",
         "W1",
         "H1",
-        "RET11",
-        "RET12",
         "M1"
       ],
       "verified_fields": [
         "price_usd",
         "karat",
-        "metal_color",
-        "return_window"
+        "metal_color"
       ],
       "unverified_fields": [
         "weight_g",
@@ -832,8 +838,9 @@
         "maker_mark_reported",
         "certification"
       ],
-      "last_verified": "2026-10-22",
-      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3); Catbird 20-day return terms verified at https://www.catbirdnyc.com/returns and image-alt quote scope labelled (CR-P3-1, CR-P3-3 closed)."
+      "last_verified": "2026-10-23",
+      "verification": "Re-read live 2026-10-23 (session arena/6d6192d1-gold3): the product page prints '$276.00 Regular Price$368.00' and carries a sold-out / waitlist badge; the return terms were read on Catbird's own returns page. POL1 removed. See SRC2: Catbird's contact page returned HTTP 500 on the same day.",
+      "return_policy_source": "https://www.catbirdnyc.com/returns"
     },
     {
       "id": "R19",
@@ -1016,7 +1023,7 @@
         "hallmark_reported",
         "maker_mark_reported"
       ],
-      "last_verified": "2026-10-22",
+      "last_verified": "2026-10-23",
       "verification": "Product page re-fetched and re-read on 2026-10-22; price, material wording, item weight and return line copied from that page. Automic's page is served with a cookie-consent layer that dominates the first fetch chunks; the product block was read in full. Refund policy chunk 4 adds a 14-day mailing rule to avoid a restocking fee (RET14)."
     },
     {
@@ -1032,7 +1039,7 @@
       "solid_gold_quote": "Material: \"Solid 14k gold\" · \"100% Recycled gold, In house in New York\"",
       "solid_gold_verdict": "PASS",
       "weight_g": 6.1,
-      "weight_quote": "Item Weight: \"Approximately 6.1g (gold) or 9.2g (platinum)\" — the page abbreviates grams as \"g\".",
+      "weight_quote": "Item Weight: \"Approximately 6.1g (gold) or 9.2g (platinum)\" — the page abbreviates grams as \"g\"; the figure is metal-dependent, so 6.1 g is the gold option only.",
       "hallmark_reported": null,
       "maker_mark_reported": null,
       "return_window": "30 days from delivery (free US return shipping; mail within 14 days to avoid a restocking fee); engraved items final sale",
@@ -1065,7 +1072,7 @@
         "certification"
       ],
       "last_verified": "2026-10-23",
-      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3) and re-verified live on 2026-10-23 (pass P4, session arena/bfcd8465-gold3): price $1,910, Solid 14k gold, and 'Item Weight: Approximately 6.1g (gold) or 9.2g (platinum)' confirmed verbatim."
+      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3) and re-verified live on 2026-10-23: price $1,910, Solid 14k gold, and Item Weight Approximately 6.1g (gold) or 9.2g (platinum) confirmed verbatim."
     },
     {
       "id": "R24",
@@ -1113,7 +1120,7 @@
         "certification"
       ],
       "last_verified": "2026-10-23",
-      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3) and re-verified live on 2026-10-23 (pass P4, session arena/bfcd8465-gold3): price $875, Solid 14k gold, and 'Item Weight: Approximately 2.3g (gold) or 3.5g (platinum)' confirmed verbatim."
+      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3) and re-verified live on 2026-10-23 (pass P6, session arena/bfcd8465-gold3, chunk 5): price $875, Solid 14k gold, and 'Item Weight: Approximately 2.3g (gold) or 3.5g (platinum)' confirmed verbatim."
     },
     {
       "id": "R25",
@@ -1161,7 +1168,7 @@
         "certification"
       ],
       "last_verified": "2026-10-23",
-      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3) and re-verified live on 2026-10-23 (pass P4, session arena/bfcd8465-gold3): price $551, Solid 14k gold, 'Approximately 1.4g (gold) or 2.1g (platinum)', and conflicting lead times ('4-8 business days' vs '1-2 weeks', SPEC5) confirmed verbatim."
+      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3) and re-verified live on 2026-10-23 (pass P6, session arena/bfcd8465-gold3): price $551, Solid 14k gold, 'Approximately 1.4g (gold) or 2.1g (platinum)', and conflicting lead times ('4-8 business days' vs '1-2 weeks', SPEC5) confirmed verbatim."
     },
     {
       "id": "R26",
@@ -1176,7 +1183,7 @@
       "solid_gold_quote": "Material: \"18K Solid Gold\"",
       "solid_gold_verdict": "PASS",
       "weight_g": 6.3,
-      "weight_quote": "Approximate Metal Weight: \"6.30 grams\" (±5% seller accuracy note)",
+      "weight_quote": "Approximate Metal Weight: \"6.30 grams\" — the seller calls it \"approximate\" and prints no tolerance on the page.",
       "hallmark_reported": null,
       "maker_mark_reported": null,
       "return_window": "30 days from receipt; damaged, used, or third-party-resized items do not qualify",
@@ -1209,7 +1216,7 @@
         "certification"
       ],
       "last_verified": "2026-10-23",
-      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3) and re-verified live on 2026-10-23 (pass P4, session arena/bfcd8465-gold3): Now US$4,068.00 (MSRP US$15,820.00; Was US$4,758.00), Material 18K Solid Gold, 6.30 grams, and 0.74 Ct. J SI1 Natural diamond confirmed verbatim."
+      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3) and re-verified live on 2026-10-23: Now US$4,068.00, Material 18K Solid Gold, and 6.30 grams confirmed verbatim."
     },
     {
       "id": "R27",
@@ -1224,7 +1231,7 @@
       "solid_gold_quote": "Material: \"14K Solid Gold\" · Description: \"Solid and Pure 14k Yellow Gold Round Cut totaling to Approximately 1.0ct CZ Engagement Ring\" (note: 14K is 58.33% gold alloy, not 'Pure' 24K gold)",
       "solid_gold_verdict": "PASS",
       "weight_g": 2.5,
-      "weight_quote": "Approximate Metal Weight: \"2.50 grams\" (±5% seller accuracy note)",
+      "weight_quote": "Approximate Metal Weight: \"2.50 grams\" — the seller calls it \"approximate\" and prints no tolerance on the page.",
       "hallmark_reported": null,
       "maker_mark_reported": null,
       "return_window": "30 days from receipt; damaged, used, or third-party-resized items do not qualify",
@@ -1257,7 +1264,7 @@
         "certification"
       ],
       "last_verified": "2026-10-23",
-      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3) and re-verified live on 2026-10-23 (pass P4, session arena/bfcd8465-gold3): Now US$695.00 (MSRP US$2,702.00; Was US$813.00), Material 14K Solid Gold, and 2.50 grams confirmed verbatim; description calls 14k 'Solid and Pure 14k Yellow Gold'."
+      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3) and re-verified live on 2026-10-23: Now US$695.00, Material 14K Solid Gold, and 2.50 grams confirmed verbatim."
     },
     {
       "id": "R28",
@@ -1302,7 +1309,7 @@
         "certification"
       ],
       "last_verified": "2026-10-23",
-      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3) and re-verified live on 2026-10-23 (pass P4, session arena/bfcd8465-gold3): Metal weight 2.3g and solid gold band wording verified; return policy source repointed from redirecting Zendesk URL to https://www.vrai.com/returns-exchanges."
+      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3) and re-verified live on 2026-10-23 (pass P6, session arena/bfcd8465-gold3): Metal weight 2.3g and solid gold band wording verified; return policy source repointed from redirecting Zendesk URL to https://www.vrai.com/returns-exchanges."
     },
     {
       "id": "R29",
@@ -1349,7 +1356,7 @@
         "certification"
       ],
       "last_verified": "2026-10-23",
-      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3) and re-verified live on 2026-10-23 (pass P4, session arena/bfcd8465-gold3): $1,090 USD setting price (page also geo-renders €1,250.00 when EUR is selected), resizing badge contradiction (SPEC3), and 'Band Width: 2 ct. tw.' unit mislabelling confirmed; policy source repointed to https://www.brilliantearth.com/30-Day-Returns/."
+      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3) and re-verified live on 2026-10-23 (pass P6, session arena/bfcd8465-gold3): $1,090 USD setting price (page also geo-renders €1,250.00 when EUR is selected), resizing badge contradiction (SPEC3), and 'Band Width: 2 ct. tw.' unit mislabelling confirmed; policy source repointed to https://www.brilliantearth.com/30-Day-Returns/."
     },
     {
       "id": "R30",
@@ -1359,7 +1366,7 @@
       "karat": "24K",
       "metal_color": "Pure 24k yellow gold",
       "price_usd": 3253,
-      "price_basis": "Listed complete-ring price (Size 5 default; bullion-linked)",
+      "price_basis": "Listed complete-ring price (Size 5 default)",
       "price_as_shown": "$3,253",
       "solid_gold_quote": "Description: \"crafted from pure 24k gold\" — states pure 24k gold without the literal word \"solid\"",
       "solid_gold_verdict": "UNVERIFIED — pure 24k stated, literal word \"solid\" not stated",
@@ -1379,7 +1386,8 @@
         "W1",
         "H1",
         "X1",
-        "RET10"
+        "RET10",
+        "PRC1"
       ],
       "verified_fields": [
         "price_usd",
@@ -1393,8 +1401,15 @@
         "hallmark_reported",
         "maker_mark_reported"
       ],
-      "last_verified": "2026-10-23",
-      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3) at $3,253 and re-verified live on 2026-10-23 (pass P4, session arena/bfcd8465-gold3), where Menē's real-time bullion-linked price read $3,228 USD (-0.77% intraday metal movement); exact gram weight remains inside the client-side JS Price breakdown modal so weight_g stays null."
+      "last_verified": "2026-10-22",
+      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3): $3,253 confirmed; exact gram weight is hidden inside a JS modal so left null rather than back-calculated.",
+      "live_recheck": {
+        "checked_on": "2026-10-23",
+        "url": "https://mene.com/products/wrap-ring-gold",
+        "price_as_shown": "$3,228",
+        "quote": "$3,228 · USD · “Price breakdown” — read live 2026-10-23",
+        "note": "The captured figure ($3,253, 2026-10-22) is 0.8% above the price the same page printed the next day. Menē sells by gram weight and re-prices as the metal moves, so the captured price is a dated observation. price_usd is deliberately left at the captured value rather than overwritten, so the movement stays visible."
+      }
     },
     {
       "id": "R31",

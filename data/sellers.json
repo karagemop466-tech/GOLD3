@@ -131,7 +131,7 @@
         "RET12",
         "RET11"
       ],
-      "verification": "Return policy read verbatim on the official returns-exchanges page and the phone, e-mail and hours on the official customer-care page on 2026-10-23. Closes flag POL1 for this seller: a policy has now been captured. Third-party resizing voids the return right, recorded as RET12. The live page prints '11AM EST' in two places and '11PM EST' in the phone line; the hours above are quoted from the phone line. Earlier passes by arena/4340b82c-gold3 and arena/e6fe3e4f-gold3 confirmed the 0.7 g and 0.8 g weights verbatim.",
+      "verification": "Return policy read verbatim on the official returns-exchanges page and the phone, e-mail and hours on the official customer-care page on 2026-10-23. Closes flag POL1 for this seller: a policy has now been captured. Third-party resizing voids the return right, recorded as RET12. The live page prints '11AM EST' in two places and '11PM EST' in the phone line; the hours above are quoted from the phone line. Earlier passes by arena/4340b82c-gold3 and arena/e6fe3e4f-gold3 confirmed the 0.7 g and 0.8 g weights verbatim. Re-read live 2026-10-23 (session arena/6d6192d1-gold3): 30-day window, the $4.95 flat fee, the resized-by-another-jeweller exclusion, 800-835-0919 and customerservice@ross-simons.com all found verbatim on the official pages.",
       "return_address": "Ross Simons, 9 Ross Simons Drive, Cranston, RI 02920, USA",
       "phone_as_printed": "800-835-0919 (printed without a country code on the customer-care page)",
       "contact_hours": "7am to 11pm Eastern Time, 7 days a week"
@@ -187,9 +187,10 @@
         "X1",
         "RH1",
         "RET12",
-        "RET11"
+        "RET11",
+        "SRC2"
       ],
-      "verification": "Returns page and contact page both re-fetched verbatim on 2026-10-23 by arena/699d8e05-gold3 (pass P3), correcting three values this same pass had drafted wrongly - the e-mail address, a return address that the site does not publish, and a final-sale list copied from data/retailers.json instead of from this page. Closes flag POL1 for this seller. No telephone number is published anywhere on the contact page, so phone stays blank rather than guessed (F16, F23). Klarna instalments are offered alongside card checkout. The 20-day window and $9 fee on this record and on data/retailers.json 'catbird' agree.",
+      "verification": "Returns page and contact page both re-fetched verbatim on 2026-10-23 by arena/699d8e05-gold3 (pass P3), correcting three values this same pass had drafted wrongly - the e-mail address, a return address that the site does not publish, and a final-sale list copied from data/retailers.json instead of from this page. Closes flag POL1 for this seller. No telephone number is published anywhere on the contact page, so phone stays blank rather than guessed (F16, F23). Klarna instalments are offered alongside card checkout. The 20-day window and $9 fee on this record and on data/retailers.json 'catbird' agree. Re-read live 2026-10-23 (session arena/6d6192d1-gold3): returns page confirmed verbatim; the contact page returned HTTP 500 twice, so the e-mail is NOT re-confirmed - see SRC2.",
       "return_address": null,
       "contact_hours": "No telephone number is published. The contact form states 'We strive to respond to all emails within 24-48 hrs.'",
       "email_correction_note": "Corrected 2026-10-23 by arena/699d8e05-gold3 against the live contact page. An earlier draft of this pass recorded hello@catbirdnyc.com, which the page does not contain. The page prints: 'Order Status, Availability, Product Details or Shipping Questions - customerservice@catbirdnyc.com'. Two other addresses on the same page are role-specific and are NOT customer service: sriya@catbirdnyc.com (press and partnerships) and leigh@catbirdnyc.com (submitting work). See finding F23.",
@@ -286,9 +287,9 @@
         "SRC1",
         "RET14"
       ],
-      "verification": "Product page fetched 2026-10-22: \"Solid 14k Gold\", \"Approximately 5.4g for gold\", \"Free returns (US only)\", \"All engraved items are final sale\". On 2026-10-23 (pass P3, arena/699d8e05-gold3) policy_source was repointed from dead /pages/return-policy to /policies/refund-policy. On 2026-10-23 (pass P4, arena/bfcd8465-gold3) all 5 chunks of /policies/refund-policy and all 6 chunks of /pages/privacy-policy were read past the CookieYes banner: (1) phone +1-929-307-2378 was not present on /pages/privacy-policy (or /pages/faq) and was set to null; (2) email was updated to care@automicgold.com from /pages/faq (custom@automicgold.com is also printed on product pages for custom orders, and accessibility@automicgold.com on the privacy policy); (3) resize_policy was restored verbatim from chunk 4 of /policies/refund-policy, along with the 14-day mailing rule to avoid a restocking fee (flag RET14). See finding F26.",
+      "verification": "Product page fetched 2026-10-22: \"Solid 14k Gold\", \"Approximately 5.4g for gold\", \"Free returns (US only)\", \"All engraved items are final sale\". On 2026-10-23 (pass P3, arena/699d8e05-gold3) policy_source was repointed from dead /pages/return-policy to /policies/refund-policy. On 2026-10-23 (pass P6, arena/bfcd8465-gold3) all 5 chunks of /policies/refund-policy and all 6 chunks of /pages/privacy-policy were read past the CookieYes banner: (1) phone +1-929-307-2378 was not present on /pages/privacy-policy (or /pages/faq) and was set to null; (2) email was updated to care@automicgold.com from /pages/faq (custom@automicgold.com is also printed on product pages for custom orders, and accessibility@automicgold.com on the privacy policy); (3) resize_policy was restored verbatim from chunk 4 of /policies/refund-policy, along with the 14-day mailing rule to avoid a restocking fee (flag RET14). See finding F26.",
       "policy_source_note": "Repointed 2026-10-23 by arena/699d8e05-gold3. The previously recorded source https://www.automicgold.com/pages/return-policy was fetched on 2026-10-23 and returns '404 Not Found - Automic Gold'. The live refund policy page confirms the recorded window verbatim: 'Automic Gold offers free returns within 30 days of the delivery date for customers who reside in the U.S. You will be provided with one prepaid shipping label per order. For additional returns and exchanges, shipping fees may apply.' Flag SRC1, finding F20.",
-      "resize_policy_note": "Restored 2026-10-23 by arena/bfcd8465-gold3 (pass P4) from chunk 4 of https://www.automicgold.com/policies/refund-policy after reading past the 4-chunk CookieYes banner.",
+      "resize_policy_note": "Restored 2026-10-23 by arena/bfcd8465-gold3 (pass P6) from chunk 4 of https://www.automicgold.com/policies/refund-policy after reading past the 4-chunk CookieYes banner.",
       "lead_time": "Product page states 'Lead Time: 4-8 Days' and, lower on the same page, 'Please allow 1-2 weeks for your order to ship, plus an additional 2-3 weeks for orders with engraving' - the two statements disagree (flag SPEC5)"
     },
     {
@@ -314,7 +315,7 @@
         "X1",
         "SPEC3"
       ],
-      "verification": "Official contact page and /30-Day-Returns/ page re-fetched live on 2026-10-23 (pass P4, session arena/bfcd8465-gold3): (1) policy_source repointed from /returns/ (which serves the homepage) to the canonical https://www.brilliantearth.com/30-Day-Returns/; (2) return_window corrected from '30 days from delivery' to the page's actual rule ('begin when your purchase is available for shipment or pickup'); (3) email customerservice@brilliantearth.com was not present on /contact/ (which uses a web form for customer care and prints only marketing@, pr@, jobs@, phone 800.691.0952, and SMS +1 415.520.6526) and was set to null. See finding F27."
+      "verification": "Official contact page and /30-Day-Returns/ page re-fetched live on 2026-10-23 (pass P6, session arena/bfcd8465-gold3): (1) policy_source repointed from /returns/ (which serves the homepage) to the canonical https://www.brilliantearth.com/30-Day-Returns/; (2) return_window corrected from '30 days from delivery' to the page's actual rule ('begin when your purchase is available for shipment or pickup'); (3) email customerservice@brilliantearth.com was not present on /contact/ (which uses a web form for customer care and prints only marketing@, pr@, jobs@, phone 800.691.0952, and SMS +1 415.520.6526) and was set to null. See finding F27."
     },
     {
       "id": "S-VRAI",
@@ -341,7 +342,7 @@
         "X1",
         "SRC1"
       ],
-      "verification": "Re-verified live on 2026-10-23 (pass P4, session arena/bfcd8465-gold3): (1) the previously cited contact_source https://www.vrai.com/pages/contact-us returns '404 - Page not found', and the phone (+1-855-383-8724) and email (hello@vrai.com) stored against it did not match VRAI's live Help Center articles, which print 'Phone: +1.855.956.4488' and 'Email: help@vrai.com' (help@vrai.com is also printed on https://www.vrai.com/returns-exchanges); (2) the previously cited policy_source (a Zendesk /hc/en-us/articles/360000836514... URL) redirected to the Help Center index rather than the return policy and was repointed to https://www.vrai.com/returns-exchanges and https://help.vrai.com/en/knowledge/what-is-your-return-policy; (3) two VRAI Help Center articles disagree on response time ('within 1 business day!' vs 'within 4 business days!'). Flag SRC1, finding F24."
+      "verification": "Re-verified live on 2026-10-23 (pass P6, session arena/bfcd8465-gold3): (1) the previously cited contact_source https://www.vrai.com/pages/contact-us returns '404 - Page not found', and the phone (+1-855-383-8724) and email (hello@vrai.com) stored against it did not match VRAI's live Help Center articles, which print 'Phone: +1.855.956.4488' and 'Email: help@vrai.com' (help@vrai.com is also printed on https://www.vrai.com/returns-exchanges); (2) the previously cited policy_source (a Zendesk /hc/en-us/articles/360000836514... URL) redirected to the Help Center index rather than the return policy and was repointed to https://www.vrai.com/returns-exchanges and https://help.vrai.com/en/knowledge/what-is-your-return-policy; (3) two VRAI Help Center articles disagree on response time ('within 1 business day!' vs 'within 4 business days!'). Flag SRC1, finding F24."
     },
     {
       "id": "S-LOCALECLECTIC",
@@ -368,7 +369,7 @@
         "X1",
         "SRC1"
       ],
-      "verification": "Re-verified live on 2026-10-23 (pass P4, session arena/bfcd8465-gold3): the previously cited contact_source https://www.localeclectic.com/pages/contact-us returns '404 Not Found'. The live contact form is at https://www.localeclectic.com/pages/contact (form only, no email printed), while the official FAQ page https://www.localeclectic.com/pages/frequently-asked-questions prints 'please email us at hello@localeclectic.com' verbatim and documents the 14-day refund / 90-day store credit policy. Repointed contact_source to the FAQ page and added flag SRC1. See finding F27."
+      "verification": "Re-verified live on 2026-10-23 (pass P6, session arena/bfcd8465-gold3): the previously cited contact_source https://www.localeclectic.com/pages/contact-us returns '404 Not Found'. The live contact form is at https://www.localeclectic.com/pages/contact (form only, no email printed), while the official FAQ page https://www.localeclectic.com/pages/frequently-asked-questions prints 'please email us at hello@localeclectic.com' verbatim and documents the 14-day refund / 90-day store credit policy. Repointed contact_source to the FAQ page and added flag SRC1. See finding F27."
     },
     {
       "id": "S-MENE",
@@ -394,9 +395,10 @@
         "W1",
         "H1",
         "X1",
+        "PRC1",
         "SRC1"
       ],
-      "verification": "Re-verified live on 2026-10-23 (pass P4, session arena/bfcd8465-gold3): (1) the previously cited contact_source https://mene.com/contact-us returns '404 Page Not Found'; (2) the previously recorded phone +1-833-636-3465 had transposed two digits of 1-833-MENE-24K (+1-833-636-3245, confirmed on https://mene.com/terms-of-service, https://mene.com/products/mene-classic-band-gold, and BBB profile https://www.bbb.org/ca/on/ontario/profile/jewelry-designers/mene-inc-0107-1413670, and matching SEL-MENE in data/sellers-policies.json); (3) the previously recorded email concierge@mene.com was replaced with service@mene.com, which is printed verbatim on https://mene.com/privacy-policy and in the Customer Care Concierge block on https://mene.com/products/mene-classic-band-gold. Flag SRC1, finding F25."
+      "verification": "Official Contact Us and Sep 2, 2026 Terms of Service fetched 2026-10-22 (session arena/cbea1001-gold3). Re-read live 2026-10-23 (session arena/6d6192d1-gold3): prices are metal-linked and had moved since capture - see PRC1. Re-verified live on 2026-10-23 (pass P6, session arena/bfcd8465-gold3): (1) the previously cited contact_source https://mene.com/contact-us returns '404 Page Not Found'; (2) the previously recorded phone +1-833-636-3465 had transposed two digits of 1-833-MENE-24K (+1-833-636-3245, confirmed on https://mene.com/terms-of-service, https://mene.com/products/mene-classic-band-gold, and BBB profile https://www.bbb.org/ca/on/ontario/profile/jewelry-designers/mene-inc-0107-1413670, and matching SEL-MENE in data/sellers-policies.json); (3) the previously recorded email concierge@mene.com was replaced with service@mene.com, which is printed verbatim on https://mene.com/privacy-policy and in the Customer Care Concierge block on https://mene.com/products/mene-classic-band-gold. Flag SRC1, finding F25."
     }
   ],
   "provenance": {

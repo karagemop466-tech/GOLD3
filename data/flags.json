@@ -1,5 +1,5 @@
 {
-  "retrieved_utc": "2026-10-22",
+  "retrieved_utc": "2026-10-23",
   "legend": "Every flag below is attached to at least one row and is shown on the Flagged for Review page. A flag is not proof of wrongdoing — it marks something a buyer cannot confirm from the seller's own page and must resolve before paying.",
   "flags": [
     {
@@ -231,7 +231,7 @@
       "id": "POL1",
       "severity": "medium",
       "label": "Return policy page not read",
-      "what": "James Allen's returns were checked twice and its policy page has still not been read, so its return terms remain unknown rather than favourable. This flag was previously also carried by Ross-Simons and Catbird; both policies have now been read on the official sites and the flag was removed from those two sellers.",
+      "what": "James Allen's returns were checked twice and its policy page has still not been read, so its return terms remain unknown rather than favourable. This flag was also carried by Ross-Simons and Catbird rows; both policies were read on the official sites (2026-10-22 and again 2026-10-23) and the flag was removed from those rows.",
       "why_it_matters": "An unread policy is not a permissive one. Assuming a return right that has not been verified is how buyers get stuck.",
       "action": "Read the seller's return policy before ordering and keep a copy.",
       "source": null,
@@ -432,6 +432,28 @@
       "first_seen": "2026-10-23",
       "source_2": "https://www.catbirdnyc.com/returns",
       "quote": "Ross-Simons: 'A $4.95 flat rate will be deducted from your refund.' Catbird: 'An $9 charge for return shipping will be deducted from your refund.'"
+    },
+    {
+      "id": "PRC1",
+      "severity": "medium",
+      "label": "Seller re-prices continuously - a captured price is not today's price",
+      "what": "Menē sells by gram weight and re-quotes as the metal price moves. Every Menē row in this project was re-read live on 2026-10-23 and all four had moved down since capture: Wrap Ring $3,228 (captured $3,253), Classic Band $1,707 on the product page and \"From $1,664\" on the collection page (captured $1,720), Narrow Flat Band \"From $1,544\" (captured $1,556), Wide Flat Band \"From $2,315\" (captured $2,333). GoldPrice.org printed $4,022.22/oz on the same day against the $4,026.79/oz snapshot the melt values use.",
+      "why_it_matters": "A price copied from a research page is a dated observation, not a quote a seller can be held to. On a metal-linked listing the figure you pay is whatever the page prints at checkout, and any melt-value ratio computed from the older figure drifts with it.",
+      "action": "Open the source link and read the live price before comparing or buying. Treat every price on this site as captured on the date printed beside it, and re-check it the day you order.",
+      "source": "https://mene.com/collections/bands-gold",
+      "quote": "Classic Band From $1,664 ... Narrow Flat Band From $1,544 ... Wide Flat Band From $2,315",
+      "first_seen": "2026-10-23"
+    },
+    {
+      "id": "SRC2",
+      "severity": "medium",
+      "label": "Cited contact page returned a server error",
+      "what": "Catbird's contact page https://www.catbirdnyc.com/contact-us returned \"HTTP 500 Internal Server Error\" (nginx) on two attempts on 2026-10-23, so the e-mail address recorded against S-CB could not be re-confirmed that day. The same site's returns page and product page loaded normally in the same session, so this is a fault on one page rather than a dead domain.",
+      "why_it_matters": "A buyer who cannot reach a seller cannot exercise a return. A contact claim that cannot be re-checked is unverified even when it was right when it was captured, and the checklist's \"verify the business has real contact information\" item fails on that page as it stands today.",
+      "action": "Use the returns portal (returns.narvar.com/catbird) or a store, and re-check the contact page later. Do not treat the recorded e-mail as confirmed as of 2026-10-23.",
+      "source": "https://www.catbirdnyc.com/contact-us",
+      "quote": "500 Internal Server Error",
+      "first_seen": "2026-10-23"
     },
     {
       "id": "RET14",

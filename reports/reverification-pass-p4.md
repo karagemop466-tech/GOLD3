@@ -1,65 +1,129 @@
-# Re-verification Pass P4 — Fourth Independent Live Audit & Full Integration (`arena/bfcd8465-gold3`)
+# Fourth verification pass (P4) — live re-check of the merged tree
 
-- **Session:** `arena/bfcd8465-gold3`
-- **Date (UTC):** `2026-10-23`
-- **Scope:**
-  1. Live re-verification of Dataset B rows `R23`–`R31` and sellers `S-AUTOMIC`, `S-BRILLIANTEARTH`, `S-VRAI`, `S-LOCALECLECTIC`, `S-MENE` (`data/rings.json`, `data/sellers.json`, `data/flags.json`).
-  2. Live re-verification of all 21 Dataset C ring listings (`data/solitaire-rings.json`, `data/bands-and-high-karat.json`), all 5 BBB profiles (`data/sellers-policies.json`), and regulatory/testing links (`data/spot-and-standards.json`).
-  3. Resolution of all 9 open Change Requests (`CR-P3-1` through `CR-P3-9`) from `COORDINATION.md` §4.
-  4. Resolution of cross-page count, footnote, and filter-toolbar defects (`SD7`, `SD8`) in `scripts/build_site.py`, `scripts/build_ext_pages.py`, and `README.md`.
+**Session:** `arena/6d6192d1-gold3` · **Date:** 2026-10-23 · **Tree at start:** `5663d5e` (`origin/main` after PR #32, branch 0 ahead / 0 behind)
+**Machine-readable log:** `data/reverification-p4.json` · **Merged into:** `data/verification.json` (checks `P4-01`…`P4-25`)
 
----
+This is the fourth independent pass on this repository and the first one run by a session that also acted as the
+integration session. Every other session in `COORDINATION.md` had already merged and closed, so nothing was edited
+while another session held a claim.
 
-## 1. Six Dead (`404`) or Redirecting Source URLs Caught and Repaired (`SRC1`, `F24`–`F27`)
+## What this pass did
 
-| Location | Stored URL | Live HTTP Result | Live Official Replacement |
+Each check means: the official URL was opened on 2026-10-23, and the stored value was searched for in the text the page
+returned. Nothing was carried forward from another session's notes. Where the fetch did not reach the part of the page
+that holds a value, the check says so and the value keeps its original capture date.
+
+| Result | Count |
+|---|---|
+| URLs opened | 25 |
+| Confirmed as stored | 15 |
+| Corrected (page differed from the record) | 8 |
+| Flagged (page itself contradicts itself, or a cited page fails) | 2 |
+
+## Findings that changed the data
+
+### 1. Menē re-prices continuously — four captured prices had already moved (new flag `PRC1`)
+
+All four Menē listings were re-read the day after capture and **every one was cheaper**:
+
+| Record | Captured 2026-10-22 | Live 2026-10-23 | Source |
 |---|---|---|---|
-| `S-MENE.contact_source` (`data/sellers.json`) | `https://mene.com/contact-us` | `404 Page Not Found \| Menē (# Are you lost?)` | `https://mene.com/privacy-policy` & `https://mene.com/products/mene-classic-band-gold` |
-| `S-VRAI.contact_source` (`data/sellers.json`) | `https://www.vrai.com/pages/contact-us` | `404 - Page not found` | `https://help.vrai.com/en/knowledge/when-is-your-customer-experience-team-available` |
-| `S-LOCALECLECTIC.contact_source` (`data/sellers.json`) | `https://www.localeclectic.com/pages/contact-us` | `404 Not Found – local eclectic` | `https://www.localeclectic.com/pages/frequently-asked-questions` (form at `/pages/contact`) |
-| `WAR1.source` (`data/flags.json`) | `https://www.sarraf.com/products/14k-white-gold-1-00-ctw-round-3-stone-diamond-engagement-ring-g-i1-3-80-gr.html` | `404 Error - Page not found` (`Sarraf - Not Found`) | `https://www.sarraf.com/products/14k-white-gold-solitaire-ring-0-94-ctw.html` |
-| `SPEC5.source` (`data/flags.json`) | `https://www.automicgold.com/products/1-50ctw-pear-shaped-lab-grown-diamond-engagement-ring-bezel-set` | `404 Not Found – Automic Gold` | `https://www.automicgold.com/products/radiant-cut-lab-diamond-cathedral-ring` |
-| `STD-05.official_url` (`data/spot-and-standards.json`) | `https://www.gia.edu/gems-gemology/summer-2025-lab-notes-gold-plated-gold0` | `404 - PAGE NOT FOUND` | `https://www.gia.edu/gems-gemology/summer-2025-lab-notes-gold-plated-gold` |
-| `S-VRAI.policy_source` & `R28.sources` | `https://help.vrai.com/hc/en-us/articles/360000836514-What-is-your-return-policy` | Redirects to Help Center index `https://help.vrai.com/en/knowledge` | `https://www.vrai.com/returns-exchanges` & `https://help.vrai.com/en/knowledge/what-is-your-return-policy` |
-| `S-BRILLIANTEARTH.policy_source` & `R29.sources` | `https://www.brilliantearth.com/returns/` | Serves homepage (`Sustainable Engagement Rings & Fine Jewelry`) | `https://www.brilliantearth.com/30-Day-Returns/` |
+| `R30` Wrap Ring | $3,253 | **$3,228** | <https://mene.com/products/wrap-ring-gold> |
+| `BND-01` Classic Band | $1,720 | **$1,707** (product page) / "From $1,664" (collection) | <https://mene.com/products/mene-classic-band-gold> |
+| `BND-02` Narrow Flat Band | $1,556 | **From $1,544** | <https://mene.com/collections/bands-gold> |
+| `BND-03` Wide Flat Band | $2,333 | **From $2,315** | <https://mene.com/collections/bands-gold> |
 
----
+The seller's own product page says *"Products are sold by weight, not size."* The captured prices were **kept** and a
+`live_recheck` block now records the figure the page printed today, because overwriting them would hide the movement
+and break the dated-snapshot rule. GoldPrice.org printed **$4,022.22/oz** on the same day against the **$4,026.79/oz**
+snapshot the melt values use — 0.11% apart, inside tolerance, so the stored snapshot was **not** changed.
 
-## 2. Seller Contact & Policy Corrections (`F24`–`F27`)
+### 2. Two rows were still marked "return policy not verified" (closed `CR-P3-1`)
 
-1. **VRAI (`S-VRAI`, `F24`):**
-   - Stored phone `+1-855-383-8724` and email `hello@vrai.com` (cited to a 404 URL) did not match VRAI's live Help Center articles, which print **`Phone: +1.855.956.4488`** (`+1-855-956-4488`) and **`Email: help@vrai.com`**.
-   - Two live VRAI Help Center articles contradict each other on response time: `when-is-your-customer-experience-team-available` states *"within 4 business days!"* while `can-i-speak-to-a-vrai-representative-on-the-phone-1` states *"within 1 business day!"*.
-   - Live return policy adds a **$15,000 cash-refund cap**: *"Eligible items above $15,000 can be returned within 30 days for full credit to store."*
-2. **Menē (`S-MENE`, `F25`):**
-   - Stored phone `+1-833-636-3465` had transposed two digits of `1-833-MENE-24K` (**`+1-833-636-3245`**, confirmed on `https://mene.com/terms-of-service`, `https://mene.com/products/mene-classic-band-gold`, and Menē's BBB profile).
-   - Stored email `concierge@mene.com` corrected to **`service@mene.com`**, printed verbatim in Section F.2 of `https://mene.com/privacy-policy` and in the Customer Care Concierge block on Menē product pages.
-3. **Automic Gold (`S-AUTOMIC`, `RET14`, `F26`):**
-   - Reading all 6 chunks of `https://www.automicgold.com/pages/privacy-policy` showed that `+1-929-307-2378` is not printed anywhere on the page; `phone` set to `null` and `contact_source` repointed to `https://www.automicgold.com/pages/faq` (`care@automicgold.com`).
-   - Reading chunk 4 of `https://www.automicgold.com/policies/refund-policy` (past the 4-chunk CookieYes banner) restored the verbatim `resize_policy` and uncovered a critical deadline: **`"To avoid a restocking fee, please mail your items within 14 days."`** (new flag `RET14`).
-4. **Brilliant Earth (`S-BRILLIANTEARTH`, `F27`):**
-   - `https://www.brilliantearth.com/contact/` uses a web form for customer care and prints only `marketing@brilliantearth.com`, `pr@brilliantearth.com`, `jobs@brilliantearth.com`, phone `800.691.0952`, and SMS `+1 415.520.6526` — not `customerservice@brilliantearth.com`. Set `email` to `null` (matching `SEL-BRILLIANTEARTH` in `data/sellers-policies.json`).
-   - Return-window trigger on `https://www.brilliantearth.com/30-Day-Returns/` corrected from `"30 days from delivery"` to `"when your purchase is available for shipment or pickup"`.
+`R15` and `R16` (Ross-Simons) and `R18` (Catbird) still said *"Not verified — no official return-policy page captured
+for this seller"* and carried `POL1`, although both policies were read on 2026-10-22 and again on 2026-10-23. Both rows
+now quote the seller's own wording, carry the policy URL in their source list, and `POL1` is gone from them.
 
----
+* Ross-Simons: *"30-Day No-Risk Return Guarantee"* · *"resized by a jeweller other than Ross-Simons cannot be accepted
+  for return"* · *"we may include a flat fee of $4.95 for return shipping and handling"* — <https://www.ross-simons.com/pages/returns-exchanges>
+* Catbird: *"within 20 days"* · *"An $9 charge for return shipping will be deducted from your refund"* · final-sale list
+  · *"All international sales are final."* — <https://www.catbirdnyc.com/returns>
 
-## 3. Dataset C Live Sweep (`F28`)
+### 3. `PD1` described nothing and was retired (closed `CR-P3-2`)
 
-- **Two new on-page contradictions caught:**
-  - `SOL-05` / `R29` (Brilliant Earth Fairmined 2mm Six-Prong Solitaire `BE1FM0126`): in addition to the resizing contradiction (`SPEC3`), the Band Width selector prints **`Band Width: 2 ct. tw.`** (`1.5 ct. tw.` / `2 ct. tw.`), mislabelling millimeter width with carat total weight units.
-  - `SOL-08` (Ross-Simons Item `251663`, a prong-set opal ring with a `10kt` vs `14kt` conflict): the page's own *Stone Story* section states **`"Opal sits at 5.5 to 6.5 on the Mohs scale, so that means bezel or halo, not prongs, on rings."`**
-- **Ross-Simons 14K bands (`BND-04`–`BND-07`):** prices (`$400`, `$949`, `$1,195`, `$599`) and gram weights (`1.7g`, `4.2g`, `4.0g`, `2.1g`) confirmed verbatim; added Ross-Simons's on-page disclaimer `"All weights and measurements are approximate."` to every row's excerpt and assessment.
-- **Menē 24K bands (`BND-01`–`BND-03`):** repointed `secondary_weight_source_url` from redirecting `/bands/gold` to `/collections/bands-gold` and direct product pages; noted that the gram figure sits inside Menē's client-side JS `Price breakdown` modal and documented the ~0.77% intraday bullion price movement on `2026-10-23` (`$1,720` → `$1,707`, `$1,556` → `$1,544`, `From $2,333` → `From $2,315`).
+`PD1` claimed a price differed between the live page and a cached copy. The live page for `R16` prints **$299**, the same
+figure the record stores. The flag was removed from the row and its definition deleted in the same commit.
 
----
+### 4. Rhodium disclosure was missing from six white-gold rows (closed `CR-P3-4`)
 
-## 4. Open Change Requests (`CR-P3-1`..`CR-P3-9`) and Site Defects (`SD7`, `SD8`) Closed
+16 CFR 23.7 requires a surface rhodium layer to be disclosed. Six rows sell white gold that the seller says is rhodium
+finished and carried no `RH1`: `R01`, `R03` (Mejuri: *"14k solid white gold pieces are finished with rhodium plating"*),
+`R08`, `R09`, `R14` (Blue Nile: *"Rhodium Finish Yes"*) and `R10` (Costco: *"14kt White Gold ( Rhodium Plated ) or 14kt
+Yellow Gold"* — white-gold option only). Each row now stores the quote and the URL it came from. `R09` and `R03` rest on
+the 2026-10-22 capture and say so.
 
-- **`CR-P3-1`:** `R15`, `R16`, `R18` updated with sourced return terms from `S-RS` and `S-CB`, `POL1` removed from those rows, `RET11`/`RET12` attached, policy URLs added to `sources`, and Costco Document ID `CU2573` v18.0 (`10/02/2025`) added to `R10`.
-- **`CR-P3-2`:** `PD1` removed from `R16` and retired from `data/flags.json`.
-- **`CR-P3-3`:** `R18` `solid_gold_quote` scope labelled as product-image alt/title text.
-- **`CR-P3-4`:** `RH1` (rhodium surface plating disclosure under 16 CFR 23.7) added to `R01`, `R03`, `R08`, `R09`.
-- **`CR-P3-5` & `CR-P3-6`:** eCFR currency banner (`up to date as of 10/21/2026`), GovInfo `15 U.S.C. 297` link, and Costco `CU2573` v18.0 metadata added to `data/sources.json`.
-- **`CR-P3-7`:** `scripts/verify.py` updated to permit `weight_status: "published as a range"` on a `null` weight; applied to `aurate-2ct-round-lgd-solitaire` (`Weight: 5.5-8.5g`).
-- **`CR-P3-8` & `CR-P3-9`:** `data/verification.json` updated with Passes P5–P6 and checks `V38`–`V45`, and all 24 HTML pages rebuilt.
-- **`SD7` & `SD8`:** Fixed stale nav/card counts (`Combined (71)`, `Flagged C (17)`), scoped the `index.html` melt-table footnote, and added `data-cats` attributes plus `Dataset C`, `24K`, and `Weight published` filter buttons to `combined.html`.
+### 5. Seven band records asserted a hallmark no page prints (site defect `SD6`)
+
+`BND-01`…`BND-07` described *"14K quality mark + maker's trademark"* and *"Menē maker's mark + 24K stamp + Certificate of
+Authenticity"* in the seller's voice. None of the cited pages contains a hallmark or maker's-mark statement. That is the
+exact defect class this project exists to catch — an inference dressed as a quotation — and it was in our own file. Every
+one of those fields now reads **"Not published by the seller"**, with the 16 CFR 23.10 / 15 U.S.C. 297 check stated as a
+to-do. The legal citation itself was verified: § 23.10 does print the paragraph *"Disclosure of identity of
+manufacturers, processors, or distributors."*
+
+### 6. A cited contact page is failing (new flag `SRC2`)
+
+Catbird's contact page returned **HTTP 500 Internal Server Error** (nginx) on two attempts, so the e-mail recorded
+against `S-CB` could not be re-confirmed today. The same site's returns and product pages loaded normally in the same
+session, so this is one broken page, not a dead domain. The value was left in place with a correction note and flagged
+rather than silently deleted.
+
+## What held up
+
+Prices, karats and published gram weights were found **verbatim** on the official page for `R20` ($3,004 / 3.80 g /
+14K Solid Gold), `R21` ($613 / 8.30 g / 10K Solid Gold, plus its "size 10, approximate" caveat), `R26` ($4,068 / 6.30 g /
+18K Solid Gold), `R11` ($3,725 / 6.1 g / "Stamped for 14 karat gold"), `R15` ($249 / 0.7 g), `R16` ($299 / 0.8 g),
+`R18` ($276), `R01` (From $2,900), `R14` ($1,145 setting price), `R08` ($2,210 setting price), `BND-04` ($400 / 1.7 g)
+and `BND-11` ($648). Sarraf's `service@sarraf.com` and 888-472-7723 were confirmed on its About page, Automic's 30-day
+window and final-sale list on its refund policy, and Costco's `R10` was confirmed to render **no price at all**, which is
+why that cell stays blank.
+
+Two live page contradictions also reproduced a day later, unchanged: `SPEC1` (Blue Nile's 18K white-gold floral marquise
+page describing itself as *"warmly lustrous 14k yellow gold"* in the body copy) and `SPEC4` (Sarraf's About page saying
+any non-engraved item can be returned "no questions asked" against its returns page's engraved-ring paragraph).
+
+## What this pass did **not** verify
+
+Stated here rather than implied anywhere else, and repeated in `data/verification.json` under `not_rechecked`:
+
+* All seven **Aurate** rows, the **Ring Concierge** rows, `R02`, `R17` (Tiffany), `R19`, `R28` (VRAI), `R29` (Brilliant
+  Earth), `R31` (Local Eclectic) and bands `BND-05`…`BND-08` were **not re-opened** in this pass. Their values remain the
+  2026-10-22 capture.
+* `R03`'s $648 sits on a **collection** page. The fetch returned only the first part of that page, so the card could not
+  be located; `R03` is recorded as not re-checked rather than claimed as confirmed.
+* `R22`'s **weight** was not re-read — the fetch ended mid-line at *"Item Weight Appr…"*. Its price and solid-gold
+  wording were confirmed.
+* `CR-P3-5` is only **half closed**: the eCFR currency banner was recorded against every eCFR citation, but the Costco
+  document metadata (Document ID / version / date) does not appear on the Costco product page, so it was **not** added.
+
+## Gates run after the changes
+
+| Gate | Result |
+|---|---|
+| `scripts/verify.py` | PASS — 0 errors, 0 warnings |
+| `scripts/build_ext_pages.py` + `scripts/build_site.py` | built, internal links and product URLs OK |
+| `scripts/audit.py` | PASS — 31 rows, 0 errors, 0 warnings, 173 checks |
+| `scripts/run_security_audit.py` | PASS — SEC-01…SEC-07 |
+| `node scripts/render-test.js` | PASS — 120/120 |
+| `scripts/report_verify.py` | PASS — 109 verification checks |
+| Row-link gate | every root HTML table row carries an `https://` official link |
+
+## Recommended next hallucination hunt
+
+1. Re-open the rows listed under "did not verify" — a pass that says what it skipped is only useful if the next one
+   picks it up.
+2. Fetch every URL in `verification/sources-manifest.json` and fail on any non-200. Two dead links were found by accident
+   in P3 and one live 500 in P4; nobody has yet swept the manifest systematically.
+3. Re-read `R03` on a full fetch, or replace it with a product-page URL.
+4. Re-check Catbird's contact page and, if it stays broken, decide whether `S-CB`'s e-mail is citable at all.
+5. Re-read `R22`'s weight and `R09`/`R03`'s rhodium wording on the seller's page.

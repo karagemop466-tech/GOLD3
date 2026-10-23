@@ -23,6 +23,7 @@ OUT = ROOT
 SITE_NAME = "GOLD3"
 SITE_TAG = "Gold engagement ring buyer's guide"
 CAPTURED = "22 October 2026"
+RECHECKED = "23 October 2026"   # date of the most recent verification pass (P4)
 
 NAV = [
     ("index.html", "Dashboard"),
@@ -211,7 +212,7 @@ def diamond_cell(p) -> str:
 def weight_cell(p) -> str:
     if p.get("weight_g") is not None:
         return f'{p["weight_g"]:g} g'
-    if p.get("weight_status") == "published as a range" and p.get("weight_quote"):
+    if str(p.get("weight_status") or "").startswith("published as a range") and p.get("weight_quote"):
         return f'<span class="badge warn">{e(p["weight_quote"])}</span><span class="sub">range only (unverified)</span>'
     return '<span class="badge neutral">not published</span>'
 
@@ -413,7 +414,7 @@ def build_index() -> str:
         ("bands-vintage-rings.html", "24K & weight-verified bands", 12, "Menē 24K pure bullion bands (1.50x–1.56x melt) & solid 14K bands with exact grams."),
         ("solitaire-settings.html", "Solitaire settings & GIA", 9, "Blue Nile, Brilliant Earth & Ross-Simons settings, plus $29 plated control."),
         ("sellers-policies.html", "BBB & policy audit", 5, "Physical HQs, BBB ratings (A+ to D-), resized/engraved traps & 1.5% wire risk."),
-        ("flagged-for-review.html", "Flagged pass C", 17, "Live 10kt/14kt conflict, resizing contradiction, omitted grams & D- BBB notes."),
+        ("flagged-for-review.html", "Flagged pass C", 21, "Live 10kt/14kt conflict, resizing contradiction, omitted grams & D- BBB notes."),
         ("security-audit.html", "Security audit log", 7, "Automated anti-hallucination passes (SEC-01..SEC-07) & SHA-256 data digests."),
         ("excluded.html", "Excluded", len(EXCLUDED), "Vermeil and plated look-alikes: why they fail the test."),
     ]
@@ -427,14 +428,14 @@ def build_index() -> str:
 <div class="page-head">
   <h1>A gold engagement ring you can actually verify &mdash; No Hallucinations</h1>
   <p class="lead">{METRICS['n_combined']} listings across {METRICS['n_sellers_total']} sellers in Datasets A+B (plus {len(DATASET_C_ITEMS)} in Dataset C = {len(PRODUCTS) + len(OTHER_ITEMS) + len(DATASET_C_ITEMS)} total rows on <a href="combined.html">Combined</a>) &mdash; {len(PRODUCTS)} verified in Dataset A and {METRICS['n_other_items']} in Dataset B &mdash; checked line by line under our <strong>No Hallucinations</strong> commitment against official seller pages, US jewellery-marking
-  regulations and the gold price captured on 22 October 2026. Every single table row links to an official source. Where a seller publishes nothing, the cell is left blank
+  regulations and the gold price captured on 22 October 2026 and re-checked live on 23 October 2026. Every single table row links to an official source. Where a seller publishes nothing, the cell is left blank
   and flagged <em>unverified</em>. Need stone-carat deduction &amp; post-arrival ED-XRF assay tolerances? Open the <a href="archive/session-cbea1001/calculator.html">XRF &amp; Stone-Deduction Lab Calculator</a> or <a href="archive/session-cbea1001/index.html">Session Observatory</a>.</p>
 </div>
 
 <div class="grid cols-3" style="grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin-bottom:8px">{kpi_html}</div>
 <p class="tiny muted">Gold spot is one dated snapshot, not a live feed. Two independent sources are shown on every page - see
 <a href="sources.html">Sources</a>. Melt values exclude labour, setting, stones and retail margin.
-&nbsp;&middot;&nbsp; Last automated verification pass: {CAPTURED} &middot; <span class="badge good">PASS</span>
+&nbsp;&middot;&nbsp; Last automated verification pass: {RECHECKED} &middot; <span class="badge good">PASS</span>
 {report['counts']['errors']} errors / {report['counts']['warnings']} warnings &middot;
 <a href="flagged.html#verification">what the pass checks</a>.</p>
 
@@ -485,7 +486,7 @@ At {money(SPOT,2)}/oz, one gram of 100% fine gold is {money(SPOT_GRAM,2)}. The 2
 
 <h2>Scope and honesty</h2>
 <div class="warn-box">
-  <strong>This is a point-in-time capture, not a live price engine.</strong> All prices were read on {CAPTURED} and can change the same day.
+  <strong>This is a point-in-time capture, not a live price engine.</strong> All prices were read on {CAPTURED} and they do change the same day: when the Menē pages were reopened on {RECHECKED}, every one of them was already cheaper than the figure captured the day before (see flag <code>PRC1</code>). Treat each price as a dated observation and re-read the source link before you buy.
   {len(flagged_products)} of {METRICS['n_solid_gold']} gold listings carry at least one open flag; none of them is a "recommended buy".
   A listing appears here because it could be verified, not because it is endorsed.
 </div>
@@ -1455,6 +1456,26 @@ def build_flagged() -> str:
 
     n_flag = sum(len(p.get("flags", [])) for p in PRODUCTS)
 
+    sev_order = {"high": 0, "medium": 1, "low": 2}
+    legend_cards = ""
+    for fid in sorted(FLAG_LEGEND, key=lambda k: (sev_order.get(FLAG_LEGEND[k].get("severity"), 3), k)):
+        fd = FLAG_LEGEND[fid]
+        cls = {"high": "bad", "medium": "warn", "low": "neutral"}.get(fd.get("severity"), "neutral")
+        src = fd.get("source")
+        src_html = (f'<p class="small" style="margin:6px 0 0"><strong>Source:</strong> '
+                    f'<a href="{e(src)}" target="_blank" rel="noopener">official page</a></p>') if src else ""
+        legend_cards += f"""<div class="card" id="flag-{e(fid)}">
+          <div style="display:flex;gap:8px;align-items:baseline;flex-wrap:wrap">
+            <span class="badge {cls}">{e(fd.get('severity',''))}</span>
+            <span class="mono">{e(fid)}</span><strong>{e(fd.get('label',''))}</strong>
+          </div>
+          <p class="small" style="margin:8px 0 4px">{e(fd.get('what',''))}</p>
+          <p class="small" style="margin:0"><strong>What to do:</strong> {e(fd.get('action',''))}</p>
+          {src_html}
+        </div>"""
+    flag_legend_html = legend_cards or '<div class="card">No flag definitions are present in this build.</div>'
+
+
     body = f"""
 {policy_box()}
 <div class="page-head">
@@ -1483,6 +1504,12 @@ def build_flagged() -> str:
     </table>
   </div>
 </details>
+
+<h2 style="margin-top:36px">Flag legend &mdash; what every code means</h2>
+<p class="small">Every flag printed anywhere on this site is defined here, in plain words, with the official source behind it where one
+exists. A flag with no source of its own is a question about one specific listing, and the link on that listing's row is its evidence.</p>
+<div class="grid cols-2">{flag_legend_html}</div>
+
 
 {verification_block()}
 <h2>How a flag gets closed</h2>
