@@ -33,8 +33,8 @@
 </div>
 
 <div class="grid cols-3" style="margin-bottom:20px">
-  <div class="kpi"><div class="label">Editorial findings</div><div class="value">27</div><div class="sub">10 high severity</div></div>
-  <div class="kpi"><div class="label">Listing-level flags</div><div class="value">87</div><div class="sub">across 19 listings</div></div>
+  <div class="kpi"><div class="label">Editorial findings</div><div class="value">29</div><div class="sub">12 high severity</div></div>
+  <div class="kpi"><div class="label">Listing-level flags</div><div class="value">88</div><div class="sub">across 19 listings</div></div>
   <div class="kpi"><div class="label">Unverified cells</div><div class="value">0 guesses</div><div class="sub">blank is used instead</div></div>
 </div>
 
@@ -149,6 +149,28 @@
           <p class="small"><strong>Source:</strong> <a href="https://mejuri.com/products/slim-diamond-eternity-band" target="_blank" rel="noopener">https://mejuri.com/products/slim-diamond-eternity-band</a></p>
           
           <p class="action"><strong>What to do:</strong> Always open the direct product SKU URL rather than relying on collection-grid cards; R03 is updated to $898 with flag FP1.</p>
+        </div>
+        <div class="card finding high" id="F28">
+          <div class="finding-head">
+            <h3>F28 · Ring Concierge&#x27;s $6,038 engagement-ring page claims both a 2.08 ct E VS1 stone and a 5.63 ct D VVS2 stone — and cuts the return window to 7 days</h3>
+            <span class="badge bad">HIGH</span>
+          </div>
+          <p class="small">Live re-read of Ring Concierge&#x27;s 2.08 Oval Lab Diamond in Whisper Thin Hidden Halo on 2026-10-23 uncovered two major contradictions: (1) the title and Details accordion specify &#x27;2.08 Carat E VS1 Oval Lab Grown Diamond&#x27;, while the description prose directly on the same page claims &#x27;featuring a 5.63 Carat D VVS2 Oval Lab Diamond&#x27;; and (2) while Ring Concierge&#x27;s general Refund Policy states 30 days on Fine Jewelry, the engagement-ring PDP Shipping &amp; Returns accordion states &#x27;You have 1 week (7 days) from the date of delivery to return your ready-made engagement ring&#x27; and makes any resized ring final sale.</p>
+          <div class="evidence">Title/Details: &#x27;2.08 Carat E VS1 Oval Lab Grown Diamond&#x27; vs Description: &#x27;featuring a 5.63 Carat D VVS2 Oval Lab Diamond&#x27; · PDP FAQ: &#x27;1 week (7 days) from the date of delivery to return your ready-made engagement ring&#x27;</div>
+          <p class="small"><strong>Source:</strong> <a href="https://ringconcierge.com/products/2-08-oval-lab-diamond-in-whisper-thina-hidden-halo" target="_blank" rel="noopener">https://ringconcierge.com/products/2-08-oval-lab-diamond-in-whisper-thina-hidden-halo</a></p>
+          <p class="small"><a href="rings.html#p-ringconcierge-2-08-oval-lab-whisper-thin">See the listing in the table &rarr;</a></p>
+          <p class="action"><strong>What to do:</strong> Require the exact diamond certificate number and written return window before ordering, and assume the stricter 7-day bridal return window governs.</p>
+        </div>
+        <div class="card finding high" id="F29">
+          <div class="finding-head">
+            <h3>F29 · Systematic URL sweep caught five more 404 citations, two mis-transcribed phone numbers, and Menē&#x27;s JS-gated weights</h3>
+            <span class="badge bad">HIGH</span>
+          </div>
+          <p class="small">Sweeping every unique URL across all JSON datasets on 2026-10-23 caught dead 404/500 pages in flags.json (SPEC5, WAR1), sellers.json (vrai.com/pages/contact-us, localeclectic.com/pages/contact-us, mene.com/contact-us, catbirdnyc.com/contact-us), and spot-and-standards.json (uscode.house.gov HTTP 500, GIA Summer 2025 trailing-&#x27;0&#x27; 404). Opening the live replacements revealed that S-VRAI listed the wrong phone (+1-855-383-8724 instead of +1.855.956.4488) and understated its $300 engagement-ring recycling fee, S-MENE mis-transcribed 1-833-MENE-24K as +1-833-636-3465 instead of +1-833-636-3245, R03&#x27;s dedicated PDP is From $898 (not $648), and Menē&#x27;s BND-01..03 static HTML omits gram weights (nulled per Zero-Inference Policy).</p>
+          <div class="evidence">VRAI live Help Center: &#x27;Email: help@vrai.com · Phone: +1.855.956.4488&#x27; &amp; &#x27;Engagement ring: A $300 recycling fee will apply&#x27; · Menē Terms: &#x27;1-833-MENE-24K&#x27; (+1-833-636-3245) &amp; &#x27;service@mene.com&#x27; · Menē PDPs: no static gram figure in HTML.</div>
+          <p class="small"><strong>Source:</strong> <a href="https://help.vrai.com/en/knowledge/what-is-your-return-policy" target="_blank" rel="noopener">https://help.vrai.com/en/knowledge/what-is-your-return-policy</a></p>
+          
+          <p class="action"><strong>What to do:</strong> All dead citations repointed to live 200 OK official pages, wrong phone numbers fixed, and Menē&#x27;s JS-gated band weights nulled.</p>
         </div>
         <div class="card finding medium" id="F4">
           <div class="finding-head">
@@ -320,8 +342,8 @@
             <h3>F12 · Two independent spot-price sources agree to within 0.06%</h3>
             <span class="badge info">LOW</span>
           </div>
-          <p class="small">GoldPrice.org showed $4,026.79/oz (22 Oct 2026, 07:07 NY time) and the World Gold Council showed $4,024.36/oz (data as of 21 Oct 2026). The $2.43 gap is consistent with normal movement between the two timestamps, which gives reasonable confidence in the price anchor used for every calculation here.</p>
-          <div class="evidence">GoldPrice.org $4,026.79/oz · World Gold Council $4,024.36/oz · difference $2.43 (0.060%)</div>
+          <p class="small">GoldPrice.org showed $4,022.22/oz (23 Oct 2026, 05:55 NY Time) and the World Gold Council showed $4,024.45/oz (data as of 22 Oct 2026, read 23 Oct 2026). The $2.23 gap (0.055%) is consistent with normal intraday movement and aligns with Dataset C&#x27;s simultaneous Kitco ($4,022.70/oz) and BullionVault ($4,024.23/oz) quotes.</p>
+          <div class="evidence">GoldPrice.org $4,022.22/oz · World Gold Council $4,024.45/oz · difference $2.23 (0.055%)</div>
           <p class="small"><strong>Source:</strong> <a href="https://www.gold.org/goldhub/data/gold-prices" target="_blank" rel="noopener">https://www.gold.org/goldhub/data/gold-prices</a></p>
           
           <p class="action"><strong>What to do:</strong> None - this is a control check, not a problem.</p>
@@ -341,7 +363,7 @@
 <h2 style="margin-top:36px">Every listing-level flag</h2>
 <p class="small">These are the machine-checked flags attached to individual rows. Collapse or expand as needed.</p>
 <details>
-  <summary>Show all 87 listing flags</summary>
+  <summary>Show all 88 listing flags</summary>
   <div class="table-wrap" style="margin-top:10px">
     <table style="min-width:900px">
       <thead><tr><th>Listing</th><th>Flag</th><th>What it means</th><th>Source</th></tr></thead>
@@ -363,7 +385,7 @@
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-round-lgd-solitaire">2ct Round Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Weight Range Only</span><span class="sub mono">WEIGHT_RANGE_ONLY</span></td>
-              <td class="small">The published weight is a 3.0 g-wide range (5.5-8.5g). At $4,026.79/oz the difference between the ends is more than the entire melt value of a light band, so the range cannot be used for a price-per-gram test.</td>
+              <td class="small">The published weight is a 3.0 g-wide range (5.5-8.5g). At $4,022.22/oz the difference between the ends is more than the entire melt value of a light band, so the range cannot be used for a price-per-gram test.</td>
               <td><a href="https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-round-lgd-solitaire">2ct Round Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
@@ -697,18 +719,23 @@
               <td><a href="https://ringconcierge.com/products/2-08-oval-lab-diamond-in-whisper-thina-hidden-halo" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-ringconcierge-2-08-oval-lab-whisper-thin">2.08 Oval Lab Diamond in Whisper Thin® Hidden Halo</a><span class="sub">Ring Concierge</span></td>
-              <td><span class="badge warn">Karat in images</span><span class="sub mono">PURITY_NOT_IN_BODY_TEXT</span></td>
-              <td class="small">The karat is not stated in the page body; &#x27;Yellow Gold ... with Platinum Prongs&#x27; appears only in the product image descriptions, and the collection filter lists &#x27;14k Yellow Gold&#x27;. Confirm the karat in writing.</td>
+              <td><span class="badge warn">Page Self Contradiction</span><span class="sub mono">PAGE_SELF_CONTRADICTION</span></td>
+              <td class="small">LIVE CONTRADICTION CAUGHT (2026-10-23): Title and Details accordion state &#x27;2.08 Carat E VS1 Oval Lab Grown Diamond&#x27;, whereas description prose on the exact same page claims &#x27;featuring a 5.63 Carat D VVS2 Oval Lab Diamond&#x27;!</td>
+              <td><a href="https://ringconcierge.com/products/2-08-oval-lab-diamond-in-whisper-thina-hidden-halo" target="_blank" rel="noopener">source</a></td>
+            </tr><tr>
+              <td><a href="rings.html#p-ringconcierge-2-08-oval-lab-whisper-thin">2.08 Oval Lab Diamond in Whisper Thin® Hidden Halo</a><span class="sub">Ring Concierge</span></td>
+              <td><span class="badge warn">Short return window</span><span class="sub mono">SHORT_RETURN_WINDOW</span></td>
+              <td class="small">Engagement-ring PDP Shipping &amp; Returns accordion restricts returns to &#x27;1 week (7 days) from the date of delivery to return your ready-made engagement ring&#x27; (contradicting the 30-day general Fine Jewelry policy), and resizing makes it final sale.</td>
               <td><a href="https://ringconcierge.com/products/2-08-oval-lab-diamond-in-whisper-thina-hidden-halo" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-ringconcierge-2-08-oval-lab-whisper-thin">2.08 Oval Lab Diamond in Whisper Thin® Hidden Halo</a><span class="sub">Ring Concierge</span></td>
               <td><span class="badge warn">Mixed metal</span><span class="sub mono">MIXED_METAL</span></td>
-              <td class="small">Band in yellow gold with platinum prongs - two different metals in one ring, so a single purity claim does not describe the whole piece.</td>
+              <td class="small">Details accordion states &#x27;Metal: 14K Yellow Gold with Platinum Prongs&#x27; - two different metals in one ring, so a single purity claim does not describe the whole piece.</td>
               <td><a href="https://ringconcierge.com/products/2-08-oval-lab-diamond-in-whisper-thina-hidden-halo" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-ringconcierge-2-08-oval-lab-whisper-thin">2.08 Oval Lab Diamond in Whisper Thin® Hidden Halo</a><span class="sub">Ring Concierge</span></td>
               <td><span class="badge warn">Made to order</span><span class="sub mono">MADE_TO_ORDER</span></td>
-              <td class="small">Estimated production time 3-4 weeks and every size marked &quot;Made to Order&quot; on the live page (P3 re-read 2026-10-22); the 30-day return window runs from delivery, so the clock starts after a 3-4 week wait. The page also offers a waitlist, so availability is not guaranteed.</td>
+              <td class="small">Estimated production time 3-4 weeks and every size marked &quot;Made to Order&quot; on the live page (re-read 2026-10-23); the page also offers a waitlist.</td>
               <td><a href="https://ringconcierge.com/products/2-08-oval-lab-diamond-in-whisper-thina-hidden-halo" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-ringconcierge-2-08-oval-lab-whisper-thin">2.08 Oval Lab Diamond in Whisper Thin® Hidden Halo</a><span class="sub">Ring Concierge</span></td>
@@ -724,32 +751,32 @@
               <td><a href="rings.html#p-ringconcierge-2-72-round-lab-whisper-thin">2.72 Round Lab Diamond in Whisper Thin®</a><span class="sub">Ring Concierge</span></td>
               <td><span class="badge warn">No &#x27;solid&#x27;</span><span class="sub mono">SOLID_NOT_STATED</span></td>
               <td class="small">The listing does not use the word &#x27;solid&#x27;.</td>
-              <td><a href="https://ringconcierge.com/collections/ready-to-ship-engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://ringconcierge.com/products/2-72-round-lab-diamond-in-whisper-thina" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-ringconcierge-2-72-round-lab-whisper-thin">2.72 Round Lab Diamond in Whisper Thin®</a><span class="sub">Ring Concierge</span></td>
-              <td><span class="badge warn">Karat in images</span><span class="sub mono">PURITY_NOT_IN_BODY_TEXT</span></td>
-              <td class="small">Karat inferred from the collection&#x27;s &#x27;14k Yellow Gold&#x27; metal filter and image descriptions, not stated in body text.</td>
-              <td><a href="https://ringconcierge.com/collections/ready-to-ship-engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><span class="badge warn">Short return window</span><span class="sub mono">SHORT_RETURN_WINDOW</span></td>
+              <td class="small">Engagement-ring PDP restricts returns to 7 days from delivery (vs 30 days in general Refund Policy); resizing makes it final sale.</td>
+              <td><a href="https://ringconcierge.com/products/2-72-round-lab-diamond-in-whisper-thina" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-ringconcierge-2-72-round-lab-whisper-thin">2.72 Round Lab Diamond in Whisper Thin®</a><span class="sub">Ring Concierge</span></td>
               <td><span class="badge warn">Mixed metal</span><span class="sub mono">MIXED_METAL</span></td>
-              <td class="small">Yellow gold band with platinum prongs.</td>
-              <td><a href="https://ringconcierge.com/collections/ready-to-ship-engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td class="small">Details accordion states &#x27;Metal: 14K Yellow Gold with Platinum Prongs&#x27;.</td>
+              <td><a href="https://ringconcierge.com/products/2-72-round-lab-diamond-in-whisper-thina" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-ringconcierge-2-72-round-lab-whisper-thin">2.72 Round Lab Diamond in Whisper Thin®</a><span class="sub">Ring Concierge</span></td>
-              <td><span class="badge warn">Listing-level price</span><span class="sub mono">PRICE_NOT_RECONFIRMED</span></td>
-              <td class="small">Price taken from the official category listing, not re-opened on the product page.</td>
-              <td><a href="https://ringconcierge.com/collections/ready-to-ship-engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><span class="badge warn">Made to order</span><span class="sub mono">MADE_TO_ORDER</span></td>
+              <td class="small">Every size option marked &#x27;Made to Order&#x27; (3-4 weeks production) despite appearing in the ready-to-ship collection.</td>
+              <td><a href="https://ringconcierge.com/products/2-72-round-lab-diamond-in-whisper-thina" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-ringconcierge-2-72-round-lab-whisper-thin">2.72 Round Lab Diamond in Whisper Thin®</a><span class="sub">Ring Concierge</span></td>
               <td><span class="badge warn">No weight</span><span class="sub mono">WEIGHT_NOT_PUBLISHED</span></td>
               <td class="small">No ring weight in grams.</td>
-              <td><a href="https://ringconcierge.com/collections/ready-to-ship-engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://ringconcierge.com/products/2-72-round-lab-diamond-in-whisper-thina" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-ringconcierge-2-72-round-lab-whisper-thin">2.72 Round Lab Diamond in Whisper Thin®</a><span class="sub">Ring Concierge</span></td>
               <td><span class="badge warn">No hallmark</span><span class="sub mono">HALLMARK_NOT_STATED</span></td>
               <td class="small">No hallmark / maker&#x27;s-mark statement.</td>
-              <td><a href="https://ringconcierge.com/collections/ready-to-ship-engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://ringconcierge.com/products/2-72-round-lab-diamond-in-whisper-thina" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-catbird-classic-half-round-2mm">Catbird Classic Wedding Bands, Solid Half Round Band, 2mm</a><span class="sub">Catbird</span></td>
               <td><span class="badge warn">Karat in images</span><span class="sub mono">PURITY_FROM_IMAGE_TEXT</span></td>
@@ -815,10 +842,10 @@ exists. A flag with no source of its own is a question about one specific listin
         </div><div class="card" id="flag-RET10">
           <div style="display:flex;gap:8px;align-items:baseline;flex-wrap:wrap">
             <span class="badge bad">high</span>
-            <span class="mono">RET10</span><strong>7-day return window and up to 10% restocking fee</strong>
+            <span class="mono">RET10</span><strong>7-day return window and 10% restocking fee on cash refunds</strong>
           </div>
-          <p class="small" style="margin:8px 0 4px">Menē&#x27;s Terms of Service limit returns to 7 days from receipt, default self-service returns to non-cash Menē Credit, permit up to a 10% restocking fee on discretionary original-payment refunds, and deduct 5% if the Certificate of Authenticity is missing.</p>
-          <p class="small" style="margin:0"><strong>What to do:</strong> Book your independent XRF appointment before delivery, keep the Certificate of Authenticity intact, and confirm cash-refund terms in writing.</p>
+          <p class="small" style="margin:8px 0 4px">Menē limits returns to 7 days from receipt; full value is issued only as Menē Credit, whereas a refund to the original payment method deducts a 10% restocking fee (support.mene.com policy 4407022465633).</p>
+          <p class="small" style="margin:0"><strong>What to do:</strong> Book your independent XRF appointment before delivery, keep the Certificate of Authenticity intact, and pay by credit card.</p>
           <p class="small" style="margin:6px 0 0"><strong>Source:</strong> <a href="https://mene.com/terms-of-service" target="_blank" rel="noopener">official page</a></p>
         </div><div class="card" id="flag-RET12">
           <div style="display:flex;gap:8px;align-items:baseline;flex-wrap:wrap">
@@ -855,10 +882,10 @@ exists. A flag with no source of its own is a question about one specific listin
         </div><div class="card" id="flag-RET8">
           <div style="display:flex;gap:8px;align-items:baseline;flex-wrap:wrap">
             <span class="badge bad">high</span>
-            <span class="mono">RET8</span><strong>$300 recycling fee on setting-only or engraved returns</strong>
+            <span class="mono">RET8</span><strong>$300 recycling fee on engagement-ring refunds (and store-credit-only over $15,000)</strong>
           </div>
-          <p class="small" style="margin:8px 0 4px">VRAI&#x27;s official return help article states that engraved or setting-only engagement ring returns refunded to the original payment method incur a $300 USD recycling fee, and its Los Angeles BBB profile carries an unaccredited F rating for unanswered complaints.</p>
-          <p class="small" style="margin:0"><strong>What to do:</strong> Do not engrave before independent scale and XRF verification, confirm fee-free return eligibility in writing, and pay by credit card.</p>
+          <p class="small" style="margin:8px 0 4px">VRAI&#x27;s live Help Center return article states that ALL engagement ring returns (&lt;$15,000) refunded to the original payment method incur a $300 recycling fee ($50 on wedding bands and made-to-order jewelry), waived only when taking VRAI gift-card store credit, and items above $15,000 receive store credit ONLY. Its Los Angeles BBB profile also carries an unaccredited F rating.</p>
+          <p class="small" style="margin:0"><strong>What to do:</strong> Do not engrave or resize before independent scale and XRF verification, factor the $300 fee into your risk budget, and pay by credit card.</p>
           <p class="small" style="margin:6px 0 0"><strong>Source:</strong> <a href="https://help.vrai.com/en/knowledge/what-is-your-return-policy" target="_blank" rel="noopener">official page</a></p>
         </div><div class="card" id="flag-RET9">
           <div style="display:flex;gap:8px;align-items:baseline;flex-wrap:wrap">
@@ -897,7 +924,7 @@ exists. A flag with no source of its own is a question about one specific listin
             <span class="badge bad">high</span>
             <span class="mono">SRC1</span><strong>Cited official source URL returns 404</strong>
           </div>
-          <p class="small" style="margin:8px 0 4px">Seven seller/policy URLs recorded by earlier sessions returned HTTP 404 or redirected to a generic KB index when opened live on 2026-10-23: Sarraf&#x27;s https://www.sarraf.com/pages/returns-and-refunds.html (404 -&gt; /30-day-returns-and-exchange-policy/), Automic&#x27;s https://www.automicgold.com/pages/return-policy (404 -&gt; /policies/refund-policy), Brilliant Earth&#x27;s https://www.brilliantearth.com/returns/ (404 -&gt; /30-Day-Returns/), VRAI&#x27;s https://www.vrai.com/pages/contact-us (404 -&gt; /contact-us) and https://help.vrai.com/hc/en-us/articles/360000836514-What-is-your-return-policy (redirect -&gt; /en/knowledge/what-is-your-return-policy), Local Eclectic&#x27;s https://www.localeclectic.com/pages/contact-us (404 -&gt; /pages/frequently-asked-questions), and Menē&#x27;s https://mene.com/contact-us (404 -&gt; /customer-care/en-US). All seven records were repointed to live HTTP 200 official pages on 2026-10-23.</p>
+          <p class="small" style="margin:8px 0 4px">Nine product/seller/policy URLs recorded by earlier sessions returned HTTP 404 or redirected to a generic KB index when opened live on 2026-10-23: Sarraf&#x27;s https://www.sarraf.com/pages/returns-and-refunds.html (404 -&gt; /30-day-returns-and-exchange-policy/), Automic&#x27;s https://www.automicgold.com/pages/return-policy (404 -&gt; /policies/refund-policy), Brilliant Earth&#x27;s https://www.brilliantearth.com/returns/ (404 -&gt; /30-Day-Returns/), VRAI&#x27;s https://www.vrai.com/pages/contact-us (404 -&gt; /contact-us) and https://help.vrai.com/hc/en-us/articles/360000836514-What-is-your-return-policy (redirect -&gt; /en/knowledge/what-is-your-return-policy), Local Eclectic&#x27;s https://www.localeclectic.com/pages/contact-us (404 -&gt; /pages/frequently-asked-questions), and Menē&#x27;s https://mene.com/contact-us (404 -&gt; /customer-care/en-US). In addition, WAR1 cited dead 404 sarraf.com/.../14k-white-gold-1-00-ctw-round-3-stone-diamond-engagement-ring-g-i1-3-80-gr.html and SPEC5 cited dead 404 automicgold.com/products/1-50ctw-pear-shaped-lab-grown-diamond-engagement-ring-bezel-set. All nine records were repointed to live HTTP 200 official pages on 2026-10-23.</p>
           <p class="small" style="margin:0"><strong>What to do:</strong> Re-fetch every cited URL before publishing, and prefer the canonical page reached from the site&#x27;s own policy index over a guessed slug.</p>
           <p class="small" style="margin:6px 0 0"><strong>Source:</strong> <a href="https://www.sarraf.com/30-day-returns-and-exchange-policy/" target="_blank" rel="noopener">official page</a></p>
         </div><div class="card" id="flag-W1">
@@ -1049,16 +1076,16 @@ exists. A flag with no source of its own is a question about one specific listin
             <span class="badge warn">medium</span>
             <span class="mono">SPEC5</span><strong>Automic lead time contradicts itself on one page</strong>
           </div>
-          <p class="small" style="margin:8px 0 4px">The Automic Gold product page prints &#x27;Lead Time: 4-8 Days&#x27; in its information table, then &#x27;Please allow 1-2 weeks for your order to ship, plus an additional 2-3 weeks for orders with engraving&#x27; lower down, and a separate &#x27;Waitlist / Made to Order&#x27; notice appears on comparable made-to-order pieces.</p>
+          <p class="small" style="margin:8px 0 4px">Automic Gold product pages (including R22 Radiant Cathedral and R25 Gemstone Flower) print &#x27;Production time is 4-8 business days&#x27; in the buy box and &#x27;Production time is 1-2 weeks&#x27; (or &#x27;2-3 weeks&#x27; with engraving) in Shipping &amp; Returns lower down on the exact same page.</p>
           <p class="small" style="margin:0"><strong>What to do:</strong> Confirm the current lead time in writing before ordering, especially for an engraved or made-to-order piece.</p>
-          <p class="small" style="margin:6px 0 0"><strong>Source:</strong> <a href="https://www.automicgold.com/products/1-50ctw-pear-shaped-lab-grown-diamond-engagement-ring-bezel-set" target="_blank" rel="noopener">official page</a></p>
+          <p class="small" style="margin:6px 0 0"><strong>Source:</strong> <a href="https://www.automicgold.com/products/radiant-cut-lab-diamond-cathedral-ring" target="_blank" rel="noopener">official page</a></p>
         </div><div class="card" id="flag-SRC2">
           <div style="display:flex;gap:8px;align-items:baseline;flex-wrap:wrap">
             <span class="badge warn">medium</span>
-            <span class="mono">SRC2</span><strong>Cited contact page returned a server error</strong>
+            <span class="mono">SRC2</span><strong>Cited contact page returned HTTP 500 (repointed to live /facts page)</strong>
           </div>
-          <p class="small" style="margin:8px 0 4px">Catbird&#x27;s contact page https://www.catbirdnyc.com/contact-us returned &quot;HTTP 500 Internal Server Error&quot; (nginx) on two attempts on 2026-10-23, so the e-mail address recorded against S-CB could not be re-confirmed that day. The same site&#x27;s returns page and product page loaded normally in the same session, so this is a fault on one page rather than a dead domain.</p>
-          <p class="small" style="margin:0"><strong>What to do:</strong> Resolved via Catbird&#x27;s live https://www.catbirdnyc.com/facts (&#x27;Customer Email: customerservice@catbirdnyc.com&#x27;) and official return_form.pdf (+1-718-599-2340, 141 Flushing Avenue, Building 77, Suite 709, Brooklyn, NY 11205); avoid /contact-us while nginx 500 persists.</p>
+          <p class="small" style="margin:8px 0 4px">Catbird&#x27;s /contact-us URL returned &quot;HTTP 500 Internal Server Error&quot; (nginx) across multiple checks on 2026-10-23. Session arena/15b00e99-gold3 confirmed that https://www.catbirdnyc.com/facts returns HTTP 200 and prints &#x27;customerservice@catbirdnyc.com&#x27; verbatim, so S-CB and catbird now cite /facts while keeping this flag to warn buyers that /contact-us is failing.</p>
+          <p class="small" style="margin:0"><strong>What to do:</strong> Contact customerservice@catbirdnyc.com (verified on catbirdnyc.com/facts) or use returns.narvar.com/catbird.</p>
           <p class="small" style="margin:6px 0 0"><strong>Source:</strong> <a href="https://www.catbirdnyc.com/facts" target="_blank" rel="noopener">official page</a></p>
         </div><div class="card" id="flag-WAR1">
           <div style="display:flex;gap:8px;align-items:baseline;flex-wrap:wrap">
@@ -1067,7 +1094,7 @@ exists. A flag with no source of its own is a question about one specific listin
           </div>
           <p class="small" style="margin:8px 0 4px">Sarraf product pages state: &#x27;In the event that your item is defective Sarraf will at its sole discretion, repair or replace the item free of charge... If you choose not to have the item repaired or replaced by Sarraf Jewelry Inc., you will be charged a warranty fee of $100.00 or 10% of the purchase price which ever amount is greater.&#x27; Sarraf&#x27;s About page separately advertises a &#x27;Lifetime Guarantee&#x27; with &#x27;Some restrictions apply&#x27;.</p>
           <p class="small" style="margin:0"><strong>What to do:</strong> Read the warranty clause, not the marketing label, and price the 10% into the total cost of ownership.</p>
-          <p class="small" style="margin:6px 0 0"><strong>Source:</strong> <a href="https://www.sarraf.com/products/14k-white-gold-1-00-ctw-round-3-stone-diamond-engagement-ring-g-i1-3-80-gr.html" target="_blank" rel="noopener">official page</a></p>
+          <p class="small" style="margin:6px 0 0"><strong>Source:</strong> <a href="https://www.sarraf.com/products/14k-white-gold-solitaire-ring-0-94-ctw.html" target="_blank" rel="noopener">official page</a></p>
         </div><div class="card" id="flag-WT1">
           <div style="display:flex;gap:8px;align-items:baseline;flex-wrap:wrap">
             <span class="badge warn">medium</span>
@@ -1172,7 +1199,7 @@ exists. A flag with no source of its own is a question about one specific listin
 <div class="card">
   <p><strong>Last automated pass: 22 October 2026 &middot; result <span class="badge good">PASS</span></strong>
   &middot; 0 errors &middot; 0 warnings &middot;
-  11 notes.</p>
+  12 notes.</p>
   <p class="small">The build refuses to run unless this pass is clean, so an unsourced or contradictory value cannot reach the
   published site. Run the pass again after <em>every</em> review or price recapture - and specifically look for hallucinations:
   a number that does not appear in its own quote, a weight nobody published, or a policy that has drifted.</p>
@@ -1192,8 +1219,8 @@ exists. A flag with no source of its own is a question about one specific listin
 <footer class="site-footer">
   <div class="footer-inner">
     <strong>GOLD3</strong> - a source-linked buying file. Data captured 22 October 2026. Spot price anchor:
-    $4,026.79/oz (Oct 22nd, 2026 at 07:07 NY Time), cross-checked against the World Gold Council
-    ($4,024.36/oz).
+    $4,022.22/oz (Oct 23rd, 2026 at 05:55 NY Time), cross-checked against the World Gold Council
+    ($4,024.45/oz).
     <div class="footer-links">
       <a href="checklist.html">Buying checklist</a>
       <a href="flagged.html">Flagged for review</a>

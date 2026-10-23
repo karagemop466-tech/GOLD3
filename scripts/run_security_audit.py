@@ -69,6 +69,7 @@ TRUSTED_OFFICIAL_DOMAINS = {
     "brilliantearth.com",
     "mene.com",
     "www.mene.com",
+    "support.mene.com",
     "mejuri.com",
     "www.mejuri.com",
     "auratenewyork.com",
@@ -314,7 +315,7 @@ def run_audit(pass_label: str, session_id: str | None = None, record_pass: bool 
             "name": "NIST Troy-Ounce (31.1034768 g) & Raw Melt Arithmetic Audit",
             "status": "PASS" if len(errors) == c4_before else "FAIL",
             "verified_count": exact_melt_count + len(spot_std["karat_purity_reference"]),
-            "details": f"Mathematically verified spot conversion ($4,025.10 / 31.1034768 = $129.4100/g), all 7 karat tiers, and all {exact_melt_count} weight-complete rings to <= $0.02 tolerance.",
+            "details": f"Mathematically verified spot conversion (${spot_oz:,.2f} / {TROY_OZ_TO_GRAMS_EXACT} = ${expected_g:.4f}/g), all 7 karat tiers, and all {exact_melt_count} weight-complete rings to <= $0.02 tolerance.",
         }
     )
 

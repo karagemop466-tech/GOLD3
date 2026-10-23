@@ -1,0 +1,60 @@
+{
+  "pass_id": "pass-5-dataset-c-2026-10-23",
+  "session_id": "arena/15b00e99-gold3",
+  "verified_on": "2026-10-23",
+  "scope": [
+    "data/bands-and-high-karat.json",
+    "data/solitaire-rings.json",
+    "data/sellers-policies.json",
+    "data/spot-and-standards.json",
+    "data/prices.json",
+    "data/retailers.json"
+  ],
+  "spot_benchmarks": {
+    "kitco_bid_usd_oz": 4022.70,
+    "kitco_ask_usd_oz": 4024.70,
+    "kitco_timestamp": "Oct 23, 2026 05:56 EST",
+    "bullionvault_mid_usd_oz": 4024.23,
+    "bullionvault_usd_g": 129.38,
+    "goldprice_org_usd_oz": 4022.22,
+    "goldprice_org_timestamp": "Oct 23rd, 2026 at 05:55 NY Time",
+    "wgc_usd_oz": 4024.45
+  },
+  "key_corrections": [
+    {
+      "code": "DC1-MENE-WEIGHT-NULL",
+      "records": ["BND-01", "BND-02", "BND-03"],
+      "finding": "Menē PDPs (mene-classic-band-gold, mene-narrow-flat-band-gold, mene-wide-flat-band-gold) and /collections/bands-gold omit gram weights in static HTML (size-dependent weights load via client-side JS; .json returns 404). Nulled weight_grams, net_gold_weight_grams, pure_gold_grams, melt_value_usd, and price_to_melt_ratio per Zero-Inference Policy, and updated live Oct 23 PDP prices ($1,707, $1,544, $2,465)."
+    },
+    {
+      "code": "DC1-HALLMARK-PDP-AUDIT",
+      "records": ["BND-01..BND-12", "SOL-01..SOL-08"],
+      "finding": "Removed all unprinted PDP hallmark assertions across Dataset C; distinguished brand-level hallmark guides (Menē 24k guide, Brilliant Earth lotus stamp guide) from product-page disclosures."
+    },
+    {
+      "code": "DC1-MEJURI-CARAT-CONFLICT",
+      "records": ["BND-10"],
+      "finding": "Caught live spec contradiction on Mejuri Pavé Diamond Full Eternity Band: description prose states 'totaling 0.532ct' while Specifications bullet prints 'Carat Weight: 0.044-0.056 ct'."
+    },
+    {
+      "code": "DC1-BE-SPEC-AND-POLICY",
+      "records": ["SOL-05", "SEL-BRILLIANTEARTH"],
+      "finding": "Caught Brilliant Earth BE1FM0126 spec-table typo ('Width: 2 ct. tw.') and diamond-required purchase restriction; corrected return policy to reflect that engraved rings ARE returnable within 30 days for a $40 engraving-removal fee (while engraved non-ring jewelry is final sale) and documented $35 USD wire fee on US/CA orders; updated BBB count to 283 complaints & 4.45/5 on 342 reviews."
+    },
+    {
+      "code": "DC1-MENE-10PCT-RESTOCKING-AND-BBB",
+      "records": ["SEL-MENE"],
+      "finding": "Documented support.mene.com policy 2465633 (7-day return refund to original payment method deducts a 10% restocking fee; full refund in Menē Credit) and both BBB Ontario files (0107-1413670 D+ with 1 unanswered complaint / 0 reviews; 0107-1378080 Not Rated with 0 complaints / 2 x 1-star reviews)."
+    },
+    {
+      "code": "DC1-RINGCONCIERGE-7DAY-BRIDAL-WINDOW",
+      "records": ["ring-concierge"],
+      "finding": "Caught contradiction between Ring Concierge general Refund Policy (30 days on Fine Jewelry) and engagement-ring PDP accordion ('1 week (7 days) from the date of delivery to return your ready-made engagement ring... Any customizations or resizing to the ring results in it becoming final sale'); recorded info@ringconcierge.com."
+    },
+    {
+      "code": "DC1-BROKEN-URLS-FIXED",
+      "records": ["STD-01", "STD-02", "STD-05", "catbird", "mejuri"],
+      "finding": "Replaced broken uscode.house.gov (HTTP 500) URLs with official GovInfo U.S. Code Title 15 Chapter 8; fixed STD-05 GIA Summer 2025 trailing-'0' 404 URL; repointed Catbird broken /contact-us (HTTP 500) to live /facts (HTTP 200); repointed Mejuri returns & payment URLs to server-rendered /faq/... pages."
+    }
+  ]
+}

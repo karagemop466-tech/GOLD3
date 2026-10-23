@@ -566,7 +566,7 @@ except Exception:
     pass
 for _ms in re.findall(r"\$([0-9][0-9,]*\.?[0-9]*)", json.dumps(rings_doc)):
     data_prices.add(_ms.rstrip("."))
-data_prices.update({"0.02", "129.4100"})
+data_prices.update({"0.02"})
 
 # Register all verified numeric USD figures from Dataset C JSON files
 for ext_json in ("products.json", "spot-and-standards.json", "solitaire-rings.json", "bands-and-high-karat.json", "sellers-policies.json"):

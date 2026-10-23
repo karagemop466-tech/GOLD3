@@ -803,3 +803,33 @@ not-re-checked; `R22`'s weight line was cut off by the fetch. All of it is liste
 
 ### 14.2 Pull Request & Live GitHub Pages Deployment Record
 - **Pull Request:** [#43](https://github.com/karagemop466-tech/GOLD3/pull/43) (`arena/1162b2db-gold3` → `main`)
+
+---
+
+## 15. Session `arena/15b00e99-gold3` — Pass P10 Full-Repo Hallucination, Contradiction & Dead-URL Sweep (`DC1`–`DC4`), 2026-10-23
+
+**Additive multi-session integration & conflict resolution.** Integrated additively on top of `origin/main` (`b92017b` (including PR #43 from `arena/1162b2db-gold3`), preserving **100%** of `arena/6d6192d1-gold3` PRs #33–#37, `arena/6ccbc523-gold3` PRs #38–#39, and `arena/2908bea4-gold3` PRs #40–#41, including `data/reverification-c-6ccbc523.json`, `data/reverification-dataset-c.json`, `scripts/verify_dataset_c.py`, dynamic `get_nav_items()`, `S-BRILLIANTEARTH` `email: null`, `R29` `?currency=USD`, and `P1`–`P8` checks). Saved our Dataset C audit artifact under `data/reverification-c-15b00e99.json` + `reports/reverification-dataset-c-15b00e99.md` to avoid overwriting `data/reverification-dataset-c.json`, renumbered net-new findings to `F28`–`F29`, and appended Pass `P9` (`P9-01`..`P9-26` → **163 total checks** across `P1`–`P9`) and `SD11` in `data/verification.json`.
+
+### 15.1 Net-new hallucinations, live page contradictions & dead URLs caught and repaired
+
+1. **Two transcribed platinum weight hallucinations caught on `R24` & `R25` (`data/rings.json`, `P8-04`/`P8-05` → `P9-08`/`P9-09`):**
+   - `R24` (`automicgold.com/products/claddagh-ring` chunk 5 Details block — chunk 1 is the cookie modal): live HTML prints **`"Approximately 2.3g (gold) or 3.5g (platinum)"`**, NOT `"3.4g (platinum)"`; corrected verbatim quote and added metal-dependent weight flag `WT5`.
+   - `R25` (`automicgold.com/products/gemstone-flower-ring` chunk 6 Details block): live HTML prints **`"Approximately 1.4g (gold) or 2.1g (platinum)"`**, NOT `"2.0g (platinum)"`; corrected verbatim quote and added `WT5` + `SPEC5` (`"4-8 business days"` buy box vs `"1-2 weeks"` Shipping & Returns, matching `R22`).
+2. **Closed §11.3 item #3 — `R03` upgraded from collection grid (`$648`) to dedicated PDP (`From $898`) & retired `L1` (`data/rings.json`, `data/flags.json`):**
+   - Opened `https://mejuri.com/products/slim-diamond-eternity-band` directly: `Solid White Gold (14k), Natural Diamond` prints **`From $898`** (`0.214 ct - 0.274 ct`, `1.1 mm`, rhodium-plated white gold), plus a live Materials subheading misprint (`"Solid Yellow Gold (14k)"` under White Gold, flagged `SPEC2`). Retired unused flag `L1`.
+3. **Closed §11.3 item #1 — Ring Concierge `2.08 ct` vs `5.63 ct` contradiction & 7-day bridal return trap (`data/products.json`, `data/retailers.json`, `F25`):**
+   - `ringconcierge-2-08-oval-lab-whisper-thin`: title/Details state `2.08 Carat, E Color, VS1 Clarity` while body prose claims `5.63 Carat, D Color, VVS2 Clarity` (`PAGE_SELF_CONTRADICTION`), and PDP Shipping & Returns restricts ready-made engagement rings to **7 days** (vs 30 days in general Refund Policy; updated `returns_window_days: 7` + `SHORT_RETURN_WINDOW`). Also confirmed `ringconcierge-2-72-round-lab-whisper-thin` (`$7,268`, `14K Yellow Gold with Platinum Prongs`, closing `PRICE_NOT_RECONFIRMED`).
+4. **4 additional dead HTTP 404 citations repointed & blocklisted (`data/flags.json`, `data/retailers.json`, `scripts/verify_dataset_c.py`, `F26`):**
+   - `SPEC5.source`: dead 404 `automicgold.com/products/1-50ctw-pear-shaped-lab-grown-diamond-engagement-ring-bezel-set` → live `radiant-cut-lab-diamond-cathedral-ring`.
+   - `WAR1.source`: dead 404 `sarraf.com/products/14k-white-gold-1-00-ctw-round-3-stone-diamond-engagement-ring-g-i1-3-80-gr.html` → live `14k-white-gold-solitaire-ring-0-94-ctw.html`.
+   - `aurate.returns_url`: dead 404 `/pages/returns-exchanges` → live `/pages/return-policy`.
+   - `ring-concierge.returns_url` & `contact_url`: dead 404 `/pages/shipping-returns` → live `/policies/refund-policy` & `/pages/faq` (`info@ringconcierge.com`).
+5. **Dataset C `STD-02` CFR fix, `BND-10` carat contradiction, VRAI/Menē policy precision & dynamic Oct 23 spot/melt math (`DC1`, `DC2`, `SD11`):**
+   - Fixed `STD-02` (`data/spot-and-standards.json`), which previously misattributed `16 CFR § 23.4` (Vermeil) as Gold Content (`§ 23.3`) and cited `16 CFR § 23.9` (Pewter!) instead of `§ 23.5`.
+   - Caught live ~10x carat contradiction on `BND-10` (`mejuri.com/.../pave-diamond-slim-signet-ring`: prose `"0.532ct"` vs spec `"0.044 ct - 0.056 ct"`).
+   - Clarified `S-VRAI` / `RET8` (`$300` recycling fee applies to ALL engagement-ring original-payment refunds `<$15,000`; orders `>$15,000` receive store credit only) and added `support.mene.com/.../4407022465633...` (10% card refund restocking fee) to `SEL-MENE` / `S-MENE` / `RET10`.
+   - Refreshed primary Oct 23 spot benchmarks (`prices.json`: GoldPrice.org `$4,022.22/oz` vs WGC `$4,024.45/oz`, `0.055%` delta; `spot-and-standards.json`: Kitco `$4,022.70/oz` = `$129.3328/g` vs BullionVault `$4,024.23/oz`) and replaced hardcoded `$4,025.10`/`$129.41`/`$317.05` literals across `scripts/build_ext_pages.py`, `scripts/run_security_audit.py`, and `scripts/audit.py` with dynamic JSON derivations.
+   - All **9** CI gates green locally: `verify.py` PASS · `verify_dataset_c.py` PASS (0 dead links) · `audit.py` `rows=31 errors=0 warnings=0 passed=173` · `run_security_audit.py` Pass #21 PASS (`SEC-01`..`SEC-07`, `2,105` links/anchors) · `render-test.js` `120/120` · `report_verify.py` `154 checks` · `858/858` `<tr>` rows with `https://` official links · `archive/session-cbea1001` `7/7` PASS.
+
+
+
