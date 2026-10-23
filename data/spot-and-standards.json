@@ -1,34 +1,33 @@
 {
   "metadata": {
     "project": "GOLD3 — Solid Gold Engagement Ring Verification & Anti-Hallucination Dashboard",
-    "verified_date_utc": "2026-10-23T20:17:00Z",
-    "session_id": "arena/438a583e-gold3 (Pass P12)",
+    "verified_date_utc": "2026-10-23T10:00:00Z",
+    "session_id": "arena/15b00e99-gold3",
     "zero_hallucination_policy": "Strictly enforced. Every numeric rate, legal threshold, conversion constant, price, and weight is extracted verbatim from an official primary source retrieved on 2026-10-23 or an official government/standards statute. Unconfirmed or JS-gated product values are left null and flagged.",
-    "reverified_by_session": "arena/6ccbc523-gold3 · arena/2908bea4-gold3 · arena/15b00e99-gold3 · arena/438a583e-gold3 (Pass P12) · arena/438a583e-gold3 (Pass P12)",
+    "reverified_by_session": "arena/6ccbc523-gold3 · arena/2908bea4-gold3 · arena/15b00e99-gold3",
     "reverified_date_utc": "2026-10-23T10:34:00Z"
   },
   "spot_gold_benchmark": {
     "primary_source_name": "Kitco Live World Spot Price (USD)",
     "primary_source_url": "https://www.kitco.com/price/precious-metals",
-    "quote_timestamp_local": "Oct 23, 2026 16:17 NY Time",
-    "quote_timestamp_utc": "2026-10-23T20:17:00Z",
-    "spot_bid_usd_per_troy_oz": 3996.2,
-    "spot_ask_usd_per_troy_oz": 3998.2,
-    "day_low_usd_per_troy_oz": 3975.1,
-    "day_high_usd_per_troy_oz": 4040.2,
+    "quote_timestamp_local": "Oct 23, 2026 05:56 EST",
+    "quote_timestamp_utc": "2026-10-23T10:56:00Z",
+    "spot_bid_usd_per_troy_oz": 4022.7,
+    "spot_ask_usd_per_troy_oz": 4024.7,
+    "day_low_usd_per_troy_oz": 4003.6,
+    "day_high_usd_per_troy_oz": 4050.6,
     "london_fix_oct22_1000_ny_usd": 4026.66,
-    "spot_usd_per_gram_24k_exact": 128.4808,
+    "spot_usd_per_gram_24k_exact": 129.3328,
     "secondary_cross_check": {
       "source_name": "BullionVault Live Wholesale Gold Market Feed",
       "source_url": "https://www.bullionvault.com/gold-price-chart.do",
-      "quote_timestamp_local": "23 October 2026, 16:17:24 (GMT-04:00)",
-      "quote_timestamp_utc": "2026-10-23T20:17:00Z",
-      "spot_mid_usd_per_troy_oz": 3997.14,
-      "spot_usd_per_gram": 128.51,
-      "spot_usd_per_kg": 128511.04,
-      "inter_source_delta_usd_per_oz": 0.94,
-      "inter_source_delta_pct": 0.024,
-      "verbatim_quote": "Current Gold Price - $3,997.14 per Ounce | Gold Price per Gram $128.51 | Gold Price per Kilo $128,511 | 23 October 2026, 16:17:24 (GMT-04:00)"
+      "quote_timestamp_local": "23 October 2026, 05:57 (GMT-04:00)",
+      "quote_timestamp_utc": "2026-10-23T09:57:00Z",
+      "spot_mid_usd_per_troy_oz": 4024.23,
+      "spot_usd_per_gram": 129.38,
+      "spot_usd_per_kg": 129382.0,
+      "inter_source_delta_usd_per_oz": 1.53,
+      "inter_source_delta_pct": 0.038
     },
     "live_corroboration_2026_10_23": {
       "checked_utc": "2026-10-23T09:56:00Z",
@@ -42,10 +41,7 @@
       "bullionvault_usd_per_gram": 129.38,
       "bullionvault_timestamp": "23 October 2026, 05:57:08 (GMT-04:00)",
       "delta_vs_anchor_pct": -0.06
-    },
-    "daily_change_usd_per_troy_oz": -27.2,
-    "daily_change_pct": -0.68,
-    "verbatim_quote": "GOLD Oct 23, 2026 16:17 3,996.20 3,998.20 -27.20 -0.68% 3,975.10 4,040.20"
+    }
   },
   "nist_conversion_constants": {
     "troy_ounce_to_grams": 31.1034768,
@@ -71,8 +67,8 @@
       "millesimal_stamp": "999 / 999.9",
       "pure_gold_fraction": 1.0,
       "pure_gold_pct": 100.0,
-      "usd_per_gram_at_spot": 128.48,
-      "usd_per_troy_oz_at_spot": 3996.2,
+      "usd_per_gram_at_spot": 129.33,
+      "usd_per_troy_oz_at_spot": 4022.7,
       "legal_status_us_uk": "Legal finest grade in US (FTC 16 CFR Part 23) & UK (Hallmarking Act 1973 Schedule 2 mark 999)",
       "ring_suitability_note": "Pure gold; zero base alloy tarnish; softer micro-hardness—requires thicker shank (>= 2.0 mm / >= 4–6 g) for daily engagement wear.",
       "source_url": "https://www.legislation.gov.uk/ukpga/1973/43"
@@ -83,8 +79,8 @@
       "millesimal_stamp": "916",
       "pure_gold_fraction": 0.91666667,
       "pure_gold_pct": 91.67,
-      "usd_per_gram_at_spot": 117.77,
-      "usd_per_troy_oz_at_spot": 3663.18,
+      "usd_per_gram_at_spot": 118.56,
+      "usd_per_troy_oz_at_spot": 3687.48,
       "legal_status_us_uk": "Recognized solid karat standard in US & UK (916.6 parts per 1,000; mark 916)",
       "ring_suitability_note": "Traditional heirloom & South Asian bridal purity; warm saturated color; best with bezel or heavier prong settings.",
       "source_url": "https://www.legislation.gov.uk/ukpga/1973/43"
@@ -95,8 +91,8 @@
       "millesimal_stamp": "750",
       "pure_gold_fraction": 0.75,
       "pure_gold_pct": 75.0,
-      "usd_per_gram_at_spot": 96.36,
-      "usd_per_troy_oz_at_spot": 2997.15,
+      "usd_per_gram_at_spot": 97.0,
+      "usd_per_troy_oz_at_spot": 3017.03,
       "legal_status_us_uk": "Fine luxury standard worldwide (750 parts per 1,000; US 15 U.S.C. § 295 & UK mark 750)",
       "ring_suitability_note": "High intrinsic gold content with rich color and low alloy allergy risk; top choice for fine engagement solitaires.",
       "source_url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title15/html/USCODE-2023-title15-chap8.htm"
@@ -107,8 +103,8 @@
       "millesimal_stamp": "585",
       "pure_gold_fraction": 0.585,
       "pure_gold_pct": 58.5,
-      "usd_per_gram_at_spot": 75.16,
-      "usd_per_troy_oz_at_spot": 2337.78,
+      "usd_per_gram_at_spot": 75.66,
+      "usd_per_troy_oz_at_spot": 2353.28,
       "legal_status_us_uk": "International & UK statutory 14ct standard (585 parts per 1,000 under UK Hallmarking Act 1973)",
       "ring_suitability_note": "Slightly higher gold purity than exact fractional 14/24 (58.5% vs 58.33%); common on European-hallmarked rings.",
       "source_url": "https://www.gov.uk/government/publications/hallmarking-guidance-notes/hallmarking-is-the-law-guidance-summary"
@@ -119,8 +115,8 @@
       "millesimal_stamp": "14K / 583",
       "pure_gold_fraction": 0.58333333,
       "pure_gold_pct": 58.33,
-      "usd_per_gram_at_spot": 74.95,
-      "usd_per_troy_oz_at_spot": 2331.12,
+      "usd_per_gram_at_spot": 75.44,
+      "usd_per_troy_oz_at_spot": 2346.57,
       "legal_status_us_uk": "Most common US engagement ring alloy; 15 U.S.C. § 295 allows max 0.003 unsoldered / 0.007 soldered tolerance.",
       "ring_suitability_note": "Strongest balance of daily scratch/prong durability and substantial gold content (58.33% fine gold).",
       "source_url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title15/html/USCODE-2023-title15-chap8.htm"
@@ -131,8 +127,8 @@
       "millesimal_stamp": "10K / 417",
       "pure_gold_fraction": 0.41666667,
       "pure_gold_pct": 41.67,
-      "usd_per_gram_at_spot": 53.53,
-      "usd_per_troy_oz_at_spot": 1665.08,
+      "usd_per_gram_at_spot": 53.89,
+      "usd_per_troy_oz_at_spot": 1676.13,
       "legal_status_us_uk": "Minimum legal karat threshold to be called 'Karat Gold' in the United States without qualification (16 CFR § 23.3, up to date as of 10/21/2026).",
       "ring_suitability_note": "Contains 58.33% base alloy metals; harder and pale yellow, lower intrinsic gold value and higher potential skin sensitivity.",
       "source_url": "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23/section-23.3"
@@ -143,8 +139,8 @@
       "millesimal_stamp": "375",
       "pure_gold_fraction": 0.375,
       "pure_gold_pct": 37.5,
-      "usd_per_gram_at_spot": 48.18,
-      "usd_per_troy_oz_at_spot": 1498.57,
+      "usd_per_gram_at_spot": 48.5,
+      "usd_per_troy_oz_at_spot": 1508.51,
       "legal_status_us_uk": "Legal minimum in UK (375 fineness under Hallmarking Act 1973), but CANNOT be marketed simply as 'Gold' in US without percentage disclosure (16 CFR § 23.3).",
       "ring_suitability_note": "Buyer warning for US shoppers importing UK/Australian rings: contains only 37.5% pure gold.",
       "source_url": "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23/section-23.3"

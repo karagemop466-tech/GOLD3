@@ -16,6 +16,10 @@ recomputed from them with the same formulas the CI gates re-check.
 Refuses to run twice for the same capture id, and refuses to run if the anchor
 date is not today, so nobody can silently "refresh" with an old number.
 
+This is a maintenance tool, NOT part of the build: the project keeps a dated
+calculation anchor and publishes the live reading beside it (findings F39 / F44),
+so nothing calls this script automatically and nothing should re-anchor silently.
+
 Usage:  python3 scripts/refresh_spot_anchor.py [--check]
         --check  verify the on-disk numbers still reproduce from the stored
                  anchor, exit 1 if they do not (no writes)

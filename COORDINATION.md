@@ -942,6 +942,7 @@ links/anchors) · `render-test.js` **127/127** · `report_verify.py` **192 check
 *"14 of 50 combined"*, because those two cards were built from the A+B metrics. Both are now computed
 (`TOTAL_ROWS` = 71, `C_WEIGHT_PUBLISHED` = 5 → **"19 of 71 combined"**). Caught by reading the live site back after the
 deploy rather than by trusting the build, which is the check this project requires after every publish.
+<<<<<<< HEAD
 
 ---
 
@@ -968,3 +969,62 @@ deploy rather than by trusting the build, which is the check this project requir
 ### 19.3 Gates on the merged tree (all nine, locally, in workflow order)
 
 `verify.py` **PASS** · `verify_dataset_c.py` **PASS** (21 rings, 5 sellers, 7 standards, 0 dead links) · `build_ext_pages.py` + `build_site.py` **PASS** (18 pages / 19 listings / 5 retailers) · `audit.py` **`rows=31 errors=0 warnings=0 passed=176`** · `run_security_audit.py` **Pass #29 PASS** (`SEC-01`…`SEC-07`, 2,220 links/anchors) · `render-test.js` **127/127** · `report_verify.py` **204 checks across 14 passes** · root-HTML `<tr>` gate **936 rows / 0 missing** official links · `archive/session-cbea1001` **PASS**.
+=======
+## 19. Session `arena/fb7e5e3c-gold3` — Pass P13: Mejuri heading contradiction, Dataset B/C karat coverage, stale-prose repair (2026-10-23)
+
+**Coordination note (multi-session):** this session started from `main` @ `253ab39`, and a concurrent session
+`arena/57724486-gold3` landed pass `P12` (PR #51, `7406ee9`) and then the `SD14` follow-up (PR #52 → PR #53, `1b182f0`) while
+this pass was running. The branch was rebased onto `1b182f0` before the pull request. Before pushing, this branch was
+**reset onto `origin/main` and the work re-applied**, so nothing from PR #51 was overwritten. The two passes found overlapping
+defects; the resolution keeps the *first-merged* session's numbering and renumbers mine:
+
+| Overlapping item | Concurrent session (`57724486`, merged first) | This session (`fb7e5e3c`) after integration |
+|---|---|---|
+| Duplicate `P11` ledger ids | renumbered the later pass to **`P11b`** | adopted as-is; no second renumbering |
+| Live spot re-read (0.62% drift) | **`P12-01`** + `live-check` snapshot + **F39** | not duplicated; recorded in `data/reverification-fb7e5e3c.json` as corroboration only |
+| Stale counts in dashboard/combined prose | **`SD14`**, **`SD15`** | only the surviving defects fixed, as **`SD20`** (stale `$4,026.79`/`$4,024.36` anchor, "15 of 22 rows", "115 checks") |
+| Karat category pages | not addressed | **`SD18`** / **F42** (own scope) |
+| Mejuri materials heading | not addressed | **`SD19`** / **F41** (own scope) |
+
+**File scope actually touched:** `data/flags.json`, `data/rings.json`, `data/findings.json` (F41–F43),
+`data/verification.json` (pass `P13`, checks `P13-01`…`P13-07`, site defects `SD18`–`SD20`),
+`data/reverification-fb7e5e3c.json`, `reports/reverification-pass-fb7e5e3c.md`, `scripts/build_site.py`,
+`scripts/render-test.js`, rebuilt root HTML, `reports/*`, `README.md`, `COORDINATION.md`. `archive/**` untouched.
+
+### 19.1 Live verification performed (7 pages, 2026-10-23)
+
+`P13-01` Mejuri Bold Diamond Eternity (R01) · `P13-02` Mejuri Bold Diamond Half Eternity (R02) · `P13-03` Mejuri Slim Diamond
+Eternity Band (R03) · `P13-04` Ross-Simons 985230 + 932728 (R15, R16) · `P13-05` Sarraf 14k WG solitaire (R20) · `P13-06`
+Sarraf 10k comfort-fit band (R21) · `P13-07` Local Eclectic Simple Knot (R31).
+**Result:** 5 confirmed · 1 corrected at the data level · 1 flagged. Every stored price, karat and gram weight matched the live
+page verbatim; `R15`'s `Gold Weight 0.7 grams`, `R20`'s `3.80 grams` and `R21`'s `8.30 grams` + size-10 qualifier all reconfirmed.
+Sources: `https://mejuri.com/products/bold-diamond-eternity-ring`, `.../bold-diamond-half-eternity-ring`,
+`.../slim-diamond-eternity-band`, `https://www.ross-simons.com/products/985230`, `https://www.ross-simons.com/products/932728`,
+`https://www.sarraf.com/products/14k-white-gold-solitaire-ring-0-94-ctw.html`,
+`https://www.sarraf.com/products/10k-gold-6mm-high-polished-comfort-fit-wedding-band.html`,
+`https://www.localeclectic.com/products/solid-gold-simple-knot-ring`.
+
+### 19.2 Irregularities filed
+
+* **`F41` (medium)** — Mejuri prints `Solid Yellow Gold (14k)` as the Materials heading above a `Solid White Gold (14k)` swatch
+  line on R01 and R03. New flag **`SPEC8`**; the misapplied **`SPEC2`** removed from R03 (it defines the Local Eclectic 9k/10k
+  contradiction, re-confirmed live on R31 in `P13-07`).
+* **`F42` / `SD18` (high)** — `14k.html` and `18k.html` rendered Dataset A only (14 / 2 rows) and `18k.html` asserted *"No 18K
+  listing here is a complete, verified ring at a verified price"*, contradicted by R15/R17/R26/R29. Both pages now render a
+  Dataset B + C table for that karat (31 and 13 rows) with an official source link on every row.
+* **`F43` / `SD20` (medium)** — `combined.html` still printed `$4,026.79/oz … $4,024.36/oz … 0.06% apart` and `methodology.html`
+  still printed `15 of 22 rows` and `115 checks`; all four figures are now derived at build time, and the calculator surfaces the
+  labelled live-check reading.
+
+### 19.3 Verification performed on the integrated tree (all 9 CI gates, locally)
+
+`verify.py` **PASS** · `verify_dataset_c.py` **PASS** (21 rings, 5 sellers, 0 dead links) · `build_ext_pages.py` + `build_site.py`
+**PASS** (18 pages, internal links OK) · `audit.py` **PASS** (`rows=31 errors=0 warnings=0 passed=176`) ·
+`run_security_audit.py` **PASS** (`SEC-01`…`SEC-07`, 2,312 links/anchors) · `render-test.js` **PASS** (`145/145`) ·
+`report_verify.py` **PASS** (199 checks) · root-HTML `https://` row gate **PASS** (977 rows, 0 missing) ·
+`archive/session-cbea1001` **PASS** (270 external links, 71 unique JSON sources).
+
+### 19.4 PR, merge and deployment record
+
+_TO BE COMPLETED after the pull request is opened, merged and GitHub Pages redeployed._
+>>>>>>> origin/main

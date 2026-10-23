@@ -1,9 +1,9 @@
 # Anti-hallucination audit report
 
-- Run: 2026-10-23 20:25 UTC
+- Run: 2026-10-23 20:28 UTC
 - Rows audited: **31**
 - Sellers audited: **14**
-- Flag definitions: **53**
+- Flag definitions: **54**
 - Result: **PASS** — 0 error(s), 0 warning(s), 176 check(s) passed
 
 ## What this pass is looking for
@@ -36,9 +36,9 @@ None.
 - [files] data/standards.json present
 - [files] data/flags.json present
 - [files] data/verification.json present
-- [gold-price] spot price present: 3996.31 USD/oz
+- [gold-price] spot price present: 4024.36 USD/oz
 - [gold-price] source is the World Gold Council (gold.org)
-- [gold-price] per-gram value reproduces: $128.4844/g (computed, not stored)
+- [gold-price] per-gram value reproduces: $129.3862/g (computed, not stored)
 - [sources] R01: 2 official source link(s)
 - [price] R01: $2,900 matches its quoted source text
 - [solid] R01: PASS backed by a quote containing 'solid'
@@ -174,11 +174,11 @@ None.
 - [domain] R29: brilliantearth.com belongs to brilliantearth.com
 - [domain] R30: mene.com belongs to mene.com
 - [domain] R31: localeclectic.com belongs to localeclectic.com
-- [verify] all 204 verification check ids are unique
+- [verify] all 211 verification check ids are unique
 - [verify] all 31 rows appear in the verification log
 - [verify] summary counts recomputed from the entries and match
-- [flags] 53 flag definitions validated
-- [verify] all 15 site-defect ids are unique
+- [flags] 54 flag definitions validated
+- [verify] all 18 site-defect ids are unique
 - [standards] all karat fractions reproduce n/24
 - [standards] 8 legal rules carry citations
 - [site] verify.html present

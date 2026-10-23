@@ -1,4 +1,4 @@
-# Pass P13 — live spot promotion and full weight-bearing re-read
+# Pass P14 — full weight-bearing re-read and four-feed spot corroboration
 
 - **Session:** `arena/438a583e-gold3`
 - **Date:** 2026-10-23, reads taken at 20:17Z / 16:17 NY Time
@@ -6,12 +6,11 @@
   page returned a figure, the figure is quoted verbatim; where it returned
   nothing (a JavaScript-only price), the value stays null and is recorded as
   unverified rather than estimated.
-- **Checks:** `P13-01` … `P13-12` in `data/verification.json`
-  (204 checks across 14 passes after this one).
-- **Renumbered:** drafted as pass `P12`, but session `arena/57724486-gold3` merged its own
-  `P12` (PR #51) while this pass was in flight. Every id here moved to `P13` and the new
-  finding to `F41`. Their seven checks, their Menē corrections, flag `SRC3`, defects
-  `SD14`/`SD15` and their three `audit.py` guards are preserved unchanged.
+- **Checks:** `P14-01` … `P14-12` in `data/verification.json`
+  (211 checks across 15 passes after this one).
+- **Renumbered twice:** drafted as `P12`, but `arena/57724486-gold3` merged its own `P12`
+  (PR #51) mid-flight, and `arena/fb7e5e3c-gold3` then merged its own `P13` (PR #54). Every id
+  here is `P14` and the new finding is `F44`. All of their merged work is preserved unchanged.
 
 ## 1. Why this pass exists
 
@@ -37,42 +36,26 @@ place would have overstated every melt figure by 0.62%. Finding **F39** (raised 
 than acting on it) records that move, and **F41** records this pass's decision to promote the
 corroborated read to the calculation anchor. Both tell the reader to treat every melt number as dated.
 
-## 2. What was recomputed
+## 2. What this pass did — and deliberately did not do
 
-`scripts/refresh_spot_anchor.py` (new, committed) does the arithmetic rather than
-a human editing five JSON files:
+The live reading is **published, not promoted**. Two earlier sessions independently
+caught the same 0.62% gap and both chose to keep the dated calculation anchor and
+show the live figure as a reference row (finding `F39`). Rather than re-litigate a
+decision that had already been taken twice, this pass **confirms** their reading,
+adds three more independent feeds at the same minute, and leaves every stored
+number untouched. The melt arithmetic therefore still reproduces exactly from
+`$4,022.70/oz = $129.3328/g` (checked as `P14-12`).
 
-- `data/prices.json` — new primary snapshot `goldprice-org-2026-10-23T2017Z`
-  ($3,997.22) and cross-check `world-gold-council-2026-10-23T2017Z` ($3,996.31).
-  The two superseded snapshots are kept, relabelled `history`, so the audit trail
-  and the sources page still show what was quoted earlier.
-- `data/spot-and-standards.json` — Kitco bid/ask/day-range/timestamp refreshed;
-  USD/gram recomputed as `3,996.20 ÷ 31.1034768 = 128.4808`; all **7** karat
-  tiers recomputed; BullionVault cross-check refreshed.
-- `data/bands-and-high-karat.json` / `data/solitaire-rings.json` — the **4**
-  weight-complete melt rows recomputed and the spot reference updated:
+What is added instead:
 
-  | Row | Weight | Melt before | Melt after | Price ÷ melt |
-  |---|---|---|---|---|
-  | BND-04 | 1.7 g | $128.26 | **$127.41** | 3.12 → 3.14 |
-  | BND-05 | 4.2 g | $316.87 | **$314.78** | 2.99 → 3.01 |
-  | BND-06 | 4.0 g | $301.77 | **$299.78** | 3.96 → 3.99 |
-  | BND-07 | 2.1 g | $158.43 | **$157.39** | 3.78 → 3.81 |
-
-  The 16 rows with no published weight keep `pure_gold_grams` / `melt_value_usd`
-  null. A re-anchor is not a licence to fill them in.
-- `data/gold-price.json` — Dataset A/B anchor moved to the WGC reading.
-- `data/findings.json` (F12 control check, F39 new), `data/sources.json`
-  (verbatim spot quotes), `data/products.json` and `data/flags.json` (narrative
-  references that quoted the superseded figure).
-- `scripts/build_site.py` — the "where the two datasets agree" paragraph had a
-  hard-coded `$4,024.36` / `$4,026.79`; it now renders whatever the snapshots say,
-  so it cannot drift again.
-- `scripts/audit.py` — the stray-number rule now also accepts a figure that
-  appears in the append-only pass log, because the security-audit page renders
-  its own past output verbatim (`$4,022.70 / 31.1034768 = $129.3328/g` from the
-  09:56Z pass). Historical pass output is a record, not a new claim; it should
-  not be rewritten, and the page should not be flagged for printing it.
+- **`scripts/refresh_spot_anchor.py`** (new): if the owner ever decides to promote a
+  live reading, this performs the whole re-anchor from one dated capture — 2
+  snapshots, 7 karat tiers, 4 melt rows, both Dataset C spot references — keeps the
+  superseded snapshots as `history`, refuses to run when the capture date is not
+  today, and supports `--check`. It is the reviewed alternative to hand-editing
+  five JSON files, and it is **not** run as part of the build.
+- **Four-feed corroboration** of the live reading so the reference row is not a
+  single-publisher claim.
 
 ## 3. Every weight-bearing listing, re-read live
 

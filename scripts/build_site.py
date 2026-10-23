@@ -122,6 +122,35 @@ CROSS = next(s for s in prices_doc["snapshots"] if s["role"] == "cross-check")
 SPOT = float(PRIMARY["price_usd_per_troy_oz"])
 SPOT_GRAM = SPOT / OZ_GRAMS
 
+# Dataset B's own anchor and the latest audit tally, read from files so the prose cannot
+# drift from the data it describes (site defect SD20, finding F43).
+try:
+    _gp = json.loads((DATA / "gold-price.json").read_text(encoding="utf-8"))
+    B_SPOT = _gp.get("price_usd_per_troy_ounce")
+    B_SPOT_ASOF = _gp.get("as_of_market_date") or ""
+except Exception:  # pragma: no cover - the file is part of the repo
+    B_SPOT, B_SPOT_ASOF = SPOT, ""
+try:
+    _audit_md = (ROOT / "reports" / "audit-report.md").read_text(encoding="utf-8")
+    _m = re.search(r"(\d[\d,]*) check\(s\) passed", _audit_md)
+    AUDIT_CHECKS_TEXT = (f"{_m.group(1)} checks, 0 errors at the last recorded run." if _m
+                         else "The script prints its own pass count; the gate that matters is 0 errors.")
+except Exception:  # pragma: no cover
+    AUDIT_CHECKS_TEXT = "The script prints its own pass count; the gate that matters is 0 errors."
+
+# Pass P13: the third snapshot in prices.json is an explicitly labelled live-check reading
+# that no calculation consumes. Show it beside the pre-filled field, never instead of it.
+LIVE = next((s for s in prices_doc["snapshots"] if str(s.get("role", "")).startswith("live-check")), None)
+LIVE_NOTE = ""
+if LIVE:
+    _delta = (float(LIVE["price_usd_per_troy_oz"]) - SPOT) / SPOT * 100
+    LIVE_NOTE = (
+        f"Latest independent re-read ({e(LIVE.get('captured_on',''))}): "
+        f"{money(float(LIVE['price_usd_per_troy_oz']), 2)}/oz ({e(LIVE.get('as_of_text',''))}), "
+        f"{abs(_delta):.2f}% below the pre-filled snapshot. The stored figure is a dated capture, not today's price: "
+        "enter the live one before you rely on a melt comparison (findings F39 and F43)."
+    )
+
 # fill computed counts into finding text; verify.py guarantees the placeholders exist
 FINDINGS = []
 for f in findings_doc["findings"]:
@@ -695,8 +724,9 @@ def build_combined() -> str:
 
 <h2>Where the two passes agree - and where they don't</h2>
 <div class="card">
-  <p class="small"><strong>Agree:</strong> the gold spot anchor. Dataset B records the World Gold Council figure of {money(float(CROSS['price_usd_per_troy_oz']),2)}/oz ({e(CROSS['as_of_text'])});
-  Dataset A uses GoldPrice.org at {money(SPOT,2)}/oz ({e(PRIMARY['as_of_text'])}) and lists the World Gold Council figure as its cross-check. The two are {e(str(prices_doc['cross_check']['difference_percent']))}% apart.</p>
+  <p class="small"><strong>Agree:</strong> the gold spot anchor. Dataset B records the World Gold Council figure of {money(float(B_SPOT), 2)}/oz ({e(B_SPOT_ASOF)});
+  Dataset A uses GoldPrice.org at {money(SPOT, 2)}/oz ({e(PRIMARY['as_of_text'])}) and lists the World Gold Council figure of {money(float(CROSS['price_usd_per_troy_oz']), 2)}/oz as its cross-check
+  ({(abs(SPOT - float(CROSS['price_usd_per_troy_oz'])) / SPOT) * 100:.2f}% apart). Both are dated captures, not live quotes; the live-check reading is shown on the <a href="calculator.html">calculator</a>.</p>
   <p class="small"><strong>Agree:</strong> "solid gold" is rarely stated on listings. Both passes independently flagged it as the norm rather than the exception.</p>
   <p class="small"><strong>Differ:</strong> weight publication. Dataset A's five retailers publish none; Dataset B found Ross-Simons publishing
   approximate gram weights. That is why finding F2 is now scoped to "this pass" and reports the combined figure separately.</p>
@@ -735,7 +765,109 @@ def build_rings() -> str:
                 f"The {len(PRODUCTS)} solid gold ring listings verified in dataset A, with price, purity, weight status and source links. Full combined list on combined.html.")
 
 
-def build_category(slug: str, cat: str, title: str, intro: str, extra: str = "") -> str:
+def karat_cross_rows(key: str):
+    """Dataset B rows and Dataset C items at a karat, excluding documented look-alikes.
+
+    Returns (rows_html, counts). Every row carries its own https source link; nothing is
+    inferred - a cell the seller does not publish stays blank and says so.
+    """
+    out = []
+    n_b = n_c = n_price = n_weight = 0
+    for it in OTHER_ITEMS:
+        kl = str(it.get("karat") or "").lower()
+        if key not in kl:
+            continue
+        if "plating" in kl or "vermeil" in kl:
+            continue
+        price = it.get("price_usd")
+        weight = it.get("weight_g")
+        n_b += 1
+        n_price += 1 if isinstance(price, (int, float)) else 0
+        n_weight += 1 if weight is not None else 0
+        verdict = str(it.get("solid_gold_verdict") or "")
+        if verdict.startswith("PASS"):
+            solid = '<span class="badge good">Stated</span>'
+        elif verdict.startswith("FAIL"):
+            solid = '<span class="badge bad">Excluded</span>'
+        else:
+            solid = '<span class="badge warn">Not stated</span>'
+        price_html = money(price) if isinstance(price, (int, float)) else '<span class="badge neutral">no price</span>'
+        if weight is not None:
+            wq = (it.get("weight_quote") or "").lower()
+            wnote = "approx." if "approximate" in wq else ("incl. stone" if ("includes" in wq or "total weight" in wq) else "")
+            weight_html = f'{float(weight):g} g' + (f'<span class="sub">{wnote}</span>' if wnote else "")
+        else:
+            weight_html = '<span class="badge neutral">not published</span>'
+        chips = ""
+        for fid in (it.get("flags") or [])[:3]:
+            leg = FLAG_LEGEND.get(fid) or {}
+            sev = leg.get("severity", "")
+            chips += f'<span class="badge {"bad" if sev == "high" else "warn"}">{e(leg.get("label") or fid)}</span>'
+        extra = len(it.get("flags") or []) - 3
+        if extra > 0:
+            chips += f'<span class="badge neutral">+{extra}</span>'
+        out.append(f"""<tr id="x-{e(it['id'])}">
+          <td><span class="sub">Dataset B</span><br><a href="{e(it['url'])}" target="_blank" rel="noopener">{e(it.get('product') or it['id'])}</a><span class="sub">{e(it['id'])}</span></td>
+          <td>{e(it.get('seller') or '-')}</td>
+          <td>{e(it.get('karat') or '-')}</td>
+          <td>{solid}</td>
+          <td class="num">{price_html}</td>
+          <td>{weight_html}</td>
+          <td>{chips}</td>
+          <td><a href="{e(it['url'])}" target="_blank" rel="noopener">source</a></td>
+        </tr>""")
+    for it in DATASET_C_ITEMS:
+        kl = str(it.get("karat_label") or "").lower()
+        if key not in kl:
+            continue
+        price = it.get("price_usd")
+        weight = it.get("weight_grams")
+        n_c += 1
+        n_price += 1 if isinstance(price, (int, float)) else 0
+        n_weight += 1 if weight is not None else 0
+        solid = ('<span class="badge good">Stated</span>' if it.get("explicit_solid_wording")
+                 else '<span class="badge warn">Not stated</span>')
+        price_html = money(price) if isinstance(price, (int, float)) else '<span class="badge neutral">no price</span>'
+        weight_html = (f'{float(weight):g} g' if weight is not None
+                       else '<span class="badge neutral">not published</span>')
+        chips = ""
+        for fid in (it.get("flags") or [])[:3]:
+            leg = FLAG_LEGEND.get(fid) or {}
+            sev = leg.get("severity", "")
+            chips += f'<span class="badge {"bad" if sev == "high" else "warn"}">{e(leg.get("label") or fid)}</span>'
+        url = it.get("product_url") or ""
+        out.append(f"""<tr id="x-{e(it['id'])}">
+          <td><span class="sub">Dataset C</span><br><a href="{e(url)}" target="_blank" rel="noopener">{e(it.get('product_name') or it['id'])}</a><span class="sub">{e(it['id'])}</span></td>
+          <td>{e(it.get('seller_name') or '-')}</td>
+          <td>{e(it.get('karat_label') or '-')}</td>
+          <td>{solid}</td>
+          <td class="num">{price_html}</td>
+          <td>{weight_html}</td>
+          <td>{chips}</td>
+          <td><a href="{e(url)}" target="_blank" rel="noopener">source</a></td>
+        </tr>""")
+    return "\n".join(out), {"b": n_b, "c": n_c, "price": n_price, "weight": n_weight}
+
+
+def karat_cross_block(key: str, label: str) -> str:
+    rows, c = karat_cross_rows(key)
+    if not rows:
+        return ""
+    return f"""
+<h2 id="cross-{key}">All {label} listings in the combined dataset ({c['b']} from Dataset B, {c['c']} from Dataset C)</h2>
+<p class="small muted">Added by Pass P13 (finding F42): the table above is Dataset A only. These are the {label} rows from the other two datasets,
+each with its own official source link, the price exactly as captured, and the published weight (blank and marked
+<em>not published</em> where the seller prints none). Vermeil and plating-only look-alikes are excluded here and documented on the
+<a href="excluded.html">Excluded</a> page. {c['price']} of these {c['b'] + c['c']} publish a price; {c['weight']} publish a finished weight.</p>
+<div class="table-wrap">
+  <table id="cross-{key}">
+    <thead><tr><th>Listing</th><th>Seller</th><th>Karat</th><th>Solid gold</th><th class="num">Price</th><th>Weight</th><th>Flags</th><th>Source</th></tr></thead>
+    <tbody>{rows}</tbody>
+  </table>
+</div>"""
+
+
+def build_category(slug: str, cat: str, title: str, intro: str, extra: str = "", cross_karat: str | None = None) -> str:
     items = by_cat(cat)
     body = f"""
 {policy_box()}
@@ -751,6 +883,7 @@ def build_category(slug: str, cat: str, title: str, intro: str, extra: str = "")
 </div>
 {extra}
 {listings_table(items, table_id='cat-listings', buttons=False)}
+{karat_cross_block(cross_karat, title.replace(' solid gold rings','')) if cross_karat else ''}
 """
     return page(f"{slug}.html", title, body, intro[:150])
 
@@ -882,6 +1015,7 @@ def build_calculator() -> str:
       <input type="number" id="calc-spot" value="{SPOT}" step="0.01" min="0">
       <p class="tiny muted" style="margin:4px 0 0">Pre-filled with the {CAPTURED} snapshot: {money(SPOT,2)}/oz ({e(PRIMARY['as_of_text'])}).
       Change it to test another price.</p>
+      {f'<p class="tiny" style="margin:4px 0 0;color:#8a5a00"><strong>{LIVE_NOTE}</strong></p>' if LIVE_NOTE else ''}
     </div>
     <div class="field">
       <label for="calc-karat">Karat</label>
@@ -1149,9 +1283,9 @@ def build_methodology() -> str:
         ("2", "Quote matching", "Attach the verbatim sentence to each price, weight and purity claim.",
          "Every populated value carries a quote; the audit fails the build if a price is absent from its own quote."),
         ("3", "Blank discipline", "Any field absent from the official page is set to null and flagged.",
-         "15 of 22 rows do not publish a weight; those cells are blank and flagged W1, never estimated."),
+         f"{sum(1 for r in OTHER_ITEMS if r.get('weight_g') is None)} of {len(OTHER_ITEMS)} Dataset B rows and {sum(1 for x in PRODUCTS if x.get('weight_g') is None)} of {len(PRODUCTS)} Dataset A rows do not publish a usable weight; those cells are blank and flagged W1, never estimated."),
         ("4", "Self-audit", "Run scripts/audit.py: it re-derives arithmetic and hunts invented values.",
-         "115 checks, 0 errors. It has caught this project's own overreaches twice, most recently seven invented metal options."),
+         f"{AUDIT_CHECKS_TEXT} It has caught this project's own overreaches repeatedly, most recently stale spot and count figures typed into the build script (site defect SD20)."),
         ("5", "Cross-session reconciliation", "Merge the other sessions' datasets; re-open their unique listings rather than trusting them.",
          "Every adopted row was re-fetched and re-quoted; nothing was imported on trust."),
         ("6", "Re-verification pass", "Reopen every cited URL and search the returned text for each stored value.",
@@ -1753,6 +1887,10 @@ def build_excluded() -> str:
                 "Vermeil and plated rings that fail the solid-gold requirement, shown with the regulation that defines them.")
 
 
+KARAT14 = karat_cross_rows("14k")[1]
+KARAT18 = karat_cross_rows("18k")[1]
+
+
 def build() -> None:
     pages = {
         "index.html": build_index(),
@@ -1760,18 +1898,24 @@ def build() -> None:
         "combined.html": build_combined(),
         "14k.html": build_category(
             "14k", "14k", "14K solid gold rings",
-            "14K is 58.3% gold. It is the hardest-wearing karat commonly sold in the US and the price point most listings sit at. "
-            "Note how few listings state the word <em>solid</em> or publish a single ring weight - those are the gaps this page exists to show.",
+            f"14K is 58.3% gold. It is the hardest-wearing karat commonly sold in the US and the price point most listings sit at. "
+            f"The first table is Dataset A ({len(by_cat('14k'))} listings). The second lists every 14K row from Dataset B and Dataset C "
+            f"({KARAT14['b']} + {KARAT14['c']}), each with its own source link. "
+            f"Note how few listings state the word <em>solid</em> or publish a single ring weight - those are the gaps this page exists to show.",
+            cross_karat="14k",
             extra="""<div class="note-box" style="margin-bottom:16px"><strong>Aurate's 14K product pages were re-verified live on 23 October 2026.</strong>
             All seven Aurate listings now link directly to their live product pages (18K and platinum options cost more and were not captured).
             Notice that every Aurate page pairs a <em>Free Returns</em> badge with <em>Exchange for size only. Final Sale!</em> and publishes only multi-metal ranges or stone-inclusive weights.</div>"""),
         "18k.html": build_category(
             "18k", "18k", "18K solid gold rings",
-            "18K is 75% gold - more gold per gram, a softer alloy, and a higher price. Only two listings in this dataset publish a usable 18K price, "
-            "and both are settings whose centre diamond is sold separately.",
+            f"18K is 75% gold - more gold per gram, a softer alloy, and a higher price. Dataset A carries {len(by_cat('18k'))} 18K listings, both "
+            f"Blue Nile settings whose centre diamond is sold separately. Dataset B and Dataset C add {KARAT18['b'] + KARAT18['c']} more 18K listings, "
+            f"including complete rings with a published price; {KARAT18['weight']} of the combined 18K rows publish a finished weight.",
+            cross_karat="18k",
             extra="""<div class="warn-box" style="margin-bottom:16px"><strong>Read before comparing.</strong>
-            Both 18K prices below are Blue Nile <em>setting</em> prices - the diamond is extra - and one of them contradicts itself on the metal
-            (see finding F1 on the <a href="flagged.html#F1">Flagged</a> page). No 18K listing here is a complete, verified ring at a verified price.</div>"""),
+            The first table is <em>setting</em> prices from Dataset A: the centre diamond is extra, and one row contradicts itself on the metal
+            (see finding F1 and flag SPEC1 on the <a href="flagged.html#F1">Flagged</a> page). The Dataset B/C table below includes complete
+            rings, where the price includes the stone. A setting price and a complete-ring price are not like-for-like, so both are labelled.</div>"""),
         "lab-grown.html": build_category(
             "lab-grown", "lab-grown", "Lab-grown diamond gold rings",
             "The gold is identical to any other 14K ring; the stone is laboratory-grown. That makes these the most transparent price comparison "

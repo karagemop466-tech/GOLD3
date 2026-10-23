@@ -1,9 +1,9 @@
 {
   "category_id": "solitaire-rings",
   "category_title": "Solid Gold Solitaire Engagement Rings, Settings & Control Listings",
-  "verified_date_utc": "2026-10-23T20:17:00Z",
-  "spot_reference_usd_per_oz": 3996.2,
-  "spot_reference_usd_per_gram_24k": 128.4808,
+  "verified_date_utc": "2026-10-23T10:34:00Z",
+  "spot_reference_usd_per_oz": 4022.7,
+  "spot_reference_usd_per_gram_24k": 129.3328,
   "items": [
     {
       "id": "SOL-01",
@@ -285,7 +285,7 @@
       "flagged": true,
       "flags": [
         "CRITICAL KARAT CONTRADICTION CAUGHT LINE-BY-LINE: Official product heading and spec table state '10kt Yellow Gold' (41.67% gold), whereas the official description text on the exact same page claims 'Set in polished 14kt yellow gold' (58.33% gold).",
-        "At $199 retail in an Oct 2026 $3,996.20/oz (23 Oct 2026 Kitco bid) gold market, pricing strongly reflects lightweight 10K construction; gram weight is omitted (left blank/unverified). Archive screenshot per Checklist #9 and verify by XRF.",
+        "At $199 retail in an Oct 2026 $4,022.70/oz gold market, pricing strongly reflects lightweight 10K construction; gram weight is omitted (left blank/unverified). Archive screenshot per Checklist #9 and verify by XRF.",
         "SECOND LIVE CONTRADICTION CAUGHT (2026-10-23): Listing's own Stone Story warns '[Opal] sits at 5.5 to 6.5 on the Mohs scale, so that means bezel or halo, not prongs, on rings' directly on a 4-prong opal solitaire ring!",
         "HALLMARK CORRECTION (2026-10-23, SD6 extension): neither the cited product page nor warranty page prints any hallmark or maker's mark."
       ]
@@ -325,5 +325,5 @@
       ]
     }
   ],
-  "reverified_by_session": "arena/6ccbc523-gold3 · arena/2908bea4-gold3 · arena/15b00e99-gold3 · arena/438a583e-gold3 (Pass P12) · arena/438a583e-gold3 (Pass P12)"
+  "reverified_by_session": "arena/6ccbc523-gold3 · arena/2908bea4-gold3 · arena/15b00e99-gold3"
 }

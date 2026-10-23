@@ -627,13 +627,12 @@ for ext_json in ("products.json", "spot-and-standards.json", "solitaire-rings.js
                     _collect_c(it)
         _collect_c(ext_doc)
 
-# The security-audit and verification pages render their own past pass output
-# verbatim, including the spot conversion quoted at the time of that pass (for
-# example "$4,022.70 / 31.1034768 = $129.3328/g" from the 10:56Z anchor). Those
-# are historical records of a computation, not new claims about the world, and
-# they must keep printing after a re-anchor instead of being rewritten. Sourcing
-# the allowance from the append-only log keeps the no-stray-number rule honest:
-# a page may print a figure only if the log itself contains it.
+# The verification and security-audit pages render their own pass output verbatim,
+# including arithmetic on a sourced reading (for example a USD/gram figure derived
+# from a spot quote). Those figures are derived from a number the log itself records,
+# not new claims about the world. Sourcing the allowance from the append-only log
+# keeps the no-stray-number rule honest: a page may print a figure only if the log
+# contains it too.
 for _hist in (ROOT / "verification" / "audit-log.json", DATA / "verification.json"):
     if _hist.exists():
         for _ms in re.findall(r"\$([0-9][0-9,]*\.?[0-9]*)", _hist.read_text(encoding="utf-8")):
