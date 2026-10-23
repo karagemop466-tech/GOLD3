@@ -33,8 +33,8 @@
 </div>
 
 <div class="grid cols-3" style="margin-bottom:20px">
-  <div class="kpi"><div class="label">Editorial findings</div><div class="value">49</div><div class="sub">19 high severity</div></div>
-  <div class="kpi"><div class="label">Listing-level flags</div><div class="value">101</div><div class="sub">across 19 listings</div></div>
+  <div class="kpi"><div class="label">Editorial findings</div><div class="value">55</div><div class="sub">19 high severity</div></div>
+  <div class="kpi"><div class="label">Listing-level flags</div><div class="value">92</div><div class="sub">across 19 listings</div></div>
   <div class="kpi"><div class="label">Unverified cells</div><div class="value">0 guesses</div><div class="sub">blank is used instead</div></div>
 </div>
 
@@ -502,6 +502,28 @@
 
           <p class="action"><strong>What to do:</strong> Use the longer lead time and confirm the current made-to-order/engraving timeline in writing. R23 now carries SPEC5.</p>
         </div>
+        <div class="card finding medium" id="F52">
+          <div class="finding-head">
+            <h3>F52 · Aurate legacy flags contained duplicate entries and claims the bezel pages do not print</h3>
+            <span class="badge warn">MEDIUM</span>
+          </div>
+          <p class="small">P17 live re-reads confirmed all seven Aurate prices and weights but found duplicate flag codes, one obsolete $4,026.79 spot figure, a redirecting policy URL and solitaire-template “VVS clarity / VS-EF” notes on three bezel PDPs whose own Specs print VS1/VS2. The notes were rewritten to each page’s actual text; exact ring weights remain null.</p>
+          <div class="evidence">1ct bezel prints Weight: 2.23g, 1.05tcw and 1 Round VS1/VS2; 2ct emerald bezel prints Weight: 2.36g, 1.8tcw and calls an emerald product an “oval diamond”; 3ct pear bezel prints Weight: 3.33g and 3.6tcw. All three show an “SI Clarity Only” badge.</div>
+          <p class="small"><strong>Source:</strong> <a href="https://auratenewyork.com/products/1ct-round-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">https://auratenewyork.com/products/1ct-round-lab-grown-diamond-bezel-ring</a></p>
+
+          <p class="action"><strong>What to do:</strong> Ask Aurate in writing for the exact metal/variant weight, clarity grade and applicable exchange/final-sale term; independently test the ring on arrival.</p>
+        </div>
+        <div class="card finding medium" id="F54">
+          <div class="finding-head">
+            <h3>F54 · Fresh gold feeds sit below the preserved calculation anchor</h3>
+            <span class="badge warn">MEDIUM</span>
+          </div>
+          <p class="small">P17 re-read GoldPrice.org at $3,995.88/oz and Kitco’s bid at $3,994.90/oz; the two live feeds agree to 0.0245%, but are 0.65% and 0.68% below the $4,022.22/oz dated snapshot used by the calculator. The primary anchor was intentionally preserved so every melt figure remains reproducible; the fresh values are labelled reference readings and the prior live check is kept in history.</p>
+          <div class="evidence">GoldPrice.org printed “Spot Gold Price: USD 3,995.88 / Ounce” with the page label “Oct 23rd, 2026 at 07:41 NY Time”. Kitco printed “Oct 23, 2026 - 19:43 NY Time | Bid 3,994.90 | Ask 3,996.90” and “7:42 p.m. EDT”.</div>
+          <p class="small"><strong>Source:</strong> <a href="https://goldprice.org/" target="_blank" rel="noopener">https://goldprice.org/</a></p>
+
+          <p class="action"><strong>What to do:</strong> Enter the live quote of your purchase date into the calculator; do not treat the dated capture or the stale melt figures as today’s price. Run scripts/refresh_spot_anchor.py only with a fresh dated capture if the owner wants to move the anchor.</p>
+        </div>
         <div class="card finding low" id="F10">
           <div class="finding-head">
             <h3>F10 · Mejuri&#x27;s main /help hub requires JavaScript, while direct leaf FAQ articles render server-side</h3>
@@ -579,11 +601,55 @@
 
           <p class="action"><strong>What to do:</strong> Use the source-linked product table for the exact item. The calculator now takes the real product name, weight, price and ratio from JSON.</p>
         </div>
+        <div class="card finding low" id="F50">
+          <div class="finding-head">
+            <h3>F50 · Live Trustpilot counts drifted; displayed figures were refreshed</h3>
+            <span class="badge info">LOW</span>
+          </div>
+          <p class="small">P17 reopened five Trustpilot profiles. Aurate printed 4,876 reviews (stored quote 4,875), Blue Nile 1,937 (stored 1,932; quote 1,928) with replies to 97% of negative reviews, and Mejuri 5,785 (stored 5,784; quote 5,781) with replies to 98%. Ring Concierge remained 7 reviews / 2.7 and Catbird 56 / 2.2. Counts, quotes, sample notes and the Catbird canonical URL were corrected.</p>
+          <div class="evidence">Live profile text read 2026-10-23T23:46Z: Aurate “4,876 · 4.1”; Blue Nile “1,937 · 4.0” and “Replied to 97% of negative reviews”; Mejuri “5,785 · 4.3” and “Replied to 98% of negative reviews”.</div>
+          <p class="small"><strong>Source:</strong> <a href="https://www.trustpilot.com/review/auratenewyork.com" target="_blank" rel="noopener">https://www.trustpilot.com/review/auratenewyork.com</a></p>
+
+          <p class="action"><strong>What to do:</strong> Treat review totals as date-stamped observations and re-open each profile before relying on reputation evidence.</p>
+        </div>
+        <div class="card finding low" id="F51">
+          <div class="finding-head">
+            <h3>F51 · Several Dataset A prices were sourced one level too broadly</h3>
+            <span class="badge info">LOW</span>
+          </div>
+          <p class="small">Three Blue Nile setting prices and three Mejuri variant records were cited to collection pages although each own PDP printed the stored price/material. P17 repointed the evidence to the exact pages. No stored product price changed.</p>
+          <div class="evidence">Blue Nile own PDPs print $1,255(Setting Price), $1,500(Setting Price) and $2,320(Setting Price); Mejuri own PDPs print $138, $158 and $138 for their selected variants.</div>
+          <p class="small"><strong>Source:</strong> <a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/petite-hidden-halo-solitaire-plus-diamond-engagement-ring-in-14k-yellow-gold-item-192506" target="_blank" rel="noopener">https://www.bluenile.com/engagement-rings/design-your-own-ring/petite-hidden-halo-solitaire-plus-diamond-engagement-ring-in-14k-yellow-gold-item-192506</a></p>
+
+          <p class="action"><strong>What to do:</strong> Use the now-linked PDP for each row and re-check its variant selection before purchase.</p>
+        </div>
+        <div class="card finding low" id="F53">
+          <div class="finding-head">
+            <h3>F53 · Ring Concierge 2.72 clarity note did not match its own PDP</h3>
+            <span class="badge info">LOW</span>
+          </div>
+          <p class="small">The data row said E VS1 while the live Product Details say E VVS2. The PDP also states 14K Yellow Gold with Platinum Prongs, so a “karat not in body text” flag was no longer applicable to either Ring Concierge row. P17 corrected the note and removed the misapplied and duplicate flags.</p>
+          <div class="evidence">Live PDP: “Carat: 2.72”, “Clarity: VVS2”, “Metal: 14K Yellow Gold with Platinum Prongs”. Price $7,268 unchanged.</div>
+          <p class="small"><strong>Source:</strong> <a href="https://ringconcierge.com/products/2-72-round-lab-diamond-in-whisper-thina" target="_blank" rel="noopener">https://ringconcierge.com/products/2-72-round-lab-diamond-in-whisper-thina</a></p>
+
+          <p class="action"><strong>What to do:</strong> Confirm the certificate and metal composition in writing; a 14K purity stamp cannot describe the platinum prongs.</p>
+        </div>
+        <div class="card finding low" id="F55">
+          <div class="finding-head">
+            <h3>F55 · Two historical documentation change requests were closed without discarding evidence</h3>
+            <span class="badge info">LOW</span>
+          </div>
+          <p class="small">CR-P15-1 incorrectly said NIST’s Precious Metals Conversion Information page explicitly prints 31.1034768 g per troy ounce. P17 preserved that sentence in evidence_original_preserved and corrected the active evidence to the NIST SP 811 Appendix B.9 exact-grain derivation. CR-P15-2’s report file contained unresolved conflict markers; both reports are now retained under explicit headings.</p>
+          <div class="evidence">NIST B.9 states boldface factors are exact; 480 grains per troy ounce × 0.06479891 g per grain = 31.1034768 g. The Precious Metals page prints Handbook 130 §2.17 and links a PDF but no numeric troy-ounce-to-gram constant.</div>
+          <p class="small"><strong>Source:</strong> <a href="https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9" target="_blank" rel="noopener">https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9</a></p>
+
+          <p class="action"><strong>What to do:</strong> Use the corrected NIST derivation for the constant and review both preserved historical reports if provenance is disputed.</p>
+        </div>
 
 <h2 style="margin-top:36px">Every listing-level flag</h2>
 <p class="small">These are the machine-checked flags attached to individual rows. Collapse or expand as needed.</p>
 <details>
-  <summary>Show all 101 listing flags</summary>
+  <summary>Show all 92 listing flags</summary>
   <div class="table-wrap" style="margin-top:10px">
     <table style="min-width:900px">
       <thead><tr><th>Listing</th><th>Flag</th><th>What it means</th><th>Source</th></tr></thead>
@@ -594,28 +660,23 @@
               <td><a href="https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-round-lgd-solitaire">2ct Round Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
-              <td><span class="badge warn">From-price</span><span class="sub mono">PRICE_FROM_LOWEST_VARIANT</span></td>
-              <td class="small">Superseded by the P3 re-read: the live page shows $2,858 against a specific in-stock variant (14k gold, yellow, size 7), so price_type is now &#x27;listed&#x27;. The 18k and platinum prices are still not captured.</td>
-              <td><a href="https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
-            </tr><tr>
-              <td><a href="rings.html#p-aurate-2ct-round-lgd-solitaire">2ct Round Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">No weight</span><span class="sub mono">WEIGHT_NOT_PUBLISHED</span></td>
-              <td class="small">CORRECTED by the P3 re-read: the listing publishes &quot;Weight: 5.5-8.5g&quot;, a range spanning the 14k/18k/platinum options. No single gram figure exists for the ring a buyer receives, so weight_g stays null and nothing is estimated. Ask the seller for the weight of the exact variant in writing.</td>
+              <td class="small">Shared range across 14k/18k/platinum; no exact variant weight.</td>
               <td><a href="https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-round-lgd-solitaire">2ct Round Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Weight Range Only</span><span class="sub mono">WEIGHT_RANGE_ONLY</span></td>
-              <td class="small">The published weight is a 3.0 g-wide range (5.5-8.5g). At $4,022.22/oz the difference between the ends is more than the entire melt value of a light band, so the range cannot be used for a price-per-gram test.</td>
+              <td class="small">The live PDP prints “Weight: 5.5-8.5g” across 14k gold, 18k gold and platinum variants. The 3.0g spread cannot be assigned to the exact ring without seller confirmation; no melt ratio is inferred.</td>
               <td><a href="https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-round-lgd-solitaire">2ct Round Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Exchange Only Final Sale</span><span class="sub mono">EXCHANGE_ONLY_FINAL_SALE</span></td>
-              <td class="small">The live listing carries the notices &quot;Exchange for size only. Final Sale!&quot; and &quot;Exchange only! Return &amp; cancellation policy.&quot;, both linking to https://auratenewyork.com/pages/terms-conditions-exchange-only — while the same page displays a &quot;Free Returns&quot; service badge and &quot;Lifetime Warranty&quot;. A $2,858 engagement ring that can only be exchanged for size is precisely the case the buying checklist says to walk away from unless the seller confirms otherwise in writing.</td>
+              <td class="small">The live PDP prints “Exchange for size only. Final Sale!” and “Exchange only! Return &amp; cancellation policy.” beside a “Free Returns” badge. The linked policy is https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale: made-to-order cancellation is free only within 24h, then a 30% fee applies; selected final-sale items are not returnable or exchangeable.</td>
               <td><a href="https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-round-lgd-solitaire">2ct Round Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Page Self Contradiction</span><span class="sub mono">PAGE_SELF_CONTRADICTION</span></td>
-              <td class="small">Band width: the copy says &quot;a refined 1.8mm width&quot; while the specs block says &quot;Width: 2.75mm / Thickness: 1.8mm&quot;. Diamond clarity: the copy says &quot;VVS clarity&quot;, the specs say &quot;1 Round VS/EF Lab Grown Diamond&quot;, and a quality badge on the same page says &quot;SI Clarity Only&quot;. All three readings are recorded; none is averaged or chosen.</td>
+              <td class="small">Product copy says “VVS clarity”; Specs print “1 Round VS/EF Lab Grown Diamond”; the quality badge says “SI Clarity Only”. Copy also says a refined 1.8mm width while Specs print Width 2.75mm / Thickness 1.8mm. All readings are recorded; none is chosen.</td>
               <td><a href="https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-round-lgd-solitaire">2ct Round Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
@@ -625,17 +686,7 @@
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-round-lgd-solitaire">2ct Round Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Final Sale Pdp Override</span><span class="sub mono">FINAL_SALE_PDP_OVERRIDE</span></td>
-              <td class="small">Live PDP states &#x27;Final Sale! / Exchange for size only.&#x27; alongside a &#x27;Free Returns&#x27; badge, plus a 30% MTO cancellation fee after 24 hours (https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale).</td>
-              <td><a href="https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
-            </tr><tr>
-              <td><a href="rings.html#p-aurate-2ct-round-lgd-solitaire">2ct Round Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
-              <td><span class="badge warn">Weight Range Only</span><span class="sub mono">WEIGHT_RANGE_ONLY</span></td>
-              <td class="small">The published weight is a 3.0 g-wide range (5.5-8.5g). At $4,026.79/oz the difference between the ends is more than the entire melt value of a light band, so the range cannot be used for a price-per-gram test.</td>
-              <td><a href="https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
-            </tr><tr>
-              <td><a href="rings.html#p-aurate-2ct-round-lgd-solitaire">2ct Round Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
-              <td><span class="badge warn">Exchange Only Final Sale</span><span class="sub mono">EXCHANGE_ONLY_FINAL_SALE</span></td>
-              <td class="small">The live listing carries the notices &quot;Exchange for size only. Final Sale!&quot; and &quot;Exchange only! Return &amp; cancellation policy.&quot;, linking to https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale (30% cancellation fee after 24 hours on made-to-order items; exchange for size only; no refunds) — while displaying a &quot;Free Returns&quot; service badge on the same page.</td>
+              <td class="small">The PDP’s exchange-only/final-sale wording overrides the general 15-day return claim for these engagement rings. Policy: https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale. Get the applicable term in writing before purchase.</td>
               <td><a href="https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-emerald-lgd-solitaire">2ct Emerald Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
@@ -645,7 +696,7 @@
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-emerald-lgd-solitaire">2ct Emerald Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">No weight</span><span class="sub mono">WEIGHT_NOT_PUBLISHED</span></td>
-              <td class="small">Live product page prints &quot;Weight: 5.5-8.5g&quot; across 14k gold, 18k gold, and platinum variants — no single ring weight is published, so weight_g stays null.</td>
+              <td class="small">Shared range across 14k/18k/platinum; no exact variant weight.</td>
               <td><a href="https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-emerald-lgd-solitaire">2ct Emerald Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
@@ -655,22 +706,22 @@
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-emerald-lgd-solitaire">2ct Emerald Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Final Sale Pdp Override</span><span class="sub mono">FINAL_SALE_PDP_OVERRIDE</span></td>
-              <td class="small">Live PDP states &#x27;Final Sale! / Exchange for size only.&#x27; alongside a &#x27;Free Returns&#x27; badge, plus a 30% MTO cancellation fee after 24 hours (https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale).</td>
+              <td class="small">The PDP’s exchange-only/final-sale wording overrides the general 15-day return claim for these engagement rings. Policy: https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale. Get the applicable term in writing before purchase.</td>
               <td><a href="https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-emerald-lgd-solitaire">2ct Emerald Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Weight Range Only</span><span class="sub mono">WEIGHT_RANGE_ONLY</span></td>
-              <td class="small">Published weight &quot;Weight: 5.5-8.5g&quot; spans a 3.0 g range across three metals of different densities and cannot be used for a single melt ratio.</td>
+              <td class="small">The live PDP prints “Weight: 5.5-8.5g” across 14k gold, 18k gold and platinum variants. The 3.0g spread cannot be assigned to the exact ring without seller confirmation; no melt ratio is inferred.</td>
               <td><a href="https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-emerald-lgd-solitaire">2ct Emerald Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Exchange Only Final Sale</span><span class="sub mono">EXCHANGE_ONLY_FINAL_SALE</span></td>
-              <td class="small">The live listing carries the notices &quot;Exchange for size only. Final Sale!&quot; and &quot;Exchange only! Return &amp; cancellation policy.&quot;, linking to https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale (30% cancellation fee after 24 hours on made-to-order items; exchange for size only; no refunds) — while displaying a &quot;Free Returns&quot; service badge on the same page.</td>
+              <td class="small">The live PDP prints “Exchange for size only. Final Sale!” and “Exchange only! Return &amp; cancellation policy.” beside a “Free Returns” badge. The linked policy is https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale: made-to-order cancellation is free only within 24h, then a 30% fee applies; selected final-sale items are not returnable or exchangeable.</td>
               <td><a href="https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-emerald-lgd-solitaire">2ct Emerald Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Page Self Contradiction</span><span class="sub mono">PAGE_SELF_CONTRADICTION</span></td>
-              <td class="small">Same 3-way diamond clarity contradiction as AU5760 (&quot;VVS clarity&quot; in body copy, &quot;VS/EF&quot; in Specs, and &quot;SI Clarity Only&quot; badge) plus &quot;1.8mm width&quot; in prose vs &quot;Width: 2.75mm&quot; in Specs.</td>
+              <td class="small">Product copy says “VVS clarity”; Specs print “1 Emerald VS/EF Lab Grown Diamond”; the quality badge says “SI Clarity Only”. Copy also says 1.8mm width while Specs print Width 2.75mm / Thickness 1.8mm.</td>
               <td><a href="https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-1ct-round-lgd-bezel">1ct Round Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
@@ -680,7 +731,7 @@
             </tr><tr>
               <td><a href="rings.html#p-aurate-1ct-round-lgd-bezel">1ct Round Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">No weight</span><span class="sub mono">WEIGHT_NOT_PUBLISHED</span></td>
-              <td class="small">Live product page prints one static &quot;Weight: 2.23g&quot; figure across 14k gold, 18k gold, and platinum without deducting the center diamond, so net gold weight is unknowable and weight_g stays null.</td>
+              <td class="small">The page prints one static 2.23g figure across 14k gold, 18k gold and platinum, and separately prints 1.05tcw; it does not state whether the diamond is included or whether weight changes by metal. weight_g stays null.</td>
               <td><a href="https://auratenewyork.com/products/1ct-round-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-1ct-round-lgd-bezel">1ct Round Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
@@ -690,17 +741,17 @@
             </tr><tr>
               <td><a href="rings.html#p-aurate-1ct-round-lgd-bezel">1ct Round Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Final Sale Pdp Override</span><span class="sub mono">FINAL_SALE_PDP_OVERRIDE</span></td>
-              <td class="small">Live PDP states &#x27;Final Sale! / Exchange for size only.&#x27; alongside a &#x27;Free Returns&#x27; badge, plus a 30% MTO cancellation fee after 24 hours (https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale).</td>
+              <td class="small">The PDP’s exchange-only/final-sale wording overrides the general 15-day return claim for these engagement rings. Policy: https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale. Get the applicable term in writing before purchase.</td>
               <td><a href="https://auratenewyork.com/products/1ct-round-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-1ct-round-lgd-bezel">1ct Round Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Exchange Only Final Sale</span><span class="sub mono">EXCHANGE_ONLY_FINAL_SALE</span></td>
-              <td class="small">The live listing carries the notices &quot;Exchange for size only. Final Sale!&quot; and &quot;Exchange only! Return &amp; cancellation policy.&quot;, linking to https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale (30% cancellation fee after 24 hours on made-to-order items; exchange for size only; no refunds) — while displaying a &quot;Free Returns&quot; service badge on the same page.</td>
+              <td class="small">The live PDP prints “Exchange for size only. Final Sale!” and “Exchange only! Return &amp; cancellation policy.” beside a “Free Returns” badge. The linked policy is https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale: made-to-order cancellation is free only within 24h, then a 30% fee applies; selected final-sale items are not returnable or exchangeable.</td>
               <td><a href="https://auratenewyork.com/products/1ct-round-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-1ct-round-lgd-bezel">1ct Round Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Page Self Contradiction</span><span class="sub mono">PAGE_SELF_CONTRADICTION</span></td>
-              <td class="small">Title says &#x27;1ct&#x27; while Specs print &#x27;1.05tcw&#x27; (0.21 g stone included in &#x27;Weight: 2.23g&#x27;, shared across 14k, 18k and platinum). Page also prints &quot;VVS clarity&quot; in copy vs &quot;VS/EF&quot; in Specs vs &quot;SI Clarity Only&quot; badge.</td>
+              <td class="small">Product title says “1ct” while Specs print “1.05tcw” and “1 Round VS1/VS2 Lab Grown Diamond”; the quality badge separately says “SI Clarity Only”. The page does not print the “VVS clarity” copy seen on the solitaire templates.</td>
               <td><a href="https://auratenewyork.com/products/1ct-round-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-emerald-lgd-bezel">2ct Emerald Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
@@ -710,7 +761,7 @@
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-emerald-lgd-bezel">2ct Emerald Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">No weight</span><span class="sub mono">WEIGHT_NOT_PUBLISHED</span></td>
-              <td class="small">Live product page prints one static &quot;Weight: 2.36g&quot; figure across 14k gold, 18k gold, and platinum without deducting the center diamond, so net gold weight is unknowable and weight_g stays null.</td>
+              <td class="small">The page prints one static 2.36g figure across 14k gold, 18k gold and platinum, and separately prints 1.8tcw; it does not state whether the diamond is included or whether weight changes by metal. weight_g stays null.</td>
               <td><a href="https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-emerald-lgd-bezel">2ct Emerald Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
@@ -720,17 +771,17 @@
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-emerald-lgd-bezel">2ct Emerald Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Final Sale Pdp Override</span><span class="sub mono">FINAL_SALE_PDP_OVERRIDE</span></td>
-              <td class="small">Live PDP states &#x27;Final Sale! / Exchange for size only.&#x27; alongside a &#x27;Free Returns&#x27; badge, plus a 30% MTO cancellation fee after 24 hours (https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale).</td>
+              <td class="small">The PDP’s exchange-only/final-sale wording overrides the general 15-day return claim for these engagement rings. Policy: https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale. Get the applicable term in writing before purchase.</td>
               <td><a href="https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-emerald-lgd-bezel">2ct Emerald Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Exchange Only Final Sale</span><span class="sub mono">EXCHANGE_ONLY_FINAL_SALE</span></td>
-              <td class="small">The live listing carries the notices &quot;Exchange for size only. Final Sale!&quot; and &quot;Exchange only! Return &amp; cancellation policy.&quot;, linking to https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale (30% cancellation fee after 24 hours on made-to-order items; exchange for size only; no refunds) — while displaying a &quot;Free Returns&quot; service badge on the same page.</td>
+              <td class="small">The live PDP prints “Exchange for size only. Final Sale!” and “Exchange only! Return &amp; cancellation policy.” beside a “Free Returns” badge. The linked policy is https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale: made-to-order cancellation is free only within 24h, then a 30% fee applies; selected final-sale items are not returnable or exchangeable.</td>
               <td><a href="https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-emerald-lgd-bezel">2ct Emerald Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Page Self Contradiction</span><span class="sub mono">PAGE_SELF_CONTRADICTION</span></td>
-              <td class="small">CARAT MISMATCH: Product title advertises &#x27;2ct Emerald Lab Grown Diamond Bezel Ring&#x27;, whereas Specs print &#x27;1.8tcw&#x27; (-10% below advertised 2.00 ct!) and &#x27;Weight: 2.36g&#x27; (shared across 14k, 18k and platinum, including 0.36 g stone). Page also prints &quot;VVS clarity&quot; in copy vs &quot;VS/EF&quot; in Specs vs &quot;SI Clarity Only&quot; badge.</td>
+              <td class="small">Product title says “2ct” while Specs print “1.8tcw” and “1 Emerald VS1/VS2 Lab Grown Diamond”; the quality badge says “SI Clarity Only”. The description also calls an emerald-cut product a “classic oval diamond”. The page does not print the “VVS clarity” copy seen on the solitaire templates.</td>
               <td><a href="https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-oval-lgd-solitaire">2ct Oval Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
@@ -740,7 +791,7 @@
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-oval-lgd-solitaire">2ct Oval Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">No weight</span><span class="sub mono">WEIGHT_NOT_PUBLISHED</span></td>
-              <td class="small">Live product page prints &quot;Weight: 5.7-8.7g&quot; across 14k gold, 18k gold, and platinum variants — no single ring weight is published, so weight_g stays null.</td>
+              <td class="small">Shared range across 14k/18k/platinum; no exact variant weight.</td>
               <td><a href="https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-oval-lgd-solitaire">2ct Oval Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
@@ -750,22 +801,22 @@
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-oval-lgd-solitaire">2ct Oval Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Final Sale Pdp Override</span><span class="sub mono">FINAL_SALE_PDP_OVERRIDE</span></td>
-              <td class="small">Live PDP states &#x27;Final Sale! / Exchange for size only.&#x27; alongside a &#x27;Free Returns&#x27; badge, plus a 30% MTO cancellation fee after 24 hours (https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale).</td>
+              <td class="small">The PDP’s exchange-only/final-sale wording overrides the general 15-day return claim for these engagement rings. Policy: https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale. Get the applicable term in writing before purchase.</td>
               <td><a href="https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-oval-lgd-solitaire">2ct Oval Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Weight Range Only</span><span class="sub mono">WEIGHT_RANGE_ONLY</span></td>
-              <td class="small">Published weight &quot;Weight: 5.7-8.7g&quot; spans a 3.0 g range across three metals of different densities and cannot be used for a single melt ratio.</td>
+              <td class="small">The live PDP prints “Weight: 5.7-8.7g” across 14k gold, 18k gold and platinum variants. The 3.0g spread cannot be assigned to the exact ring without seller confirmation; no melt ratio is inferred.</td>
               <td><a href="https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-oval-lgd-solitaire">2ct Oval Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Exchange Only Final Sale</span><span class="sub mono">EXCHANGE_ONLY_FINAL_SALE</span></td>
-              <td class="small">The live listing carries the notices &quot;Exchange for size only. Final Sale!&quot; and &quot;Exchange only! Return &amp; cancellation policy.&quot;, linking to https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale (30% cancellation fee after 24 hours on made-to-order items; exchange for size only; no refunds) — while displaying a &quot;Free Returns&quot; service badge on the same page.</td>
+              <td class="small">The live PDP prints “Exchange for size only. Final Sale!” and “Exchange only! Return &amp; cancellation policy.” beside a “Free Returns” badge. The linked policy is https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale: made-to-order cancellation is free only within 24h, then a 30% fee applies; selected final-sale items are not returnable or exchangeable.</td>
               <td><a href="https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-oval-lgd-solitaire">2ct Oval Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Page Self Contradiction</span><span class="sub mono">PAGE_SELF_CONTRADICTION</span></td>
-              <td class="small">Same 3-way diamond clarity contradiction as AU5760 (&quot;VVS clarity&quot; in body copy, &quot;VS/EF&quot; in Specs, and &quot;SI Clarity Only&quot; badge) plus &quot;1.8mm width&quot; in prose vs &quot;Width: 2.75mm&quot; in Specs.</td>
+              <td class="small">Product copy says “VVS clarity”; Specs print “1 Oval VS/EF Lab Grown Diamond”; the quality badge says “SI Clarity Only”. Copy also says a slim 1.8mm band while Specs print Width 2.75mm / Thickness 1.8mm.</td>
               <td><a href="https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-3ct-oval-lgd-solitaire">3ct Oval Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
@@ -775,7 +826,7 @@
             </tr><tr>
               <td><a href="rings.html#p-aurate-3ct-oval-lgd-solitaire">3ct Oval Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">No weight</span><span class="sub mono">WEIGHT_NOT_PUBLISHED</span></td>
-              <td class="small">Live product page prints &quot;Weight: 5.9-8.9g&quot; across 14k gold, 18k gold, and platinum variants — no single ring weight is published, so weight_g stays null.</td>
+              <td class="small">Shared range across 14k/18k/platinum; no exact variant weight.</td>
               <td><a href="https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-3ct-oval-lgd-solitaire">3ct Oval Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
@@ -785,22 +836,22 @@
             </tr><tr>
               <td><a href="rings.html#p-aurate-3ct-oval-lgd-solitaire">3ct Oval Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Final Sale Pdp Override</span><span class="sub mono">FINAL_SALE_PDP_OVERRIDE</span></td>
-              <td class="small">Live PDP states &#x27;Final Sale! / Exchange for size only.&#x27; alongside a &#x27;Free Returns&#x27; badge, plus a 30% MTO cancellation fee after 24 hours (https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale).</td>
+              <td class="small">The PDP’s exchange-only/final-sale wording overrides the general 15-day return claim for these engagement rings. Policy: https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale. Get the applicable term in writing before purchase.</td>
               <td><a href="https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-3ct-oval-lgd-solitaire">3ct Oval Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Weight Range Only</span><span class="sub mono">WEIGHT_RANGE_ONLY</span></td>
-              <td class="small">Published weight &quot;Weight: 5.9-8.9g&quot; spans a 3.0 g range across three metals of different densities and cannot be used for a single melt ratio.</td>
+              <td class="small">The live PDP prints “Weight: 5.9-8.9g” across 14k gold, 18k gold and platinum variants. The 3.0g spread cannot be assigned to the exact ring without seller confirmation; no melt ratio is inferred.</td>
               <td><a href="https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-3ct-oval-lgd-solitaire">3ct Oval Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Exchange Only Final Sale</span><span class="sub mono">EXCHANGE_ONLY_FINAL_SALE</span></td>
-              <td class="small">The live listing carries the notices &quot;Exchange for size only. Final Sale!&quot; and &quot;Exchange only! Return &amp; cancellation policy.&quot;, linking to https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale (30% cancellation fee after 24 hours on made-to-order items; exchange for size only; no refunds) — while displaying a &quot;Free Returns&quot; service badge on the same page.</td>
+              <td class="small">The live PDP prints “Exchange for size only. Final Sale!” and “Exchange only! Return &amp; cancellation policy.” beside a “Free Returns” badge. The linked policy is https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale: made-to-order cancellation is free only within 24h, then a 30% fee applies; selected final-sale items are not returnable or exchangeable.</td>
               <td><a href="https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-3ct-oval-lgd-solitaire">3ct Oval Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Page Self Contradiction</span><span class="sub mono">PAGE_SELF_CONTRADICTION</span></td>
-              <td class="small">Same 3-way diamond clarity contradiction as AU5760 (&quot;VVS clarity&quot; in body copy, &quot;VS/EF&quot; in Specs, and &quot;SI Clarity Only&quot; badge) plus &quot;1.8mm width&quot; in prose vs &quot;Width: 2.75mm&quot; in Specs.</td>
+              <td class="small">Product copy says “VVS clarity”; Specs print “1 Oval VS/EF Lab Grown Diamond”; the quality badge says “SI Clarity Only”. Copy also says 1.8mm width while Specs print Width 2.75mm / Thickness 1.8mm.</td>
               <td><a href="https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-3ct-pear-lgd-bezel">3ct Pear Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
@@ -810,7 +861,7 @@
             </tr><tr>
               <td><a href="rings.html#p-aurate-3ct-pear-lgd-bezel">3ct Pear Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">No weight</span><span class="sub mono">WEIGHT_NOT_PUBLISHED</span></td>
-              <td class="small">Live product page prints one static &quot;Weight: 3.33g&quot; figure across 14k gold, 18k gold, and platinum without deducting the center diamond, so net gold weight is unknowable and weight_g stays null.</td>
+              <td class="small">The page prints one static 3.33g figure across 14k gold, 18k gold and platinum, and separately prints 3.6tcw; it does not state whether the diamond is included or whether weight changes by metal. weight_g stays null.</td>
               <td><a href="https://auratenewyork.com/products/3ct-pear-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-3ct-pear-lgd-bezel">3ct Pear Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
@@ -820,17 +871,17 @@
             </tr><tr>
               <td><a href="rings.html#p-aurate-3ct-pear-lgd-bezel">3ct Pear Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Final Sale Pdp Override</span><span class="sub mono">FINAL_SALE_PDP_OVERRIDE</span></td>
-              <td class="small">Live PDP states &#x27;Final Sale! / Exchange for size only.&#x27; alongside a &#x27;Free Returns&#x27; badge, plus a 30% MTO cancellation fee after 24 hours (https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale).</td>
+              <td class="small">The PDP’s exchange-only/final-sale wording overrides the general 15-day return claim for these engagement rings. Policy: https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale. Get the applicable term in writing before purchase.</td>
               <td><a href="https://auratenewyork.com/products/3ct-pear-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-3ct-pear-lgd-bezel">3ct Pear Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Exchange Only Final Sale</span><span class="sub mono">EXCHANGE_ONLY_FINAL_SALE</span></td>
-              <td class="small">The live listing carries the notices &quot;Exchange for size only. Final Sale!&quot; and &quot;Exchange only! Return &amp; cancellation policy.&quot;, linking to https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale (30% cancellation fee after 24 hours on made-to-order items; exchange for size only; no refunds) — while displaying a &quot;Free Returns&quot; service badge on the same page.</td>
+              <td class="small">The live PDP prints “Exchange for size only. Final Sale!” and “Exchange only! Return &amp; cancellation policy.” beside a “Free Returns” badge. The linked policy is https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale: made-to-order cancellation is free only within 24h, then a 30% fee applies; selected final-sale items are not returnable or exchangeable.</td>
               <td><a href="https://auratenewyork.com/products/3ct-pear-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-3ct-pear-lgd-bezel">3ct Pear Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Page Self Contradiction</span><span class="sub mono">PAGE_SELF_CONTRADICTION</span></td>
-              <td class="small">CARAT MISMATCH: Product title advertises &#x27;3ct Pear Lab Grown Diamond Bezel Ring&#x27;, whereas Specs print &#x27;3.6tcw&#x27; (0.72 g stone weight included inside &#x27;Weight: 3.33g&#x27;, shared across 14k, 18k and platinum). Page also prints &quot;VVS clarity&quot; in copy vs &quot;VS/EF&quot; in Specs vs &quot;SI Clarity Only&quot; badge.</td>
+              <td class="small">Product title says “3ct” while Specs print “3.6tcw” and “1 Pear VS1/VS2 Lab Grown Diamond”; the quality badge says “SI Clarity Only”. The page does not print the “VVS clarity” copy seen on the solitaire templates.</td>
               <td><a href="https://auratenewyork.com/products/3ct-pear-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-bluenile-petite-solitaire-14k-yg">Petite Solitaire Engagement Ring in 14k Yellow Gold</a><span class="sub">Blue Nile</span></td>
@@ -856,42 +907,42 @@
               <td><a href="rings.html#p-bluenile-petite-hidden-halo-14k-yg">Petite Hidden Halo Solitaire Plus Diamond Engagement Ring in 14k Yellow Gold</a><span class="sub">Blue Nile</span></td>
               <td><span class="badge warn">Setting only</span><span class="sub mono">SETTING_PRICE_ONLY</span></td>
               <td class="small">Excludes the centre diamond.</td>
-              <td><a href="https://www.bluenile.com/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/petite-hidden-halo-solitaire-plus-diamond-engagement-ring-in-14k-yellow-gold-item-192506" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-bluenile-petite-hidden-halo-14k-yg">Petite Hidden Halo Solitaire Plus Diamond Engagement Ring in 14k Yellow Gold</a><span class="sub">Blue Nile</span></td>
               <td><span class="badge warn">No &#x27;solid&#x27;</span><span class="sub mono">SOLID_NOT_STATED</span></td>
               <td class="small">Page states 14k gold but does not say &#x27;solid&#x27;.</td>
-              <td><a href="https://www.bluenile.com/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/petite-hidden-halo-solitaire-plus-diamond-engagement-ring-in-14k-yellow-gold-item-192506" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-bluenile-petite-hidden-halo-14k-yg">Petite Hidden Halo Solitaire Plus Diamond Engagement Ring in 14k Yellow Gold</a><span class="sub">Blue Nile</span></td>
               <td><span class="badge warn">No weight</span><span class="sub mono">WEIGHT_NOT_PUBLISHED</span></td>
               <td class="small">No metal weight in grams.</td>
-              <td><a href="https://www.bluenile.com/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/petite-hidden-halo-solitaire-plus-diamond-engagement-ring-in-14k-yellow-gold-item-192506" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-bluenile-petite-hidden-halo-14k-yg">Petite Hidden Halo Solitaire Plus Diamond Engagement Ring in 14k Yellow Gold</a><span class="sub">Blue Nile</span></td>
               <td><span class="badge warn">No hallmark</span><span class="sub mono">HALLMARK_NOT_STATED</span></td>
               <td class="small">No hallmark / maker&#x27;s-mark statement.</td>
-              <td><a href="https://www.bluenile.com/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/petite-hidden-halo-solitaire-plus-diamond-engagement-ring-in-14k-yellow-gold-item-192506" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-bluenile-riviera-pave-14k-wg">Riviera Pavé Diamond Engagement Ring in 14k White Gold (1/6 ct. tw.)</a><span class="sub">Blue Nile</span></td>
               <td><span class="badge warn">Setting only</span><span class="sub mono">SETTING_PRICE_ONLY</span></td>
               <td class="small">Excludes the centre diamond.</td>
-              <td><a href="https://www.bluenile.com/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/riviera-pave-diamond-engagement-ring-in-14k-white-gold-1-6-ct-tw-item-195326" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-bluenile-riviera-pave-14k-wg">Riviera Pavé Diamond Engagement Ring in 14k White Gold (1/6 ct. tw.)</a><span class="sub">Blue Nile</span></td>
               <td><span class="badge warn">No &#x27;solid&#x27;</span><span class="sub mono">SOLID_NOT_STATED</span></td>
               <td class="small">Page states 14k white gold but does not say &#x27;solid&#x27;.</td>
-              <td><a href="https://www.bluenile.com/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/riviera-pave-diamond-engagement-ring-in-14k-white-gold-1-6-ct-tw-item-195326" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-bluenile-riviera-pave-14k-wg">Riviera Pavé Diamond Engagement Ring in 14k White Gold (1/6 ct. tw.)</a><span class="sub">Blue Nile</span></td>
               <td><span class="badge warn">No weight</span><span class="sub mono">WEIGHT_NOT_PUBLISHED</span></td>
               <td class="small">No metal weight in grams.</td>
-              <td><a href="https://www.bluenile.com/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/riviera-pave-diamond-engagement-ring-in-14k-white-gold-1-6-ct-tw-item-195326" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-bluenile-riviera-pave-14k-wg">Riviera Pavé Diamond Engagement Ring in 14k White Gold (1/6 ct. tw.)</a><span class="sub">Blue Nile</span></td>
               <td><span class="badge warn">No hallmark</span><span class="sub mono">HALLMARK_NOT_STATED</span></td>
               <td class="small">No hallmark / maker&#x27;s-mark statement.</td>
-              <td><a href="https://www.bluenile.com/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/riviera-pave-diamond-engagement-ring-in-14k-white-gold-1-6-ct-tw-item-195326" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-bluenile-floral-marquise-18k-wg">Floral Marquise Diamond Engagement Ring in 18k White Gold</a><span class="sub">Blue Nile</span></td>
               <td><span class="badge warn">Contradiction</span><span class="sub mono">DESCRIPTION_CONTRADICTION</span></td>
@@ -921,22 +972,22 @@
               <td><a href="rings.html#p-bluenile-criss-cross-18k-yg">Criss Cross Solitaire Engagement Ring In 18K Yellow Gold By James Allen</a><span class="sub">Blue Nile (By James Allen)</span></td>
               <td><span class="badge warn">Setting only</span><span class="sub mono">SETTING_PRICE_ONLY</span></td>
               <td class="small">Excludes the centre diamond.</td>
-              <td><a href="https://www.bluenile.com/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/criss-cross-solitaire-engagement-ring-in-18k-yellow-gold-by-james-allen-item-311132" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-bluenile-criss-cross-18k-yg">Criss Cross Solitaire Engagement Ring In 18K Yellow Gold By James Allen</a><span class="sub">Blue Nile (By James Allen)</span></td>
               <td><span class="badge warn">No &#x27;solid&#x27;</span><span class="sub mono">SOLID_NOT_STATED</span></td>
               <td class="small">Page states 18k yellow gold but does not say &#x27;solid&#x27;.</td>
-              <td><a href="https://www.bluenile.com/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/criss-cross-solitaire-engagement-ring-in-18k-yellow-gold-by-james-allen-item-311132" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-bluenile-criss-cross-18k-yg">Criss Cross Solitaire Engagement Ring In 18K Yellow Gold By James Allen</a><span class="sub">Blue Nile (By James Allen)</span></td>
               <td><span class="badge warn">No weight</span><span class="sub mono">WEIGHT_NOT_PUBLISHED</span></td>
               <td class="small">No metal weight in grams.</td>
-              <td><a href="https://www.bluenile.com/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/criss-cross-solitaire-engagement-ring-in-18k-yellow-gold-by-james-allen-item-311132" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-bluenile-criss-cross-18k-yg">Criss Cross Solitaire Engagement Ring In 18K Yellow Gold By James Allen</a><span class="sub">Blue Nile (By James Allen)</span></td>
               <td><span class="badge warn">No hallmark</span><span class="sub mono">HALLMARK_NOT_STATED</span></td>
               <td class="small">No hallmark / maker&#x27;s-mark statement.</td>
-              <td><a href="https://www.bluenile.com/engagement-rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/criss-cross-solitaire-engagement-ring-in-18k-yellow-gold-by-james-allen-item-311132" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-mejuri-diamonds-band">Diamonds Band</a><span class="sub">Mejuri</span></td>
               <td><span class="badge warn">No weight</span><span class="sub mono">WEIGHT_NOT_PUBLISHED</span></td>
@@ -956,17 +1007,17 @@
               <td><a href="rings.html#p-mejuri-stacker-ring-10k">Stacker Ring</a><span class="sub">Mejuri</span></td>
               <td><span class="badge warn">No weight</span><span class="sub mono">WEIGHT_NOT_PUBLISHED</span></td>
               <td class="small">No ring weight in grams on the listing.</td>
-              <td><a href="https://mejuri.com/collections/rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://mejuri.com/products/stacker-ring?Material=Solid+Yellow+Gold+%2810k%29" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-mejuri-stacker-ring-10k">Stacker Ring</a><span class="sub">Mejuri</span></td>
               <td><span class="badge warn">No hallmark</span><span class="sub mono">HALLMARK_NOT_STATED</span></td>
               <td class="small">No hallmark / maker&#x27;s-mark statement on the listing.</td>
-              <td><a href="https://mejuri.com/collections/rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://mejuri.com/products/stacker-ring?Material=Solid+Yellow+Gold+%2810k%29" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-mejuri-stacker-ring-10k">Stacker Ring</a><span class="sub">Mejuri</span></td>
               <td><span class="badge warn">Not an engagement ring</span><span class="sub mono">NOT_ENGAGEMENT_RING</span></td>
               <td class="small">A stacking ring, not an engagement ring - included as the lowest-cost solid-gold entry point for comparison.</td>
-              <td><a href="https://mejuri.com/collections/rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://mejuri.com/products/stacker-ring?Material=Solid+Yellow+Gold+%2810k%29" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-ringconcierge-2-08-oval-lab-whisper-thin">2.08 Oval Lab Diamond in Whisper Thin® Hidden Halo</a><span class="sub">Ring Concierge</span></td>
               <td><span class="badge warn">No &#x27;solid&#x27;</span><span class="sub mono">SOLID_NOT_STATED</span></td>
@@ -980,17 +1031,17 @@
             </tr><tr>
               <td><a href="rings.html#p-ringconcierge-2-08-oval-lab-whisper-thin">2.08 Oval Lab Diamond in Whisper Thin® Hidden Halo</a><span class="sub">Ring Concierge</span></td>
               <td><span class="badge warn">Short return window</span><span class="sub mono">SHORT_RETURN_WINDOW</span></td>
-              <td class="small">Engagement-ring PDP Shipping &amp; Returns accordion restricts returns to &#x27;1 week (7 days) from the date of delivery to return your ready-made engagement ring&#x27; (contradicting the 30-day general Fine Jewelry policy), and resizing makes it final sale.</td>
+              <td class="small">The engagement-ring PDP FAQ says “You have one week (7 days) from the date of delivery to return your ready-made engagement ring” and “Any customizations or resizing to the ring results in it becoming final sale.” The general Fine Jewelry policy says 30 days; use the stricter PDP term unless the seller confirms otherwise in writing.</td>
               <td><a href="https://ringconcierge.com/products/2-08-oval-lab-diamond-in-whisper-thina-hidden-halo" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-ringconcierge-2-08-oval-lab-whisper-thin">2.08 Oval Lab Diamond in Whisper Thin® Hidden Halo</a><span class="sub">Ring Concierge</span></td>
               <td><span class="badge warn">Mixed metal</span><span class="sub mono">MIXED_METAL</span></td>
-              <td class="small">Details accordion states &#x27;Metal: 14K Yellow Gold with Platinum Prongs&#x27; - two different metals in one ring, so a single purity claim does not describe the whole piece.</td>
+              <td class="small">Product Details state “Metal: 14K Yellow Gold with Platinum Prongs”; a single karat purity claim cannot describe the entire piece.</td>
               <td><a href="https://ringconcierge.com/products/2-08-oval-lab-diamond-in-whisper-thina-hidden-halo" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-ringconcierge-2-08-oval-lab-whisper-thin">2.08 Oval Lab Diamond in Whisper Thin® Hidden Halo</a><span class="sub">Ring Concierge</span></td>
               <td><span class="badge warn">Made to order</span><span class="sub mono">MADE_TO_ORDER</span></td>
-              <td class="small">Estimated production time 3-4 weeks and every size marked &quot;Made to Order&quot; on the live page (re-read 2026-10-23); the page also offers a waitlist.</td>
+              <td class="small">Every size option is marked “Made to Order”; the PDP estimates 3-4 weeks production and also shows a “Join the Waitlist” prompt.</td>
               <td><a href="https://ringconcierge.com/products/2-08-oval-lab-diamond-in-whisper-thina-hidden-halo" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-ringconcierge-2-08-oval-lab-whisper-thin">2.08 Oval Lab Diamond in Whisper Thin® Hidden Halo</a><span class="sub">Ring Concierge</span></td>
@@ -1001,21 +1052,6 @@
               <td><a href="rings.html#p-ringconcierge-2-08-oval-lab-whisper-thin">2.08 Oval Lab Diamond in Whisper Thin® Hidden Halo</a><span class="sub">Ring Concierge</span></td>
               <td><span class="badge warn">No hallmark</span><span class="sub mono">HALLMARK_NOT_STATED</span></td>
               <td class="small">No hallmark / maker&#x27;s-mark statement.</td>
-              <td><a href="https://ringconcierge.com/products/2-08-oval-lab-diamond-in-whisper-thina-hidden-halo" target="_blank" rel="noopener">source</a></td>
-            </tr><tr>
-              <td><a href="rings.html#p-ringconcierge-2-08-oval-lab-whisper-thin">2.08 Oval Lab Diamond in Whisper Thin® Hidden Halo</a><span class="sub">Ring Concierge</span></td>
-              <td><span class="badge warn">Karat in images</span><span class="sub mono">PURITY_NOT_IN_BODY_TEXT</span></td>
-              <td class="small">The karat is not stated in the page body; &#x27;Yellow Gold ... with Platinum Prongs&#x27; appears only in the product image descriptions, and the collection filter lists &#x27;14k Yellow Gold&#x27;. Confirm the karat in writing.</td>
-              <td><a href="https://ringconcierge.com/products/2-08-oval-lab-diamond-in-whisper-thina-hidden-halo" target="_blank" rel="noopener">source</a></td>
-            </tr><tr>
-              <td><a href="rings.html#p-ringconcierge-2-08-oval-lab-whisper-thin">2.08 Oval Lab Diamond in Whisper Thin® Hidden Halo</a><span class="sub">Ring Concierge</span></td>
-              <td><span class="badge warn">Mixed metal</span><span class="sub mono">MIXED_METAL</span></td>
-              <td class="small">Band in yellow gold with platinum prongs - two different metals in one ring, so a single purity claim does not describe the whole piece.</td>
-              <td><a href="https://ringconcierge.com/products/2-08-oval-lab-diamond-in-whisper-thina-hidden-halo" target="_blank" rel="noopener">source</a></td>
-            </tr><tr>
-              <td><a href="rings.html#p-ringconcierge-2-08-oval-lab-whisper-thin">2.08 Oval Lab Diamond in Whisper Thin® Hidden Halo</a><span class="sub">Ring Concierge</span></td>
-              <td><span class="badge warn">Made to order</span><span class="sub mono">MADE_TO_ORDER</span></td>
-              <td class="small">Estimated production time 3-4 weeks and every size marked &quot;Made to Order&quot; on the live page (P3 re-read 2026-10-22); the 30-day return window runs from delivery, so the clock starts after a 3-4 week wait. The page also offers a waitlist, so availability is not guaranteed.</td>
               <td><a href="https://ringconcierge.com/products/2-08-oval-lab-diamond-in-whisper-thina-hidden-halo" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-ringconcierge-2-72-round-lab-whisper-thin">2.72 Round Lab Diamond in Whisper Thin®</a><span class="sub">Ring Concierge</span></td>
@@ -1025,17 +1061,17 @@
             </tr><tr>
               <td><a href="rings.html#p-ringconcierge-2-72-round-lab-whisper-thin">2.72 Round Lab Diamond in Whisper Thin®</a><span class="sub">Ring Concierge</span></td>
               <td><span class="badge warn">Short return window</span><span class="sub mono">SHORT_RETURN_WINDOW</span></td>
-              <td class="small">Engagement-ring PDP restricts returns to 7 days from delivery (vs 30 days in general Refund Policy); resizing makes it final sale.</td>
+              <td class="small">The engagement-ring PDP FAQ says “You have one week (7 days) from the date of delivery to return your ready-made engagement ring” and “Any customizations or resizing to the ring results in it becoming final sale.” The general Fine Jewelry policy says 30 days; use the stricter PDP term unless the seller confirms otherwise in writing.</td>
               <td><a href="https://ringconcierge.com/products/2-72-round-lab-diamond-in-whisper-thina" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-ringconcierge-2-72-round-lab-whisper-thin">2.72 Round Lab Diamond in Whisper Thin®</a><span class="sub">Ring Concierge</span></td>
               <td><span class="badge warn">Mixed metal</span><span class="sub mono">MIXED_METAL</span></td>
-              <td class="small">Details accordion states &#x27;Metal: 14K Yellow Gold with Platinum Prongs&#x27;.</td>
+              <td class="small">Product Details state “Metal: 14K Yellow Gold with Platinum Prongs”; a single karat purity claim cannot describe the entire piece.</td>
               <td><a href="https://ringconcierge.com/products/2-72-round-lab-diamond-in-whisper-thina" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-ringconcierge-2-72-round-lab-whisper-thin">2.72 Round Lab Diamond in Whisper Thin®</a><span class="sub">Ring Concierge</span></td>
               <td><span class="badge warn">Made to order</span><span class="sub mono">MADE_TO_ORDER</span></td>
-              <td class="small">Every size option marked &#x27;Made to Order&#x27; (3-4 weeks production) despite appearing in the ready-to-ship collection.</td>
+              <td class="small">Every size option is marked “Made to Order”; the PDP estimates 3-4 weeks production and also shows a “Join the Waitlist” prompt.</td>
               <td><a href="https://ringconcierge.com/products/2-72-round-lab-diamond-in-whisper-thina" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-ringconcierge-2-72-round-lab-whisper-thin">2.72 Round Lab Diamond in Whisper Thin®</a><span class="sub">Ring Concierge</span></td>
@@ -1046,21 +1082,6 @@
               <td><a href="rings.html#p-ringconcierge-2-72-round-lab-whisper-thin">2.72 Round Lab Diamond in Whisper Thin®</a><span class="sub">Ring Concierge</span></td>
               <td><span class="badge warn">No hallmark</span><span class="sub mono">HALLMARK_NOT_STATED</span></td>
               <td class="small">No hallmark / maker&#x27;s-mark statement.</td>
-              <td><a href="https://ringconcierge.com/products/2-72-round-lab-diamond-in-whisper-thina" target="_blank" rel="noopener">source</a></td>
-            </tr><tr>
-              <td><a href="rings.html#p-ringconcierge-2-72-round-lab-whisper-thin">2.72 Round Lab Diamond in Whisper Thin®</a><span class="sub">Ring Concierge</span></td>
-              <td><span class="badge warn">Made to order</span><span class="sub mono">MADE_TO_ORDER</span></td>
-              <td class="small">Every size option reads &quot;Made to Order&quot; (&quot;Estimated production time is 3-4 weeks&quot;) with a &quot;Join the Waitlist&quot; prompt on the live product page (re-read 2026-10-23).</td>
-              <td><a href="https://ringconcierge.com/products/2-72-round-lab-diamond-in-whisper-thina" target="_blank" rel="noopener">source</a></td>
-            </tr><tr>
-              <td><a href="rings.html#p-ringconcierge-2-72-round-lab-whisper-thin">2.72 Round Lab Diamond in Whisper Thin®</a><span class="sub">Ring Concierge</span></td>
-              <td><span class="badge warn">Karat in images</span><span class="sub mono">PURITY_NOT_IN_BODY_TEXT</span></td>
-              <td class="small">Karat inferred from the collection&#x27;s &#x27;14k Yellow Gold&#x27; metal filter and image descriptions, not stated in body text.</td>
-              <td><a href="https://ringconcierge.com/products/2-72-round-lab-diamond-in-whisper-thina" target="_blank" rel="noopener">source</a></td>
-            </tr><tr>
-              <td><a href="rings.html#p-ringconcierge-2-72-round-lab-whisper-thin">2.72 Round Lab Diamond in Whisper Thin®</a><span class="sub">Ring Concierge</span></td>
-              <td><span class="badge warn">Mixed metal</span><span class="sub mono">MIXED_METAL</span></td>
-              <td class="small">Yellow gold band with platinum prongs.</td>
               <td><a href="https://ringconcierge.com/products/2-72-round-lab-diamond-in-whisper-thina" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-catbird-classic-half-round-2mm">Catbird Classic Wedding Bands, Solid Half Round Band, 2mm</a><span class="sub">Catbird</span></td>
@@ -1086,12 +1107,12 @@
               <td><a href="rings.html#p-mejuri-dome-figure-vermeil">Dôme Figure Ring (18k Gold Vermeil)</a><span class="sub">Mejuri</span></td>
               <td><span class="badge warn">Not solid gold</span><span class="sub mono">NOT_SOLID_GOLD</span></td>
               <td class="small">Vermeil is a sterling-silver base with a gold coating (16 CFR 23.4) - it is not solid gold and must not be counted toward a gold-weight calculation.</td>
-              <td><a href="https://mejuri.com/collections/rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://mejuri.com/products/dome-figure-ring?Material=18k+Gold+Vermeil" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-mejuri-dome-figure-sterling">Dôme Figure Ring (Sterling Silver)</a><span class="sub">Mejuri</span></td>
               <td><span class="badge warn">No gold</span><span class="sub mono">NO_GOLD</span></td>
               <td class="small">Sterling silver contains no gold. Included to show that a familiar product name does not imply gold.</td>
-              <td><a href="https://mejuri.com/collections/rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://mejuri.com/products/dome-figure-ring?Material=Sterling+Silver" target="_blank" rel="noopener">source</a></td>
             </tr></tbody>
     </table>
   </div>
@@ -1412,6 +1433,14 @@ exists. A flag with no source of its own is a question about one specific listin
           <p class="small" style="margin:8px 0 4px">On Mejuri&#x27;s Bold Diamond Eternity Ring (R01) and Slim Diamond Eternity Band (R03) the swatch line and body copy name &quot;Solid White Gold (14k)&quot;, while the Materials &amp; Specifications subheading on the same page prints &quot;Solid Yellow Gold (14k)&quot;. The karat (14k) is consistent; the colour is not. Read live on 2026-10-23.</p>
           <p class="small" style="margin:0"><strong>What to do:</strong> Ask the seller in writing to confirm the metal colour of the exact variant ordered; keep the reply with the order confirmation.</p>
           <p class="small" style="margin:6px 0 0"><strong>Source:</strong> <a href="https://mejuri.com/products/bold-diamond-eternity-ring" target="_blank" rel="noopener">official page</a></p>
+        </div><div class="card" id="flag-SPOT2">
+          <div style="display:flex;gap:8px;align-items:baseline;flex-wrap:wrap">
+            <span class="badge warn">medium</span>
+            <span class="mono">SPOT2</span><strong>Fresh gold feeds differ from the preserved calculation anchor</strong>
+          </div>
+          <p class="small" style="margin:8px 0 4px">P17 reopened GoldPrice.org at $3,995.88/oz and Kitco bid at $3,994.90/oz; the feeds agree within 0.0245% but sit below the preserved $4,022.22/oz calculation snapshot used by the site. The live values are published only as labelled reference readings and never consumed by melt arithmetic.</p>
+          <p class="small" style="margin:0"><strong>What to do:</strong> Enter the live spot quote of the purchase date into the calculator; use scripts/refresh_spot_anchor.py only with a fresh dated capture if the owner requests a re-anchor.</p>
+          <p class="small" style="margin:6px 0 0"><strong>Source:</strong> <a href="https://goldprice.org/" target="_blank" rel="noopener">official page</a></p>
         </div><div class="card" id="flag-SRC2">
           <div style="display:flex;gap:8px;align-items:baseline;flex-wrap:wrap">
             <span class="badge warn">medium</span>
@@ -1532,6 +1561,22 @@ exists. A flag with no source of its own is a question about one specific listin
           <p class="small" style="margin:8px 0 4px">Sarraf accepts returns within 30 days of receipt, but the window is heavily conditional: items that are damaged or used do not qualify, orders past 30 days from receipt are refused, items from which the Sarraf.com tag has been removed are not eligible, and anything resized by a jeweller other than Sarraf Jewelry Inc., altered, special-ordered or damaged cannot be accepted for return. The seller&#x27;s own policy pages charge no card-processing fee on a return; the only fees named are a non-refundable $25.00 engraving fee and $50.00 finish charge.</p>
           <p class="small" style="margin:0"><strong>What to do:</strong> Inspect on arrival, keep the packaging untouched, and start the return in writing inside the window if anything fails verification.</p>
           <p class="small" style="margin:6px 0 0"><strong>Source:</strong> <a href="https://www.sarraf.com/30-day-returns-and-exchange-policy/" target="_blank" rel="noopener">official page</a></p>
+        </div><div class="card" id="flag-REV1">
+          <div style="display:flex;gap:8px;align-items:baseline;flex-wrap:wrap">
+            <span class="badge neutral">low</span>
+            <span class="mono">REV1</span><strong>Trustpilot totals and response rates drift between reads</strong>
+          </div>
+          <p class="small" style="margin:8px 0 4px">Aurate printed 4,876 reviews, Blue Nile 1,937 with replies to 97% of negative reviews, and Mejuri 5,785 with replies to 98% on the P17 live re-read. Stored counts/quotes/rates were refreshed; Ring Concierge remains an unclaimed 7-review profile and Catbird a 56-review profile with no recent invitations.</p>
+          <p class="small" style="margin:0"><strong>What to do:</strong> Open each Trustpilot profile immediately before purchase and read the complaint themes, not just the score.</p>
+          <p class="small" style="margin:6px 0 0"><strong>Source:</strong> <a href="https://www.trustpilot.com/review/auratenewyork.com" target="_blank" rel="noopener">official page</a></p>
+        </div><div class="card" id="flag-SRC4">
+          <div style="display:flex;gap:8px;align-items:baseline;flex-wrap:wrap">
+            <span class="badge neutral">low</span>
+            <span class="mono">SRC4</span><strong>Dataset A source links and page-text scope required precision</strong>
+          </div>
+          <p class="small" style="margin:8px 0 4px">P17 tightened six source links from collection pages to the exact PDPs that print the values, corrected the Ring Concierge 2.72 live clarity from E VS1 to E VVS2, and labelled Catbird’s word “Solid” as browser-title metadata rather than the visible product heading. No Dataset A price changed.</p>
+          <p class="small" style="margin:0"><strong>What to do:</strong> Use the exact linked PDP for each row and confirm variant, certificate and visible body text in writing before purchase.</p>
+          <p class="small" style="margin:6px 0 0"><strong>Source:</strong> <a href="https://ringconcierge.com/products/2-72-round-lab-diamond-in-whisper-thina" target="_blank" rel="noopener">official page</a></p>
         </div></div>
 
 

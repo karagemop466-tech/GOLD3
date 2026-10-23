@@ -1,7 +1,7 @@
 # GOLD3 — Anti-Hallucination & Security Verification Report
 
-- **Latest Audit Pass:** Pass #36 — `Scheduled Verification Pass`
-- **Timestamp (UTC):** `2026-10-23T20:51:40Z`
+- **Latest Audit Pass:** Pass #37 — `Scheduled Verification Pass`
+- **Timestamp (UTC):** `2026-10-23T23:54:17Z`
 - **Overall Result:** **PASS** (`0` integrity errors)
 - **Unique Official HTTPS URLs Verified:** `181`
 - **Catalog Entries Audited:** `21` rings + `5` sellers + `7` karat standards
@@ -18,7 +18,7 @@
 | `SEC-03` | Zero-Inference Enforcement (Unverified Values Strictly Left Blank/Null) | **PASS** | `17` | Confirmed 17 items with unconfirmed metal gram weights or mixed-karat splits keep null numeric cells (never inferred) and carry explicit review flags. |
 | `SEC-04` | NIST Troy-Ounce (31.1034768 g) & Raw Melt Arithmetic Audit | **PASS** | `11` | Mathematically verified spot conversion ($4,022.70 / 31.1034768 = $129.3328/g), all 7 karat tiers, and all 4 weight-complete rings to <= $0.02 tolerance. |
 | `SEC-05` | Automated Irregularity, Plated-Control, BBB & Return-Exclusion Scanner | **PASS** | `68` | Cataloged 68 line-by-line review flags across 21 flagged ring entries for publication on flagged-for-review.html. |
-| `SEC-06` | Static HTML Internal/External Link Integrity & Anchor Verification | **PASS** | `2355` | Parsed 24 HTML pages and verified 2355 links, stylesheets, scripts, and anchor targets with zero broken links. |
+| `SEC-06` | Static HTML Internal/External Link Integrity & Anchor Verification | **PASS** | `2380` | Parsed 24 HTML pages and verified 2380 links, stylesheets, scripts, and anchor targets with zero broken links. |
 | `SEC-07` | Front-End Security, No-Hallucinations Top Banner & Zero-External-Script Check | **PASS** | `24` | Verified zero third-party script dependencies, strict rel='noopener noreferrer' on external links, zero eval() calls, and active Front-Page No-Hallucinations Mandate summary. |
 
 ## SHA-256 Integrity Digests (`data/*.json`)
@@ -26,20 +26,21 @@
 | File | SHA-256 Digest |
 |---|---|
 | `data/bands-and-high-karat.json` | `8061e893bb6b94c3886cb8d5dca41ed8260f75506ca140e5f06440fd27d3a99e` |
-| `data/findings.json` | `40e3093c56aca9a2e4935b04c0db0370a1546c1a0a2265774b91debc04b41ab2` |
-| `data/flags.json` | `4b2174a3d2dc67b580a56ee12cc4ce30e8ba0c34035163fa9106252fd23a0bed` |
+| `data/findings.json` | `bbd3fc8cbc60f2b70ffb3220afbc457a32a7555211a64c30b719478fc3e9f894` |
+| `data/flags.json` | `2ed55192f04d6c400c9cb389ba2e5b730c5d41b746d643ae819bd4dbf3bc91d3` |
 | `data/gold-price.json` | `bdb3a741c6696f56ec713c090706cb98fefb53901fe284dfe105308a7d6a7e08` |
-| `data/prices.json` | `accd2ecb513d2ea1a956d762eb2119b722e8fe6cf15dd42dff4df227e980262f` |
-| `data/products.json` | `b710535c3310aded606c436d9207276ac91c399d879522aa4861c7c751ef7194` |
-| `data/retailers.json` | `e780a16102e4278cd4c8803871c50f2527bb7a73baa5db24ead1558e5e5d50e8` |
+| `data/prices.json` | `cbd93259afbde40c7a44c4f6aef4bf288c15cc813e3c12ab797bf5d9446f121c` |
+| `data/products.json` | `9e1114c9c85395176d4b5a037c702977d874d258b08f519d4c78bf4eab501fd6` |
+| `data/retailers.json` | `07d13aedff178132e745d7f6db593611feb5c4190a6f858997b0f50bae1dda0d` |
 | `data/reverification-1162b2db.json` | `803157bd7daddc10ea8ab4773c5ee1df1b5573c259c53c18c74c025263cea4b3` |
 | `data/reverification-57724486.json` | `8b185580a5ef8bafa536151f721d3cb516e66926f02762af704284b9c3e2e2f3` |
 | `data/reverification-bfcd8465.json` | `46f99c832ef98244d5d535ef4389dabc9313f1f92833e11157a3b9a09ec2cae8` |
 | `data/reverification-c-15b00e99.json` | `34ac65f9dc2ee5d078b5a4a7128eb41fd2e7316efbd4e5d125ebe71b0b946332` |
-| `data/reverification-c-6ccbc523.json` | `52f4a6d610762be546e45e94fd1ffe2f17f201d16215625264fe45c84acc78f2` |
+| `data/reverification-c-6ccbc523.json` | `a807951064276cd1fd9010379082733243c39cbf75a542d52e5e74bd0e64386d` |
 | `data/reverification-dataset-c.json` | `2f35e1bb80f76cbc360f51dc2fec996c407f96fdd192b6386f33ad5cf4635e5c` |
 | `data/reverification-fb7e5e3c.json` | `5b0dfdc516c0cd958d8d600ae85a28d7ad46e73aa743335110b4d1e60f3c792a` |
 | `data/reverification-p15.json` | `ed96531e5576f223a77187091275b945ca35c9c5e1dbb9429d97b7973cbc7b6e` |
+| `data/reverification-p17.json` | `63bf90552beb1434bb12d36a399dafbdf6808745c20c2b1a5f92bd2e35dc246e` |
 | `data/reverification-p3.json` | `b1dca1669099d66e45b08588f8827b24f59edd65e4f4b4a806ef2a02987b5d16` |
 | `data/reverification-p4.json` | `2e5ce8fdff92d04a3e1570960caf0bb1daafc91b2d76209a97a0fb94635e801a` |
 | `data/reverification-p5.json` | `1c5ba33b93efdaa14d423fff0be8ca20622f4436d900bc6208ee44e64158bdda` |
@@ -48,8 +49,8 @@
 | `data/sellers-policies.json` | `6f2edb268c1efd391f4c98102d164665d40d1b2f56cc18702c4492bad6b8cd36` |
 | `data/sellers.json` | `4d1bd09620f904e833139fa16f7be571e87ade0115df1826472447e324bc033f` |
 | `data/solitaire-rings.json` | `b14736e9308d559ca542081e0b9dda7b325588b6558486aa288d27753ef5b8d8` |
-| `data/sources.json` | `781ec94c3f29585fd04a767eaca00917662d166ee4fa292fdc75d8ee869e93f4` |
+| `data/sources.json` | `f35fc08bc456c5a67af8f6f9fc9124dfa62c2545ae4eb4596155ba516a278dcc` |
 | `data/spot-and-standards.json` | `b2b4203069b283be7a36228bf776aed7bda1e673435d1e2488c83e3fd890e03b` |
 | `data/standards.json` | `6b745302667c70fb15800fb830471250551a37e238e507a8b993f8e3c4423ad8` |
-| `data/verification-report.json` | `825e71bca9e0dbae493607adade74a2a4060bdad40d962b25e523b3c9f297881` |
-| `data/verification.json` | `05abb82a5f5a8c88f2c2f3d780638016e00549987c29de0f6963af970205d4a3` |
+| `data/verification-report.json` | `b4cb98c30c53b13fb92acd7821a4810d578129fc67e66811ed23337c0c5125f7` |
+| `data/verification.json` | `77c67cfc5fb5db7b473068e97dfced109f7c3c5bc26646de5694891fbbfb4bc4` |

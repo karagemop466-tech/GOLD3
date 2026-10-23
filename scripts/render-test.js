@@ -249,7 +249,59 @@ check("SD24 F2 uses full A+B+C weight and listing counts",
   includesText(html["flagged.html"], "Only 19 of 71 listings publish a weight") &&
   !includesText(html["flagged.html"], "Only 14 of 50 listings publish a weight"));
 check("SD24 README pass range and ledger count are current",
-  read("README.md").includes("P1`–`P15") && read("README.md").includes("222 logged checks"));
+  read("README.md").includes("P1`–`P17") &&
+  read("README.md").includes(`${_verif.summary.checks} logged checks`));
+
+// P17: independent Dataset-A/product/policy re-read, source precision and CR closeout.
+const _p17Products = JSON.parse(read("data/products.json")).products;
+const _p17Retailers = JSON.parse(read("data/retailers.json")).retailers;
+const _p17Hist = JSON.stringify(JSON.parse(read("data/reverification-c-6ccbc523.json")));
+const _p17Bundle = read("reports/reverification-1162b2db.md");
+const _p17Aurate = _p17Products.filter((p) => p.id.startsWith("aurate-"));
+const _p17Rc272 = _p17Products.find((p) => p.id === "ringconcierge-2-72-round-lab-whisper-thin");
+const _p17Counts = Object.fromEntries(_p17Retailers.map((r) => [r.id, r.trustpilot_reviews]));
+check("P17 verification ledger extends uniquely to P17",
+  verif.session.includes("arena/bd0ed905-gold3 (P17)") &&
+  verif.summary.checks === verif.checks.length &&
+  _ids.filter((id) => id.startsWith("P17-")).length === 36 &&
+  includesText(html["verify.html"], "arena/bd0ed905-gold3 (P17)"));
+check("P17 site-defect counters are recomputed from the ledger",
+  verif.site_defects_fixed === verif.summary.site_defects_fixed &&
+  verif.site_defects_fixed === verif.site_defects.filter((d) => /fixed/i.test(d.status)).length,
+  `${verif.site_defects_fixed} fixed`);
+check("P17 every Dataset-A PDP was opened in the ledger",
+  _p17Products.every((p) => verif.checks.some((c) => c.id.startsWith("P17-") && c.url === p.url)));
+check("P17 Aurate flag codes are unique and the stale anchor is gone",
+  _p17Aurate.every((p) => new Set(p.flags.map((f) => f.code)).size === p.flags.length) &&
+  !JSON.stringify(_p17Products).includes("4,026.79") &&
+  !JSON.stringify(_p17Products).includes("/pages/terms-conditions-exchange-only\""));
+check("P17 unscoped bezel weights are shown but never promoted to exact weights",
+  ["Weight: 2.23g", "Weight: 2.36g", "Weight: 3.33g"].every((q) => includesText(html["rings.html"], q)) &&
+  ["aurate-1ct-round-lgd-bezel", "aurate-2ct-emerald-lgd-bezel", "aurate-3ct-pear-lgd-bezel"]
+    .every((id) => _p17Products.find((p) => p.id === id).weight_g === null));
+check("P17 Ring Concierge 2.72 clarity matches its live PDP",
+  _p17Rc272.carat_note.includes("E VVS2") && !_p17Rc272.carat_note.includes("E VS1") &&
+  !JSON.stringify(_p17Rc272.flags).includes("PURITY_NOT_IN_BODY_TEXT"));
+check("P17 Trustpilot drift is refreshed on the retailer page",
+  _p17Counts.aurate === 4876 && _p17Counts["blue-nile"] === 1937 && _p17Counts.mejuri === 5785 &&
+  includesText(html["retailers.html"], "1,937 reviews") &&
+  _p17Retailers.find((r) => r.id === "catbird").trustpilot_url.includes("/www.catbirdnyc.com"));
+check("P17 fresh live spot and Kitco cross-check are labelled, not promoted",
+  html["calculator.html"].includes("$3,995.88") &&
+  html["calculator.html"].includes("$3,994.90") &&
+  html["calculator.html"].includes("reference observations only") &&
+  html["calculator.html"].includes("value=\"4022.22\""));
+check("P17 findings F50-F55 are published for manual review",
+  ["F50", "F51", "F52", "F53", "F54", "F55"].every((id) => html["flagged.html"].includes(`id=\"${id}\"`)));
+check("P17 CR-P15-1 preserves the original evidence while correcting attribution",
+  _p17Hist.includes("evidence_original_preserved") &&
+  _p17Hist.includes("NIST SP 811 Appendix B.9") &&
+  _p17Hist.includes("does not print the numeric"));
+check("P17 CR-P15-2 retains both reports without conflict markers",
+  ["## Version A", "## Version B", "Resolution"].every((s) => _p17Bundle.includes(s)) &&
+  !/^(<{7}|={7}|>{7})/m.test(_p17Bundle));
+check("P17 F2 still uses the full A+B+C counts",
+  includesText(html["flagged.html"], "Only 19 of 71 listings publish a weight"));
 
 // ------------------------------------------------------------------- report
 let failed = 0;

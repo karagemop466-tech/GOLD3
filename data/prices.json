@@ -36,16 +36,25 @@
       "quote": "Gold Spot price USD /oz - 4,024.45 ... Data as of 22 October, 2026"
     },
     {
-      "id": "goldprice-org-2026-10-23T20-17Z",
+      "id": "goldprice-org-2026-10-23T23-46Z",
       "publisher": "GoldPrice.org",
       "url": "https://goldprice.org/",
       "metal": "gold",
-      "price_usd_per_troy_oz": 3997.22,
-      "as_of_text": "Oct 23rd, 2026 at 04:17 NY Time",
+      "price_usd_per_troy_oz": 3995.88,
+      "as_of_text": "Oct 23rd, 2026 at 07:41 NY Time",
       "captured_on": "2026-10-23",
       "role": "live-check (shown for reference, not used in any calculation)",
-      "quote": "Spot Gold Price: USD 3,997.22 / Ounce | Spot Silver Price: USD 53.92 / Ounce Oct 23rd, 2026 at 04:17 NY Time",
-      "note": "Read live at 2026-10-23T20:17Z. 0.6215% below the primary snapshot captured the same morning, on the same market date. The page's clock label (04:17 NY) is EARLIER than the 05:55 NY label on that morning's capture even though it was read later in the day; both labels are recorded as printed and neither is explained away (finding F39)."
+      "quote": "Spot Gold Price: USD 3,995.88 / Ounce | Spot Silver Price: USD 53.92 / Ounce Oct 23rd, 2026 at 07:41 NY Time",
+      "note": "Read live at 2026-10-23T23:46:52Z (P17). The page label is reproduced verbatim and does not state AM/PM. The reading is 0.65% below the preserved $4,022.22/oz calculation anchor and is NOT used in any calculator arithmetic. The previous 20:17Z live-check is preserved in history.",
+      "history": [
+        {
+          "id": "goldprice-org-2026-10-23T20-17Z",
+          "price_usd_per_troy_oz": 3997.22,
+          "as_of_text": "Oct 23rd, 2026 at 04:17 NY Time",
+          "quote": "Spot Gold Price: USD 3,997.22 / Ounce | Spot Silver Price: USD 53.92 / Ounce Oct 23rd, 2026 at 04:17 NY Time",
+          "note": "Read live at 2026-10-23T20:17Z. 0.6215% below the primary snapshot captured the same morning, on the same market date. The page's clock label (04:17 NY) is EARLIER than the 05:55 NY label on that morning's capture even though it was read later in the day; both labels are recorded as printed and neither is explained away (finding F39)."
+        }
+      ]
     }
   ],
   "cross_check": {
@@ -54,5 +63,16 @@
     "note": "The two independent snapshots read on 2026-10-23 differ by 0.055%, which is consistent with normal intraday movement between the two timestamps (and within 0.06% of Dataset C's simultaneous Kitco $4,022.70/oz & BullionVault $4,024.23/oz quotes). Calculations use the primary (GoldPrice.org) snapshot; the World Gold Council figure is shown next to it so the reader can see the spread.",
     "benchmark_note": "The LBMA Gold Price is the global benchmark, set twice daily by ICE Benchmark Administration. LBMA states (re-verified live 2026-10-23) that real-time and historical benchmark data require an IBA licence and that the public tables have moved behind the MyLBMA portal, so no LBMA figure is reproduced here. Source: https://www.lbma.org.uk/prices-and-data/lbma-precious-metal-prices"
   },
-  "live_check_note": "A third, explicitly labelled live-check reading is kept beside the two calculation snapshots. It is never consumed by the calculator: the arithmetic on every page stays pinned to the dated primary snapshot so the printed results can be reproduced."
+  "live_check_note": "P17 re-read two live feeds at 2026-10-23T23:46:52Z: GoldPrice.org $3,995.88/oz and Kitco bid $3,994.90/oz, 0.0245% apart. Both are shown as dated reference checks only; the $4,022.22/oz primary capture remains the sole calculation anchor so every melt figure stays reproducible. The previous 20:17Z live-check is preserved in the live snapshot history.",
+  "live_cross_check": {
+    "publisher": "Kitco Metals Inc.",
+    "url": "https://www.kitco.com/charts/gold",
+    "price_usd_per_troy_oz": 3994.9,
+    "as_of_text": "Oct 23, 2026 - 19:43 NY Time; page also says “7:42 p.m. EDT”",
+    "quote": "Oct 23, 2026 - 19:43 NY Time | Bid 3,994.90 | Ask 3,996.90 | ounce 3,994.90 | gram 128.44 | Prices provided by Kitco Metals Inc. Displayed in U.S. dollars (USD), as of October 23, 2026 at 7:42 p.m. EDT.",
+    "captured_on": "2026-10-23",
+    "role": "independent live cross-check (reference only, not used in any calculation)",
+    "spread_usd_per_oz": 0.98,
+    "spread_percent": 0.0245
+  }
 }

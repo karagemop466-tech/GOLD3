@@ -1,4 +1,9 @@
-<<<<<<< HEAD
+# Archived verification report bundle — P17 conflict resolution
+
+This file preserves two independently authored 2026-10-23 verification reports that were previously concatenated by unresolved Git conflict markers. Pass P17 removed the markers and retained both reports below without discarding evidence.
+
+## Version A — Pass P5, session `arena/1162b2db-gold3`
+
 # Pass P5 — Primary-Source Line-by-Line Re-Verification Report (`2026-10-23`)
 
 - **Session:** `arena/1162b2db-gold3`
@@ -32,7 +37,10 @@
 - **Government & GIA `HTTP 404`/`500` Links:** Replaced `uscode.house.gov` (`500`) with `law.cornell.edu/uscode/text/15/295` & `/297` (`200`), `gov.uk/guidance/hallmarking-law-and-practice` (`404`) with `gov.uk/government/publications/hallmarking-guidance-notes/hallmarking-is-the-law-guidance-summary` (`200`), and `gia.edu/gems-gemology/summer-2025-lab-notes-gold-plated-gold0` (`404`) with `gia.edu/dam/migrated-assets/docs/doc1/summer-2025-lab-notes.pdf` (`200`).
 - **Four-Source Spot Gold Cross-Check (`2026-10-23`):** GoldPrice.org `$4,022.22/oz`, Kitco Bid `$4,022.70/oz` (London AM Fix `$4,026.66/oz`), BullionVault `$4,024.23/oz`, World Gold Council `$4,024.45/oz` (`0.055%` / `$2.23/oz` spread across all four independent feeds).
 - **Deterministic Security Audit Gate (`CR-692d-2`):** Added `--deterministic` (`or GOLD3_DETERMINISTIC=1`) to `scripts/run_security_audit.py` so automated gate checks verify all `SEC-01`..`SEC-07` invariants with zero worktree diff.
-=======
+---
+
+## Version B — Dataset C & Dataset D pass, session `arena/2908bea4-gold3`
+
 # Dataset C & Dataset D Independent Live Re-Verification Report (`V9`–`V10`)
 
 - **Date (UTC):** `2026-10-23`
@@ -80,4 +88,6 @@
 ## 2. Standing Recommendation
 
 Always run **both** `python3 scripts/run_security_audit.py --session-id <session>` **and** `python3 scripts/verify_dataset_c.py` after every review or edit, then manually spot-check random cells in `solitaire-settings.html`, `bands-vintage-rings.html`, `sellers-policies.html`, and `combined.html` against their linked official URLs to look for hallucinations, silent client-JS omissions, or live price drift.
->>>>>>> origin/main
+---
+
+**Resolution:** `2026-10-23T23:46:52Z` by `arena/bd0ed905-gold3` (P17). No report text from either side was deleted; only the three conflict-marker lines were replaced by these section headings. See CR-P15-2 in COORDINATION.md.

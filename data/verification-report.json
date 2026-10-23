@@ -37,15 +37,12 @@
       "solid_gold": true,
       "flags": [
         "SOLID_NOT_ON_LISTING",
-        "PRICE_FROM_LOWEST_VARIANT",
         "WEIGHT_NOT_PUBLISHED",
         "WEIGHT_RANGE_ONLY",
         "EXCHANGE_ONLY_FINAL_SALE",
         "PAGE_SELF_CONTRADICTION",
         "HALLMARK_NOT_STATED",
-        "FINAL_SALE_PDP_OVERRIDE",
-        "WEIGHT_RANGE_ONLY",
-        "EXCHANGE_ONLY_FINAL_SALE"
+        "FINAL_SALE_PDP_OVERRIDE"
       ],
       "derived": {
         "karat": "14K",
@@ -328,10 +325,7 @@
         "MIXED_METAL",
         "MADE_TO_ORDER",
         "WEIGHT_NOT_PUBLISHED",
-        "HALLMARK_NOT_STATED",
-        "PURITY_NOT_IN_BODY_TEXT",
-        "MIXED_METAL",
-        "MADE_TO_ORDER"
+        "HALLMARK_NOT_STATED"
       ],
       "derived": {
         "karat": "14K",
@@ -352,10 +346,7 @@
         "MIXED_METAL",
         "MADE_TO_ORDER",
         "WEIGHT_NOT_PUBLISHED",
-        "HALLMARK_NOT_STATED",
-        "MADE_TO_ORDER",
-        "PURITY_NOT_IN_BODY_TEXT",
-        "MIXED_METAL"
+        "HALLMARK_NOT_STATED"
       ],
       "derived": {
         "karat": "14K",
@@ -676,6 +667,36 @@
       "id": "F49",
       "severity": "low",
       "title": "A calculator preset label did not match the sourced ring, and band ratios were hardcoded"
+    },
+    {
+      "id": "F50",
+      "severity": "low",
+      "title": "Live Trustpilot counts drifted; displayed figures were refreshed"
+    },
+    {
+      "id": "F51",
+      "severity": "low",
+      "title": "Several Dataset A prices were sourced one level too broadly"
+    },
+    {
+      "id": "F52",
+      "severity": "medium",
+      "title": "Aurate legacy flags contained duplicate entries and claims the bezel pages do not print"
+    },
+    {
+      "id": "F53",
+      "severity": "low",
+      "title": "Ring Concierge 2.72 clarity note did not match its own PDP"
+    },
+    {
+      "id": "F54",
+      "severity": "medium",
+      "title": "Fresh gold feeds sit below the preserved calculation anchor"
+    },
+    {
+      "id": "F55",
+      "severity": "low",
+      "title": "Two historical documentation change requests were closed without discarding evidence"
     }
   ],
   "parallel_dataset": {

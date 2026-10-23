@@ -20,15 +20,15 @@
   },
   "spot_corroboration": {
     "kitco_url": "https://www.kitco.com/charts/gold",
-    "kitco_bid_usd_oz": 4022.70,
-    "kitco_ask_usd_oz": 4024.70,
+    "kitco_bid_usd_oz": 4022.7,
+    "kitco_ask_usd_oz": 4024.7,
     "kitco_london_fix_usd_oz": 4026.66,
     "kitco_timestamp": "Oct 23, 2026 05:56 NY Time",
     "bullionvault_url": "https://www.bullionvault.com/gold-price-chart.do",
     "bullionvault_usd_oz": 4024.23,
     "bullionvault_usd_g": 129.38,
     "bullionvault_timestamp": "23 October 2026, 05:57:08 GMT-04:00",
-    "calculation_anchor_usd_oz": 4025.10,
+    "calculation_anchor_usd_oz": 4025.1,
     "drift_pct": -0.06
   },
   "defects_repaired": [
@@ -62,7 +62,9 @@
       "target": "scripts/build_ext_pages.py (Rule 02 & Rule 04 in checklist-standards.html)",
       "prior_value": "16 CFR § 23.4 ('Misuse of Gold') & NIST SP 365 wallet card URL",
       "repaired_value": "16 CFR § 23.3 ('Misrepresentation as to Gold Content') & NIST SP 811 Precious Metals Conversion Information URL",
-      "evidence": "Live inspection of eCFR Title 16 Part 23 showed § 23.4 covers Vermeil while § 23.3 governs solid gold / karat thresholds; NIST SP 365 page lacked troy-ounce conversions whereas NIST Precious Metals Conversion Information explicitly confirms 1 oz t = 31.1034768 g."
+      "evidence": "Live inspection of eCFR Title 16 Part 23 showed § 23.4 covers Vermeil while § 23.3 governs solid gold / karat thresholds; NIST SP 365 page lacked troy-ounce conversions; the NIST Precious Metals Conversion Information page provides Handbook 130 sec. 2.17 context and links a PDF but does not print the numeric troy-ounce-to-gram constant. The exact 31.1034768 g value is derived from NIST SP 811 Appendix B.9: 480 grains/troy oz × 0.06479891 g/grain.",
+      "evidence_original_preserved": "Live inspection of eCFR Title 16 Part 23 showed § 23.4 covers Vermeil while § 23.3 governs solid gold / karat thresholds; NIST SP 365 page lacked troy-ounce conversions whereas NIST Precious Metals Conversion Information explicitly confirms 1 oz t = 31.1034768 g.",
+      "attribution_correction_p17": "Corrected 2026-10-23T23:46:52Z by arena/bd0ed905-gold3 (P17) after re-opening https://www.nist.gov/pml/owm/metric-si/unit-conversion/precious-metals-conversion-information and https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9. Original assertion preserved in evidence_original_preserved."
     },
     {
       "id": "REV-C-05",

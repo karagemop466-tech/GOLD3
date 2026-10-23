@@ -1,10 +1,10 @@
 # Anti-hallucination audit report
 
-- Run: 2026-10-23 20:51 UTC
+- Run: 2026-10-23 23:54 UTC
 - Rows audited: **31**
 - Sellers audited: **14**
-- Flag definitions: **54**
-- Result: **PASS** — 0 error(s), 0 warning(s), 176 check(s) passed
+- Flag definitions: **57**
+- Result: **PASS** — 0 error(s), 1 warning(s), 176 check(s) passed
 
 ## What this pass is looking for
 
@@ -24,9 +24,9 @@
 
 None.
 
-## Warnings
+## Warnings — reviewed and accepted
 
-None.
+- [flags] defined but never used: ['REV1', 'SPOT2', 'SRC4']
 
 ## Passed checks
 
@@ -174,11 +174,11 @@ None.
 - [domain] R29: brilliantearth.com belongs to brilliantearth.com
 - [domain] R30: mene.com belongs to mene.com
 - [domain] R31: localeclectic.com belongs to localeclectic.com
-- [verify] all 222 verification check ids are unique
+- [verify] all 258 verification check ids are unique
 - [verify] all 31 rows appear in the verification log
 - [verify] summary counts recomputed from the entries and match
-- [flags] 54 flag definitions validated
-- [verify] all 22 site-defect ids are unique
+- [flags] 57 flag definitions validated
+- [verify] all 27 site-defect ids are unique
 - [standards] all karat fractions reproduce n/24
 - [standards] 8 legal rules carry citations
 - [site] verify.html present
