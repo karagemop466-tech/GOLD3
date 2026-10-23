@@ -178,7 +178,7 @@ None.
 - [verify] all 31 rows appear in the verification log
 - [verify] summary counts recomputed from the entries and match
 - [flags] 54 flag definitions validated
-- [verify] all 19 site-defect ids are unique
+- [verify] all 20 site-defect ids are unique
 - [standards] all karat fractions reproduce n/24
 - [standards] 8 legal rules carry citations
 - [site] verify.html present

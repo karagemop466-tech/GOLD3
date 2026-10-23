@@ -3053,7 +3053,15 @@
       "what": "Two dates were typed in and therefore wrong: the calculator labelled the pre-filled spot snapshot '22 October 2026' while data/prices.json records captured_on 2026-10-23 (the page printed both dates in one sentence), and flagged.html printed 'Last automated pass: 22 October 2026' while reports/audit-report.md was generated 2026-10-23. Found by reading the live site back after the PR #54 deploy.",
       "found_by": "Post-deploy live read-back, Pass P13 follow-up (finding F44)",
       "fix": "The snapshot date now comes from PRIMARY['captured_on'] and the audit date from reports/audit-report.md at build time; both are asserted in scripts/render-test.js."
+    },
+    {
+      "id": "SD22",
+      "page": "sources.html (data/sources.json, entry goldprice-org)",
+      "what": "The authority-source card for GoldPrice.org was titled 'Gold spot price (live quote shown on site)', described itself as the 'Primary USD spot snapshot used by the calculator', and quoted only the later $3,997.22/oz reading. The amount actually used by the calculator is $4,022.22/oz, captured the same morning at 05:55 NY. As published, the source register attributed the calculator's arithmetic to a figure the site explicitly does not use.",
+      "found_by": "arena/57724486-gold3, reading sources.html back on the live site after the PR #55 deploy",
+      "fix": "The card now states both readings: the $4,022.22/oz primary capture used in every calculation, and the $3,997.22/oz later read shown only as a labelled live-check that is not used in any calculation. Both quotes are printed verbatim with their own page timestamps.",
+      "status": "fixed 2026-10-23"
     }
   ],
-  "site_defects_fixed": 15
+  "site_defects_fixed": 20
 }

@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-10-23T20:30:15Z",
+  "generated_at_utc": "2026-10-23T20:36:50Z",
   "data_file_sha256": {
     "bands-and-high-karat.json": "8061e893bb6b94c3886cb8d5dca41ed8260f75506ca140e5f06440fd27d3a99e",
     "findings.json": "9b34bf49d43c58c4d6e9b975faedbc3a67d9271b868395bf5ed45f8f86293d91",
@@ -23,11 +23,11 @@
     "sellers-policies.json": "6f2edb268c1efd391f4c98102d164665d40d1b2f56cc18702c4492bad6b8cd36",
     "sellers.json": "4d1bd09620f904e833139fa16f7be571e87ade0115df1826472447e324bc033f",
     "solitaire-rings.json": "b14736e9308d559ca542081e0b9dda7b325588b6558486aa288d27753ef5b8d8",
-    "sources.json": "6a5c601691169659a560ff01172bbcbccf1523884f86b20f057cea26f8ef797d",
+    "sources.json": "781ec94c3f29585fd04a767eaca00917662d166ee4fa292fdc75d8ee869e93f4",
     "spot-and-standards.json": "fb7febce8b15501221a57f89e4f244635d645ac122963315373bc0137f39a171",
     "standards.json": "6b745302667c70fb15800fb830471250551a37e238e507a8b993f8e3c4423ad8",
     "verification-report.json": "fa4c894dbeb8aab73c67eff67f3972d365cfa2481393c58aba70147020b0db89",
-    "verification.json": "381ba925befa6836ddc13f691f8bc0a209d4458c55a2e2670d142242a576e7a7"
+    "verification.json": "9e06c9372907cb4992f0a9b800ddd299ff53c2f54dfa666999f93f729c7709aa"
   },
   "unique_official_urls_count": 180,
   "official_sources": [
