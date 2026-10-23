@@ -481,7 +481,7 @@ At {money(SPOT,2)}/oz, one gram of 100% fine gold is {money(SPOT_GRAM,2)}. The 2
 
 <h2>Scope and honesty</h2>
 <div class="warn-box">
-  <strong>This is a point-in-time capture, not a live price engine.</strong> All prices were read on {CAPTURED} and can change the same day.
+  <strong>This is a point-in-time capture, not a live price engine.</strong> All prices were read on {CAPTURED} and they do change the same day: when the Menē pages were reopened on {RECHECKED}, every one of them was already cheaper than the figure captured the day before (see flag <code>PRC1</code>). Treat each price as a dated observation and re-read the source link before you buy.
   {len(flagged_products)} of {METRICS['n_solid_gold']} gold listings carry at least one open flag; none of them is a "recommended buy".
   A listing appears here because it could be verified, not because it is endorsed.
 </div>

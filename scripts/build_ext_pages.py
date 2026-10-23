@@ -73,6 +73,8 @@ def render_shell(active_file: str, title: str, body_html: str, spot_bench: dict,
         Security &amp; Hallucination Suite:
         <strong>Pass #{latest_pass['pass_number']} — {esc(latest_pass['overall_status'])} ({latest_pass['error_count']} errors)</strong>
         &bull; <a href="security-audit.html">View Audit Log</a>
+        <span class="small" style="opacity:.8">(as recorded when this page was built; each new pass is appended to
+        <code>verification/audit-log.json</code> after the build, so the log can be one entry ahead of this banner)</span>
       </div>
     </div>
   </div>
