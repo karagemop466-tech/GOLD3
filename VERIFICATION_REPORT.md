@@ -1,7 +1,7 @@
 # GOLD3 — Anti-Hallucination & Security Verification Report
 
-- **Latest Audit Pass:** Pass #25 — `Pass P9b — Additive Integration on PR #42/#44 + Exact Aurate PDP Quotes (PR #46)`
-- **Timestamp (UTC):** `2026-10-23T10:44:45Z`
+- **Latest Audit Pass:** Pass #26 — `Pass P9c — Restored Exact PDP price_source on All 7 Aurate + 2 Ring Concierge Rows After 3-Way Merge`
+- **Timestamp (UTC):** `2026-10-23T10:48:51Z`
 - **Overall Result:** **PASS** (`0` integrity errors)
 - **Unique Official HTTPS URLs Verified:** `179`
 - **Catalog Entries Audited:** `21` rings + `5` sellers + `7` karat standards
@@ -30,7 +30,7 @@
 | `data/flags.json` | `a966192e8ad89dfa77b43a43313591fe09e14b1b08da2fcf9ee1371f8bb9e743` |
 | `data/gold-price.json` | `bdb3a741c6696f56ec713c090706cb98fefb53901fe284dfe105308a7d6a7e08` |
 | `data/prices.json` | `509ec5ee9ef43541fc4298458e8b1b79ecb522a4eeddd5204c3863f29d7d9e58` |
-| `data/products.json` | `9709ace6f9d7e6ae7397f8c6a4a792e55db8e3a7c0aa8dbbf195abe5b0e97b4a` |
+| `data/products.json` | `b710535c3310aded606c436d9207276ac91c399d879522aa4861c7c751ef7194` |
 | `data/retailers.json` | `e780a16102e4278cd4c8803871c50f2527bb7a73baa5db24ead1558e5e5d50e8` |
 | `data/reverification-1162b2db.json` | `803157bd7daddc10ea8ab4773c5ee1df1b5573c259c53c18c74c025263cea4b3` |
 | `data/reverification-c-15b00e99.json` | `34ac65f9dc2ee5d078b5a4a7128eb41fd2e7316efbd4e5d125ebe71b0b946332` |

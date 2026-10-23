@@ -1,12 +1,12 @@
 {
-  "generated_at_utc": "2026-10-23T10:44:45Z",
+  "generated_at_utc": "2026-10-23T10:48:51Z",
   "data_file_sha256": {
     "bands-and-high-karat.json": "45fb55cde7cba506ea62b7b6423a98db0b2eeed15b11d2c116c90b704769129f",
     "findings.json": "4fd26cbc03e5ad7d697b825f259236fcd019bb03009d0f44e594dafeefe1e101",
     "flags.json": "a966192e8ad89dfa77b43a43313591fe09e14b1b08da2fcf9ee1371f8bb9e743",
     "gold-price.json": "bdb3a741c6696f56ec713c090706cb98fefb53901fe284dfe105308a7d6a7e08",
     "prices.json": "509ec5ee9ef43541fc4298458e8b1b79ecb522a4eeddd5204c3863f29d7d9e58",
-    "products.json": "9709ace6f9d7e6ae7397f8c6a4a792e55db8e3a7c0aa8dbbf195abe5b0e97b4a",
+    "products.json": "b710535c3310aded606c436d9207276ac91c399d879522aa4861c7c751ef7194",
     "retailers.json": "e780a16102e4278cd4c8803871c50f2527bb7a73baa5db24ead1558e5e5d50e8",
     "reverification-1162b2db.json": "803157bd7daddc10ea8ab4773c5ee1df1b5573c259c53c18c74c025263cea4b3",
     "reverification-c-15b00e99.json": "34ac65f9dc2ee5d078b5a4a7128eb41fd2e7316efbd4e5d125ebe71b0b946332",
