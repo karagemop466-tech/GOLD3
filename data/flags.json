@@ -105,7 +105,7 @@
       "id": "WT1",
       "severity": "medium",
       "label": "Weight includes the stones",
-      "what": "The published weight is \"total weight\" of the finished ring, diamonds included. Gold-only weight is lower, so a melt calculation using this number is an upper bound, not the gold content.",
+      "what": "The listing states \"Total Weight: 4.5 grams\" (R05) and \"Total Weight: 6.5 grams\" (R13) — the whole vintage item with set diamonds (and matte black enamel on R13), not the gold alone.",
       "why_it_matters": "Using total item weight as gold weight systematically overstates melt value — a classic way an otherwise honest calculator produces a wrong number.",
       "action": "Ask for the mounting weight excluding stones, or accept that the melt figure is a ceiling.",
       "source": null
@@ -314,10 +314,10 @@
       "id": "RET8",
       "severity": "high",
       "label": "$300 recycling fee on setting-only or engraved returns",
-      "what": "VRAI's official return help article states that engraved or setting-only engagement ring returns refunded to the original payment method incur a $300 USD recycling fee, and its Los Angeles BBB profile carries an unaccredited F rating for unanswered complaints.",
+      "what": "VRAI's live returns policy (https://www.vrai.com/returns-exchanges) states that returned engagement rings and engraved wedding bands refunded to the original payment method incur a $300 USD recycling fee ($50 fee on non-engraved bands/MTO rings; orders above $15,000 receive store credit only), and its Los Angeles BBB profile carries an unaccredited F rating.",
       "why_it_matters": "A $300 deduction penalises a buyer who exercises the return right after independent inspection, and unanswered BBB complaints signal post-purchase friction.",
       "action": "Do not engrave before independent scale and XRF verification, confirm fee-free return eligibility in writing, and pay by credit card.",
-      "source": "https://help.vrai.com/hc/en-us/articles/360000836514-What-is-your-return-policy"
+      "source": "https://www.vrai.com/returns-exchanges"
     },
     {
       "id": "RET9",
@@ -384,9 +384,10 @@
       "what": "Sarraf product pages state: 'In the event that your item is defective Sarraf will at its sole discretion, repair or replace the item free of charge... If you choose not to have the item repaired or replaced by Sarraf Jewelry Inc., you will be charged a warranty fee of $100.00 or 10% of the purchase price which ever amount is greater.' Sarraf's About page separately advertises a 'Lifetime Guarantee' with 'Some restrictions apply'.",
       "why_it_matters": "A 'lifetime guarantee' that charges $100 or 10% of the price (whichever is greater) the moment the buyer uses their own jeweller is not free cover. On a $3,004 ring that is a $300.40 fee.",
       "action": "Read the warranty clause, not the marketing label, and price the 10% into the total cost of ownership.",
-      "source": "https://www.sarraf.com/products/14k-white-gold-1-00-ctw-round-3-stone-diamond-engagement-ring-g-i1-3-80-gr.html",
+      "source": "https://www.sarraf.com/products/14k-white-gold-solitaire-ring-0-94-ctw.html",
       "first_seen": "2026-10-23",
-      "source_2": "https://www.sarraf.com/about-sarraf/"
+      "source_2": "https://www.sarraf.com/about-sarraf/",
+      "correction_note": "Updated 2026-10-23 in Pass P6 (arena/a05b3c00-gold3): the prior URL cited by Pass P3 (.../14k-white-gold-1-00-ctw-round-3-stone-diamond-engagement-ring-g-i1-3-80-gr.html) returned HTTP 404 ('Sarraf - Not Found') and was repointed to R20's live page where chunk 4 (#tab-warranty) prints the exact $100 / 10% clause verbatim."
     },
     {
       "id": "SPEC4",
@@ -404,17 +405,18 @@
       "id": "SPEC5",
       "severity": "medium",
       "label": "Automic lead time contradicts itself on one page",
-      "what": "The Automic Gold product page prints 'Lead Time: 4-8 Days' in its information table, then 'Please allow 1-2 weeks for your order to ship, plus an additional 2-3 weeks for orders with engraving' lower down, and a separate 'Waitlist / Made to Order' notice appears on comparable made-to-order pieces.",
+      "what": "Automic Gold product pages print conflicting lead-time statements in adjacent sections — on R22 (radiant-cut-lab-diamond-cathedral-ring), 'Production time is 1-2 weeks' vs 'Production time is 1-3 weeks', and on R25 (gemstone-flower-ring), 'Production time is 4-8 business days' vs 'Production time is 1-2 weeks'.",
       "why_it_matters": "A buyer choosing between 'in 8 days' and 'in 2 weeks (5 weeks engraved)' cannot plan. When one page gives two lead times, the longer one is the safe assumption.",
       "action": "Confirm the current lead time in writing before ordering, especially for an engraved or made-to-order piece.",
-      "source": "https://www.automicgold.com/products/1-50ctw-pear-shaped-lab-grown-diamond-engagement-ring-bezel-set",
-      "first_seen": "2026-10-23"
+      "source": "https://www.automicgold.com/products/radiant-cut-lab-diamond-cathedral-ring",
+      "first_seen": "2026-10-23",
+      "correction_note": "Updated 2026-10-23 in Pass P6 (arena/a05b3c00-gold3): Pass P3's earlier URL (.../1-50ctw-pear-shaped-lab-grown-diamond-engagement-ring-bezel-set) returned HTTP 404 and was repointed to R22's live URL."
     },
     {
       "id": "SRC1",
       "severity": "high",
       "label": "Cited official source URL returns 404",
-      "what": "Two source URLs recorded by other sessions do not resolve: Sarraf's policy_source https://www.sarraf.com/pages/returns-and-refunds.html returns '404 Error - Page not found' (title 'Sarraf - Not Found'), and Automic's policy_source https://www.automicgold.com/pages/return-policy returns '404 Not Found - Automic Gold'. The live pages are https://www.sarraf.com/30-day-returns-and-exchange-policy/ and https://www.automicgold.com/policies/refund-policy. Both records were repointed on 2026-10-23.",
+      "what": "Across Passes P3–P6, nine broken/404/500 source URLs recorded across datasets were caught and repointed to verified live official pages: Sarraf's policy URL (/pages/returns-and-refunds.html -> /30-day-returns-and-exchange-policy/), Automic's policy URL (/pages/return-policy -> /policies/refund-policy), WAR1.source (...3-stone...3-80-gr.html -> R20 live URL), SPEC5.source (...1-50ctw-pear... -> R22 live URL), VRAI contact (/pages/contact-us -> /contact-us), Local Eclectic contact (/pages/contact-us -> /pages/contact), Wilson's policy (/pages/returns-exchanges -> /policies/refund-policy), GIA Lab Notes (...gold0 -> ...gold), and US Code citations (uscode.house.gov 500 -> law.cornell.edu 15 U.S.C. 295/297).",
       "why_it_matters": "The brief requires every table row to carry a working source link to an official site. A dead citation is worse than no citation: it looks like evidence but cannot be checked, and the values attributed to it become unverifiable.",
       "action": "Re-fetch every cited URL before publishing, and prefer the canonical page reached from the site's own policy index over a guessed slug.",
       "source": "https://www.sarraf.com/30-day-returns-and-exchange-policy/",
@@ -454,6 +456,46 @@
       "action": "Use the returns portal (returns.narvar.com/catbird) or a store, and re-check the contact page later. Do not treat the recorded e-mail as confirmed as of 2026-10-23.",
       "source": "https://www.catbirdnyc.com/contact-us",
       "quote": "500 Internal Server Error",
+      "first_seen": "2026-10-23"
+    },
+    {
+      "id": "PRC2",
+      "severity": "high",
+      "label": "Collection card price differs materially from live product page price",
+      "what": "Mejuri's milestone-rings collection card (chunk 2) prints 'From $648' for Slim Diamond Eternity Band (R03), while opening the linked 14k Solid White Gold product page on the exact same pass prints 'From $898' (+38.6%). Menē's Wide Flat Band similarly prints 'From $2,315' on the collection grid vs '$2,465 USD' on the product page.",
+      "why_it_matters": "A collection-grid 'From' card can lag price increases or display a discontinued/smaller variant, understating checkout cost by hundreds of dollars.",
+      "action": "Always verify the exact variant price directly on the product page at checkout — never rely on collection-grid 'From' cards.",
+      "source": "https://mejuri.com/products/slim-diamond-eternity-band?Material=Solid+White+Gold+%2814k%29&Stone=Natural+Diamond",
+      "first_seen": "2026-10-23"
+    },
+    {
+      "id": "SPEC6",
+      "severity": "medium",
+      "label": "Standalone refund policy contradicts product-page return shipping terms",
+      "what": "Wilson's Estate Jewelry's product-page Domestic Returns tab (R11–R13) states 'Returns within the US are complimentary!' via a prepaid QR label within 3 calendar days of label receipt, whereas its standalone policy page (/policies/refund-policy) omits complimentary labels and states 'You must ship the package back to us, insured for the retail value'.",
+      "why_it_matters": "Insured shipping on a $1,690–$7,050 ring costs $50–$150+; if the standalone refund policy controls, the buyer bears both the cost and transit risk.",
+      "action": "Obtain written email confirmation before checkout that the seller will issue a complimentary fully insured US return label if returned.",
+      "source": "https://www.wilsonsestatejewelry.com/policies/refund-policy",
+      "first_seen": "2026-10-23"
+    },
+    {
+      "id": "SPEC7",
+      "severity": "medium",
+      "label": "Selected band style contradicts published pavé carat weight on same page",
+      "what": "On VRAI's Signature 6-Prong Solitaire page (R28), the active configuration reads 'Band: Plain' ($1,460), yet the Details block on the exact same page prints 'Pavé carat weight: 0.11ctw'.",
+      "why_it_matters": "Shared template specs on configurable ring pages make it unclear whether you are paying $1,460 for a plain shank or a diamond-set shank — affecting both stone count and resizing limits.",
+      "action": "Confirm exact SKU specifications (plain shank vs pavé melee carat weight) on the written order invoice before paying.",
+      "source": "https://www.vrai.com/engagement-rings/signature-6-prong/round-brilliant-yellow-gold-41046738731101",
+      "first_seen": "2026-10-23"
+    },
+    {
+      "id": "SD7",
+      "severity": "high",
+      "label": "Cross-dataset audit quarantined unverified static-HTML weights & false BBB rating on Menē",
+      "what": "Cross-dataset review of Menē across Dataset B (R30, S-MENE) and Dataset C (BND-01..03, SEL-MENE) caught three defects in Dataset C: (1) BND-01..03 asserted static HTML gram numbers that do not appear in Menē's HTML (gram breakdown sits behind a client-side JS modal), (2) SEL-MENE recorded a false 'D+' BBB grade (both official BBB files 0107-1413670 & 0107-1378080 are 'Not Rated'), and (3) SEL-MENE omitted Menē's 10% restocking fee and +/-0.5g (in-stock) / +/-1.0g (Crafted-on-Demand) weight tolerances.",
+      "why_it_matters": "Under the project's No-Hallucinations rule, no gram weight, melt value, or reputation grade may stand unless present verbatim in the static primary source.",
+      "action": "Record live screenshot of Menē's JS 'Price breakdown' modal at checkout, weigh the delivered ring against Menē's Certificate of Authenticity (within +/-0.5g in-stock / +/-1.0g MTO), and keep the COA intact.",
+      "source": "https://mene.com/terms-of-service",
       "first_seen": "2026-10-23"
     }
   ]

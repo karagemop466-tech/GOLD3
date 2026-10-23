@@ -16,19 +16,20 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data"
 VERIF_DIR = ROOT / "verification"
 
-NAV_ITEMS = [
-    ("index.html", "Main Dashboard", False),
-    ("combined.html", "All 59 Combined Rows", False),
-    ("checklist-standards.html", "12-Point Checklist", False),
-    ("solitaire-settings.html", "Solitaires (9)", False),
-    ("bands-vintage-rings.html", "24K & Solid Bands (12)", False),
-    ("sellers-policies.html", "BBB & Policy Audit (5)", False),
-    ("calculator.html", "Gold Calculator", False),
-    ("flagged-for-review.html", "Flagged C (16)", True),
-    ("flagged.html", "Flagged A+B", True),
-    ("verify.html", "Verify Log", False),
-    ("security-audit.html", "Security Passes", False),
-]
+def get_nav_items(n_combined: int = 71, n_flagged_c: int = 19) -> list[tuple[str, str, bool]]:
+    return [
+        ("index.html", "Main Dashboard", False),
+        ("combined.html", f"All {n_combined} Combined Rows", False),
+        ("checklist-standards.html", "12-Point Checklist", False),
+        ("solitaire-settings.html", "Solitaires (9)", False),
+        ("bands-vintage-rings.html", "24K & Solid Bands (12)", False),
+        ("sellers-policies.html", "BBB & Policy Audit (5)", False),
+        ("calculator.html", "Gold Calculator", False),
+        ("flagged-for-review.html", f"Flagged C ({n_flagged_c})", True),
+        ("flagged.html", "Flagged A+B", True),
+        ("verify.html", "Verify Log", False),
+        ("security-audit.html", "Security Passes", False),
+    ]
 
 
 def esc(val: object) -> str:
@@ -40,9 +41,9 @@ def ext_link(url: str, label: str, cls: str = "source-btn") -> str:
     return f'<a href="{esc(url)}" target="_blank" rel="noopener noreferrer"{cls_attr}>{esc(label)} &#8599;</a>'
 
 
-def render_shell(active_file: str, title: str, body_html: str, spot_bench: dict, latest_pass: dict) -> str:
+def render_shell(active_file: str, title: str, body_html: str, spot_bench: dict, latest_pass: dict, n_combined: int = 71, n_flagged_c: int = 19) -> str:
     nav_links = []
-    for href, label, is_flag in NAV_ITEMS:
+    for href, label, is_flag in get_nav_items(n_combined, n_flagged_c):
         classes = []
         if href == active_file:
             classes.append("active")
@@ -1002,8 +1003,12 @@ def build_all() -> None:
         ("security-audit.html", "Security & Anti-Hallucination Verification Log", security_body),
     ]
 
+    n_a = len(json.loads((DATA_DIR / "products.json").read_text(encoding="utf-8"))["products"])
+    n_b = len(json.loads((DATA_DIR / "rings.json").read_text(encoding="utf-8"))["rings"])
+    n_combined_total = n_a + n_b + len(all_rings)
+
     for filename, page_title, content in pages:
-        full_html = render_shell(filename, page_title, content, bench, latest_pass)
+        full_html = render_shell(filename, page_title, content, bench, latest_pass, n_combined=n_combined_total, n_flagged_c=len(flagged_rings))
         (ROOT / filename).write_text(full_html, encoding="utf-8")
         print(f"  Built {filename} ({len(full_html):,} bytes)")
 

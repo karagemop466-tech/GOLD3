@@ -1,5 +1,5 @@
 {
-  "retrieved_utc": "2026-10-22",
+  "retrieved_utc": "2026-10-23",
   "note": "Only facts printed on the seller's own official pages are recorded. Empty values mean 'not verified', never 'no'.",
   "sellers": [
     {
@@ -96,15 +96,17 @@
       "publishes_hallmark": true,
       "offers_xrf_or_assay": "Not offered per item; 'Stamped for X karat' is the seller's statement. Some pieces are described as 'tested as' a karat",
       "price_display": "Sale price shown per item",
-      "policy_source": "https://www.wilsonsestatejewelry.com/products/mid-century-old-european-diamond-14-karat-white-gold-vintage-solitaire-engagement-ring",
+      "policy_source": "https://www.wilsonsestatejewelry.com/policies/refund-policy",
       "flags": [
         "RET2",
         "WT1",
         "X1",
-        "M1"
+        "M1",
+        "SPEC6"
       ],
       "verification": "Weight in grams, stamp description, maker's mark, phone and email verified verbatim on three individual official product pages on 2026-10-22. This is the only seller in the study that publishes gram weights. The international final-sale clause, the layaway terms and the returns-page wording were read verbatim on 2026-10-23 by arena/699d8e05-gold3 (pass P3); the 3% fee on this record is Wilson's own and is unaffected by the RET7 correction (F15).",
-      "policy_source_2": "https://www.wilsonsestatejewelry.com/pages/returns-exchanges"
+      "policy_source_2": "https://www.wilsonsestatejewelry.com/pages/returns-exchanges",
+      "notes": "Re-verified live 2026-10-23 (pass P6): standalone policy at https://www.wilsonsestatejewelry.com/policies/refund-policy (note: /pages/returns-exchanges is 404) requires buyer-paid insured return shipping and states refunds issue within 3 days of receipt, contradicting the product-page Domestic Returns tab ('Returns within the US are complimentary!' via QR code within 3 calendar days of label receipt; 3% card-processing fee deducted on pre-shipment cancellations) -> flagged SPEC6."
     },
     {
       "id": "S-RS",
@@ -197,7 +199,7 @@
       "return_address_note": "Left blank 2026-10-23 by arena/699d8e05-gold3. The returns page publishes no postal return address at all: returns go through the Narvar portal (https://returns.narvar.com/catbird/returns) or in person at any Catbird store. An earlier draft of this pass recorded '219 Bedford Avenue, Brooklyn, NY 11211', which is not on that page and was removed rather than kept unsourced. The only Brooklyn address printed on the contact page - 'Catbird, Attn: Leigh, 141 Flushing Avenue, Suite 903, Brooklyn, NY 11205' - is for mailing in design samples, not returns. See finding F23.",
       "cancellation_policy": "Verbatim: 'Once your order is placed we are unable to cancel it or make changes.' Custom items in progress must be raised with customer service immediately",
       "exchange_policy": "No direct exchange exists. Verbatim: 'Please return your ring using the return portal and place a new order on line for your new size. This is currently the only way we are able to accomodate exchanges.' In-store purchases are store credit only, within 20 days, with a receipt",
-      "contact_source_correction_note": "Corrected 2026-10-23 by arena/6ccbc523-gold3: https://www.catbirdnyc.com/contact-us returned nginx HTTP 500 Internal Server Error across independent re-checks, whereas official page https://www.catbirdnyc.com/facts returns HTTP 200 and prints 'Customer Email: customerservice@catbirdnyc.com' verbatim (Verified: 2026-06-11)."
+      "notes": "Re-verified live 2026-10-23 (pass P6): https://www.catbirdnyc.com/contact-us still returns nginx HTTP 500 (SRC2 retained), while customer-service email appears on https://www.catbirdnyc.com/returns and Brooklyn studio address ('141 Flushing Avenue Suite 709, Brooklyn, NY 11205') is published live on https://www.catbirdnyc.com/catbird-sizing-and-repairs (10-day return window from delivery; unworn/unaltered condition)."
     },
     {
       "id": "S-JA",
@@ -324,7 +326,7 @@
       "type": "Lab-grown diamond & bridal jeweller (Los Angeles, CA)",
       "phone": "+1-855-383-8724",
       "email": "hello@vrai.com",
-      "contact_source": "https://www.vrai.com/pages/contact-us",
+      "contact_source": "https://www.vrai.com/contact-us",
       "return_window": "30 days from delivery for eligible unworn engagement rings",
       "return_exclusions": "Engraved or setting-only returns to original payment method incur a $300 USD recycling fee; resized, custom, or previously exchanged items are final sale",
       "resize_policy": "One complimentary resize on eligible rings, after which the ring becomes final sale",
@@ -333,14 +335,15 @@
       "publishes_hallmark": false,
       "offers_xrf_or_assay": "Not stated",
       "price_display": "Dynamic JavaScript configurator price (not present in static HTML)",
-      "policy_source": "https://help.vrai.com/hc/en-us/articles/360000836514-What-is-your-return-policy",
+      "policy_source": "https://www.vrai.com/returns-exchanges",
       "flags": [
         "RET8",
         "P2",
         "H1",
         "X1"
       ],
-      "verification": "Official VRAI contact page and Help Center return article fetched 2026-10-22 (session arena/cbea1001-gold3); BBB Los Angeles profile shows F rating for 5 unanswered complaints."
+      "verification": "Official VRAI contact page and Help Center return article fetched 2026-10-22 (session arena/cbea1001-gold3); BBB Los Angeles profile shows F rating for 5 unanswered complaints.",
+      "notes": "Re-verified live 2026-10-23 (pass P6): contact page moved from /pages/contact-us (404) to https://www.vrai.com/contact-us (help@vrai.com, +1-855-956-4488, 8687 Melrose Ave G282, West Hollywood, CA 90069). Return policy at https://www.vrai.com/returns-exchanges specifies a $300 recycling fee on returned engagement rings and engraved wedding bands, a $50 recycling fee on non-engraved bands/MTO rings, store credit only above $15,000, and 1 complimentary resize on plain bands."
     },
     {
       "id": "S-LOCALECLECTIC",
@@ -349,7 +352,7 @@
       "type": "Online multi-designer jewellery marketplace (Chicago, IL)",
       "phone": null,
       "email": "hello@localeclectic.com",
-      "contact_source": "https://www.localeclectic.com/pages/contact-us",
+      "contact_source": "https://www.localeclectic.com/pages/contact",
       "return_window": "14 days from delivery for original-payment refund ( minus return shipping label); days 15-90 store credit only",
       "return_exclusions": "Final-sale, custom, or worn items excluded; after day 14 only store credit is issued",
       "resize_policy": "Does not offer resizing",
@@ -366,7 +369,8 @@
         "H1",
         "X1"
       ],
-      "verification": "Official Contact Us and FAQ pages fetched 2026-10-22 (session arena/cbea1001-gold3); phone number omitted on website contact page so left null here."
+      "verification": "Official Contact Us and FAQ pages fetched 2026-10-22 (session arena/cbea1001-gold3); phone number omitted on website contact page so left null here.",
+      "notes": "Re-verified live 2026-10-23 (pass P6): /pages/contact-us returned 404; live customer-support contact page is https://www.localeclectic.com/pages/contact. Return portal at /pages/returns confirms 30-day window and $5 shipping/handling fee for refunds."
     },
     {
       "id": "S-MENE",
@@ -390,7 +394,8 @@
         "W1",
         "H1",
         "X1",
-        "PRC1"
+        "PRC1",
+        "SD7"
       ],
       "verification": "Official Contact Us and Sep 2, 2026 Terms of Service fetched 2026-10-22 (session arena/cbea1001-gold3). Re-read live 2026-10-23 (session arena/6d6192d1-gold3): prices are metal-linked and had moved since capture - see PRC1."
     }

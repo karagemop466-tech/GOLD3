@@ -47,6 +47,8 @@ OFFICIAL_DOMAINS = {
     "www.catbirdnyc.com", "catbirdnyc.com",
     "www.ecfr.gov", "ecfr.gov",
     "www.law.cornell.edu", "law.cornell.edu",
+    "www.legislation.gov.uk", "legislation.gov.uk",
+    "www.gov.uk", "gov.uk",
     "www.gold.org", "gold.org",
     "goldprice.org", "www.goldprice.org",
     "www.lbma.org.uk", "lbma.org.uk",
@@ -305,9 +307,11 @@ def main() -> int:
             # weight but never a single figure for the ring being sold. The
             # number itself still has to stay null either way.
             ws = p.get("weight_status") or ""
-            if ws != "not published" and not ws.startswith("published as a range"):
-                err(f"product {pid}: null weight must carry weight_status='not published' "
-                    f"or a 'published as a range' explanation (got {ws!r})")
+            if (ws != "not published"
+                    and not ws.startswith("published as a range")
+                    and not ws.startswith("published as unscoped total weight")):
+                err(f"product {pid}: null weight must carry weight_status='not published', "
+                    f"'published as a range...', or 'published as unscoped total weight...' (got {ws!r})")
         if p.get("carat") is not None and not domain_ok(p.get("carat_source")):
             err(f"product {pid}: carat present without carat_source")
         if p.get("hallmark_stated") is not None:

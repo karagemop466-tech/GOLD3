@@ -344,6 +344,23 @@ if _pdoc_path.exists():
         product_ids = {p.get("id") for p in json.loads(_pdoc_path.read_text(encoding="utf-8")).get("products", [])}
     except Exception:  # noqa: BLE001
         product_ids = set()
+ext_ids = set()
+def _collect_ext_ids(obj):
+    if isinstance(obj, dict):
+        if isinstance(obj.get("id"), str):
+            ext_ids.add(obj["id"])
+        for _v in obj.values():
+            _collect_ext_ids(_v)
+    elif isinstance(obj, list):
+        for _v in obj:
+            _collect_ext_ids(_v)
+for _ext_name in ("solitaire-rings.json", "bands-and-high-karat.json", "sellers-policies.json", "spot-and-standards.json"):
+    _ep = DATA / _ext_name
+    if _ep.exists():
+        try:
+            _collect_ext_ids(json.loads(_ep.read_text(encoding="utf-8")))
+        except Exception:  # noqa: BLE001
+            pass
 
 verified_rows = set()
 check_urls = set()
@@ -375,7 +392,7 @@ if verif_doc:
             # a Dataset-A product id or the excluded-listing set. Those are real
             # subjects of a verification check; what must not happen is a check
             # pointing at something that does not exist anywhere in the data.
-            if rid in seller_ids or rid in flag_defs or rid in product_ids:
+            if rid in seller_ids or rid in flag_defs or rid in product_ids or rid in ext_ids:
                 continue
             if rid in ("excluded", "bands", "products", "retailers"):
                 continue
@@ -609,7 +626,7 @@ for page in html_files:
 
     # hardcoded prices
     for amount in re.findall(r"\$([0-9][0-9,]*\.?[0-9]*)", text):
-        cleaned = amount.rstrip(".")
+        cleaned = amount.rstrip(".,")
         if cleaned not in data_prices:
             warn("site", f"{page.name}: printed ${cleaned} which is not in data/*.json — "
                          f"either it is a policy quote or a hallucination")
