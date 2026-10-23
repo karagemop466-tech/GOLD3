@@ -23,7 +23,7 @@ Read it before starting any work. Update it when you claim, finish, or hand off 
 | `arena/bfcd8465-gold3` | `arena/bfcd8465-gold3` | 2026-10-23T09:55Z | complete — deep-chunk Automic Gold & flag-source audit (`V13` / `P11`), `RET14`, UI/nav consistency & final integration (`T16`, §17; PR #45 merged as `4fd7504`, Pages deployed) |
 | `arena/2908bea4-gold3` | `arena/2908bea4-gold3` | 2026-10-23T09:55Z | complete — Dataset C & Dataset D live URL/value sweep (V10–V11), Dataset C provenance gate (`verify_dataset_c.py`), final additive integration & deploy (V12, §13; PR #40 merged as `8d3c172`, Pages deployed) |
 | `arena/15b00e99-gold3` | `arena/15b00e99-gold3` | 2026-10-23T10:44Z | **complete** — Pass P10 full-repo hallucination/contradiction/dead-URL sweep (`DC1`–`DC4`, §15; PR #44 merged as `a0b589b`, Pages deployed & live read-back verified) |
-| `arena/57724486-gold3` | `arena/57724486-gold3` | 2026-10-23T20:30Z | **complete (PR #51 merged)** — Pass `P12`: freshest live re-verification of the spot benchmark + a rotating sample of the highest-priced `R*` rows and `SOL`/`BND` rows, headline-count/consistency sweep of every published page vs `data/`, then final integration (rebuild, 9 gates, PR → `main`, merge, Pages deploy read-back) |
+| `arena/57724486-gold3` | `arena/57724486-gold3` | 2026-10-23T20:30Z | **in progress** — Pass `P12`: freshest live re-verification of the spot benchmark + a rotating sample of the highest-priced `R*` rows and `SOL`/`BND` rows, headline-count/consistency sweep of every published page vs `data/`, then final integration (rebuild, 9 gates, PR → `main`, merge, Pages deploy read-back) |
 | `arena/438a583e-gold3` | `arena/438a583e-gold3` | 2026-10-23T20:17Z | **complete** — Pass `P13` (renumbered from P12 after `arena/57724486-gold3` landed the same id): all 14 weight-bearing PDPs re-read live, 4 independent spot feeds, reproducible `scripts/refresh_spot_anchor.py`, spot anchor promoted to the live read; §19 |
 
 ### Branch naming note (important)
@@ -90,7 +90,7 @@ Status values: `unclaimed` · `in progress` · `done` · `needs review`
 | DC2 | Replace hardcoded `$4,025.10`/`$129.41`/`$317.05` spot & melt literals across `scripts/`, extend `verify_dataset_c.py` dead-URL blocklist, rebuild all 24 HTML pages & manifest, pass all 9 CI gates | done | `arena/15b00e99-gold3` | `scripts/audit.py`, `scripts/run_security_audit.py`, `scripts/build_ext_pages.py`, `scripts/verify_dataset_c.py`, `*.html`, `data/verified-data.js`, `verification/*`, `reports/*` | 2026-10-23T10:44Z |
 | DC3 | Open & merge PR #44 (`a0b589b`) to `main`, confirm GitHub Pages deployment (`39941002177`, `status: built`) & live read-back, record final outcome | done | `arena/15b00e99-gold3` | `COORDINATION.md` | 2026-10-23T10:44Z |
 | P12 | Eleventh independent live verification pass on the post-PR-#50 tree (`253ab39`): **7 live checks — 3 confirmed / 2 corrected / 2 flagged**. Spot anchor 0.62% below the stored snapshot with an inverted clock label (F39); Menē Classic Band $1,707→$1,694 and Narrow Flat Band $1,544→$1,532 (F40); Menē Wide Flat Band page returned HTTP 500 so its price was left captured (SRC3); Sarraf R20, Ross-Simons BND-04 and Mejuri R03 confirmed verbatim. Also fixed SD14 (three headline counts said 50 while the site renders 71) and SD15 (duplicate `P11-01/P11-02` ids, duplicate `SD6/SD10`, stale `summary.checks` 137 vs 185) and added three audit guard rails. Published `data/reverification-57724486.json` + `reports/reverification-pass-57724486.md`; log now **192 checks**. Verification pass on the post-PR-#50 tree (`253ab39`): re-open the spot benchmark and a rotating sample of price/weight-bearing rows live, sweep every published headline count against `data/`, fix any discrepancy found, publish `data/reverification-57724486.json` + report, then final integration (rebuild, all 9 CI gates, PR → `main`, merge, Pages deploy read-back) | done | `arena/57724486-gold3` | `data/reverification-57724486.json`, `reports/reverification-pass-57724486.md`, `data/verification.json`, `COORDINATION.md`; integration window over generated `*.html`, `data/*.json`, `verification/*`, `reports/*` | 2026-10-23T21:00Z |
-| V15 | Pass `P13` independent live re-read: (a) four independent gold-spot feeds, (b) **every** weight-bearing PDP (`R11`–`R28`), (c) reproducible re-anchor tooling (`scripts/refresh_spot_anchor.py`, `--check` mode), (d) promote the corroborated live spot read to the calculation anchor with the superseded snapshots retained as `history`, (e) rebuild, pass all nine gates, PR → `main`, merge, confirm Pages deploy | done | `arena/438a583e-gold3` | `data/prices.json`, `data/spot-and-standards.json`, `data/bands-and-high-karat.json`, `data/solitaire-rings.json`, `data/gold-price.json`, `data/verification.json`, `data/findings.json`, `scripts/refresh_spot_anchor.py`, `scripts/build_site.py`, generated `*.html`, `COORDINATION.md` | 2026-10-23T20:55Z |
+| V15 | Pass `P13` independent live re-read: four gold-spot feeds, **every** weight-bearing PDP (`R11`–`R28`), reproducible re-anchor tooling (`scripts/refresh_spot_anchor.py`, `--check`), promote the corroborated live read to the calculation anchor with superseded snapshots kept as `history`; merge with concurrent PR #51/#53 (`P12` → `P13`, `F39` → `F41`); rebuild, nine gates, PR → `main`, deploy | done | `arena/438a583e-gold3` | `data/prices.json`, `data/spot-and-standards.json`, `data/bands-and-high-karat.json`, `data/solitaire-rings.json`, `data/gold-price.json`, `data/verification.json`, `data/findings.json`, `scripts/refresh_spot_anchor.py`, `scripts/audit.py`, `scripts/build_site.py`, generated `*.html`, `COORDINATION.md` | 2026-10-23T21:05Z |
 
 > **T10 closed 2026-10-23** by its owner's own work, merged as PR #13 (board record) and PR #15
 > (text corrections). This session only recorded the closure — no file owned by `arena/92d7dd0a-gold3`
@@ -932,11 +932,16 @@ links/anchors) · `render-test.js` **127/127** · `report_verify.py` **192 check
 
 | Step | Result |
 |---|---|
-| Pull request | _recorded below after merge_ |
-| Merge commit on `main` | _recorded below after merge_ |
-| CI run on `main` | _recorded below after merge_ |
-| GitHub Pages deployment | _recorded below after merge_ |
-| Live read-back | _recorded below after merge_ |
+| Pull request [#51](https://github.com/karagemop466-tech/GOLD3/pull/51) (`arena/57724486-gold3` → `main`) | opened and merged; CI on the PR `40018544270` **success** (12s) |
+| Merge commit on `main` | `7406ee9` (`7406ee98f090bd8178044c06de743798474e828f`), merged 2026-10-23T20:22:00Z |
+| CI run on `main` | `40018656780` — **success** (16s, all nine gates) |
+| GitHub Pages deployment | `40018655845` — **success** (33s) |
+| Live read-back | `https://karagemop466-tech.github.io/GOLD3/` returns the new dashboard lead — *"50 listings across 16 sellers … plus 21 Dataset C settings and bands, **71 rows in all**"* |
+
+**Follow-up PR #52** carries the rest of `SD14`: the deployed dashboard's KPI card still printed *"Listings on site 50"* and
+*"14 of 50 combined"*, because those two cards were built from the A+B metrics. Both are now computed
+(`TOTAL_ROWS` = 71, `C_WEIGHT_PUBLISHED` = 5 → **"19 of 71 combined"**). Caught by reading the live site back after the
+deploy rather than by trusting the build, which is the check this project requires after every publish.
 
 ---
 
