@@ -834,3 +834,7 @@ not-re-checked; `R22`'s weight line was cut off by the fetch. All of it is liste
 
 
 
+
+
+### Session `arena/a05b3c00-gold3` Deployment Record
+- via PR [#42](https://github.com/karagemop466-tech/GOLD3/pull/42) (merged commit `deadcba` at `2026-10-23T10:43:25Z`; `main` CI run `39941107079` **SUCCESS**; GitHub Pages deployment `39941106296` **SUCCESS** — verified live readback on `verify.html` [183 checks, `P1`–`P11`], `calculator.html`, and `combined.html` [71 listings, 19 published weights]).
