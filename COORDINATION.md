@@ -17,8 +17,8 @@ Read it before starting any work. Update it when you claim, finish, or hand off 
 | `arena/698f08f6-gold3` | `arena/698f08f6-gold3` | 2026-10-22T23:24Z | complete (PR #24, #26 merged — Dataset C, §9) |
 | `sess-692d-gold` | `arena/692d8c94-gold3` | 2026-10-22T23:26Z | complete (PR #29 merged as `bafa7d9`; record PR #30) |
 | `arena/699d8e05-gold3` | `arena/699d8e05-gold3` | 2026-10-22T23:50Z | complete (PR #31, #32 merged — V5, §10) |
-| `arena/6d6192d1-gold3` | `arena/6d6192d1-gold3` | 2026-10-23T09:55Z | complete (PR #33, #34 merged — V6–V9, §11) |
-| `arena/a05b3c00-gold3` | `arena/a05b3c00-gold3` | 2026-10-23T09:56Z | **active — sixth independent live re-verification pass across all 181 URLs & all 4 datasets (C8–C10)** |
+| `arena/6ccbc523-gold3` | `data/spot-and-standards.json`, `data/sellers-policies.json`, `data/solitaire-rings.json`, `data/bands-and-high-karat.json`, `data/retailers.json`, `data/sellers.json` (`S-CB`), `data/findings.json`, `data/reverification-c-6ccbc523.json`, `reports/reverification-c-6ccbc523.md`, `scripts/render-test.js`, `scripts/run_security_audit.py`, `scripts/build_ext_pages.py`, `scripts/build_site.py`, rebuilt HTML/verification artifacts | **complete** (C8–C10 + SD6 + CR-692d-2 + §11.3 URL sweep) |
+| `arena/6d6192d1-gold3` | `arena/6d6192d1-gold3` | 2026-10-23T09:55Z | complete — fourth pass (V6), CR-P3 closeout (V7), final integration (V8), targeted weight pass (V9); PRs #33, #34, #35, #36 merged; Pages deployed from `771ea6e` |
 
 ### Branch naming note (important)
 The protocol below asks for `session-<id>/<task>` branches. **This sandbox pins each session to a
@@ -415,6 +415,18 @@ links OK · `audit.py` rows=22 errors=0 warnings=0 passed=124 · `render-test.js
 | Merge | **merged** (no approval requested, per standing instruction) — merge commit `796362b` | 2026-10-23T10:03Z |
 | GitHub Pages deploy | **built** — `pages build and deployment` for `796362b`, completed/success; live read-back of https://karagemop466-tech.github.io/GOLD3/ shows "Last automated verification pass: 23 October 2026" and the Mene price-drift finding | 2026-10-23T10:06Z |
 | Follow-up record PR | this section — §5 record, §11 report, board rows closed, plus a note on `security-audit.html` explaining why its banner is one pass behind the log | 2026-10-23T10:2xZ |
+| Second pass of the session (V9) | 6 checks on the weight-bearing rows + 16 CFR 23.10 → `data/reverification-p5.json`, `reports/reverification-pass-p5.md`; `data/verification.json` at **116 checks** | 2026-10-23T10:45Z |
+| **PR #34** | https://github.com/karagemop466-tech/GOLD3/pull/34 — fifth pass, plus the dashboard's two dates and the security-banner note. CI **pass** (15 s). | 2026-10-23T10:52Z |
+| Merge of PR #34 | **merged** as `7513177` (no approval requested) | 2026-10-23T10:53Z |
+| Pages deploy for `7513177` | **built**, completed/success | 2026-10-23T10:54Z |
+| **Defect found after deploy** | Reading the live `verify.html` showed the same tally twice: a bulk edit that gave the passes unique ids matched `id == "P4"` and overwrote the first session's **Hallucination pass** result with the fourth pass's numbers. The numbers were right; the row that lost its record was not. Recorded as site defect **SD9**. | 2026-10-23T10:56Z |
+| **PR #35** | https://github.com/karagemop466-tech/GOLD3/pull/35 — P4's result restored, session line names the ids each session owns, SD9 recorded. CI **pass** (15 s); merged as `4c4e5dd`; Pages **built**. | 2026-10-23T10:58Z |
+| Clean-up PR #36 | Removed a duplicate flag legend introduced in this session — `flagged.html` already renders one from `data/flags.json`. Two legends on one page is how definitions drift apart. CI **pass**; merged as `771ea6e`; Pages **built**. Live read-back of `verify.html` confirms P4's own result is back and the log stands at 116 checks. | 2026-10-23T11:04Z |
+
+**Three defects in this session were found by reading the deployed page, not the repository:** the Menē price drift
+(`PRC1`), the pass table overwriting itself (`SD9`), and the duplicate legend. The first is a seller changing its mind;
+the second and third are this project's own mistakes, visible only in rendered output. That is an argument for treating
+the live URL as part of the test suite rather than a delivery target.
 
 **Why `security-audit.html` shows "Pass #16" while `verification/audit-log.json` holds 17 runs.** The CI workflow
 builds the pages *first* and runs the scheduled security check *afterwards*, which appends the next pass to the log. The
@@ -718,3 +730,30 @@ not-re-checked; `R22`'s weight line was cut off by the fetch. All of it is liste
 3. Replace `R03`'s collection-page citation with a product page, or drop the row.
 4. Re-check Catbird's contact page; if it stays broken, decide whether `S-CB`'s e-mail is citable at all.
 5. Re-read `R22`'s weight and the rhodium wording on `R03`/`R09`.
+
+---
+
+## 12. Session `arena/6ccbc523-gold3` — Full Dataset C & Statutory URL Live Sweep (`C8`–`C10`), `SD6` & `CR-692d-2` Fixes, 2026-10-23
+
+**Starting point & multi-session integration.** Claimed `C8`–`C10` on branch `arena/6ccbc523-gold3` (`a4db14a`) before editing any file, audited **63 official source URLs live on `2026-10-23`**, and merged additively on top of `origin/main` (`ca0ab70`, preserving 100% of PRs #33–#37 from `arena/6d6192d1-gold3`, including `reverification-p4.json`, `reverification-p5.json`, `hallmark_disclosure` updates on `BND-01`..`BND-07`, `live_recheck` blocks, `PRC1`/`RH1`, and `SD9`).
+
+**Merge conflict log (per §1 protocol):** Resolved additive merges cleanly in `COORDINATION.md` (kept all §0–§11 sections from `ca0ab70` intact and appended §12), `data/bands-and-high-karat.json` (retained `arena/6d6192d1-gold3`'s `hallmark_disclosure` and `live_recheck` blocks while applying static-HTML zero-inference nullification on `BND-01`..`BND-03` and re-read confirmation across `BND-04`..`BND-12`), and regenerated all derived HTML/bundle/manifest files via the build and security audit pipeline.
+
+### 12.1 Substantive live defects caught and repaired (`data/reverification-c-6ccbc523.json`, `reports/reverification-c-6ccbc523.md`)
+
+1. **`STD-05` (`data/spot-and-standards.json`) — HTTP 404 typo repaired:** `.../summer-2025-lab-notes-gold-plated-gold0` returned HTTP 404 on `gia.edu`; replaced with live HTTP 200 URL `https://www.gia.edu/gems-gemology/summer-2025-lab-notes-gold-plated-gold` (*Gems & Gemology* Summer 2025, Vol. 61, No. 2).
+2. **`STD-01` & `18K`/`14K` (`data/spot-and-standards.json`, `scripts/build_ext_pages.py`) — HTTP 500 statute URL repaired:** `uscode.house.gov/view.xhtml?path=/prelim@title15/chapter8&edition=prelim` returned an HTTP 500 technical error page; replaced with official U.S. GPO GovInfo statutory text `https://www.govinfo.gov/content/pkg/USCODE-2023-title15/html/USCODE-2023-title15-chap8.htm` (`15 U.S.C. §§ 291–300`) and added `govinfo.gov` to `TRUSTED_DOMAINS`.
+3. **`checklist-standards.html` Rule 10 (`scripts/build_ext_pages.py`) — GOV.UK HTTP 404 repaired:** `https://www.gov.uk/guidance/hallmarking-law-and-practice` returned HTTP 404; replaced with live HTTP 200 British Hallmarking Council guidance `https://www.gov.uk/government/publications/hallmarking-guidance-notes/hallmarking-is-the-law-guidance-summary`.
+4. **`checklist-standards.html` Rule 02 & Rule 04 (`scripts/build_ext_pages.py`) — Wrong CFR citation & NIST URL fixed:** Repaired `16 CFR § 23.4` (Vermeil) to `16 CFR § 23.3` (*Misrepresentation of Gold Content*) and updated NIST link to `precious-metals-conversion-information` (`1 oz t = 31.1034768 g`).
+5. **`SEL-MEJURI` (`data/sellers-policies.json`) & `mejuri` (`data/retailers.json`, `F10`) — Dead 404 BBB URL, unverified phone & JS hubs repaired:** Prior BBB URL `.../mejuri-0107-1359829` returned HTTP 404 and phone `+1-844-598-9694` did not exist on `mejuri.com` or `bbb.org`; updated to live Toronto HQ BBB profile `mejuri-0107-1370644` (`D-`, Not Accredited, `35` 3-yr complaints, `906 Dundas St W`), verified SMS/HQ lines `+1-310-597-4745` / `+1-855-496-1110` (no voice line), and direct server-rendered FAQ leaf pages (`what-is-the-standard-return-policy`, `what-payment-methods-do-you-accept`).
+6. **Catbird `contact_url` / `S-CB` (`data/retailers.json`, `data/sellers.json`, `F24`) — Closed §11.3 item #4:** Confirmed `https://www.catbirdnyc.com/facts` returns HTTP 200 and prints `Customer Email: customerservice@catbirdnyc.com` verbatim, replacing the nginx HTTP 500 `/contact-us` citation across both Dataset A and Dataset B.
+7. **Menē `BND-01`..`BND-03` (`data/bands-and-high-karat.json`) — Static-HTML zero-inference parity with `R30`:** Upgraded all 3 bands to direct product page URLs with live `2026-10-23` prices (`$1,707`, `$1,544`, `$2,465`), updated `/bands/gold` -> `/collections/bands-gold`, and set static-unconfirmed `weight_grams` / melt fields to `null` with explicit JS-hydration flags. Confirmed `BND-04`..`BND-12`, Aurate, and Ring Concierge verbatim on `2026-10-23` (closing §11.3 item #1).
+8. **New live listing defects recorded (`SOL-04`, `SOL-05`, `SOL-08`, `SEL-BLUENILE`, `SEL-MENE`):** Logged `SOL-05` live selector bug (`Band Width: 2 ct. tw.`), `SOL-08` second live contradiction (`bezel or halo, not prongs, on rings` warning on prong-set opal ring), Brilliant Earth Global-e EUR/USD geo-IP hazard, Blue Nile 6-month free resize window change, and Menē 10% card refund fee detail.
+9. **Test & CI gate hardening (`SD6` in `scripts/render-test.js` & `CR-692d-2` in `scripts/run_security_audit.py`):** Moved `SD4` assertions prior to the `failed` loop with proper boolean negation in `render-test.js`, and added SHA-256 manifest parity check + `--record-pass` + git-branch session attribution in `run_security_audit.py` so read-only CI checks leave `git status` clean.
+
+### 12.2 PR, Merge & Live Deployment Record
+
+- **Pull Request:** [#38](https://github.com/karagemop466-tech/GOLD3/pull/38) (`arena/6ccbc523-gold3` → `main`)
+- **Merged Commit on `main`:** `93a3d33`
+- **CI Verification Run (`main`):** `39938399650` — **SUCCESS** (all 9 gates green)
+- **GitHub Pages Deployment (`pages-build-deployment`):** `39938399224` — **SUCCESS** (live at `https://karagemop466-tech.github.io/GOLD3/`)

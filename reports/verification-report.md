@@ -1,7 +1,7 @@
 # Verification report
 
 - Pass date: **2026-10-23**
-- Session: `arena/e6fe3e4f-gold3 (P1-P3) · arena/699d8e05-gold3 (P3) · arena/6d6192d1-gold3 (P4) · arena/6d6192d1-gold3 (P5, weight-bearing rows)`
+- Session: `arena/e6fe3e4f-gold3 (P1-P4) · arena/699d8e05-gold3 (P5) · arena/6d6192d1-gold3 (P6-P7)`
 - URLs opened: **116** — confirmed 64, corrected 32, flagged 20
 
 ## Method
@@ -15,7 +15,7 @@ Every URL cited in data/rings.json, data/sellers.json and data/gold-price.json w
 | P1 | Fact pass | For every row, each stored number and quote was searched for in the freshly fetched page text. | 22/22 rows re-read; 9 rows corrected; 3 rows added. |
 | P2 | Request pass | Checked that every row's product URL returns the product it claims to be — not a redirect to something else, not a sold-out placeholder, not a dead link. | 1 redirect (R17), 1 sold-out/back-order state (R18), 1 identifier mismatch (R10), 0 dead links. |
 | P3 | Internet pass | Each cited URL was opened rather than trusted: host checked against the seller's own domain, and the exact wording quoted. | 28 URLs opened; 0 unreachable; 0 off-domain citations. |
-| P4 | Hallucination pass | Deliberately hostile re-read: any figure that felt plausible but was not literally on the page was removed. This is what caught the 'white/rose gold & platinum also offered' phrases on five Blue Nile rows and two Mejuri rows. | 15 confirmed, 8 corrected, 2 flagged. |
+| P4 | Hallucination pass | Deliberately hostile re-read: any figure that felt plausible but was not literally on the page was removed. This is what caught the 'white/rose gold & platinum also offered' phrases on five Blue Nile rows and two Mejuri rows. | 7 metal-option claims deleted; 1 price basis corrected; 1 temporary provenance flag retired. |
 | P5 | Independent re-verification pass 3 (arena/699d8e05-gold3) | 47 official URLs re-opened; the pass found a fee attributed to the wrong seller, two dead source URLs and a wrong e-mail address, and filed ten change requests. | 27 confirmed, 13 corrected, 7 flagged. |
 | P6 | Independent re-verification pass 4 (arena/6d6192d1-gold3) | 25 official URLs re-opened on the merged tree (5663d5e) with every stored price, weight and policy term searched for in the returned text; the ten open CR-P3 change requests were reviewed and, where this pass could confirm it, closed. | 15 confirmed, 8 corrected, 2 flagged. |
 | P7 | Targeted pass 5: every published weight re-read (arena/6d6192d1-gold3) | Every Dataset B row that publishes a finished-weight figure was looked at again, because weight is the only input the melt calculator takes from a seller. The Automic Gold product pages hide their text behind a cookie-consent wall, so chunks 4-5 were read instead of chunk 0. | 3 confirmed, 3 corrected, 1 flagged, plus the 16 CFR 23.10 text read in full; R24's weight, R25 and R28 remain un-re-checked. |

@@ -132,6 +132,13 @@ check("flagged.html: high-severity content present", /high/i.test(html["flagged.
 // ------------------------------------------------------------------- report
 let failed = 0;
 console.log("render test (static site)\n" + "=".repeat(66));
+// SD4: rings.html must not claim to be the complete list. It renders dataset A only (fixed per SD6 prior to failed loop).
+const _ringsHtml = read("rings.html");
+check("SD4 rings.html title says dataset A", includesText(_ringsHtml, "Dataset A: all verified listings"));
+check("SD4 rings.html carries a scope box", includesText(_ringsHtml, "Scope of this page"));
+check("SD4 rings.html links the full combined list", _ringsHtml.includes('href="combined.html"'));
+check("SD4 rings.html makes no completeness claim", !/every verified solid gold ring listing/i.test(_ringsHtml));
+
 for (const c of checks) {
   if (!c.ok) {
     console.log(`FAIL  ${c.name}${c.detail ? `  (${c.detail})` : ""}`);
@@ -142,13 +149,6 @@ for (const c of checks) {
   if (c.ok) console.log(`PASS  ${c.name}${c.detail ? `  (${c.detail})` : ""}`);
 }
 console.log("=".repeat(66));
-
-// SD4: rings.html must not claim to be the complete list. It renders dataset A only.
-const _ringsHtml = read("rings.html");
-check("SD4 rings.html title says dataset A", includesText(_ringsHtml, "Dataset A: all verified listings"), true);
-check("SD4 rings.html carries a scope box", includesText(_ringsHtml, "Scope of this page"), true);
-check("SD4 rings.html links the full combined list", _ringsHtml.includes('href="combined.html"'), true);
-check("SD4 rings.html makes no completeness claim", /every verified solid gold ring listing/i.test(_ringsHtml), false);
 
 console.log(`${checks.length - failed}/${checks.length} checks passed`);
 process.exit(failed ? 1 : 0);

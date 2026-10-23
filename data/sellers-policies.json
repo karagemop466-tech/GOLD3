@@ -1,7 +1,7 @@
 {
   "category_id": "sellers-policies",
   "category_title": "Verified Online Gold Ring Sellers — Reputation, Return Policies, Resizing Exclusions & Payment Protection",
-  "verified_date_utc": "2026-10-22T23:21:00Z",
+  "verified_date_utc": "2026-10-23T09:56:00Z",
   "sellers": [
     {
       "id": "SEL-ROSSSIMONS",
@@ -14,9 +14,9 @@
       "official_site_url": "https://www.ross-simons.com/",
       "bbb_accredited": true,
       "bbb_rating": "A+",
-      "bbb_complaints_3yr": 35,
+      "bbb_complaints_3yr": 66,
       "bbb_customer_rating": "4.41 / 5 (595 reviews)",
-      "bbb_url": "https://www.bbb.org/us/ri/cranston/profile/jewelry-stores/ross-simons-0021-105000",
+      "bbb_url": "https://www.bbb.org/us/ri/cranston/profile/jewelry-stores/ross-simons-inc-0021-25107",
       "gram_weight_transparency": "Partial — Strong on plain/signet gold bands (exact grams published on Items 571221, 571212, 823796, 964717, 993085); omitted on diamond solitaires.",
       "return_window_days": 30,
       "return_shipping_terms": "Shipping & handling non-refundable; flat $4.95 return label fee may apply; insure package for full invoice value.",
@@ -48,8 +48,8 @@
       "bbb_url": "https://www.bbb.org/us/wa/seattle/profile/jewelry-stores/blue-nile-inc-1296-15026564",
       "gram_weight_transparency": "Omitted on standard engagement ring product pages — requires live chat/phone inquiry prior to purchase.",
       "return_window_days": 30,
-      "return_shipping_terms": "Free insured return shipping label within 30 days of shipment (limit 2 complimentary returns per customer per year; RMA required on outside of box).",
-      "resized_custom_exclusions": "STRICT EXCLUSION: Personalized jewelry, custom orders, engraved items, AND items resized after initial purchase are NOT eligible for return or exchange.",
+      "return_shipping_terms": "Free insured return shipping (capped at 2 free returns per customer per year; $150 replacement fee if GIA/diamond report missing).",
+      "resized_custom_exclusions": "Engraved rings, custom/special-order designs, and previously resized rings are excluded or non-refundable; live policy now limits one free standard resize to 6 months from purchase (shortened from prior 1-year window).",
       "return_policy_url": "https://www.bluenile.com/policies/returns",
       "accepted_payments": "Major Credit Cards, Debit Cards, PayPal, Blue Nile Credit Card, Bank Wire ($1,000+)",
       "credit_card_supported": true,
@@ -77,8 +77,8 @@
       "bbb_url": "https://www.bbb.org/us/ca/san-francisco/profile/diamond/brilliant-earth-llc-1116-154721",
       "gram_weight_transparency": "Omitted online (publishes mm band width & depth, not gram weight).",
       "return_window_days": 30,
-      "return_shipping_terms": "Free FedEx insured return shipping both ways within 30 days of ship/pickup availability date.",
-      "resized_custom_exclusions": "STRICT EXCLUSION: Custom designed, custom engraved, modified, previously resized, or exchanged rings are NON-REFUNDABLE. Outside jeweler work voids warranty.",
+      "return_shipping_terms": "Free return shipping in US, Canada, UK & Australia within 30 days ($40 engraving removal fee if engraved).",
+      "resized_custom_exclusions": "Previously resized items, custom designs, and final-sale rings CANNOT be returned — weigh & XRF test BEFORE resizing (live US returns page states 1-year free standard resize vs. BBB summary '60 Day Free Resizing').",
       "return_policy_url": "https://www.brilliantearth.com/30-Day-Returns/",
       "accepted_payments": "Major Credit Cards (Visa, MC, Amex, Discover), Apple Pay, PayPal, Affirm, Wells Fargo, Bank Wire ($500+)",
       "credit_card_supported": true,
@@ -104,9 +104,9 @@
       "bbb_complaints_3yr": 1,
       "bbb_customer_rating": "1.0 / 5 (2 BBB reviews)",
       "bbb_url": "https://www.bbb.org/ca/on/ontario/profile/jewelry-designers/mene-inc-0107-1413670",
-      "gram_weight_transparency": "Industry-Best — Publishes exact pure 24K gram weights and Certificate of Authenticity (+/-0.5g in-stock, +/-1.0g Crafted-on-Demand tolerance).",
+      "gram_weight_transparency": "Partial in static HTML — pure 24K bullion pricing (+/-0.5g in-stock / +/-1.0g Crafted-on-Demand & signed CoA), but Shopify Oxygen v2 static HTML omits gram weights until client JS hydrates.",
       "return_window_days": 7,
-      "return_shipping_terms": "SHORT 7-DAY RETURN WINDOW ONLY from receipt via prepaid FedEx label; Certificate of Authenticity must be included.",
+      "return_shipping_terms": "7-day return window from receipt: Menē Credit waives the 10% restocking fee; original credit-card refunds incur a 10% collection & processing fee.",
       "resized_custom_exclusions": "Pure 24K bands are sold by weight, not traditional resizing; discount-code orders face store-credit restrictions on buybacks/returns.",
       "return_policy_url": "https://mene.com/customer-care?hcUrl=%2Fen-US%2Farticles%2Freturns-319505",
       "accepted_payments": "Major Credit Cards, PayPal, Affirm, Menē Credit",
@@ -124,8 +124,8 @@
       "name": "Mejuri Inc.",
       "founded_year": 2012,
       "years_in_business": 14,
-      "headquarters_address": "906 Dundas St W, Toronto, ON M6J 1W1, Canada",
-      "verified_phone": "1-310-597-4745",
+      "headquarters_address": "906 Dundas St W, Toronto, ON M6J 1W1 (Terms HQ: 18C Mowat Ave, Toronto, ON M6K 3E8), Canada",
+      "verified_phone": "+1-310-597-4745 (BBB Toronto HQ & Customer Text; +1-855-496-1110 US/CA Toll-Free SMS — no live voice hotline)",
       "verified_email": "contact@mejuri.com",
       "official_site_url": "https://mejuri.com/",
       "bbb_accredited": false,
@@ -135,10 +135,10 @@
       "bbb_url": "https://www.bbb.org/ca/on/toronto/profile/jewelry-manufacturers/mejuri-0107-1370644",
       "gram_weight_transparency": "Omitted — Publishes explicit '14k solid gold' wording and band mm thickness, but omits gram weights.",
       "return_window_days": 30,
-      "return_shipping_terms": "Free 30-day returns in US, Canada, UK, Australia & Germany from delivery date; must retain all original tags, box, and pouch.",
-      "resized_custom_exclusions": "Engraved/monogrammed items and 'Before We Melt' final-sale items are strictly NON-RETURNABLE.",
+      "return_shipping_terms": "Free 30-day returns in US, Canada, UK, Australia & Germany (EUR 20 rest of Europe; USD 30 rest of world) for unworn items in original packaging.",
+      "resized_custom_exclusions": "Engraved/monogrammed items, bespoke/made-to-order rings, piercing earrings, gift cards, and 'Before We Melt' items are NON-RETURNABLE (Final Sale).",
       "return_policy_url": "https://mejuri.com/faq/return-exchanges/what-is-the-standard-return-policy",
-      "accepted_payments": "Visa, Mastercard, American Express, PayPal, Klarna, Afterpay",
+      "accepted_payments": "Visa, MasterCard, American Express, PayPal, Klarna ($35–$4,000), Afterpay, Mejuri Gift Cards & Store Credit",
       "credit_card_supported": true,
       "wire_transfer_risk_note": "Major credit cards accepted (Visa, MC, Amex)—mandatory protection given BBB D- complaint responsiveness rating.",
       "payment_policy_url": "https://mejuri.com/faq/payment/what-payment-methods-do-you-accept",
@@ -148,5 +148,6 @@
         "Flagged for BBB D- rating (unanswered consumer complaint on file) and omitted gram weights."
       ]
     }
-  ]
+  ],
+  "reverified_by_session": "arena/6ccbc523-gold3"
 }

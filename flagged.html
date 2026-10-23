@@ -33,7 +33,7 @@
 </div>
 
 <div class="grid cols-3" style="margin-bottom:20px">
-  <div class="kpi"><div class="label">Editorial findings</div><div class="value">23</div><div class="sub">8 high severity</div></div>
+  <div class="kpi"><div class="label">Editorial findings</div><div class="value">24</div><div class="sub">8 high severity</div></div>
   <div class="kpi"><div class="label">Listing-level flags</div><div class="value">80</div><div class="sub">across 19 listings</div></div>
   <div class="kpi"><div class="label">Unverified cells</div><div class="value">0 guesses</div><div class="sub">blank is used instead</div></div>
 </div>
@@ -249,16 +249,27 @@
           
           <p class="action"><strong>What to do:</strong> Corrected in data/sellers.json: email set to customerservice@catbirdnyc.com, return_address set to null with a note, exclusions replaced with the page&#x27;s own list, and the no-cancellation and return-then-reorder rules added as their own fields.</p>
         </div>
+        <div class="card finding medium" id="F24">
+          <div class="finding-head">
+            <h3>F24 · Catbird&#x27;s /contact-us page returned HTTP 500 on 2026-10-23 live re-verification</h3>
+            <span class="badge warn">MEDIUM</span>
+          </div>
+          <p class="small">During live re-verification on 2026-10-23, Catbird&#x27;s /contact-us URL returned an nginx 500 Internal Server Error, whereas Catbird&#x27;s official /facts and /returns pages returned HTTP 200 and confirm customerservice@catbirdnyc.com verbatim.</p>
+          <div class="evidence">catbirdnyc.com/contact-us returned nginx &#x27;500 Internal Server Error&#x27; on 2026-10-23; catbirdnyc.com/facts returned HTTP 200: &#x27;Customer Email: customerservice@catbirdnyc.com&#x27;.</div>
+          <p class="small"><strong>Source:</strong> <a href="https://www.catbirdnyc.com/facts" target="_blank" rel="noopener">https://www.catbirdnyc.com/facts</a></p>
+          
+          <p class="action"><strong>What to do:</strong> Email customerservice@catbirdnyc.com directly (verified on /facts and /returns) and obtain written confirmation of gram weight before ordering within the 10-day return window.</p>
+        </div>
         <div class="card finding low" id="F10">
           <div class="finding-head">
-            <h3>F10 · Mejuri&#x27;s dedicated returns page could not be read, so its policy is quoted from the product page</h3>
+            <h3>F10 · Mejuri&#x27;s main /help hub requires JavaScript, while direct leaf FAQ articles render server-side</h3>
             <span class="badge info">LOW</span>
           </div>
-          <p class="small">Mejuri&#x27;s FAQ is rendered client-side; /faq returned no policy text and /faq/returns returned a 404 page. The 30-day return statement used here is the one printed in the &#x27;Shipping, Returns &amp; Warranty&#x27; section of the Diamonds Band product page, which is an official Mejuri page.</p>
+          <p class="small">Mejuri&#x27;s root help hub (/world/en/help) renders blank without JavaScript, hiding policy exclusions from plain-text readers unless navigated directly to server-rendered leaf FAQ subpages such as /faq/return-exchanges/what-is-the-standard-return-policy (confirming free 30-day returns in US/CA/UK/AU/DE and non-returnable exclusions for engraved/monogrammed, piercing, gift card, and &#x27;Before We Melt&#x27; items). Live re-verification also found no voice customer phone line (+1-310-597-4745 / +1-855-496-1110 SMS &amp; contact@mejuri.com only).</p>
           <div class="evidence">&#x27;We offer free 30-day returns &amp; exchanges starting from the day the shipment is delivered or picked up in-store.&#x27;</div>
-          <p class="small"><strong>Source:</strong> <a href="https://mejuri.com/products/diamonds-band?Material=Solid+Yellow+Gold+%2814k%29&amp;Stone=Natural+Diamond" target="_blank" rel="noopener">https://mejuri.com/products/diamonds-band?Material=Solid+Yellow+Gold+%2814k%29&amp;Stone=Natural+Diamond</a></p>
+          <p class="small"><strong>Source:</strong> <a href="https://mejuri.com/faq/return-exchanges/what-is-the-standard-return-policy" target="_blank" rel="noopener">https://mejuri.com/faq/return-exchanges/what-is-the-standard-return-policy</a></p>
           <p class="small"><a href="rings.html#p-mejuri-diamonds-band">See the listing in the table &rarr;</a></p>
-          <p class="action"><strong>What to do:</strong> Ask Mejuri support to confirm the return window for your specific order in writing.</p>
+          <p class="action"><strong>What to do:</strong> Save a PDF of the full server-rendered Mejuri return-policy leaf page and confirm exact gram weight in writing before checkout.</p>
         </div>
         <div class="card finding low" id="F11">
           <div class="finding-head">
@@ -1094,6 +1105,7 @@ exists. A flag with no source of its own is a question about one specific listin
           <p class="small" style="margin:0"><strong>What to do:</strong> Inspect on arrival, keep the packaging untouched, and start the return in writing inside the window if anything fails verification.</p>
           <p class="small" style="margin:6px 0 0"><strong>Source:</strong> <a href="https://www.sarraf.com/30-day-returns-and-exchange-policy/" target="_blank" rel="noopener">official page</a></p>
         </div></div>
+
 
 
 <h2 id="verification">Verification passes</h2>
