@@ -336,6 +336,15 @@ for s in sellers:
 #     owned by the right party, the counts are computed not asserted, and no
 #     entry points at a row that does not exist.
 # ----------------------------------------------------------------------------
+seller_ids = {s.get("id") for s in sellers}
+product_ids = set()
+_pdoc_path = DATA / "products.json"
+if _pdoc_path.exists():
+    try:
+        product_ids = {p.get("id") for p in json.loads(_pdoc_path.read_text(encoding="utf-8")).get("products", [])}
+    except Exception:  # noqa: BLE001
+        product_ids = set()
+
 verified_rows = set()
 check_urls = set()
 if verif_doc:
@@ -359,9 +368,18 @@ if verif_doc:
         for rid in c.get("rows", []):
             if rid in ("spot", "standards"):
                 continue
-            if rid not in seen_ids:
-                err("verify", f"{cid}: references unknown row {rid}")
-            verified_rows.add(rid)
+            if rid in seen_ids:
+                verified_rows.add(rid)
+                continue
+            # A check may also be aimed at a seller record, a flag definition,
+            # a Dataset-A product id or the excluded-listing set. Those are real
+            # subjects of a verification check; what must not happen is a check
+            # pointing at something that does not exist anywhere in the data.
+            if rid in seller_ids or rid in flag_defs or rid in product_ids:
+                continue
+            if rid in ("excluded", "bands", "products", "retailers"):
+                continue
+            err("verify", f"{cid}: references unknown row {rid}")
         check_urls.add(u)
 
     missing = sorted(set(seen_ids) - verified_rows)

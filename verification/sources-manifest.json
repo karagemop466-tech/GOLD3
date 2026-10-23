@@ -1,25 +1,26 @@
 {
-  "generated_at_utc": "2026-10-23T00:15:08Z",
+  "generated_at_utc": "2026-10-23T09:59:17Z",
   "data_file_sha256": {
-    "bands-and-high-karat.json": "fd6b7c175980cfad74b34145c03e2632e809c6a94de48ef399b96c55d8ea333c",
+    "bands-and-high-karat.json": "32d8691208484fb2b23e59bfa0cf66d4b5639c6a00cba55fa339a279034dc31c",
     "findings.json": "ab9bc570436602ab1166ad274e53a3b80dd1cb3c1b691cd1758e90950fb54873",
-    "flags.json": "6a588c9a3c76af47044f8d6de0e44bdcd5c48299723df651a5dc6b41f0e9763d",
+    "flags.json": "e4abf069bb1007d2ebf5e2c9b364cc66850e365d4b1c7bdf197bb0261859140d",
     "gold-price.json": "bdb3a741c6696f56ec713c090706cb98fefb53901fe284dfe105308a7d6a7e08",
     "prices.json": "639b30ebe844d1e7740046c0c1aa474117ab0a34d14df6077be23ca532226f0a",
-    "products.json": "bac54f10685ad44ec13e3af7118d2e175ce1f67b71bcfe90325580a67ec073f3",
+    "products.json": "b4e3bc9db3b692ea0daef9da146198ed29a7f0e2ddf451cdefbeb1600eb31ccb",
     "retailers.json": "fc2130447e547458e380d666c0b6598352464a2dedffbd8d0aefc7ce7ffabab3",
-    "reverification-p3.json": "605b62ab0bd0f220f2fe2c7c88d282f8305a58525f43bec643b9c557b123019b",
-    "rings.json": "238cf2fa864fd91c8e2a2ea90ba6d6a71bdd739704ef31609f533b23b1337b41",
+    "reverification-p3.json": "b1dca1669099d66e45b08588f8827b24f59edd65e4f4b4a806ef2a02987b5d16",
+    "reverification-p4.json": "2e5ce8fdff92d04a3e1570960caf0bb1daafc91b2d76209a97a0fb94635e801a",
+    "rings.json": "4175621b0823df11c341888d0a3f9254c166ce3af6e2a5f9af481e6dabca3e89",
     "sellers-policies.json": "372689ba815fb011c15b17e52773385718f972b174023f8bd67e01bc10d27ea6",
-    "sellers.json": "4754237cf4aeda1d27c072d8f7a518230279b675c7fdc4b1cd9e505e828614a4",
+    "sellers.json": "1318c1dbcdfca02a72c72b5d151a1046ab227a38d5f601afd66f3cf19c6aa9d9",
     "solitaire-rings.json": "1b0d493a2835471df5bf8610622bf2f668a0c2d62e7961c112d46591ae19f769",
-    "sources.json": "1496e3741397057c11913b06d748bf838b6781b5686e7ab733d3ac5e76a49f41",
+    "sources.json": "5a8a22ee7ce34272bce1f17186812a3b74fc7d81c95d9ab1a81f61d301b712d4",
     "spot-and-standards.json": "77a3ff10db7fe885bc1f51eece4311fa6a62034f73ce2292d2e4bf1841b9a5ed",
     "standards.json": "7d10a2520465c2b2734d236d9dfe93e4db44bc5d0649cb6cf82bb35cc94b668c",
-    "verification-report.json": "a58a48d836389be639184621d736fc01e4cf527e7e80a34f9e3c43ddd056282e",
-    "verification.json": "25db638f8498645c22831bd8a2275179ce34ea80b0ad8987553f8f714c7c1181"
+    "verification-report.json": "082b64519c8a8da51db345ac6c82731ca875cf178e395998dce0315db7622fde",
+    "verification.json": "d0991a6a73d73938b1361b91d8dadc3b6bb870cc4c324c2bf649647e25db4aae"
   },
-  "unique_official_urls_count": 164,
+  "unique_official_urls_count": 172,
   "official_sources": [
     {
       "url": "https://auratenewyork.com/",
@@ -93,7 +94,8 @@
         "HTML Link in flagged.html",
         "HTML Link in lab-grown.html",
         "HTML Link in rings.html",
-        "HTML Link in security-audit.html"
+        "HTML Link in security-audit.html",
+        "HTML Link in verify.html"
       ]
     },
     {
@@ -180,7 +182,8 @@
         "HTML Link in calculator.html",
         "HTML Link in index.html",
         "HTML Link in security-audit.html",
-        "HTML Link in sources.html"
+        "HTML Link in sources.html",
+        "HTML Link in verify.html"
       ]
     },
     {
@@ -357,6 +360,7 @@
         "HTML Link in combined.html",
         "HTML Link in flagged-for-review.html",
         "HTML Link in security-audit.html",
+        "HTML Link in verify.html",
         "Ring BND-11 Product Page"
       ]
     },
@@ -387,6 +391,7 @@
         "HTML Link in combined.html",
         "HTML Link in flagged-for-review.html",
         "HTML Link in security-audit.html",
+        "HTML Link in verify.html",
         "Ring BND-02 Product Page",
         "Ring BND-03 Product Page"
       ]
@@ -413,6 +418,7 @@
         "HTML Link in combined.html",
         "HTML Link in flagged-for-review.html",
         "HTML Link in security-audit.html",
+        "HTML Link in verify.html",
         "Ring BND-01 Product Page"
       ]
     },
@@ -472,6 +478,12 @@
       ]
     },
     {
+      "url": "https://ringconcierge.com/products/2-08-oval-lab-diamond-in-14k-gold-whisper-thin-solitaire",
+      "referenced_by": [
+        "HTML Link in verify.html"
+      ]
+    },
+    {
       "url": "https://ringconcierge.com/products/2-08-oval-lab-diamond-in-whisper-thina-hidden-halo",
       "referenced_by": [
         "HTML Link in 14k.html",
@@ -480,7 +492,8 @@
         "HTML Link in flagged.html",
         "HTML Link in lab-grown.html",
         "HTML Link in rings.html",
-        "HTML Link in security-audit.html"
+        "HTML Link in security-audit.html",
+        "HTML Link in verify.html"
       ]
     },
     {
@@ -526,11 +539,18 @@
       ]
     },
     {
+      "url": "https://www.automicgold.com/pages/return-policy",
+      "referenced_by": [
+        "HTML Link in verify.html"
+      ]
+    },
+    {
       "url": "https://www.automicgold.com/policies/refund-policy",
       "referenced_by": [
         "HTML Link in flagged.html",
         "HTML Link in security-audit.html",
-        "HTML Link in sellers.html"
+        "HTML Link in sellers.html",
+        "HTML Link in verify.html"
       ]
     },
     {
@@ -686,7 +706,8 @@
       "url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/french-pave-diamond-engagement-ring-in-platinum-1-4-ct-tw-item-195271",
       "referenced_by": [
         "HTML Link in combined.html",
-        "HTML Link in security-audit.html"
+        "HTML Link in security-audit.html",
+        "HTML Link in verify.html"
       ]
     },
     {
@@ -854,6 +875,12 @@
       ]
     },
     {
+      "url": "https://www.catbirdnyc.com/catbird-classic-wedding-bands-solid-gold",
+      "referenced_by": [
+        "HTML Link in verify.html"
+      ]
+    },
+    {
       "url": "https://www.catbirdnyc.com/catbird-classic-wedding-bands-solid-half-round-band-2mm.html",
       "referenced_by": [
         "HTML Link in 14k.html",
@@ -870,7 +897,8 @@
       "referenced_by": [
         "HTML Link in retailers.html",
         "HTML Link in security-audit.html",
-        "HTML Link in sellers.html"
+        "HTML Link in sellers.html",
+        "HTML Link in verify.html"
       ]
     },
     {
@@ -883,7 +911,8 @@
         "HTML Link in security-audit.html",
         "HTML Link in sellers.html",
         "HTML Link in sources.html",
-        "HTML Link in under-1000.html"
+        "HTML Link in under-1000.html",
+        "HTML Link in verify.html"
       ]
     },
     {
@@ -905,7 +934,8 @@
       "url": "https://www.costco.com/4mm-diamond-cut-wedding-ring-14kt-gold.product.100423493.html",
       "referenced_by": [
         "HTML Link in combined.html",
-        "HTML Link in security-audit.html"
+        "HTML Link in security-audit.html",
+        "HTML Link in verify.html"
       ]
     },
     {
@@ -937,11 +967,23 @@
       ]
     },
     {
+      "url": "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23/section-23.10",
+      "referenced_by": [
+        "HTML Link in verify.html"
+      ]
+    },
+    {
       "url": "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23/section-23.3",
       "referenced_by": [
         "HTML Link in calculator.html",
         "HTML Link in index.html",
         "HTML Link in security-audit.html"
+      ]
+    },
+    {
+      "url": "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23/section-23.4",
+      "referenced_by": [
+        "HTML Link in verify.html"
       ]
     },
     {
@@ -1029,14 +1071,16 @@
       "url": "https://www.jamesallen.com/engagement-rings/solitaire/14k-white-gold-knife-edge-solitaire-engagement-ring-item-17152",
       "referenced_by": [
         "HTML Link in combined.html",
-        "HTML Link in security-audit.html"
+        "HTML Link in security-audit.html",
+        "HTML Link in verify.html"
       ]
     },
     {
       "url": "https://www.jamesallen.com/engagement-rings/solitaire/14k-yellow-gold-15mm-comfort-fit-engagement-ring-item-41515",
       "referenced_by": [
         "HTML Link in combined.html",
-        "HTML Link in security-audit.html"
+        "HTML Link in security-audit.html",
+        "HTML Link in verify.html"
       ]
     },
     {
@@ -1161,7 +1205,8 @@
       "url": "https://www.ross-simons.com/pages/customer-care",
       "referenced_by": [
         "HTML Link in security-audit.html",
-        "HTML Link in sellers.html"
+        "HTML Link in sellers.html",
+        "HTML Link in verify.html"
       ]
     },
     {
@@ -1179,6 +1224,7 @@
         "HTML Link in security-audit.html",
         "HTML Link in sellers-policies.html",
         "HTML Link in sellers.html",
+        "HTML Link in verify.html",
         "Seller SEL-ROSSSIMONS Returns"
       ]
     },
@@ -1208,7 +1254,9 @@
       "referenced_by": [
         "HTML Link in bands-vintage-rings.html",
         "HTML Link in combined.html",
+        "HTML Link in flagged-for-review.html",
         "HTML Link in security-audit.html",
+        "HTML Link in verify.html",
         "Ring BND-05 Product Page"
       ]
     },
@@ -1217,7 +1265,9 @@
       "referenced_by": [
         "HTML Link in bands-vintage-rings.html",
         "HTML Link in combined.html",
+        "HTML Link in flagged-for-review.html",
         "HTML Link in security-audit.html",
+        "HTML Link in verify.html",
         "Ring BND-04 Product Page"
       ]
     },
@@ -1226,7 +1276,9 @@
       "referenced_by": [
         "HTML Link in bands-vintage-rings.html",
         "HTML Link in combined.html",
+        "HTML Link in flagged-for-review.html",
         "HTML Link in security-audit.html",
+        "HTML Link in verify.html",
         "Ring BND-06 Product Page"
       ]
     },
@@ -1244,7 +1296,9 @@
       "referenced_by": [
         "HTML Link in bands-vintage-rings.html",
         "HTML Link in combined.html",
+        "HTML Link in flagged-for-review.html",
         "HTML Link in security-audit.html",
+        "HTML Link in verify.html",
         "Ring BND-07 Product Page"
       ]
     },
@@ -1274,6 +1328,7 @@
         "HTML Link in combined.html",
         "HTML Link in flagged-for-review.html",
         "HTML Link in security-audit.html",
+        "HTML Link in verify.html",
         "Ring BND-08 Product Page"
       ]
     },
@@ -1281,7 +1336,8 @@
       "url": "https://www.sarraf.com/",
       "referenced_by": [
         "HTML Link in security-audit.html",
-        "HTML Link in sellers.html"
+        "HTML Link in sellers.html",
+        "HTML Link in verify.html"
       ]
     },
     {
@@ -1289,7 +1345,8 @@
       "referenced_by": [
         "HTML Link in flagged.html",
         "HTML Link in security-audit.html",
-        "HTML Link in sellers.html"
+        "HTML Link in sellers.html",
+        "HTML Link in verify.html"
       ]
     },
     {
@@ -1297,13 +1354,21 @@
       "referenced_by": [
         "HTML Link in flagged.html",
         "HTML Link in security-audit.html",
-        "HTML Link in sellers.html"
+        "HTML Link in sellers.html",
+        "HTML Link in verify.html"
       ]
     },
     {
       "url": "https://www.sarraf.com/pages/contact-us.html",
       "referenced_by": [
-        "HTML Link in security-audit.html"
+        "HTML Link in security-audit.html",
+        "HTML Link in verify.html"
+      ]
+    },
+    {
+      "url": "https://www.sarraf.com/pages/returns-and-refunds.html",
+      "referenced_by": [
+        "HTML Link in verify.html"
       ]
     },
     {
@@ -1322,6 +1387,18 @@
         "HTML Link in combined.html",
         "HTML Link in flagged.html",
         "HTML Link in security-audit.html",
+        "HTML Link in verify.html"
+      ]
+    },
+    {
+      "url": "https://www.sarraf.com/products/14k-white-gold-solitaire-ring-0-94-ctw.html#return-policy",
+      "referenced_by": [
+        "HTML Link in verify.html"
+      ]
+    },
+    {
+      "url": "https://www.sarraf.com/products/14k-white-gold-solitaire-ring-0-94-ctw.html#tab-warranty",
+      "referenced_by": [
         "HTML Link in verify.html"
       ]
     },
@@ -1474,7 +1551,8 @@
       "url": "https://www.wilsonsestatejewelry.com/products/contemporary-0-92-ctw-diamond-14-karat-white-gold-engagement-ring-gia",
       "referenced_by": [
         "HTML Link in combined.html",
-        "HTML Link in security-audit.html"
+        "HTML Link in security-audit.html",
+        "HTML Link in verify.html"
       ]
     },
     {

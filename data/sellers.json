@@ -131,7 +131,7 @@
         "RET12",
         "RET11"
       ],
-      "verification": "Return policy read verbatim on the official returns-exchanges page and the phone, e-mail and hours on the official customer-care page on 2026-10-23. Closes flag POL1 for this seller: a policy has now been captured. Third-party resizing voids the return right, recorded as RET12. The live page prints '11AM EST' in two places and '11PM EST' in the phone line; the hours above are quoted from the phone line. Earlier passes by arena/4340b82c-gold3 and arena/e6fe3e4f-gold3 confirmed the 0.7 g and 0.8 g weights verbatim.",
+      "verification": "Return policy read verbatim on the official returns-exchanges page and the phone, e-mail and hours on the official customer-care page on 2026-10-23. Closes flag POL1 for this seller: a policy has now been captured. Third-party resizing voids the return right, recorded as RET12. The live page prints '11AM EST' in two places and '11PM EST' in the phone line; the hours above are quoted from the phone line. Earlier passes by arena/4340b82c-gold3 and arena/e6fe3e4f-gold3 confirmed the 0.7 g and 0.8 g weights verbatim. Re-read live 2026-10-23 (session arena/6d6192d1-gold3): 30-day window, the $4.95 flat fee, the resized-by-another-jeweller exclusion, 800-835-0919 and customerservice@ross-simons.com all found verbatim on the official pages.",
       "return_address": "Ross Simons, 9 Ross Simons Drive, Cranston, RI 02920, USA",
       "phone_as_printed": "800-835-0919 (printed without a country code on the customer-care page)",
       "contact_hours": "7am to 11pm Eastern Time, 7 days a week"
@@ -187,9 +187,10 @@
         "X1",
         "RH1",
         "RET12",
-        "RET11"
+        "RET11",
+        "SRC2"
       ],
-      "verification": "Returns page and contact page both re-fetched verbatim on 2026-10-23 by arena/699d8e05-gold3 (pass P3), correcting three values this same pass had drafted wrongly - the e-mail address, a return address that the site does not publish, and a final-sale list copied from data/retailers.json instead of from this page. Closes flag POL1 for this seller. No telephone number is published anywhere on the contact page, so phone stays blank rather than guessed (F16, F23). Klarna instalments are offered alongside card checkout. The 20-day window and $9 fee on this record and on data/retailers.json 'catbird' agree.",
+      "verification": "Returns page and contact page both re-fetched verbatim on 2026-10-23 by arena/699d8e05-gold3 (pass P3), correcting three values this same pass had drafted wrongly - the e-mail address, a return address that the site does not publish, and a final-sale list copied from data/retailers.json instead of from this page. Closes flag POL1 for this seller. No telephone number is published anywhere on the contact page, so phone stays blank rather than guessed (F16, F23). Klarna instalments are offered alongside card checkout. The 20-day window and $9 fee on this record and on data/retailers.json 'catbird' agree. Re-read live 2026-10-23 (session arena/6d6192d1-gold3): returns page confirmed verbatim; the contact page returned HTTP 500 twice, so the e-mail is NOT re-confirmed - see SRC2.",
       "return_address": null,
       "contact_hours": "No telephone number is published. The contact form states 'We strive to respond to all emails within 24-48 hrs.'",
       "email_correction_note": "Corrected 2026-10-23 by arena/699d8e05-gold3 against the live contact page. An earlier draft of this pass recorded hello@catbirdnyc.com, which the page does not contain. The page prints: 'Order Status, Availability, Product Details or Shipping Questions - customerservice@catbirdnyc.com'. Two other addresses on the same page are role-specific and are NOT customer service: sriya@catbirdnyc.com (press and partnerships) and leigh@catbirdnyc.com (submitting work). See finding F23.",
@@ -387,9 +388,10 @@
         "RET10",
         "W1",
         "H1",
-        "X1"
+        "X1",
+        "PRC1"
       ],
-      "verification": "Official Contact Us and Sep 2, 2026 Terms of Service fetched 2026-10-22 (session arena/cbea1001-gold3)."
+      "verification": "Official Contact Us and Sep 2, 2026 Terms of Service fetched 2026-10-22 (session arena/cbea1001-gold3). Re-read live 2026-10-23 (session arena/6d6192d1-gold3): prices are metal-linked and had moved since capture - see PRC1."
     }
   ],
   "provenance": {
