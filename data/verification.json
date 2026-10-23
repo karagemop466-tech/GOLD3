@@ -1,6 +1,6 @@
 {
   "retrieved_utc": "2026-10-23",
-  "session": "arena/e6fe3e4f-gold3 (P1-P4) \u00b7 arena/699d8e05-gold3 (P5) \u00b7 arena/6d6192d1-gold3 (P6-P7) \u00b7 arena/2908bea4-gold3 (P8) \u00b7 arena/15b00e99-gold3 (P10)",
+  "session": "arena/e6fe3e4f-gold3 (P1-P4) · arena/699d8e05-gold3 (P5) · arena/6d6192d1-gold3 (P6-P7) · arena/2908bea4-gold3 (P8) · arena/15b00e99-gold3 (P10) · arena/bfcd8465-gold3 (P11)",
   "method": "Every URL cited in data/rings.json, data/sellers.json and data/gold-price.json was opened again in this session on 2026-10-22. Each asserted value was compared against the text the page returned. A value that could not be found on the page was deleted or downgraded to unverified; a value that contradicted the page was corrected; a contradiction found on the page itself was raised as a flag. | Addendum 2026-10-23: the log now holds three independent passes. P1-P3 are the checks recorded by arena/e6fe3e4f-gold3 (ids V01-V37); the third pass (ids P3-01-P3-47, session arena/699d8e05-gold3) was appended from data/reverification-p3.json so that its 47 checks appear in this log instead of only in a separate file; the fourth pass (ids P4-01-P4-25, session arena/6d6192d1-gold3) was run on the merged tree on 2026-10-23 against the official pages. Older entries keep the date they were made.",
   "passes": [
     {
@@ -12,7 +12,7 @@
     {
       "id": "P2",
       "name": "Request pass",
-      "what": "Checked that every row's product URL returns the product it claims to be \u2014 not a redirect to something else, not a sold-out placeholder, not a dead link.",
+      "what": "Checked that every row's product URL returns the product it claims to be — not a redirect to something else, not a sold-out placeholder, not a dead link.",
       "result": "1 redirect (R17), 1 sold-out/back-order state (R18), 1 identifier mismatch (R10), 0 dead links."
     },
     {
@@ -54,20 +54,26 @@
     {
       "id": "P9",
       "name": "Independent pass 7: Complete closure of all remaining un-rechecked rows (arena/1162b2db-gold3)",
-      "what": "Opened all remaining URLs listed in not_rechecked live on 2026-10-23 across Dataset A (all 7 Aurate PDPs, Ring Concierge \u00d72, Catbird PDP & return_form.pdf, Blue Nile collection, LBMA) and Dataset B/D (R02, R03 direct PDP, R17, R19, R22, R24, R28), reducing not_rechecked to [] (0 remaining).",
-      "result": "Upgraded all 7 Aurate PDPs (clearing all 5 PRICE_NOT_RECONFIRMED flags and flagging Final Sale + 30% MTO fee as F25); caught Mejuri R03 direct PDP at From $898 vs $648 collection figure (+38.6%, F26); documented VRAI/BE template bugs (F27); confirmed R02, R17, R19, Ring Concierge \u00d72, Catbird PDF (+1-718-599-2340), Blue Nile, and LBMA."
+      "what": "Opened all remaining URLs listed in not_rechecked live on 2026-10-23 across Dataset A (all 7 Aurate PDPs, Ring Concierge ×2, Catbird PDP & return_form.pdf, Blue Nile collection, LBMA) and Dataset B/D (R02, R03 direct PDP, R17, R19, R22, R24, R28), reducing not_rechecked to [] (0 remaining).",
+      "result": "Upgraded all 7 Aurate PDPs (clearing all 5 PRICE_NOT_RECONFIRMED flags and flagging Final Sale + 30% MTO fee as F25); caught Mejuri R03 direct PDP at From $898 vs $648 collection figure (+38.6%, F26); documented VRAI/BE template bugs (F27); confirmed R02, R17, R19, Ring Concierge ×2, Catbird PDF (+1-718-599-2340), Blue Nile, and LBMA."
     },
     {
       "id": "P10",
-      "name": "Pass P10 \u2014 \u00a711.3 backlog, R24/R25 platinum weight correction, Ring Concierge & dead-URL sweep + \u00a711.3 backlog + URL-manifest sweep (arena/15b00e99-gold3)",
-      "what": "Opened all 21 Dataset C product pages, all 5 Dataset C seller policy/BBB profiles, 4 spot benchmarks, statutory/GIA/NIST pages, every skipped row from \u00a711.3 (Aurate x7, Ring Concierge x2, R02, R03, R17, R19, R22, R24, R25, R28, R29, R31), and swept unique URLs across data/*.json.",
-      "result": "26 checks recorded (9 confirmed, 12 corrected, 5 flagged): Men\u0113 JS-gated weights nulled (BND-01..03), R03 upgraded to PDP ($898 vs $648), R24/R25 metal-dependent weights fixed, Ring Concierge 2.08 vs 5.63 ct & 7-day bridal window caught, 5 dead 404/500 seller/flag URLs & 2 mis-transcribed phones fixed."
+      "name": "Pass P10 — §11.3 backlog, R24/R25 platinum weight correction, Ring Concierge & dead-URL sweep + §11.3 backlog + URL-manifest sweep (arena/15b00e99-gold3)",
+      "what": "Opened all 21 Dataset C product pages, all 5 Dataset C seller policy/BBB profiles, 4 spot benchmarks, statutory/GIA/NIST pages, every skipped row from §11.3 (Aurate x7, Ring Concierge x2, R02, R03, R17, R19, R22, R24, R25, R28, R29, R31), and swept unique URLs across data/*.json.",
+      "result": "26 checks recorded (9 confirmed, 12 corrected, 5 flagged): Menē JS-gated weights nulled (BND-01..03), R03 upgraded to PDP ($898 vs $648), R24/R25 metal-dependent weights fixed, Ring Concierge 2.08 vs 5.63 ct & 7-day bridal window caught, 5 dead 404/500 seller/flag URLs & 2 mis-transcribed phones fixed."
     },
     {
       "id": "P11",
       "name": "Pass 11 (reverification-p6): complete multi-chunk & repo-wide URL sweep (arena/a05b3c00-gold3)",
-      "what": "Every URL across Datasets A (19), B (31 + 4 excluded), C (21 + 5 sellers + standards), and sources-manifest.json \u2014 including all 19 previously un-rechecked URLs and chunks 1\u20135 of truncated product pages \u2014 was fetched live on 2026-10-23.",
-      "result": "1 confirmed, 15 corrected, 4 flagged across 20 consolidated checks; recovered R13 6.5g weight, restored Sarraf \u00b15% quotes on R26/R27, corrected SEL-MENE false 'D+' BBB grade, fixed 9 broken/404/500 URLs, and reduced not_rechecked to 0."
+      "what": "Every URL across Datasets A (19), B (31 + 4 excluded), C (21 + 5 sellers + standards), and sources-manifest.json — including all 19 previously un-rechecked URLs and chunks 1–5 of truncated product pages — was fetched live on 2026-10-23.",
+      "result": "1 confirmed, 15 corrected, 4 flagged across 20 consolidated checks; recovered R13 6.5g weight, restored Sarraf ±5% quotes on R26/R27, corrected SEL-MENE false 'D+' BBB grade, fixed 9 broken/404/500 URLs, and reduced not_rechecked to 0."
+    },
+    {
+      "id": "P11",
+      "name": "Independent pass: Deep-chunk Automic Gold & flag-source sweep + UI consistency repair (arena/bfcd8465-gold3)",
+      "what": "Read past Automic Gold's 4-chunk CookieYes banner on /policies/refund-policy (chunk 4), /pages/privacy-policy (chunks 4-5), claddagh-ring (chunk 5), and gemstone-flower-ring (chunk 2), swept all flag sources in data/flags.json, and audited nav/footnote/weight-range consistency.",
+      "result": "2 corrected (P11-01..P11-02): removed unsourced phone +1-929-307-2378 on S-AUTOMIC, restored Automic 14-day restocking-fee rule (RET14) & resize clause, confirmed R24 (2.3g/3.5g) & R25 (1.4g/2.1g) in chunks 5 & 2, and fixed Combined (71) nav + Aurate weight-range badge."
     }
   ],
   "checks": [
@@ -85,7 +91,7 @@
     {
       "id": "V02",
       "kind": "listing",
-      "label": "Mejuri \u2014 Bold Diamond Eternity Ring",
+      "label": "Mejuri — Bold Diamond Eternity Ring",
       "url": "https://mejuri.com/products/bold-diamond-eternity-ring",
       "rows": [
         "R01"
@@ -96,7 +102,7 @@
     {
       "id": "V03",
       "kind": "listing",
-      "label": "Mejuri \u2014 Bold Diamond Half Eternity Ring",
+      "label": "Mejuri — Bold Diamond Half Eternity Ring",
       "url": "https://mejuri.com/products/bold-diamond-half-eternity-ring",
       "rows": [
         "R02"
@@ -107,7 +113,7 @@
     {
       "id": "V04",
       "kind": "listing",
-      "label": "Mejuri \u2014 Slim Diamond Eternity Band (collection listing)",
+      "label": "Mejuri — Slim Diamond Eternity Band (collection listing)",
       "url": "https://mejuri.com/collections/milestone-rings",
       "rows": [
         "R03"
@@ -118,7 +124,7 @@
     {
       "id": "V05",
       "kind": "listing",
-      "label": "Mejuri \u2014 Aurora Lab Grown Sapphire Eternity Ring",
+      "label": "Mejuri — Aurora Lab Grown Sapphire Eternity Ring",
       "url": "https://mejuri.com/products/aurora-lab-grown-sapphire-eternity-ring",
       "rows": [
         "R04"
@@ -129,7 +135,7 @@
     {
       "id": "V06",
       "kind": "listing",
-      "label": "Mejuri \u2014 Duet Mixed Ring",
+      "label": "Mejuri — Duet Mixed Ring",
       "url": "https://mejuri.com/products/duet-mixed-ring",
       "rows": [
         "R19"
@@ -140,7 +146,7 @@
     {
       "id": "V07",
       "kind": "policy",
-      "label": "Mejuri \u2014 standard return policy",
+      "label": "Mejuri — standard return policy",
       "url": "https://mejuri.com/faq/return-exchanges/what-is-the-standard-return-policy",
       "rows": [
         "R01",
@@ -155,7 +161,7 @@
     {
       "id": "V08",
       "kind": "listing",
-      "label": "Blue Nile \u2014 Petite Hidden Halo Solitaire Plus (item 192506)",
+      "label": "Blue Nile — Petite Hidden Halo Solitaire Plus (item 192506)",
       "url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/petite-hidden-halo-solitaire-plus-diamond-engagement-ring-in-14k-yellow-gold-item-192506",
       "rows": [
         "R05"
@@ -166,7 +172,7 @@
     {
       "id": "V09",
       "kind": "listing",
-      "label": "Blue Nile \u2014 Petite Solitaire (item 195639)",
+      "label": "Blue Nile — Petite Solitaire (item 195639)",
       "url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/petite-solitaire-engagement-ring-in-14k-yellow-gold-item-195639",
       "rows": [
         "R06"
@@ -177,7 +183,7 @@
     {
       "id": "V10",
       "kind": "listing",
-      "label": "Blue Nile \u2014 Criss Cross Solitaire by James Allen (item 311132)",
+      "label": "Blue Nile — Criss Cross Solitaire by James Allen (item 311132)",
       "url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/criss-cross-solitaire-engagement-ring-in-18k-yellow-gold-by-james-allen-item-311132",
       "rows": [
         "R07"
@@ -188,18 +194,18 @@
     {
       "id": "V11",
       "kind": "listing",
-      "label": "Blue Nile \u2014 Floral Marquise (item 203738)",
+      "label": "Blue Nile — Floral Marquise (item 203738)",
       "url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/floral-marquise-diamond-engagement-ring-in-18k-white-gold-item-203738",
       "rows": [
         "R08"
       ],
       "outcome": "flagged",
-      "findings": "\"$2,210 (Setting Price)\"; \"Metal Type: 18K White Gold\"; \"Rhodium Finish: Yes\"; Stock 502820w. The product description on the same page says the ring is \"artfully crafted from warmly lustrous 14k yellow gold\" \u2014 a direct self-contradiction. New flag SPEC1. The unsupported metal-options parenthetical on this row was also deleted."
+      "findings": "\"$2,210 (Setting Price)\"; \"Metal Type: 18K White Gold\"; \"Rhodium Finish: Yes\"; Stock 502820w. The product description on the same page says the ring is \"artfully crafted from warmly lustrous 14k yellow gold\" — a direct self-contradiction. New flag SPEC1. The unsupported metal-options parenthetical on this row was also deleted."
     },
     {
       "id": "V12",
       "kind": "listing",
-      "label": "Blue Nile \u2014 Riviera Pav\u00e9 (item 195326)",
+      "label": "Blue Nile — Riviera Pavé (item 195326)",
       "url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/riviera-pave-diamond-engagement-ring-in-14k-white-gold-1-6-ct-tw-item-195326",
       "rows": [
         "R09"
@@ -210,7 +216,7 @@
     {
       "id": "V13",
       "kind": "listing",
-      "label": "Blue Nile \u2014 Classic Simple Solitaire (item 195730)",
+      "label": "Blue Nile — Classic Simple Solitaire (item 195730)",
       "url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/classic-simple-solitaire-engagement-ring-in-14k-white-gold-item-195730",
       "rows": [
         "R14"
@@ -221,7 +227,7 @@
     {
       "id": "V14",
       "kind": "policy",
-      "label": "Blue Nile \u2014 return policy",
+      "label": "Blue Nile — return policy",
       "url": "https://www.bluenile.com/policies/returns",
       "rows": [
         "R05",
@@ -237,18 +243,18 @@
     {
       "id": "V15",
       "kind": "listing",
-      "label": "Costco \u2014 0.50 ctw diamond 14kt band",
+      "label": "Costco — 0.50 ctw diamond 14kt band",
       "url": "https://www.costco.com/p/-/round-brilliant-050-ctw-vs2-clarity-i-color-diamond-14kt-gold-band/100675127",
       "rows": [
         "R10"
       ],
       "outcome": "flagged",
-      "findings": "No price is displayed on the page as fetched, so the row's price stays blank. \"Metal: 14kt White Gold ( Rhodium Plated ) or 14kt Yellow Gold\". No gram weight. The page prints \"Item 1596365\" while the URL ends in 100675127 \u2014 new flag ID1."
+      "findings": "No price is displayed on the page as fetched, so the row's price stays blank. \"Metal: 14kt White Gold ( Rhodium Plated ) or 14kt Yellow Gold\". No gram weight. The page prints \"Item 1596365\" while the URL ends in 100675127 — new flag ID1."
     },
     {
       "id": "V16",
       "kind": "policy",
-      "label": "Costco \u2014 official return policy answer (Document ID CU2573, version 18.0, published 10/02/2025)",
+      "label": "Costco — official return policy answer (Document ID CU2573, version 18.0, published 10/02/2025)",
       "url": "https://customerservice.costco.com/app/answers/detail/a_id/1191",
       "rows": [
         "R10"
@@ -259,7 +265,7 @@
     {
       "id": "V17",
       "kind": "listing",
-      "label": "Wilson's Estate Jewelry \u2014 Mid-Century Old European solitaire",
+      "label": "Wilson's Estate Jewelry — Mid-Century Old European solitaire",
       "url": "https://www.wilsonsestatejewelry.com/products/mid-century-old-european-diamond-14-karat-white-gold-vintage-solitaire-engagement-ring",
       "rows": [
         "R11"
@@ -270,7 +276,7 @@
     {
       "id": "V18",
       "kind": "listing",
-      "label": "Wilson's Estate Jewelry \u2014 Art Deco Lotus (GIA)",
+      "label": "Wilson's Estate Jewelry — Art Deco Lotus (GIA)",
       "url": "https://www.wilsonsestatejewelry.com/products/art-deco-old-mine-cut-diamond-18-karat-white-gold-antique-lotus-engagement-ring-gia",
       "rows": [
         "R12"
@@ -281,7 +287,7 @@
     {
       "id": "V19",
       "kind": "listing",
-      "label": "Wilson's Estate Jewelry \u2014 Bailey Banks & Biddle 19K",
+      "label": "Wilson's Estate Jewelry — Bailey Banks & Biddle 19K",
       "url": "https://www.wilsonsestatejewelry.com/products/bailey-banks-biddle-art-deco-diamond-enamel-19-karat-white-gold-vintage-fanning-engagement-ring",
       "rows": [
         "R13"
@@ -292,7 +298,7 @@
     {
       "id": "V20",
       "kind": "listing",
-      "label": "Ross-Simons \u2014 2mm 18kt polished ring",
+      "label": "Ross-Simons — 2mm 18kt polished ring",
       "url": "https://www.ross-simons.com/products/985230",
       "rows": [
         "R15"
@@ -303,7 +309,7 @@
     {
       "id": "V21",
       "kind": "listing",
-      "label": "Ross-Simons \u2014 Italian 14kt diamond-cut ring",
+      "label": "Ross-Simons — Italian 14kt diamond-cut ring",
       "url": "https://www.ross-simons.com/products/932728",
       "rows": [
         "R16"
@@ -314,18 +320,18 @@
     {
       "id": "V22",
       "kind": "listing",
-      "label": "Tiffany & Co. \u2014 The Tiffany Setting in 18k yellow gold",
+      "label": "Tiffany & Co. — The Tiffany Setting in 18k yellow gold",
       "url": "https://www.tiffany.com/engagement/engagement-rings/the-tiffany-setting-engagement-ring-in-18k-yellow-gold-GRP10863/",
       "rows": [
         "R17"
       ],
       "outcome": "flagged",
-      "findings": "\"Starting from $1,600\"; \"Ring Style 18k Yellow Gold and Platinum\"; \"Availability: This product is currently unavailable\"; \"this item is non returnable\" and \"this item can only be exchanged\". The URL redirected to /jewelry/rings/18k-rose-gold-and-platinum-diamond-rings-1712.html \u2014 new flag RDR1."
+      "findings": "\"Starting from $1,600\"; \"Ring Style 18k Yellow Gold and Platinum\"; \"Availability: This product is currently unavailable\"; \"this item is non returnable\" and \"this item can only be exchanged\". The URL redirected to /jewelry/rings/18k-rose-gold-and-platinum-diamond-rings-1712.html — new flag RDR1."
     },
     {
       "id": "V23",
       "kind": "policy",
-      "label": "Tiffany & Co. \u2014 return policy",
+      "label": "Tiffany & Co. — return policy",
       "url": "https://www.tiffany.com/policy/return-policy.html",
       "rows": [
         "R17"
@@ -336,7 +342,7 @@
     {
       "id": "V24",
       "kind": "listing",
-      "label": "Catbird \u2014 Woodland Ring (Sofia Zakia)",
+      "label": "Catbird — Woodland Ring (Sofia Zakia)",
       "url": "https://www.catbirdnyc.com/woodland-ring.html",
       "rows": [
         "R18"
@@ -347,29 +353,29 @@
     {
       "id": "V25",
       "kind": "listing",
-      "label": "Sarraf.com \u2014 14k white gold solitaire 0.94 ctw (new row R20)",
+      "label": "Sarraf.com — 14k white gold solitaire 0.94 ctw (new row R20)",
       "url": "https://www.sarraf.com/products/14k-white-gold-solitaire-ring-0-94-ctw.html",
       "rows": [
         "R20"
       ],
       "outcome": "confirmed",
-      "findings": "\"Now: US$3,004.00\" (MSRP US$11,683.00, Was US$3,513.00); \"Material: 14K Solid Gold\"; \"Approximate Metal Weight: 3.80 grams\"; SKU 238401-102 / Stock 147370; return clause of 30 days on the same page. The page also states the weight carries a \u00b15% tolerance."
+      "findings": "\"Now: US$3,004.00\" (MSRP US$11,683.00, Was US$3,513.00); \"Material: 14K Solid Gold\"; \"Approximate Metal Weight: 3.80 grams\"; SKU 238401-102 / Stock 147370; return clause of 30 days on the same page. The page also states the weight carries a ±5% tolerance."
     },
     {
       "id": "V26",
       "kind": "listing",
-      "label": "Sarraf.com \u2014 10k 6mm comfort-fit band (new row R21)",
+      "label": "Sarraf.com — 10k 6mm comfort-fit band (new row R21)",
       "url": "https://www.sarraf.com/products/10k-gold-6mm-high-polished-comfort-fit-wedding-band.html",
       "rows": [
         "R21"
       ],
       "outcome": "flagged",
-      "findings": "\"Now: US$613.00\"; \"Material: 10K Solid Gold\"; \"Approximate Metal Weight: 8.30 grams\"; SKU IB-PBWB06-10KY / Stock 142684. Explicit caveat: \"The weight listed is an approximate weight of a ring in size 10\" \u2014 new flag WT4, because a size-5 buyer gets less metal than 8.30 g."
+      "findings": "\"Now: US$613.00\"; \"Material: 10K Solid Gold\"; \"Approximate Metal Weight: 8.30 grams\"; SKU IB-PBWB06-10KY / Stock 142684. Explicit caveat: \"The weight listed is an approximate weight of a ring in size 10\" — new flag WT4, because a size-5 buyer gets less metal than 8.30 g."
     },
     {
       "id": "V27",
       "kind": "listing",
-      "label": "Automic Gold \u2014 3ct radiant lab diamond cathedral ring (new row R22)",
+      "label": "Automic Gold — 3ct radiant lab diamond cathedral ring (new row R22)",
       "url": "https://www.automicgold.com/products/radiant-cut-lab-diamond-cathedral-ring",
       "rows": [
         "R22"
@@ -380,18 +386,18 @@
     {
       "id": "V28",
       "kind": "regulation",
-      "label": "16 CFR Part 23 \u2014 FTC jewellery guides",
+      "label": "16 CFR Part 23 — FTC jewellery guides",
       "url": "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23",
       "rows": [
         "standards"
       ],
       "outcome": "confirmed",
-      "findings": "eCFR states \"Displaying title 16, up to date as of 10/21/2026\". The sections this project cites all exist with the titles used: \u00a723.3 gold content, \u00a723.4 vermeil, \u00a723.7 rhodium surface layer, \u00a723.8 multiple precious metals, \u00a723.10 quality marks, \u00a723.18 weight and total weight."
+      "findings": "eCFR states \"Displaying title 16, up to date as of 10/21/2026\". The sections this project cites all exist with the titles used: §23.3 gold content, §23.4 vermeil, §23.7 rhodium surface layer, §23.8 multiple precious metals, §23.10 quality marks, §23.18 weight and total weight."
     },
     {
       "id": "V29",
       "kind": "listing",
-      "label": "Automic Gold \u2014 Coffin Ring (Solid 14k Gold)",
+      "label": "Automic Gold — Coffin Ring (Solid 14k Gold)",
       "url": "https://www.automicgold.com/products/coffin-ring",
       "rows": [
         "R23"
@@ -402,7 +408,7 @@
     {
       "id": "V30",
       "kind": "listing",
-      "label": "Automic Gold \u2014 Claddagh Ring (Solid 14k Gold)",
+      "label": "Automic Gold — Claddagh Ring (Solid 14k Gold)",
       "url": "https://www.automicgold.com/products/claddagh-ring",
       "rows": [
         "R24"
@@ -413,7 +419,7 @@
     {
       "id": "V31",
       "kind": "listing",
-      "label": "Automic Gold \u2014 Gemstone Flower Ring (Solid 14k Gold)",
+      "label": "Automic Gold — Gemstone Flower Ring (Solid 14k Gold)",
       "url": "https://www.automicgold.com/products/gemstone-flower-ring",
       "rows": [
         "R25"
@@ -424,7 +430,7 @@
     {
       "id": "V32",
       "kind": "listing",
-      "label": "Sarraf.com \u2014 18k Yellow Gold Men's Solitaire Diamond Ring 3/4 ct.",
+      "label": "Sarraf.com — 18k Yellow Gold Men's Solitaire Diamond Ring 3/4 ct.",
       "url": "https://www.sarraf.com/products/18k-yellow-gold-mens-solitaire-diamond-ring-3-4-ct.html",
       "rows": [
         "R26"
@@ -435,7 +441,7 @@
     {
       "id": "V33",
       "kind": "listing",
-      "label": "Sarraf.com \u2014 14k Yellow Gold Round Cut 8.8mm Wide 1.0ct CZ Engagement Ring",
+      "label": "Sarraf.com — 14k Yellow Gold Round Cut 8.8mm Wide 1.0ct CZ Engagement Ring",
       "url": "https://www.sarraf.com/products/14k-yellow-gold-round-cut-8-8mm-wide-1-0ct-cz-engagement-ring.html",
       "rows": [
         "R27"
@@ -446,7 +452,7 @@
     {
       "id": "V34",
       "kind": "listing",
-      "label": "VRAI \u2014 Petite 4-Prong Solitaire Round Brilliant Engagement Ring (18k Yellow Gold)",
+      "label": "VRAI — Petite 4-Prong Solitaire Round Brilliant Engagement Ring (18k Yellow Gold)",
       "url": "https://www.vrai.com/configure/setting-to-diamond/petite-4-prong-ring/round-brilliant-yellow-gold-41015509221469",
       "rows": [
         "R28"
@@ -457,7 +463,7 @@
     {
       "id": "V35",
       "kind": "listing",
-      "label": "Brilliant Earth \u2014 Fairmined 2mm Six-Prong Solitaire Ring in 18K Yellow Gold",
+      "label": "Brilliant Earth — Fairmined 2mm Six-Prong Solitaire Ring in 18K Yellow Gold",
       "url": "https://www.brilliantearth.com/Fairmined-2mm-Six-Prong-Solitaire-Ring-Gold-BE1FM0126-24910022/",
       "rows": [
         "R29"
@@ -468,7 +474,7 @@
     {
       "id": "V36",
       "kind": "listing",
-      "label": "Men\u0113 \u2014 Wrap Ring (Pure 24k Gold)",
+      "label": "Menē — Wrap Ring (Pure 24k Gold)",
       "url": "https://mene.com/products/wrap-ring-gold",
       "rows": [
         "R30"
@@ -479,7 +485,7 @@
     {
       "id": "V37",
       "kind": "listing",
-      "label": "Local Eclectic \u2014 Solid Gold Simple Knot Ring",
+      "label": "Local Eclectic — Solid Gold Simple Knot Ring",
       "url": "https://www.localeclectic.com/products/solid-gold-simple-knot-ring",
       "rows": [
         "R31"
@@ -490,7 +496,7 @@
     {
       "id": "P3-01",
       "label": "Live gold spot reading and its market date, against the two stored snapshots.",
-      "kind": "P3 \u00b7 spot",
+      "kind": "P3 · spot",
       "url": "https://www.gold.org/goldhub/data/gold-prices",
       "rows": [
         "spot"
@@ -504,7 +510,7 @@
     {
       "id": "P3-02",
       "label": "Whether an LBMA Gold Price figure can be reproduced here, and the licence position.",
-      "kind": "P3 \u00b7 benchmark policy",
+      "kind": "P3 · benchmark policy",
       "url": "https://www.lbma.org.uk/prices-and-data/lbma-precious-metal-prices",
       "rows": [
         "spot"
@@ -518,13 +524,13 @@
     {
       "id": "P3-03",
       "label": "Currency of the citation and the part-level text used by data/standards.json.",
-      "kind": "P3 \u00b7 16 CFR Part 23 as a whole",
+      "kind": "P3 · 16 CFR Part 23 as a whole",
       "url": "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23",
       "rows": [
         "standards"
       ],
       "outcome": "confirmed",
-      "findings": "Banner: \"authoritative but unofficial ... Displaying title 16, up to date as of 10/21/2026. Title 16 was last amended 10/19/2026.\"; Authority: 15 U.S.C. 45, 46; Source: 83 FR 40667, Aug. 16, 2018; \u00a723.3(c)(1): a karat designation must be \"of equal conspicuousness as the word 'Gold' (for example, '14 Karat Gold' ...)\"; \u00a723.3(c)(1) hollow-centre rule: \"Such products should not be marked or described as 'solid' ...\"",
+      "findings": "Banner: \"authoritative but unofficial ... Displaying title 16, up to date as of 10/21/2026. Title 16 was last amended 10/19/2026.\"; Authority: 15 U.S.C. 45, 46; Source: 83 FR 40667, Aug. 16, 2018; §23.3(c)(1): a karat designation must be \"of equal conspicuousness as the word 'Gold' (for example, '14 Karat Gold' ...)\"; §23.3(c)(1) hollow-centre rule: \"Such products should not be marked or described as 'solid' ...\"",
       "publisher": "eCFR (US Government Publishing Office)",
       "checked_on": "2026-10-22",
       "session": "arena/699d8e05-gold3"
@@ -532,13 +538,13 @@
     {
       "id": "P3-04",
       "label": "The exact thickness wording behind the site's vermeil test.",
-      "kind": "P3 \u00b7 16 CFR 23.4 vermeil definition",
+      "kind": "P3 · 16 CFR 23.4 vermeil definition",
       "url": "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23/section-23.4",
       "rows": [
         "standards"
       ],
       "outcome": "confirmed",
-      "findings": "vermeil requires a sterling silver base, gold of at least 10 karat, reasonable durability, and; \"a minimum thickness throughout equivalent to two and one half (2\u00bd) microns (or approximately 100/1,000,000ths of an inch) of fine gold\"",
+      "findings": "vermeil requires a sterling silver base, gold of at least 10 karat, reasonable durability, and; \"a minimum thickness throughout equivalent to two and one half (2½) microns (or approximately 100/1,000,000ths of an inch) of fine gold\"",
       "publisher": "eCFR",
       "checked_on": "2026-10-22",
       "session": "arena/699d8e05-gold3"
@@ -546,13 +552,13 @@
     {
       "id": "P3-05",
       "label": "The maker's-mark requirement behind flag H1, and the statute it points to.",
-      "kind": "P3 \u00b7 16 CFR 23.10 quality mark / maker's mark",
+      "kind": "P3 · 16 CFR 23.10 quality mark / maker's mark",
       "url": "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23/section-23.10",
       "rows": [
         "standards"
       ],
       "outcome": "confirmed",
-      "findings": "\u00a723.10 defines the quality mark and requires that where a quality mark is used, the article also carry the trademark or name of the maker; \"Disclosure of identity of manufacturers ... shall apply to the article the trademark or name of such person. 15 U.S.C. 297\"; The eCFR page links the statute at https://www.govinfo.gov/link/uscode/15/297",
+      "findings": "§23.10 defines the quality mark and requires that where a quality mark is used, the article also carry the trademark or name of the maker; \"Disclosure of identity of manufacturers ... shall apply to the article the trademark or name of such person. 15 U.S.C. 297\"; The eCFR page links the statute at https://www.govinfo.gov/link/uscode/15/297",
       "publisher": "eCFR",
       "checked_on": "2026-10-22",
       "session": "arena/699d8e05-gold3"
@@ -560,13 +566,13 @@
     {
       "id": "P3-06",
       "label": "Every stored value for R20 searched for in the live page text. This row was added by another session on 2026-10-22 and had not been re-checked by anyone else.",
-      "kind": "P3 \u00b7 R20 price, material, weight, stone, SKU",
+      "kind": "P3 · R20 price, material, weight, stone, SKU",
       "url": "https://www.sarraf.com/products/14k-white-gold-solitaire-ring-0-94-ctw.html",
       "rows": [
         "R20"
       ],
       "outcome": "confirmed",
-      "findings": "\"Now: US$3,004.00\" (with \"MSRP: US$11,683.00\", \"Was: US$3,513.00\", \"-14% OFF\", \"*Discount code is applied automatically\"); \"Material: 14K Solid Gold\"; \"Approximate Metal Weight: 3.80 grams\"; \"Diamond Weight: 0.94 Ct.\" \u00b7 \"Diamond Color: G\" \u00b7 \"Diamond Clarity: I 1\" \u00b7 \"Diamond ( Natural / Lab Created ): Natural\"; \"0.94 carat Classic Collection round diamond solitaire is set in 14K white gold. This item is availble in Yellow gold.\"; SKU:238401-102 \u00b7 Stock Number: 147370 \u00b7 \"Availability:Usually ships in 2-4 Days\"; \"Engraving Inside ($25.00)\" is offered as an option at checkout",
+      "findings": "\"Now: US$3,004.00\" (with \"MSRP: US$11,683.00\", \"Was: US$3,513.00\", \"-14% OFF\", \"*Discount code is applied automatically\"); \"Material: 14K Solid Gold\"; \"Approximate Metal Weight: 3.80 grams\"; \"Diamond Weight: 0.94 Ct.\" · \"Diamond Color: G\" · \"Diamond Clarity: I 1\" · \"Diamond ( Natural / Lab Created ): Natural\"; \"0.94 carat Classic Collection round diamond solitaire is set in 14K white gold. This item is availble in Yellow gold.\"; SKU:238401-102 · Stock Number: 147370 · \"Availability:Usually ships in 2-4 Days\"; \"Engraving Inside ($25.00)\" is offered as an option at checkout",
       "publisher": "Sarraf.com",
       "checked_on": "2026-10-22",
       "session": "arena/699d8e05-gold3"
@@ -574,13 +580,13 @@
     {
       "id": "P3-07",
       "label": "Every stored value for R21, especially the 8.30 g figure and the size-10 caveat behind flag WT4.",
-      "kind": "P3 \u00b7 R21 price, material, weight, size caveat",
+      "kind": "P3 · R21 price, material, weight, size caveat",
       "url": "https://www.sarraf.com/products/10k-gold-6mm-high-polished-comfort-fit-wedding-band.html",
       "rows": [
         "R21"
       ],
       "outcome": "confirmed",
-      "findings": "\"Now: US$613.00\" (with \"MSRP: US$2,384.00\", \"Was: US$717.00\", \"-15% OFF\"); \"Material: 10K Solid Gold\"; \"Approximate Metal Weight: 8.30 grams\"; \"This 10k Yellow Gold classic wedding band is 6mm wide and 2.2mm thick\"; \"The weight listed is an approximate weight of a ring in size 10 Made in the USA\"; SKU:IB-PBWB06-10KY \u00b7 Stock Number: 142684 \u00b7 \"or 4 interest-free payments of $153.25\"",
+      "findings": "\"Now: US$613.00\" (with \"MSRP: US$2,384.00\", \"Was: US$717.00\", \"-15% OFF\"); \"Material: 10K Solid Gold\"; \"Approximate Metal Weight: 8.30 grams\"; \"This 10k Yellow Gold classic wedding band is 6mm wide and 2.2mm thick\"; \"The weight listed is an approximate weight of a ring in size 10 Made in the USA\"; SKU:IB-PBWB06-10KY · Stock Number: 142684 · \"or 4 interest-free payments of $153.25\"",
       "publisher": "Sarraf.com",
       "checked_on": "2026-10-22",
       "session": "arena/699d8e05-gold3"
@@ -588,14 +594,14 @@
     {
       "id": "P3-08",
       "label": "Read the return-policy block end to end, including the parts an earlier pass summarised, to test every claim made about it in this repo.",
-      "kind": "P3 \u00b7 Sarraf return policy, quoted in flag RET7 and in seller S-SARRAF",
+      "kind": "P3 · Sarraf return policy, quoted in flag RET7 and in seller S-SARRAF",
       "url": "https://www.sarraf.com/products/14k-white-gold-solitaire-ring-0-94-ctw.html#return-policy",
       "rows": [
         "R20",
         "R21"
       ],
       "outcome": "corrected",
-      "findings": "\"30-Day Return Policy New\" \u00b7 \"you can return any item in its original condition for a refund or exchange\"; \"Engraving and shipping Charges are nonrefundable\"; \"Bangles and watches that have been engraved are not eligible for return.\" \u00b7 \"Custom made name plates are not eligible for return\"; \"Items that show signs of wear or have been resized (by a jeweler other than Sarraf Jewelry Inc.), altered, special ordered items or damaged in any way cannot be accepted for return.\"; \"Any ring where personal engraving was added may be returned, exchanged or resized where possible (with the exception of special orders), however, the $25.00 engraving fee is non-refundable.\"; \"Orders which are over 30 days of receipt do not qualify for return policy.\"; \"You will receive credit back to the same credit card which was charged to or exchange within seven business days.\"; \"* Sarraf Jewelry Inc. will not be responsible for loss or damage of return shipments.\"; Return address: \"Sarraf Inc. Attn: Returns 650 South Hill Street, # 728 Los Angeles, CA 90014\"; NO 3% CARD-PROCESSING FEE APPEARS ANYWHERE IN THIS POLICY",
+      "findings": "\"30-Day Return Policy New\" · \"you can return any item in its original condition for a refund or exchange\"; \"Engraving and shipping Charges are nonrefundable\"; \"Bangles and watches that have been engraved are not eligible for return.\" · \"Custom made name plates are not eligible for return\"; \"Items that show signs of wear or have been resized (by a jeweler other than Sarraf Jewelry Inc.), altered, special ordered items or damaged in any way cannot be accepted for return.\"; \"Any ring where personal engraving was added may be returned, exchanged or resized where possible (with the exception of special orders), however, the $25.00 engraving fee is non-refundable.\"; \"Orders which are over 30 days of receipt do not qualify for return policy.\"; \"You will receive credit back to the same credit card which was charged to or exchange within seven business days.\"; \"* Sarraf Jewelry Inc. will not be responsible for loss or damage of return shipments.\"; Return address: \"Sarraf Inc. Attn: Returns 650 South Hill Street, # 728 Los Angeles, CA 90014\"; NO 3% CARD-PROCESSING FEE APPEARS ANYWHERE IN THIS POLICY",
       "publisher": "Sarraf.com",
       "checked_on": "2026-10-22",
       "session": "arena/699d8e05-gold3"
@@ -603,7 +609,7 @@
     {
       "id": "P3-09",
       "label": "Whether the lifetime guarantee the page advertises carries conditions a buyer would care about.",
-      "kind": "P3 \u00b7 Sarraf warranty terms (not previously recorded anywhere in the repo)",
+      "kind": "P3 · Sarraf warranty terms (not previously recorded anywhere in the repo)",
       "url": "https://www.sarraf.com/products/14k-white-gold-solitaire-ring-0-94-ctw.html#tab-warranty",
       "rows": [
         "R20",
@@ -618,13 +624,13 @@
     {
       "id": "P3-10",
       "label": "Re-read the whole product page (past the cookie-consent layer, which occupies the first chunks) and test every stored R22 value, including WT5 and POL2.",
-      "kind": "P3 \u00b7 R22 price, material, item weight, engraving, returns, warranty, lead time",
+      "kind": "P3 · R22 price, material, item weight, engraving, returns, warranty, lead time",
       "url": "https://www.automicgold.com/products/radiant-cut-lab-diamond-cathedral-ring",
       "rows": [
         "R22"
       ],
       "outcome": "corrected",
-      "findings": "\"3ct Radiant Cut Lab Diamond Cathedral Ring\" \u00b7 \"$3,074\" \u00b7 \"Solid 14k Gold and 950 Platinum\"; \"Item Weight: Approximately 5.4g for gold or 8.1g for platinum\" \u2014 confirms WT5: the 5.4 g figure is the gold version; \"Material: 950 platinum and/or Solid 14k gold\" \u00b7 \"Crafted from solid recycled 14k gold or 950 platinum\"; Metal options: \"14k Yellow Gold / 14k White Gold / Nickel Free 14k White Gold / 14k Rose Gold / 14k Champagne Gold / 950 Platinum\"; \"Gold source: 100% Recycled gold\" \u00b7 \"Manufacturing: In house in New York\"; \"Engrave up to thirty characters on the inside of the band. Engraving adds $60 per line\" \u00b7 \"All engraved items are final sale.\" (POL2); Shipping & Returns section: \"Returns can be made within 30 days of the delivery date. Free return shipping on US orders. Engraved items are final sale and cannot be returned.\"; Buy box: \"Ships from New York City \u2022 Production time is 4-8 business days \u2022 Free returns (US only)\" vs policy section \"Production time is 1-2 weeks. If you are adding engraving, production time is 2-3 weeks.\"; \"Only 2 units left in stock!\" \u00b7 custom@automicgold.com \u00b7 \"limited lifetime warranty that protects against manufacturer defects\"; Stone details: \"Stone is 9.7mm x 7.3mm\" \u00b7 \"Engagement band is 3mm\" \u00b7 \"Lab created diamond\" \u00b7 \"Diamond clarity VS/VVS\" \u00b7 \"Diamond color D/E/F\" \u00b7 \"Diamond weight Approximately 3ct\"",
+      "findings": "\"3ct Radiant Cut Lab Diamond Cathedral Ring\" · \"$3,074\" · \"Solid 14k Gold and 950 Platinum\"; \"Item Weight: Approximately 5.4g for gold or 8.1g for platinum\" — confirms WT5: the 5.4 g figure is the gold version; \"Material: 950 platinum and/or Solid 14k gold\" · \"Crafted from solid recycled 14k gold or 950 platinum\"; Metal options: \"14k Yellow Gold / 14k White Gold / Nickel Free 14k White Gold / 14k Rose Gold / 14k Champagne Gold / 950 Platinum\"; \"Gold source: 100% Recycled gold\" · \"Manufacturing: In house in New York\"; \"Engrave up to thirty characters on the inside of the band. Engraving adds $60 per line\" · \"All engraved items are final sale.\" (POL2); Shipping & Returns section: \"Returns can be made within 30 days of the delivery date. Free return shipping on US orders. Engraved items are final sale and cannot be returned.\"; Buy box: \"Ships from New York City • Production time is 4-8 business days • Free returns (US only)\" vs policy section \"Production time is 1-2 weeks. If you are adding engraving, production time is 2-3 weeks.\"; \"Only 2 units left in stock!\" · custom@automicgold.com · \"limited lifetime warranty that protects against manufacturer defects\"; Stone details: \"Stone is 9.7mm x 7.3mm\" · \"Engagement band is 3mm\" · \"Lab created diamond\" · \"Diamond clarity VS/VVS\" · \"Diamond color D/E/F\" · \"Diamond weight Approximately 3ct\"",
       "publisher": "Automic Gold",
       "checked_on": "2026-10-22",
       "session": "arena/699d8e05-gold3"
@@ -632,14 +638,14 @@
     {
       "id": "P3-11",
       "label": "Open the official returns page that an earlier pass did not capture, and read the window, the fee and the exclusions verbatim.",
-      "kind": "P3 \u00b7 Seller S-RS return terms (previously \"Not verified\", flag POL1)",
+      "kind": "P3 · Seller S-RS return terms (previously \"Not verified\", flag POL1)",
       "url": "https://www.ross-simons.com/pages/returns-exchanges",
       "rows": [
         "R15",
         "R16"
       ],
       "outcome": "corrected",
-      "findings": "\"30-Day No-Risk Return Guarantee\"; \"30 days from the date you receive your order\" \u00b7 \"(shipping and handling charges are non-refundable)\"; \"Items must be returned in original, unused condition.\"; \"Merchandise that has been damaged, altered, or resized by a jeweler other than Ross-Simons cannot be accepted for return.\"; \"a flat fee of $4.95 for return shipping and handling\"; refunds processed within 4 business days \u00b7 returns to 9 Ross Simons Dr., Cranston, RI 02920; gift returns are issued as merchandise credit",
+      "findings": "\"30-Day No-Risk Return Guarantee\"; \"30 days from the date you receive your order\" · \"(shipping and handling charges are non-refundable)\"; \"Items must be returned in original, unused condition.\"; \"Merchandise that has been damaged, altered, or resized by a jeweler other than Ross-Simons cannot be accepted for return.\"; \"a flat fee of $4.95 for return shipping and handling\"; refunds processed within 4 business days · returns to 9 Ross Simons Dr., Cranston, RI 02920; gift returns are issued as merchandise credit",
       "publisher": "Ross-Simons",
       "checked_on": "2026-10-22",
       "session": "arena/699d8e05-gold3"
@@ -647,14 +653,14 @@
     {
       "id": "P3-12",
       "label": "Find a published phone number and email address on an official Ross-Simons page.",
-      "kind": "P3 \u00b7 Seller S-RS contact details (phone and email were null)",
+      "kind": "P3 · Seller S-RS contact details (phone and email were null)",
       "url": "https://www.ross-simons.com/pages/customer-care",
       "rows": [
         "R15",
         "R16"
       ],
       "outcome": "corrected",
-      "findings": "\"Phone 800-835-0919\" \u00b7 7 days a week, 7:00am-11:00pm ET; \"Email customerservice@ross-simons.com\"",
+      "findings": "\"Phone 800-835-0919\" · 7 days a week, 7:00am-11:00pm ET; \"Email customerservice@ross-simons.com\"",
       "publisher": "Ross-Simons",
       "checked_on": "2026-10-22",
       "session": "arena/699d8e05-gold3"
@@ -662,13 +668,13 @@
     {
       "id": "P3-13",
       "label": "Re-read the listing to confirm the price and the only gold-weight figure this seller publishes.",
-      "kind": "P3 \u00b7 R15 price and gold weight",
+      "kind": "P3 · R15 price and gold weight",
       "url": "https://www.ross-simons.com/products/985230",
       "rows": [
         "R15"
       ],
       "outcome": "confirmed",
-      "findings": "\"$249\" \u00b7 \"Metal 18ktYellow Gold\" \u00b7 \"Gold Weight 0.7 grams\"; \"All weights and measurements are approximate\"",
+      "findings": "\"$249\" · \"Metal 18ktYellow Gold\" · \"Gold Weight 0.7 grams\"; \"All weights and measurements are approximate\"",
       "publisher": "Ross-Simons",
       "checked_on": "2026-10-22",
       "session": "arena/699d8e05-gold3"
@@ -676,13 +682,13 @@
     {
       "id": "P3-14",
       "label": "Re-read the listing, specifically to test PD1 (\"price differed between live page and cached copy\").",
-      "kind": "P3 \u00b7 R16 price and gold weight, and flag PD1",
+      "kind": "P3 · R16 price and gold weight, and flag PD1",
       "url": "https://www.ross-simons.com/products/932728",
       "rows": [
         "R16"
       ],
       "outcome": "confirmed",
-      "findings": "\"$299\" \u00b7 \"Metal 14ktYellow Gold\" \u00b7 \"Gold Weight 0.8 grams\"; two metal choices (the white-gold version is products/932726) \u00b7 sizes 5-10 shown in stock",
+      "findings": "\"$299\" · \"Metal 14ktYellow Gold\" · \"Gold Weight 0.8 grams\"; two metal choices (the white-gold version is products/932726) · sizes 5-10 shown in stock",
       "publisher": "Ross-Simons",
       "checked_on": "2026-10-22",
       "session": "arena/699d8e05-gold3"
@@ -690,13 +696,13 @@
     {
       "id": "P3-15",
       "label": "Open Catbird's official returns page and read the window, the fee, the final-sale list and the international rule.",
-      "kind": "P3 \u00b7 Seller S-CB return terms (previously \"Not verified\", flag POL1)",
+      "kind": "P3 · Seller S-CB return terms (previously \"Not verified\", flag POL1)",
       "url": "https://www.catbirdnyc.com/returns",
       "rows": [
         "R18"
       ],
       "outcome": "corrected",
-      "findings": "\"...for a refund or credit within 20 days of the date your package was delivered\"; \"An $9 charge for return shipping will be deducted from your refund\"; item must be unused, in original packaging and authorised by Catbird; final sale: special orders, engraved items, Forever jewelry, earrings from piercing events, home & beauty, comestibles; \"All international sales are final.\"; in-store purchases: store credit only, within 20 days \u00b7 exchanges are handled as a return plus a new order; \"We can only accept repairs or resizing on jewelry bought from Catbird.\"",
+      "findings": "\"...for a refund or credit within 20 days of the date your package was delivered\"; \"An $9 charge for return shipping will be deducted from your refund\"; item must be unused, in original packaging and authorised by Catbird; final sale: special orders, engraved items, Forever jewelry, earrings from piercing events, home & beauty, comestibles; \"All international sales are final.\"; in-store purchases: store credit only, within 20 days · exchanges are handled as a return plus a new order; \"We can only accept repairs or resizing on jewelry bought from Catbird.\"",
       "publisher": "Catbird",
       "checked_on": "2026-10-22",
       "session": "arena/699d8e05-gold3"
@@ -704,7 +710,7 @@
     {
       "id": "P3-16",
       "label": "Find a published email or phone number on an official Catbird page.",
-      "kind": "P3 \u00b7 Seller S-CB contact details",
+      "kind": "P3 · Seller S-CB contact details",
       "url": "https://www.catbirdnyc.com/contact-us",
       "rows": [
         "R18"
@@ -718,7 +724,7 @@
     {
       "id": "P3-17",
       "label": "Re-read the listing: price, sale/regular pair, availability, and whether the phrase quoted as evidence of \"14k Yellow Gold\" appears in the page's own copy.",
-      "kind": "P3 \u00b7 R18 price and the wording behind its solid-gold quote",
+      "kind": "P3 · R18 price and the wording behind its solid-gold quote",
       "url": "https://www.catbirdnyc.com/woodland-ring.html",
       "rows": [
         "R18"
@@ -732,13 +738,13 @@
     {
       "id": "P3-18",
       "label": "Re-read the whole listing: the price and which variant it belongs to, whether a weight is published, what the return terms on this listing are, and whether documentation is promised.",
-      "kind": "P3 \u00b7 Dataset A product aurate-2ct-round-lgd-solitaire: price basis, weight, returns, certificate",
+      "kind": "P3 · Dataset A product aurate-2ct-round-lgd-solitaire: price basis, weight, returns, certificate",
       "url": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring",
       "rows": [
         "aurate-2ct-round-lgd-solitaire"
       ],
       "outcome": "corrected",
-      "findings": "\"$2,858\" with the selected variant \"Rate - 14k GOLD\", \"Color - Yellow\", \"Size - 7\", \"In Stock \u2022 Ready to Ship\"; \"From $137/month with Klarna\" \u00b7 \"62% Fairer Price\" \u00b7 \"$7,431 Traditional Retail\" (seller's own comparison); \"Exchange for size only.\" \u00b7 \"Final Sale!\" \u00b7 \"Exchange only! Return & cancellation policy.\" (all linking to auratenewyork.com/pages/terms-conditions-exchange-only); the same page also shows a \"Free Returns\" service badge and \"Lifetime Warranty\"; specs block: \"Width: 2.75mm\" \u00b7 \"Thickness: 1.8mm\" \u00b7 \"Weight: 5.5-8.5g\" \u00b7 \"Diamonds: 1 Round VS/EF Lab Grown Diamond\" \u00b7 \"Diamonds Size: 8.2mm\" \u00b7 \"2tcw\" \u00b7 \"SKU: AU5760\"; copy says \"Sculpted on a sleek 14k, 18k gold or platinum band with a refined 1.8mm width\" and \"Hand-set with an EF color, VVS clarity diamond\"; a quality badge on the same page says \"SI Clarity Only\"; \"All of our engagement diamond solitaire rings come with a certificate certifying the quality (cut, color, clarity and carat) of your diamond. It is run through one of two accredited institutions: The Gemological Institute of America or The International Gemological Institute. Trust but verify, always.\"; vermeil definition on the same page: \"Made with a 100% sterling silver base and plated in a thick layer of gold measuring at least 2.5 micron ... we actually stand by the official vermeil 2.5 micron minimum guidelines\"",
+      "findings": "\"$2,858\" with the selected variant \"Rate - 14k GOLD\", \"Color - Yellow\", \"Size - 7\", \"In Stock • Ready to Ship\"; \"From $137/month with Klarna\" · \"62% Fairer Price\" · \"$7,431 Traditional Retail\" (seller's own comparison); \"Exchange for size only.\" · \"Final Sale!\" · \"Exchange only! Return & cancellation policy.\" (all linking to auratenewyork.com/pages/terms-conditions-exchange-only); the same page also shows a \"Free Returns\" service badge and \"Lifetime Warranty\"; specs block: \"Width: 2.75mm\" · \"Thickness: 1.8mm\" · \"Weight: 5.5-8.5g\" · \"Diamonds: 1 Round VS/EF Lab Grown Diamond\" · \"Diamonds Size: 8.2mm\" · \"2tcw\" · \"SKU: AU5760\"; copy says \"Sculpted on a sleek 14k, 18k gold or platinum band with a refined 1.8mm width\" and \"Hand-set with an EF color, VVS clarity diamond\"; a quality badge on the same page says \"SI Clarity Only\"; \"All of our engagement diamond solitaire rings come with a certificate certifying the quality (cut, color, clarity and carat) of your diamond. It is run through one of two accredited institutions: The Gemological Institute of America or The International Gemological Institute. Trust but verify, always.\"; vermeil definition on the same page: \"Made with a 100% sterling silver base and plated in a thick layer of gold measuring at least 2.5 micron ... we actually stand by the official vermeil 2.5 micron minimum guidelines\"",
       "publisher": "Aurate New York",
       "checked_on": "2026-10-22",
       "session": "arena/699d8e05-gold3"
@@ -746,13 +752,13 @@
     {
       "id": "P3-19",
       "label": "Re-read the listing: price, the stone description, whether it is ready to ship, and whether the karat appears in the page body.",
-      "kind": "P3 \u00b7 Dataset A product ringconcierge-2-08-oval-lab-whisper-thin: price, availability, lead time, karat",
+      "kind": "P3 · Dataset A product ringconcierge-2-08-oval-lab-whisper-thin: price, availability, lead time, karat",
       "url": "https://ringconcierge.com/products/2-08-oval-lab-diamond-in-whisper-thina-hidden-halo",
       "rows": [
         "ringconcierge-2-08-oval-lab-whisper-thin"
       ],
       "outcome": "corrected",
-      "findings": "\"$6,038\" \u00b7 \"2.08 Oval Lab Diamond in Whisper Thin\u00ae Hidden Halo\"; \"2.08 Carat E VS1 Oval Lab Grown Diamond set in our Whisper Thin\u00ae Hidden Halo\"; every size option reads \"Made to Order\" \u00b7 \"Estimated production time is 3-4 weeks\"; \"Receive a notification when this item is back in stock!\" \u00b7 \"Join the Waitlist\"; banners \"FREE RETURNS + COMPLIMENTARY WARRANTY\" and \"COMPLIMENTARY LIFETIME WARRANTY\"; the karat is not stated in the body text; image descriptions say \"Yellow Gold ... with Platinum Prongs\"",
+      "findings": "\"$6,038\" · \"2.08 Oval Lab Diamond in Whisper Thin® Hidden Halo\"; \"2.08 Carat E VS1 Oval Lab Grown Diamond set in our Whisper Thin® Hidden Halo\"; every size option reads \"Made to Order\" · \"Estimated production time is 3-4 weeks\"; \"Receive a notification when this item is back in stock!\" · \"Join the Waitlist\"; banners \"FREE RETURNS + COMPLIMENTARY WARRANTY\" and \"COMPLIMENTARY LIFETIME WARRANTY\"; the karat is not stated in the body text; image descriptions say \"Yellow Gold ... with Platinum Prongs\"",
       "publisher": "Ring Concierge",
       "checked_on": "2026-10-22",
       "session": "arena/699d8e05-gold3"
@@ -760,13 +766,13 @@
     {
       "id": "P3-20",
       "label": "Re-read the listing and the material copy, looking specifically for any surface-plating disclosure.",
-      "kind": "P3 \u00b7 R01 price, material, rhodium",
+      "kind": "P3 · R01 price, material, rhodium",
       "url": "https://mejuri.com/products/bold-diamond-eternity-ring",
       "rows": [
         "R01"
       ],
       "outcome": "flagged",
-      "findings": "\"From$2,900\" \u00b7 \"Solid White Gold (14k)\" \u00b7 90% recycled gold \u00b7 free 30-day returns \u00b7 Klarna shown; \"14k solid white gold pieces are finished with rhodium plating\"",
+      "findings": "\"From$2,900\" · \"Solid White Gold (14k)\" · 90% recycled gold · free 30-day returns · Klarna shown; \"14k solid white gold pieces are finished with rhodium plating\"",
       "publisher": "Mejuri",
       "checked_on": "2026-10-22",
       "session": "arena/699d8e05-gold3"
@@ -774,7 +780,7 @@
     {
       "id": "P3-21",
       "label": "Re-read the collection page for both listed prices (R02's price basis was corrected by an earlier pass to product level, so the product text was searched for again).",
-      "kind": "P3 \u00b7 R02 and R03 prices",
+      "kind": "P3 · R02 and R03 prices",
       "url": "https://mejuri.com/collections/milestone-rings",
       "rows": [
         "R02",
@@ -789,13 +795,13 @@
     {
       "id": "P3-22",
       "label": "Confirm the row that must FAIL the solid-gold test is still described as vermeil.",
-      "kind": "P3 \u00b7 R04 vermeil status",
+      "kind": "P3 · R04 vermeil status",
       "url": "https://mejuri.com/products/aurora-lab-grown-sapphire-eternity-ring",
       "rows": [
         "R04"
       ],
       "outcome": "confirmed",
-      "findings": "\"$228\" \u00b7 \"18k Gold Vermeil ... 2.5 Micron Gold Plating\"",
+      "findings": "\"$228\" · \"18k Gold Vermeil ... 2.5 Micron Gold Plating\"",
       "publisher": "Mejuri",
       "checked_on": "2026-10-22",
       "session": "arena/699d8e05-gold3"
@@ -803,13 +809,13 @@
     {
       "id": "P3-23",
       "label": "Confirm R19 (imported from an archived session) against its own live page, which is what allowed L3 to be retired.",
-      "kind": "P3 \u00b7 R19 vermeil status and retired flag L3",
+      "kind": "P3 · R19 vermeil status and retired flag L3",
       "url": "https://mejuri.com/products/duet-mixed-ring",
       "rows": [
         "R19"
       ],
       "outcome": "confirmed",
-      "findings": "\"$178\" \u00b7 \"18k Gold Vermeil, Sterling Silver\"",
+      "findings": "\"$178\" · \"18k Gold Vermeil, Sterling Silver\"",
       "publisher": "Mejuri",
       "checked_on": "2026-10-22",
       "session": "arena/699d8e05-gold3"
@@ -817,13 +823,13 @@
     {
       "id": "P3-24",
       "label": "Re-read the spec table and the description separately to confirm the contradiction is still live on the page.",
-      "kind": "P3 \u00b7 R08 price and the metal contradiction behind SPEC1 / finding F1",
+      "kind": "P3 · R08 price and the metal contradiction behind SPEC1 / finding F1",
       "url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/floral-marquise-diamond-engagement-ring-in-18k-white-gold-item-203738",
       "rows": [
         "R08"
       ],
       "outcome": "confirmed",
-      "findings": "\"$2,210\" \u00b7 spec \"Metal 18K White Gold\" \u00b7 \"Width 1.70mm\" \u00b7 \"Rhodium Finish Yes\"; description: \"artfully crafted from warmly lustrous 14k yellow gold\"",
+      "findings": "\"$2,210\" · spec \"Metal 18K White Gold\" · \"Width 1.70mm\" · \"Rhodium Finish Yes\"; description: \"artfully crafted from warmly lustrous 14k yellow gold\"",
       "publisher": "Blue Nile",
       "checked_on": "2026-10-22",
       "session": "arena/699d8e05-gold3"
@@ -831,13 +837,13 @@
     {
       "id": "P3-25",
       "label": "Confirm the setting price and check the rhodium line in the spec table.",
-      "kind": "P3 \u00b7 R09 price and rhodium finish",
+      "kind": "P3 · R09 price and rhodium finish",
       "url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/riviera-pave-diamond-engagement-ring-in-14k-white-gold-1-6-ct-tw-item-195326",
       "rows": [
         "R09"
       ],
       "outcome": "flagged",
-      "findings": "\"$1,500\" (setting price) \u00b7 \"Rhodium Finish Yes\"",
+      "findings": "\"$1,500\" (setting price) · \"Rhodium Finish Yes\"",
       "publisher": "Blue Nile",
       "checked_on": "2026-10-22",
       "session": "arena/699d8e05-gold3"
@@ -845,7 +851,7 @@
     {
       "id": "P3-26",
       "label": "Re-read the return policy behind S-BN's record, including the resize and resized-item clauses.",
-      "kind": "P3 \u00b7 Seller S-BN return terms",
+      "kind": "P3 · Seller S-BN return terms",
       "url": "https://www.bluenile.com/policies/returns",
       "rows": [
         "R05",
@@ -856,7 +862,7 @@
         "R14"
       ],
       "outcome": "confirmed",
-      "findings": "30 days from the shipment date, original unworn condition; exclusions include personalised jewellery, custom orders, engraved items, \"items resized after initial purchase\", Diamond Upgrade Program purchases, clearance and Final Sale; two complimentary returns per customer per year; one free resize up or down two sizes within 6 months where the design permits; $150 fee if the diamond report is missing \u00b7 bank-wire refunds mentioned",
+      "findings": "30 days from the shipment date, original unworn condition; exclusions include personalised jewellery, custom orders, engraved items, \"items resized after initial purchase\", Diamond Upgrade Program purchases, clearance and Final Sale; two complimentary returns per customer per year; one free resize up or down two sizes within 6 months where the design permits; $150 fee if the diamond report is missing · bank-wire refunds mentioned",
       "publisher": "Blue Nile",
       "checked_on": "2026-10-22",
       "session": "arena/699d8e05-gold3"
@@ -864,13 +870,13 @@
     {
       "id": "P3-27",
       "label": "Re-read the listing to confirm that no price is displayed and to re-check the URL-vs-page identifier behind ID1.",
-      "kind": "P3 \u00b7 R10 price absence, metal wording, identifier mismatch",
+      "kind": "P3 · R10 price absence, metal wording, identifier mismatch",
       "url": "https://www.costco.com/p/-/round-brilliant-050-ctw-vs2-clarity-i-color-diamond-14kt-gold-band/100675127",
       "rows": [
         "R10"
       ],
       "outcome": "confirmed",
-      "findings": "no membership price is rendered in the page text \u2014 P2 stands, price_usd stays null; \"Item 1596365\" on a page whose URL ends /100675127 \u2014 ID1 stands; \"Metal: 14kt White Gold ( Rhodium Plated ) or 14kt Yellow Gold\"; \"0.50 ctw\" \u00b7 12 diamonds \u00b7 \"VS2\" \u00b7 \"I\" \u00b7 sizes \"5, 6, 7 & 8 - Sizeable within 1 size ( Costco does not provide this service )\"; \"All diamonds offered by Costco are natural and untreated.\" \u00b7 first-party rating 4.8 from 2841 reviews",
+      "findings": "no membership price is rendered in the page text — P2 stands, price_usd stays null; \"Item 1596365\" on a page whose URL ends /100675127 — ID1 stands; \"Metal: 14kt White Gold ( Rhodium Plated ) or 14kt Yellow Gold\"; \"0.50 ctw\" · 12 diamonds · \"VS2\" · \"I\" · sizes \"5, 6, 7 & 8 - Sizeable within 1 size ( Costco does not provide this service )\"; \"All diamonds offered by Costco are natural and untreated.\" · first-party rating 4.8 from 2841 reviews",
       "publisher": "Costco",
       "checked_on": "2026-10-22",
       "session": "arena/699d8e05-gold3"
@@ -878,13 +884,13 @@
     {
       "id": "P3-28",
       "label": "Re-read the jewellery return answer, and capture the document identity so a reader can tell which version was read.",
-      "kind": "P3 \u00b7 RET1 (precious metals non-refundable) and the document's own metadata",
+      "kind": "P3 · RET1 (precious metals non-refundable) and the document's own metadata",
       "url": "https://customerservice.costco.com/app/answers/detail/a_id/1191",
       "rows": [
         "R10"
       ],
       "outcome": "confirmed",
-      "findings": "\"Precious metals are non-refundable.\"; diamonds of 1.00 ct or more need the original IGI/GIA paperwork and are settled with a Jewelry Credit Memo after a 48-hour Graduate Gemologist inspection; Special Order Kiosk and custom items are non-returnable \u00b7 risk-free 100% satisfaction guarantee on other merchandise; document metadata: Document ID CU2573 \u00b7 Version 18.0 \u00b7 Published 10/02/2025",
+      "findings": "\"Precious metals are non-refundable.\"; diamonds of 1.00 ct or more need the original IGI/GIA paperwork and are settled with a Jewelry Credit Memo after a 48-hour Graduate Gemologist inspection; Special Order Kiosk and custom items are non-returnable · risk-free 100% satisfaction guarantee on other merchandise; document metadata: Document ID CU2573 · Version 18.0 · Published 10/02/2025",
       "publisher": "Costco Customer Service",
       "checked_on": "2026-10-22",
       "session": "arena/699d8e05-gold3"
@@ -892,13 +898,13 @@
     {
       "id": "P3-29",
       "label": "Re-read the product page and note the path it is actually served at.",
-      "kind": "P3 \u00b7 R17 price wording, availability, return status, and the redirect behind RDR1",
+      "kind": "P3 · R17 price wording, availability, return status, and the redirect behind RDR1",
       "url": "https://www.tiffany.com/engagement/engagement-rings/the-tiffany-setting-engagement-ring-in-18k-yellow-gold-GRP10863/",
       "rows": [
         "R17"
       ],
       "outcome": "confirmed",
-      "findings": "served at /jewelry/rings/18k-rose-gold-and-platinum-diamond-rings-1712.html \u2014 the slug says rose gold while the content is \"Ring Style 18k Yellow Gold and Platinum\" (RDR1); \"Starting from $1,600\" (FP1) \u00b7 \"0.20 CT G VS1\"; \"This product is currently unavailable\" (AV1); \"Please note that this item is non returnable.\" \u00b7 \"...can only be exchanged.\" (RET6); \"(800) 843-3269\"",
+      "findings": "served at /jewelry/rings/18k-rose-gold-and-platinum-diamond-rings-1712.html — the slug says rose gold while the content is \"Ring Style 18k Yellow Gold and Platinum\" (RDR1); \"Starting from $1,600\" (FP1) · \"0.20 CT G VS1\"; \"This product is currently unavailable\" (AV1); \"Please note that this item is non returnable.\" · \"...can only be exchanged.\" (RET6); \"(800) 843-3269\"",
       "publisher": "Tiffany & Co.",
       "checked_on": "2026-10-22",
       "session": "arena/699d8e05-gold3"
@@ -906,13 +912,13 @@
     {
       "id": "P3-30",
       "label": "Re-read the corporate return policy behind S-TI's record.",
-      "kind": "P3 \u00b7 Seller S-TI return terms",
+      "kind": "P3 · Seller S-TI return terms",
       "url": "https://www.tiffany.com/policy/return-policy.html",
       "rows": [
         "R17"
       ],
       "outcome": "confirmed",
-      "findings": "\"Products are accepted for credit or exchange in the U.S. within 30 days of purchase.\"; purchases of $75,000 or more are exchange only, no refunds; \"Personalized, altered, or engraved items are not eligible for return or exchange.\"; original packaging required \u00b7 refunds and exchanges only in the original country of purchase",
+      "findings": "\"Products are accepted for credit or exchange in the U.S. within 30 days of purchase.\"; purchases of $75,000 or more are exchange only, no refunds; \"Personalized, altered, or engraved items are not eligible for return or exchange.\"; original packaging required · refunds and exchanges only in the original country of purchase",
       "publisher": "Tiffany & Co.",
       "checked_on": "2026-10-22",
       "session": "arena/699d8e05-gold3"
@@ -920,13 +926,13 @@
     {
       "id": "P3-31",
       "label": "Re-read the listing and its full return block, to confirm the 3% cancellation fee that RET7 had wrongly given to Sarraf really is Wilson's, and to capture the layaway terms.",
-      "kind": "P3 \u00b7 R11 price, stamp, weight, and the return/layaway text behind RET2 and the 3% fee",
+      "kind": "P3 · R11 price, stamp, weight, and the return/layaway text behind RET2 and the 3% fee",
       "url": "https://www.wilsonsestatejewelry.com/products/mid-century-old-european-diamond-14-karat-white-gold-vintage-solitaire-engagement-ring",
       "rows": [
         "R11"
       ],
       "outcome": "confirmed",
-      "findings": "\"Sale price$3,725.00\" \u00b7 \"Stamped for 14 karat gold\" \u00b7 \"Total Weight: 6.1 grams\"; \"Please note that orders cancelled prior to shipment will not be refunded for credit card processing fees incurred at the rate of 3%.\" (stated twice: domestic and international); \"Return QR codes are sent via email. If Wilson's is not contacted within 7 calendar days, and/or we do not receive the items within 3 calendar days from receipt of return label, no refund will be issued.\"; \"No items will be accepted for return if it is damaged, worn, or altered.\"; international: return within 5 days of the label, \"International returns are not complimentary. We will invoice you for the cost of international return shipping.\"; refund issued \"within 3 days of receipt\" after condition verification; \"We offer complimentary layaway for up to 12 months with 20% down via a PayPal invoice\" \u00b7 no interest \u00b7 12 hours to pay the down payment \u00b7 unpaid after 365 days is re-offered for sale and \"store credit will be issued\"",
+      "findings": "\"Sale price$3,725.00\" · \"Stamped for 14 karat gold\" · \"Total Weight: 6.1 grams\"; \"Please note that orders cancelled prior to shipment will not be refunded for credit card processing fees incurred at the rate of 3%.\" (stated twice: domestic and international); \"Return QR codes are sent via email. If Wilson's is not contacted within 7 calendar days, and/or we do not receive the items within 3 calendar days from receipt of return label, no refund will be issued.\"; \"No items will be accepted for return if it is damaged, worn, or altered.\"; international: return within 5 days of the label, \"International returns are not complimentary. We will invoice you for the cost of international return shipping.\"; refund issued \"within 3 days of receipt\" after condition verification; \"We offer complimentary layaway for up to 12 months with 20% down via a PayPal invoice\" · no interest · 12 hours to pay the down payment · unpaid after 365 days is re-offered for sale and \"store credit will be issued\"",
       "publisher": "Wilson's Estate Jewelry",
       "checked_on": "2026-10-22",
       "session": "arena/699d8e05-gold3"
@@ -934,13 +940,13 @@
     {
       "id": "P3-32",
       "label": "Re-read the listing for the only row in the study that carries both a maker's mark and a GIA report number.",
-      "kind": "P3 \u00b7 R12 price, stamp, maker's mark, weight, GIA report",
+      "kind": "P3 · R12 price, stamp, maker's mark, weight, GIA report",
       "url": "https://www.wilsonsestatejewelry.com/products/art-deco-old-mine-cut-diamond-18-karat-white-gold-antique-lotus-engagement-ring-gia",
       "rows": [
         "R12"
       ],
       "outcome": "confirmed",
-      "findings": "\"$5,350.00\" \u00b7 \"Stamped for 18 karat gold\" \u00b7 \"partial maker's mark for Hedges & Co.\"; \"Total Weight: 2.2 grams\" \u00b7 GIA Diamond Dossier 2215945495 \u00b7 We-17036 \u00b7 \"7 Day Return Policy\"",
+      "findings": "\"$5,350.00\" · \"Stamped for 18 karat gold\" · \"partial maker's mark for Hedges & Co.\"; \"Total Weight: 2.2 grams\" · GIA Diamond Dossier 2215945495 · We-17036 · \"7 Day Return Policy\"",
       "publisher": "Wilson's Estate Jewelry",
       "checked_on": "2026-10-22",
       "session": "arena/699d8e05-gold3"
@@ -948,7 +954,7 @@
     {
       "id": "P3-33",
       "label": "Re-read the listing for the 19-karat row.",
-      "kind": "P3 \u00b7 R13 price and the unusual 19K stamp behind K1",
+      "kind": "P3 · R13 price and the unusual 19K stamp behind K1",
       "url": "https://www.wilsonsestatejewelry.com/products/bailey-banks-biddle-art-deco-diamond-enamel-19-karat-white-gold-vintage-fanning-engagement-ring",
       "rows": [
         "R13"
@@ -962,7 +968,7 @@
     {
       "id": "P3-34",
       "label": "Confirm the listing is still unavailable, which is why it is excluded rather than priced.",
-      "kind": "P3 \u00b7 excluded_listings: Wilson's We-9330 (Contemporary 0.92 CTW Diamond 14 Karat White Gold Engagement Ring)",
+      "kind": "P3 · excluded_listings: Wilson's We-9330 (Contemporary 0.92 CTW Diamond 14 Karat White Gold Engagement Ring)",
       "url": "https://www.wilsonsestatejewelry.com/products/contemporary-0-92-ctw-diamond-14-karat-white-gold-engagement-ring-gia",
       "rows": [
         "excluded"
@@ -976,7 +982,7 @@
     {
       "id": "P3-35",
       "label": "Confirm the item is platinum, i.e. correctly outside a gold study.",
-      "kind": "P3 \u00b7 excluded_listings: Blue Nile French Pav\u00e9 Diamond Engagement Ring in Platinum 1/4 ct tw (item 195271)",
+      "kind": "P3 · excluded_listings: Blue Nile French Pavé Diamond Engagement Ring in Platinum 1/4 ct tw (item 195271)",
       "url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/french-pave-diamond-engagement-ring-in-platinum-1-4-ct-tw-item-195271",
       "rows": [
         "excluded"
@@ -990,13 +996,13 @@
     {
       "id": "P3-36",
       "label": "Re-open the URL to confirm it still redirects and still resolves to a different product.",
-      "kind": "P3 \u00b7 excluded_listings: James Allen 14k white gold knife-edge solitaire (item 17152)",
+      "kind": "P3 · excluded_listings: James Allen 14k white gold knife-edge solitaire (item 17152)",
       "url": "https://www.jamesallen.com/engagement-rings/solitaire/14k-white-gold-knife-edge-solitaire-engagement-ring-item-17152",
       "rows": [
         "excluded"
       ],
       "outcome": "confirmed",
-      "findings": "redirects to bluenile.com with \"?jaRedirect=true\" and the banner \"James Allen is Now Part of Blue Nile\"; the page it lands on is titled \"18K White Gold 0.25ct Pav\u00e9 Bail Diamond Pendant\" \u2014 a pendant, not a ring; the style is sold out",
+      "findings": "redirects to bluenile.com with \"?jaRedirect=true\" and the banner \"James Allen is Now Part of Blue Nile\"; the page it lands on is titled \"18K White Gold 0.25ct Pavé Bail Diamond Pendant\" — a pendant, not a ring; the style is sold out",
       "publisher": "James Allen",
       "checked_on": "2026-10-22",
       "session": "arena/699d8e05-gold3"
@@ -1004,7 +1010,7 @@
     {
       "id": "P3-37",
       "label": "Re-open the URL to confirm the redirect and the sold-out state.",
-      "kind": "P3 \u00b7 excluded_listings: James Allen 14k yellow gold 1.5mm comfort fit engagement ring (item 41515)",
+      "kind": "P3 · excluded_listings: James Allen 14k yellow gold 1.5mm comfort fit engagement ring (item 41515)",
       "url": "https://www.jamesallen.com/engagement-rings/solitaire/14k-yellow-gold-15mm-comfort-fit-engagement-ring-item-41515",
       "rows": [
         "excluded"
@@ -1018,7 +1024,7 @@
     {
       "id": "P3-38",
       "label": "Re-open the URL to confirm it is still dead rather than temporarily slow.",
-      "kind": "P3 \u00b7 excluded_listings: Costco 4mm Comfort Fit Diamond Cut 14kt Gold Wedding Ring (100423493)",
+      "kind": "P3 · excluded_listings: Costco 4mm Comfort Fit Diamond Cut 14kt Gold Wedding Ring (100423493)",
       "url": "https://www.costco.com/4mm-diamond-cut-wedding-ring-14kt-gold.product.100423493.html",
       "rows": [
         "excluded"
@@ -1032,7 +1038,7 @@
     {
       "id": "P3-39",
       "label": "Re-fetch the URL recorded as S-SARRAF's policy_source by another session, to confirm the stored return terms still have a live citation.",
-      "kind": "P3 \u00b7 Re-fetch the URL recorded as S-SARRAF's policy_source by another session, to confirm the stored return terms still have a live citation.",
+      "kind": "P3 · Re-fetch the URL recorded as S-SARRAF's policy_source by another session, to confirm the stored return terms still have a live citation.",
       "url": "https://www.sarraf.com/pages/returns-and-refunds.html",
       "rows": [
         "S-SARRAF"
@@ -1046,7 +1052,7 @@
     {
       "id": "P3-40",
       "label": "Read the live Sarraf returns policy in full (2 chunks) and test every return-related value stored on S-SARRAF and in flag RET7.",
-      "kind": "P3 \u00b7 Read the live Sarraf returns policy in full (2 chunks) and test every return-related value stored on S-SARRAF and in flag RET7.",
+      "kind": "P3 · Read the live Sarraf returns policy in full (2 chunks) and test every return-related value stored on S-SARRAF and in flag RET7.",
       "url": "https://www.sarraf.com/30-day-returns-and-exchange-policy/",
       "rows": [
         "S-SARRAF",
@@ -1055,7 +1061,7 @@
         "R21"
       ],
       "outcome": "corrected",
-      "findings": "'Return or exchange of an item within 30 days of receipt' \u00b7 'Items that are damaged or used do not qualify for the return policy' \u00b7 'Orders that are over 30 days from receipt do not qualify'; 'Items from which the Sarraf.com tag has been removed are not eligible for return or exchange' \u00b7 'Items that show signs of wear or have been resized (by a jeweler other than Sarraf Jewelry Inc.), altered, special-ordered items, or damaged in any way cannot be accepted for return'; 'CAN I RETURN OR RESIZE AN ENGRAVED RING? Any ring where personal engraving was added or a special finish may be returned, exchanged, or resized where possible (with the exception of special orders); however, the $25.00 engraving fee or $50.00 finsh charges are non-refundable.' (the 'finsh' spelling is the site's own); 'You will receive credit back to the same credit card that was charged or an exchange within seven business days.' \u00b7 'You do not need a return authorization.' (retail) \u00b7 return address 'Sarraf Inc. Attn: Returns 650 South Hill Street, # 728 Los Angeles, CA 90014'; 'NOTICE OF EXCESSIVE RETURNS ... High-risk behavior is identified as: Returning 30 or more items / Returning purchases greater than $10K / Overall return rate of 85% ... Clients who reach three strikes will be prohibited from making any new orders.'; Wholesale clause: 'Your have two weeks from the date the order was received to return the item ... Engraved items are not eligible for return. All return require prior authorization. You must submit your request for return to service@sarraf.com'; No percentage or card-processing fee appears anywhere in either chunk - confirming the RET7 correction (F15) a second time on the canonical policy page.",
+      "findings": "'Return or exchange of an item within 30 days of receipt' · 'Items that are damaged or used do not qualify for the return policy' · 'Orders that are over 30 days from receipt do not qualify'; 'Items from which the Sarraf.com tag has been removed are not eligible for return or exchange' · 'Items that show signs of wear or have been resized (by a jeweler other than Sarraf Jewelry Inc.), altered, special-ordered items, or damaged in any way cannot be accepted for return'; 'CAN I RETURN OR RESIZE AN ENGRAVED RING? Any ring where personal engraving was added or a special finish may be returned, exchanged, or resized where possible (with the exception of special orders); however, the $25.00 engraving fee or $50.00 finsh charges are non-refundable.' (the 'finsh' spelling is the site's own); 'You will receive credit back to the same credit card that was charged or an exchange within seven business days.' · 'You do not need a return authorization.' (retail) · return address 'Sarraf Inc. Attn: Returns 650 South Hill Street, # 728 Los Angeles, CA 90014'; 'NOTICE OF EXCESSIVE RETURNS ... High-risk behavior is identified as: Returning 30 or more items / Returning purchases greater than $10K / Overall return rate of 85% ... Clients who reach three strikes will be prohibited from making any new orders.'; Wholesale clause: 'Your have two weeks from the date the order was received to return the item ... Engraved items are not eligible for return. All return require prior authorization. You must submit your request for return to service@sarraf.com'; No percentage or card-processing fee appears anywhere in either chunk - confirming the RET7 correction (F15) a second time on the canonical policy page.",
       "publisher": "Sarraf.com",
       "checked_on": "2026-10-22",
       "session": "arena/699d8e05-gold3"
@@ -1063,13 +1069,13 @@
     {
       "id": "P3-41",
       "label": "Read Sarraf's About page for the official e-mail address, phone, hours and address, and for the marketing wording of its return and warranty promises.",
-      "kind": "P3 \u00b7 Read Sarraf's About page for the official e-mail address, phone, hours and address, and for the marketing wording of its return and warranty promises.",
+      "kind": "P3 · Read Sarraf's About page for the official e-mail address, phone, hours and address, and for the marketing wording of its return and warranty promises.",
       "url": "https://www.sarraf.com/about-sarraf/",
       "rows": [
         "S-SARRAF"
       ],
       "outcome": "corrected",
-      "findings": "'Phone: (888) 4-SARRAF ( 888-472-7723)' \u00b7 'FAX: (213) 627-5212' \u00b7 'E-mail: service@sarraf.com'; 'Sarraf Jewelry Inc. 650 S. Hill St., #728 Los Angeles, CA 90014' \u00b7 'The Showroom is for Pickup only (No in-store shopping)' \u00b7 'Monday - Thursday 10:00 AM to 4:00 PM Pacific Standard Time'; '30-Day Return Policy - Return any non-engraved items still in new condition and we'll give you a full refund within the first 30 days. No questions asked.'; 'Lifetime Guarantee - Any item purchased at Sarraf Jewelry is guaranteed to be free of defects in both craftsmanship and materials... Some restrictions apply.'; 'Best Price Guarantee ... If you find a matching product with a lower price, we will give you back the difference in store credit.' \u00b7 'Founded in 1986' \u00b7 links to its 'A+ Rating with the Better Business Bureau'",
+      "findings": "'Phone: (888) 4-SARRAF ( 888-472-7723)' · 'FAX: (213) 627-5212' · 'E-mail: service@sarraf.com'; 'Sarraf Jewelry Inc. 650 S. Hill St., #728 Los Angeles, CA 90014' · 'The Showroom is for Pickup only (No in-store shopping)' · 'Monday - Thursday 10:00 AM to 4:00 PM Pacific Standard Time'; '30-Day Return Policy - Return any non-engraved items still in new condition and we'll give you a full refund within the first 30 days. No questions asked.'; 'Lifetime Guarantee - Any item purchased at Sarraf Jewelry is guaranteed to be free of defects in both craftsmanship and materials... Some restrictions apply.'; 'Best Price Guarantee ... If you find a matching product with a lower price, we will give you back the difference in store credit.' · 'Founded in 1986' · links to its 'A+ Rating with the Better Business Bureau'",
       "publisher": "Sarraf.com",
       "checked_on": "2026-10-22",
       "session": "arena/699d8e05-gold3"
@@ -1077,13 +1083,13 @@
     {
       "id": "P3-42",
       "label": "Fetch the URL recorded as S-SARRAF's contact_source, to test whether it supports the phone and e-mail stored against it.",
-      "kind": "P3 \u00b7 Fetch the URL recorded as S-SARRAF's contact_source, to test whether it supports the phone and e-mail stored against it.",
+      "kind": "P3 · Fetch the URL recorded as S-SARRAF's contact_source, to test whether it supports the phone and e-mail stored against it.",
       "url": "https://www.sarraf.com/pages/contact-us.html",
       "rows": [
         "S-SARRAF"
       ],
       "outcome": "flagged",
-      "findings": "The URL redirects to https://www.sarraf.com/contact-us/ (page title 'Sarraf Contact Us | Sarraf.com').; 'You can also reach us by calling 888-472-7723 or 213-612-4690 during the business hours listed below.' \u00b7 'Normal Business Hours Pacific Standard Time / Monday - Thursday 10:00 AM to 4:00 PM'; The page contains a contact form only ('Please fill out the form below if you need assistance. We normally respond to your message within one business day.') with fields Full Name, Phone Number, Email Address, Order Number, Company Name, RMA Number, Comments. No Sarraf e-mail address is published anywhere on it.",
+      "findings": "The URL redirects to https://www.sarraf.com/contact-us/ (page title 'Sarraf Contact Us | Sarraf.com').; 'You can also reach us by calling 888-472-7723 or 213-612-4690 during the business hours listed below.' · 'Normal Business Hours Pacific Standard Time / Monday - Thursday 10:00 AM to 4:00 PM'; The page contains a contact form only ('Please fill out the form below if you need assistance. We normally respond to your message within one business day.') with fields Full Name, Phone Number, Email Address, Order Number, Company Name, RMA Number, Comments. No Sarraf e-mail address is published anywhere on it.",
       "publisher": "Sarraf.com",
       "checked_on": "2026-10-22",
       "session": "arena/699d8e05-gold3"
@@ -1091,7 +1097,7 @@
     {
       "id": "P3-43",
       "label": "Read the Sarraf homepage for any independently published contact e-mail, return promise or warranty wording.",
-      "kind": "P3 \u00b7 Read the Sarraf homepage for any independently published contact e-mail, return promise or warranty wording.",
+      "kind": "P3 · Read the Sarraf homepage for any independently published contact e-mail, return promise or warranty wording.",
       "url": "https://www.sarraf.com/",
       "rows": [
         "S-SARRAF"
@@ -1105,7 +1111,7 @@
     {
       "id": "P3-44",
       "label": "Re-fetch the URL recorded as S-AUTOMIC's policy_source by another session.",
-      "kind": "P3 \u00b7 Re-fetch the URL recorded as S-AUTOMIC's policy_source by another session.",
+      "kind": "P3 · Re-fetch the URL recorded as S-AUTOMIC's policy_source by another session.",
       "url": "https://www.automicgold.com/pages/return-policy",
       "rows": [
         "S-AUTOMIC",
@@ -1120,7 +1126,7 @@
     {
       "id": "P3-45",
       "label": "Read Automic's live refund policy and test the 30-day window, the free-return-shipping claim and the final-sale wording stored on S-AUTOMIC.",
-      "kind": "P3 \u00b7 Read Automic's live refund policy and test the 30-day window, the free-return-shipping claim and the final-sale wording stored on S-AUTOMIC.",
+      "kind": "P3 · Read Automic's live refund policy and test the 30-day window, the free-return-shipping claim and the final-sale wording stored on S-AUTOMIC.",
       "url": "https://www.automicgold.com/policies/refund-policy",
       "rows": [
         "S-AUTOMIC",
@@ -1135,7 +1141,7 @@
     {
       "id": "P3-46",
       "label": "Re-read Catbird's contact page for the customer-service e-mail, any phone number, response times and postal address.",
-      "kind": "P3 \u00b7 Re-read Catbird's contact page for the customer-service e-mail, any phone number, response times and postal address.",
+      "kind": "P3 · Re-read Catbird's contact page for the customer-service e-mail, any phone number, response times and postal address.",
       "url": "https://www.catbirdnyc.com/contact-us",
       "rows": [
         "S-CB",
@@ -1143,7 +1149,7 @@
         "R17"
       ],
       "outcome": "corrected",
-      "findings": "'Order Status, Availability, Product Details or Shipping Questions - customerservice@catbirdnyc.com'; Role-specific addresses that are not customer service: 'Press & partnership inquiries / Please contact Sriya Karumanchi (sriya@catbirdnyc.com)' and 'Submitting your work ... leigh@catbirdnyc.com'; 'We strive to respond to all emails within 24-48 hrs.' \u00b7 'For the fastest response, please use the form above'; 'Catbird, Attn: Leigh, 141 Flushing Avenue, Suite 903, Brooklyn, NY 11205' - printed under 'Submitting your work' for mailing design samples, with 'No phone calls please.'; No telephone number is published anywhere on the page. A Klarna country/currency selector is present.",
+      "findings": "'Order Status, Availability, Product Details or Shipping Questions - customerservice@catbirdnyc.com'; Role-specific addresses that are not customer service: 'Press & partnership inquiries / Please contact Sriya Karumanchi (sriya@catbirdnyc.com)' and 'Submitting your work ... leigh@catbirdnyc.com'; 'We strive to respond to all emails within 24-48 hrs.' · 'For the fastest response, please use the form above'; 'Catbird, Attn: Leigh, 141 Flushing Avenue, Suite 903, Brooklyn, NY 11205' - printed under 'Submitting your work' for mailing design samples, with 'No phone calls please.'; No telephone number is published anywhere on the page. A Klarna country/currency selector is present.",
       "publisher": "Catbird",
       "checked_on": "2026-10-22",
       "session": "arena/699d8e05-gold3"
@@ -1151,7 +1157,7 @@
     {
       "id": "P3-47",
       "label": "Re-read Catbird's returns page in full and test the 20-day window, the $9 fee, the final-sale list and the resizing rule stored on S-CB and on data/retailers.json 'catbird'.",
-      "kind": "P3 \u00b7 Re-read Catbird's returns page in full and test the 20-day window, the $9 fee, the final-sale list and the resizing rule stored on S-CB and on data/retailers.json 'catbird'.",
+      "kind": "P3 · Re-read Catbird's returns page in full and test the 20-day window, the $9 fee, the final-sale list and the resizing rule stored on S-CB and on data/retailers.json 'catbird'.",
       "url": "https://www.catbirdnyc.com/returns",
       "rows": [
         "S-CB",
@@ -1159,7 +1165,7 @@
         "R17"
       ],
       "outcome": "corrected",
-      "findings": "'you can send it back to us for a refund or credit within 20 days of the date your package was delivered' \u00b7 'the item must be unused and sent back in its original packaging. All returns must be authorized by Catbird.' \u00b7 'An $9 charge for return shipping will be deducted from your refund.'; 'Special orders, engraved items, Forever jewelry, earrings from piercing events, home & beauty items, and comestibles are final sale and cannot be returned.'; 'We reserve the right to deny credit if the merchandise returned does not meet our return policy requirements. We are not able to cover lost, stolen or missing packages.' \u00b7 'processing can take up to 7-10 business days before your refund is issued'; 'Once your order is placed we are unable to cancel it or make changes.'; 'I NEED THE EXACT SAME RING IN A DIFFERENT SIZE! Please return your ring using the return portal and place a new order on line for your new size. This is currently the only way we are able to accomodate exchanges.'; 'We can only accept repairs or resizing on jewelry bought from Catbird.' \u00b7 'All international sales are final.' \u00b7 returns run through https://returns.narvar.com/catbird/returns or any Catbird store; No postal return address is printed on this page.",
+      "findings": "'you can send it back to us for a refund or credit within 20 days of the date your package was delivered' · 'the item must be unused and sent back in its original packaging. All returns must be authorized by Catbird.' · 'An $9 charge for return shipping will be deducted from your refund.'; 'Special orders, engraved items, Forever jewelry, earrings from piercing events, home & beauty items, and comestibles are final sale and cannot be returned.'; 'We reserve the right to deny credit if the merchandise returned does not meet our return policy requirements. We are not able to cover lost, stolen or missing packages.' · 'processing can take up to 7-10 business days before your refund is issued'; 'Once your order is placed we are unable to cancel it or make changes.'; 'I NEED THE EXACT SAME RING IN A DIFFERENT SIZE! Please return your ring using the return portal and place a new order on line for your new size. This is currently the only way we are able to accomodate exchanges.'; 'We can only accept repairs or resizing on jewelry bought from Catbird.' · 'All international sales are final.' · returns run through https://returns.narvar.com/catbird/returns or any Catbird store; No postal return address is printed on this page.",
       "publisher": "Catbird",
       "checked_on": "2026-10-22",
       "session": "arena/699d8e05-gold3"
@@ -1167,7 +1173,7 @@
     {
       "id": "P4-01",
       "label": "Sarraf 14k white gold solitaire - price, karat, published weight",
-      "kind": "P4 \u00b7 listing R20",
+      "kind": "P4 · listing R20",
       "url": "https://www.sarraf.com/products/14k-white-gold-solitaire-ring-0-94-ctw.html",
       "rows": [
         "R20"
@@ -1180,7 +1186,7 @@
     {
       "id": "P4-02",
       "label": "Sarraf 10k comfort-fit band - price, karat, published weight and its scope",
-      "kind": "P4 \u00b7 listing R21",
+      "kind": "P4 · listing R21",
       "url": "https://www.sarraf.com/products/10k-gold-6mm-high-polished-comfort-fit-wedding-band.html",
       "rows": [
         "R21"
@@ -1193,7 +1199,7 @@
     {
       "id": "P4-03",
       "label": "Sarraf 18k men's solitaire - price, karat, published weight",
-      "kind": "P4 \u00b7 listing R26",
+      "kind": "P4 · listing R26",
       "url": "https://www.sarraf.com/products/18k-yellow-gold-mens-solitaire-diamond-ring-3-4-ct.html",
       "rows": [
         "R26"
@@ -1206,7 +1212,7 @@
     {
       "id": "P4-04",
       "label": "Automic Gold radiant cathedral ring - price and solid-gold wording",
-      "kind": "P4 \u00b7 listing R22",
+      "kind": "P4 · listing R22",
       "url": "https://www.automicgold.com/products/radiant-cut-lab-diamond-cathedral-ring",
       "rows": [
         "R22"
@@ -1219,7 +1225,7 @@
     {
       "id": "P4-05",
       "label": "Wilson's Estate Jewelry mid-century solitaire - price, stamp, weight, return window",
-      "kind": "P4 \u00b7 listing R11",
+      "kind": "P4 · listing R11",
       "url": "https://www.wilsonsestatejewelry.com/products/mid-century-old-european-diamond-14-karat-white-gold-vintage-solitaire-engagement-ring",
       "rows": [
         "R11"
@@ -1232,7 +1238,7 @@
     {
       "id": "P4-06",
       "label": "Ross-Simons 2mm 18kt ring - price, karat, published gold weight",
-      "kind": "P4 \u00b7 listing R15",
+      "kind": "P4 · listing R15",
       "url": "https://www.ross-simons.com/products/985230",
       "rows": [
         "R15"
@@ -1245,7 +1251,7 @@
     {
       "id": "P4-07",
       "label": "Ross-Simons Italian 14kt diamond-cut ring - price, karat, weight, and the PD1 premise",
-      "kind": "P4 \u00b7 listing R16",
+      "kind": "P4 · listing R16",
       "url": "https://www.ross-simons.com/products/932728",
       "rows": [
         "R16"
@@ -1258,7 +1264,7 @@
     {
       "id": "P4-08",
       "label": "Ross-Simons returns and exchanges policy",
-      "kind": "P4 \u00b7 policy S-RS",
+      "kind": "P4 · policy S-RS",
       "url": "https://www.ross-simons.com/pages/returns-exchanges",
       "rows": [
         "R15",
@@ -1273,7 +1279,7 @@
     {
       "id": "P4-09",
       "label": "Catbird returns policy",
-      "kind": "P4 \u00b7 policy S-CB",
+      "kind": "P4 · policy S-CB",
       "url": "https://www.catbirdnyc.com/returns",
       "rows": [
         "R18",
@@ -1287,7 +1293,7 @@
     {
       "id": "P4-10",
       "label": "Catbird contact page - the source for the recorded e-mail address",
-      "kind": "P4 \u00b7 contact S-CB",
+      "kind": "P4 · contact S-CB",
       "url": "https://www.catbirdnyc.com/contact-us",
       "rows": [
         "S-CB"
@@ -1300,7 +1306,7 @@
     {
       "id": "P4-11",
       "label": "Catbird Woodland Ring - price and listing state",
-      "kind": "P4 \u00b7 listing R18",
+      "kind": "P4 · listing R18",
       "url": "https://www.catbirdnyc.com/woodland-ring.html",
       "rows": [
         "R18"
@@ -1313,7 +1319,7 @@
     {
       "id": "P4-12",
       "label": "Sarraf About page - contact details and the engraving contradiction",
-      "kind": "P4 \u00b7 seller S-SARRAF",
+      "kind": "P4 · seller S-SARRAF",
       "url": "https://www.sarraf.com/about-sarraf/",
       "rows": [
         "S-SARRAF"
@@ -1326,7 +1332,7 @@
     {
       "id": "P4-13",
       "label": "Automic Gold refund policy",
-      "kind": "P4 \u00b7 policy S-AUTOMIC",
+      "kind": "P4 · policy S-AUTOMIC",
       "url": "https://www.automicgold.com/policies/refund-policy",
       "rows": [
         "S-AUTOMIC"
@@ -1339,20 +1345,20 @@
     {
       "id": "P4-14",
       "label": "16 CFR Part 23 - section list, currency banner and the maker's-mark paragraph",
-      "kind": "P4 \u00b7 standards",
+      "kind": "P4 · standards",
       "url": "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23",
       "rows": [
         "standards"
       ],
       "outcome": "confirmed",
-      "findings": "Part 23 prints the currency banner \"Displaying title 16, up to date as of 10/21/2026. Title 16 was last amended 10/19/2026\", and \u00a723.10's own page prints the paragraph \"Disclosure of identity of manufacturers, processors, or distributors\", which is what this project cites for the maker's mark (15 U.S.C. 297). Both were added to data/sources.json with the banner text so a reader can tell which version was read.",
+      "findings": "Part 23 prints the currency banner \"Displaying title 16, up to date as of 10/21/2026. Title 16 was last amended 10/19/2026\", and §23.10's own page prints the paragraph \"Disclosure of identity of manufacturers, processors, or distributors\", which is what this project cites for the maker's mark (15 U.S.C. 297). Both were added to data/sources.json with the banner text so a reader can tell which version was read.",
       "checked_on": "2026-10-23",
       "session": "arena/6d6192d1-gold3"
     },
     {
       "id": "P4-15",
       "label": "Mejuri Bold Diamond Eternity Ring - price, solid-gold wording, rhodium disclosure",
-      "kind": "P4 \u00b7 listing R01",
+      "kind": "P4 · listing R01",
       "url": "https://mejuri.com/products/bold-diamond-eternity-ring",
       "rows": [
         "R01"
@@ -1365,7 +1371,7 @@
     {
       "id": "P4-16",
       "label": "Blue Nile classic solitaire setting - price and rhodium finish",
-      "kind": "P4 \u00b7 listing R14",
+      "kind": "P4 · listing R14",
       "url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/classic-simple-solitaire-engagement-ring-in-14k-white-gold-item-195730",
       "rows": [
         "R14"
@@ -1378,7 +1384,7 @@
     {
       "id": "P4-17",
       "label": "Blue Nile floral marquise setting - price, rhodium finish, and the on-page contradiction",
-      "kind": "P4 \u00b7 listing R08",
+      "kind": "P4 · listing R08",
       "url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/floral-marquise-diamond-engagement-ring-in-18k-white-gold-item-203738",
       "rows": [
         "R08"
@@ -1391,7 +1397,7 @@
     {
       "id": "P4-18",
       "label": "Costco 0.50 ctw diamond band - missing price, identifier mismatch, metal wording",
-      "kind": "P4 \u00b7 listing R10",
+      "kind": "P4 · listing R10",
       "url": "https://www.costco.com/p/-/round-brilliant-050-ctw-vs2-clarity-i-color-diamond-14kt-gold-band/100675127",
       "rows": [
         "R10"
@@ -1404,7 +1410,7 @@
     {
       "id": "P4-19",
       "label": "Mene Wrap Ring - price has moved since capture",
-      "kind": "P4 \u00b7 listing R30",
+      "kind": "P4 · listing R30",
       "url": "https://mene.com/products/wrap-ring-gold",
       "rows": [
         "R30"
@@ -1417,7 +1423,7 @@
     {
       "id": "P4-20",
       "label": "Mene 24k bands - all three captured prices have moved",
-      "kind": "P4 \u00b7 bands BND-01..BND-03",
+      "kind": "P4 · bands BND-01..BND-03",
       "url": "https://mene.com/collections/bands-gold",
       "rows": [
         "bands"
@@ -1430,7 +1436,7 @@
     {
       "id": "P4-21",
       "label": "Mene Classic Band product page - URL resolves and price",
-      "kind": "P4 \u00b7 bands BND-01",
+      "kind": "P4 · bands BND-01",
       "url": "https://mene.com/products/mene-classic-band-gold",
       "rows": [
         "bands"
@@ -1443,7 +1449,7 @@
     {
       "id": "P4-22",
       "label": "Mejuri Diamonds Band - /shop/products/ URL resolves and price",
-      "kind": "P4 \u00b7 bands BND-11",
+      "kind": "P4 · bands BND-11",
       "url": "https://mejuri.com/shop/products/diamonds-band?Material=Solid+Yellow+Gold+%2814k%29&Stone=Natural+Diamond",
       "rows": [
         "bands"
@@ -1456,7 +1462,7 @@
     {
       "id": "P4-23",
       "label": "Ross-Simons women's 2mm band - price and published gold weight",
-      "kind": "P4 \u00b7 bands BND-04",
+      "kind": "P4 · bands BND-04",
       "url": "https://www.ross-simons.com/products/571221",
       "rows": [
         "bands"
@@ -1469,7 +1475,7 @@
     {
       "id": "P4-24",
       "label": "GoldPrice.org spot price on the day of this pass",
-      "kind": "P4 \u00b7 spot",
+      "kind": "P4 · spot",
       "url": "https://goldprice.org/",
       "rows": [
         "spot"
@@ -1482,7 +1488,7 @@
     {
       "id": "P4-25",
       "label": "Sarraf 30-day returns policy - fees, exclusions and the excessive-returns clause",
-      "kind": "P4 \u00b7 policy S-SARRAF",
+      "kind": "P4 · policy S-SARRAF",
       "url": "https://www.sarraf.com/30-day-returns-and-exchange-policy/",
       "rows": [
         "S-SARRAF"
@@ -1514,7 +1520,7 @@
         "R26"
       ],
       "outcome": "corrected",
-      "findings": "Page prints 'Now: US$4,068.00', 'Material 18K Solid Gold', 'Approximate Metal Weight: 6.30 grams'. Price and weight confirmed. The stored weight_quote carried an unquoted annotation '(\u00b15% seller accuracy note)'; the product page prints no tolerance of any kind, so the annotation was removed and replaced with the fact that the seller calls the figure approximate without defining the tolerance.",
+      "findings": "Page prints 'Now: US$4,068.00', 'Material 18K Solid Gold', 'Approximate Metal Weight: 6.30 grams'. Price and weight confirmed. The stored weight_quote carried an unquoted annotation '(±5% seller accuracy note)'; the product page prints no tolerance of any kind, so the annotation was removed and replaced with the fact that the seller calls the figure approximate without defining the tolerance.",
       "checked_on": "2026-10-23",
       "session": "arena/6d6192d1-gold3"
     },
@@ -1527,7 +1533,7 @@
         "R27"
       ],
       "outcome": "corrected",
-      "findings": "Page prints 'Now: US$695.00', 'Material 14K Solid Gold', 'Approximate Metal Weight: 2.50 grams', and the description says 'Solid and Pure 14k Yellow Gold'. Price, karat and weight confirmed. Same unsupported '(\u00b15%)' annotation removed from the stored quote.",
+      "findings": "Page prints 'Now: US$695.00', 'Material 14K Solid Gold', 'Approximate Metal Weight: 2.50 grams', and the description says 'Solid and Pure 14k Yellow Gold'. Price, karat and weight confirmed. Same unsupported '(±5%)' annotation removed from the stored quote.",
       "checked_on": "2026-10-23",
       "session": "arena/6d6192d1-gold3"
     },
@@ -1587,7 +1593,7 @@
     },
     {
       "id": "P8-01",
-      "kind": "P8 \u00b7 listing R24",
+      "kind": "P8 · listing R24",
       "label": "Automic Gold Claddagh Ring - chunk 1 weight confirmed",
       "url": "https://www.automicgold.com/products/claddagh-ring",
       "rows": [
@@ -1598,7 +1604,7 @@
     },
     {
       "id": "P8-02",
-      "kind": "P8 \u00b7 listing R25",
+      "kind": "P8 · listing R25",
       "label": "Automic Gold Gemstone Flower Ring - total weight includes 3mm stone",
       "url": "https://www.automicgold.com/products/gemstone-flower-ring",
       "rows": [
@@ -1609,7 +1615,7 @@
     },
     {
       "id": "P8-03",
-      "kind": "P8 \u00b7 listing R28",
+      "kind": "P8 · listing R28",
       "label": "VRAI Petite 4-Prong Solitaire - 2.3g weight confirmed, JS price null",
       "url": "https://www.vrai.com/configure/setting-to-diamond/petite-4-prong-ring/round-brilliant-yellow-gold-41015509221469",
       "rows": [
@@ -1620,7 +1626,7 @@
     },
     {
       "id": "P8-04",
-      "kind": "P8 \u00b7 seller S-VRAI",
+      "kind": "P8 · seller S-VRAI",
       "label": "VRAI contact & return pages - dead URL, wrong phone and wrong email fixed",
       "url": "https://www.vrai.com/contact-us",
       "rows": [
@@ -1632,7 +1638,7 @@
     },
     {
       "id": "P8-05",
-      "kind": "P8 \u00b7 listing R29",
+      "kind": "P8 · listing R29",
       "label": "Brilliant Earth Fairmined 2mm Solitaire - USD 1,090, resizing contradiction & spec unit bug",
       "url": "https://www.brilliantearth.com/Fairmined-2mm-Six-Prong-Solitaire-Ring-Gold-BE1FM0126-24910022/?currency=USD",
       "rows": [
@@ -1643,7 +1649,7 @@
     },
     {
       "id": "P8-06",
-      "kind": "P8 \u00b7 seller S-BRILLIANTEARTH",
+      "kind": "P8 · seller S-BRILLIANTEARTH",
       "label": "Brilliant Earth contact & 30-Day-Returns - dead /returns/ 404 and unprinted email fixed",
       "url": "https://www.brilliantearth.com/30-Day-Returns/",
       "rows": [
@@ -1655,7 +1661,7 @@
     },
     {
       "id": "P8-07",
-      "kind": "P8 \u00b7 listing R31 & S-LOCALECLECTIC",
+      "kind": "P8 · listing R31 & S-LOCALECLECTIC",
       "label": "Local Eclectic Simple Knot Ring (USD 239, 9k vs 10k) & dead /pages/contact-us 404",
       "url": "https://www.localeclectic.com/products/solid-gold-simple-knot-ring",
       "rows": [
@@ -1667,7 +1673,7 @@
     },
     {
       "id": "P8-08",
-      "kind": "P8 \u00b7 seller S-MENE",
+      "kind": "P8 · seller S-MENE",
       "label": "Mene Customer Care & returns - dead /contact-us 404, wrong phone & email fixed",
       "url": "https://mene.com/customer-care/en-US",
       "rows": [
@@ -1678,7 +1684,7 @@
     },
     {
       "id": "P8-09",
-      "kind": "P8 \u00b7 bands BND-01..BND-03",
+      "kind": "P8 · bands BND-01..BND-03",
       "label": "Mene 24k bands - client-JS-only gram weights blanked to null",
       "url": "https://mene.com/products/mene-narrow-flat-band-gold",
       "rows": [
@@ -1689,7 +1695,7 @@
     },
     {
       "id": "P8-10",
-      "kind": "P8 \u00b7 bands BND-05..BND-08",
+      "kind": "P8 · bands BND-05..BND-08",
       "label": "Ross-Simons bands 571212, 823796, 964717, 993085 - prices & weights confirmed",
       "url": "https://www.ross-simons.com/products/571212",
       "rows": [
@@ -1700,7 +1706,7 @@
     },
     {
       "id": "P8-11",
-      "kind": "P8 \u00b7 solitaires & Mejuri bands",
+      "kind": "P8 · solitaires & Mejuri bands",
       "label": "Dataset C remaining 13 rows - unsupported hallmark claims removed (SD6 extension)",
       "url": "https://www.bluenile.com/services/warranty",
       "rows": [
@@ -1711,8 +1717,8 @@
     },
     {
       "id": "P8-12",
-      "kind": "P8 \u00b7 standards",
-      "label": "15 U.S.C. \u00a7\u00a7 295 & 297 (GovInfo), GIA Summer 2025 Lab Notes PDF & GOV.UK Hallmarking",
+      "kind": "P8 · standards",
+      "label": "15 U.S.C. §§ 295 & 297 (GovInfo), GIA Summer 2025 Lab Notes PDF & GOV.UK Hallmarking",
       "url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title15/pdf/USCODE-2023-title15-chap8-sec297.pdf",
       "rows": [
         "standards"
@@ -1722,7 +1728,7 @@
     },
     {
       "id": "P9-01",
-      "kind": "P9 \u00b7 aurate-2ct-round-lgd-solitaire",
+      "kind": "P9 · aurate-2ct-round-lgd-solitaire",
       "label": "All 7 Aurate lab-grown engagement ring PDPs (AU5760, AU5769, AU5000, AU5093, AU5763, AU5764, AU5107)",
       "url": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring",
       "rows": [
@@ -1733,18 +1739,18 @@
     },
     {
       "id": "P9-02",
-      "kind": "P9 \u00b7 R03",
+      "kind": "P9 · R03",
       "label": "Direct PDP price & rhodium disclosure on Slim Diamond Eternity Band",
       "url": "https://mejuri.com/products/slim-diamond-eternity-band",
       "rows": [
         "R03"
       ],
       "outcome": "corrected",
-      "findings": "Direct PDP prints 'From $898' and '14k solid gold (white rhodium plated)' \u2014 +38.6% above the $648 figure captured from the milestone-rings collection grid alongside Diamonds Band ($648). Updated R03 to $898, retired unused L1, added FP1 & F26."
+      "findings": "Direct PDP prints 'From $898' and '14k solid gold (white rhodium plated)' — +38.6% above the $648 figure captured from the milestone-rings collection grid alongside Diamonds Band ($648). Updated R03 to $898, retired unused L1, added FP1 & F26."
     },
     {
       "id": "P9-03",
-      "kind": "P9 \u00b7 R02",
+      "kind": "P9 · R02",
       "label": "Live price ($1,500) & 14k solid gold wording",
       "url": "https://mejuri.com/products/bold-diamond-half-eternity-ring",
       "rows": [
@@ -1755,7 +1761,7 @@
     },
     {
       "id": "P9-04",
-      "kind": "P9 \u00b7 R17",
+      "kind": "P9 · R17",
       "label": "Live price ('Starting from $1,600') & 18k yellow gold wording",
       "url": "https://www.tiffany.com/engagement/engagement-rings/the-tiffany-setting-engagement-ring-in-18k-yellow-gold-GRP10863/",
       "rows": [
@@ -1766,18 +1772,18 @@
     },
     {
       "id": "P9-05",
-      "kind": "P9 \u00b7 R19",
+      "kind": "P9 · R19",
       "label": "Excluded vermeil control ($178, 18k gold vermeil over sterling silver)",
       "url": "https://mejuri.com/products/duet-mixed-ring",
       "rows": [
         "R19"
       ],
       "outcome": "confirmed",
-      "findings": "Live PDP prints '$178' and '18k gold vermeil over sterling silver' verbatim; remains excluded per 16 CFR \u00a7 23.4."
+      "findings": "Live PDP prints '$178' and '18k gold vermeil over sterling silver' verbatim; remains excluded per 16 CFR § 23.4."
     },
     {
       "id": "P9-06",
-      "kind": "P9 \u00b7 ringconcierge-2-08-oval-lab-whisper-thin",
+      "kind": "P9 · ringconcierge-2-08-oval-lab-whisper-thin",
       "label": "Ring Concierge 2.08 Oval ($6,038) & 2.72 Round ($7,268) Whisper Thin live PDPs",
       "url": "https://ringconcierge.com/products/2-08-oval-lab-diamond-in-whisper-thina-hidden-halo",
       "rows": [
@@ -1788,7 +1794,7 @@
     },
     {
       "id": "P9-07",
-      "kind": "P9 \u00b7 R18",
+      "kind": "P9 · R18",
       "label": "Catbird Classic Wedding Band ($276, solid 14k gold) + official return_form.pdf phone/address",
       "url": "https://www.catbirdnyc.com/catbird-classic-wedding-bands-solid-gold",
       "rows": [
@@ -1799,7 +1805,7 @@
     },
     {
       "id": "P9-08",
-      "kind": "P9 \u00b7 S-BN",
+      "kind": "P9 · S-BN",
       "label": "Blue Nile engagement-rings collection & LBMA benchmark licence page",
       "url": "https://www.bluenile.com/engagement-rings",
       "rows": [
@@ -1810,14 +1816,14 @@
     },
     {
       "id": "P9-09",
-      "kind": "P9 \u00b7 R28",
+      "kind": "P9 · R28",
       "label": "Template spec bugs on VRAI R28 & Brilliant Earth SOL-05/R29 + 4-feed 2026-10-23 spot convergence",
       "url": "https://www.vrai.com/engagement-rings/signature-4-prong-oval/yellow-gold-41046722314333",
       "rows": [
         "R28"
       ],
       "outcome": "flagged",
-      "findings": "VRAI R28 prints 'Pav\u00e9 carat weight: 0.11ctw' on Plain band and Brilliant Earth sid=39897151 prints 'Band Width: 2 ct. tw.' (F27); 4 live spot feeds converge at $4,022.22\u2013$4,024.45/oz (0.055% spread)."
+      "findings": "VRAI R28 prints 'Pavé carat weight: 0.11ctw' on Plain band and Brilliant Earth sid=39897151 prints 'Band Width: 2 ct. tw.' (F27); 4 live spot feeds converge at $4,022.22–$4,024.45/oz (0.055% spread)."
     },
     {
       "id": "P10-01",
@@ -1844,7 +1850,7 @@
     {
       "id": "P10-03",
       "kind": "listing",
-      "label": "Mejuri \u2014 Bold Diamond Half Eternity Ring (R02)",
+      "label": "Mejuri — Bold Diamond Half Eternity Ring (R02)",
       "url": "https://mejuri.com/products/bold-diamond-half-eternity-ring",
       "rows": [
         "R02"
@@ -1855,18 +1861,18 @@
     {
       "id": "P10-04",
       "kind": "listing",
-      "label": "Mejuri \u2014 Slim Diamond Eternity Band dedicated PDP (R03)",
+      "label": "Mejuri — Slim Diamond Eternity Band dedicated PDP (R03)",
       "url": "https://mejuri.com/products/slim-diamond-eternity-band",
       "rows": [
         "R03"
       ],
       "outcome": "corrected",
-      "findings": "Upgraded R03 from collection-grid card ($648) to dedicated PDP: Solid White Gold (14k) + Natural Diamond prints \"From $898\", 0.214\u20130.274 ct, 1.1 mm width, rhodium plating disclosure, and a subheading misprint (\"Solid Yellow Gold (14k)\"). Flag L1 retired."
+      "findings": "Upgraded R03 from collection-grid card ($648) to dedicated PDP: Solid White Gold (14k) + Natural Diamond prints \"From $898\", 0.214–0.274 ct, 1.1 mm width, rhodium plating disclosure, and a subheading misprint (\"Solid Yellow Gold (14k)\"). Flag L1 retired."
     },
     {
       "id": "P10-05",
       "kind": "listing",
-      "label": "Mejuri \u2014 Duet Mixed Ring vermeil control (R19)",
+      "label": "Mejuri — Duet Mixed Ring vermeil control (R19)",
       "url": "https://mejuri.com/products/duet-mixed-ring",
       "rows": [
         "R19"
@@ -1877,7 +1883,7 @@
     {
       "id": "P10-06",
       "kind": "listing",
-      "label": "Tiffany & Co. \u2014 The Tiffany Setting in 18k Yellow Gold (R17)",
+      "label": "Tiffany & Co. — The Tiffany Setting in 18k Yellow Gold (R17)",
       "url": "https://www.tiffany.com/engagement/engagement-rings/the-tiffany-setting-engagement-ring-in-18k-yellow-gold-GRP10863/",
       "rows": [
         "R17"
@@ -1888,52 +1894,52 @@
     {
       "id": "P10-07",
       "kind": "listing",
-      "label": "Automic Gold \u2014 3ct Radiant Cathedral Ring chunks 4\u20135 (R22)",
+      "label": "Automic Gold — 3ct Radiant Cathedral Ring chunks 4–5 (R22)",
       "url": "https://www.automicgold.com/products/radiant-cut-lab-diamond-cathedral-ring",
       "rows": [
         "R22",
         "SPEC5"
       ],
       "outcome": "corrected",
-      "findings": "Read past cookie modal into chunks 4\u20135: \"$3,074\", \"Approximately 5.4g for gold or 8.1g for platinum\" confirmed; caught \"4-8 business days\" vs \"1-2 weeks\" lead-time conflict (SPEC5) and repointed SPEC5 source from dead 404 slug to this live page."
+      "findings": "Read past cookie modal into chunks 4–5: \"$3,074\", \"Approximately 5.4g for gold or 8.1g for platinum\" confirmed; caught \"4-8 business days\" vs \"1-2 weeks\" lead-time conflict (SPEC5) and repointed SPEC5 source from dead 404 slug to this live page."
     },
     {
       "id": "P10-08",
       "kind": "listing",
-      "label": "Automic Gold \u2014 Claddagh Ring Details block (R24)",
+      "label": "Automic Gold — Claddagh Ring Details block (R24)",
       "url": "https://www.automicgold.com/products/claddagh-ring",
       "rows": [
         "R24"
       ],
       "outcome": "corrected",
-      "findings": "Read chunk 5 Details block verbatim: page prints \"Approximately 2.3g (gold) or 3.5g (platinum)\" \u2014 corrected P8-04 transcription (3.4g -> 3.5g) and added WT5."
+      "findings": "Read chunk 5 Details block verbatim: page prints \"Approximately 2.3g (gold) or 3.5g (platinum)\" — corrected P8-04 transcription (3.4g -> 3.5g) and added WT5."
     },
     {
       "id": "P10-09",
       "kind": "listing",
-      "label": "Automic Gold \u2014 Gemstone Flower Ring chunks 5\u20136 (R25)",
+      "label": "Automic Gold — Gemstone Flower Ring chunks 5–6 (R25)",
       "url": "https://www.automicgold.com/products/gemstone-flower-ring",
       "rows": [
         "R25"
       ],
       "outcome": "corrected",
-      "findings": "Read chunks 5\u20136 verbatim: \"$551\" confirmed; Details block prints \"Approximately 1.4g (gold) or 2.1g (platinum)\" (corrected P8-05 transcription 2.0g -> 2.1g + added WT5) and buy box vs Shipping & Returns disagrees on lead time (\"4-8 business days\" vs \"1-2 weeks\", added SPEC5)."
+      "findings": "Read chunks 5–6 verbatim: \"$551\" confirmed; Details block prints \"Approximately 1.4g (gold) or 2.1g (platinum)\" (corrected P8-05 transcription 2.0g -> 2.1g + added WT5) and buy box vs Shipping & Returns disagrees on lead time (\"4-8 business days\" vs \"1-2 weeks\", added SPEC5)."
     },
     {
       "id": "P10-10",
       "kind": "listing",
-      "label": "VRAI \u2014 Petite 4-Prong Solitaire 18k configurator (R28)",
+      "label": "VRAI — Petite 4-Prong Solitaire 18k configurator (R28)",
       "url": "https://www.vrai.com/configure/setting-to-diamond/petite-4-prong-ring/round-brilliant-yellow-gold-41015509221469",
       "rows": [
         "R28"
       ],
       "outcome": "confirmed",
-      "findings": "Re-read chunks 0\u20131 live 2026-10-23: \"Metal: 18k Yellow Gold\", \"Metal weight: 2.3g\", and \"platinum or solid gold band\" confirmed; price remains JS-gated (null)."
+      "findings": "Re-read chunks 0–1 live 2026-10-23: \"Metal: 18k Yellow Gold\", \"Metal weight: 2.3g\", and \"platinum or solid gold band\" confirmed; price remains JS-gated (null)."
     },
     {
       "id": "P10-11",
       "kind": "policy",
-      "label": "VRAI \u2014 Live Help Center return policy & contact articles (S-VRAI, RET8)",
+      "label": "VRAI — Live Help Center return policy & contact articles (S-VRAI, RET8)",
       "url": "https://help.vrai.com/en/knowledge/what-is-your-return-policy",
       "rows": [
         "S-VRAI",
@@ -1946,19 +1952,19 @@
     {
       "id": "P10-12",
       "kind": "listing",
-      "label": "Brilliant Earth \u2014 Fairmined 2mm Six-Prong Solitaire (R29 / SOL-05)",
+      "label": "Brilliant Earth — Fairmined 2mm Six-Prong Solitaire (R29 / SOL-05)",
       "url": "https://www.brilliantearth.com/Fairmined-2mm-Six-Prong-Solitaire-Ring-Gold-BE1FM0126-24910022/",
       "rows": [
         "R29",
         "S-BRILLIANTEARTH"
       ],
       "outcome": "flagged",
-      "findings": "Confirmed $1,090 US setting price (Global-E EU geo-display \u20ac1,250), Free Resizing badge vs \"rings from this collection cannot be resized\" contradiction, \"This ring can only be purchased with a diamond\", and spec-table unit bug \"Width: 2 ct. tw.\"."
+      "findings": "Confirmed $1,090 US setting price (Global-E EU geo-display €1,250), Free Resizing badge vs \"rings from this collection cannot be resized\" contradiction, \"This ring can only be purchased with a diamond\", and spec-table unit bug \"Width: 2 ct. tw.\"."
     },
     {
       "id": "P10-13",
       "kind": "listing",
-      "label": "Local Eclectic \u2014 Solid Gold Simple Knot Ring & OOAK FAQ (R31, S-LOCALECLECTIC)",
+      "label": "Local Eclectic — Solid Gold Simple Knot Ring & OOAK FAQ (R31, S-LOCALECLECTIC)",
       "url": "https://www.localeclectic.com/products/solid-gold-simple-knot-ring",
       "rows": [
         "R31",
@@ -1970,7 +1976,7 @@
     {
       "id": "P10-14",
       "kind": "policy",
-      "label": "Catbird \u2014 Live /facts contact & solid-gold confirmation (S-CB, SRC2)",
+      "label": "Catbird — Live /facts contact & solid-gold confirmation (S-CB, SRC2)",
       "url": "https://www.catbirdnyc.com/facts",
       "rows": [
         "S-CB",
@@ -1983,7 +1989,7 @@
     {
       "id": "P10-15",
       "kind": "policy",
-      "label": "Men\u0113 \u2014 Terms of Service & 10% restocking fee article (S-MENE, RET10)",
+      "label": "Menē — Terms of Service & 10% restocking fee article (S-MENE, RET10)",
       "url": "https://mene.com/terms-of-service",
       "rows": [
         "S-MENE",
@@ -1995,7 +2001,7 @@
     {
       "id": "P10-16",
       "kind": "listing",
-      "label": "Men\u0113 \u2014 Pure 24k Gold Bands (BND-01, BND-02, BND-03)",
+      "label": "Menē — Pure 24k Gold Bands (BND-01, BND-02, BND-03)",
       "url": "https://mene.com/products/mene-classic-band-gold",
       "rows": [
         "bands"
@@ -2006,7 +2012,7 @@
     {
       "id": "P10-17",
       "kind": "listing",
-      "label": "Ross-Simons \u2014 14K & 22K/14K Gold Bands (BND-04..BND-08)",
+      "label": "Ross-Simons — 14K & 22K/14K Gold Bands (BND-04..BND-08)",
       "url": "https://www.ross-simons.com/products/571212",
       "rows": [
         "bands"
@@ -2017,7 +2023,7 @@
     {
       "id": "P10-18",
       "kind": "listing",
-      "label": "Mejuri \u2014 14k Solid Gold Eternity & Wedding Bands (BND-09..BND-12)",
+      "label": "Mejuri — 14k Solid Gold Eternity & Wedding Bands (BND-09..BND-12)",
       "url": "https://mejuri.com/shop/products/diamond-eternity-band?Material=Solid+Yellow+Gold+%2814k%29&Stone=Natural+Diamond",
       "rows": [
         "bands"
@@ -2028,7 +2034,7 @@
     {
       "id": "P10-19",
       "kind": "listing",
-      "label": "Blue Nile \u2014 18K & 14K Solitaire Settings (SOL-01..SOL-03)",
+      "label": "Blue Nile — 18K & 14K Solitaire Settings (SOL-01..SOL-03)",
       "url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/classic-four-prong-solitaire-engagement-ring-in-18k-yellow-gold-item-194158",
       "rows": [
         "products"
@@ -2039,18 +2045,18 @@
     {
       "id": "P10-20",
       "kind": "listing",
-      "label": "Brilliant Earth \u2014 Peyton 4mm & Petite 1.5mm Solitaires (SOL-04, SOL-06)",
+      "label": "Brilliant Earth — Peyton 4mm & Petite 1.5mm Solitaires (SOL-04, SOL-06)",
       "url": "https://www.brilliantearth.com/Six-Prong-Petite-Comfort-Fit-1.5mm-Solitaire-Ring-Gold-BE1199H6-1912137/",
       "rows": [
         "products"
       ],
       "outcome": "confirmed",
-      "findings": "Confirmed $1,650 US setting price on BE12148 (geo-EUR \u20ac1,850) and $850 US setting price on BE1199H6 (18K yellow gold shank + 14K white gold prongs)."
+      "findings": "Confirmed $1,650 US setting price on BE12148 (geo-EUR €1,850) and $850 US setting price on BE1199H6 (18K yellow gold shank + 14K white gold prongs)."
     },
     {
       "id": "P10-21",
       "kind": "listing",
-      "label": "Ross-Simons \u2014 Solitaire, 10K/14K Conflict & Plated Control (SOL-07..SOL-09)",
+      "label": "Ross-Simons — Solitaire, 10K/14K Conflict & Plated Control (SOL-07..SOL-09)",
       "url": "https://www.ross-simons.com/products/251663",
       "rows": [
         "products"
@@ -2061,7 +2067,7 @@
     {
       "id": "P10-22",
       "kind": "listing",
-      "label": "Aurate New York \u2014 Engagement Ring Collection (7 Dataset-A rows)",
+      "label": "Aurate New York — Engagement Ring Collection (7 Dataset-A rows)",
       "url": "https://auratenewyork.com/collections/engagement-rings",
       "rows": [
         "aurate-2ct-round-lgd-solitaire",
@@ -2073,12 +2079,12 @@
         "aurate-3ct-pear-lgd-bezel"
       ],
       "outcome": "confirmed",
-      "findings": "Re-opened collection chunks 0\u20131 on 2026-10-23: all seven prices ($2,858, From $2,638, From $1,498, From $1,968, From $2,858, From $3,958, From $3,078) unchanged verbatim."
+      "findings": "Re-opened collection chunks 0–1 on 2026-10-23: all seven prices ($2,858, From $2,638, From $1,498, From $1,968, From $2,858, From $3,958, From $3,078) unchanged verbatim."
     },
     {
       "id": "P10-23",
       "kind": "listing",
-      "label": "Ring Concierge \u2014 2.08 Oval Whisper Thin Hidden Halo ($6,038)",
+      "label": "Ring Concierge — 2.08 Oval Whisper Thin Hidden Halo ($6,038)",
       "url": "https://ringconcierge.com/products/2-08-oval-lab-diamond-in-whisper-thina-hidden-halo",
       "rows": [
         "ringconcierge-2-08-oval-lab-whisper-thin",
@@ -2090,18 +2096,18 @@
     {
       "id": "P10-24",
       "kind": "listing",
-      "label": "Ring Concierge \u2014 2.72 Round Whisper Thin ($7,268)",
+      "label": "Ring Concierge — 2.72 Round Whisper Thin ($7,268)",
       "url": "https://ringconcierge.com/products/2-72-round-lab-diamond-in-whisper-thina",
       "rows": [
         "ringconcierge-2-72-round-lab-whisper-thin"
       ],
       "outcome": "corrected",
-      "findings": "Opened PDP directly (closing PRICE_NOT_RECONFIRMED): confirmed $7,268, \"Metal: 14K Yellow Gold with Platinum Prongs\", \"2.72 Carat E VS1\", all sizes Made to Order (3\u20134 weeks), and 7-day bridal return window."
+      "findings": "Opened PDP directly (closing PRICE_NOT_RECONFIRMED): confirmed $7,268, \"Metal: 14K Yellow Gold with Platinum Prongs\", \"2.72 Carat E VS1\", all sizes Made to Order (3–4 weeks), and 7-day bridal return window."
     },
     {
       "id": "P10-25",
       "kind": "policy",
-      "label": "Sarraf \u2014 Repoint dead 404 WAR1 source URL",
+      "label": "Sarraf — Repoint dead 404 WAR1 source URL",
       "url": "https://www.sarraf.com/products/14k-white-gold-solitaire-ring-0-94-ctw.html",
       "rows": [
         "WAR1"
@@ -2118,12 +2124,12 @@
         "products"
       ],
       "outcome": "flagged",
-      "findings": "uscode.house.gov Title 15 Chapter 8 returned HTTP 500 and GIA Summer 2025 URL had a trailing-0 404 typo; repointed to live GovInfo U.S. Code (15 U.S.C. \u00a7\u00a7 291\u2013300) and live gia.edu/.../summer-2025-lab-notes-gold-plated-gold."
+      "findings": "uscode.house.gov Title 15 Chapter 8 returned HTTP 500 and GIA Summer 2025 URL had a trailing-0 404 typo; repointed to live GovInfo U.S. Code (15 U.S.C. §§ 291–300) and live gia.edu/.../summer-2025-lab-notes-gold-plated-gold."
     },
     {
       "id": "P11-01",
       "kind": "listing",
-      "label": "Wilson's Estate Jewelry \u2014 Bailey Banks & Biddle 19k Art Deco Ring (full chunks 0\u20131)",
+      "label": "Wilson's Estate Jewelry — Bailey Banks & Biddle 19k Art Deco Ring (full chunks 0–1)",
       "url": "https://www.wilsonsestatejewelry.com/products/bailey-banks-biddle-art-deco-diamond-enamel-19-karat-white-gold-vintage-fanning-engagement-ring",
       "rows": [
         "R13"
@@ -2134,7 +2140,7 @@
     {
       "id": "P11-02",
       "kind": "listing",
-      "label": "Mejuri \u2014 Milestone Rings collection (all 4 chunks) + Slim Diamond Eternity Band product page",
+      "label": "Mejuri — Milestone Rings collection (all 4 chunks) + Slim Diamond Eternity Band product page",
       "url": "https://mejuri.com/products/slim-diamond-eternity-band?Material=Solid+White+Gold+%2814k%29&Stone=Natural+Diamond",
       "rows": [
         "R03"
@@ -2145,41 +2151,41 @@
     {
       "id": "P11-03",
       "kind": "listing",
-      "label": "Sarraf.com \u2014 14k White Gold Solitaire Ring 0.94 ctw (chunk 4 #tab-warranty & #tab-education)",
+      "label": "Sarraf.com — 14k White Gold Solitaire Ring 0.94 ctw (chunk 4 #tab-warranty & #tab-education)",
       "url": "https://www.sarraf.com/products/14k-white-gold-solitaire-ring-0-94-ctw.html",
       "rows": [
         "R20",
         "WAR1"
       ],
       "outcome": "corrected",
-      "findings": "Chunk 4 verified both '#tab-warranty' ('$100.00 or 10% of purchase price which ever amount is greater') and '#tab-education' ('we strive to maintain an accuracy of \u00b1 5%'). Repointed dead 404 WAR1.source to R20's live URL."
+      "findings": "Chunk 4 verified both '#tab-warranty' ('$100.00 or 10% of purchase price which ever amount is greater') and '#tab-education' ('we strive to maintain an accuracy of ± 5%'). Repointed dead 404 WAR1.source to R20's live URL."
     },
     {
       "id": "P11-04",
       "kind": "listing",
-      "label": "Sarraf.com \u2014 Men's 18k Solitaire Ring 3/4 ct (chunk 4 #tab-education)",
+      "label": "Sarraf.com — Men's 18k Solitaire Ring 3/4 ct (chunk 4 #tab-education)",
       "url": "https://www.sarraf.com/products/18k-yellow-gold-mens-solitaire-diamond-ring-3-4-ct.html",
       "rows": [
         "R26"
       ],
       "outcome": "corrected",
-      "findings": "Chunk 0 confirms 'Now: US$4,068.00' and 'Approximate Metal Weight: 6.30 grams'; chunk 4 (#tab-education) prints 'we strive to maintain an accuracy of \u00b1 5%' verbatim \u2014 restoring the tolerance quote removed when Pass P5 read chunk 0 only."
+      "findings": "Chunk 0 confirms 'Now: US$4,068.00' and 'Approximate Metal Weight: 6.30 grams'; chunk 4 (#tab-education) prints 'we strive to maintain an accuracy of ± 5%' verbatim — restoring the tolerance quote removed when Pass P5 read chunk 0 only."
     },
     {
       "id": "P11-05",
       "kind": "listing",
-      "label": "Sarraf.com \u2014 14k Yellow Gold 8.8mm CZ Ring (chunk 4 #tab-education)",
+      "label": "Sarraf.com — 14k Yellow Gold 8.8mm CZ Ring (chunk 4 #tab-education)",
       "url": "https://www.sarraf.com/products/14k-yellow-gold-round-cut-8-8mm-wide-1-0ct-cz-engagement-ring.html",
       "rows": [
         "R27"
       ],
       "outcome": "corrected",
-      "findings": "Chunk 0 confirms 'Now: US$1,093.00' and 'Approximate Metal Weight: 2.50 grams'; chunk 4 (#tab-education) prints 'we strive to maintain an accuracy of \u00b1 5%' verbatim."
+      "findings": "Chunk 0 confirms 'Now: US$1,093.00' and 'Approximate Metal Weight: 2.50 grams'; chunk 4 (#tab-education) prints 'we strive to maintain an accuracy of ± 5%' verbatim."
     },
     {
       "id": "P11-06",
       "kind": "listing",
-      "label": "Automic Gold \u2014 Claddagh Ring (full chunks 0\u20135)",
+      "label": "Automic Gold — Claddagh Ring (full chunks 0–5)",
       "url": "https://www.automicgold.com/products/claddagh-ring",
       "rows": [
         "R24"
@@ -2190,30 +2196,30 @@
     {
       "id": "P11-07",
       "kind": "listing",
-      "label": "Automic Gold \u2014 Gemstone Flower Ring (full chunks 0\u20132)",
+      "label": "Automic Gold — Gemstone Flower Ring (full chunks 0–2)",
       "url": "https://www.automicgold.com/products/gemstone-flower-ring",
       "rows": [
         "R25",
         "SPEC5"
       ],
       "outcome": "corrected",
-      "findings": "Chunks 1\u20132 confirm '$551', 'Solid 14k gold', 'Approximately 1.4g (gold) or 2.1g (platinum)', and conflicting lead times ('Production time is 4-8 business days' vs 'Production time is 1-2 weeks'). Added SPEC5 and repointed dead 404 SPEC5.source."
+      "findings": "Chunks 1–2 confirm '$551', 'Solid 14k gold', 'Approximately 1.4g (gold) or 2.1g (platinum)', and conflicting lead times ('Production time is 4-8 business days' vs 'Production time is 1-2 weeks'). Added SPEC5 and repointed dead 404 SPEC5.source."
     },
     {
       "id": "P11-08",
       "kind": "listing",
-      "label": "VRAI \u2014 Signature 6-Prong Solitaire 18k Yellow Gold",
+      "label": "VRAI — Signature 6-Prong Solitaire 18k Yellow Gold",
       "url": "https://www.vrai.com/engagement-rings/signature-6-prong/round-brilliant-yellow-gold-41046738731101",
       "rows": [
         "R28"
       ],
       "outcome": "flagged",
-      "findings": "Live page confirms '$1,460', '18k Solid Gold', and 'Band: Plain', while Details block on the same page prints 'Pav\u00e9 carat weight: 0.11ctw' -> added flag SPEC7."
+      "findings": "Live page confirms '$1,460', '18k Solid Gold', and 'Band: Plain', while Details block on the same page prints 'Pavé carat weight: 0.11ctw' -> added flag SPEC7."
     },
     {
       "id": "P11-09",
       "kind": "policy",
-      "label": "VRAI \u2014 Contact Us & Returns/Exchanges official pages",
+      "label": "VRAI — Contact Us & Returns/Exchanges official pages",
       "url": "https://www.vrai.com/returns-exchanges",
       "rows": [
         "S-VRAI",
@@ -2225,7 +2231,7 @@
     {
       "id": "P11-10",
       "kind": "policy",
-      "label": "Local Eclectic \u2014 Customer Support Contact Page",
+      "label": "Local Eclectic — Customer Support Contact Page",
       "url": "https://www.localeclectic.com/pages/contact",
       "rows": [
         "S-LOCALECLECTIC",
@@ -2237,7 +2243,7 @@
     {
       "id": "P11-11",
       "kind": "policy",
-      "label": "Wilson's Estate Jewelry \u2014 Standalone Refund Policy vs Product Tab",
+      "label": "Wilson's Estate Jewelry — Standalone Refund Policy vs Product Tab",
       "url": "https://www.wilsonsestatejewelry.com/policies/refund-policy",
       "rows": [
         "S-WE",
@@ -2246,12 +2252,12 @@
         "R13"
       ],
       "outcome": "flagged",
-      "findings": "Replaced 404 /pages/returns-exchanges with live /policies/refund-policy, catching contradiction between buyer-paid insured return shipping on /policies/refund-policy and 'Returns within the US are complimentary!' on R11\u2013R13 product tabs -> added SPEC6."
+      "findings": "Replaced 404 /pages/returns-exchanges with live /policies/refund-policy, catching contradiction between buyer-paid insured return shipping on /policies/refund-policy and 'Returns within the US are complimentary!' on R11–R13 product tabs -> added SPEC6."
     },
     {
       "id": "P11-12",
       "kind": "policy",
-      "label": "Catbird \u2014 Sizing & Repairs physical address + Returns page",
+      "label": "Catbird — Sizing & Repairs physical address + Returns page",
       "url": "https://www.catbirdnyc.com/catbird-sizing-and-repairs",
       "rows": [
         "S-CB"
@@ -2262,7 +2268,7 @@
     {
       "id": "P11-13",
       "kind": "listing",
-      "label": "Men\u0113 \u2014 24K Gold Bands & BBB Profiles (BND-01..03, SEL-MENE)",
+      "label": "Menē — 24K Gold Bands & BBB Profiles (BND-01..03, SEL-MENE)",
       "url": "https://mene.com/products/mene-wide-flat-band-gold",
       "rows": [
         "BND-01",
@@ -2277,7 +2283,7 @@
     {
       "id": "P11-14",
       "kind": "regulation",
-      "label": "GIA Gems & Gemology Summer 2025 Lab Notes \u2014 Thick Gold-Plated Fraud Risk",
+      "label": "GIA Gems & Gemology Summer 2025 Lab Notes — Thick Gold-Plated Fraud Risk",
       "url": "https://www.gia.edu/gems-gemology/summer-2025-lab-notes-gold-plated-gold",
       "rows": [
         "STD-05"
@@ -2288,19 +2294,19 @@
     {
       "id": "P11-15",
       "kind": "regulation",
-      "label": "Cornell LII \u2014 15 U.S.C. \u00a7 295 & \u00a7 297 (National Gold and Silver Stamping Act)",
+      "label": "Cornell LII — 15 U.S.C. § 295 & § 297 (National Gold and Silver Stamping Act)",
       "url": "https://www.law.cornell.edu/uscode/text/15/297",
       "rows": [
         "STD-02",
         "STD-03"
       ],
       "outcome": "corrected",
-      "findings": "Replaced HTTP 500 uscode.house.gov URLs in spot-and-standards.json with live 200 OK Cornell LII statutory text confirming 3 ppt / 7 ppt fineness tolerances (\u00a7295) and mandatory trademark alongside quality marks (\u00a7297)."
+      "findings": "Replaced HTTP 500 uscode.house.gov URLs in spot-and-standards.json with live 200 OK Cornell LII statutory text confirming 3 ppt / 7 ppt fineness tolerances (§295) and mandatory trademark alongside quality marks (§297)."
     },
     {
       "id": "P11-16",
       "kind": "listing",
-      "label": "Aurate \u2014 All 7 engagement ring product pages + Exchange-Only Final Sale terms",
+      "label": "Aurate — All 7 engagement ring product pages + Exchange-Only Final Sale terms",
       "url": "https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale",
       "rows": [
         "aurate-2ct-round-lgd-solitaire",
@@ -2317,7 +2323,7 @@
     {
       "id": "P11-17",
       "kind": "listing",
-      "label": "Ring Concierge \u2014 Both Whisper Thin Lab Diamond Solitaire pages (2.08ct & 2.72ct)",
+      "label": "Ring Concierge — Both Whisper Thin Lab Diamond Solitaire pages (2.08ct & 2.72ct)",
       "url": "https://ringconcierge.com/products/2-72-round-lab-diamond-in-whisper-thina",
       "rows": [
         "ringconcierge-2-08-oval-lab-whisper-thin",
@@ -2329,7 +2335,7 @@
     {
       "id": "P11-18",
       "kind": "listing",
-      "label": "Blue Nile \u2014 Engagement collection + all 5 product pages + SOL-04..07",
+      "label": "Blue Nile — Engagement collection + all 5 product pages + SOL-04..07",
       "url": "https://www.bluenile.com/engagement-rings",
       "rows": [
         "bluenile-petite-solitaire-14k-yg",
@@ -2348,7 +2354,7 @@
     {
       "id": "P11-19",
       "kind": "listing",
-      "label": "James Allen \u2014 SOL-01..03 product pages & BND-09..12 Wilson's canonical URLs",
+      "label": "James Allen — SOL-01..03 product pages & BND-09..12 Wilson's canonical URLs",
       "url": "https://www.jamesallen.com/engagement-rings/solitaire/14k-yellow-gold-1.5mm-comfort-fit-engagement-ring-item-41046",
       "rows": [
         "SOL-01",
@@ -2383,6 +2389,37 @@
       ],
       "outcome": "confirmed",
       "findings": "All remaining URLs in verification.json not_rechecked were opened live on 2026-10-23: R02 ($648), R17 ($16,700 starting from), R19 ($128 vermeil), R29 ($1,220 + SPEC3), BND-05..07 ($449/$1,099/$899), Catbird Classic 2mm ($260), LBMA licence notice, and SOL-09 JS-rendered configurator (kept flagged with null price/weight). Zero URLs remain unchecked."
+    },
+    {
+      "id": "P11-01",
+      "kind": "P11 · policy & contact S-AUTOMIC",
+      "label": "Automic Gold refund policy (chunk 4), privacy policy (chunks 4-5) & FAQ",
+      "url": "https://www.automicgold.com/policies/refund-policy",
+      "rows": [
+        "S-AUTOMIC",
+        "R22",
+        "R23",
+        "R24",
+        "R25"
+      ],
+      "outcome": "corrected",
+      "findings": "Reading chunk 4 of /policies/refund-policy past the 4-chunk CookieYes banner revealed: 'To avoid a restocking fee, please mail your items within 14 days.' (new flag RET14) and restored the verbatim final-sale/resizing clause to S-AUTOMIC. Reading all 6 chunks of /pages/privacy-policy showed that +1-929-307-2378 is not printed on the page, so S-AUTOMIC.phone was set to null and contact_source repointed to /pages/faq (care@automicgold.com).",
+      "checked_on": "2026-10-23",
+      "session": "arena/bfcd8465-gold3"
+    },
+    {
+      "id": "P11-02",
+      "kind": "P11 · listings R24 & R25",
+      "label": "Automic Gold Claddagh Ring (chunk 5) & Gemstone Flower Ring (chunk 2) deep-chunk read",
+      "url": "https://www.automicgold.com/products/claddagh-ring",
+      "rows": [
+        "R24",
+        "R25"
+      ],
+      "outcome": "corrected",
+      "findings": "Chunk 5 of claddagh-ring prints 'Item Weight: Approximately 2.3g (gold) or 3.5g (platinum)', and chunk 2 of gemstone-flower-ring prints 'Item Weight: Approximately 1.4g (gold) or 2.1g (platinum)' plus conflicting lead times ('4-8 business days' vs '1-2 weeks', SPEC5).",
+      "checked_on": "2026-10-23",
+      "session": "arena/bfcd8465-gold3"
     }
   ],
   "discrepancies": [
@@ -2424,7 +2461,7 @@
     {
       "id": "D6",
       "row": "R20,R21",
-      "what": "Weights are explicitly approximate, with a stated \u00b15% tolerance.",
+      "what": "Weights are explicitly approximate, with a stated ±5% tolerance.",
       "flag": "WT3",
       "severity": "medium"
     },
@@ -2467,15 +2504,22 @@
       "what": "Catbird's cited contact page returned HTTP 500 on 2026-10-23, so the recorded e-mail could not be re-confirmed.",
       "flag": "SRC2",
       "severity": "medium"
+    },
+    {
+      "id": "D14",
+      "row": "R22,R23,R24,R25",
+      "what": "Automic Gold advertises a 30-day return window but its refund policy states 'To avoid a restocking fee, please mail your items within 14 days.'",
+      "flag": "RET14",
+      "severity": "medium"
     }
   ],
   "not_rechecked": [],
   "summary": {
     "checks": 137,
     "confirmed": 82,
-    "corrected": 68,
+    "corrected": 70,
     "flagged": 33,
-    "urls_opened": 183,
+    "urls_opened": 185,
     "site_defects_fixed": 13
   },
   "site_defects": [
@@ -2498,7 +2542,7 @@
     {
       "id": "SD3",
       "page": "under-1000.html",
-      "what": "A category intro quoted a \"$6,000+\" threshold that appears in no data file \u2014 a prose number presented as fact.",
+      "what": "A category intro quoted a \"$6,000+\" threshold that appears in no data file — a prose number presented as fact.",
       "found_by": "Stray-number audit.",
       "fix": "Reworded to a qualitative description; the page now prints only figures that come from data.",
       "status": "fixed"
@@ -2510,7 +2554,7 @@
       "what": "The page was titled 'All verified listings' and its description said 'every verified solid gold ring listing', but it renders dataset A only (19 of the 41 listings the site carries). A reader could reasonably think the other 22 do not exist. Why it matters: An over-broad claim about completeness is a correctness problem even when every rendered value is sourced.",
       "fix": "Retitled 'Dataset A: all verified listings' and added a scope box stating the count it renders and linking the combined list of 41. Guard: render-test.js asserts the scope box and both counts are present on rings.html.",
       "status": "fixed",
-      "found_by": "This session's own defect hunt: after every data change the site is re-read looking for claims it cannot support \u2014 here, a title promising more than the page renders, and two counts typed by hand."
+      "found_by": "This session's own defect hunt: after every data change the site is re-read looking for claims it cannot support — here, a title promising more than the page renders, and two counts typed by hand."
     },
     {
       "id": "SD5",
@@ -2519,7 +2563,7 @@
       "what": "Two counts were typed into the generator as prose and never recomputed: a link list said '7 sellers' and the combined page's description said '28 listings across 9 sellers'. The site actually carries 41 listings across 12 sellers. Why it matters: Hand-typed counts are the same class of error as a hand-typed price: they drift silently as data is added and no source is ever checked.",
       "fix": "Both strings now interpolate the computed METRICS values; they cannot drift again. Guard: A grep for a digit followed by ' listings'/' sellers' in scripts/build_site.py must return no literal counts outside f-strings (checked in this pass by hand; audit.py re-derives the totals from data).",
       "status": "fixed",
-      "found_by": "This session's own defect hunt: after every data change the site is re-read looking for claims it cannot support \u2014 here, a title promising more than the page renders, and two counts typed by hand."
+      "found_by": "This session's own defect hunt: after every data change the site is re-read looking for claims it cannot support — here, a title promising more than the page renders, and two counts typed by hand."
     },
     {
       "id": "SD6",
@@ -2564,14 +2608,14 @@
     {
       "id": "SD10",
       "page": "bands-vintage-rings.html, solitaire-settings.html, sellers-policies.html, sellers.html, checklist-standards.html",
-      "what": "Men\u0113 BND-01..BND-03 carried client-JS-only gram weights absent from static HTML; 13 remaining Dataset C rows asserted hallmarks absent from seller pages; 8 official links across Dataset C & Dataset D returned HTTP 404/500; 3 seller contact phone/email fields disagreed with live contact pages; and Dataset C nav/dropdown counts ('59', '16', '8', '13') were hardcoded.",
+      "what": "Menē BND-01..BND-03 carried client-JS-only gram weights absent from static HTML; 13 remaining Dataset C rows asserted hallmarks absent from seller pages; 8 official links across Dataset C & Dataset D returned HTTP 404/500; 3 seller contact phone/email fields disagreed with live contact pages; and Dataset C nav/dropdown counts ('59', '16', '8', '13') were hardcoded.",
       "found_by": "Independent pass P8 (session arena/2908bea4-gold3), sweeping 58 URLs live on 2026-10-23.",
       "fix": "Blanked BND-01..BND-03 weights to null, rewrote 13 hallmark_disclosure fields, repointed all 8 broken URLs to HTTP 200 official pages, corrected S-MENE/S-VRAI/S-BRILLIANTEARTH contact records, made nav/filter counts dynamic, and added scripts/verify_dataset_c.py.",
       "status": "fixed 2026-10-23"
     },
     {
       "id": "SD10",
-      "page": "rings.html, combined.html, verify.html (data/rings.json R03, data/products.json Aurate \u00d77)",
+      "page": "rings.html, combined.html, verify.html (data/rings.json R03, data/products.json Aurate ×7)",
       "what": "Mejuri R03 still carried $648 from the milestone-rings collection grid while the direct PDP slim-diamond-eternity-band prints 'From $898' (+38.6%), and 6 Aurate engagement ring rows carried un-rechecked 2026-10-22 prices without quoting the PDP-level 'Final Sale! / Exchange for size only.' override.",
       "found_by": "arena/1162b2db-gold3, Pass P9 complete closure of all remaining not_rechecked URLs",
       "fix": "Updated R03 to $898 from the direct PDP (adding FP1 and retiring unused L1), upgraded all 7 Aurate PDPs with live quotes + F25, and reduced not_rechecked to [] (0 remaining).",
@@ -2580,9 +2624,9 @@
     {
       "id": "SD11",
       "page": "bands-vintage-rings.html, index.html, calculator.html, checklist-standards.html (data/bands-and-high-karat.json, scripts/)",
-      "what": "Men\u0113 BND-01..03 stored static gram weights (8.5g, 7.9g, 12.0g) and melt ratios (1.50x\u20131.56x) that static HTML on mene.com does not render (size-dependent weights load via client-side JS; .json returns 404), and four build/audit scripts hardcoded stale Oct 22 spot rates ($4,025.10 / $4,026.79) and flagged counts (16).",
+      "what": "Menē BND-01..03 stored static gram weights (8.5g, 7.9g, 12.0g) and melt ratios (1.50x–1.56x) that static HTML on mene.com does not render (size-dependent weights load via client-side JS; .json returns 404), and four build/audit scripts hardcoded stale Oct 22 spot rates ($4,025.10 / $4,026.79) and flagged counts (16).",
       "found_by": "arena/15b00e99-gold3, Pass P10 live HTML & script audit",
-      "fix": "Nulled weight_grams, net_gold_weight_grams, pure_gold_grams, melt_value_usd, and price_to_melt_ratio on BND-01..03 per Zero-Inference Policy, replaced Men\u0113 calculator presets with server-verified Ross-Simons/Automic/Sarraf weights, and made all spot/count strings in scripts/ derive dynamically from JSON.",
+      "fix": "Nulled weight_grams, net_gold_weight_grams, pure_gold_grams, melt_value_usd, and price_to_melt_ratio on BND-01..03 per Zero-Inference Policy, replaced Menē calculator presets with server-verified Ross-Simons/Automic/Sarraf weights, and made all spot/count strings in scripts/ derive dynamically from JSON.",
       "status": "fixed 2026-10-23"
     }
   ],

@@ -1015,7 +1015,8 @@
         "X1",
         "M1",
         "POL2",
-        "SPEC5"
+        "SPEC5",
+        "RET14"
       ],
       "verified_fields": [
         "price_usd",
@@ -1060,7 +1061,9 @@
         "WT2",
         "H1",
         "X1",
-        "POL2"
+        "POL2",
+        "WT5",
+        "RET14"
       ],
       "verified_fields": [
         "price_usd",
@@ -1108,7 +1111,8 @@
         "H1",
         "X1",
         "POL2",
-        "WT5"
+        "WT5",
+        "RET14"
       ],
       "verified_fields": [
         "price_usd",
@@ -1156,7 +1160,8 @@
         "WT5",
         "H1",
         "X1",
-        "SPEC5"
+        "SPEC5",
+        "RET14"
       ],
       "verified_fields": [
         "price_usd",
@@ -1202,7 +1207,9 @@
         "WT3",
         "H1",
         "X1",
-        "RET7"
+        "RET7",
+        "WAR1",
+        "SPEC4"
       ],
       "verified_fields": [
         "price_usd",
@@ -1248,7 +1255,9 @@
         "WT3",
         "H1",
         "X1",
-        "RET7"
+        "RET7",
+        "WAR1",
+        "SPEC4"
       ],
       "verified_fields": [
         "price_usd",

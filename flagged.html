@@ -33,7 +33,7 @@
 </div>
 
 <div class="grid cols-3" style="margin-bottom:20px">
-  <div class="kpi"><div class="label">Editorial findings</div><div class="value">37</div><div class="sub">17 high severity</div></div>
+  <div class="kpi"><div class="label">Editorial findings</div><div class="value">38</div><div class="sub">18 high severity</div></div>
   <div class="kpi"><div class="label">Listing-level flags</div><div class="value">101</div><div class="sub">across 19 listings</div></div>
   <div class="kpi"><div class="label">Unverified cells</div><div class="value">0 guesses</div><div class="sub">blank is used instead</div></div>
 </div>
@@ -226,6 +226,17 @@
           <p class="small"><strong>Source:</strong> <a href="https://www.sarraf.com/products/14k-white-gold-solitaire-ring-0-94-ctw.html" target="_blank" rel="noopener">https://www.sarraf.com/products/14k-white-gold-solitaire-ring-0-94-ctw.html</a></p>
           
           <p class="action"><strong>What to do:</strong> Repointed all dead citations across flags.json and sellers.json and eliminated security-audit.html self-echo so verification/sources-manifest.json contains 0 dead URLs.</p>
+        </div>
+        <div class="card finding high" id="F38">
+          <div class="finding-head">
+            <h3>F38 · Automic Gold requires mailing returns within 14 days to avoid a restocking fee, and its recorded phone number was not on the cited page</h3>
+            <span class="badge bad">HIGH</span>
+          </div>
+          <p class="small">Reading all 5 chunks of https://www.automicgold.com/policies/refund-policy and all 6 chunks of https://www.automicgold.com/pages/privacy-policy past the 4-chunk CookieYes banner (2026-10-23, session arena/bfcd8465-gold3) uncovered two facts missed by earlier passes: (1) S-AUTOMIC listed phone +1-929-307-2378 against /pages/privacy-policy, which prints no phone number at all (only accessibility@automicgold.com, while /pages/faq prints care@automicgold.com), so phone was set to null; and (2) while Automic Gold&#x27;s headline return window is 30 days from delivery, chunk 4 of the live refund policy states: &#x27;To avoid a restocking fee, please mail your items within 14 days.&#x27; It also restores the exact final-sale and resizing clause that pass P3 had blanked because chunk 0 only contained the cookie banner.</p>
+          <div class="evidence">Refund policy chunk 4 verbatim: &#x27;Automic Gold offers free returns within 30 days of the delivery date for customers who reside in the U.S. ... To avoid a restocking fee, please mail your items within 14 days.&#x27; and &#x27;The following Items are excluded from the return policy and are deemed Final Sale: Gift Cards / Engraved items / Custom items / Modified Items. However, if you are not satisfied with your final sale item, we may be able to work with you on making changes to your piece by resizing or modifying it for an additional fee, or we can purchase the item back from you at a reduced rate for recycling.&#x27;</div>
+          <p class="small"><strong>Source:</strong> <a href="https://www.automicgold.com/policies/refund-policy" target="_blank" rel="noopener">https://www.automicgold.com/policies/refund-policy</a></p>
+          
+          <p class="action"><strong>What to do:</strong> Phone set to null on S-AUTOMIC, contact_source repointed to https://www.automicgold.com/pages/faq (care@automicgold.com), resize_policy restored verbatim from chunk 4 of /policies/refund-policy, and new flag RET14 attached to S-AUTOMIC and R22-R25.</p>
         </div>
         <div class="card finding medium" id="F4">
           <div class="finding-head">
@@ -1184,6 +1195,14 @@ exists. A flag with no source of its own is a question about one specific listin
           <p class="small" style="margin:8px 0 4px">Ross-Simons deducts a USD 4.95 flat return-shipping fee from every refund, and Catbird deducts an $9 return-shipping charge. Neither fee is a restocking charge and neither is waived for a faulty item; both are printed on the seller&#x27;s own returns page.</p>
           <p class="small" style="margin:0"><strong>What to do:</strong> Subtract the stated fee before comparing a seller&#x27;s return terms, and check whether the fee is waived when the item is wrong or faulty.</p>
           <p class="small" style="margin:6px 0 0"><strong>Source:</strong> <a href="https://www.ross-simons.com/pages/returns-exchanges" target="_blank" rel="noopener">official page</a></p>
+        </div><div class="card" id="flag-RET14">
+          <div style="display:flex;gap:8px;align-items:baseline;flex-wrap:wrap">
+            <span class="badge warn">medium</span>
+            <span class="mono">RET14</span><strong>Must mail return within 14 days to avoid a restocking fee</strong>
+          </div>
+          <p class="small" style="margin:8px 0 4px">Automic Gold&#x27;s refund policy allows returns within 30 days of delivery, but states: &#x27;To avoid a restocking fee, please mail your items within 14 days.&#x27; Custom, modified and engraved items are final sale, and any diamond certificate must be returned with the ring.</p>
+          <p class="small" style="margin:0"><strong>What to do:</strong> Complete independent weighing and XRF testing and drop the return package in the mail within 14 calendar days of delivery.</p>
+          <p class="small" style="margin:6px 0 0"><strong>Source:</strong> <a href="https://www.automicgold.com/policies/refund-policy" target="_blank" rel="noopener">official page</a></p>
         </div><div class="card" id="flag-RET3">
           <div style="display:flex;gap:8px;align-items:baseline;flex-wrap:wrap">
             <span class="badge warn">medium</span>

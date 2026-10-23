@@ -489,6 +489,17 @@
       "action": "Record live screenshot of Menē's JS 'Price breakdown' modal at checkout, weigh the delivered ring against Menē's Certificate of Authenticity (within +/-0.5g in-stock / +/-1.0g MTO), and keep the COA intact.",
       "source": "https://mene.com/terms-of-service",
       "first_seen": "2026-10-23"
+    },
+    {
+      "id": "RET14",
+      "severity": "medium",
+      "label": "Must mail return within 14 days to avoid a restocking fee",
+      "what": "Automic Gold's refund policy allows returns within 30 days of delivery, but states: 'To avoid a restocking fee, please mail your items within 14 days.' Custom, modified and engraved items are final sale, and any diamond certificate must be returned with the ring.",
+      "why_it_matters": "While the headline window is 30 days, waiting past day 14 to mail the package exposes the buyer to an unquantified restocking fee.",
+      "action": "Complete independent weighing and XRF testing and drop the return package in the mail within 14 calendar days of delivery.",
+      "source": "https://www.automicgold.com/policies/refund-policy",
+      "first_seen": "2026-10-23",
+      "quote": "To avoid a restocking fee, please mail your items within 14 days. Items must be in their original, unworn condition."
     }
   ]
 }

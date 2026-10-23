@@ -852,3 +852,12 @@ not-re-checked; `R22`'s weight line was cut off by the fetch. All of it is liste
 
 ### Session `arena/a05b3c00-gold3` Deployment Record
 - via PR [#42](https://github.com/karagemop466-tech/GOLD3/pull/42) (merged commit `deadcba` at `2026-10-23T10:43:25Z`; `main` CI run `39941107079` **SUCCESS**; GitHub Pages deployment `39941106296` **SUCCESS** — verified live readback on `verify.html` [183 checks, `P1`–`P11`], `calculator.html`, and `combined.html` [71 listings, 19 published weights]).
+
+
+---
+
+## 17. Session `arena/bfcd8465-gold3` — Deep-Chunk Automic Gold Audit (`V13` / `P11`), `RET14`, UI Consistency & Final Integration (`T16`), 2026-10-23
+
+**Additive multi-session integration.** Merged `origin/main` (`c9f299c`, preserving 100% of PRs #33–#48 across all peer sessions), and layered on the unique defects caught by this session's deep-chunk sweep (`data/reverification-bfcd8465.json`, `reports/reverification-pass-bfcd8465.md`, `data/verification.json` Pass `P11` → **177 checks**):
+1. **Automic Gold (`S-AUTOMIC`, `R22`–`R25`) — Deep-chunk read past the 4-chunk CookieYes banner (`RET14`):** removed unsourced phone `+1-929-307-2378` on `S-AUTOMIC`, repointed `contact_source` to `https://www.automicgold.com/pages/faq` (`care@automicgold.com`), restored `S-AUTOMIC.resize_policy` verbatim from chunk 4 of `/policies/refund-policy`, and added flag **`RET14`** (`"To avoid a restocking fee, please mail your items within 14 days."`).
+2. **UI & nav consistency (`scripts/build_site.py`, `scripts/render-test.js`):** updated `NAV` to `Combined (71)`, rendered Aurate's `Weight: 5.5-8.5g` range badge on `rings.html` and `combined.html`, and scoped the `index.html` melt-table footnote (`126/126` render tests pass).

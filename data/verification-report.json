@@ -24,7 +24,7 @@
   "counts": {
     "products": 19,
     "retailers": 5,
-    "sources": 10,
+    "sources": 12,
     "errors": 0,
     "warnings": 0
   },
@@ -611,6 +611,11 @@
       "id": "F37",
       "severity": "medium",
       "title": "Post-deploy live read caught mismatched variant quotes on Aurate & Ring Concierge rows from an initial Pass P9 script"
+    },
+    {
+      "id": "F38",
+      "severity": "high",
+      "title": "Automic Gold requires mailing returns within 14 days to avoid a restocking fee, and its recorded phone number was not on the cited page"
     }
   ],
   "parallel_dataset": {

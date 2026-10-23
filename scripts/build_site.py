@@ -28,7 +28,7 @@ RECHECKED = "23 October 2026"   # date of the most recent verification pass (P4)
 NAV = [
     ("index.html", "Dashboard"),
     ("rings.html", "All rings"),
-    ("combined.html", "Combined (62)"),
+    ("combined.html", "Combined (71)"),
     ("14k.html", "14K"),
     ("18k.html", "18K"),
     ("bands-vintage-rings.html", "24K & Melt"),
@@ -211,6 +211,8 @@ def diamond_cell(p) -> str:
 def weight_cell(p) -> str:
     if p.get("weight_g") is not None:
         return f'{p["weight_g"]:g} g'
+    if str(p.get("weight_status") or "").startswith("published as a range") and p.get("weight_quote"):
+        return f'<span class="badge warn">{e(p["weight_quote"])}</span><span class="sub">range only (unverified)</span>'
     return '<span class="badge neutral">not published</span>'
 
 
@@ -446,7 +448,7 @@ def build_index() -> str:
     <tbody>{melt_rows}</tbody>
   </table>
 </div>
-<p class="tiny muted">*3 g is a <em>scenario</em> used to show scale, not a claim about any ring in this dataset - none of the listings publishes a weight.
+<p class="tiny muted">*3 g is a <em>scenario</em> used to show scale, not a claim about any ring in this dataset - none of Dataset A's listings publishes a single finished ring weight (14 listings in Dataset B and 5 in Dataset C publish static-HTML weights &mdash; see <a href="combined.html">Combined</a>).
 At {money(SPOT,2)}/oz, one gram of 100% fine gold is {money(SPOT_GRAM,2)}. The 24K row uses the 999.9-fine convention
 (99.99%), so it renders one cent lower. Calculated in <a href="calculator.html">the calculator</a>, with the formula shown.</p>
 
