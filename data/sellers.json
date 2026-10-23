@@ -297,49 +297,52 @@
       "website": "https://www.brilliantearth.com/",
       "type": "Public omnichannel bridal jeweller (San Francisco, CA)",
       "phone": "+1-800-691-0952",
-      "email": "customerservice@brilliantearth.com",
+      "email": null,
       "contact_source": "https://www.brilliantearth.com/contact/",
-      "return_window": "30 days from delivery (free US return shipping)",
-      "return_exclusions": "Custom-designed, modified, previously exchanged, or post-purchase resized items are non-returnable; engraved rings incur a $40 removal fee on return",
-      "resize_policy": "Free 60-day resizing on eligible styles, but resized rings become non-returnable and some Fairmined settings disallow resizing",
-      "payment_notes": "Major credit cards accepted (Visa, Mastercard, American Express, Discover); bank wire discount also offered (avoid wire per FCBA checklist)",
+      "return_window": "30 days from delivery (free US return shipping; Return Shipping Authorization expires after 7 days; $250 missing diamond certificate fee)",
+      "return_exclusions": "Custom-designed, modified, previously exchanged, comparative-purchasing, or post-purchase resized items are non-returnable; engraved rings incur a $40 removal fee on return",
+      "resize_policy": "Free resizing on eligible styles, but resized rings become non-returnable and some Fairmined settings disallow resizing",
+      "payment_notes": "Major credit cards accepted (Visa, Mastercard, American Express, Discover); 1.5% bank wire discount ($500+) carries a $35 USD processing fee on ALL wire orders and forfeits FCBA card dispute rights",
       "publishes_weight": false,
       "publishes_hallmark": false,
       "offers_xrf_or_assay": "Not stated",
-      "price_display": "Setting Price shown separately from centre stone",
-      "policy_source": "https://www.brilliantearth.com/returns/",
+      "price_display": "Setting Price shown separately from centre stone (?currency=USD required outside US)",
+      "policy_source": "https://www.brilliantearth.com/30-Day-Returns/",
       "flags": [
         "W1",
         "H1",
         "X1",
-        "SPEC3"
+        "SPEC3",
+        "SRC1"
       ],
-      "verification": "Official contact and 30-day returns pages fetched 2026-10-22 (session arena/cbea1001-gold3); BBB A+ accredited profile also checked."
+      "verification": "Re-verified live 2026-10-23 (session arena/2908bea4-gold3): https://www.brilliantearth.com/returns/ returned HTTP 404 and was repointed to https://www.brilliantearth.com/30-Day-Returns/ (SRC1); https://www.brilliantearth.com/contact/ prints phone 800.691.0952 and SMS +1 415.520.6526 with a web form (no customerservice@brilliantearth.com e-mail printed, so email was blanked to null per Zero-Hallucination Rule).",
+      "email_correction_note": "Blanked 2026-10-23 by arena/2908bea4-gold3: https://www.brilliantearth.com/contact/ publishes phone 800.691.0952, text +1 415.520.6526, and a web form, not customerservice@brilliantearth.com."
     },
     {
       "id": "S-VRAI",
       "name": "VRAI",
       "website": "https://www.vrai.com/",
       "type": "Lab-grown diamond & bridal jeweller (Los Angeles, CA)",
-      "phone": "+1-855-383-8724",
-      "email": "hello@vrai.com",
-      "contact_source": "https://www.vrai.com/pages/contact-us",
-      "return_window": "30 days from delivery for eligible unworn engagement rings",
-      "return_exclusions": "Engraved or setting-only returns to original payment method incur a $300 USD recycling fee; resized, custom, or previously exchanged items are final sale",
+      "phone": "+1-855-956-4488",
+      "email": "help@vrai.com",
+      "contact_source": "https://www.vrai.com/contact-us",
+      "return_window": "30 days from delivery for eligible unworn engagement rings (<$15,000 eligible for refund minus recycling fee; >$15,000 store credit only)",
+      "return_exclusions": "Original-payment returns under $15,000 incur a $300 USD engagement-ring ($50 USD band/MTO) recycling fee; resized, custom, or previously exchanged items are final sale",
       "resize_policy": "One complimentary resize on eligible rings, after which the ring becomes final sale",
       "payment_notes": "Online card checkout supported; exact card-network list is rendered dynamically at checkout",
       "publishes_weight": true,
       "publishes_hallmark": false,
       "offers_xrf_or_assay": "Not stated",
       "price_display": "Dynamic JavaScript configurator price (not present in static HTML)",
-      "policy_source": "https://help.vrai.com/hc/en-us/articles/360000836514-What-is-your-return-policy",
+      "policy_source": "https://help.vrai.com/en/knowledge/what-is-your-return-policy",
       "flags": [
         "RET8",
         "P2",
         "H1",
-        "X1"
+        "X1",
+        "SRC1"
       ],
-      "verification": "Official VRAI contact page and Help Center return article fetched 2026-10-22 (session arena/cbea1001-gold3); BBB Los Angeles profile shows F rating for 5 unanswered complaints."
+      "verification": "Re-verified live 2026-10-23 (session arena/2908bea4-gold3): https://www.vrai.com/pages/contact-us returned HTTP 404; live https://www.vrai.com/contact-us prints help@vrai.com and +1.855.956.4488 (10am-6pm EST daily), replacing hello@vrai.com and +1-855-383-8724. Repointed policy_source from generic KB redirect to https://help.vrai.com/en/knowledge/what-is-your-return-policy (SRC1)."
     },
     {
       "id": "S-LOCALECLECTIC",
@@ -348,8 +351,8 @@
       "type": "Online multi-designer jewellery marketplace (Chicago, IL)",
       "phone": null,
       "email": "hello@localeclectic.com",
-      "contact_source": "https://www.localeclectic.com/pages/contact-us",
-      "return_window": "14 days from delivery for original-payment refund ( minus return shipping label); days 15-90 store credit only",
+      "contact_source": "https://www.localeclectic.com/pages/frequently-asked-questions",
+      "return_window": "14 days from delivery for original-payment refund (minus return shipping label); days 15-90 store credit only",
       "return_exclusions": "Final-sale, custom, or worn items excluded; after day 14 only store credit is issued",
       "resize_policy": "Does not offer resizing",
       "payment_notes": "Online card checkout supported; exact card-network list rendered dynamically at checkout",
@@ -363,22 +366,23 @@
         "SPEC2",
         "W1",
         "H1",
-        "X1"
+        "X1",
+        "SRC1"
       ],
-      "verification": "Official Contact Us and FAQ pages fetched 2026-10-22 (session arena/cbea1001-gold3); phone number omitted on website contact page so left null here."
+      "verification": "Re-verified live 2026-10-23 (session arena/2908bea4-gold3): https://www.localeclectic.com/pages/contact-us returned HTTP 404 (and /pages/contact is a form without an email); repointed contact_source to https://www.localeclectic.com/pages/frequently-asked-questions which prints hello@localeclectic.com verbatim (SRC1)."
     },
     {
       "id": "S-MENE",
       "name": "Menē",
       "website": "https://mene.com/",
       "type": "24K investment jewellery retailer (Toronto / US shipping)",
-      "phone": "+1-833-636-3465",
-      "email": "concierge@mene.com",
-      "contact_source": "https://mene.com/contact-us",
-      "return_window": "7 days from receipt of delivery",
-      "return_exclusions": "Self-service returns default to non-cash Menē Credit; discretionary original-payment refunds may incur up to a 10% restocking fee plus 5% if Certificate of Authenticity is missing",
-      "resize_policy": "No resizing; exchange or buyback minus fee",
-      "payment_notes": "Major credit cards (Visa, Mastercard, American Express), PayPal, Affirm, and bank wire accepted",
+      "phone": "+1-833-636-3245",
+      "email": "service@mene.com",
+      "contact_source": "https://mene.com/customer-care/en-US",
+      "return_window": "7 days from receipt of delivery (20 days EU, buyer pays up to $165 shipping)",
+      "return_exclusions": "Self-service returns default to expiring non-cash Menē Credit; original-payment refunds face up to a 10% restocking fee plus 5% if Certificate of Authenticity is missing; engraved ($75) items final sale",
+      "resize_policy": "No resizing; exchange or buyback (after 60-day wait) minus 10% fee",
+      "payment_notes": "Major credit cards (Visa, Mastercard, American Express), PayPal, Affirm, crypto (BitPay), and bank wire accepted",
       "publishes_weight": false,
       "publishes_hallmark": false,
       "offers_xrf_or_assay": "Seller includes its own Certificate of Authenticity; independent XRF still required within 7-day window",
@@ -389,9 +393,10 @@
         "W1",
         "H1",
         "X1",
-        "PRC1"
+        "PRC1",
+        "SRC1"
       ],
-      "verification": "Official Contact Us and Sep 2, 2026 Terms of Service fetched 2026-10-22 (session arena/cbea1001-gold3). Re-read live 2026-10-23 (session arena/6d6192d1-gold3): prices are metal-linked and had moved since capture - see PRC1."
+      "verification": "Re-verified live 2026-10-23 (sessions arena/6d6192d1-gold3 & arena/2908bea4-gold3): https://mene.com/contact-us returned HTTP 404 and was repointed to https://mene.com/customer-care/en-US (SRC1); corrected phone from +1-833-636-3465 to +1-833-636-3245 (1-833-MENE-24K) and email from concierge@mene.com to service@mene.com (printed on mene.com/customer-care/en-US/articles/returns-319505 and product Customer Care modal). Prices are metal-linked (PRC1)."
     }
   ],
   "provenance": {

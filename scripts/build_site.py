@@ -406,10 +406,10 @@ def build_index() -> str:
         ("rings.html", "Natural diamond", len(by_cat("natural")), "Mined stones, with certification questions."),
         ("combined.html", "Combined list", len(PRODUCTS) + len(OTHER_ITEMS) + len(DATASET_C_ITEMS),
          f"All 3 research passes (A: {len(PRODUCTS)} + B: {len(OTHER_ITEMS)} + C: {len(DATASET_C_ITEMS)} = {len(PRODUCTS) + len(OTHER_ITEMS) + len(DATASET_C_ITEMS)} rows) with provenance."),
-        ("bands-vintage-rings.html", "24K & weight-verified bands", 12, "Menē 24K pure bullion bands (1.50x–1.56x melt) & solid 14K bands with exact grams."),
-        ("solitaire-settings.html", "Solitaire settings & GIA", 9, "Blue Nile, Brilliant Earth & Ross-Simons settings, plus $29 plated control."),
+        ("bands-vintage-rings.html", "24K & weight-verified bands", len([c for c in DATASET_C_ITEMS if c.get("id", "").startswith("BND-")]), "Ross-Simons 14K weight-published bands (2.99x–3.96x melt), Menē 24K bands & Mejuri 14K bands."),
+        ("solitaire-settings.html", "Solitaire settings & GIA", len([c for c in DATASET_C_ITEMS if c.get("id", "").startswith("SOL-")]), "Blue Nile, Brilliant Earth & Ross-Simons settings, plus $29 plated control."),
         ("sellers-policies.html", "BBB & policy audit", 5, "Physical HQs, BBB ratings (A+ to D-), resized/engraved traps & 1.5% wire risk."),
-        ("flagged-for-review.html", "Flagged pass C", 16, "Live 10kt/14kt conflict, resizing contradiction, omitted grams & D- BBB notes."),
+        ("flagged-for-review.html", "Flagged pass C", sum(1 for c in DATASET_C_ITEMS if c.get("flagged")), "Live 10kt/14kt conflict, resizing contradiction, omitted grams & D- BBB notes."),
         ("security-audit.html", "Security audit log", 7, "Automated anti-hallucination passes (SEC-01..SEC-07) & SHA-256 data digests."),
         ("excluded.html", "Excluded", len(EXCLUDED), "Vermeil and plated look-alikes: why they fail the test."),
     ]

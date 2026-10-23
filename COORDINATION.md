@@ -18,7 +18,7 @@ Read it before starting any work. Update it when you claim, finish, or hand off 
 | `sess-692d-gold` | `arena/692d8c94-gold3` | 2026-10-22T23:26Z | complete (PR #29 merged as `bafa7d9`; record PR #30) |
 | `arena/699d8e05-gold3` | `arena/699d8e05-gold3` | 2026-10-22T23:50Z | complete (PR #31, #32 merged — V5, §10) |
 | `arena/6d6192d1-gold3` | `arena/6d6192d1-gold3` | 2026-10-23T09:55Z | complete — fourth pass (V6), CR-P3 closeout (V7), final integration (V8), targeted weight pass (V9); PRs #33, #34, #35, #36 merged; Pages deployed from `771ea6e` |
-| `arena/2908bea4-gold3` | `arena/2908bea4-gold3` | 2026-10-23T09:55Z | **active — Dataset C & Dataset D live URL/value sweep (V10–V11), Dataset C provenance gate, final integration & deploy (V12)** |
+| `arena/2908bea4-gold3` | `arena/2908bea4-gold3` | 2026-10-23T09:55Z | complete — Dataset C & Dataset D live URL/value sweep (V10–V11), Dataset C provenance gate (`verify_dataset_c.py`), final integration & deploy (V12, §12) |
 
 ### Branch naming note (important)
 The protocol below asks for `session-<id>/<task>` branches. **This sandbox pins each session to a
@@ -66,9 +66,9 @@ Status values: `unclaimed` · `in progress` · `done` · `needs review`
 | V7 | Close out the open `CR-P3-*` change requests. **Closed:** CR-P3-1 (R15/R16/R18 return terms + POL1 removed), CR-P3-2 (PD1 retired), CR-P3-4 (RH1 on six white-gold rows), CR-P3-6 (govinfo.gov was already allowlisted), CR-P3-7 (`weight_status` may say "published as a range"; `verify.py` updated), CR-P3-8 (P3's 47 checks merged into the verification log), CR-P3-9 (site rebuilt), CR-P3-10 (dead links already repointed). **Partially closed:** CR-P3-5 (eCFR banner added; Costco document metadata is NOT on the product page, so it was not added). **Open:** CR-P3-3 (scope labels — the affected rows already say "Listing title" / "Product title"). | done | `arena/6d6192d1-gold3` | `data/rings.json`, `data/flags.json`, `data/sellers.json`, `data/sources.json`, `data/verification.json`, `data/products.json`, `scripts/verify.py`, `scripts/audit.py` | 2026-10-23T10:30Z |
 | V8 | Final integration: re-verify combined data line by line, regenerate every page, run all eight CI gates, PR → `main`, merge, confirm Pages deploy, record result. **PR #33 merged as `796362b` at 10:03:09Z; Pages built from `796362b`; live read-back confirmed.** | done | `arena/6d6192d1-gold3` | repo root (integration window), generated `*.html`, `verification/` | 2026-10-23T10:30Z |
 | V9 | Fifth pass, targeted: re-open **every Dataset-B row that publishes a gram weight**, because weight is the only seller figure the melt calculator consumes. Result **3 confirmed · 3 corrected · 1 flagged** — one weight stored as a single figure where the page prints two (R23), two invented `±5%` tolerance annotations removed (R26/R27), and 16 CFR 23.10 read in full to check the maker's-mark citation. Published `data/reverification-p5.json` + `reports/reverification-pass-p5.md`; verification log now **116 checks across four independent passes**. | done | `arena/6d6192d1-gold3` | `data/reverification-p5.json`, `reports/reverification-pass-p5.md`, `data/rings.json`, `data/standards.json`, `data/verification.json` | 2026-10-23T10:55Z |
-| V10 | Independent line-by-line live re-verification of Dataset C (`SOL-01`..`SOL-09`, `BND-01`..`BND-12`, `SEL-01`..`SEL-05`, spot & standards — closing §10.4 #2/#3 & §11.3 #1/#2; renumbered from `V9` after PR #34): 58 official URLs opened live on 2026-10-23, blanking client-JS-only Menē weights on `BND-01`..`BND-03`, fixing unsupported hallmarks on `SOL-01`..`SOL-08` & `BND-08`..`BND-12`, repointing dead `uscode.house.gov` (500), `gia.edu` (404), and `gov.uk` (404) links, updating BBB/policy terms, and publishing `data/reverification-dataset-c.json` + `reports/reverification-dataset-c.md` | in progress | `arena/2908bea4-gold3` | `data/solitaire-rings.json`, `data/bands-and-high-karat.json`, `data/sellers-policies.json`, `data/spot-and-standards.json`, `data/reverification-dataset-c.json`, `reports/reverification-dataset-c.md`, `COORDINATION.md` | 2026-10-23T10:15Z |
-| V11 | Live spot-audit of Dataset D rows (`R23`–`R31`, `S-BRILLIANTEARTH`/`S-VRAI`/`S-LOCALECLECTIC`/`S-MENE` — confirming `R24` 2.3g chunk-1 weight and fixing 5 broken 404/redirect URLs + 3 wrong phone/email records) + automated Dataset C provenance & cross-page count-consistency gate (`scripts/verify_dataset_c.py`) | in progress | `arena/2908bea4-gold3` | `scripts/verify_dataset_c.py`, `data/sellers.json`, `data/rings.json`, `data/verification.json` | 2026-10-23T10:15Z |
-| V12 | Final additive integration (reconciled onto `origin/main` @ `ca0ab70` after `arena/6d6192d1-gold3` retired): fix stale nav/`README.md` counts (`59`/`16` vs dynamic counts), wire `verify_dataset_c.py` into CI, regenerate static pages, pass all CI gates, PR → `main`, merge, verify Pages deploy | in progress | `arena/2908bea4-gold3` | repo root (integration window): `scripts/build_ext_pages.py`, `scripts/build_site.py`, `README.md`, `.github/workflows/audit.yml`, generated `*.html`, `verification/` | 2026-10-23T10:15Z |
+| V10 | Independent line-by-line live re-verification of Dataset C (`SOL-01`..`SOL-09`, `BND-01`..`BND-12`, `SEL-01`..`SEL-05`, spot & standards — closing §10.4 #2/#3 & §11.3 #1/#2; renumbered from `V9` after PR #34): 58 official URLs opened live on 2026-10-23, blanking client-JS-only Menē weights on `BND-01`..`BND-03`, fixing unsupported hallmarks on `SOL-01`..`SOL-08` & `BND-08`..`BND-12`, repointing dead `uscode.house.gov` (500), `gia.edu` (404), and `gov.uk` (404) links, updating BBB/policy terms, and publishing `data/reverification-dataset-c.json` + `reports/reverification-dataset-c.md` | done | `arena/2908bea4-gold3` | `data/solitaire-rings.json`, `data/bands-and-high-karat.json`, `data/sellers-policies.json`, `data/spot-and-standards.json`, `data/reverification-dataset-c.json`, `reports/reverification-dataset-c.md`, `COORDINATION.md` | 2026-10-23T11:05Z |
+| V11 | Live spot-audit of Dataset D rows (`R23`–`R31`, `S-BRILLIANTEARTH`/`S-VRAI`/`S-LOCALECLECTIC`/`S-MENE` — confirming `R24` 2.3g chunk-1 weight and fixing 5 broken 404/redirect URLs + 3 wrong phone/email records) + automated Dataset C provenance & cross-page count-consistency gate (`scripts/verify_dataset_c.py`) | done | `arena/2908bea4-gold3` | `scripts/verify_dataset_c.py`, `data/sellers.json`, `data/rings.json`, `data/flags.json`, `data/verification.json` | 2026-10-23T11:05Z |
+| V12 | Final additive integration (reconciled onto `origin/main` @ `ca0ab70` after `arena/6d6192d1-gold3` retired): fix stale nav/`README.md` counts (`59`/`16` vs dynamic counts), wire `verify_dataset_c.py` into CI, regenerate static pages, pass all CI gates, PR → `main`, merge, verify Pages deploy | done | `arena/2908bea4-gold3` | repo root (integration window): `scripts/build_ext_pages.py`, `scripts/build_site.py`, `scripts/run_security_audit.py`, `README.md`, `.github/workflows/audit.yml`, generated `*.html`, `verification/` | 2026-10-23T11:05Z |
 
 > **T10 closed 2026-10-23** by its owner's own work, merged as PR #13 (board record) and PR #15
 > (text corrections). This session only recorded the closure — no file owned by `arena/92d7dd0a-gold3`
@@ -724,3 +724,54 @@ not-re-checked; `R22`'s weight line was cut off by the fetch. All of it is liste
 3. Replace `R03`'s collection-page citation with a product page, or drop the row.
 4. Re-check Catbird's contact page; if it stays broken, decide whether `S-CB`'s e-mail is citable at all.
 5. Re-read `R22`'s weight and the rhodium wording on `R03`/`R09`.
+
+---
+
+## 12. Sixth Pass (`P8`) — Dataset C & Dataset D Live URL/Value Sweep (`arena/2908bea4-gold3`, 2026-10-23)
+
+### 12.1 Scope & key findings (`data/reverification-dataset-c.json`, `reports/reverification-dataset-c.md`)
+
+58 official URLs were opened live across all 21 Dataset C ring listings (`SOL-01`..`SOL-09`, `BND-01`..`BND-12`), all 5
+Dataset C sellers + BBB profiles (`/complaints` & `/customer-reviews`), all spot & statutory/gemological standards, and
+Dataset D (`R23`–`R31` + `S-BRILLIANTEARTH`, `S-VRAI`, `S-LOCALECLECTIC`, `S-MENE`): **26 confirmed · 25 corrected · 7 flagged**.
+`data/verification.json` now holds **128 checks across P1–P8** (with 9 previously `not_rechecked` rows verified and removed).
+
+1. **Menē `BND-01`..`BND-03` client-JS-only gram weights blanked to `null`.** Static HTML across `mene-classic-band-gold`,
+   `mene-narrow-flat-band-gold` (`$1,544`, `4mm x 2mm`), `mene-wide-flat-band-gold` (`$2,465`, `6mm x 2mm`), and
+   `collections/bands-gold` omits gram weights (`8.5`/`7.9`/`12` g are client-rendered only) and omits `"solid"`. Blanked
+   `weight_grams`, `net_gold_weight_grams`, `pure_gold_grams`, `melt_value_usd`, and `price_to_melt_ratio` to `null` while
+   preserving `PRC1` & `SD6`.
+2. **13 remaining Dataset C rows had unsupported hallmark claims removed (`SD6` extension).** Neither
+   `bluenile.com/services/warranty`, `brilliantearth.com/customer-service/warranty/`, nor any `SOL-01`..`SOL-08` or
+   `BND-08`..`BND-12` product page prints hallmark text; all 21 Dataset C rows now read `"Not published by the seller"`.
+3. **8 broken 404/500/redirect URLs repointed to live HTTP 200 official pages (`SRC1`, `SD10`):**
+   - `uscode.house.gov/view.xhtml?path=/prelim@title15/chapter8&edition=prelim` (HTTP 500) → GovInfo 15 U.S.C. §§ 295 & 297 PDFs
+   - `gia.edu/gems-gemology/summer-2025-lab-notes-gold-plated-gold0` (404) → `Summer-2025-Lab-Notes.pdf`
+   - `gov.uk/guidance/hallmarking-law-and-practice` (404) → `gov.uk/government/publications/hallmarking-guidance-notes/hallmarking-is-the-law-guidance-summary`
+   - `brilliantearth.com/returns/` (404) → `brilliantearth.com/30-Day-Returns/` (`S-BRILLIANTEARTH`, `R29`, `?currency=USD` appended)
+   - `vrai.com/pages/contact-us` (404) → `vrai.com/contact-us` (`S-VRAI`)
+   - `help.vrai.com/hc/en-us/articles/360000836514-What-is-your-return-policy` (redirect to generic KB) → `help.vrai.com/en/knowledge/what-is-your-return-policy` (`S-VRAI`, `R28`, `RET8`)
+   - `localeclectic.com/pages/contact-us` (404) → `localeclectic.com/pages/frequently-asked-questions` (`S-LOCALECLECTIC`)
+   - `mene.com/contact-us` (404) → `mene.com/customer-care/en-US` (`S-MENE`)
+4. **3 wrong seller phone/email records corrected & `R24`/`R25` chunk-1 weights verified:**
+   - `S-MENE`: `+1-833-636-3465` → `+1-833-636-3245` (`1-833-MENE-24K`), `concierge@mene.com` → `service@mene.com`
+   - `S-VRAI`: `+1-855-383-8724` → `+1-855-956-4488`, `hello@vrai.com` → `help@vrai.com`
+   - `S-BRILLIANTEARTH`: `customerservice@brilliantearth.com` (unprinted) → `null` (live page prints `800.691.0952` + SMS `+1 415.520.6526`)
+   - `R24` chunk 1 confirmed `"Approximately 2.3g (gold) or 3.4g (platinum)"`; `R25` confirmed `"Approximately 1.4g (gold) or 2.0g (platinum)"` (`WT1`).
+   - Dataset C BBB complaint/review counts, Brilliant Earth `$35` wire fee on all wires, and `mejuri.com/us/en/company/terms` contact provenance updated.
+5. **Automated gate & dynamic counts:** Added `scripts/verify_dataset_c.py` to `.github/workflows/audit.yml` and updated `scripts/build_ext_pages.py` + `scripts/build_site.py` so nav/filter counts (`71` combined rows, `21` flagged C, `5` weight-published / `16` omitted) compute dynamically from `data/`.
+
+### 12.2 Gates after the changes (run locally in workflow order)
+
+| Gate | Result |
+|---|---|
+| `python3 scripts/verify.py` | **PASS** — 0 errors, 0 warnings, 11 notes |
+| `python3 scripts/verify_dataset_c.py` | **PASS** — 21 rings (5 weight-published, 16 null/unverified), 5 sellers, 7 karat standards, 0 dead links |
+| `python3 scripts/build_ext_pages.py` + `python3 scripts/build_site.py` | **OK** — 18 + 6 pages built, internal links & stylesheets verified |
+| `python3 scripts/audit.py` | **PASS** — 31 rows, 0 errors, 0 warnings, 173 passed |
+| `python3 scripts/run_security_audit.py --session-id arena/2908bea4-gold3` | **PASS** — SEC-01…SEC-07 |
+| `node scripts/render-test.js` | **PASS** — 120/120 |
+| `python3 scripts/report_verify.py` | **PASS** — 128 verification checks |
+| Row source-link enforcement | **PASS** — every root HTML `<tbody><tr>` row carries an `https://` official link |
+| `npm --prefix archive/session-cbea1001 test` | **PASS** |
+

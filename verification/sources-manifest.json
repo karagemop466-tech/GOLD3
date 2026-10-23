@@ -1,27 +1,28 @@
 {
-  "generated_at_utc": "2026-10-23T10:07:49Z",
+  "generated_at_utc": "2026-10-23T10:26:32Z",
   "data_file_sha256": {
-    "bands-and-high-karat.json": "b8b444086fe8dc13a1ec6b5579b5eae627afc549631660ff20e5601598d6d657",
+    "bands-and-high-karat.json": "d7bcdc30e96312b051be27e5bb1b9f48d25f398611e96dc690c02fbc1575f749",
     "findings.json": "ab9bc570436602ab1166ad274e53a3b80dd1cb3c1b691cd1758e90950fb54873",
-    "flags.json": "22c51ea5b81ecc74f5f27cf28fedde495c5ccc5ed05d9177f01d271f29f60161",
+    "flags.json": "de635e0abb8780f2751da49a1c2fe91fa9cef2db7d79e993e7988e129925b933",
     "gold-price.json": "bdb3a741c6696f56ec713c090706cb98fefb53901fe284dfe105308a7d6a7e08",
     "prices.json": "639b30ebe844d1e7740046c0c1aa474117ab0a34d14df6077be23ca532226f0a",
     "products.json": "d4c36640860f639be29f18c6fe5c601389eb736ed8e1df2c1ae6cdeaa7a8efe7",
     "retailers.json": "fc2130447e547458e380d666c0b6598352464a2dedffbd8d0aefc7ce7ffabab3",
+    "reverification-dataset-c.json": "2f35e1bb80f76cbc360f51dc2fec996c407f96fdd192b6386f33ad5cf4635e5c",
     "reverification-p3.json": "b1dca1669099d66e45b08588f8827b24f59edd65e4f4b4a806ef2a02987b5d16",
     "reverification-p4.json": "2e5ce8fdff92d04a3e1570960caf0bb1daafc91b2d76209a97a0fb94635e801a",
     "reverification-p5.json": "1c5ba33b93efdaa14d423fff0be8ca20622f4436d900bc6208ee44e64158bdda",
-    "rings.json": "6d7abec39efdd8248a24af86aceb388ef035999e7d12051282dcc21322457004",
-    "sellers-policies.json": "372689ba815fb011c15b17e52773385718f972b174023f8bd67e01bc10d27ea6",
-    "sellers.json": "59b5f13800c63b7123efb822cc640ea7f20caf34ad2ee589aa46c54ba4e5c2e2",
-    "solitaire-rings.json": "1b0d493a2835471df5bf8610622bf2f668a0c2d62e7961c112d46591ae19f769",
+    "rings.json": "eb9c0e9b468fb7e8dc8d79dcdc4f511ee8362f55b00b921ef97aad016ad02344",
+    "sellers-policies.json": "625afec49d153317c48bc463f0bec36971d3120cf962d170616f9fd85fc68699",
+    "sellers.json": "2d504f540bea854eb7d83e169e8031b0e757fd9d2ac6c80e5422c10a3a006b2e",
+    "solitaire-rings.json": "f08a0b070155f41ddb6dc7a23e1213b9ed05b8198098afce5cf63fecd940b29d",
     "sources.json": "e59992bc2419cc8e9bed56c64b49c8ae91394ec5c8bbdf78881320caaf2fa77b",
-    "spot-and-standards.json": "77a3ff10db7fe885bc1f51eece4311fa6a62034f73ce2292d2e4bf1841b9a5ed",
+    "spot-and-standards.json": "ffabd0ca49e72bf9f6b7d47d8a40166324017d6a04906ea3589a2e555f065e7b",
     "standards.json": "6b745302667c70fb15800fb830471250551a37e238e507a8b993f8e3c4423ad8",
     "verification-report.json": "082b64519c8a8da51db345ac6c82731ca875cf178e395998dce0315db7622fde",
-    "verification.json": "23a4b3a7d35cd2d2b459c75b60dfb244e37006d719095de7e3b40526a013720e"
+    "verification.json": "163f06038a2792c6a393890e96b1ca476803eb6948a0e3a4dd5cba053fa8dc3c"
   },
-  "unique_official_urls_count": 174,
+  "unique_official_urls_count": 188,
   "official_sources": [
     {
       "url": "https://auratenewyork.com/",
@@ -189,11 +190,17 @@
       ]
     },
     {
-      "url": "https://help.vrai.com/hc/en-us/articles/360000836514-What-is-your-return-policy",
+      "url": "https://help.vrai.com/en/knowledge/what-is-your-return-policy",
       "referenced_by": [
         "HTML Link in flagged.html",
         "HTML Link in security-audit.html",
         "HTML Link in sellers.html"
+      ]
+    },
+    {
+      "url": "https://help.vrai.com/hc/en-us/articles/360000836514-What-is-your-return-policy",
+      "referenced_by": [
+        "HTML Link in security-audit.html"
       ]
     },
     {
@@ -381,12 +388,7 @@
     {
       "url": "https://mene.com/bands/gold",
       "referenced_by": [
-        "HTML Link in bands-vintage-rings.html",
-        "HTML Link in flagged-for-review.html",
-        "HTML Link in security-audit.html",
-        "Ring BND-01 Weight Page",
-        "Ring BND-02 Weight Page",
-        "Ring BND-03 Weight Page"
+        "HTML Link in security-audit.html"
       ]
     },
     {
@@ -398,6 +400,7 @@
         "HTML Link in flagged.html",
         "HTML Link in security-audit.html",
         "HTML Link in verify.html",
+        "Ring BND-01 Weight Page",
         "Ring BND-02 Product Page",
         "Ring BND-03 Product Page"
       ]
@@ -405,16 +408,29 @@
     {
       "url": "https://mene.com/contact-us",
       "referenced_by": [
+        "HTML Link in security-audit.html"
+      ]
+    },
+    {
+      "url": "https://mene.com/customer-care/en-US",
+      "referenced_by": [
         "HTML Link in security-audit.html",
-        "HTML Link in sellers.html"
+        "HTML Link in sellers.html",
+        "HTML Link in verify.html"
+      ]
+    },
+    {
+      "url": "https://mene.com/customer-care/en-US/articles/returns-319505",
+      "referenced_by": [
+        "HTML Link in security-audit.html",
+        "HTML Link in sellers-policies.html",
+        "Seller SEL-MENE Returns"
       ]
     },
     {
       "url": "https://mene.com/customer-care?hcUrl=%2Fen-US%2Farticles%2Freturns-319505",
       "referenced_by": [
-        "HTML Link in security-audit.html",
-        "HTML Link in sellers-policies.html",
-        "Seller SEL-MENE Returns"
+        "HTML Link in security-audit.html"
       ]
     },
     {
@@ -426,6 +442,25 @@
         "HTML Link in security-audit.html",
         "HTML Link in verify.html",
         "Ring BND-01 Product Page"
+      ]
+    },
+    {
+      "url": "https://mene.com/products/mene-narrow-flat-band-gold",
+      "referenced_by": [
+        "HTML Link in bands-vintage-rings.html",
+        "HTML Link in flagged-for-review.html",
+        "HTML Link in security-audit.html",
+        "HTML Link in verify.html",
+        "Ring BND-02 Weight Page"
+      ]
+    },
+    {
+      "url": "https://mene.com/products/mene-wide-flat-band-gold",
+      "referenced_by": [
+        "HTML Link in bands-vintage-rings.html",
+        "HTML Link in flagged-for-review.html",
+        "HTML Link in security-audit.html",
+        "Ring BND-03 Weight Page"
       ]
     },
     {
@@ -518,17 +553,12 @@
     {
       "url": "https://uscode.house.gov/view.xhtml?path=%2Fprelim%40title15%2Fchapter8&edition=prelim",
       "referenced_by": [
-        "HTML Link in checklist-standards.html",
-        "HTML Link in security-audit.html",
-        "Karat Row (14K Solid Gold (U.S. Fractional 14/24))",
-        "Karat Row (18K Solid Gold)",
-        "Standard STD-01"
+        "HTML Link in security-audit.html"
       ]
     },
     {
       "url": "https://uscode.house.gov/view.xhtml?path=/prelim@title15/chapter8&edition=prelim",
       "referenced_by": [
-        "HTML Link in checklist-standards.html",
         "HTML Link in security-audit.html"
       ]
     },
@@ -799,6 +829,13 @@
       ]
     },
     {
+      "url": "https://www.bluenile.com/services/warranty",
+      "referenced_by": [
+        "HTML Link in security-audit.html",
+        "HTML Link in verify.html"
+      ]
+    },
+    {
       "url": "https://www.brilliantearth.com/",
       "referenced_by": [
         "HTML Link in security-audit.html",
@@ -812,15 +849,24 @@
       "referenced_by": [
         "HTML Link in security-audit.html",
         "HTML Link in sellers-policies.html",
+        "HTML Link in sellers.html",
+        "HTML Link in verify.html",
         "Seller SEL-BRILLIANTEARTH Returns"
       ]
     },
     {
       "url": "https://www.brilliantearth.com/Fairmined-2mm-Six-Prong-Solitaire-Ring-Gold-BE1FM0126-24910022/",
       "referenced_by": [
+        "HTML Link in flagged.html",
+        "HTML Link in security-audit.html",
+        "HTML Link in verify.html"
+      ]
+    },
+    {
+      "url": "https://www.brilliantearth.com/Fairmined-2mm-Six-Prong-Solitaire-Ring-Gold-BE1FM0126-24910022/?currency=USD",
+      "referenced_by": [
         "HTML Link in combined.html",
         "HTML Link in flagged-for-review.html",
-        "HTML Link in flagged.html",
         "HTML Link in security-audit.html",
         "HTML Link in solitaire-settings.html",
         "HTML Link in verify.html",
@@ -829,6 +875,12 @@
     },
     {
       "url": "https://www.brilliantearth.com/Peyton-4mm-Solitaire-Ring-Gold-BE12148-23884915/",
+      "referenced_by": [
+        "HTML Link in security-audit.html"
+      ]
+    },
+    {
+      "url": "https://www.brilliantearth.com/Peyton-4mm-Solitaire-Ring-Gold-BE12148-23884915/?currency=USD",
       "referenced_by": [
         "HTML Link in combined.html",
         "HTML Link in flagged-for-review.html",
@@ -839,6 +891,12 @@
     },
     {
       "url": "https://www.brilliantearth.com/Six-Prong-Petite-Comfort-Fit-1.5mm-Solitaire-Ring-Gold-BE1199H6-1912137/",
+      "referenced_by": [
+        "HTML Link in security-audit.html"
+      ]
+    },
+    {
+      "url": "https://www.brilliantearth.com/Six-Prong-Petite-Comfort-Fit-1.5mm-Solitaire-Ring-Gold-BE1199H6-1912137/?currency=USD",
       "referenced_by": [
         "HTML Link in combined.html",
         "HTML Link in flagged-for-review.html",
@@ -866,8 +924,7 @@
     {
       "url": "https://www.brilliantearth.com/returns/",
       "referenced_by": [
-        "HTML Link in security-audit.html",
-        "HTML Link in sellers.html"
+        "HTML Link in security-audit.html"
       ]
     },
     {
@@ -1032,10 +1089,16 @@
       ]
     },
     {
-      "url": "https://www.gia.edu/gems-gemology/summer-2025-lab-notes-gold-plated-gold0",
+      "url": "https://www.gia.edu/dam/migrated-assets/docs/doc1/summer-2025-lab-notes.pdf",
       "referenced_by": [
         "HTML Link in security-audit.html",
         "Standard STD-05"
+      ]
+    },
+    {
+      "url": "https://www.gia.edu/gems-gemology/summer-2025-lab-notes-gold-plated-gold0",
+      "referenced_by": [
+        "HTML Link in security-audit.html"
       ]
     },
     {
@@ -1073,8 +1136,25 @@
     {
       "url": "https://www.gov.uk/guidance/hallmarking-law-and-practice",
       "referenced_by": [
-        "HTML Link in checklist-standards.html",
         "HTML Link in security-audit.html"
+      ]
+    },
+    {
+      "url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title15/pdf/USCODE-2023-title15-chap8-sec295.pdf",
+      "referenced_by": [
+        "HTML Link in checklist-standards.html",
+        "HTML Link in security-audit.html",
+        "Karat Row (14K Solid Gold (U.S. Fractional 14/24))",
+        "Karat Row (18K Solid Gold)"
+      ]
+    },
+    {
+      "url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title15/pdf/USCODE-2023-title15-chap8-sec297.pdf",
+      "referenced_by": [
+        "HTML Link in checklist-standards.html",
+        "HTML Link in security-audit.html",
+        "HTML Link in verify.html",
+        "Standard STD-01"
       ]
     },
     {
@@ -1153,6 +1233,12 @@
     {
       "url": "https://www.legislation.gov.uk/ukpga/1973/43",
       "referenced_by": [
+        "HTML Link in security-audit.html"
+      ]
+    },
+    {
+      "url": "https://www.legislation.gov.uk/ukpga/1973/43/contents",
+      "referenced_by": [
         "HTML Link in checklist-standards.html",
         "HTML Link in security-audit.html",
         "Karat Row (22K Solid Gold)",
@@ -1169,8 +1255,7 @@
     {
       "url": "https://www.localeclectic.com/pages/contact-us",
       "referenced_by": [
-        "HTML Link in security-audit.html",
-        "HTML Link in sellers.html"
+        "HTML Link in security-audit.html"
       ]
     },
     {
@@ -1304,7 +1389,6 @@
         "HTML Link in combined.html",
         "HTML Link in flagged-for-review.html",
         "HTML Link in security-audit.html",
-        "HTML Link in verify.html",
         "Ring BND-06 Product Page"
       ]
     },
@@ -1324,7 +1408,6 @@
         "HTML Link in combined.html",
         "HTML Link in flagged-for-review.html",
         "HTML Link in security-audit.html",
-        "HTML Link in verify.html",
         "Ring BND-07 Product Page"
       ]
     },
@@ -1355,7 +1438,6 @@
         "HTML Link in combined.html",
         "HTML Link in flagged-for-review.html",
         "HTML Link in security-audit.html",
-        "HTML Link in verify.html",
         "Ring BND-08 Product Page"
       ]
     },
@@ -1550,10 +1632,17 @@
       ]
     },
     {
-      "url": "https://www.vrai.com/pages/contact-us",
+      "url": "https://www.vrai.com/contact-us",
       "referenced_by": [
         "HTML Link in security-audit.html",
-        "HTML Link in sellers.html"
+        "HTML Link in sellers.html",
+        "HTML Link in verify.html"
+      ]
+    },
+    {
+      "url": "https://www.vrai.com/pages/contact-us",
+      "referenced_by": [
+        "HTML Link in security-audit.html"
       ]
     },
     {

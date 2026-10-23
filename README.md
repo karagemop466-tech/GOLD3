@@ -47,11 +47,14 @@ It publishes as a static site on GitHub Pages and is generated entirely from mac
 ## Run every check
 
 ```bash
-python3 scripts/verify.py         # gate: source domains, quotes must contain their price, arithmetic
-python3 scripts/build_site.py     # build the static site; fails on broken internal links
-python3 scripts/audit.py          # independent audit: provenance, stray numbers, verification coverage
-node scripts/render-test.js       # assert the built HTML contains the audited values
-python3 scripts/report_verify.py  # regenerate reports/verification-report.md from data/
+python3 scripts/verify.py           # gate: Dataset A + B source domains, quotes, arithmetic
+python3 scripts/verify_dataset_c.py # gate: Dataset C schema, verbatim price/weight/solid/hallmark & dead-link blocklist
+python3 scripts/build_ext_pages.py  # build Dataset C subpages (solitaire-settings, bands-vintage-rings, sellers-policies, etc.)
+python3 scripts/build_site.py       # build the unified static site; fails on broken internal links
+python3 scripts/audit.py            # independent audit: provenance, stray numbers, verification coverage
+python3 scripts/run_security_audit.py # SEC-01..SEC-07 anti-hallucination, melt-math, allowlist & XSS suite
+node scripts/render-test.js         # assert the built HTML contains the audited values
+python3 scripts/report_verify.py    # regenerate reports/verification-report.md from data/
 npm --prefix archive/session-cbea1001 test  # Node anti-hallucination, melt-math & link security suite
 ```
 
@@ -92,7 +95,32 @@ calculator consumes. 7 checks: **3 confirmed · 3 corrected · 1 flagged** (`rep
 * **16 CFR 23.10** read in full: the maker's-mark paragraph the site cites is real and is now quoted verbatim next to
   the rule.
 
-The verification log now holds **116 checks across four independent passes**.
+The verification log now holds **128 checks across independent passes P1–P8**.
+
+## What the sixth pass changed (23 October 2026 — Dataset C & Dataset D sweep)
+
+58 official URLs were opened live across all 21 Dataset C ring listings (`SOL-01`..`SOL-09`, `BND-01`..`BND-12`), all 5
+Dataset C sellers + BBB profiles, all spot/statutory standards, and Dataset D (`R23`–`R31` + `S-BRILLIANTEARTH`,
+`S-VRAI`, `S-LOCALECLECTIC`, `S-MENE`): **26 confirmed, 25 corrected, 7 flagged** (`data/reverification-dataset-c.json`,
+`reports/reverification-dataset-c.md`, plus `P8-01`..`P8-12` in `data/verification.json`).
+
+* **Menē `BND-01`..`BND-03` client-JS-only gram weights blanked to `null`.** Static HTML across `mene-classic-band-gold`,
+  `mene-narrow-flat-band-gold`, `mene-wide-flat-band-gold`, and `collections/bands-gold` omits gram weights (`8.5`/`7.9`/`12`
+  g render via client JS only) and omits the word `"solid"`. All three rows now have `weight_grams: null` and `melt_value_usd: null`
+  while preserving `PRC1` & `SD6`.
+* **13 remaining Dataset C rows had unsupported hallmark claims removed (`SD6` extension).** Neither `bluenile.com/services/warranty`,
+  `brilliantearth.com/customer-service/warranty/`, nor any `SOL-01`..`SOL-08` or `BND-08`..`BND-12` product page prints hallmark
+  text; all 21 Dataset C rows now state `"Not published by the seller"`.
+* **8 dead/broken 404/500/redirect URLs repointed to live HTTP 200 official pages (`SRC1`)**:
+  `uscode.house.gov` (HTTP 500 → GovInfo 15 U.S.C. §§ 295 & 297 PDFs), `gia.edu/...gold0` (404 → Summer 2025 Lab Notes PDF),
+  `gov.uk/guidance/hallmarking-law-and-practice` (404 → `hallmarking-is-the-law-guidance-summary`), `brilliantearth.com/returns/`
+  (404 → `/30-Day-Returns/`), `vrai.com/pages/contact-us` (404 → `/contact-us`), `help.vrai.com/hc/...` (redirect →
+  `/en/knowledge/what-is-your-return-policy`), `localeclectic.com/pages/contact-us` (404 → `/pages/frequently-asked-questions`),
+  and `mene.com/contact-us` (404 → `/customer-care/en-US`).
+* **3 wrong seller phone/email records corrected & `R24`/`R25` weights verified:** `S-MENE` (`+1-833-636-3245`, `service@mene.com`),
+  `S-VRAI` (`+1-855-956-4488`, `help@vrai.com`), `S-BRILLIANTEARTH` (`email: null`, web form + SMS `+1 415.520.6526`); `R24`
+  chunk 1 confirmed `"Approximately 2.3g (gold) or 3.4g (platinum)"` and `R25` `"Approximately 1.4g (gold) or 2.0g (platinum)"` (`WT1`).
+* **Added `scripts/verify_dataset_c.py`** to `.github/workflows/audit.yml` and made Dataset C nav/filter counts dynamic (`71` combined rows, `21` flagged).
 
 ## What the third verification pass changed
 
