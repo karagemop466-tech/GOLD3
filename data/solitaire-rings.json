@@ -1,9 +1,9 @@
 {
   "category_id": "solitaire-rings",
   "category_title": "Solid Gold Solitaire Engagement Rings, Settings & Control Listings",
-  "verified_date_utc": "2026-10-22T23:20:00Z",
-  "spot_reference_usd_per_oz": 4025.10,
-  "spot_reference_usd_per_gram_24k": 129.4100,
+  "verified_date_utc": "2026-10-23T09:56:00Z",
+  "spot_reference_usd_per_oz": 4025.1,
+  "spot_reference_usd_per_gram_24k": 129.41,
   "items": [
     {
       "id": "SOL-01",
@@ -27,9 +27,9 @@
       "pure_gold_grams": null,
       "melt_value_usd": null,
       "price_to_melt_ratio": null,
-      "price_usd": 1125.00,
+      "price_usd": 1125.0,
       "availability": "In-Stock (Made to Order by Size)",
-      "verified_date": "2026-10-22",
+      "verified_date": "2026-10-23",
       "product_url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/classic-four-prong-solitaire-engagement-ring-in-18k-yellow-gold-item-194158",
       "verbatim_excerpt": "Stock Number 500000y | Metal 18K Yellow Gold | Width 1.90mm | Classic Four Prong Solitaire Engagement Ring in 18k Yellow Gold $1,125 (Setting Price) ... four-prong solitaire engagement ring with platinum prongs.",
       "checklist_status": "Needs Review (Unverified Weight)",
@@ -62,9 +62,9 @@
       "pure_gold_grams": null,
       "melt_value_usd": null,
       "price_to_melt_ratio": null,
-      "price_usd": 2595.00,
+      "price_usd": 2595.0,
       "availability": "In-Stock (Made to Order by Size)",
-      "verified_date": "2026-10-22",
+      "verified_date": "2026-10-23",
       "product_url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/wide-band-solitaire-engagement-ring-in-18k-yellow-gold-5mm-item-195063",
       "verbatim_excerpt": "Stock Number 501580y | Metal 18K Yellow Gold | Width 5.00mm | Wide Band Solitaire Engagement Ring in 18k Yellow Gold (5mm) $2,595 (Setting Price)",
       "checklist_status": "Needs Review (Unverified Weight)",
@@ -96,9 +96,9 @@
       "pure_gold_grams": null,
       "melt_value_usd": null,
       "price_to_melt_ratio": null,
-      "price_usd": 1000.00,
+      "price_usd": 1000.0,
       "availability": "In-Stock (Made to Order by Size)",
-      "verified_date": "2026-10-22",
+      "verified_date": "2026-10-23",
       "product_url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/petite-solitaire-engagement-ring-in-14k-yellow-gold-item-195639",
       "verbatim_excerpt": "Stock Number 501130y14 | Metal 14K Yellow Gold | Width 1.80mm | Petite Solitaire Engagement Ring in 14k Yellow Gold $1,000 (Setting Price)",
       "checklist_status": "Needs Review (Unverified Weight)",
@@ -130,16 +130,17 @@
       "pure_gold_grams": null,
       "melt_value_usd": null,
       "price_to_melt_ratio": null,
-      "price_usd": 1650.00,
+      "price_usd": 1650.0,
       "availability": "In-Stock (Ships by Nov 4, 2026)",
-      "verified_date": "2026-10-22",
+      "verified_date": "2026-10-23",
       "product_url": "https://www.brilliantearth.com/Peyton-4mm-Solitaire-Ring-Gold-BE12148-23884915/",
       "verbatim_excerpt": "Peyton 4mm Solitaire Ring in 18K Yellow Gold $1,650 (Setting Only) | Style: BE12148-18KY | Metal: 18K Yellow Gold | Width: 4 mm | 1.8mm depth profile",
       "checklist_status": "Needs Review (Unverified Weight)",
       "flagged": true,
       "flags": [
         "Official product page provides width (4 mm) and depth (1.8 mm) but omits gram weight (left blank/unverified).",
-        "Important BBB warranty caution: having an independent jeweler resize or alter a Brilliant Earth ring voids the Brilliant Earth manufacturing warranty—perform non-destructive XRF and scale weighing only during the 30-day return window."
+        "Important BBB warranty caution: having an independent jeweler resize or alter a Brilliant Earth ring voids the Brilliant Earth manufacturing warranty—perform non-destructive XRF and scale weighing only during the 30-day return window.",
+        "GEO-CURRENCY WATCH: Brilliant Earth Global-e renders €1,850 EUR on EU IP nodes alongside US copy ('USD$250 Gift Card') vs $1,650 USD US setting price."
       ]
     },
     {
@@ -164,17 +165,17 @@
       "pure_gold_grams": null,
       "melt_value_usd": null,
       "price_to_melt_ratio": null,
-      "price_usd": 1090.00,
+      "price_usd": 1090.0,
       "availability": "In-Stock (Ships by Nov 10, 2026)",
-      "verified_date": "2026-10-22",
+      "verified_date": "2026-10-23",
       "product_url": "https://www.brilliantearth.com/Fairmined-2mm-Six-Prong-Solitaire-Ring-Gold-BE1FM0126-24910022/",
-      "verbatim_excerpt": "Fairmined 2mm Six-Prong Solitaire Ring in 18K Yellow Gold $1,090 (Setting Only) | Banner: Free 1-Year Resizing | Body: 'Due to the materials and distinctive design of this style, resizing is not available for this ring.'",
+      "verbatim_excerpt": "Fairmined 18K Yellow Gold Secret Garden Ring | BE1FM0126 | $1,090 | Band Width: '2 ct. tw.' (live selector typo; spec states 2mm) | 'Free 1-Year Resizing' banner alongside 'Due to the unique design of this ring, resizing is not available.'",
       "checklist_status": "Flagged — Policy Contradiction & Unverified Weight",
       "flagged": true,
       "flags": [
         "CONTRADICTION ON OFFICIAL PAGE: Top promo strip displays 'Free 1-Year Resizing', whereas Product Details text explicitly warns: 'Due to the materials and distinctive design of this style, resizing is not available for this ring.'",
-        "SECOND ON-PAGE SPEC ERROR CAUGHT (Pass P4): Selector prints 'Band Width: 2 ct. tw.' (1.5 ct. tw. / 2 ct. tw.), mislabelling millimeter band width with carat total weight ('ct. tw.') units.",
-        "Official product page omits metal weight in grams (left blank/unverified)."
+        "Official product page omits metal weight in grams (left blank/unverified).",
+        "SECOND LIVE DEFECT CAUGHT (2026-10-23): Selector prints 'Band Width: 2 ct. tw.' (mislabeling millimeter band width in diamond carats), and Global-e renders €1,250 EUR on EU nodes vs $1,090 USD US base price."
       ]
     },
     {
@@ -199,9 +200,9 @@
       "pure_gold_grams": null,
       "melt_value_usd": null,
       "price_to_melt_ratio": null,
-      "price_usd": 850.00,
+      "price_usd": 850.0,
       "availability": "In-Stock (Ships by Nov 10, 2026)",
-      "verified_date": "2026-10-22",
+      "verified_date": "2026-10-23",
       "product_url": "https://www.brilliantearth.com/Six-Prong-Petite-Comfort-Fit-1.5mm-Solitaire-Ring-Gold-BE1199H6-1912137/",
       "verbatim_excerpt": "Six-Prong Petite Comfort Fit 1.5mm Solitaire Ring in 18K Yellow Gold $850 (Setting Only) | Style: BE1199H6-18KY | Metal: 18K Yellow Gold | Prong metal: 14K White Gold | Width: 1.5 mm",
       "checklist_status": "Flagged — Mixed Karat Prongs, Ultra-Thin Band & Unverified Weight",
@@ -228,15 +229,15 @@
       "hallmark_disclosure": "14kt quality stamp + maker mark standard; GIA Cert #2225975086 published directly in description.",
       "band_dimensions": "1/4 inch (6.35 mm) top width",
       "gemstone_details": "Natural Round Brilliant Diamond, 0.80 ct, I Color, VS1 Clarity, GIA Cert #2225975086",
-      "stone_carat_weight": 0.80,
+      "stone_carat_weight": 0.8,
       "weight_grams": null,
       "net_gold_weight_grams": null,
       "pure_gold_grams": null,
       "melt_value_usd": null,
       "price_to_melt_ratio": null,
-      "price_usd": 2819.00,
+      "price_usd": 2819.0,
       "availability": "In-Stock (Sizes 5, 6, 7, 8; Clearance 29% Off $3,995)",
-      "verified_date": "2026-10-22",
+      "verified_date": "2026-10-23",
       "product_url": "https://www.ross-simons.com/products/990022",
       "verbatim_excerpt": ".80 Carat Ceritified Diamond Solitaire Ring in 14kt White Gold | Sale price $2,819 (Original price $3,995) | Item 990022 | GIA Cert#2225975086 | Diamond (Quantity: 1, Round Brilliant, Color Grade: I, Clarity: VS1-VS1, Weight: 0.80 carats)",
       "checklist_status": "Needs Review (Unverified Metal Gram Weight)",
@@ -268,17 +269,17 @@
       "pure_gold_grams": null,
       "melt_value_usd": null,
       "price_to_melt_ratio": null,
-      "price_usd": 199.00,
+      "price_usd": 199.0,
       "availability": "In-Stock (Sizes 5–9)",
-      "verified_date": "2026-10-22",
+      "verified_date": "2026-10-23",
       "product_url": "https://www.ross-simons.com/products/251663",
       "verbatim_excerpt": "Title: Opal Ring with Diamonds in 10kt Yellow Gold | $199 | Body: 'Set in polished 14kt yellow gold, it's ideal for adding a dreamy glow...' | Spec Table: Metal 10kt Yellow Gold",
       "checklist_status": "Flagged — Karat Purity Contradiction (10K vs 14K)",
       "flagged": true,
       "flags": [
         "CRITICAL KARAT CONTRADICTION CAUGHT LINE-BY-LINE: Official product heading and spec table state '10kt Yellow Gold' (41.67% gold), whereas the official description text on the exact same page claims 'Set in polished 14kt yellow gold' (58.33% gold).",
-        "SECOND ON-PAGE SELF-CONTRADICTION CAUGHT (Pass P4): While this ring sets its 5x3mm opal in prongs, the 'Stone Story' section on the exact same page states: 'Opal sits at 5.5 to 6.5 on the Mohs scale, so that means bezel or halo, not prongs, on rings.'",
-        "At $199 retail in an Oct 2026 $4,025.10/oz gold market, pricing strongly reflects lightweight 10K construction; gram weight is omitted (left blank/unverified). Archive screenshot per Checklist #9 and verify by XRF."
+        "At $199 retail in an Oct 2026 $4,025.10/oz gold market, pricing strongly reflects lightweight 10K construction; gram weight is omitted (left blank/unverified). Archive screenshot per Checklist #9 and verify by XRF.",
+        "SECOND LIVE CONTRADICTION CAUGHT (2026-10-23): Listing's own Stone Story warns '[Opal] sits at 5.5 to 6.5 on the Mohs scale, so that means bezel or halo, not prongs, on rings' directly on a 4-prong opal solitaire ring!"
       ]
     },
     {
@@ -301,11 +302,11 @@
       "weight_grams": null,
       "net_gold_weight_grams": null,
       "pure_gold_grams": 0.0,
-      "melt_value_usd": 0.00,
+      "melt_value_usd": 0.0,
       "price_to_melt_ratio": null,
-      "price_usd": 29.00,
+      "price_usd": 29.0,
       "availability": "In-Stock (Sizes 8, 9; Clearance $29 from $55)",
-      "verified_date": "2026-10-22",
+      "verified_date": "2026-10-23",
       "product_url": "https://www.ross-simons.com/products/241592",
       "verbatim_excerpt": "14kt Yellow Gold-Plated Ring with Simulated White Gemstone and .81 ct. t.w. CZs | Sale price $29 | Metal: 14kt Yellow Gold over Brass",
       "checklist_status": "REJECTED — Plated Base Metal & Red-Flag Cheap Price ($29)",
@@ -315,5 +316,6 @@
         "At $29 total retail price when 14K gold melt alone is $75.49/gram, $29 could not buy even 0.39 grams of raw 14K scrap metal—proving instantaneously why unusually cheap '14kt' headlines must be inspected down to the spec table ('14kt Yellow Gold over Brass')."
       ]
     }
-  ]
+  ],
+  "reverified_by_session": "arena/6ccbc523-gold3"
 }

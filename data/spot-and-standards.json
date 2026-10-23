@@ -3,20 +3,22 @@
     "project": "GOLD3 — Solid Gold Engagement Ring Verification & Anti-Hallucination Dashboard",
     "verified_date_utc": "2026-10-22T23:13:00Z",
     "session_id": "session-698f08f6",
-    "zero_hallucination_policy": "Strictly enforced. Every numeric rate, legal threshold, conversion constant, price, and weight is extracted verbatim from an official primary source retrieved on 2026-10-22 or an official government/standards statute. Unconfirmed product values are left null and flagged."
+    "zero_hallucination_policy": "Strictly enforced. Every numeric rate, legal threshold, conversion constant, price, and weight is extracted verbatim from an official primary source retrieved on 2026-10-22 or an official government/standards statute. Unconfirmed product values are left null and flagged.",
+    "reverified_date_utc": "2026-10-23T09:56:00Z",
+    "reverified_by_session": "arena/6ccbc523-gold3"
   },
   "spot_gold_benchmark": {
     "primary_source_name": "Kitco Live World Spot Price (USD)",
     "primary_source_url": "https://www.kitco.com/price/precious-metals",
     "quote_timestamp_local": "Oct 22, 2026 19:13 EDT",
     "quote_timestamp_utc": "2026-10-22T23:13:00Z",
-    "spot_bid_usd_per_troy_oz": 4025.10,
-    "spot_ask_usd_per_troy_oz": 4027.10,
-    "day_low_usd_per_troy_oz": 4020.20,
-    "day_high_usd_per_troy_oz": 4145.30,
+    "spot_bid_usd_per_troy_oz": 4025.1,
+    "spot_ask_usd_per_troy_oz": 4027.1,
+    "day_low_usd_per_troy_oz": 4020.2,
+    "day_high_usd_per_troy_oz": 4145.3,
     "ny_morning_fix_1031_edt_usd": 4050.93,
     "london_morning_fix_1031_gmt_usd": 4084.05,
-    "spot_usd_per_gram_24k_exact": 129.4100,
+    "spot_usd_per_gram_24k_exact": 129.41,
     "secondary_cross_check": {
       "source_name": "BullionVault Live Wholesale Gold Market Feed",
       "source_url": "https://www.bullionvault.com/gold-price-chart.do",
@@ -27,6 +29,19 @@
       "spot_usd_per_kg": 129447.27,
       "inter_source_delta_usd_per_oz": 1.15,
       "inter_source_delta_pct": 0.0286
+    },
+    "live_corroboration_2026_10_23": {
+      "checked_utc": "2026-10-23T09:56:00Z",
+      "kitco_url": "https://www.kitco.com/charts/gold",
+      "kitco_bid_usd_per_troy_oz": 4022.7,
+      "kitco_ask_usd_per_troy_oz": 4024.7,
+      "kitco_london_fix_usd": 4026.66,
+      "kitco_quote_timestamp_local": "Oct 23, 2026 05:56 NY Time",
+      "bullionvault_url": "https://www.bullionvault.com/gold-price-chart.do",
+      "bullionvault_usd_per_troy_oz": 4024.23,
+      "bullionvault_usd_per_gram": 129.38,
+      "bullionvault_timestamp": "23 October 2026, 05:57:08 (GMT-04:00)",
+      "delta_vs_anchor_pct": -0.06
     }
   },
   "nist_conversion_constants": {
@@ -54,7 +69,7 @@
       "pure_gold_fraction": 1.0,
       "pure_gold_pct": 100.0,
       "usd_per_gram_at_spot": 129.41,
-      "usd_per_troy_oz_at_spot": 4025.10,
+      "usd_per_troy_oz_at_spot": 4025.1,
       "legal_status_us_uk": "Legal finest grade in US (FTC 16 CFR Part 23) & UK (Hallmarking Act 1973 Schedule 2 mark 999)",
       "ring_suitability_note": "Pure gold; zero base alloy tarnish; softer micro-hardness—requires thicker shank (>= 2.0 mm / >= 4–6 g) for daily engagement wear.",
       "source_url": "https://www.legislation.gov.uk/ukpga/1973/43"
@@ -81,7 +96,7 @@
       "usd_per_troy_oz_at_spot": 3018.83,
       "legal_status_us_uk": "Fine luxury standard worldwide (750 parts per 1,000; US 15 U.S.C. § 295 & UK mark 750)",
       "ring_suitability_note": "High intrinsic gold content with rich color and low alloy allergy risk; top choice for fine engagement solitaires.",
-      "source_url": "https://uscode.house.gov/view.xhtml?path=%2Fprelim%40title15%2Fchapter8&edition=prelim"
+      "source_url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title15/html/USCODE-2023-title15-chap8.htm"
     },
     {
       "label": "14K Solid Gold (European / Plumb 585)",
@@ -89,7 +104,7 @@
       "millesimal_stamp": "585",
       "pure_gold_fraction": 0.585,
       "pure_gold_pct": 58.5,
-      "usd_per_gram_at_spot": 75.70,
+      "usd_per_gram_at_spot": 75.7,
       "usd_per_troy_oz_at_spot": 2354.68,
       "legal_status_us_uk": "International & UK statutory 14ct standard (585 parts per 1,000 under UK Hallmarking Act 1973)",
       "ring_suitability_note": "Slightly higher gold purity than exact fractional 14/24 (58.5% vs 58.33%); common on European-hallmarked rings.",
@@ -105,7 +120,7 @@
       "usd_per_troy_oz_at_spot": 2347.98,
       "legal_status_us_uk": "Most common US engagement ring alloy; 15 U.S.C. § 295 allows max 0.003 unsoldered / 0.007 soldered tolerance.",
       "ring_suitability_note": "Strongest balance of daily scratch/prong durability and substantial gold content (58.33% fine gold).",
-      "source_url": "https://uscode.house.gov/view.xhtml?path=%2Fprelim%40title15%2Fchapter8&edition=prelim"
+      "source_url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title15/html/USCODE-2023-title15-chap8.htm"
     },
     {
       "label": "10K Solid Gold (U.S. Minimum Karat Gold)",
@@ -139,7 +154,7 @@
       "title": "National Gold and Silver Marking Act (15 U.S.C. Chapter 8, §§ 291–300)",
       "key_rule": "Under 15 U.S.C. § 297(b), any article bearing a quality mark (such as 10K, 14K, 18K, 585, or 750) MUST also bear the registered U.S. trademark or legal name of the manufacturer/importer in lettering at least as large as and positioned as close as possible to the quality mark. Under 15 U.S.C. § 295, assay deviation cannot exceed 3 parts per 1,000 (unsoldered) or 7 parts per 1,000 (soldered).",
       "checklist_relevance": "Directly backs Checklist Item #3: a standalone '14K' or '18K' stamp with NO maker's mark violates federal marking requirements and is a major counterfeit indicator.",
-      "official_url": "https://uscode.house.gov/view.xhtml?path=%2Fprelim%40title15%2Fchapter8&edition=prelim"
+      "official_url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title15/html/USCODE-2023-title15-chap8.htm"
     },
     {
       "id": "STD-02",

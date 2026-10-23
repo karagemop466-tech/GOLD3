@@ -454,7 +454,7 @@
     {
       "id": "F10",
       "severity": "low",
-      "title": "Mejuri's dedicated returns page could not be read, so its policy is quoted from the product page"
+      "title": "Mejuri's main /help hub requires JavaScript, while direct leaf FAQ articles render server-side"
     },
     {
       "id": "F11",
@@ -523,26 +523,31 @@
     },
     {
       "id": "F24",
-      "severity": "high",
-      "title": "VRAI's recorded phone number and e-mail address were wrong, its contact URL returns 404, and two Help Center pages disagree on response time"
+      "severity": "medium",
+      "title": "Catbird's /contact-us page returned HTTP 500 on 2026-10-23 live re-verification"
     },
     {
       "id": "F25",
       "severity": "high",
-      "title": "Menē's phone number had transposed digits in Dataset B, its e-mail was unsourced, and its contact URL returns 404"
+      "title": "VRAI's recorded phone number and e-mail address were wrong, its contact URL returns 404, and two Help Center pages disagree on response time"
     },
     {
       "id": "F26",
       "severity": "high",
-      "title": "Automic Gold requires mailing returns within 14 days to avoid a restocking fee, and its recorded phone number was not on the cited page"
+      "title": "Menē's phone number had transposed digits in Dataset B, its e-mail was unsourced, and its contact URL returns 404"
     },
     {
       "id": "F27",
       "severity": "high",
-      "title": "Six more dead or redirecting source URLs and an unsourced Brilliant Earth e-mail were caught and repaired in Pass P4"
+      "title": "Automic Gold requires mailing returns within 14 days to avoid a restocking fee, and its recorded phone number was not on the cited page"
     },
     {
       "id": "F28",
+      "severity": "high",
+      "title": "Six more dead or redirecting source URLs and an unsourced Brilliant Earth e-mail were caught and repaired in Pass P6"
+    },
+    {
+      "id": "F29",
       "severity": "medium",
       "title": "Dataset C live sweep: two more on-page contradictions caught, Ross-Simons weights are explicitly approximate, and Menē weights sit in a JS modal"
     }
