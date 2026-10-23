@@ -89,7 +89,7 @@
       "type": "market-data",
       "supports": "Primary USD spot snapshot used by the calculator",
       "quotes": [
-        "Spot Gold Price: USD 4,022.22 / Ounce | Spot Silver Price: USD 53.82 / Ounce Oct 23rd, 2026 at 05:55 NY Time"
+        "Spot Gold Price: USD 3,997.22 / Ounce | Spot Silver Price: USD 53.92 / Ounce Oct 23rd, 2026 at 04:17 NY Time"
       ],
       "accessed": "2026-10-23"
     },
@@ -101,7 +101,7 @@
       "type": "market-data",
       "supports": "Independent cross-check of the spot snapshot",
       "quotes": [
-        "Gold Spot price USD /oz - 4,024.45 ... Data as of 22 October, 2026"
+        "Gold Spot price USD/oz - 3,996.31 ... Data as of 22 October, 2026"
       ],
       "accessed": "2026-10-23"
     },

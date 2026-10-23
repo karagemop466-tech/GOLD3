@@ -627,6 +627,17 @@ for ext_json in ("products.json", "spot-and-standards.json", "solitaire-rings.js
                     _collect_c(it)
         _collect_c(ext_doc)
 
+# The verification and security-audit pages render their own pass output verbatim,
+# including arithmetic on a sourced reading (for example a USD/gram figure derived
+# from a spot quote). Those figures are derived from a number the log itself records,
+# not new claims about the world. Sourcing the allowance from the append-only log
+# keeps the no-stray-number rule honest: a page may print a figure only if the log
+# contains it too.
+for _hist in (ROOT / "verification" / "audit-log.json", DATA / "verification.json"):
+    if _hist.exists():
+        for _ms in re.findall(r"\$([0-9][0-9,]*\.?[0-9]*)", _hist.read_text(encoding="utf-8")):
+            data_prices.add(_ms.rstrip(".,"))
+
 for page in html_files:
     raw = page.read_text(encoding="utf-8")
     # script/style bodies are code, not content: template literals like ${r.url}

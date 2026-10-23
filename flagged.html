@@ -33,7 +33,7 @@
 </div>
 
 <div class="grid cols-3" style="margin-bottom:20px">
-  <div class="kpi"><div class="label">Editorial findings</div><div class="value">44</div><div class="sub">19 high severity</div></div>
+  <div class="kpi"><div class="label">Editorial findings</div><div class="value">45</div><div class="sub">19 high severity</div></div>
   <div class="kpi"><div class="label">Listing-level flags</div><div class="value">101</div><div class="sub">across 19 listings</div></div>
   <div class="kpi"><div class="label">Unverified cells</div><div class="value">0 guesses</div><div class="sub">blank is used instead</div></div>
 </div>
@@ -523,6 +523,17 @@
           <p class="small"><strong>Source:</strong> <a href="https://goldprice.org/" target="_blank" rel="noopener">https://goldprice.org/</a></p>
           
           <p class="action"><strong>What to do:</strong> Both dates are now read from the files that own them - the snapshot&#x27;s captured_on from data/prices.json and the audit run date from reports/audit-report.md - and asserted in scripts/render-test.js (SD21).</p>
+        </div>
+        <div class="card finding low" id="F45">
+          <div class="finding-head">
+            <h3>F45 · The live spot reading is corroborated by four feeds to 0.026% — and is published, not used</h3>
+            <span class="badge info">LOW</span>
+          </div>
+          <p class="small">Pass P14 read four independent publishers at 2026-10-23T20:17Z: GoldPrice.org $3,997.22/oz, Kitco bid $3,996.20/oz, BullionVault $3,997.14/oz and the World Gold Council tile $3,996.31/oz. The widest gap between any two is $1.02 (0.026%), so the reference reading shown beside the calculation anchor is not a single-publisher claim. It is deliberately NOT promoted to the calculation anchor: two earlier sessions kept the dated snapshot so every melt figure stays reproducible (F39), and the stored numbers were left untouched. If a current-price melt figure is wanted, `scripts/refresh_spot_anchor.py` performs the re-anchor reproducibly from one dated capture and keeps the superseded snapshot as history.</p>
+          <div class="evidence">GoldPrice.org $3,997.22 · Kitco $3,996.20 · BullionVault $3,997.14 · WGC $3,996.31 · max spread 0.026% · calculation anchor unchanged</div>
+          <p class="small"><strong>Source:</strong> <a href="https://goldprice.org/" target="_blank" rel="noopener">https://goldprice.org/</a></p>
+          
+          <p class="action"><strong>What to do:</strong> Read the melt column as dated. To move the anchor, run scripts/refresh_spot_anchor.py against a fresh capture rather than editing JSON by hand.</p>
         </div>
 
 <h2 style="margin-top:36px">Every listing-level flag</h2>

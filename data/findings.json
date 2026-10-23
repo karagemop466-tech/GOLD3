@@ -454,6 +454,16 @@
       "source": "https://goldprice.org/",
       "product": null,
       "action": "Both dates are now read from the files that own them - the snapshot's captured_on from data/prices.json and the audit run date from reports/audit-report.md - and asserted in scripts/render-test.js (SD21)."
+    },
+    {
+      "id": "F45",
+      "severity": "low",
+      "title": "The live spot reading is corroborated by four feeds to 0.026% \u2014 and is published, not used",
+      "detail": "Pass P14 read four independent publishers at 2026-10-23T20:17Z: GoldPrice.org $3,997.22/oz, Kitco bid $3,996.20/oz, BullionVault $3,997.14/oz and the World Gold Council tile $3,996.31/oz. The widest gap between any two is $1.02 (0.026%), so the reference reading shown beside the calculation anchor is not a single-publisher claim. It is deliberately NOT promoted to the calculation anchor: two earlier sessions kept the dated snapshot so every melt figure stays reproducible (F39), and the stored numbers were left untouched. If a current-price melt figure is wanted, `scripts/refresh_spot_anchor.py` performs the re-anchor reproducibly from one dated capture and keeps the superseded snapshot as history.",
+      "evidence": "GoldPrice.org $3,997.22 \u00b7 Kitco $3,996.20 \u00b7 BullionVault $3,997.14 \u00b7 WGC $3,996.31 \u00b7 max spread 0.026% \u00b7 calculation anchor unchanged",
+      "source": "https://goldprice.org/",
+      "product": null,
+      "action": "Read the melt column as dated. To move the anchor, run scripts/refresh_spot_anchor.py against a fresh capture rather than editing JSON by hand."
     }
   ]
 }

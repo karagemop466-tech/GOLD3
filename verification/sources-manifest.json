@@ -1,8 +1,8 @@
 {
-  "generated_at_utc": "2026-10-23T20:27:43Z",
+  "generated_at_utc": "2026-10-23T20:30:15Z",
   "data_file_sha256": {
     "bands-and-high-karat.json": "8061e893bb6b94c3886cb8d5dca41ed8260f75506ca140e5f06440fd27d3a99e",
-    "findings.json": "afea592a4d8b2b8bb1c1ed23196237c14a14caa5e8875f2c4459b38c5beb5025",
+    "findings.json": "9b34bf49d43c58c4d6e9b975faedbc3a67d9271b868395bf5ed45f8f86293d91",
     "flags.json": "36f7e0a0f1672b7dc84bf4165f3bb43c73e716a7ea7d05a0d3d204ecc8dc5c0b",
     "gold-price.json": "bdb3a741c6696f56ec713c090706cb98fefb53901fe284dfe105308a7d6a7e08",
     "prices.json": "accd2ecb513d2ea1a956d762eb2119b722e8fe6cf15dd42dff4df227e980262f",
@@ -23,11 +23,11 @@
     "sellers-policies.json": "6f2edb268c1efd391f4c98102d164665d40d1b2f56cc18702c4492bad6b8cd36",
     "sellers.json": "4d1bd09620f904e833139fa16f7be571e87ade0115df1826472447e324bc033f",
     "solitaire-rings.json": "b14736e9308d559ca542081e0b9dda7b325588b6558486aa288d27753ef5b8d8",
-    "sources.json": "8dfba5f0fa227f13eda84dd54b6bdf60e1b55738e449edc87cae1e0684f0938d",
+    "sources.json": "6a5c601691169659a560ff01172bbcbccf1523884f86b20f057cea26f8ef797d",
     "spot-and-standards.json": "fb7febce8b15501221a57f89e4f244635d645ac122963315373bc0137f39a171",
     "standards.json": "6b745302667c70fb15800fb830471250551a37e238e507a8b993f8e3c4423ad8",
-    "verification-report.json": "4f9ca0159d0639138acab65253505fc3fd0a276139cd9f8a4d68ad4dac1d1beb",
-    "verification.json": "204c4f2d469f9ae2bf8048b139e77de82d921c4f409cd162b8b75159a9135a0b"
+    "verification-report.json": "fa4c894dbeb8aab73c67eff67f3972d365cfa2481393c58aba70147020b0db89",
+    "verification.json": "381ba925befa6836ddc13f691f8bc0a209d4458c55a2e2670d142242a576e7a7"
   },
   "unique_official_urls_count": 180,
   "official_sources": [
@@ -845,6 +845,7 @@
         "HTML Link in flagged-for-review.html",
         "HTML Link in sellers-policies.html",
         "HTML Link in solitaire-settings.html",
+        "HTML Link in verify.html",
         "Spot Gold Cross-Check"
       ]
     },
@@ -1081,6 +1082,7 @@
         "HTML Link in flagged-for-review.html",
         "HTML Link in sellers-policies.html",
         "HTML Link in solitaire-settings.html",
+        "HTML Link in verify.html",
         "Spot Gold Primary"
       ]
     },
