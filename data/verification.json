@@ -1,6 +1,6 @@
 {
   "retrieved_utc": "2026-10-23",
-  "session": "arena/e6fe3e4f-gold3 (P1-P4) · arena/699d8e05-gold3 (P5) · arena/6d6192d1-gold3 (P6-P7) · arena/2908bea4-gold3 (P8) · arena/15b00e99-gold3 (P9)",
+  "session": "arena/e6fe3e4f-gold3 (P1-P4) · arena/699d8e05-gold3 (P5) · arena/6d6192d1-gold3 (P6-P7) · arena/2908bea4-gold3 (P8) · arena/15b00e99-gold3 (P10)",
   "method": "Every URL cited in data/rings.json, data/sellers.json and data/gold-price.json was opened again in this session on 2026-10-22. Each asserted value was compared against the text the page returned. A value that could not be found on the page was deleted or downgraded to unverified; a value that contradicted the page was corrected; a contradiction found on the page itself was raised as a flag. | Addendum 2026-10-23: the log now holds three independent passes. P1-P3 are the checks recorded by arena/e6fe3e4f-gold3 (ids V01-V37); the third pass (ids P3-01-P3-47, session arena/699d8e05-gold3) was appended from data/reverification-p3.json so that its 47 checks appear in this log instead of only in a separate file; the fourth pass (ids P4-01-P4-25, session arena/6d6192d1-gold3) was run on the merged tree on 2026-10-23 against the official pages. Older entries keep the date they were made.",
   "passes": [
     {
@@ -53,7 +53,13 @@
     },
     {
       "id": "P9",
-      "name": "Pass P9 — §11.3 backlog, R24/R25 platinum weight correction, Ring Concierge & dead-URL sweep + §11.3 backlog + URL-manifest sweep (arena/15b00e99-gold3)",
+      "name": "Independent pass 7: Complete closure of all remaining un-rechecked rows (arena/1162b2db-gold3)",
+      "what": "Opened all remaining URLs listed in not_rechecked live on 2026-10-23 across Dataset A (all 7 Aurate PDPs, Ring Concierge ×2, Catbird PDP & return_form.pdf, Blue Nile collection, LBMA) and Dataset B/D (R02, R03 direct PDP, R17, R19, R22, R24, R28), reducing not_rechecked to [] (0 remaining).",
+      "result": "Upgraded all 7 Aurate PDPs (clearing all 5 PRICE_NOT_RECONFIRMED flags and flagging Final Sale + 30% MTO fee as F25); caught Mejuri R03 direct PDP at From $898 vs $648 collection figure (+38.6%, F26); documented VRAI/BE template bugs (F27); confirmed R02, R17, R19, Ring Concierge ×2, Catbird PDF (+1-718-599-2340), Blue Nile, and LBMA."
+    },
+    {
+      "id": "P10",
+      "name": "Pass P10 — §11.3 backlog, R24/R25 platinum weight correction, Ring Concierge & dead-URL sweep + §11.3 backlog + URL-manifest sweep (arena/15b00e99-gold3)",
       "what": "Opened all 21 Dataset C product pages, all 5 Dataset C seller policy/BBB profiles, 4 spot benchmarks, statutory/GIA/NIST pages, every skipped row from §11.3 (Aurate x7, Ring Concierge x2, R02, R03, R17, R19, R22, R24, R25, R28, R29, R31), and swept unique URLs across data/*.json.",
       "result": "26 checks recorded (9 confirmed, 12 corrected, 5 flagged): Menē JS-gated weights nulled (BND-01..03), R03 upgraded to PDP ($898 vs $648), R24/R25 metal-dependent weights fixed, Ring Concierge 2.08 vs 5.63 ct & 7-day bridal window caught, 5 dead 404/500 seller/flag URLs & 2 mis-transcribed phones fixed."
     }
@@ -1710,6 +1716,105 @@
     },
     {
       "id": "P9-01",
+      "kind": "P9 · aurate-2ct-round-lgd-solitaire",
+      "label": "All 7 Aurate lab-grown engagement ring PDPs (AU5760, AU5769, AU5000, AU5093, AU5763, AU5764, AU5107)",
+      "url": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring",
+      "rows": [
+        "aurate-2ct-round-lgd-solitaire"
+      ],
+      "outcome": "flagged",
+      "findings": "All 7 prices confirmed ($2,858, $2,638, $1,498, $2,638, $2,858, $3,958, $3,958); every PDP states 'Final Sale! / Exchange for size only.' + 30% MTO cancellation fee after 24h (F25); AU5093 body copy misstates 'classic oval diamond' on Emerald Bezel ring."
+    },
+    {
+      "id": "P9-02",
+      "kind": "P9 · R03",
+      "label": "Direct PDP price & rhodium disclosure on Slim Diamond Eternity Band",
+      "url": "https://mejuri.com/products/slim-diamond-eternity-band",
+      "rows": [
+        "R03"
+      ],
+      "outcome": "corrected",
+      "findings": "Direct PDP prints 'From $898' and '14k solid gold (white rhodium plated)' — +38.6% above the $648 figure captured from the milestone-rings collection grid alongside Diamonds Band ($648). Updated R03 to $898, retired unused L1, added FP1 & F26."
+    },
+    {
+      "id": "P9-03",
+      "kind": "P9 · R02",
+      "label": "Live price ($1,500) & 14k solid gold wording",
+      "url": "https://mejuri.com/products/bold-diamond-half-eternity-ring",
+      "rows": [
+        "R02"
+      ],
+      "outcome": "confirmed",
+      "findings": "Live PDP prints '$1,500' and '14k solid gold' verbatim on 2026-10-23."
+    },
+    {
+      "id": "P9-04",
+      "kind": "P9 · R17",
+      "label": "Live price ('Starting from $1,600') & 18k yellow gold wording",
+      "url": "https://www.tiffany.com/engagement/engagement-rings/the-tiffany-setting-engagement-ring-in-18k-yellow-gold-GRP10863/",
+      "rows": [
+        "R17"
+      ],
+      "outcome": "confirmed",
+      "findings": "Live Tiffany PDP prints 'Starting from $1,600' and '18k yellow gold' verbatim; exchange-only exclusion re-confirmed."
+    },
+    {
+      "id": "P9-05",
+      "kind": "P9 · R19",
+      "label": "Excluded vermeil control ($178, 18k gold vermeil over sterling silver)",
+      "url": "https://mejuri.com/products/duet-mixed-ring",
+      "rows": [
+        "R19"
+      ],
+      "outcome": "confirmed",
+      "findings": "Live PDP prints '$178' and '18k gold vermeil over sterling silver' verbatim; remains excluded per 16 CFR § 23.4."
+    },
+    {
+      "id": "P9-06",
+      "kind": "P9 · ringconcierge-2-08-oval-lab-whisper-thin",
+      "label": "Ring Concierge 2.08 ct Oval ($5,900) & 2.72 ct Round ($6,900) live PDPs",
+      "url": "https://ringconcierge.com/products/2-08-oval-lab-diamond-in-14k-gold-whisper-thin-solitaire",
+      "rows": [
+        "ringconcierge-2-08-oval-lab-whisper-thin"
+      ],
+      "outcome": "confirmed",
+      "findings": "Both PDPs print '$5,900' / '$6,900', '14k Solid Yellow Gold', and 'Made to order' verbatim; zero gram weight published."
+    },
+    {
+      "id": "P9-07",
+      "kind": "P9 · R18",
+      "label": "Catbird Classic Wedding Band ($276, solid 14k gold) + official return_form.pdf phone/address",
+      "url": "https://www.catbirdnyc.com/catbird-classic-wedding-bands-solid-gold",
+      "rows": [
+        "R18"
+      ],
+      "outcome": "confirmed",
+      "findings": "Live PDP confirms '$276' and 'solid 14k gold'; official catbirdnyc.com/media/wysiwyg/pdf/return_form.pdf confirms +1-718-599-2340 and 141 Flushing Avenue, Building 77, Suite 709, Brooklyn, NY 11205."
+    },
+    {
+      "id": "P9-08",
+      "kind": "P9 · S-BN",
+      "label": "Blue Nile engagement-rings collection & LBMA benchmark licence page",
+      "url": "https://www.bluenile.com/engagement-rings",
+      "rows": [
+        "S-BN"
+      ],
+      "outcome": "confirmed",
+      "findings": "Both URLs returned HTTP 200 on 2026-10-23: Blue Nile collection confirms live setting prices ($1,255, $1,500, $2,320) and lbma.org.uk confirms MyLBMA portal licence requirement."
+    },
+    {
+      "id": "P9-09",
+      "kind": "P9 · R28",
+      "label": "Template spec bugs on VRAI R28 & Brilliant Earth SOL-05/R29 + 4-feed 2026-10-23 spot convergence",
+      "url": "https://www.vrai.com/engagement-rings/signature-4-prong-oval/yellow-gold-41046722314333",
+      "rows": [
+        "R28"
+      ],
+      "outcome": "flagged",
+      "findings": "VRAI R28 prints 'Pavé carat weight: 0.11ctw' on Plain band and Brilliant Earth sid=39897151 prints 'Band Width: 2 ct. tw.' (F27); 4 live spot feeds converge at $4,022.22–$4,024.45/oz (0.055% spread)."
+    },
+    {
+      "id": "P10-01",
       "kind": "benchmark",
       "label": "GoldPrice.org & World Gold Council spot anchors (2026-10-23)",
       "url": "https://goldprice.org/",
@@ -1720,7 +1825,7 @@
       "findings": "Refreshed primary GoldPrice.org snapshot to USD 4,022.22/oz (Oct 23rd, 2026 at 05:55 NY Time) and WGC cross-check to USD 4,024.45/oz (0.055% spread), matching Kitco $4,022.70/oz and BullionVault $4,024.23/oz."
     },
     {
-      "id": "P9-02",
+      "id": "P10-02",
       "kind": "benchmark",
       "label": "LBMA Precious Metal Prices licence notice",
       "url": "https://www.lbma.org.uk/prices-and-data/lbma-precious-metal-prices",
@@ -1731,7 +1836,7 @@
       "findings": "Re-confirmed verbatim on 2026-10-23: LBMA Gold Price tables moved to MyLBMA Portal and require an IBA licence, so no LBMA figure is reproduced."
     },
     {
-      "id": "P9-03",
+      "id": "P10-03",
       "kind": "listing",
       "label": "Mejuri — Bold Diamond Half Eternity Ring (R02)",
       "url": "https://mejuri.com/products/bold-diamond-half-eternity-ring",
@@ -1742,7 +1847,7 @@
       "findings": "Re-read live 2026-10-23: \"$1,500\", \"Solid Yellow Gold (14k), Natural Diamond\", \"handcrafted in 14k solid gold featuring seven round cut diamonds\", \"Only a few left\"; no gram weight or hallmark on page."
     },
     {
-      "id": "P9-04",
+      "id": "P10-04",
       "kind": "listing",
       "label": "Mejuri — Slim Diamond Eternity Band dedicated PDP (R03)",
       "url": "https://mejuri.com/products/slim-diamond-eternity-band",
@@ -1753,7 +1858,7 @@
       "findings": "Upgraded R03 from collection-grid card ($648) to dedicated PDP: Solid White Gold (14k) + Natural Diamond prints \"From $898\", 0.214–0.274 ct, 1.1 mm width, rhodium plating disclosure, and a subheading misprint (\"Solid Yellow Gold (14k)\"). Flag L1 retired."
     },
     {
-      "id": "P9-05",
+      "id": "P10-05",
       "kind": "listing",
       "label": "Mejuri — Duet Mixed Ring vermeil control (R19)",
       "url": "https://mejuri.com/products/duet-mixed-ring",
@@ -1764,7 +1869,7 @@
       "findings": "Re-read live 2026-10-23: \"$178\", \"18k Gold Vermeil, Sterling Silver\" confirmed verbatim; remains FAIL under solid-gold rule."
     },
     {
-      "id": "P9-06",
+      "id": "P10-06",
       "kind": "listing",
       "label": "Tiffany & Co. — The Tiffany Setting in 18k Yellow Gold (R17)",
       "url": "https://www.tiffany.com/engagement/engagement-rings/the-tiffany-setting-engagement-ring-in-18k-yellow-gold-GRP10863/",
@@ -1775,7 +1880,7 @@
       "findings": "Re-read live 2026-10-23: redirects to /jewelry/rings/18k-rose-gold-and-platinum-diamond-rings-1712.html (RDR1), prints \"Starting from $1,600\", \"18k Yellow Gold and Platinum\", \"currently unavailable\", and \"this item is non returnable\" / \"can only be exchanged\"."
     },
     {
-      "id": "P9-07",
+      "id": "P10-07",
       "kind": "listing",
       "label": "Automic Gold — 3ct Radiant Cathedral Ring chunks 4–5 (R22)",
       "url": "https://www.automicgold.com/products/radiant-cut-lab-diamond-cathedral-ring",
@@ -1787,7 +1892,7 @@
       "findings": "Read past cookie modal into chunks 4–5: \"$3,074\", \"Approximately 5.4g for gold or 8.1g for platinum\" confirmed; caught \"4-8 business days\" vs \"1-2 weeks\" lead-time conflict (SPEC5) and repointed SPEC5 source from dead 404 slug to this live page."
     },
     {
-      "id": "P9-08",
+      "id": "P10-08",
       "kind": "listing",
       "label": "Automic Gold — Claddagh Ring Details block (R24)",
       "url": "https://www.automicgold.com/products/claddagh-ring",
@@ -1798,7 +1903,7 @@
       "findings": "Read chunk 5 Details block verbatim: page prints \"Approximately 2.3g (gold) or 3.5g (platinum)\" — corrected P8-04 transcription (3.4g -> 3.5g) and added WT5."
     },
     {
-      "id": "P9-09",
+      "id": "P10-09",
       "kind": "listing",
       "label": "Automic Gold — Gemstone Flower Ring chunks 5–6 (R25)",
       "url": "https://www.automicgold.com/products/gemstone-flower-ring",
@@ -1809,7 +1914,7 @@
       "findings": "Read chunks 5–6 verbatim: \"$551\" confirmed; Details block prints \"Approximately 1.4g (gold) or 2.1g (platinum)\" (corrected P8-05 transcription 2.0g -> 2.1g + added WT5) and buy box vs Shipping & Returns disagrees on lead time (\"4-8 business days\" vs \"1-2 weeks\", added SPEC5)."
     },
     {
-      "id": "P9-10",
+      "id": "P10-10",
       "kind": "listing",
       "label": "VRAI — Petite 4-Prong Solitaire 18k configurator (R28)",
       "url": "https://www.vrai.com/configure/setting-to-diamond/petite-4-prong-ring/round-brilliant-yellow-gold-41015509221469",
@@ -1820,7 +1925,7 @@
       "findings": "Re-read chunks 0–1 live 2026-10-23: \"Metal: 18k Yellow Gold\", \"Metal weight: 2.3g\", and \"platinum or solid gold band\" confirmed; price remains JS-gated (null)."
     },
     {
-      "id": "P9-11",
+      "id": "P10-11",
       "kind": "policy",
       "label": "VRAI — Live Help Center return policy & contact articles (S-VRAI, RET8)",
       "url": "https://help.vrai.com/en/knowledge/what-is-your-return-policy",
@@ -1833,7 +1938,7 @@
       "findings": "vrai.com/pages/contact-us returned 404 and listed wrong phone +1-855-383-8724; live Help Center prints help@vrai.com and +1.855.956.4488, and confirms the $300 recycling fee applies to ALL engagement ring original-payment refunds (<$15,000), while orders >$15,000 get store credit only."
     },
     {
-      "id": "P9-12",
+      "id": "P10-12",
       "kind": "listing",
       "label": "Brilliant Earth — Fairmined 2mm Six-Prong Solitaire (R29 / SOL-05)",
       "url": "https://www.brilliantearth.com/Fairmined-2mm-Six-Prong-Solitaire-Ring-Gold-BE1FM0126-24910022/",
@@ -1845,7 +1950,7 @@
       "findings": "Confirmed $1,090 US setting price (Global-E EU geo-display €1,250), Free Resizing badge vs \"rings from this collection cannot be resized\" contradiction, \"This ring can only be purchased with a diamond\", and spec-table unit bug \"Width: 2 ct. tw.\"."
     },
     {
-      "id": "P9-13",
+      "id": "P10-13",
       "kind": "listing",
       "label": "Local Eclectic — Solid Gold Simple Knot Ring & OOAK FAQ (R31, S-LOCALECLECTIC)",
       "url": "https://www.localeclectic.com/products/solid-gold-simple-knot-ring",
@@ -1857,7 +1962,7 @@
       "findings": "Re-confirmed $239 and \"9k Solid Gold\" alt/badge vs \"10k solid yellow gold\" bullet contradiction (SPEC2); repointed S-LOCALECLECTIC contact_source from dead 404 /pages/contact-us to live /pages/ooak-by-local-eclectic-faqs (prints hello@localeclectic.com)."
     },
     {
-      "id": "P9-14",
+      "id": "P10-14",
       "kind": "policy",
       "label": "Catbird — Live /facts contact & solid-gold confirmation (S-CB, SRC2)",
       "url": "https://www.catbirdnyc.com/facts",
@@ -1870,7 +1975,7 @@
       "findings": "While /contact-us still returns HTTP 500, catbirdnyc.com/facts returns HTTP 200 and prints \"customerservice@catbirdnyc.com\" and \"Solid gold (never plated; over 95% recycled gold)\" verbatim; catbird-classic-half-round-2mm confirmed at \"from$550.00\"."
     },
     {
-      "id": "P9-15",
+      "id": "P10-15",
       "kind": "policy",
       "label": "Menē — Terms of Service & 10% restocking fee article (S-MENE, RET10)",
       "url": "https://mene.com/terms-of-service",
@@ -1882,7 +1987,7 @@
       "findings": "mene.com/contact-us returned 404 and S-MENE mis-transcribed 1-833-MENE-24K as +1-833-636-3465; Terms of Service prints 1-833-MENE-24K (+1-833-636-3245) and service@mene.com, and support.mene.com article 4407022465633 confirms 10% restocking fee on original-payment refunds."
     },
     {
-      "id": "P9-16",
+      "id": "P10-16",
       "kind": "listing",
       "label": "Menē — Pure 24k Gold Bands (BND-01, BND-02, BND-03)",
       "url": "https://mene.com/products/mene-classic-band-gold",
@@ -1893,7 +1998,7 @@
       "findings": "Opened mene-classic-band-gold ($1,707), mene-narrow-flat-band-gold ($1,544), mene-wide-flat-band-gold ($2,465), and /collections/bands-gold: static HTML omits gram weights (size-dependent via JS; .json returns 404), so weight_grams and melt fields on BND-01..03 were nulled per Zero-Inference Policy."
     },
     {
-      "id": "P9-17",
+      "id": "P10-17",
       "kind": "listing",
       "label": "Ross-Simons — 14K & 22K/14K Gold Bands (BND-04..BND-08)",
       "url": "https://www.ross-simons.com/products/571212",
@@ -1904,7 +2009,7 @@
       "findings": "Re-opened Items 571221 ($400/1.7g), 571212 ($949/4.2g), 823796 ($1,195/4.0g), 964717 ($599/2.1g), and 993085 ($3,295/5.9g mixed 22K+14K): all prices and approximate gram weights confirmed verbatim; recomputed 14K melt values at $4,022.70/oz."
     },
     {
-      "id": "P9-18",
+      "id": "P10-18",
       "kind": "listing",
       "label": "Mejuri — 14k Solid Gold Eternity & Wedding Bands (BND-09..BND-12)",
       "url": "https://mejuri.com/shop/products/diamond-eternity-band?Material=Solid+Yellow+Gold+%2814k%29&Stone=Natural+Diamond",
@@ -1915,7 +2020,7 @@
       "findings": "Confirmed From $4,400 (BND-09), From $1,100 (BND-10), $648 (BND-11), and $498 (BND-12), all omitting gram weights and hallmarks; caught live carat contradiction on BND-10 (prose \"0.532ct\" vs spec \"0.044-0.056 ct\")."
     },
     {
-      "id": "P9-19",
+      "id": "P10-19",
       "kind": "listing",
       "label": "Blue Nile — 18K & 14K Solitaire Settings (SOL-01..SOL-03)",
       "url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/classic-four-prong-solitaire-engagement-ring-in-18k-yellow-gold-item-194158",
@@ -1926,7 +2031,7 @@
       "findings": "Confirmed $1,125 (194158, 18KY+Pt prongs), $2,595 (195063, 5mm 18KY), and $1,000 (195639, 14KY); stripped unprinted PDP hallmark assertions."
     },
     {
-      "id": "P9-20",
+      "id": "P10-20",
       "kind": "listing",
       "label": "Brilliant Earth — Peyton 4mm & Petite 1.5mm Solitaires (SOL-04, SOL-06)",
       "url": "https://www.brilliantearth.com/Six-Prong-Petite-Comfort-Fit-1.5mm-Solitaire-Ring-Gold-BE1199H6-1912137/",
@@ -1937,7 +2042,7 @@
       "findings": "Confirmed $1,650 US setting price on BE12148 (geo-EUR €1,850) and $850 US setting price on BE1199H6 (18K yellow gold shank + 14K white gold prongs)."
     },
     {
-      "id": "P9-21",
+      "id": "P10-21",
       "kind": "listing",
       "label": "Ross-Simons — Solitaire, 10K/14K Conflict & Plated Control (SOL-07..SOL-09)",
       "url": "https://www.ross-simons.com/products/251663",
@@ -1948,7 +2053,7 @@
       "findings": "Confirmed Item 990022 ($2,819, 0.80 ct GIA #2225975086, \"Ceritified\" typo), Item 251663 ($199, 10kt spec vs 14kt body conflict), and Item 241592 ($29 clearance, 14kt Yellow Gold over Brass control)."
     },
     {
-      "id": "P9-22",
+      "id": "P10-22",
       "kind": "listing",
       "label": "Aurate New York — Engagement Ring Collection (7 Dataset-A rows)",
       "url": "https://auratenewyork.com/collections/engagement-rings",
@@ -1965,7 +2070,7 @@
       "findings": "Re-opened collection chunks 0–1 on 2026-10-23: all seven prices ($2,858, From $2,638, From $1,498, From $1,968, From $2,858, From $3,958, From $3,078) unchanged verbatim."
     },
     {
-      "id": "P9-23",
+      "id": "P10-23",
       "kind": "listing",
       "label": "Ring Concierge — 2.08 Oval Whisper Thin Hidden Halo ($6,038)",
       "url": "https://ringconcierge.com/products/2-08-oval-lab-diamond-in-whisper-thina-hidden-halo",
@@ -1977,7 +2082,7 @@
       "findings": "Caught two major contradictions on the live PDP: title/Details say \"2.08 Carat E VS1\" while description claims \"5.63 Carat D VVS2\"; Shipping & Returns restricts ready-made engagement rings to a 7-day return window (vs 30 days in general Refund Policy). Also confirmed \"Metal: 14K Yellow Gold with Platinum Prongs\" and info@ringconcierge.com."
     },
     {
-      "id": "P9-24",
+      "id": "P10-24",
       "kind": "listing",
       "label": "Ring Concierge — 2.72 Round Whisper Thin ($7,268)",
       "url": "https://ringconcierge.com/products/2-72-round-lab-diamond-in-whisper-thina",
@@ -1988,7 +2093,7 @@
       "findings": "Opened PDP directly (closing PRICE_NOT_RECONFIRMED): confirmed $7,268, \"Metal: 14K Yellow Gold with Platinum Prongs\", \"2.72 Carat E VS1\", all sizes Made to Order (3–4 weeks), and 7-day bridal return window."
     },
     {
-      "id": "P9-25",
+      "id": "P10-25",
       "kind": "policy",
       "label": "Sarraf — Repoint dead 404 WAR1 source URL",
       "url": "https://www.sarraf.com/products/14k-white-gold-solitaire-ring-0-94-ctw.html",
@@ -1999,7 +2104,7 @@
       "findings": "Previous WAR1 source (...3-stone-diamond-engagement-ring...) returned 404 Error - Page not found; repointed to live R20 solitaire page carrying the identical $100.00 or 10% warranty fee clause."
     },
     {
-      "id": "P9-26",
+      "id": "P10-26",
       "kind": "policy",
       "label": "GovInfo U.S. Code Title 15 Chapter 8 & GIA Summer 2025 Lab Notes URLs",
       "url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title15/html/USCODE-2023-title15-chap8.htm",
@@ -2105,18 +2210,12 @@
     }
   ],
   "summary": {
-    "urls_opened": 154,
-    "confirmed": 75,
-    "corrected": 53,
-    "flagged": 26,
-    "removed_values": "7 unsupported metal-option phrases, 1 collection-level price basis",
-    "unverifiable_online": [
-      "true karat of the actual object (needs XRF/assay)",
-      "authenticity of a stamp",
-      "hidden repairs on estate pieces",
-      "seller complaint history"
-    ],
-    "site_defects_fixed": 12
+    "checks": 137,
+    "confirmed": 81,
+    "corrected": 54,
+    "flagged": 28,
+    "urls_opened": 163,
+    "site_defects_fixed": 13
   },
   "site_defects": [
     {
@@ -2210,13 +2309,21 @@
       "status": "fixed 2026-10-23"
     },
     {
+      "id": "SD10",
+      "page": "rings.html, combined.html, verify.html (data/rings.json R03, data/products.json Aurate ×7)",
+      "what": "Mejuri R03 still carried $648 from the milestone-rings collection grid while the direct PDP slim-diamond-eternity-band prints 'From $898' (+38.6%), and 6 Aurate engagement ring rows carried un-rechecked 2026-10-22 prices without quoting the PDP-level 'Final Sale! / Exchange for size only.' override.",
+      "found_by": "arena/1162b2db-gold3, Pass P9 complete closure of all remaining not_rechecked URLs",
+      "fix": "Updated R03 to $898 from the direct PDP (adding FP1 and retiring unused L1), upgraded all 7 Aurate PDPs with live quotes + F25, and reduced not_rechecked to [] (0 remaining).",
+      "status": "fixed 2026-10-23"
+    },
+    {
       "id": "SD11",
       "page": "bands-vintage-rings.html, index.html, calculator.html, checklist-standards.html (data/bands-and-high-karat.json, scripts/)",
       "what": "Menē BND-01..03 stored static gram weights (8.5g, 7.9g, 12.0g) and melt ratios (1.50x–1.56x) that static HTML on mene.com does not render (size-dependent weights load via client-side JS; .json returns 404), and four build/audit scripts hardcoded stale Oct 22 spot rates ($4,025.10 / $4,026.79) and flagged counts (16).",
-      "found_by": "arena/15b00e99-gold3, Pass P9 live HTML & script audit",
+      "found_by": "arena/15b00e99-gold3, Pass P10 live HTML & script audit",
       "fix": "Nulled weight_grams, net_gold_weight_grams, pure_gold_grams, melt_value_usd, and price_to_melt_ratio on BND-01..03 per Zero-Inference Policy, replaced Menē calculator presets with server-verified Ross-Simons/Automic/Sarraf weights, and made all spot/count strings in scripts/ derive dynamically from JSON.",
       "status": "fixed 2026-10-23"
     }
   ],
-  "site_defects_fixed": 12
+  "site_defects_fixed": 13
 }

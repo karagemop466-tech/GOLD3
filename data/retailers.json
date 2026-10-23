@@ -11,7 +11,7 @@
       "solid_gold_source": "https://auratenewyork.gorgias.help/en-US/articles/our-jewelry-38634",
       "solid_gold_status": "stated (brand level)",
       "returns_window_days": 15,
-      "returns_window_note": "15 days for domestic orders, from the day the item is fulfilled (~10+ days post-delivery); 21 days for international orders. Note: engagement solitaire PDPs display 'Exchange for size only. Final Sale!' alongside a 'Free Returns' badge.",
+      "returns_window_note": "15 days for domestic orders, from the day the item is fulfilled; 21 days for international orders.",
       "returns_url": "https://auratenewyork.gorgias.help/en-US/articles/returns-38636",
       "returns_quote": "Aurate provides a 15-day return window starting from the day your item gets fulfilled.",
       "returns_exclusions": "Items marked 'exchange only' cannot be refunded; items marked 'final sale' cannot be returned or exchanged; returns without an attached tag, or with a visibly damaged tag, are not eligible for a refund.",
@@ -19,17 +19,18 @@
       "hallmark_note": "No hallmark / maker's-mark policy found on the pages checked.",
       "phone": null,
       "email": "care@auratenewyork.com",
-      "contact_url": "https://auratenewyork.gorgias.help/en-US/articles/our-jewelry-38634",
+      "contact_url": "https://auratenewyork.gorgias.help/en-US/contact",
       "trustpilot_url": "https://www.trustpilot.com/review/auratenewyork.com",
       "trustpilot_score": 4.1,
       "trustpilot_reviews": 4876,
-      "trustpilot_quote": "4,876 reviews · TrustScore 4.1",
+      "trustpilot_quote": "4,875 reviews · TrustScore 4.1",
       "trustpilot_complaints": "Review summary reports dissatisfaction with prolonged delivery delays, missing items, exchange restrictions and product defects.",
-      "trustpilot_sample_note": "Claimed profile; the company invites reviews and replies to 98% of negative reviews (re-verified live 2026-10-23).",
+      "trustpilot_sample_note": "Claimed profile; the company invites reviews and replies to 98% of negative reviews.",
       "payment_verified": null,
       "flags": [
         "SHORT_RETURN_WINDOW"
-      ]
+      ],
+      "trustpilot_captured_on": "2026-10-23"
     },
     {
       "id": "blue-nile",
@@ -51,7 +52,7 @@
       "contact_url": "https://www.bluenile.com/contact-us",
       "trustpilot_url": "https://www.trustpilot.com/review/www.bluenile.com",
       "trustpilot_score": 4.0,
-      "trustpilot_reviews": 1928,
+      "trustpilot_reviews": 1932,
       "trustpilot_quote": "1,928 reviews · TrustScore 4.0",
       "trustpilot_complaints": "Review summary reports delivery delays and inventory issues, sizing difficulties, and dissatisfaction with some return outcomes.",
       "trustpilot_sample_note": "Claimed profile; replies to 99% of negative reviews.",
@@ -59,7 +60,8 @@
       "flags": [
         "RETURN_EXCLUSION_RESIZED",
         "RETURN_LIMIT_TWO_PER_YEAR"
-      ]
+      ],
+      "trustpilot_captured_on": "2026-10-23"
     },
     {
       "id": "mejuri",
@@ -81,7 +83,7 @@
       "contact_url": "https://mejuri.com/world/en/company/terms",
       "trustpilot_url": "https://www.trustpilot.com/review/mejuri.com",
       "trustpilot_score": 4.3,
-      "trustpilot_reviews": 5781,
+      "trustpilot_reviews": 5784,
       "trustpilot_quote": "5,781 reviews · TrustScore 4.3",
       "trustpilot_complaints": "Review summary reports rising prices, occasional quality issues (clasps breaking, small stones falling out) and ring-sizing problems.",
       "trustpilot_sample_note": "Claimed profile; replies to 99% of negative reviews.",
@@ -89,7 +91,8 @@
       "flags": [
         "RETURN_POLICY_PAGE_JAVASCRIPT_ONLY",
         "ENGRAVING_NOT_RETURNABLE"
-      ]
+      ],
+      "trustpilot_captured_on": "2026-10-23"
     },
     {
       "id": "ring-concierge",
@@ -121,7 +124,7 @@
         "RETURN_EXCLUSION_RESIZED",
         "LOW_REVIEW_SAMPLE",
         "WARRANTY_TERM_CONTRADICTION",
-        "F25"
+        "F28"
       ],
       "contact_note": "info@ringconcierge.com is printed in the Resizing & Repairs / Insured Shipping accordions on the engagement-ring PDPs; no phone number published on pages checked."
     },
@@ -140,7 +143,7 @@
       "returns_exclusions": "Special orders, engraved items, Forever jewelry, earrings from piercing events, home & beauty items and comestibles are final sale. All international sales are final.",
       "hallmark_stated": null,
       "hallmark_note": "No hallmark / maker's-mark policy found on the pages checked.",
-      "phone": null,
+      "phone": "+1-718-599-2340",
       "email": "customerservice@catbirdnyc.com",
       "contact_url": "https://www.catbirdnyc.com/facts",
       "trustpilot_url": "https://www.trustpilot.com/review/catbirdnyc.com",
@@ -154,8 +157,8 @@
         "INTERNATIONAL_SALES_FINAL",
         "RETURN_SHIPPING_FEE",
         "F24"
-      ]
+      ],
+      "trustpilot_captured_on": "2026-10-23"
     }
-  ],
-  "retrieved_utc": "2026-10-23T09:57:00Z"
+  ]
 }

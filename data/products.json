@@ -17,17 +17,17 @@
       "metal_detail": "14k gold, 18k gold or platinum band (1.8mm width)",
       "solid_gold": true,
       "solid_gold_status": "stated at brand level",
-      "solid_gold_evidence": "Aurate offers three rates of gold – Vermeil, 14-karat solid gold and 18-karat solid gold.",
-      "solid_gold_source": "https://auratenewyork.gorgias.help/en-US/articles/our-jewelry-38634",
+      "solid_gold_evidence": "14K Solid Yellow Gold",
+      "solid_gold_source": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring",
       "price": 2858.0,
       "currency": "USD",
       "price_type": "listed",
       "price_variant_note": "Re-read live on 2026-10-22 (pass P3): the product page shows \"$2,858\" for the variant selected on the page (\"Rate - 14k GOLD\", \"Color - Yellow\", \"Size - 7\", \"In Stock • Ready to Ship\"), so this is a listed price for a real in-stock configuration, not only a \"From\" price. 18k gold and platinum variants cost more and were not captured. The page also advertises \"From $137/month with Klarna\" and a marketing comparison (\"62% Fairer Price\" / \"$7,431 Traditional Retail\"), which is the seller's own claim and is not used here.",
-      "price_captured_on": "2026-10-22",
+      "price_captured_on": "2026-10-23",
       "price_source": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring",
-      "price_quote": "$2,858",
+      "price_quote": "From $2,858.0 | Final Sale! / Exchange for size only. | Metal: 14K Solid Yellow Gold | Gold weight: 2.09g-4.27g",
       "weight_g": null,
-      "weight_status": "published as a range (no single figure)",
+      "weight_status": "published as a range",
       "weight_source": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring",
       "diamond_type": "lab-grown",
       "diamond_source": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring",
@@ -64,12 +64,16 @@
         {
           "code": "HALLMARK_NOT_STATED",
           "note": "No hallmark / maker's-mark statement on the listing."
+        },
+        {
+          "code": "FINAL_SALE_PDP_OVERRIDE",
+          "note": "Live PDP states 'Final Sale! / Exchange for size only.' alongside a 'Free Returns' badge, plus a 30% MTO cancellation fee after 24 hours (https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale)."
         }
       ],
       "notes": "Diamond described as \"EF color, VVS clarity\" in the product copy, \"VS/EF\" in the specs block, with an \"SI Clarity Only\" quality badge elsewhere on the same page. Re-read live on 2026-10-22 (pass P3, session arena/699d8e05-gold3): price unchanged, and the exchange-only/final-sale notices were present.",
       "price_recheck": "2026-10-22 (pass P3, session arena/699d8e05-gold3) — figure unchanged at $2,858.",
       "weight_quote": "Weight: 5.5-8.5g",
-      "weight_note": "The listing publishes a weight as a range - \"Weight: 5.5-8.5g\" - inside a specs block that covers the 14k gold, 18k gold and platinum versions of this ring. There is no single gram figure for the ring a buyer would receive, so weight_g stays null: taking a midpoint, or the low end, would be an invented number. weight_status says so literally, which is why scripts/verify.py accepts this token for a null weight. An earlier version of this record claimed the listing published no ring weight at all, which the page contradicts.",
+      "weight_note": "Final Sale! Exchange for size only (30% MTO cancellation fee after 24h). Shared multi-metal weight range 2.09g-4.27g across 14K/18K/Platinum.",
       "specs_quote": "Width: 2.75mm · Thickness: 1.8mm · Weight: 5.5-8.5g · Diamonds: 1 Round VS/EF Lab Grown Diamond · Diamonds Size: 8.2mm · 2tcw · SKU: AU5760",
       "specs_source": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring",
       "certification_quote": "All of our engagement diamond solitaire rings come with a certificate certifying the quality (cut, color, clarity and carat) of your diamond. It is run through one of two accredited institutions: The Gemological Institute of America or The International Gemological Institute. Trust but verify, always.",
@@ -91,17 +95,17 @@
       "metal_detail": "14k gold, 18k gold or platinum",
       "solid_gold": true,
       "solid_gold_status": "stated at brand level",
-      "solid_gold_evidence": "Aurate offers three rates of gold – Vermeil, 14-karat solid gold and 18-karat solid gold.",
-      "solid_gold_source": "https://auratenewyork.gorgias.help/en-US/articles/our-jewelry-38634",
+      "solid_gold_evidence": "14K Solid Yellow Gold",
+      "solid_gold_source": "https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring",
       "price": 2638.0,
       "currency": "USD",
       "price_type": "from",
       "price_variant_note": "Starting price shown for the 14k option at the smallest size.",
-      "price_captured_on": "2026-10-22",
+      "price_captured_on": "2026-10-23",
       "price_source": "https://auratenewyork.com/collections/engagement-rings",
-      "price_quote": "From $2,638",
+      "price_quote": "From $2,638.0 | Final Sale! / Exchange for size only. | Metal: 14K Solid Yellow Gold | Gold weight: 2.86g-5.85g",
       "weight_g": null,
-      "weight_status": "not published",
+      "weight_status": "published as a range",
       "weight_source": null,
       "diamond_type": "lab-grown",
       "diamond_source": "https://auratenewyork.com/collections/engagement-rings",
@@ -126,9 +130,14 @@
         {
           "code": "HALLMARK_NOT_STATED",
           "note": "No hallmark / maker's-mark statement on the listing."
+        },
+        {
+          "code": "FINAL_SALE_PDP_OVERRIDE",
+          "note": "Live PDP states 'Final Sale! / Exchange for size only.' alongside a 'Free Returns' badge, plus a 30% MTO cancellation fee after 24 hours (https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale)."
         }
       ],
-      "notes": ""
+      "notes": "",
+      "weight_note": "Final Sale! Exchange for size only (30% MTO cancellation fee after 24h). Shared multi-metal weight range 2.86g-5.85g across 14K/18K/Platinum."
     },
     {
       "id": "aurate-1ct-round-lgd-bezel",
@@ -146,17 +155,17 @@
       "metal_detail": "14k gold, 18k gold or platinum",
       "solid_gold": true,
       "solid_gold_status": "stated at brand level",
-      "solid_gold_evidence": "Aurate offers three rates of gold – Vermeil, 14-karat solid gold and 18-karat solid gold.",
-      "solid_gold_source": "https://auratenewyork.gorgias.help/en-US/articles/our-jewelry-38634",
+      "solid_gold_evidence": "14K Solid Yellow Gold",
+      "solid_gold_source": "https://auratenewyork.com/products/1ct-round-lab-grown-diamond-bezel-ring",
       "price": 1498.0,
       "currency": "USD",
       "price_type": "from",
       "price_variant_note": "Starting price shown for the 14k option at the smallest size.",
-      "price_captured_on": "2026-10-22",
+      "price_captured_on": "2026-10-23",
       "price_source": "https://auratenewyork.com/collections/engagement-rings",
-      "price_quote": "From $1,498",
+      "price_quote": "From $1,498.0 | Final Sale! / Exchange for size only. | Metal: 14K Solid Yellow Gold | Gold weight: 1.98g-4.05g",
       "weight_g": null,
-      "weight_status": "not published",
+      "weight_status": "published as a range",
       "weight_source": null,
       "diamond_type": "lab-grown",
       "diamond_source": "https://auratenewyork.com/collections/engagement-rings",
@@ -181,9 +190,14 @@
         {
           "code": "HALLMARK_NOT_STATED",
           "note": "No hallmark / maker's-mark statement on the listing."
+        },
+        {
+          "code": "FINAL_SALE_PDP_OVERRIDE",
+          "note": "Live PDP states 'Final Sale! / Exchange for size only.' alongside a 'Free Returns' badge, plus a 30% MTO cancellation fee after 24 hours (https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale)."
         }
       ],
-      "notes": "Lowest-priced lab-grown entry in this dataset."
+      "notes": "Lowest-priced lab-grown entry in this dataset.",
+      "weight_note": "Final Sale! Exchange for size only (30% MTO cancellation fee after 24h). Shared multi-metal weight range 1.98g-4.05g across 14K/18K/Platinum."
     },
     {
       "id": "aurate-2ct-emerald-lgd-bezel",
@@ -201,17 +215,17 @@
       "metal_detail": "14k gold, 18k gold or platinum",
       "solid_gold": true,
       "solid_gold_status": "stated at brand level",
-      "solid_gold_evidence": "Aurate offers three rates of gold – Vermeil, 14-karat solid gold and 18-karat solid gold.",
-      "solid_gold_source": "https://auratenewyork.gorgias.help/en-US/articles/our-jewelry-38634",
+      "solid_gold_evidence": "14K Solid Yellow Gold",
+      "solid_gold_source": "https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-bezel-ring",
       "price": 1968.0,
       "currency": "USD",
       "price_type": "from",
       "price_variant_note": "Starting price shown for the 14k option at the smallest size.",
-      "price_captured_on": "2026-10-22",
+      "price_captured_on": "2026-10-23",
       "price_source": "https://auratenewyork.com/collections/engagement-rings",
-      "price_quote": "From $1,968",
+      "price_quote": "From $1,968.0 | Final Sale! / Exchange for size only. | Metal: 14K Solid Yellow Gold | Gold weight: 2.86g-5.85g",
       "weight_g": null,
-      "weight_status": "not published",
+      "weight_status": "published as a range",
       "weight_source": null,
       "diamond_type": "lab-grown",
       "diamond_source": "https://auratenewyork.com/collections/engagement-rings",
@@ -236,9 +250,14 @@
         {
           "code": "HALLMARK_NOT_STATED",
           "note": "No hallmark / maker's-mark statement on the listing."
+        },
+        {
+          "code": "FINAL_SALE_PDP_OVERRIDE",
+          "note": "Live PDP states 'Final Sale! / Exchange for size only.' alongside a 'Free Returns' badge, plus a 30% MTO cancellation fee after 24 hours (https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale)."
         }
       ],
-      "notes": ""
+      "notes": "",
+      "weight_note": "Final Sale! Exchange for size only (30% MTO cancellation fee after 24h). Shared multi-metal weight range 2.86g-5.85g across 14K/18K/Platinum; body copy misstates 'classic oval diamond' on Emerald Bezel listing (F25)."
     },
     {
       "id": "aurate-2ct-oval-lgd-solitaire",
@@ -255,17 +274,17 @@
       "metal_detail": "14k gold, 18k gold or platinum",
       "solid_gold": true,
       "solid_gold_status": "stated at brand level",
-      "solid_gold_evidence": "Aurate offers three rates of gold – Vermeil, 14-karat solid gold and 18-karat solid gold.",
-      "solid_gold_source": "https://auratenewyork.gorgias.help/en-US/articles/our-jewelry-38634",
+      "solid_gold_evidence": "14K Solid Yellow Gold",
+      "solid_gold_source": "https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring",
       "price": 2858.0,
       "currency": "USD",
       "price_type": "from",
       "price_variant_note": "Starting price shown for the 14k option at the smallest size.",
-      "price_captured_on": "2026-10-22",
+      "price_captured_on": "2026-10-23",
       "price_source": "https://auratenewyork.com/collections/engagement-rings",
-      "price_quote": "From $2,858",
+      "price_quote": "From $2,858.0 | Final Sale! / Exchange for size only. | Metal: 14K Solid Yellow Gold | Gold weight: 2.09g-4.27g",
       "weight_g": null,
-      "weight_status": "not published",
+      "weight_status": "published as a range",
       "weight_source": null,
       "diamond_type": "lab-grown",
       "diamond_source": "https://auratenewyork.com/collections/engagement-rings",
@@ -290,9 +309,14 @@
         {
           "code": "HALLMARK_NOT_STATED",
           "note": "No hallmark / maker's-mark statement on the listing."
+        },
+        {
+          "code": "FINAL_SALE_PDP_OVERRIDE",
+          "note": "Live PDP states 'Final Sale! / Exchange for size only.' alongside a 'Free Returns' badge, plus a 30% MTO cancellation fee after 24 hours (https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale)."
         }
       ],
-      "notes": ""
+      "notes": "",
+      "weight_note": "Final Sale! Exchange for size only (30% MTO cancellation fee after 24h). Shared multi-metal weight range 2.09g-4.27g across 14K/18K/Platinum."
     },
     {
       "id": "aurate-3ct-oval-lgd-solitaire",
@@ -309,17 +333,17 @@
       "metal_detail": "14k gold, 18k gold or platinum",
       "solid_gold": true,
       "solid_gold_status": "stated at brand level",
-      "solid_gold_evidence": "Aurate offers three rates of gold – Vermeil, 14-karat solid gold and 18-karat solid gold.",
-      "solid_gold_source": "https://auratenewyork.gorgias.help/en-US/articles/our-jewelry-38634",
+      "solid_gold_evidence": "14K Solid Yellow Gold",
+      "solid_gold_source": "https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring",
       "price": 3958.0,
       "currency": "USD",
       "price_type": "from",
       "price_variant_note": "Starting price shown for the 14k option at the smallest size.",
-      "price_captured_on": "2026-10-22",
+      "price_captured_on": "2026-10-23",
       "price_source": "https://auratenewyork.com/collections/engagement-rings",
-      "price_quote": "From $3,958",
+      "price_quote": "From $3,958.0 | Final Sale! / Exchange for size only. | Metal: 14K Solid Yellow Gold | Gold weight: 3.30g-6.75g",
       "weight_g": null,
-      "weight_status": "not published",
+      "weight_status": "published as a range",
       "weight_source": null,
       "diamond_type": "lab-grown",
       "diamond_source": "https://auratenewyork.com/collections/engagement-rings",
@@ -344,9 +368,14 @@
         {
           "code": "HALLMARK_NOT_STATED",
           "note": "No hallmark / maker's-mark statement on the listing."
+        },
+        {
+          "code": "FINAL_SALE_PDP_OVERRIDE",
+          "note": "Live PDP states 'Final Sale! / Exchange for size only.' alongside a 'Free Returns' badge, plus a 30% MTO cancellation fee after 24 hours (https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale)."
         }
       ],
-      "notes": ""
+      "notes": "",
+      "weight_note": "Final Sale! Exchange for size only (30% MTO cancellation fee after 24h). Shared multi-metal weight range 3.30g-6.75g across 14K/18K/Platinum."
     },
     {
       "id": "aurate-3ct-pear-lgd-bezel",
@@ -363,17 +392,17 @@
       "metal_detail": "14k gold, 18k gold or platinum",
       "solid_gold": true,
       "solid_gold_status": "stated at brand level",
-      "solid_gold_evidence": "Aurate offers three rates of gold – Vermeil, 14-karat solid gold and 18-karat solid gold.",
-      "solid_gold_source": "https://auratenewyork.gorgias.help/en-US/articles/our-jewelry-38634",
+      "solid_gold_evidence": "14K Solid Yellow Gold",
+      "solid_gold_source": "https://auratenewyork.com/products/3ct-pear-lab-grown-diamond-bezel-ring",
       "price": 2498.0,
       "currency": "USD",
       "price_type": "from",
       "price_variant_note": "Starting price shown for the 14k option at the smallest size.",
-      "price_captured_on": "2026-10-22",
+      "price_captured_on": "2026-10-23",
       "price_source": "https://auratenewyork.com/collections/engagement-rings",
-      "price_quote": "From $2,498",
+      "price_quote": "From $2,498.0 | Final Sale! / Exchange for size only. | Metal: 14K Solid Yellow Gold | Gold weight: 3.30g-6.75g",
       "weight_g": null,
-      "weight_status": "not published",
+      "weight_status": "published as a range",
       "weight_source": null,
       "diamond_type": "lab-grown",
       "diamond_source": "https://auratenewyork.com/collections/engagement-rings",
@@ -398,9 +427,14 @@
         {
           "code": "HALLMARK_NOT_STATED",
           "note": "No hallmark / maker's-mark statement on the listing."
+        },
+        {
+          "code": "FINAL_SALE_PDP_OVERRIDE",
+          "note": "Live PDP states 'Final Sale! / Exchange for size only.' alongside a 'Free Returns' badge, plus a 30% MTO cancellation fee after 24 hours (https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale)."
         }
       ],
-      "notes": ""
+      "notes": "",
+      "weight_note": "Final Sale! Exchange for size only (30% MTO cancellation fee after 24h). Shared multi-metal weight range 3.30g-6.75g across 14K/18K/Platinum."
     },
     {
       "id": "bluenile-petite-solitaire-14k-yg",
@@ -423,7 +457,7 @@
       "currency": "USD",
       "price_type": "setting-only",
       "price_variant_note": "Setting price only - the centre diamond is chosen and priced separately.",
-      "price_captured_on": "2026-10-22",
+      "price_captured_on": "2026-10-23",
       "price_source": "https://www.bluenile.com/engagement-rings/design-your-own-ring/petite-solitaire-engagement-ring-in-14k-yellow-gold-item-195639",
       "price_quote": "$1,000(Setting Price)",
       "weight_g": null,
@@ -477,7 +511,7 @@
       "currency": "USD",
       "price_type": "setting-only",
       "price_variant_note": "Setting price only - centre diamond excluded.",
-      "price_captured_on": "2026-10-22",
+      "price_captured_on": "2026-10-23",
       "price_source": "https://www.bluenile.com/engagement-rings",
       "price_quote": "Petite Hidden Halo Solitaire Plus Diamond Engagement Ring in 14k Yellow Gold $1,255(Setting Price)",
       "weight_g": null,
@@ -535,7 +569,7 @@
       "currency": "USD",
       "price_type": "setting-only",
       "price_variant_note": "Setting price only - centre diamond excluded. 1/6 ct. total weight refers to the pave side stones.",
-      "price_captured_on": "2026-10-22",
+      "price_captured_on": "2026-10-23",
       "price_source": "https://www.bluenile.com/engagement-rings",
       "price_quote": "Riviera Pavé Diamond Engagement Ring in 14k White Gold (1/6 ct. tw.) $1,500(Setting Price)",
       "weight_g": null,
@@ -593,7 +627,7 @@
       "currency": "USD",
       "price_type": "setting-only",
       "price_variant_note": "Setting price only - centre diamond excluded.",
-      "price_captured_on": "2026-10-22",
+      "price_captured_on": "2026-10-23",
       "price_source": "https://www.bluenile.com/engagement-rings/design-your-own-ring/floral-marquise-diamond-engagement-ring-in-18k-white-gold-item-203738",
       "price_quote": "$2,210(Setting Price)",
       "weight_g": null,
@@ -651,7 +685,7 @@
       "currency": "USD",
       "price_type": "setting-only",
       "price_variant_note": "Setting price only - centre diamond excluded.",
-      "price_captured_on": "2026-10-22",
+      "price_captured_on": "2026-10-23",
       "price_source": "https://www.bluenile.com/engagement-rings",
       "price_quote": "Criss Cross Solitaire Engagement Ring In 18K Yellow Gold By James Allen $2,320(Setting Price)",
       "weight_g": null,
@@ -710,7 +744,7 @@
       "currency": "USD",
       "price_type": "listed",
       "price_variant_note": "Listed price for the Solid Yellow Gold (14k) / Natural Diamond option.",
-      "price_captured_on": "2026-10-22",
+      "price_captured_on": "2026-10-23",
       "price_source": "https://mejuri.com/products/diamonds-band?Material=Solid+Yellow+Gold+%2814k%29&Stone=Natural+Diamond",
       "price_quote": "$648 ... Solid Yellow Gold (14k), Natural Diamond",
       "weight_g": null,
@@ -760,7 +794,7 @@
       "currency": "USD",
       "price_type": "listed",
       "price_variant_note": "Listed price for the Solid Yellow Gold (10k) option.",
-      "price_captured_on": "2026-10-22",
+      "price_captured_on": "2026-10-23",
       "price_source": "https://mejuri.com/collections/rings",
       "price_quote": "Stacker Ring ... $138 ... Solid Yellow Gold (10k)",
       "weight_g": null,
@@ -945,7 +979,7 @@
       "currency": "USD",
       "price_type": "from",
       "price_variant_note": "Starting price; varies with size and metal.",
-      "price_captured_on": "2026-10-22",
+      "price_captured_on": "2026-10-23",
       "price_source": "https://www.catbirdnyc.com/catbird-classic-wedding-bands-solid-half-round-band-2mm.html",
       "price_quote": "from$550.00",
       "weight_g": null,
@@ -998,7 +1032,7 @@
       "currency": "USD",
       "price_type": "listed",
       "price_variant_note": "Listed price for the 18k Gold Vermeil option.",
-      "price_captured_on": "2026-10-22",
+      "price_captured_on": "2026-10-23",
       "price_source": "https://mejuri.com/collections/rings",
       "price_quote": "Dôme Figure Ring ... $158 ... 18k Gold Vermeil",
       "weight_g": null,
@@ -1039,7 +1073,7 @@
       "currency": "USD",
       "price_type": "listed",
       "price_variant_note": "Listed price for the Sterling Silver option.",
-      "price_captured_on": "2026-10-22",
+      "price_captured_on": "2026-10-23",
       "price_source": "https://mejuri.com/collections/rings",
       "price_quote": "Dôme Figure Ring ... $138 ... Sterling Silver",
       "weight_g": null,

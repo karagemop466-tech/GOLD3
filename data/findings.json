@@ -249,6 +249,36 @@
     {
       "id": "F25",
       "severity": "high",
+      "title": "All 7 Aurate lab-grown engagement ring PDPs enforce 'Final Sale! / Exchange for size only.' + 30% MTO cancellation fee after 24h",
+      "detail": "Re-opening all seven Aurate engagement ring PDPs live on 2026-10-23 revealed every single listing prints 'Final Sale! / Exchange for size only.' beside a 'Free Returns' badge, imposes a 30% cancellation fee after 24 hours on made-to-order rings, repeats identical gram-weight ranges across 14K gold, 18K gold, and 950 platinum, and mislabels Emerald Bezel SKU AU5093 as a 'classic oval diamond' in body copy.",
+      "evidence": "'Final Sale! / Exchange for size only.' on AU5760, AU5769, AU5000, AU5093, AU5763, AU5764, AU5107 + '30% cancellation fee' after 24 hours on auratenewyork.com/pages/terms-conditions-exchange-only-final-sale.",
+      "source": "https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale",
+      "product": "aurate-2ct-emerald-lgd-bezel",
+      "action": "Do not treat Aurate's 60-day sitewide return window as applying to lab-grown engagement rings; confirm cash refund eligibility and single-metal gram weight in writing before paying."
+    },
+    {
+      "id": "F26",
+      "severity": "high",
+      "title": "Mejuri Slim Diamond Eternity Band (R03) live PDP reads 'From $898' vs $648 stored from collection grid (+38.6%)",
+      "detail": "Opening the direct product page https://mejuri.com/products/slim-diamond-eternity-band on 2026-10-23 showed 'From $898' in 14k solid gold (white rhodium plated), whereas $648 was captured from the milestone-rings collection grid where neighboring Diamonds Band is $648.",
+      "evidence": "'From $898' and '14k solid gold (white rhodium plated)' on https://mejuri.com/products/slim-diamond-eternity-band.",
+      "source": "https://mejuri.com/products/slim-diamond-eternity-band",
+      "product": null,
+      "action": "Always open the direct product SKU URL rather than relying on collection-grid cards; R03 is updated to $898 with flag FP1."
+    },
+    {
+      "id": "F27",
+      "severity": "medium",
+      "title": "Live PDP template specification bugs on Brilliant Earth SOL-05/R29 ('Band Width: 2 ct. tw.') and VRAI R28 ('Pavé carat weight: 0.11ctw' on Plain band)",
+      "detail": "Line-by-line inspection of live PDPs on 2026-10-23 uncovered copy-paste specification bugs in structured product tables: Brilliant Earth sid=39897151 prints 'Band Width: 2 ct. tw.' (carat units in millimeter field) and geo-routes non-US readers to EUR pricing, while VRAI Petite 4-Prong Solitaire prints 'Pavé carat weight: 0.11ctw' when the Plain (stone-free) band is selected.",
+      "evidence": "Brilliant Earth sid=39897151: 'Band Width: 2 ct. tw.'; VRAI 41046722314333: 'Band style: Plain ... Pavé carat weight: 0.11ctw'.",
+      "source": "https://www.brilliantearth.com/rings/yellow-gold-settings/engagement-rings/?sid=39897151",
+      "product": null,
+      "action": "Verify invoice specifications line by line before checkout and screenshot all selected variant attributes."
+    },
+    {
+      "id": "F28",
+      "severity": "high",
       "title": "Ring Concierge's $6,038 engagement-ring page claims both a 2.08 ct E VS1 stone and a 5.63 ct D VVS2 stone — and cuts the return window to 7 days",
       "detail": "Live re-read of Ring Concierge's 2.08 Oval Lab Diamond in Whisper Thin Hidden Halo on 2026-10-23 uncovered two major contradictions: (1) the title and Details accordion specify '2.08 Carat E VS1 Oval Lab Grown Diamond', while the description prose directly on the same page claims 'featuring a 5.63 Carat D VVS2 Oval Lab Diamond'; and (2) while Ring Concierge's general Refund Policy states 30 days on Fine Jewelry, the engagement-ring PDP Shipping & Returns accordion states 'You have 1 week (7 days) from the date of delivery to return your ready-made engagement ring' and makes any resized ring final sale.",
       "evidence": "Title/Details: '2.08 Carat E VS1 Oval Lab Grown Diamond' vs Description: 'featuring a 5.63 Carat D VVS2 Oval Lab Diamond' · PDP FAQ: '1 week (7 days) from the date of delivery to return your ready-made engagement ring'",
@@ -257,7 +287,7 @@
       "action": "Require the exact diamond certificate number and written return window before ordering, and assume the stricter 7-day bridal return window governs."
     },
     {
-      "id": "F26",
+      "id": "F29",
       "severity": "high",
       "title": "Systematic URL sweep caught five more 404 citations, two mis-transcribed phone numbers, and Menē's JS-gated weights",
       "detail": "Sweeping every unique URL across all JSON datasets on 2026-10-23 caught dead 404/500 pages in flags.json (SPEC5, WAR1), sellers.json (vrai.com/pages/contact-us, localeclectic.com/pages/contact-us, mene.com/contact-us, catbirdnyc.com/contact-us), and spot-and-standards.json (uscode.house.gov HTTP 500, GIA Summer 2025 trailing-'0' 404). Opening the live replacements revealed that S-VRAI listed the wrong phone (+1-855-383-8724 instead of +1.855.956.4488) and understated its $300 engagement-ring recycling fee, S-MENE mis-transcribed 1-833-MENE-24K as +1-833-636-3465 instead of +1-833-636-3245, R03's dedicated PDP is From $898 (not $648), and Menē's BND-01..03 static HTML omits gram weights (nulled per Zero-Inference Policy).",

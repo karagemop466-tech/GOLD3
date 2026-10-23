@@ -98,7 +98,7 @@
         "certification"
       ],
       "last_verified": "2026-10-23",
-      "verification": "Product page re-fetched live on 2026-10-23 (session arena/15b00e99-gold3): $1,500, Solid Yellow Gold (14k), 'Only a few left', and no gram weight confirmed verbatim."
+      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3)."
     },
     {
       "id": "R03",
@@ -795,7 +795,7 @@
         "maker_mark_reported"
       ],
       "last_verified": "2026-10-23",
-      "verification": "Product page re-fetched live on 2026-10-23 (session arena/15b00e99-gold3): Starting from $1,600 (0.20 ct), 18k Yellow Gold and Platinum, currently unavailable, non-returnable / exchange-only notice, and path redirect (RDR1) all re-confirmed."
+      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3)."
     },
     {
       "id": "R18",
@@ -884,8 +884,8 @@
         "maker_mark_reported",
         "certification"
       ],
-      "last_verified": "2026-10-23",
-      "verification": "Product page re-fetched live on 2026-10-23 (session arena/15b00e99-gold3): $178 and '18k Gold Vermeil, Sterling Silver' re-confirmed verbatim."
+      "last_verified": "2026-10-22",
+      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3)."
     },
     {
       "id": "R20",
@@ -1447,8 +1447,8 @@
         "maker_mark_reported",
         "certification"
       ],
-      "last_verified": "2026-10-23",
-      "verification": "Re-fetched live on 2026-10-23 (session arena/15b00e99-gold3): $239 price and '9k Solid Gold' alt/badge vs '10k solid yellow gold' bullet conflict (SPEC2) re-confirmed verbatim."
+      "last_verified": "2026-10-22",
+      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3): $239 confirmed; caught 9k vs 10k on-page contradiction (SPEC2)."
     }
   ],
   "excluded_listings": [
