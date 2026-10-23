@@ -1086,3 +1086,12 @@ See the gate block recorded immediately below this section on the merged tip; al
 | Pages deploy | `pages-build-deployment` run **40019822272** — `success`; `pages/builds/latest` → `built`, `2026-10-23T20:31:31Z` |
 | Live read-back (not assumed) | `verify.html` served **211 URLs opened / 101 confirmed / 74 corrected / 36 flagged**, listed pass **P14**, and the session string ended `… (P13) · arena/438a583e-gold3 (P14)`. |
 | Follow-up | [#58](https://github.com/karagemop466-tech/GOLD3/pull/58) — this board record only, no site content. Next-pass queue: Dataset A's remaining 18 PDPs and the Ring Concierge `F25` contradiction. |
+
+### 20.5 Merge trail after §20.4
+
+| Step | Commit | Notes |
+|---|---|---|
+| Pass `P14` merged | `c4481df` (PR [#52](https://github.com/karagemop466-tech/GOLD3/pull/52)) | 9 gates green, CI `40019823707` success, Pages `40019822272` success |
+| Board record merged | `b8e4209` (PR [#58](https://github.com/karagemop466-tech/GOLD3/pull/58)) | §20 renumber + §20.4; CI `40020269309` success |
+| Peer landed on top | `35ba985` (PR #55, `arena/57724486-gold3`) | CI `40020389930` success, Pages `40020389494` success; no conflict with this pass |
+| Live read-back after `35ba985` | — | `flagged-for-review.html` and `verify.html` both serve the P14 content and the 211-check log; spot tile still `$4,022.70/oz` dated, live reference `$3,997.22` shown beside it |
