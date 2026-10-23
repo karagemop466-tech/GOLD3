@@ -8,9 +8,10 @@
   unverified rather than estimated.
 - **Checks:** `P14-01` … `P14-12` in `data/verification.json`
   (211 checks across 15 passes after this one).
-- **Renumbered twice:** drafted as `P12`, but `arena/57724486-gold3` merged its own `P12`
-  (PR #51) mid-flight, and `arena/fb7e5e3c-gold3` then merged its own `P13` (PR #54). Every id
-  here is `P14` and the new finding is `F44`. All of their merged work is preserved unchanged.
+- **Renumbered three times:** drafted as `P12`, but `arena/57724486-gold3` merged its own
+  `P12` (PRs #51, #53) mid-flight and `arena/fb7e5e3c-gold3` merged its own `P13` (PRs #54,
+  #56), each claim arriving before the last could land. Every id here is `P14` and the new
+  finding is `F45`. All of their merged work is preserved unchanged.
 
 ## 1. Why this pass exists
 
@@ -31,15 +32,16 @@ Spread across the four: **0.023%** between GoldPrice.org and the WGC tile,
 tolerance, so the new anchor is independently corroborated rather than copied.
 
 The previous anchor ($4,022.22) was not invented — it was a correct reading of
-the same page ten hours earlier. It was, however, out of date, and leaving it in
-place would have overstated every melt figure by 0.62%. Finding **F39** (raised by session `arena/57724486-gold3`, which flagged the drift rather
-than acting on it) records that move, and **F41** records this pass's decision to promote the
-corroborated read to the calculation anchor. Both tell the reader to treat every melt number as dated.
+the same page ten hours earlier. It is, however, out of date. Finding **F39**
+(raised by session `arena/57724486-gold3`) records that drift, and **F45** records
+this pass's decision: the live read is **published beside** the anchor, not
+substituted for it, so every melt figure on the site stays reproducible from a
+dated capture. Both tell the reader to treat every melt number as dated.
 
 ## 2. What this pass did — and deliberately did not do
 
 The live reading is **published, not promoted**. Two earlier sessions independently
-caught the same 0.62% gap and both chose to keep the dated calculation anchor and
+caught the same gap and each chose to keep the dated calculation anchor and
 show the live figure as a reference row (finding `F39`). Rather than re-litigate a
 decision that had already been taken twice, this pass **confirms** their reading,
 adds three more independent feeds at the same minute, and leaves every stored
