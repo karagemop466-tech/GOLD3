@@ -33,7 +33,7 @@
 </div>
 
 <div class="grid cols-3" style="margin-bottom:20px">
-  <div class="kpi"><div class="label">Editorial findings</div><div class="value">38</div><div class="sub">18 high severity</div></div>
+  <div class="kpi"><div class="label">Editorial findings</div><div class="value">40</div><div class="sub">18 high severity</div></div>
   <div class="kpi"><div class="label">Listing-level flags</div><div class="value">101</div><div class="sub">across 19 listings</div></div>
   <div class="kpi"><div class="label">Unverified cells</div><div class="value">0 guesses</div><div class="sub">blank is used instead</div></div>
 </div>
@@ -413,6 +413,28 @@
           <p class="small"><strong>Source:</strong> <a href="https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-bezel-ring</a></p>
           <p class="small"><a href="rings.html#p-aurate-2ct-emerald-lgd-bezel">See the listing in the table &rarr;</a></p>
           <p class="action"><strong>What to do:</strong> Corrected in PR #46: all 7 Aurate rows now point price_source to their exact p[&#x27;url&#x27;] with literal verbatim substrings.</p>
+        </div>
+        <div class="card finding medium" id="F39">
+          <div class="finding-head">
+            <h3>F39 · Live gold spot fell 0.62% on the same market date, and the page&#x27;s own clock label runs backwards</h3>
+            <span class="badge warn">MEDIUM</span>
+          </div>
+          <p class="small">The GoldPrice.org page was opened again on 2026-10-23 at 20:17Z and printed “Spot Gold Price: USD 3,997.22 / Ounce … Oct 23rd, 2026 at 04:17 NY Time”, with the header ticker reading “3,996.89 / -47.83 / -1.18%”. The stored primary snapshot in data/prices.json is USD 4,022.22 / oz labelled “Oct 23rd, 2026 at 05:55 NY Time”. Two things follow. First, the stored snapshot is now 0.62% above the live reading; because it is a dated capture, it was deliberately NOT overwritten — every melt and break-even figure on this site is arithmetic on that documented number, and silently replacing it would change every printed result. Second, the live page&#x27;s clock label (04:17 NY) is EARLIER than the label on the morning&#x27;s capture (05:55 NY) even though it was read some ten hours later, so at least one of the two timestamps is not what it appears to be. This project records that instead of inventing an explanation for it.</p>
+          <div class="evidence">Live 2026-10-23T20:17Z: “Spot Gold Price: USD 3,997.22 / Ounce | Spot Silver Price: USD 53.92 / Ounce Oct 23rd, 2026 at 04:17 NY Time” (https://goldprice.org/). Stored: USD 4,022.22 at “Oct 23rd, 2026 at 05:55 NY Time” (data/prices.json, snapshot goldprice-org-2026-10-23). Difference: $25.00/oz = 0.6215%.</div>
+          <p class="small"><strong>Source:</strong> <a href="https://goldprice.org/" target="_blank" rel="noopener">https://goldprice.org/</a></p>
+          
+          <p class="action"><strong>What to do:</strong> Re-read the spot source on the day you use the calculator; treat every figure on this site as dated. The timestamp inversion is published for review rather than resolved by assumption.</p>
+        </div>
+        <div class="card finding medium" id="F40">
+          <div class="finding-head">
+            <h3>F40 · Menē repriced two bands down within one day and its Wide Flat Band page returned HTTP 500</h3>
+            <span class="badge warn">MEDIUM</span>
+          </div>
+          <p class="small">Read live on 2026-10-23 at 20:30Z: the Classic Band product page printed $1,694 (stored $1,707, captured earlier the same day; $1,720 the day before) and the Narrow Flat Band printed $1,532 (stored $1,544 from the collection grid). Both records were corrected to the live product-page figures and the earlier readings kept in live_recheck.history. The Wide Flat Band page (https://mene.com/products/mene-wide-flat-band-gold) returned “500 Internal Server Error / Page Not Found” while Menē&#x27;s own Classic Band and Narrow Flat Band pages still link that exact URL and print “Wide Flat Band - Gold … From $2,297”. BND-03 therefore keeps its captured $2,465 and is flagged SRC3 — the “From” figure on a different page is not the product-page price and was not substituted.</p>
+          <div class="evidence">Live: “Classic Band … $1,694 … USD”; “Narrow Flat Band … $1,532 … USD”; “Wide Flat Band - Gold … From $2,297” on Menē&#x27;s Recommended widgets; /products/mene-wide-flat-band-gold → “500 Internal Server Error”, all 2026-10-23T20:30Z.</div>
+          <p class="small"><strong>Source:</strong> <a href="https://mene.com/products/mene-wide-flat-band-gold" target="_blank" rel="noopener">https://mene.com/products/mene-wide-flat-band-gold</a></p>
+          
+          <p class="action"><strong>What to do:</strong> Re-check any Menē price on the product page before ordering, and ask customer care to confirm the Wide Flat Band price in writing while that page errors.</p>
         </div>
         <div class="card finding low" id="F10">
           <div class="finding-head">
@@ -1184,8 +1206,8 @@ exists. A flag with no source of its own is a question about one specific listin
             <span class="badge warn">medium</span>
             <span class="mono">PRC1</span><strong>Seller re-prices continuously - a captured price is not today&#x27;s price</strong>
           </div>
-          <p class="small" style="margin:8px 0 4px">Menē sells by gram weight and re-quotes as the metal price moves. Every Menē row in this project was re-read live on 2026-10-23 and all four had moved down since capture: Wrap Ring $3,228 (captured $3,253), Classic Band $1,707 on the product page and &quot;From $1,664&quot; on the collection page (captured $1,720), Narrow Flat Band &quot;From $1,544&quot; (captured $1,556), Wide Flat Band &quot;From $2,315&quot; (captured $2,333). GoldPrice.org printed $4,022.22/oz on the same day against the $4,026.79/oz snapshot the melt values use.</p>
-          <p class="small" style="margin:0"><strong>What to do:</strong> Open the source link and read the live price before comparing or buying. Treat every price on this site as captured on the date printed beside it, and re-check it the day you order.</p>
+          <p class="small" style="margin:8px 0 4px">Menē sells by gram weight and re-quotes as the metal price moves. Every Menē row in this project has now moved down more than once, and the movement continued on the evening of 2026-10-23: the Classic Band product page printed $1,694 (captured $1,707 earlier that day, $1,720 on 2026-10-22) and the Narrow Flat Band printed $1,532 (captured $1,544). On the same evening GoldPrice.org printed $3,997.22/oz against the $4,022.22/oz snapshot the melt values use — a 0.62% fall on the same market date. Menē&#x27;s Wide Flat Band page returned HTTP 500 during that read (see SRC3).</p>
+          <p class="small" style="margin:0"><strong>What to do:</strong> Open the source link and read the live price before comparing or buying. Treat every price on this site as captured on the date printed beside it, and re-check it the day you order — a Menē figure can move twice in one day.</p>
           <p class="small" style="margin:6px 0 0"><strong>Source:</strong> <a href="https://mene.com/collections/bands-gold" target="_blank" rel="noopener">official page</a></p>
         </div><div class="card" id="flag-RET11">
           <div style="display:flex;gap:8px;align-items:baseline;flex-wrap:wrap">
@@ -1291,6 +1313,14 @@ exists. A flag with no source of its own is a question about one specific listin
           <p class="small" style="margin:8px 0 4px">Catbird&#x27;s /contact-us URL returned &quot;HTTP 500 Internal Server Error&quot; (nginx) across multiple checks on 2026-10-23. Session arena/15b00e99-gold3 confirmed that https://www.catbirdnyc.com/facts returns HTTP 200 and prints &#x27;customerservice@catbirdnyc.com&#x27; verbatim, so S-CB and catbird now cite /facts while keeping this flag to warn buyers that /contact-us is failing.</p>
           <p class="small" style="margin:0"><strong>What to do:</strong> Contact customerservice@catbirdnyc.com (verified on catbirdnyc.com/facts) or use returns.narvar.com/catbird.</p>
           <p class="small" style="margin:6px 0 0"><strong>Source:</strong> <a href="https://www.catbirdnyc.com/facts" target="_blank" rel="noopener">official page</a></p>
+        </div><div class="card" id="flag-SRC3">
+          <div style="display:flex;gap:8px;align-items:baseline;flex-wrap:wrap">
+            <span class="badge warn">medium</span>
+            <span class="mono">SRC3</span><strong>Cited product page returned HTTP 500 while the seller&#x27;s own pages still link it</strong>
+          </div>
+          <p class="small" style="margin:8px 0 4px">Menē&#x27;s Wide Flat Band page (https://mene.com/products/mene-wide-flat-band-gold) answered our fetch on 2026-10-23T20:31Z with “500 Internal Server Error / Page Not Found | Menē”. Menē&#x27;s own Classic Band and Narrow Flat Band pages link that exact URL and print “Wide Flat Band - Gold … From $2,297”. A buyer therefore cannot confirm the band&#x27;s own price on the product page at the time of reading, and the BND-03 record keeps its captured $2,465 rather than adopting the collection-level “From” figure.</p>
+          <p class="small" style="margin:0"><strong>What to do:</strong> Re-open the link before buying; if it still errors, call Menē customer care and get the price for your size in writing, and treat BND-03&#x27;s stored price as unconfirmed on the day you order.</p>
+          <p class="small" style="margin:6px 0 0"><strong>Source:</strong> <a href="https://mene.com/products/mene-wide-flat-band-gold" target="_blank" rel="noopener">official page</a></p>
         </div><div class="card" id="flag-WAR1">
           <div style="display:flex;gap:8px;align-items:baseline;flex-wrap:wrap">
             <span class="badge warn">medium</span>

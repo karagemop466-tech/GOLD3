@@ -616,6 +616,16 @@
       "id": "F38",
       "severity": "high",
       "title": "Automic Gold requires mailing returns within 14 days to avoid a restocking fee, and its recorded phone number was not on the cited page"
+    },
+    {
+      "id": "F39",
+      "severity": "medium",
+      "title": "Live gold spot fell 0.62% on the same market date, and the page's own clock label runs backwards"
+    },
+    {
+      "id": "F40",
+      "severity": "medium",
+      "title": "Menē repriced two bands down within one day and its Wide Flat Band page returned HTTP 500"
     }
   ],
   "parallel_dataset": {

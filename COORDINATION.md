@@ -23,6 +23,7 @@ Read it before starting any work. Update it when you claim, finish, or hand off 
 | `arena/bfcd8465-gold3` | `arena/bfcd8465-gold3` | 2026-10-23T09:55Z | complete — deep-chunk Automic Gold & flag-source audit (`V13` / `P11`), `RET14`, UI/nav consistency & final integration (`T16`, §17; PR #45 merged as `4fd7504`, Pages deployed) |
 | `arena/2908bea4-gold3` | `arena/2908bea4-gold3` | 2026-10-23T09:55Z | complete — Dataset C & Dataset D live URL/value sweep (V10–V11), Dataset C provenance gate (`verify_dataset_c.py`), final additive integration & deploy (V12, §13; PR #40 merged as `8d3c172`, Pages deployed) |
 | `arena/15b00e99-gold3` | `arena/15b00e99-gold3` | 2026-10-23T10:44Z | **complete** — Pass P10 full-repo hallucination/contradiction/dead-URL sweep (`DC1`–`DC4`, §15; PR #44 merged as `a0b589b`, Pages deployed & live read-back verified) |
+| `arena/57724486-gold3` | `arena/57724486-gold3` | 2026-10-23T20:30Z | **in progress** — Pass `P12`: freshest live re-verification of the spot benchmark + a rotating sample of the highest-priced `R*` rows and `SOL`/`BND` rows, headline-count/consistency sweep of every published page vs `data/`, then final integration (rebuild, 9 gates, PR → `main`, merge, Pages deploy read-back) |
 
 ### Branch naming note (important)
 The protocol below asks for `session-<id>/<task>` branches. **This sandbox pins each session to a
@@ -87,6 +88,7 @@ Status values: `unclaimed` · `in progress` · `done` · `needs review`
 | DC4 | Catch `R24`/`R25` platinum-weight hallucinations (`3.4g`→`3.5g`, `2.0g`→`2.1g`, `+WT5`), upgrade `R03` `$648`→`$898` PDP & retire `L1`, fix Ring Concierge 2.08 vs 5.63 ct & 7-day bridal window, repoint 4 dead 404 URLs (`WAR1`, `SPEC5`, Aurate & RC returns), append Pass `P10` | done | `arena/15b00e99-gold3` | `data/rings.json`, `data/products.json`, `data/sellers.json`, `data/flags.json`, `data/sources.json`, `data/findings.json`, `data/verification.json` | 2026-10-23T10:44Z |
 | DC2 | Replace hardcoded `$4,025.10`/`$129.41`/`$317.05` spot & melt literals across `scripts/`, extend `verify_dataset_c.py` dead-URL blocklist, rebuild all 24 HTML pages & manifest, pass all 9 CI gates | done | `arena/15b00e99-gold3` | `scripts/audit.py`, `scripts/run_security_audit.py`, `scripts/build_ext_pages.py`, `scripts/verify_dataset_c.py`, `*.html`, `data/verified-data.js`, `verification/*`, `reports/*` | 2026-10-23T10:44Z |
 | DC3 | Open & merge PR #44 (`a0b589b`) to `main`, confirm GitHub Pages deployment (`39941002177`, `status: built`) & live read-back, record final outcome | done | `arena/15b00e99-gold3` | `COORDINATION.md` | 2026-10-23T10:44Z |
+| P12 | Eleventh independent live verification pass on the post-PR-#50 tree (`253ab39`): **7 live checks — 3 confirmed / 2 corrected / 2 flagged**. Spot anchor 0.62% below the stored snapshot with an inverted clock label (F39); Menē Classic Band $1,707→$1,694 and Narrow Flat Band $1,544→$1,532 (F40); Menē Wide Flat Band page returned HTTP 500 so its price was left captured (SRC3); Sarraf R20, Ross-Simons BND-04 and Mejuri R03 confirmed verbatim. Also fixed SD14 (three headline counts said 50 while the site renders 71) and SD15 (duplicate `P11-01/P11-02` ids, duplicate `SD6/SD10`, stale `summary.checks` 137 vs 185) and added three audit guard rails. Published `data/reverification-57724486.json` + `reports/reverification-pass-57724486.md`; log now **192 checks**. Verification pass on the post-PR-#50 tree (`253ab39`): re-open the spot benchmark and a rotating sample of price/weight-bearing rows live, sweep every published headline count against `data/`, fix any discrepancy found, publish `data/reverification-57724486.json` + report, then final integration (rebuild, all 9 CI gates, PR → `main`, merge, Pages deploy read-back) | done | `arena/57724486-gold3` | `data/reverification-57724486.json`, `reports/reverification-pass-57724486.md`, `data/verification.json`, `COORDINATION.md`; integration window over generated `*.html`, `data/*.json`, `verification/*`, `reports/*` | 2026-10-23T21:00Z |
 
 > **T10 closed 2026-10-23** by its owner's own work, merged as PR #13 (board record) and PR #15
 > (text corrections). This session only recorded the closure — no file owned by `arena/92d7dd0a-gold3`
@@ -874,3 +876,62 @@ not-re-checked; `R22`'s weight line was cut off by the fetch. All of it is liste
 - **Merged Commit on `main`:** `4fd75049890ff92b45010be62f1953e9cc2e7cef` (`4fd7504`) at `2026-10-23T10:50:45Z`
 - **CI Verification Run (`main`):** `39941950882` — **SUCCESS** (all 9 gates green in 17s, 0 errors / 0 warnings)
 - **GitHub Pages Deployment (`pages-build-deployment`):** Run `39941951522` / Build `1307944075` — **built** (`error: null`, 20.5s, `2026-10-23T10:51:06Z`), live at `https://karagemop466-tech.github.io/GOLD3/`
+
+---
+
+## 18. Session `arena/57724486-gold3` — Pass `P12` live re-verification and final integration, 2026-10-23
+
+**Starting point.** `origin/main` = `253ab39` (PR #50), branch 0 ahead / 0 behind, every other session in §0
+`complete` — so this run is both a fresh verification pass and the integration session. The claim was committed and
+pushed (`board: claim P12 …`) **before** any data file was edited.
+
+### 18.1 What the pass found — 7 live checks, 3 confirmed · 2 corrected · 2 flagged
+
+Full evidence: `data/reverification-57724486.json` (checks `P12-01`…`P12-07`), human-readable
+`reports/reverification-pass-57724486.md`. Every value below was searched for verbatim in the text the official page
+returned between 20:17Z and 20:35Z on 2026-10-23.
+
+| Subject | Official URL | Result |
+|---|---|---|
+| Gold spot anchor | `https://goldprice.org/` | **flagged** — page printed `USD 3,997.22/Ounce … Oct 23rd, 2026 at 04:17 NY Time`; stored primary is `4,022.22` at `05:55 NY Time` (−0.6215%, same market date) |
+| R20 Sarraf 14k WG solitaire | `https://www.sarraf.com/products/14k-white-gold-solitaire-ring-0-94-ctw.html` | **confirmed** — `Now: US$3,004.00`, `14K Solid Gold`, `3.80 grams`, `0.94 Ct.` |
+| BND-01 Menē Classic Band | `https://mene.com/products/mene-classic-band-gold` | **corrected** — `$1,694` (stored 1,707) |
+| BND-02 Menē Narrow Flat Band | `https://mene.com/products/mene-narrow-flat-band-gold` | **corrected** — `$1,532` (stored 1,544) |
+| BND-03 Menē Wide Flat Band | `https://mene.com/products/mene-wide-flat-band-gold` | **flagged** — `500 Internal Server Error`; price left at its capture (new flag `SRC3`) |
+| BND-04 Ross-Simons 2 mm band | `https://www.ross-simons.com/products/571221` | **confirmed** — `$400`, `14kt Yellow Gold`, `Gold Weight 1.7 grams` |
+| R03 Mejuri eternity band | `https://mejuri.com/products/slim-diamond-eternity-band` | **confirmed** — `From$898`, `0.214 ct - 0.274 ct`, rhodium line, 30-day returns |
+
+**No stored snapshot was overwritten to match a moving price.** The live spot reading is added to
+`data/prices.json` as an explicitly labelled third entry with the role *live-check (shown for reference, not used in any
+calculation)*, so `sources.html` shows it beside the two calculation snapshots while every melt figure stays reproducible
+from the dated primary. The inverted clock label (a later read carrying an earlier timestamp) is recorded as printed and
+**not** explained away — see finding `F39`. Finding `F40` and flag `SRC3` record the Menē 500 and the two re-pricings.
+
+### 18.2 Defects found on our own tree and fixed
+
+* **`SD14`** — `index.html`, `combined.html` meta and `rings.html` all said *"50 listings"* while `combined.html`
+  renders **71** rows and the nav says *Combined (71)*. 50 is the A+B subtotal; the 21 Dataset C rows were silently
+  dropped from the prose. All three strings are now computed from the loaded JSON and state both numbers.
+* **`SD15`** — the verification log contained duplicate check ids (`P11-01`, `P11-02` allocated twice by two sessions),
+  duplicate site-defect ids (`SD6`, `SD10` twice, `SD12` unused) and a `summary.checks` of **137** for **185** entries.
+  Renumbered (`P11b`, `SD12`/`SD13`/`SD17`), summary recomputed, and three guard rails added to `scripts/audit.py`:
+  duplicate check ids, duplicate site-defect ids and a `summary.checks`/log-length mismatch now fail the build.
+  Verified by injecting a duplicate into `data/verification.json` (audit raised 4 errors) and restoring the file.
+
+### 18.3 Gates after the changes (all nine, locally, in workflow order)
+
+`verify.py` **PASS** (0 errors, 0 warnings, 12 notes) · `verify_dataset_c.py` **PASS** (21 rings, 5 sellers, 7 standards,
+0 dead links) · `build_ext_pages.py` OK · `build_site.py` 18 pages, internal links OK · `audit.py`
+**rows=31 errors=0 warnings=0 passed=176** · `run_security_audit.py` **Pass #28**, SEC-01…SEC-07 PASS (2,199
+links/anchors) · `render-test.js` **127/127** · `report_verify.py` **192 checks** · root-HTML `<tr>` gate **922 rows /
+0 missing** official links · archive suite **PASS** (156 internal, 270 external).
+
+### 18.4 PR, merge and deployment record
+
+| Step | Result |
+|---|---|
+| Pull request | _recorded below after merge_ |
+| Merge commit on `main` | _recorded below after merge_ |
+| CI run on `main` | _recorded below after merge_ |
+| GitHub Pages deployment | _recorded below after merge_ |
+| Live read-back | _recorded below after merge_ |
