@@ -1,0 +1,236 @@
+{
+  "pass": "P4",
+  "session": "arena/bfcd8465-gold3",
+  "branch": "arena/bfcd8465-gold3",
+  "retrieved_utc": "2026-10-23",
+  "completed_utc": "2026-10-23T10:15:00Z",
+  "repo_state_at_start": "main @ 5663d5e (50 listings in Datasets A+B, 21 in Dataset C = 71 total; 16 sellers; 9 open change requests CR-P3-1..9)",
+  "method": "Live fetch of every Dataset B row added in PR #27 (R23-R31), all 21 Dataset C product pages (SOL-01..SOL-09, BND-01..BND-12), all 5 BBB profiles in sellers-policies.json, and every seller contact_source and policy_source URL in data/sellers.json and data/flags.json. Each stored value was searched verbatim in the returned page text.",
+  "no_hallucination_rule": "Every number, phone, email, weight, karat claim, and policy rule must appear on the linked official source page. If a cited URL returns 404 or redirects away from the cited document, it is repointed to the live official page; if a value is absent from the official pages read, it is deleted (set to null) rather than left unsourced.",
+  "checks": [
+    {
+      "id": "P4-01",
+      "url": "https://mene.com/contact-us",
+      "target": "S-MENE contact_source",
+      "outcome": "flagged",
+      "findings": "Returns '404 Page Not Found (# Are you lost?)'. Repointed S-MENE contact_source to https://mene.com/privacy-policy and https://mene.com/products/mene-classic-band-gold (flag SRC1, finding F25)."
+    },
+    {
+      "id": "P4-02",
+      "url": "https://mene.com/terms-of-service",
+      "target": "S-MENE policy_source and phone number",
+      "outcome": "corrected",
+      "findings": "Effective Date Sep 2, 2026. Prints 'please contact our Customer Care department at 1-833-MENE-24K' (= +1-833-636-3245), proving S-MENE's stored +1-833-636-3465 had transposed digits '24' to '46'. Confirms 7-day return window, up to 10% restocking fee on original-payment refunds, and 5% missing-CoA fee."
+    },
+    {
+      "id": "P4-03",
+      "url": "https://mene.com/privacy-policy",
+      "target": "S-MENE email address",
+      "outcome": "corrected",
+      "findings": "Effective Date September 1, 2026. Section F.2 prints 'please contact service@mene.com', whereas S-MENE had recorded 'concierge@mene.com'. Corrected to service@mene.com (finding F25)."
+    },
+    {
+      "id": "P4-04",
+      "url": "https://www.vrai.com/pages/contact-us",
+      "target": "S-VRAI contact_source",
+      "outcome": "flagged",
+      "findings": "Returns '404 - Page not found'. Repointed to https://help.vrai.com/en/knowledge/when-is-your-customer-experience-team-available (flag SRC1, finding F24)."
+    },
+    {
+      "id": "P4-05",
+      "url": "https://help.vrai.com/en/knowledge/when-is-your-customer-experience-team-available",
+      "target": "S-VRAI phone and email",
+      "outcome": "corrected",
+      "findings": "Prints 'Email: help@vrai.com' and 'Phone: +1.855.956.4488', contradicting S-VRAI's stored '+1-855-383-8724' and 'hello@vrai.com'. Also states 'strives to respond to every customer inquiry within 4 business days!', whereas sibling article can-i-speak-to-a-vrai-representative-on-the-phone-1 states 'within 1 business day!' (finding F24)."
+    },
+    {
+      "id": "P4-06",
+      "url": "https://www.vrai.com/returns-exchanges",
+      "target": "S-VRAI policy_source and R28 sources",
+      "outcome": "corrected",
+      "findings": "Live official returns page (replaces redirecting Zendesk slug /hc/en-us/articles/360000836514...). Confirms 30-day window, $300 engagement-ring recycling fee ($50 wedding band, $300 if engraved), one complimentary resize up to 1 full US size, resized rings non-returnable, and adds a $15,000 cash-refund cap ('Eligible items above $15,000 can be returned within 30 days for full credit to store')."
+    },
+    {
+      "id": "P4-07",
+      "url": "https://www.automicgold.com/policies/refund-policy",
+      "target": "S-AUTOMIC policy_source and resize_policy (chunk 4)",
+      "outcome": "corrected",
+      "findings": "Reading chunk 4 past the 4-chunk CookieYes banner revealed: 'To avoid a restocking fee, please mail your items within 14 days.' (new flag RET14) and restored the exact final-sale/resizing clause: 'The following Items are excluded from the return policy and are deemed Final Sale: Gift Cards / Engraved items / Custom items / Modified Items. However, if you are not satisfied with your final sale item, we may be able to work with you on making changes to your piece by resizing or modifying it for an additional fee, or we can purchase the item back from you at a reduced rate for recycling.' (finding F26)."
+    },
+    {
+      "id": "P4-08",
+      "url": "https://www.automicgold.com/pages/privacy-policy",
+      "target": "S-AUTOMIC phone and contact_source (chunks 4-5)",
+      "outcome": "corrected",
+      "findings": "Read all 6 chunks: no phone number appears anywhere on the page (S-AUTOMIC had recorded +1-929-307-2378), and the only email printed is accessibility@automicgold.com. Set phone to null and repointed contact_source to https://www.automicgold.com/pages/faq which prints care@automicgold.com (finding F26)."
+    },
+    {
+      "id": "P4-09",
+      "url": "https://www.localeclectic.com/pages/contact-us",
+      "target": "S-LOCALECLECTIC contact_source",
+      "outcome": "flagged",
+      "findings": "Returns '404 Not Found – local eclectic'. Repointed contact_source to https://www.localeclectic.com/pages/frequently-asked-questions (which prints hello@localeclectic.com verbatim; live contact form is at /pages/contact). Flag SRC1, finding F27."
+    },
+    {
+      "id": "P4-10",
+      "url": "https://www.brilliantearth.com/30-Day-Returns/",
+      "target": "S-BRILLIANTEARTH policy_source and R29 sources",
+      "outcome": "corrected",
+      "findings": "Repointed from https://www.brilliantearth.com/returns/ (which serves the homepage). Confirms free 30-day returns and 1-year resizes (60 days regardless of sizing range), $40 engraving removal fee on return, resized rings non-returnable, and states: 'Please note our return and exchange policy timelines begin when your purchase is available for shipment or pickup.' (correcting 'from delivery')."
+    },
+    {
+      "id": "P4-11",
+      "url": "https://www.brilliantearth.com/contact/",
+      "target": "S-BRILLIANTEARTH contact_source and email",
+      "outcome": "corrected",
+      "findings": "Confirms phone 800.691.0952 and SMS +1 415.520.6526, but does not print customerservice@brilliantearth.com (uses a web form for customer care and prints only marketing@, pr@, and jobs@). Set S-BRILLIANTEARTH email to null (matching SEL-BRILLIANTEARTH in sellers-policies.json). Finding F27."
+    },
+    {
+      "id": "P4-12",
+      "url": "https://www.sarraf.com/products/14k-white-gold-1-00-ctw-round-3-stone-diamond-engagement-ring-g-i1-3-80-gr.html",
+      "target": "WAR1.source in data/flags.json",
+      "outcome": "flagged",
+      "findings": "Returns '404 Error - Page not found' (reconstructed slug left in flags.json). Repointed WAR1.source to https://www.sarraf.com/products/14k-white-gold-solitaire-ring-0-94-ctw.html (finding F27)."
+    },
+    {
+      "id": "P4-13",
+      "url": "https://www.automicgold.com/products/1-50ctw-pear-shaped-lab-grown-diamond-engagement-ring-bezel-set",
+      "target": "SPEC5.source in data/flags.json",
+      "outcome": "flagged",
+      "findings": "Returns '404 Not Found – Automic Gold' (reconstructed slug left in flags.json). Repointed SPEC5.source to https://www.automicgold.com/products/radiant-cut-lab-diamond-cathedral-ring (finding F27)."
+    },
+    {
+      "id": "P4-14",
+      "url": "https://www.gia.edu/gems-gemology/summer-2025-lab-notes-gold-plated-gold",
+      "target": "STD-05 in data/spot-and-standards.json",
+      "outcome": "corrected",
+      "findings": "Previously stored with a trailing zero (.../summer-2025-lab-notes-gold-plated-gold0), which returned '404 - PAGE NOT FOUND'. Repointed to the live GIA Summer 2025 Lab Notes article 'Gold-Plated Gold' by Carlos Bautista, which confirms 10K gold plated with heavier gold reading falsely as 14K/18K on surface XRF (finding F27)."
+    },
+    {
+      "id": "P4-15",
+      "url": "https://www.automicgold.com/products/coffin-ring",
+      "target": "R23",
+      "outcome": "corrected",
+      "findings": "Confirmed $1,910 and Solid 14k gold; updated weight_quote to full verbatim string 'Item Weight: Approximately 6.1g (gold) or 9.2g (platinum)' and added flags WT5 and RET14."
+    },
+    {
+      "id": "P4-16",
+      "url": "https://www.automicgold.com/products/claddagh-ring",
+      "target": "R24",
+      "outcome": "corrected",
+      "findings": "Confirmed $875 and Solid 14k gold; updated weight_quote to 'Item Weight: Approximately 2.3g (gold) or 3.5g (platinum)' and added flags WT5 and RET14."
+    },
+    {
+      "id": "P4-17",
+      "url": "https://www.automicgold.com/products/gemstone-flower-ring",
+      "target": "R25",
+      "outcome": "corrected",
+      "findings": "Confirmed $551 and Solid 14k gold; updated weight_quote to 'Item Weight: Approximately 1.4g (gold) or 2.1g (platinum)' and added flags WT5, SPEC5 ('4-8 business days' vs '1-2 weeks'), and RET14."
+    },
+    {
+      "id": "P4-18",
+      "url": "https://www.sarraf.com/products/18k-yellow-gold-mens-solitaire-diamond-ring-3-4-ct.html",
+      "target": "R26",
+      "outcome": "confirmed",
+      "findings": "Confirmed 'Now: US$4,068.00' (MSRP US$15,820.00; Was US$4,758.00), 'Material: 18K Solid Gold', 'Approximate Metal Weight: 6.30 grams', 0.74 Ct. J SI1 Natural. Added flags WAR1 and SPEC4."
+    },
+    {
+      "id": "P4-19",
+      "url": "https://www.sarraf.com/products/14k-yellow-gold-round-cut-8-8mm-wide-1-0ct-cz-engagement-ring.html",
+      "target": "R27",
+      "outcome": "confirmed",
+      "findings": "Confirmed 'Now: US$695.00' (MSRP US$2,702.00; Was US$813.00), 'Material: 14K Solid Gold', 'Approximate Metal Weight: 2.50 grams'; noted description wording 'Solid and Pure 14k Yellow Gold' and added flags WAR1 and SPEC4."
+    },
+    {
+      "id": "P4-20",
+      "url": "https://www.vrai.com/configure/setting-to-diamond/petite-4-prong-ring/round-brilliant-yellow-gold-41015509221469",
+      "target": "R28",
+      "outcome": "confirmed",
+      "findings": "Confirmed 'Metal: 18k Yellow Gold', 'Metal weight: 2.3g', 'Atop a slender platinum or solid gold band', and client-side JS price configurator."
+    },
+    {
+      "id": "P4-21",
+      "url": "https://www.brilliantearth.com/Fairmined-2mm-Six-Prong-Solitaire-Ring-Gold-BE1FM0126-24910022/",
+      "target": "R29 and SOL-05",
+      "outcome": "flagged",
+      "findings": "Confirmed Fairmined 2mm Six-Prong Solitaire 18K Yellow Gold and the 'Free 1-Year Resizing' vs 'resizing is not available for this ring' contradiction (SPEC3), plus caught a second spec error on the same page: 'Band Width: 2 ct. tw.' (1.5 ct. tw. / 2 ct. tw.), printing carat total weight units for band width (finding F28)."
+    },
+    {
+      "id": "P4-22",
+      "url": "https://mene.com/products/wrap-ring-gold",
+      "target": "R30",
+      "outcome": "confirmed",
+      "findings": "Confirmed 24k gold Wrap Ring (Width 7.5mm, Thickness 1.5mm); live 2026-10-23 bullion-linked price read $3,228 USD vs $3,253 on 2026-10-22 (-0.77% intraday metal movement); gram weight remains inside the client-side JS Price breakdown modal."
+    },
+    {
+      "id": "P4-23",
+      "url": "https://www.localeclectic.com/products/solid-gold-simple-knot-ring",
+      "target": "R31",
+      "outcome": "confirmed",
+      "findings": "Confirmed $239 price and the on-page conflict between the '9k Solid Gold' callout tooltip and the '10k solid yellow gold' bullet (SPEC2)."
+    },
+    {
+      "id": "P4-24",
+      "url": "https://www.ross-simons.com/products/251663",
+      "target": "SOL-08",
+      "outcome": "flagged",
+      "findings": "Confirmed $199 price and '10kt Yellow Gold' spec vs 'Set in polished 14kt yellow gold' prose contradiction, plus caught a second self-contradiction on the same page: 'Opal sits at 5.5 to 6.5 on the Mohs scale, so that means bezel or halo, not prongs, on rings' printed on a prong-set opal ring listing (finding F28)."
+    },
+    {
+      "id": "P4-25",
+      "url": "https://www.ross-simons.com/products/571221",
+      "target": "BND-04 ( plus 571212 BND-05, 823796 BND-06, 964717 BND-07, 993085 BND-08, 990022 SOL-07, 241592 SOL-09)",
+      "outcome": "corrected",
+      "findings": "Confirmed all prices ($400, $949, $1,195, $599, $3,295, $2,819, $29) and gram weights (1.7g, 4.2g, 4.0g, 2.1g, 5.9g) verbatim; added Ross-Simons's disclaimer 'All weights and measurements are approximate.' to BND-04..BND-07 so Dataset C applies the same qualification standard as Dataset B (finding F28)."
+    },
+    {
+      "id": "P4-26",
+      "url": "https://mene.com/products/mene-classic-band-gold",
+      "target": "BND-01 (plus mene-narrow-flat-band-gold BND-02, mene-wide-flat-band-gold BND-03, collections/bands-gold)",
+      "outcome": "corrected",
+      "findings": "Repointed secondary_weight_source_url from redirecting /bands/gold to /collections/bands-gold and direct product URLs; documented that on the live page today the gram figure sits inside the client-side JS Price breakdown modal and real-time bullion-linked prices moved ~0.77% intraday ($1,720 -> $1,707; $1,556 -> $1,544; From $2,333 -> From $2,315). Finding F28."
+    },
+    {
+      "id": "P4-27",
+      "url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/classic-four-prong-solitaire-engagement-ring-in-18k-yellow-gold-item-194158",
+      "target": "SOL-01 (plus 195063 SOL-02, 195639 SOL-03, BE12148 SOL-04, BE1199H6 SOL-06)",
+      "outcome": "confirmed",
+      "findings": "Confirmed all setting prices ($1,125, $2,595, $1,000, $1,650, $850), SKUs, widths, and mixed-metal prong specs (platinum prongs on SOL-01, 14K WG prongs on 18K YG shank on SOL-06)."
+    },
+    {
+      "id": "P4-28",
+      "url": "https://mejuri.com/shop/products/3mm-bold-diamond-eternity-band?Material=Solid+Yellow+Gold+%2814k%29&Stone=Natural+Diamond",
+      "target": "BND-09 (plus BND-10, BND-11, BND-12)",
+      "outcome": "confirmed",
+      "findings": "Confirmed From $4,400 (BND-09), From $1,100 and 0.532ct vs 0.044-0.056ct spec discrepancy (BND-10), $648 (BND-11), and $498 (BND-12), all with explicit '14k solid gold' wording, omitted gram weights, and non-returnable engraving clause."
+    },
+    {
+      "id": "P4-29",
+      "url": "https://www.bbb.org/ca/on/ontario/profile/jewelry-designers/mene-inc-0107-1413670",
+      "target": "BBB profiles in sellers-policies.json (Ross-Simons, Blue Nile, Brilliant Earth, Menē, Mejuri)",
+      "outcome": "confirmed",
+      "findings": "All 5 BBB profiles opened live: Ross-Simons A+ Accredited (74 yrs, (800) 835-0919), Blue Nile A+ Accredited (27 yrs, (206) 336-6700 / (800) 242-2728), Brilliant Earth A+ Accredited (21 yrs, (800) 691-0952, $250 missing-certificate fee noted in BBB refund text), Menē Not Accredited ((833) 636-3245), Mejuri Not Accredited (14 yrs, (310) 597-4745)."
+    }
+  ],
+  "change_requests_closed": [
+    "CR-P3-1",
+    "CR-P3-2",
+    "CR-P3-3",
+    "CR-P3-4",
+    "CR-P3-5",
+    "CR-P3-6",
+    "CR-P3-7",
+    "CR-P3-8",
+    "CR-P3-9"
+  ],
+  "summary": {
+    "urls_opened": 35,
+    "confirmed": 12,
+    "corrected": 16,
+    "flagged": 7,
+    "new_findings": ["F24", "F25", "F26", "F27", "F28"],
+    "new_flags": ["RET14"],
+    "retired_flags": ["PD1"],
+    "site_defects_fixed": ["SD7", "SD8"]
+  }
+}
