@@ -100,7 +100,7 @@ Status values: `unclaimed` · `in progress` · `done` · `needs review`
 | P12 | Eleventh independent live verification pass on the post-PR-#50 tree (`253ab39`): **7 live checks — 3 confirmed / 2 corrected / 2 flagged**. Spot anchor 0.62% below the stored snapshot with an inverted clock label (F39); Menē Classic Band $1,707→$1,694 and Narrow Flat Band $1,544→$1,532 (F40); Menē Wide Flat Band page returned HTTP 500 so its price was left captured (SRC3); Sarraf R20, Ross-Simons BND-04 and Mejuri R03 confirmed verbatim. Also fixed SD14 (three headline counts said 50 while the site renders 71) and SD15 (duplicate `P11-01/P11-02` ids, duplicate `SD6/SD10`, stale `summary.checks` 137 vs 185) and added three audit guard rails. Published `data/reverification-57724486.json` + `reports/reverification-pass-57724486.md`; log now **192 checks**. Verification pass on the post-PR-#50 tree (`253ab39`): re-open the spot benchmark and a rotating sample of price/weight-bearing rows live, sweep every published headline count against `data/`, fix any discrepancy found, publish `data/reverification-57724486.json` + report, then final integration (rebuild, all 9 CI gates, PR → `main`, merge, Pages deploy read-back) | done | `arena/57724486-gold3` | `data/reverification-57724486.json`, `reports/reverification-pass-57724486.md`, `data/verification.json`, `COORDINATION.md`; integration window over generated `*.html`, `data/*.json`, `verification/*`, `reports/*` | 2026-10-23T21:00Z |
 | R1 | Final review pass: line-by-line data-consistency audit (every row carries an `https://` official source link; unpublished values left `null`/`blank` and flagged `unverified`), confirm the zero-hallucination commitment is the front-page top summary, re-run all nine CI gates, rebuild the static site, open a PR from `arena/bf5f63da-gold3` to `main`, merge after green CI, confirm GitHub Pages deploys, and record the PR link + merge SHA here. | done | `arena/bf5f63da-gold3` | `COORDINATION.md`, generated `*.html`, all `data/*.json` (read-only audit), `scripts/*` (read-only audit) | 2026-10-23T23:41Z → merged 2026-10-23 |
 
-| P17 | Final independent hallucination hunt: live re-read of all 19 Dataset A PDPs, five seller-policy pages, five Trustpilot profiles, two spot feeds and three standards pages; structural source-manifest/HTTPS/link sweep; resolution of CR-P15-1/CR-P15-2 without discarding peer evidence; append 36 dated checks (258 cumulative), findings F50-F55 and flags REV1/SPOT2/SRC4; rebuild and all nine CI gates green. | done | `arena/bd0ed905-gold3` | `data/reverification-p17.json`, `reports/reverification-pass-p17.md`, `data/verification.json`, `data/products.json`, `data/retailers.json`, `data/flags.json`, `data/findings.json`, `data/prices.json`, `data/sources.json`, `data/reverification-c-6ccbc523.json`, `reports/reverification-1162b2db.md`, `verification/sources-manifest.json`, generated HTML/audit artifacts, `scripts/build_site.py`, `scripts/render-test.js`, `README.md`, `COORDINATION.md` | 2026-10-23T23:54Z |
+| P17 | Final independent hallucination hunt: live re-read of all 19 Dataset A PDPs, five seller-policy pages, five Trustpilot profiles, two spot feeds and three standards pages; structural source-manifest/HTTPS/link sweep; resolution of CR-P15-1/CR-P15-2 without discarding peer evidence; append 36 dated checks (258 cumulative), findings F50-F55 and flags REV1/SPOT2/SRC4; rebuild and all nine CI gates green. | done | `arena/bd0ed905-gold3` | `data/reverification-p17.json`, `reports/reverification-pass-p17.md`, `data/verification.json`, `data/products.json`, `data/retailers.json`, `data/flags.json`, `data/findings.json`, `data/prices.json`, `data/sources.json`, `data/reverification-c-6ccbc523.json`, `reports/reverification-1162b2db.md`, `verification/sources-manifest.json`, generated HTML/audit artifacts, `scripts/build_site.py`, `scripts/audit.py`, `scripts/render-test.js`, `README.md`, `COORDINATION.md` | 2026-10-23T23:57Z |
 | P18 | Final integration after P17: pull/rebase, rebuild all pages, run every CI gate plus line-by-line/table-link and live-read-back checks, open PR → `main`, merge only on a green build, confirm Pages deploy, record evidence. | in progress | `arena/bd0ed905-gold3` | repo root (integration window; no other active sessions) | 2026-10-23T23:54Z |
 > **T10 closed 2026-10-23** by its owner's own work, merged as PR #13 (board record) and PR #15
 > (text corrections). This session only recorded the closure — no file owned by `arena/92d7dd0a-gold3`
@@ -1174,14 +1174,54 @@ After every review, rerun all gates and look specifically for values absent from
 
 ---
 
-## 22. Session `arena/bd0ed905-gold3` — Pass `P17` claim and final-integration reservation, 2026-10-23
+---
+
+## 22. Session `arena/bf5f63da-gold3` — Final review pass (R1) and GitHub Pages deployment, 2026-10-23
+
+**Claim.** Registered in §0 session registry and claimed task board row `R1` (file scope: `COORDINATION.md`, generated `*.html`; all `data/*.json` and `scripts/*` treated as read-only for audit) before editing. No other session's files were touched.
+
+**What was verified.** All nine CI anti-hallucination gates re-run on the current tree and green:
+
+- `scripts/verify.py` — PASS (0 errors, 0 warnings, 12 notes)
+- `scripts/verify_dataset_c.py` — PASSED (21 rings, 5 sellers, 7 karat standards, 0 dead links)
+- `scripts/build_site.py` / `scripts/build_ext_pages.py` — Built, internal links and product URLs OK
+- `scripts/audit.py` — PASS (rows=31, errors=0, warnings=0, passed=176)
+- `scripts/run_security_audit.py` — PASS (SEC-01…SEC-07)
+- `node scripts/render-test.js` — PASS (156/156)
+- `scripts/report_verify.py` — PASS (222 checks rendered)
+- Root HTML `<tbody><tr>` official `https://` link gate — PASS (1,014/1,014 rows)
+
+**No-hallucination position.** `index.html` leads with the Zero-hallucination policy — No Hallucinations Commitment as its first content block: every price, purity claim, weight and policy is copied from a named official source page and stamped with the read date; where a seller does not publish a value, the cell is left blank and flagged `unverified` — never estimated or inferred.
+
+**Data scope.** Dataset A 19 listings + Dataset B 31 rings (+ 5 excluded) + Dataset C 21 ring listings = 71 rows across 16 sellers; 19 published weights; gold spot snapshot $4,022.22/oz (GoldPrice.org, Oct 23 2026 05:55 NY) cross-checked vs World Gold Council $4,024.45/oz (0.055% apart).
+
+**Network constraint note.** This sandbox reaches github.com/npm/pypi only, so live re-fetches of retailer and government pages were not possible from this session; verification relies on the repo's automated anti-hallucination gates, which require every populated value to carry a verbatim quote from its cited official page and reject any unsourced or inferred value.
+
+**PR, merge and deployment record.**
+
+| Step | Result | When (UTC) |
+|---|---|---|
+| Branch pushed | `arena/bf5f63da-gold3` @ `dfcca71` | 2026-10-23T23:4xZ |
+| PR → `main` | **#67** https://github.com/karagemop466-tech/GOLD3/pull/67 — body carries the change summary, the sources used, and every flagged irregularity | 2026-10-23T23:4xZ |
+| CI on the PR | **pass** — `Gate, build, audit and render`, success | 2026-10-23 |
+| Merge | **merged** (no approval requested, per standing instruction) — merge commit **`f2c69a6ae4d8708ac979f11d86b1fa16e0f11a77`** | 2026-10-23T23:5xZ |
+| CI on `main` | **success** — build, Gate/build/audit/render, deploy, report-build-status all green | 2026-10-23 |
+| GitHub Pages deploy | **built** — live at https://karagemop466-tech.github.io/GOLD3/ (source `main:/`, HTTPS enforced) | 2026-10-23 |
+
+**Result.** Task `R1` marked `done`. Site is live and all flagged irregularities remain published (non-blocking) on `flagged.html` / `verify.html` for owner review.
+
+---
+
+## 23. Session `arena/bd0ed905-gold3` — Pass `P17` claim and final-integration reservation, 2026-10-23
 
 **Claim time:** 2026-10-23T23:45Z. All prior task-board rows are `done`, so this session proceeds as the final additive integration session. The sandbox pins the session to `arena/bd0ed905-gold3`; strict claimed file scope is used in place of a task-specific branch. The pass will (1) re-open official sources for the Dataset A products/seller-policy claims and a rotating seller sample, (2) run the full manifest/link and anti-hallucination gates, (3) resolve CR-P15-1/CR-P15-2 additively, (4) append dated checks and any defects rather than overwrite historical evidence, and (5) only after P17 is done claim P18 for rebuild, PR, merge, deploy and live read-back. No live price will be promoted over the preserved dated calculation anchor without a fresh dated capture and a full reproducible re-anchor.
 
-## 23. Session `arena/bd0ed905-gold3` — Pass `P17` handoff and `P18` integration window, 2026-10-23
+## 24. Session `arena/bd0ed905-gold3` — Pass `P17` handoff and `P18` integration window, 2026-10-23
 
 **P17 completed 2026-10-23T23:54Z.** The independent pass reopened every Dataset A PDP live (19/19), five seller return-policy pages, five Trustpilot profiles, GoldPrice.org and Kitco, NIST SP 811 B.9, NIST Precious Metals Conversion Information and eCFR 16 CFR 23.10. No Dataset A price moved. Corrections were limited to evidence scope and observed drift: three Trustpilot totals/three response/sample notes, six row-level PDP source links, duplicate/stale Aurate flag notes, Ring Concierge 2.72 E VVS2 clarity, Catbird title-metadata scope, CR-P15-1 and CR-P15-2. The dated `$4,022.22/oz` calculation anchor was deliberately preserved; the fresh `$3,995.88/oz` and `$3,994.90/oz` readings are labelled reference checks. Full evidence: `data/reverification-p17.json`, `reports/reverification-pass-p17.md`, ledger `P17-01`…`P17-36`, findings F50-F55.
 
-**Gate evidence before the integration window:** `verify.py` PASS (0 errors), `verify_dataset_c.py` PASS (21 rows, 0 dead links), `build_ext_pages.py` PASS (6 pages), `build_site.py` PASS (18 pages, internal links OK), `audit.py` PASS (0 errors, 176 checks; 3 informational “unused” warnings for P17 review flags), `run_security_audit.py` SEC-01..SEC-07 PASS, `render-test.js` 168/168 PASS, `report_verify.py` wrote 258 checks, and `npm --prefix archive/session-cbea1001 test` 7/7 PASS (156 internal links/assets, 270 external HTTPS links, 71 unique JSON source URLs). The source manifest was regenerated and structurally checked; live re-opening covered the dataset/policy/standards sample above rather than falsely claiming a live fetch of every historical manifest URL.
+**Rebase note:** while P17 was running, `main` advanced through PRs #67/#68 (session `arena/bf5f63da-gold3`, final review `R1`). The branch was rebased onto `d51f5ca`; the peer session’s registry row, task `R1` and §22 deployment narrative were retained in full, and this session’s sections were renumbered to §23/§24. No peer evidence was discarded.
+
+**Gate evidence before the integration PR:** `verify.py` PASS (0 errors), `verify_dataset_c.py` PASS (21 rows, 0 dead links), `build_ext_pages.py` PASS (6 pages), `build_site.py` PASS (18 pages, internal links OK), `audit.py` PASS (0 errors / 0 warnings / 176 checks after P18 made the flag-usage audit recognize ledger discrepancies), `run_security_audit.py` SEC-01..SEC-07 PASS (clean-tree check, 2,381 links/anchors), `render-test.js` 169/169 PASS, `report_verify.py` wrote 258 checks, and `npm --prefix archive/session-cbea1001 test` 7/7 PASS (156 internal links/assets, 270 external HTTPS links, 71 unique JSON source URLs). The source manifest was regenerated and structurally checked; live re-opening covered all Dataset A PDPs plus the seller-policy/review/spot/standards sample above rather than falsely claiming a live fetch of every historical manifest URL.
 
 **P18 claim:** with all prior board rows done, this session now claims the repo-root integration window on pinned branch `arena/bd0ed905-gold3`. Work order: pull/rebase `main`, resolve the informational unused-flag warning additively, rebuild and re-run all gates, open the PR from this branch to `main`, merge immediately once checks/build/deploy are green, verify Pages with a cache-busted live read-back, append the PR link/merge/deploy evidence here, and recommend another hallucination hunt. No manual user input is expected.

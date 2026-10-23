@@ -468,6 +468,27 @@ for r in rings:
     unused -= set(r.get("flags", []))
 for s in sellers:
     unused -= set(s.get("flags", []))
+# Pass P17 review flags are attached to verification-ledger discrepancies rather than
+# Dataset-B row arrays. Count those as real uses: otherwise a flag that is published on
+# verify.html and linked to an official source looks "unused" to this older audit.
+if verif_doc:
+    for d in verif_doc.get("discrepancies", []):
+        unused.discard(d.get("flag"))
+# Dataset A stores flags as objects with a `code`; include those uses too.
+for _aname, _akey in (("products.json", "products"), ("retailers.json", "retailers")):
+    _apath = DATA / _aname
+    if not _apath.exists():
+        continue
+    try:
+        _adoc = json.loads(_apath.read_text(encoding="utf-8"))
+        for _row in _adoc.get(_akey, []):
+            for _f in _row.get("flags", []) or []:
+                if isinstance(_f, dict):
+                    unused.discard(_f.get("code"))
+                else:
+                    unused.discard(_f)
+    except Exception:  # noqa: BLE001 - malformed JSON is already an earlier error
+        pass
 if unused:
     warn("flags", f"defined but never used: {sorted(unused)}")
 

@@ -300,6 +300,12 @@ check("P17 CR-P15-1 preserves the original evidence while correcting attribution
 check("P17 CR-P15-2 retains both reports without conflict markers",
   ["## Version A", "## Version B", "Resolution"].every((s) => _p17Bundle.includes(s)) &&
   !/^(<{7}|={7}|>{7})/m.test(_p17Bundle));
+check("P17 review flags are defined and carry official source links",
+  verif.discrepancies.filter((d) => ["D15", "D16", "D17"].includes(d.id)).every((d) => {
+    const defn = JSON.parse(read("data/flags.json")).flags.find((f) => f.id === d.flag);
+    return defn && /^https:\/\//.test(defn.source);
+  }) &&
+  ["SPOT2", "REV1", "SRC4"].every((id) => html["flagged.html"].includes(id)));
 check("P17 F2 still uses the full A+B+C counts",
   includesText(html["flagged.html"], "Only 19 of 71 listings publish a weight"));
 

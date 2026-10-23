@@ -1,10 +1,10 @@
 # Anti-hallucination audit report
 
-- Run: 2026-10-23 23:54 UTC
+- Run: 2026-10-23 23:57 UTC
 - Rows audited: **31**
 - Sellers audited: **14**
 - Flag definitions: **57**
-- Result: **PASS** — 0 error(s), 1 warning(s), 176 check(s) passed
+- Result: **PASS** — 0 error(s), 0 warning(s), 176 check(s) passed
 
 ## What this pass is looking for
 
@@ -24,9 +24,9 @@
 
 None.
 
-## Warnings — reviewed and accepted
+## Warnings
 
-- [flags] defined but never used: ['REV1', 'SPOT2', 'SRC4']
+None.
 
 ## Passed checks
 
