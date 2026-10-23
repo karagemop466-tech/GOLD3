@@ -171,6 +171,8 @@ CAT_LABELS = {
 }
 
 
+NAV[2] = ("combined.html", f"Combined ({len(PRODUCTS) + len(OTHER_ITEMS) + len(DATASET_C_ITEMS)})")
+
 VERIF = load("verification.json") if (DATA / "verification.json").exists() else None
 
 
@@ -509,8 +511,8 @@ def build_combined() -> str:
         price_html = money(price) if isinstance(price, (int, float)) else '<span class="badge neutral">no price</span>'
         if it.get("weight_g") is not None:
             approx = "approximate" in (it.get("weight_quote") or "").lower()
-            incl = "includes" in (it.get("weight_quote") or "").lower()
-            weight = f'{it["weight_g"]:g} g' + ('<span class="sub">approx.</span>' if approx else '') + ('<span class="sub">incl. stone</span>' if incl else '')
+            incl = "includes" in (it.get("weight_quote") or "").lower() or "total weight" in (it.get("weight_quote") or "").lower()
+            weight = f'{float(it["weight_g"]):.1f} g' + ('<span class="sub">approx.</span>' if approx else '') + ('<span class="sub">incl. stone</span>' if incl else '')
         else:
             weight = '<span class="badge neutral">not published</span>'
         chips = ""
@@ -523,9 +525,20 @@ def build_combined() -> str:
         extra = len(it.get("flags") or []) - 3
         if extra > 0:
             chips += f'<span class="badge neutral">+{extra}</span>'
-        checked = it.get("checked") or RINGS_RETRIEVED or "-"
+        checked = it.get("checked") or it.get("last_verified") or RINGS_RETRIEVED or "-"
         src = it.get("url")
-        return f"""<tr>
+        k_lower = str(it.get("karat") or "").lower()
+        row_cats = ["b"]
+        for kk in ("10k", "14k", "18k", "19k"):
+            if kk in k_lower:
+                row_cats.append(kk)
+        if "22k" in k_lower or "24k" in k_lower:
+            row_cats.append("22k-24k")
+        if it.get("weight_g") is not None:
+            row_cats.append("weighted")
+        if it.get("flags"):
+            row_cats.append("flagged")
+        return f"""<tr data-cats="{' '.join(row_cats)}">
           <td><span class="badge info">B</span></td>
           <td>{e(seller_name)}</td>
           <td><a href="{e(src)}" target="_blank" rel="noopener">{e(title)}</a></td>
@@ -540,8 +553,12 @@ def build_combined() -> str:
 
     def mine_row(p):
         r = R_BY_ID.get(p["retailer"], {})
-        dead = False
-        return f"""<tr>
+        row_cats = ["a"] + list(p.get("categories") or [])
+        if p.get("weight_g") is not None:
+            row_cats.append("weighted")
+        if p.get("flags"):
+            row_cats.append("flagged")
+        return f"""<tr data-cats="{e(' '.join(row_cats))}">
           <td><span class="badge gold">A</span></td>
           <td>{e(r.get('name', p['retailer']))}<span class="sub"><span class="badge good">live</span></span></td>
           <td><a href="{e(p['url'])}" target="_blank" rel="noopener">{e(p['name'])}</a></td>
@@ -567,7 +584,15 @@ def build_combined() -> str:
         else:
             weight = '<span class="badge neutral">not published</span>'
         flag_badge = f'<span class="badge {"bad" if str(c.get("checklist_status","")).startswith("REJECT") else ("warn" if c.get("flagged") else "good")}">{e(c.get("checklist_status",""))}</span>'
-        return f"""<tr data-cats="c {str(c.get('karat_numeric','')).lower()}k">
+        kn = c.get("karat_numeric")
+        row_cats = ["c", f"{str(kn).lower()}k"]
+        if kn in (22, 24):
+            row_cats.append("22k-24k")
+        if c.get("weight_grams") is not None:
+            row_cats.append("weighted")
+        if c.get("flagged"):
+            row_cats.append("flagged")
+        return f"""<tr data-cats="{' '.join(row_cats)}">
           <td><span class="badge good">C</span></td>
           <td>{e(c['seller_name'])}</td>
           <td><a href="{e(c['product_url'])}" target="_blank" rel="noopener">{e(c['product_name'])}</a></td>
@@ -621,8 +646,13 @@ def build_combined() -> str:
   <button class="filter-btn active" data-filter="all">All</button>
   <button class="filter-btn" data-filter="a">Dataset A</button>
   <button class="filter-btn" data-filter="b">Dataset B</button>
+  <button class="filter-btn" data-filter="c">Dataset C</button>
+  <button class="filter-btn" data-filter="10k">10K</button>
   <button class="filter-btn" data-filter="14k">14K</button>
   <button class="filter-btn" data-filter="18k">18K</button>
+  <button class="filter-btn" data-filter="22k-24k">22K&ndash;24K</button>
+  <button class="filter-btn" data-filter="weighted">Published weight</button>
+  <button class="filter-btn" data-filter="flagged">Flagged</button>
   <input type="search" placeholder="Search seller, ring or flag…" aria-label="Search combined listings">
   <span class="small muted" data-count></span>
 </div>
@@ -852,6 +882,7 @@ def build_calculator() -> str:
         <option value="10K">10K (41.7% gold)</option>
         <option value="14K" selected>14K (58.3% gold)</option>
         <option value="18K">18K (75.0% gold)</option>
+        <option value="19K">19K (79.2% gold &mdash; estate alloy)</option>
         <option value="22K">22K (91.7% gold)</option>
         <option value="24K">24K (99.99% gold)</option>
       </select>
@@ -859,7 +890,21 @@ def build_calculator() -> str:
     <div class="field">
       <label for="calc-grams">Ring weight (grams)</label>
       <input type="number" id="calc-grams" value="3" step="0.1" min="0">
-      <p class="tiny muted" style="margin:4px 0 0">Use the seller's stated weight (published on 13 Dataset B rings; ask in writing where omitted).</p>
+      <p class="tiny muted" style="margin:4px 0 0">Use the seller's stated weight (published on {len([r for r in RINGS if isinstance(r.get('weight_g'),(int,float))])} Dataset B rings; ask in writing where omitted).</p>
+    </div>
+    <div class="field">
+      <label for="calc-stone-ct">Set diamond / gemstone carat weight to deduct (ct) &mdash; optional</label>
+      <input type="number" id="calc-stone-ct" value="0" step="0.01" min="0" placeholder="0.00">
+      <p class="tiny muted" style="margin:4px 0 0">Metric carat standard: <code>1.00 ct = 0.200 g</code> (deduct on total-item weights such as <code>WT1</code>).</p>
+    </div>
+    <div class="field">
+      <label for="calc-tolerance">Seller stated weight tolerance &mdash; optional</label>
+      <select id="calc-tolerance">
+        <option value="none" selected>Exact scale measurement (&plusmn;0.00 g)</option>
+        <option value="pct5">Sarraf stated accuracy (&plusmn;5%)</option>
+        <option value="g05">Menē in-stock tolerance (&plusmn;0.50 g)</option>
+        <option value="g10">Menē Crafted-on-Demand tolerance (&plusmn;1.00 g)</option>
+      </select>
     </div>
     <div class="field">
       <label for="calc-price">Asking price (USD) &mdash; optional</label>
@@ -871,7 +916,7 @@ def build_calculator() -> str:
     <div class="result-grid">
       <div class="result"><div class="label">Spot / gram</div><div class="value" id="out-spot-gram">—</div><div class="note">pure gold</div></div>
       <div class="result"><div class="label">Melt / gram</div><div class="value" id="out-melt-gram">—</div><div class="note" id="out-purity">—</div></div>
-      <div class="result"><div class="label">Gold value of the ring</div><div class="value" id="out-melt-value">—</div><div class="note">weight × melt per gram</div></div>
+      <div class="result"><div class="label">Gold value of the ring</div><div class="value" id="out-melt-value">—</div><div class="note" id="out-tolerance-note">weight × melt per gram</div></div>
       <div class="result"><div class="label">Break-even weight</div><div class="value" id="out-implied">—</div><div class="note">price ÷ melt per gram</div></div>
       <div class="result"><div class="label">Price ÷ gold value</div><div class="value" id="out-ratio">—</div><div class="note">the retail multiple</div></div>
       <div class="result"><div class="label">Premium over gold</div><div class="value" id="out-premium">—</div><div class="note">price − gold value</div></div>
@@ -1709,10 +1754,10 @@ def build() -> None:
         "14k.html": build_category(
             "14k", "14k", "14K solid gold rings",
             "14K is 58.3% gold. It is the hardest-wearing karat commonly sold in the US and the price point most listings sit at. "
-            "Note how few listings state the word <em>solid</em> or publish a weight - those are the gaps this page exists to show.",
-            extra="""<div class="note-box" style="margin-bottom:16px"><strong>Aurate's prices are "from" prices.</strong>
-            The collection page shows one starting price per design, which corresponds to the 14K option at the smallest size. The 18K
-            version of the same design costs more and was not captured, so no 18K Aurate price appears on this site.</div>"""),
+            "Note how few listings state the word <em>solid</em> or publish a single ring weight - those are the gaps this page exists to show.",
+            extra="""<div class="note-box" style="margin-bottom:16px"><strong>Aurate's 14K product pages were re-verified live on 23 October 2026.</strong>
+            All seven Aurate listings now link directly to their live product pages (18K and platinum options cost more and were not captured).
+            Notice that every Aurate page pairs a <em>Free Returns</em> badge with <em>Exchange for size only. Final Sale!</em> and publishes only multi-metal ranges or stone-inclusive weights.</div>"""),
         "18k.html": build_category(
             "18k", "18k", "18K solid gold rings",
             "18K is 75% gold - more gold per gram, a softer alloy, and a higher price. Only two listings in this dataset publish a usable 18K price, "
