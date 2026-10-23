@@ -1461,6 +1461,7 @@ def build_flagged() -> str:
         </div>"""
     flag_legend_html = legend_cards or '<div class="card">No flag definitions are present in this build.</div>'
 
+
     body = f"""
 {policy_box()}
 <div class="page-head">
@@ -1494,6 +1495,7 @@ def build_flagged() -> str:
 <p class="small">Every flag printed anywhere on this site is defined here, in plain words, with the official source behind it where one
 exists. A flag with no source of its own is a question about one specific listing, and the link on that listing's row is its evidence.</p>
 <div class="grid cols-2">{flag_legend_html}</div>
+
 
 {verification_block()}
 <h2>How a flag gets closed</h2>
