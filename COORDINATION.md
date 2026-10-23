@@ -17,7 +17,7 @@ Read it before starting any work. Update it when you claim, finish, or hand off 
 | `arena/698f08f6-gold3` | `arena/698f08f6-gold3` | 2026-10-22T23:24Z | complete (PR #24, #26 merged — Dataset C, §9) |
 | `sess-692d-gold` | `arena/692d8c94-gold3` | 2026-10-22T23:26Z | complete (PR #29 merged as `bafa7d9`; record PR #30) |
 | `arena/699d8e05-gold3` | `arena/699d8e05-gold3` | 2026-10-22T23:50Z | complete (PR #31, #32 merged — V5, §10) |
-| `arena/6d6192d1-gold3` | `arena/6d6192d1-gold3` | 2026-10-23T09:55Z | **active — fourth re-verification pass (V6), CR-P3 closeout, final integration, PR → `main`, deploy** |
+| `arena/6d6192d1-gold3` | `arena/6d6192d1-gold3` | 2026-10-23T09:55Z | complete — fourth pass (V6), CR-P3 closeout (V7), final integration (V8), targeted weight pass (V9); PRs #33, #34, #35, #36 merged; Pages deployed from `771ea6e` |
 
 ### Branch naming note (important)
 The protocol below asks for `session-<id>/<task>` branches. **This sandbox pins each session to a
@@ -404,6 +404,18 @@ links OK · `audit.py` rows=22 errors=0 warnings=0 passed=124 · `render-test.js
 | Merge | **merged** (no approval requested, per standing instruction) — merge commit `796362b` | 2026-10-23T10:03Z |
 | GitHub Pages deploy | **built** — `pages build and deployment` for `796362b`, completed/success; live read-back of https://karagemop466-tech.github.io/GOLD3/ shows "Last automated verification pass: 23 October 2026" and the Mene price-drift finding | 2026-10-23T10:06Z |
 | Follow-up record PR | this section — §5 record, §11 report, board rows closed, plus a note on `security-audit.html` explaining why its banner is one pass behind the log | 2026-10-23T10:2xZ |
+| Second pass of the session (V9) | 6 checks on the weight-bearing rows + 16 CFR 23.10 → `data/reverification-p5.json`, `reports/reverification-pass-p5.md`; `data/verification.json` at **116 checks** | 2026-10-23T10:45Z |
+| **PR #34** | https://github.com/karagemop466-tech/GOLD3/pull/34 — fifth pass, plus the dashboard's two dates and the security-banner note. CI **pass** (15 s). | 2026-10-23T10:52Z |
+| Merge of PR #34 | **merged** as `7513177` (no approval requested) | 2026-10-23T10:53Z |
+| Pages deploy for `7513177` | **built**, completed/success | 2026-10-23T10:54Z |
+| **Defect found after deploy** | Reading the live `verify.html` showed the same tally twice: a bulk edit that gave the passes unique ids matched `id == "P4"` and overwrote the first session's **Hallucination pass** result with the fourth pass's numbers. The numbers were right; the row that lost its record was not. Recorded as site defect **SD9**. | 2026-10-23T10:56Z |
+| **PR #35** | https://github.com/karagemop466-tech/GOLD3/pull/35 — P4's result restored, session line names the ids each session owns, SD9 recorded. CI **pass** (15 s); merged as `4c4e5dd`; Pages **built**. | 2026-10-23T10:58Z |
+| Clean-up PR #36 | Removed a duplicate flag legend introduced in this session — `flagged.html` already renders one from `data/flags.json`. Two legends on one page is how definitions drift apart. CI **pass**; merged as `771ea6e`; Pages **built**. Live read-back of `verify.html` confirms P4's own result is back and the log stands at 116 checks. | 2026-10-23T11:04Z |
+
+**Three defects in this session were found by reading the deployed page, not the repository:** the Menē price drift
+(`PRC1`), the pass table overwriting itself (`SD9`), and the duplicate legend. The first is a seller changing its mind;
+the second and third are this project's own mistakes, visible only in rendered output. That is an argument for treating
+the live URL as part of the test suite rather than a delivery target.
 
 **Why `security-audit.html` shows "Pass #16" while `verification/audit-log.json` holds 17 runs.** The CI workflow
 builds the pages *first* and runs the scheduled security check *afterwards*, which appends the next pass to the log. The
