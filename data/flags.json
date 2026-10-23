@@ -129,15 +129,6 @@
       "source": "https://www.wilsonsestatejewelry.com/products/bailey-banks-biddle-art-deco-diamond-enamel-19-karat-white-gold-vintage-fanning-engagement-ring"
     },
     {
-      "id": "L1",
-      "severity": "low",
-      "label": "Verified at listing level only",
-      "what": "Price and material were taken from the seller's collection/listing page; the individual product page was not re-fetched in this session.",
-      "why_it_matters": "Collection pages can lag product pages. The figure is official but less durable.",
-      "action": "Open the product page and re-confirm price before buying.",
-      "source": "https://mejuri.com/collections/milestone-rings"
-    },
-    {
       "id": "L2",
       "severity": "low",
       "label": "Product page not individually fetched",
@@ -317,7 +308,8 @@
       "what": "VRAI's official return help article states that engraved or setting-only engagement ring returns refunded to the original payment method incur a $300 USD recycling fee, and its Los Angeles BBB profile carries an unaccredited F rating for unanswered complaints.",
       "why_it_matters": "A $300 deduction penalises a buyer who exercises the return right after independent inspection, and unanswered BBB complaints signal post-purchase friction.",
       "action": "Do not engrave before independent scale and XRF verification, confirm fee-free return eligibility in writing, and pay by credit card.",
-      "source": "https://help.vrai.com/en/knowledge/what-is-your-return-policy"
+      "source": "https://www.vrai.com/returns-exchanges",
+      "source_2": "https://help.vrai.com/en/knowledge/what-is-your-return-policy"
     },
     {
       "id": "RET9",
@@ -404,8 +396,8 @@
       "id": "SPEC5",
       "severity": "medium",
       "label": "Automic lead time contradicts itself on one page",
-      "what": "The Automic Gold product page prints 'Production time is 4-8 business days' in its buy box, then 'Production time is 1-2 weeks. If you are adding engraving, production time is 2-3 weeks' lower down in Shipping & Returns.",
-      "why_it_matters": "A buyer choosing between '4-8 business days' and '1-2 weeks (2-3 weeks engraved)' cannot plan. When one page gives two lead times, the longer one is the safe assumption.",
+      "what": "The Automic Gold product page prints 'Lead Time: 4-8 Days' in its information table, then 'Please allow 1-2 weeks for your order to ship, plus an additional 2-3 weeks for orders with engraving' lower down, and a separate 'Waitlist / Made to Order' notice appears on comparable made-to-order pieces.",
+      "why_it_matters": "A buyer choosing between 'in 8 days' and 'in 2 weeks (5 weeks engraved)' cannot plan. When one page gives two lead times, the longer one is the safe assumption.",
       "action": "Confirm the current lead time in writing before ordering, especially for an engraved or made-to-order piece.",
       "source": "https://www.automicgold.com/products/radiant-cut-lab-diamond-cathedral-ring",
       "first_seen": "2026-10-23"
@@ -414,7 +406,7 @@
       "id": "SRC1",
       "severity": "high",
       "label": "Cited official source URL returns 404",
-      "what": "Nine seller/policy/flag URLs recorded by earlier sessions returned HTTP 404 or redirected to a generic KB index when opened live on 2026-10-23: Sarraf's /pages/returns-and-refunds.html (404 -> /30-day-returns-and-exchange-policy/) and reconstructed WAR1.source slug (404 -> /products/14k-white-gold-solitaire-ring-0-94-ctw.html), Automic's /pages/return-policy (404 -> /policies/refund-policy) and reconstructed SPEC5.source slug (404 -> /products/radiant-cut-lab-diamond-cathedral-ring), Brilliant Earth's /returns/ (404/homepage -> /30-Day-Returns/), VRAI's /pages/contact-us (404) and /hc/en-us/articles/360000836514-What-is-your-return-policy (redirect -> /en/knowledge/what-is-your-return-policy & /returns-exchanges), Local Eclectic's /pages/contact-us (404 -> /pages/frequently-asked-questions), and Menē's /contact-us (404 -> /customer-care/en-US & /privacy-policy). All records were repointed to live HTTP 200 official pages on 2026-10-23.",
+      "what": "Seven seller/policy URLs recorded by earlier sessions returned HTTP 404 or redirected to a generic KB index when opened live on 2026-10-23: Sarraf's https://www.sarraf.com/pages/returns-and-refunds.html (404 -> /30-day-returns-and-exchange-policy/), Automic's https://www.automicgold.com/pages/return-policy (404 -> /policies/refund-policy), Brilliant Earth's https://www.brilliantearth.com/returns/ (404 -> /30-Day-Returns/), VRAI's https://www.vrai.com/pages/contact-us (404 -> /contact-us) and https://help.vrai.com/hc/en-us/articles/360000836514-What-is-your-return-policy (redirect -> /en/knowledge/what-is-your-return-policy), Local Eclectic's https://www.localeclectic.com/pages/contact-us (404 -> /pages/frequently-asked-questions), and Menē's https://mene.com/contact-us (404 -> /customer-care/en-US). All seven records were repointed to live HTTP 200 official pages on 2026-10-23.",
       "why_it_matters": "The brief requires every table row to carry a working source link to an official site. A dead citation is worse than no citation: it looks like evidence but cannot be checked, and the values attributed to it become unverifiable.",
       "action": "Re-fetch every cited URL before publishing, and prefer the canonical page reached from the site's own policy index over a guessed slug.",
       "source": "https://www.sarraf.com/30-day-returns-and-exchange-policy/",
@@ -451,8 +443,8 @@
       "label": "Cited contact page returned a server error",
       "what": "Catbird's contact page https://www.catbirdnyc.com/contact-us returned \"HTTP 500 Internal Server Error\" (nginx) on two attempts on 2026-10-23, so the e-mail address recorded against S-CB could not be re-confirmed that day. The same site's returns page and product page loaded normally in the same session, so this is a fault on one page rather than a dead domain.",
       "why_it_matters": "A buyer who cannot reach a seller cannot exercise a return. A contact claim that cannot be re-checked is unverified even when it was right when it was captured, and the checklist's \"verify the business has real contact information\" item fails on that page as it stands today.",
-      "action": "Use the returns portal (returns.narvar.com/catbird) or a store, and re-check the contact page later. Do not treat the recorded e-mail as confirmed as of 2026-10-23.",
-      "source": "https://www.catbirdnyc.com/contact-us",
+      "action": "Resolved via Catbird's live https://www.catbirdnyc.com/facts ('Customer Email: customerservice@catbirdnyc.com') and official return_form.pdf (+1-718-599-2340, 141 Flushing Avenue, Building 77, Suite 709, Brooklyn, NY 11205); avoid /contact-us while nginx 500 persists.",
+      "source": "https://www.catbirdnyc.com/facts",
       "quote": "500 Internal Server Error",
       "first_seen": "2026-10-23"
     },

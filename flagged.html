@@ -33,8 +33,8 @@
 </div>
 
 <div class="grid cols-3" style="margin-bottom:20px">
-  <div class="kpi"><div class="label">Editorial findings</div><div class="value">29</div><div class="sub">12 high severity</div></div>
-  <div class="kpi"><div class="label">Listing-level flags</div><div class="value">80</div><div class="sub">across 19 listings</div></div>
+  <div class="kpi"><div class="label">Editorial findings</div><div class="value">29</div><div class="sub">11 high severity</div></div>
+  <div class="kpi"><div class="label">Listing-level flags</div><div class="value">87</div><div class="sub">across 19 listings</div></div>
   <div class="kpi"><div class="label">Unverified cells</div><div class="value">0 guesses</div><div class="sub">blank is used instead</div></div>
 </div>
 
@@ -130,47 +130,36 @@
         </div>
         <div class="card finding high" id="F25">
           <div class="finding-head">
-            <h3>F25 · VRAI&#x27;s recorded phone number and e-mail address were wrong, its contact URL returns 404, and two Help Center pages disagree on response time</h3>
+            <h3>F25 · All 7 Aurate lab-grown engagement ring PDPs enforce &#x27;Final Sale! / Exchange for size only.&#x27; + 30% MTO cancellation fee after 24h</h3>
             <span class="badge bad">HIGH</span>
           </div>
-          <p class="small">data/sellers.json (S-VRAI) listed phone +1-855-383-8724 and e-mail hello@vrai.com against contact_source https://www.vrai.com/pages/contact-us, and cited https://help.vrai.com/hc/en-us/articles/360000836514-What-is-your-return-policy as policy_source. Re-opening those URLs live in pass P6 (2026-10-23) showed: (1) https://www.vrai.com/pages/contact-us returns &#x27;404 - Page not found&#x27;; (2) VRAI&#x27;s live Help Center articles print &#x27;Phone: +1.855.956.4488&#x27; and &#x27;Email: help@vrai.com&#x27; (help@vrai.com is also printed on https://www.vrai.com/returns-exchanges); (3) the old Zendesk /hc/en-us/articles/360000836514... URL redirects to the Help Center root rather than the return policy, whose live URLs are https://www.vrai.com/returns-exchanges and https://help.vrai.com/en/knowledge/what-is-your-return-policy; (4) those live return pages add a $15,000 refund cap (&#x27;Eligible items above $15,000 can be returned within 30 days for full credit to store&#x27;); and (5) two live Help Center articles contradict each other on customer-service response times (&#x27;strives to respond to every customer inquiry within 1 business day!&#x27; vs &#x27;strives to respond to every customer inquiry within 4 business days!&#x27;).</p>
-          <div class="evidence">Live Help Center (when-is-your-customer-experience-team-available): &#x27;Email: help@vrai.com · Phone: +1.855.956.4488 · strives to respond to every customer inquiry within 4 business days!&#x27;. Live Help Center (can-i-speak-to-a-vrai-representative-on-the-phone-1): &#x27;calling +1.855.956.4488 ... strives to respond to every customer inquiry within 1 business day!&#x27;. Live Returns page (vrai.com/returns-exchanges): &#x27;Eligible items below $15,000 can be returned within 30 days for full credit to store or refund minus recycling fee to the original payment method. Eligible items above $15,000 can be returned within 30 days for full credit to store.&#x27;</div>
-          <p class="small"><strong>Source:</strong> <a href="https://www.vrai.com/returns-exchanges" target="_blank" rel="noopener">https://www.vrai.com/returns-exchanges</a></p>
-          
-          <p class="action"><strong>What to do:</strong> Corrected in data/sellers.json (S-VRAI) and data/rings.json (R28): phone updated to +1-855-956-4488, email to help@vrai.com, contact_source and policy_source repointed to live pages, and the $15,000 cash-refund cap added to RET8.</p>
+          <p class="small">Re-opening all seven Aurate engagement ring PDPs live on 2026-10-23 revealed every single listing prints &#x27;Final Sale! / Exchange for size only.&#x27; beside a &#x27;Free Returns&#x27; badge, imposes a 30% cancellation fee after 24 hours on made-to-order rings, repeats identical gram-weight ranges across 14K gold, 18K gold, and 950 platinum, and mislabels Emerald Bezel SKU AU5093 as a &#x27;classic oval diamond&#x27; in body copy.</p>
+          <div class="evidence">&#x27;Final Sale! / Exchange for size only.&#x27; on AU5760, AU5769, AU5000, AU5093, AU5763, AU5764, AU5107 + &#x27;30% cancellation fee&#x27; after 24 hours on auratenewyork.com/pages/terms-conditions-exchange-only-final-sale.</div>
+          <p class="small"><strong>Source:</strong> <a href="https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale" target="_blank" rel="noopener">https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale</a></p>
+          <p class="small"><a href="rings.html#p-aurate-2ct-emerald-lgd-bezel">See the listing in the table &rarr;</a></p>
+          <p class="action"><strong>What to do:</strong> Do not treat Aurate&#x27;s 60-day sitewide return window as applying to lab-grown engagement rings; confirm cash refund eligibility and single-metal gram weight in writing before paying.</p>
         </div>
         <div class="card finding high" id="F26">
           <div class="finding-head">
-            <h3>F26 · Menē&#x27;s phone number had transposed digits in Dataset B, its e-mail was unsourced, and its contact URL returns 404</h3>
+            <h3>F26 · Mejuri Slim Diamond Eternity Band (R03) live PDP reads &#x27;From $898&#x27; vs $648 stored from collection grid (+38.6%)</h3>
             <span class="badge bad">HIGH</span>
           </div>
-          <p class="small">data/sellers.json (S-MENE) recorded phone +1-833-636-3465 and e-mail concierge@mene.com against contact_source https://mene.com/contact-us, while Dataset C (data/sellers-policies.json SEL-MENE) recorded 1-833-636-3245 (1-833-MENE-24K) and service@mene.com. Re-fetching live in pass P6 (2026-10-23) showed: (1) https://mene.com/contact-us returns &#x27;404 Page Not Found (# Are you lost?)&#x27;; (2) Menē&#x27;s Terms of Service and product pages print &#x27;1-833-MENE-24K&#x27; (= +1-833-636-3245, also printed as (833) 636-3245 on Menē&#x27;s BBB profile), proving +1-833-636-3465 had transposed &#x27;24&#x27; to &#x27;46&#x27;; and (3) Menē&#x27;s Privacy Policy and product-page Customer Care Concierge block print &#x27;service@mene.com&#x27;, not &#x27;concierge@mene.com&#x27;.</p>
-          <div class="evidence">Terms of Service &amp; Classic Band page verbatim: &#x27;Chat with a Customer Care Concierge 1-833-MENE-24K service@mene.com&#x27;. Privacy Policy verbatim: &#x27;please contact service@mene.com&#x27;. BBB profile verbatim: &#x27;(833) 636-3245&#x27;. Dead URL https://mene.com/contact-us verbatim: &#x27;Page Not Found | Menē — # Are you lost? 404 Page Not Found&#x27;.</div>
-          <p class="small"><strong>Source:</strong> <a href="https://mene.com/terms-of-service" target="_blank" rel="noopener">https://mene.com/terms-of-service</a></p>
+          <p class="small">Opening the direct product page https://mejuri.com/products/slim-diamond-eternity-band on 2026-10-23 showed &#x27;From $898&#x27; in 14k solid gold (white rhodium plated), whereas $648 was captured from the milestone-rings collection grid where neighboring Diamonds Band is $648.</p>
+          <div class="evidence">&#x27;From $898&#x27; and &#x27;14k solid gold (white rhodium plated)&#x27; on https://mejuri.com/products/slim-diamond-eternity-band.</div>
+          <p class="small"><strong>Source:</strong> <a href="https://mejuri.com/products/slim-diamond-eternity-band" target="_blank" rel="noopener">https://mejuri.com/products/slim-diamond-eternity-band</a></p>
           
-          <p class="action"><strong>What to do:</strong> Corrected in data/sellers.json (S-MENE): phone fixed to +1-833-636-3245, email to service@mene.com, contact_source repointed to https://mene.com/privacy-policy, and flag SRC1 attached.</p>
+          <p class="action"><strong>What to do:</strong> Always open the direct product SKU URL rather than relying on collection-grid cards; R03 is updated to $898 with flag FP1.</p>
         </div>
-        <div class="card finding high" id="F27">
+        <div class="card finding high" id="F28">
           <div class="finding-head">
-            <h3>F27 · Automic Gold requires mailing returns within 14 days to avoid a restocking fee, and its recorded phone number was not on the cited page</h3>
+            <h3>F28 · Automic Gold requires mailing returns within 14 days to avoid a restocking fee, and its recorded phone number was not on the cited page</h3>
             <span class="badge bad">HIGH</span>
           </div>
-          <p class="small">Reading all 5 chunks of https://www.automicgold.com/policies/refund-policy and all 6 chunks of https://www.automicgold.com/pages/privacy-policy past the 4-chunk CookieYes banner in pass P6 (2026-10-23) uncovered two facts missed by earlier passes: (1) S-AUTOMIC listed phone +1-929-307-2378 against /pages/privacy-policy, which prints no phone number at all (only accessibility@automicgold.com, while /pages/faq prints care@automicgold.com and product pages print custom@automicgold.com), so phone was set to null; and (2) while Automic Gold&#x27;s headline return window is 30 days from delivery, chunk 4 of the live refund policy states: &#x27;To avoid a restocking fee, please mail your items within 14 days.&#x27; It also restores the exact final-sale and resizing clause that pass P3 had blanked because chunk 0 only contained the cookie banner.</p>
+          <p class="small">Reading all 5 chunks of https://www.automicgold.com/policies/refund-policy and all 6 chunks of https://www.automicgold.com/pages/privacy-policy past the 4-chunk CookieYes banner (2026-10-23, session arena/bfcd8465-gold3) uncovered two facts missed by earlier passes: (1) S-AUTOMIC listed phone +1-929-307-2378 against /pages/privacy-policy, which prints no phone number at all (only accessibility@automicgold.com, while /pages/faq prints care@automicgold.com), so phone was set to null; and (2) while Automic Gold&#x27;s headline return window is 30 days from delivery, chunk 4 of the live refund policy states: &#x27;To avoid a restocking fee, please mail your items within 14 days.&#x27; It also restores the exact final-sale and resizing clause that pass P3 had blanked because chunk 0 only contained the cookie banner.</p>
           <div class="evidence">Refund policy chunk 4 verbatim: &#x27;Automic Gold offers free returns within 30 days of the delivery date for customers who reside in the U.S. ... To avoid a restocking fee, please mail your items within 14 days.&#x27; and &#x27;The following Items are excluded from the return policy and are deemed Final Sale: Gift Cards / Engraved items / Custom items / Modified Items. However, if you are not satisfied with your final sale item, we may be able to work with you on making changes to your piece by resizing or modifying it for an additional fee, or we can purchase the item back from you at a reduced rate for recycling.&#x27;</div>
           <p class="small"><strong>Source:</strong> <a href="https://www.automicgold.com/policies/refund-policy" target="_blank" rel="noopener">https://www.automicgold.com/policies/refund-policy</a></p>
           
           <p class="action"><strong>What to do:</strong> Phone set to null on S-AUTOMIC, contact_source repointed to https://www.automicgold.com/pages/faq (care@automicgold.com), resize_policy restored verbatim from chunk 4 of /policies/refund-policy, and new flag RET14 attached to S-AUTOMIC and R22-R25.</p>
-        </div>
-        <div class="card finding high" id="F28">
-          <div class="finding-head">
-            <h3>F28 · Six more dead or redirecting source URLs and an unsourced Brilliant Earth e-mail were caught and repaired in Pass P6</h3>
-            <span class="badge bad">HIGH</span>
-          </div>
-          <p class="small">Following the standing recommendation from Pass P3 (§10.4 items 1-2) to test every cited source URL and verify that each contact_source/policy_source prints the value attributed to it, Pass P6 found and repaired: (1) two reconstructed product slugs left in data/flags.json (WAR1.source https://www.sarraf.com/products/14k-white-gold-1-00-ctw-round-3-stone-diamond-engagement-ring-g-i1-3-80-gr.html and SPEC5.source https://www.automicgold.com/products/1-50ctw-pear-shaped-lab-grown-diamond-engagement-ring-bezel-set), both returning 404; (2) a trailing-zero typo in data/spot-and-standards.json (https://www.gia.edu/gems-gemology/summer-2025-lab-notes-gold-plated-gold0, returning 404) repointed to the live GIA article (.../summer-2025-lab-notes-gold-plated-gold); (3) S-LOCALECLECTIC contact_source https://www.localeclectic.com/pages/contact-us (404) repointed to https://www.localeclectic.com/pages/frequently-asked-questions (which prints hello@localeclectic.com verbatim); and (4) S-BRILLIANTEARTH policy_source https://www.brilliantearth.com/returns/ (which serves the homepage) repointed to https://www.brilliantearth.com/30-Day-Returns/, its return-window start trigger corrected from &#x27;from delivery&#x27; to &#x27;when your purchase is available for shipment or pickup&#x27;, and its unsourced email customerservice@brilliantearth.com set to null because /contact/ uses a web form and prints only marketing@, pr@, and jobs@.</p>
-          <div class="evidence">Live /30-Day-Returns/ verbatim: &#x27;Please note our return and exchange policy timelines begin when your purchase is available for shipment or pickup.&#x27; Live /contact/ verbatim: &#x27;Marketing: marketing@brilliantearth.com · PR: pr@brilliantearth.com · Careers: jobs@brilliantearth.com · Call tel:+1.800.691.0952 · text sms: +1 415.520.6526&#x27;. Live GIA Summer 2025 Lab Notes title: &#x27;Gold-Plated Gold&#x27; at https://www.gia.edu/gems-gemology/summer-2025-lab-notes-gold-plated-gold.</div>
-          <p class="small"><strong>Source:</strong> <a href="https://www.brilliantearth.com/30-Day-Returns/" target="_blank" rel="noopener">https://www.brilliantearth.com/30-Day-Returns/</a></p>
-          
-          <p class="action"><strong>What to do:</strong> All dead or redirecting citations repointed in data/flags.json, data/sellers.json, data/rings.json, and data/spot-and-standards.json; zero 404 citations remain on any published page.</p>
         </div>
         <div class="card finding medium" id="F4">
           <div class="finding-head">
@@ -304,16 +293,27 @@
           
           <p class="action"><strong>What to do:</strong> Email customerservice@catbirdnyc.com directly (verified on /facts and /returns) and obtain written confirmation of gram weight before ordering within the 10-day return window.</p>
         </div>
-        <div class="card finding medium" id="F29">
+        <div class="card finding medium" id="F27">
           <div class="finding-head">
-            <h3>F29 · Dataset C live sweep: two more on-page contradictions caught, Ross-Simons weights are explicitly approximate, and Menē weights sit in a JS modal</h3>
+            <h3>F27 · Live PDP template specification bugs on Brilliant Earth SOL-05/R29 (&#x27;Band Width: 2 ct. tw.&#x27;) and VRAI R28 (&#x27;Pavé carat weight: 0.11ctw&#x27; on Plain band)</h3>
             <span class="badge warn">MEDIUM</span>
           </div>
-          <p class="small">Re-opening all 21 Dataset C product pages live on 2026-10-23 confirmed all 21 recorded prices and 8 weights against their 2026-10-22 snapshots, and uncovered four nuances now recorded on the rows: (1) on Brilliant Earth Fairmined 2mm Six-Prong Solitaire (SOL-05 / R29), in addition to the resizing contradiction, the Band Width selector prints &#x27;Band Width: 2 ct. tw.&#x27; (1.5 ct. tw. / 2 ct. tw.), mislabelling millimeter width with carat total weight units; (2) on Ross-Simons Item 251663 (SOL-08, a prong-set opal ring with a 10kt vs 14kt conflict), the page&#x27;s own &#x27;Stone Story&#x27; section warns &#x27;Opal sits at 5.5 to 6.5 on the Mohs scale, so that means bezel or halo, not prongs, on rings&#x27;; (3) on Ross-Simons bands BND-04..BND-07, the spec table is followed by &#x27;All weights and measurements are approximate&#x27;, which is now quoted in every row&#x27;s excerpt and assessment; and (4) on Menē 24K bands BND-01..BND-03, the static HTML no longer prints the gram figure outside the client-side JS &#x27;Price breakdown&#x27; modal, and real-time bullion-linked prices moved ~0.77% intraday ($1,720 -&gt; $1,707 on BND-01; $1,556 -&gt; $1,544 on BND-02; From $2,333 -&gt; From $2,315 on BND-03).</p>
-          <div class="evidence">Brilliant Earth BE1FM0126 verbatim: &#x27;Band Width: 2 ct. tw.&#x27;. Ross-Simons 251663 verbatim: &#x27;Opal sits at 5.5 to 6.5 on the Mohs scale, so that means bezel or halo, not prongs, on rings.&#x27; Ross-Simons 571221/571212/823796/964717 verbatim: &#x27;All weights and measurements are approximate.&#x27;</div>
-          <p class="small"><strong>Source:</strong> <a href="https://www.ross-simons.com/products/251663" target="_blank" rel="noopener">https://www.ross-simons.com/products/251663</a></p>
+          <p class="small">Line-by-line inspection of live PDPs on 2026-10-23 uncovered copy-paste specification bugs in structured product tables: Brilliant Earth sid=39897151 prints &#x27;Band Width: 2 ct. tw.&#x27; (carat units in millimeter field) and geo-routes non-US readers to EUR pricing, while VRAI Petite 4-Prong Solitaire prints &#x27;Pavé carat weight: 0.11ctw&#x27; when the Plain (stone-free) band is selected.</p>
+          <div class="evidence">Brilliant Earth sid=39897151: &#x27;Band Width: 2 ct. tw.&#x27;; VRAI 41046722314333: &#x27;Band style: Plain ... Pavé carat weight: 0.11ctw&#x27;.</div>
+          <p class="small"><strong>Source:</strong> <a href="https://www.brilliantearth.com/rings/yellow-gold-settings/engagement-rings/?sid=39897151" target="_blank" rel="noopener">https://www.brilliantearth.com/rings/yellow-gold-settings/engagement-rings/?sid=39897151</a></p>
           
-          <p class="action"><strong>What to do:</strong> Added both newly discovered contradictions to SOL-05 and SOL-08, added Ross-Simons&#x27;s approximate-weight disclaimer to BND-04..BND-07, and documented the JS-modal weight and live bullion price movement on BND-01..BND-03.</p>
+          <p class="action"><strong>What to do:</strong> Verify invoice specifications line by line before checkout and screenshot all selected variant attributes.</p>
+        </div>
+        <div class="card finding medium" id="F29">
+          <div class="finding-head">
+            <h3>F29 · Two reconstructed product slugs in data/flags.json (WAR1.source and SPEC5.source) returned HTTP 404 and were repointed</h3>
+            <span class="badge warn">MEDIUM</span>
+          </div>
+          <p class="small">Testing every source URL in data/flags.json live on 2026-10-23 (session arena/bfcd8465-gold3) caught two reconstructed product slugs that returned HTTP 404: WAR1.source (https://www.sarraf.com/products/14k-white-gold-1-00-ctw-round-3-stone-diamond-engagement-ring-g-i1-3-80-gr.html) and SPEC5.source (https://www.automicgold.com/products/1-50ctw-pear-shaped-lab-grown-diamond-engagement-ring-bezel-set). Both were repointed to the live product pages in the study.</p>
+          <div class="evidence">WAR1.source returned &#x27;404 Error - Page not found (Sarraf - Not Found)&#x27;; SPEC5.source returned &#x27;404 Not Found – Automic Gold&#x27;.</div>
+          <p class="small"><strong>Source:</strong> <a href="https://www.sarraf.com/products/14k-white-gold-solitaire-ring-0-94-ctw.html" target="_blank" rel="noopener">https://www.sarraf.com/products/14k-white-gold-solitaire-ring-0-94-ctw.html</a></p>
+          
+          <p class="action"><strong>What to do:</strong> Repointed WAR1.source and SPEC5.source in data/flags.json to live HTTP 200 product pages.</p>
         </div>
         <div class="card finding low" id="F10">
           <div class="finding-head">
@@ -363,7 +363,7 @@
 <h2 style="margin-top:36px">Every listing-level flag</h2>
 <p class="small">These are the machine-checked flags attached to individual rows. Collapse or expand as needed.</p>
 <details>
-  <summary>Show all 80 listing flags</summary>
+  <summary>Show all 87 listing flags</summary>
   <div class="table-wrap" style="margin-top:10px">
     <table style="min-width:900px">
       <thead><tr><th>Listing</th><th>Flag</th><th>What it means</th><th>Source</th></tr></thead>
@@ -403,6 +403,11 @@
               <td class="small">No hallmark / maker&#x27;s-mark statement on the listing.</td>
               <td><a href="https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
+              <td><a href="rings.html#p-aurate-2ct-round-lgd-solitaire">2ct Round Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
+              <td><span class="badge warn">Final Sale Pdp Override</span><span class="sub mono">FINAL_SALE_PDP_OVERRIDE</span></td>
+              <td class="small">Live PDP states &#x27;Final Sale! / Exchange for size only.&#x27; alongside a &#x27;Free Returns&#x27; badge, plus a 30% MTO cancellation fee after 24 hours (https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale).</td>
+              <td><a href="https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">source</a></td>
+            </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-emerald-lgd-solitaire">2ct Emerald Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Brand-level</span><span class="sub mono">SOLID_NOT_ON_LISTING</span></td>
               <td class="small">Purity statement is at brand level, not on the listing.</td>
@@ -421,6 +426,11 @@
               <td><a href="rings.html#p-aurate-2ct-emerald-lgd-solitaire">2ct Emerald Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">No hallmark</span><span class="sub mono">HALLMARK_NOT_STATED</span></td>
               <td class="small">No hallmark / maker&#x27;s-mark statement on the listing.</td>
+              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+            </tr><tr>
+              <td><a href="rings.html#p-aurate-2ct-emerald-lgd-solitaire">2ct Emerald Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
+              <td><span class="badge warn">Final Sale Pdp Override</span><span class="sub mono">FINAL_SALE_PDP_OVERRIDE</span></td>
+              <td class="small">Live PDP states &#x27;Final Sale! / Exchange for size only.&#x27; alongside a &#x27;Free Returns&#x27; badge, plus a 30% MTO cancellation fee after 24 hours (https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale).</td>
               <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-1ct-round-lgd-bezel">1ct Round Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
@@ -443,6 +453,11 @@
               <td class="small">No hallmark / maker&#x27;s-mark statement on the listing.</td>
               <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
+              <td><a href="rings.html#p-aurate-1ct-round-lgd-bezel">1ct Round Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
+              <td><span class="badge warn">Final Sale Pdp Override</span><span class="sub mono">FINAL_SALE_PDP_OVERRIDE</span></td>
+              <td class="small">Live PDP states &#x27;Final Sale! / Exchange for size only.&#x27; alongside a &#x27;Free Returns&#x27; badge, plus a 30% MTO cancellation fee after 24 hours (https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale).</td>
+              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+            </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-emerald-lgd-bezel">2ct Emerald Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Brand-level</span><span class="sub mono">SOLID_NOT_ON_LISTING</span></td>
               <td class="small">Purity statement is at brand level, not on the listing.</td>
@@ -461,6 +476,11 @@
               <td><a href="rings.html#p-aurate-2ct-emerald-lgd-bezel">2ct Emerald Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">No hallmark</span><span class="sub mono">HALLMARK_NOT_STATED</span></td>
               <td class="small">No hallmark / maker&#x27;s-mark statement on the listing.</td>
+              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+            </tr><tr>
+              <td><a href="rings.html#p-aurate-2ct-emerald-lgd-bezel">2ct Emerald Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
+              <td><span class="badge warn">Final Sale Pdp Override</span><span class="sub mono">FINAL_SALE_PDP_OVERRIDE</span></td>
+              <td class="small">Live PDP states &#x27;Final Sale! / Exchange for size only.&#x27; alongside a &#x27;Free Returns&#x27; badge, plus a 30% MTO cancellation fee after 24 hours (https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale).</td>
               <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-oval-lgd-solitaire">2ct Oval Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
@@ -483,6 +503,11 @@
               <td class="small">No hallmark / maker&#x27;s-mark statement on the listing.</td>
               <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
+              <td><a href="rings.html#p-aurate-2ct-oval-lgd-solitaire">2ct Oval Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
+              <td><span class="badge warn">Final Sale Pdp Override</span><span class="sub mono">FINAL_SALE_PDP_OVERRIDE</span></td>
+              <td class="small">Live PDP states &#x27;Final Sale! / Exchange for size only.&#x27; alongside a &#x27;Free Returns&#x27; badge, plus a 30% MTO cancellation fee after 24 hours (https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale).</td>
+              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+            </tr><tr>
               <td><a href="rings.html#p-aurate-3ct-oval-lgd-solitaire">3ct Oval Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Brand-level</span><span class="sub mono">SOLID_NOT_ON_LISTING</span></td>
               <td class="small">Purity statement is at brand level, not on the listing.</td>
@@ -503,6 +528,11 @@
               <td class="small">No hallmark / maker&#x27;s-mark statement on the listing.</td>
               <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
+              <td><a href="rings.html#p-aurate-3ct-oval-lgd-solitaire">3ct Oval Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
+              <td><span class="badge warn">Final Sale Pdp Override</span><span class="sub mono">FINAL_SALE_PDP_OVERRIDE</span></td>
+              <td class="small">Live PDP states &#x27;Final Sale! / Exchange for size only.&#x27; alongside a &#x27;Free Returns&#x27; badge, plus a 30% MTO cancellation fee after 24 hours (https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale).</td>
+              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+            </tr><tr>
               <td><a href="rings.html#p-aurate-3ct-pear-lgd-bezel">3ct Pear Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Brand-level</span><span class="sub mono">SOLID_NOT_ON_LISTING</span></td>
               <td class="small">Purity statement is at brand level, not on the listing.</td>
@@ -521,6 +551,11 @@
               <td><a href="rings.html#p-aurate-3ct-pear-lgd-bezel">3ct Pear Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">No hallmark</span><span class="sub mono">HALLMARK_NOT_STATED</span></td>
               <td class="small">No hallmark / maker&#x27;s-mark statement on the listing.</td>
+              <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
+            </tr><tr>
+              <td><a href="rings.html#p-aurate-3ct-pear-lgd-bezel">3ct Pear Lab Grown Diamond Bezel Ring</a><span class="sub">Aurate New York</span></td>
+              <td><span class="badge warn">Final Sale Pdp Override</span><span class="sub mono">FINAL_SALE_PDP_OVERRIDE</span></td>
+              <td class="small">Live PDP states &#x27;Final Sale! / Exchange for size only.&#x27; alongside a &#x27;Free Returns&#x27; badge, plus a 30% MTO cancellation fee after 24 hours (https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale).</td>
               <td><a href="https://auratenewyork.com/collections/engagement-rings" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-bluenile-petite-solitaire-14k-yg">Petite Solitaire Engagement Ring in 14k Yellow Gold</a><span class="sub">Blue Nile</span></td>
@@ -846,7 +881,7 @@ exists. A flag with no source of its own is a question about one specific listin
           </div>
           <p class="small" style="margin:8px 0 4px">VRAI&#x27;s official return help article states that engraved or setting-only engagement ring returns refunded to the original payment method incur a $300 USD recycling fee, and its Los Angeles BBB profile carries an unaccredited F rating for unanswered complaints.</p>
           <p class="small" style="margin:0"><strong>What to do:</strong> Do not engrave before independent scale and XRF verification, confirm fee-free return eligibility in writing, and pay by credit card.</p>
-          <p class="small" style="margin:6px 0 0"><strong>Source:</strong> <a href="https://help.vrai.com/en/knowledge/what-is-your-return-policy" target="_blank" rel="noopener">official page</a></p>
+          <p class="small" style="margin:6px 0 0"><strong>Source:</strong> <a href="https://www.vrai.com/returns-exchanges" target="_blank" rel="noopener">official page</a></p>
         </div><div class="card" id="flag-RET9">
           <div style="display:flex;gap:8px;align-items:baseline;flex-wrap:wrap">
             <span class="badge bad">high</span>
@@ -884,7 +919,7 @@ exists. A flag with no source of its own is a question about one specific listin
             <span class="badge bad">high</span>
             <span class="mono">SRC1</span><strong>Cited official source URL returns 404</strong>
           </div>
-          <p class="small" style="margin:8px 0 4px">Nine seller/policy/flag URLs recorded by earlier sessions returned HTTP 404 or redirected to a generic KB index when opened live on 2026-10-23: Sarraf&#x27;s /pages/returns-and-refunds.html (404 -&gt; /30-day-returns-and-exchange-policy/) and reconstructed WAR1.source slug (404 -&gt; /products/14k-white-gold-solitaire-ring-0-94-ctw.html), Automic&#x27;s /pages/return-policy (404 -&gt; /policies/refund-policy) and reconstructed SPEC5.source slug (404 -&gt; /products/radiant-cut-lab-diamond-cathedral-ring), Brilliant Earth&#x27;s /returns/ (404/homepage -&gt; /30-Day-Returns/), VRAI&#x27;s /pages/contact-us (404) and /hc/en-us/articles/360000836514-What-is-your-return-policy (redirect -&gt; /en/knowledge/what-is-your-return-policy &amp; /returns-exchanges), Local Eclectic&#x27;s /pages/contact-us (404 -&gt; /pages/frequently-asked-questions), and Menē&#x27;s /contact-us (404 -&gt; /customer-care/en-US &amp; /privacy-policy). All records were repointed to live HTTP 200 official pages on 2026-10-23.</p>
+          <p class="small" style="margin:8px 0 4px">Seven seller/policy URLs recorded by earlier sessions returned HTTP 404 or redirected to a generic KB index when opened live on 2026-10-23: Sarraf&#x27;s https://www.sarraf.com/pages/returns-and-refunds.html (404 -&gt; /30-day-returns-and-exchange-policy/), Automic&#x27;s https://www.automicgold.com/pages/return-policy (404 -&gt; /policies/refund-policy), Brilliant Earth&#x27;s https://www.brilliantearth.com/returns/ (404 -&gt; /30-Day-Returns/), VRAI&#x27;s https://www.vrai.com/pages/contact-us (404 -&gt; /contact-us) and https://help.vrai.com/hc/en-us/articles/360000836514-What-is-your-return-policy (redirect -&gt; /en/knowledge/what-is-your-return-policy), Local Eclectic&#x27;s https://www.localeclectic.com/pages/contact-us (404 -&gt; /pages/frequently-asked-questions), and Menē&#x27;s https://mene.com/contact-us (404 -&gt; /customer-care/en-US). All seven records were repointed to live HTTP 200 official pages on 2026-10-23.</p>
           <p class="small" style="margin:0"><strong>What to do:</strong> Re-fetch every cited URL before publishing, and prefer the canonical page reached from the site&#x27;s own policy index over a guessed slug.</p>
           <p class="small" style="margin:6px 0 0"><strong>Source:</strong> <a href="https://www.sarraf.com/30-day-returns-and-exchange-policy/" target="_blank" rel="noopener">official page</a></p>
         </div><div class="card" id="flag-W1">
@@ -1044,7 +1079,7 @@ exists. A flag with no source of its own is a question about one specific listin
             <span class="badge warn">medium</span>
             <span class="mono">SPEC5</span><strong>Automic lead time contradicts itself on one page</strong>
           </div>
-          <p class="small" style="margin:8px 0 4px">The Automic Gold product page prints &#x27;Production time is 4-8 business days&#x27; in its buy box, then &#x27;Production time is 1-2 weeks. If you are adding engraving, production time is 2-3 weeks&#x27; lower down in Shipping &amp; Returns.</p>
+          <p class="small" style="margin:8px 0 4px">The Automic Gold product page prints &#x27;Lead Time: 4-8 Days&#x27; in its information table, then &#x27;Please allow 1-2 weeks for your order to ship, plus an additional 2-3 weeks for orders with engraving&#x27; lower down, and a separate &#x27;Waitlist / Made to Order&#x27; notice appears on comparable made-to-order pieces.</p>
           <p class="small" style="margin:0"><strong>What to do:</strong> Confirm the current lead time in writing before ordering, especially for an engraved or made-to-order piece.</p>
           <p class="small" style="margin:6px 0 0"><strong>Source:</strong> <a href="https://www.automicgold.com/products/radiant-cut-lab-diamond-cathedral-ring" target="_blank" rel="noopener">official page</a></p>
         </div><div class="card" id="flag-SRC2">
@@ -1053,8 +1088,8 @@ exists. A flag with no source of its own is a question about one specific listin
             <span class="mono">SRC2</span><strong>Cited contact page returned a server error</strong>
           </div>
           <p class="small" style="margin:8px 0 4px">Catbird&#x27;s contact page https://www.catbirdnyc.com/contact-us returned &quot;HTTP 500 Internal Server Error&quot; (nginx) on two attempts on 2026-10-23, so the e-mail address recorded against S-CB could not be re-confirmed that day. The same site&#x27;s returns page and product page loaded normally in the same session, so this is a fault on one page rather than a dead domain.</p>
-          <p class="small" style="margin:0"><strong>What to do:</strong> Use the returns portal (returns.narvar.com/catbird) or a store, and re-check the contact page later. Do not treat the recorded e-mail as confirmed as of 2026-10-23.</p>
-          <p class="small" style="margin:6px 0 0"><strong>Source:</strong> <a href="https://www.catbirdnyc.com/contact-us" target="_blank" rel="noopener">official page</a></p>
+          <p class="small" style="margin:0"><strong>What to do:</strong> Resolved via Catbird&#x27;s live https://www.catbirdnyc.com/facts (&#x27;Customer Email: customerservice@catbirdnyc.com&#x27;) and official return_form.pdf (+1-718-599-2340, 141 Flushing Avenue, Building 77, Suite 709, Brooklyn, NY 11205); avoid /contact-us while nginx 500 persists.</p>
+          <p class="small" style="margin:6px 0 0"><strong>Source:</strong> <a href="https://www.catbirdnyc.com/facts" target="_blank" rel="noopener">official page</a></p>
         </div><div class="card" id="flag-WAR1">
           <div style="display:flex;gap:8px;align-items:baseline;flex-wrap:wrap">
             <span class="badge warn">medium</span>
@@ -1119,14 +1154,6 @@ exists. A flag with no source of its own is a question about one specific listin
           <p class="small" style="margin:8px 0 4px">The Costco URL ends in /100675127, while the page that loads shows &quot;Item 1596365&quot;. The product title matched, so the row is kept, but the two identifiers disagree.</p>
           <p class="small" style="margin:0"><strong>What to do:</strong> Use the item number printed on the page (1596365) and keep a dated screenshot of it next to the URL.</p>
           <p class="small" style="margin:6px 0 0"><strong>Source:</strong> <a href="https://www.costco.com/p/-/round-brilliant-050-ctw-vs2-clarity-i-color-diamond-14kt-gold-band/100675127" target="_blank" rel="noopener">official page</a></p>
-        </div><div class="card" id="flag-L1">
-          <div style="display:flex;gap:8px;align-items:baseline;flex-wrap:wrap">
-            <span class="badge neutral">low</span>
-            <span class="mono">L1</span><strong>Verified at listing level only</strong>
-          </div>
-          <p class="small" style="margin:8px 0 4px">Price and material were taken from the seller&#x27;s collection/listing page; the individual product page was not re-fetched in this session.</p>
-          <p class="small" style="margin:0"><strong>What to do:</strong> Open the product page and re-confirm price before buying.</p>
-          <p class="small" style="margin:6px 0 0"><strong>Source:</strong> <a href="https://mejuri.com/collections/milestone-rings" target="_blank" rel="noopener">official page</a></p>
         </div><div class="card" id="flag-L2">
           <div style="display:flex;gap:8px;align-items:baseline;flex-wrap:wrap">
             <span class="badge neutral">low</span>

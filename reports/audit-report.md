@@ -1,9 +1,9 @@
 # Anti-hallucination audit report
 
-- Run: 2026-10-23 10:39 UTC
+- Run: 2026-10-23 10:42 UTC
 - Rows audited: **31**
 - Sellers audited: **14**
-- Flag definitions: **49**
+- Flag definitions: **48**
 - Result: **PASS** — 0 error(s), 0 warning(s), 173 check(s) passed
 
 ## What this pass is looking for
@@ -45,8 +45,8 @@ None.
 - [sources] R02: 2 official source link(s)
 - [price] R02: $1,500 matches its quoted source text
 - [solid] R02: PASS backed by a quote containing 'solid'
-- [sources] R03: 2 official source link(s)
-- [price] R03: $648 matches its quoted source text
+- [sources] R03: 3 official source link(s)
+- [price] R03: $898 matches its quoted source text
 - [solid] R03: PASS backed by a quote containing 'solid'
 - [sources] R04: 2 official source link(s)
 - [price] R04: $228 matches its quoted source text
@@ -175,7 +175,7 @@ None.
 - [domain] R31: localeclectic.com belongs to localeclectic.com
 - [verify] all 31 rows appear in the verification log
 - [verify] summary counts recomputed from the entries and match
-- [flags] 49 flag definitions validated
+- [flags] 48 flag definitions validated
 - [standards] all karat fractions reproduce n/24
 - [standards] 8 legal rules carry citations
 - [site] verify.html present

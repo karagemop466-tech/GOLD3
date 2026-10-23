@@ -42,7 +42,8 @@
         "WEIGHT_RANGE_ONLY",
         "EXCHANGE_ONLY_FINAL_SALE",
         "PAGE_SELF_CONTRADICTION",
-        "HALLMARK_NOT_STATED"
+        "HALLMARK_NOT_STATED",
+        "FINAL_SALE_PDP_OVERRIDE"
       ],
       "derived": {
         "karat": "14K",
@@ -61,7 +62,8 @@
         "SOLID_NOT_ON_LISTING",
         "PRICE_FROM_LOWEST_VARIANT",
         "WEIGHT_NOT_PUBLISHED",
-        "HALLMARK_NOT_STATED"
+        "HALLMARK_NOT_STATED",
+        "FINAL_SALE_PDP_OVERRIDE"
       ],
       "derived": {
         "karat": "14K",
@@ -80,7 +82,8 @@
         "SOLID_NOT_ON_LISTING",
         "PRICE_FROM_LOWEST_VARIANT",
         "WEIGHT_NOT_PUBLISHED",
-        "HALLMARK_NOT_STATED"
+        "HALLMARK_NOT_STATED",
+        "FINAL_SALE_PDP_OVERRIDE"
       ],
       "derived": {
         "karat": "14K",
@@ -99,7 +102,8 @@
         "SOLID_NOT_ON_LISTING",
         "PRICE_FROM_LOWEST_VARIANT",
         "WEIGHT_NOT_PUBLISHED",
-        "HALLMARK_NOT_STATED"
+        "HALLMARK_NOT_STATED",
+        "FINAL_SALE_PDP_OVERRIDE"
       ],
       "derived": {
         "karat": "14K",
@@ -118,7 +122,8 @@
         "SOLID_NOT_ON_LISTING",
         "PRICE_FROM_LOWEST_VARIANT",
         "WEIGHT_NOT_PUBLISHED",
-        "HALLMARK_NOT_STATED"
+        "HALLMARK_NOT_STATED",
+        "FINAL_SALE_PDP_OVERRIDE"
       ],
       "derived": {
         "karat": "14K",
@@ -137,7 +142,8 @@
         "SOLID_NOT_ON_LISTING",
         "PRICE_FROM_LOWEST_VARIANT",
         "WEIGHT_NOT_PUBLISHED",
-        "HALLMARK_NOT_STATED"
+        "HALLMARK_NOT_STATED",
+        "FINAL_SALE_PDP_OVERRIDE"
       ],
       "derived": {
         "karat": "14K",
@@ -156,7 +162,8 @@
         "SOLID_NOT_ON_LISTING",
         "PRICE_FROM_LOWEST_VARIANT",
         "WEIGHT_NOT_PUBLISHED",
-        "HALLMARK_NOT_STATED"
+        "HALLMARK_NOT_STATED",
+        "FINAL_SALE_PDP_OVERRIDE"
       ],
       "derived": {
         "karat": "14K",
@@ -529,27 +536,27 @@
     {
       "id": "F25",
       "severity": "high",
-      "title": "VRAI's recorded phone number and e-mail address were wrong, its contact URL returns 404, and two Help Center pages disagree on response time"
+      "title": "All 7 Aurate lab-grown engagement ring PDPs enforce 'Final Sale! / Exchange for size only.' + 30% MTO cancellation fee after 24h"
     },
     {
       "id": "F26",
       "severity": "high",
-      "title": "Menē's phone number had transposed digits in Dataset B, its e-mail was unsourced, and its contact URL returns 404"
+      "title": "Mejuri Slim Diamond Eternity Band (R03) live PDP reads 'From $898' vs $648 stored from collection grid (+38.6%)"
     },
     {
       "id": "F27",
-      "severity": "high",
-      "title": "Automic Gold requires mailing returns within 14 days to avoid a restocking fee, and its recorded phone number was not on the cited page"
+      "severity": "medium",
+      "title": "Live PDP template specification bugs on Brilliant Earth SOL-05/R29 ('Band Width: 2 ct. tw.') and VRAI R28 ('Pavé carat weight: 0.11ctw' on Plain band)"
     },
     {
       "id": "F28",
       "severity": "high",
-      "title": "Six more dead or redirecting source URLs and an unsourced Brilliant Earth e-mail were caught and repaired in Pass P6"
+      "title": "Automic Gold requires mailing returns within 14 days to avoid a restocking fee, and its recorded phone number was not on the cited page"
     },
     {
       "id": "F29",
       "severity": "medium",
-      "title": "Dataset C live sweep: two more on-page contradictions caught, Ross-Simons weights are explicitly approximate, and Menē weights sit in a JS modal"
+      "title": "Two reconstructed product slugs in data/flags.json (WAR1.source and SPEC5.source) returned HTTP 404 and were repointed"
     }
   ],
   "parallel_dataset": {

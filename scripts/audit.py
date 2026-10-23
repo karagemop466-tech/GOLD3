@@ -569,7 +569,7 @@ for _ms in re.findall(r"\$([0-9][0-9,]*\.?[0-9]*)", json.dumps(rings_doc)):
 data_prices.update({"0.02", "129.4100"})
 
 # Register all verified numeric USD figures from Dataset C JSON files
-for ext_json in ("spot-and-standards.json", "solitaire-rings.json", "bands-and-high-karat.json", "sellers-policies.json"):
+for ext_json in ("products.json", "spot-and-standards.json", "solitaire-rings.json", "bands-and-high-karat.json", "sellers-policies.json"):
     ext_path = DATA / ext_json
     if ext_path.exists():
         ext_doc = json.loads(ext_path.read_text(encoding="utf-8"))
@@ -581,6 +581,7 @@ for ext_json in ("spot-and-standards.json", "solitaire-rings.json", "bands-and-h
                     if any(tok in kk.lower() for tok in ("usd", "price", "melt", "spot")) and isinstance(vv, (int, float)):
                         data_prices.add(f"{vv:,.0f}")
                         data_prices.add(f"{vv:,.2f}")
+                        data_prices.add(f"{vv:,.4f}")
                     _collect_c(vv)
             elif isinstance(obj, list):
                 for it in obj:
@@ -609,7 +610,7 @@ for page in html_files:
 
     # hardcoded prices
     for amount in re.findall(r"\$([0-9][0-9,]*\.?[0-9]*)", text):
-        cleaned = amount.rstrip(".")
+        cleaned = amount.rstrip(".,")
         if cleaned not in data_prices:
             warn("site", f"{page.name}: printed ${cleaned} which is not in data/*.json — "
                          f"either it is a policy quote or a hallucination")

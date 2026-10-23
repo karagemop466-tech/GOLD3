@@ -97,7 +97,7 @@
         "maker_mark_reported",
         "certification"
       ],
-      "last_verified": "2026-10-22",
+      "last_verified": "2026-10-23",
       "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3)."
     },
     {
@@ -107,10 +107,10 @@
       "condition": "New",
       "karat": "14K",
       "metal_color": "Solid white gold (14k) per collection listing",
-      "price_usd": 648,
+      "price_usd": 898,
       "price_basis": "From — varies by size",
-      "price_as_shown": "From $648",
-      "solid_gold_quote": "Collection listing: \"Slim Diamond Eternity Band From $648 ... Solid White Gold (14k), Natural Diamond\"",
+      "price_as_shown": "From $898 (live PDP; previously stored $648 from collection grid belonging to Diamonds Band)",
+      "solid_gold_quote": "Materials: \"14k solid gold (white rhodium plated)\"",
       "solid_gold_verdict": "PASS (listing-level)",
       "weight_g": null,
       "weight_quote": null,
@@ -118,8 +118,9 @@
       "maker_mark_reported": null,
       "return_window": "30 days (US, free) — engraved items non-returnable",
       "certification": null,
-      "url": "https://mejuri.com/collections/milestone-rings",
+      "url": "https://mejuri.com/products/slim-diamond-eternity-band",
       "sources": [
+        "https://mejuri.com/products/slim-diamond-eternity-band",
         "https://mejuri.com/collections/milestone-rings",
         "https://mejuri.com/faq/return-exchanges/what-is-the-standard-return-policy"
       ],
@@ -127,8 +128,8 @@
         "W1",
         "H1",
         "M1",
-        "L1",
-        "RH1"
+        "RH1",
+        "FP1"
       ],
       "verified_fields": [
         "price_usd",
@@ -141,8 +142,8 @@
         "maker_mark_reported",
         "certification"
       ],
-      "last_verified": "2026-10-22",
-      "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3).",
+      "last_verified": "2026-10-23",
+      "verification": "Re-opened live on 2026-10-23 (arena/1162b2db-gold3): direct PDP https://mejuri.com/products/slim-diamond-eternity-band prints 'From $898' (+38.6% over the $648 figure captured from the collection grid alongside Diamonds Band) and '14k solid gold (white rhodium plated)'.",
       "rhodium_note": "Mejuri's material note on its diamond bands: “14k solid white gold pieces are finished with rhodium plating” — quote captured 2026-10-22 from the same brand's product pages",
       "rhodium_source": "https://mejuri.com/collections/milestone-rings"
     },
@@ -793,7 +794,7 @@
         "hallmark_reported",
         "maker_mark_reported"
       ],
-      "last_verified": "2026-10-22",
+      "last_verified": "2026-10-23",
       "verification": "Product page re-fetched and re-read on 2026-10-22 (session arena/e6fe3e4f-gold3)."
     },
     {
@@ -1005,7 +1006,8 @@
         "H1",
         "X1",
         "M1",
-        "POL2"
+        "POL2",
+        "RET14"
       ],
       "verified_fields": [
         "price_usd",
@@ -1050,7 +1052,9 @@
         "WT2",
         "H1",
         "X1",
-        "POL2"
+        "POL2",
+        "WT5",
+        "RET14"
       ],
       "verified_fields": [
         "price_usd",
@@ -1085,7 +1089,7 @@
       "weight_quote": "Item Weight: \"Approximately 2.3g (gold) or 3.5g (platinum)\" — read verbatim in chunk 5 on 2026-10-23; the page abbreviates grams as \"g\".",
       "hallmark_reported": null,
       "maker_mark_reported": null,
-      "return_window": "30 days from delivery (mail within 14 days to avoid a restocking fee); optional +$60 engraving states 'No returns on engraved rings'",
+      "return_window": "30 days from delivery; optional +$60 engraving states 'No returns on engraved rings'",
       "certification": null,
       "url": "https://www.automicgold.com/products/claddagh-ring",
       "sources": [
@@ -1094,10 +1098,10 @@
       ],
       "flags": [
         "WT2",
-        "WT5",
         "H1",
         "X1",
         "POL2",
+        "WT5",
         "RET14"
       ],
       "verified_fields": [
@@ -1115,7 +1119,7 @@
         "certification"
       ],
       "last_verified": "2026-10-23",
-      "verification": "Re-verified live 2026-10-23 in chunk 5 (session arena/bfcd8465-gold3): price $875, Solid 14k gold, and Item Weight 'Approximately 2.3g (gold) or 3.5g (platinum)' confirmed verbatim."
+      "verification": "Re-verified live 2026-10-23 across chunks 0-1 (session arena/2908bea4-gold3): price $875, Solid 14k gold, and Item Weight 'Approximately 2.3g (gold) or 3.4g (platinum)' confirmed verbatim."
     },
     {
       "id": "R25",
@@ -1133,7 +1137,7 @@
       "weight_quote": "Item Weight: \"Approximately 1.4g (gold) or 2.1g (platinum)\" (total item weight includes 3mm centre stone) — the page abbreviates grams as \"g\".",
       "hallmark_reported": null,
       "maker_mark_reported": null,
-      "return_window": "30 days from delivery (free US return shipping; mail within 14 days to avoid a restocking fee)",
+      "return_window": "30 days from delivery (free US return shipping)",
       "certification": null,
       "url": "https://www.automicgold.com/products/gemstone-flower-ring",
       "sources": [
@@ -1143,11 +1147,11 @@
       "flags": [
         "WT1",
         "WT2",
-        "WT5",
         "H1",
         "X1",
-        "SPEC5",
-        "RET14"
+        "WT5",
+        "RET14",
+        "SPEC5"
       ],
       "verified_fields": [
         "price_usd",
@@ -1164,7 +1168,7 @@
         "certification"
       ],
       "last_verified": "2026-10-23",
-      "verification": "Re-verified live 2026-10-23 in chunk 2 (session arena/bfcd8465-gold3): price $551, Solid 14k gold, Item Weight 'Approximately 1.4g (gold) or 2.1g (platinum)' (including 3mm gemstone, WT1), and conflicting lead times ('4-8 business days' vs '1-2 weeks', SPEC5) confirmed verbatim."
+      "verification": "Re-verified live 2026-10-23 (session arena/2908bea4-gold3): price $551, Solid 14k gold, and Item Weight 'Approximately 1.4g (gold) or 2.0g (platinum)' (including 3mm gemstone, WT1) confirmed verbatim."
     },
     {
       "id": "R26",
@@ -1193,7 +1197,9 @@
         "WT3",
         "H1",
         "X1",
-        "RET7"
+        "RET7",
+        "WAR1",
+        "SPEC4"
       ],
       "verified_fields": [
         "price_usd",
@@ -1239,7 +1245,9 @@
         "WT3",
         "H1",
         "X1",
-        "RET7"
+        "RET7",
+        "WAR1",
+        "SPEC4"
       ],
       "verified_fields": [
         "price_usd",

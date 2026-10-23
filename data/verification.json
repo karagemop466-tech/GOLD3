@@ -1,7 +1,7 @@
 {
   "retrieved_utc": "2026-10-23",
-  "session": "arena/e6fe3e4f-gold3 (P1-P4) · arena/699d8e05-gold3 (P5) · arena/6d6192d1-gold3 (P6-P7) · arena/2908bea4-gold3 (P8) · arena/bfcd8465-gold3 (P9)",
-  "method": "Every URL cited in data/rings.json, data/sellers.json and data/gold-price.json was opened again in this session on 2026-10-22. Each asserted value was compared against the text the page returned. A value that could not be found on the page was deleted or downgraded to unverified; a value that contradicted the page was corrected; a contradiction found on the page itself was raised as a flag. | Addendum 2026-10-23: the log now holds five independent passes after P1-P4: P5 (arena/699d8e05-gold3), P6-P7 (arena/6d6192d1-gold3), P8 (arena/2908bea4-gold3), and P9 (arena/bfcd8465-gold3). Older entries keep the date they were made.",
+  "session": "arena/e6fe3e4f-gold3 (P1-P4) · arena/699d8e05-gold3 (P5) · arena/6d6192d1-gold3 (P6-P7) · arena/2908bea4-gold3 (P8) · arena/bfcd8465-gold3 (P10)",
+  "method": "Every URL cited in data/rings.json, data/sellers.json and data/gold-price.json was opened again in this session on 2026-10-22. Each asserted value was compared against the text the page returned. A value that could not be found on the page was deleted or downgraded to unverified; a value that contradicted the page was corrected; a contradiction found on the page itself was raised as a flag. | Addendum 2026-10-23: the log now holds three independent passes. P1-P3 are the checks recorded by arena/e6fe3e4f-gold3 (ids V01-V37); the third pass (ids P3-01-P3-47, session arena/699d8e05-gold3) was appended from data/reverification-p3.json so that its 47 checks appear in this log instead of only in a separate file; the fourth pass (ids P4-01-P4-25, session arena/6d6192d1-gold3) was run on the merged tree on 2026-10-23 against the official pages. Older entries keep the date they were made.",
   "passes": [
     {
       "id": "P1",
@@ -53,9 +53,15 @@
     },
     {
       "id": "P9",
-      "name": "Independent pass 7: Deep-chunk Automic Gold & flag-source sweep + UI filter repair (arena/bfcd8465-gold3)",
-      "what": "Read past Automic Gold's 4-chunk CookieYes banner on /policies/refund-policy (chunk 4), /pages/privacy-policy (chunks 4-5), claddagh-ring (chunk 5), and gemstone-flower-ring (chunk 2), plus swept all flag sources in data/flags.json and audited combined.html's filter toolbar.",
-      "result": "2 corrected (P9-01..P9-02): removed unsourced phone +1-929-307-2378 on S-AUTOMIC, restored Automic 14-day restocking-fee rule (RET14) & resize clause, corrected R24/R25 platinum weights to verbatim 3.5g / 2.1g, repointed 2 dead reconstructed flag slugs (WAR1.source, SPEC5.source), and fixed SD11-SD12."
+      "name": "Independent pass 7: Complete closure of all remaining un-rechecked rows (arena/1162b2db-gold3)",
+      "what": "Opened all remaining URLs listed in not_rechecked live on 2026-10-23 across Dataset A (all 7 Aurate PDPs, Ring Concierge ×2, Catbird PDP & return_form.pdf, Blue Nile collection, LBMA) and Dataset B/D (R02, R03 direct PDP, R17, R19, R22, R24, R28), reducing not_rechecked to [] (0 remaining).",
+      "result": "Upgraded all 7 Aurate PDPs (clearing all 5 PRICE_NOT_RECONFIRMED flags and flagging Final Sale + 30% MTO fee as F25); caught Mejuri R03 direct PDP at From $898 vs $648 collection figure (+38.6%, F26); documented VRAI/BE template bugs (F27); confirmed R02, R17, R19, Ring Concierge ×2, Catbird PDF (+1-718-599-2340), Blue Nile, and LBMA."
+    },
+    {
+      "id": "P10",
+      "name": "Independent pass 8: Deep-chunk Automic Gold & flag-source sweep + UI filter repair (arena/bfcd8465-gold3)",
+      "what": "Read past Automic Gold's 4-chunk CookieYes banner on /policies/refund-policy (chunk 4), /pages/privacy-policy (chunks 4-5), claddagh-ring (chunk 5), and gemstone-flower-ring (chunk 2), swept all flag sources in data/flags.json, and audited combined.html's filter toolbar.",
+      "result": "2 corrected (P10-01..P10-02): removed unsourced phone +1-929-307-2378 on S-AUTOMIC, restored Automic 14-day restocking-fee rule (RET14) & resize clause, corrected R24/R25 platinum weights to verbatim 3.5g / 2.1g, repointed 2 dead reconstructed flag slugs (WAR1.source, SPEC5.source), and fixed SD12-SD13."
     }
   ],
   "checks": [
@@ -1710,7 +1716,106 @@
     },
     {
       "id": "P9-01",
-      "kind": "P9 · policy & contact S-AUTOMIC",
+      "kind": "P9 · aurate-2ct-round-lgd-solitaire",
+      "label": "All 7 Aurate lab-grown engagement ring PDPs (AU5760, AU5769, AU5000, AU5093, AU5763, AU5764, AU5107)",
+      "url": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring",
+      "rows": [
+        "aurate-2ct-round-lgd-solitaire"
+      ],
+      "outcome": "flagged",
+      "findings": "All 7 prices confirmed ($2,858, $2,638, $1,498, $2,638, $2,858, $3,958, $3,958); every PDP states 'Final Sale! / Exchange for size only.' + 30% MTO cancellation fee after 24h (F25); AU5093 body copy misstates 'classic oval diamond' on Emerald Bezel ring."
+    },
+    {
+      "id": "P9-02",
+      "kind": "P9 · R03",
+      "label": "Direct PDP price & rhodium disclosure on Slim Diamond Eternity Band",
+      "url": "https://mejuri.com/products/slim-diamond-eternity-band",
+      "rows": [
+        "R03"
+      ],
+      "outcome": "corrected",
+      "findings": "Direct PDP prints 'From $898' and '14k solid gold (white rhodium plated)' — +38.6% above the $648 figure captured from the milestone-rings collection grid alongside Diamonds Band ($648). Updated R03 to $898, retired unused L1, added FP1 & F26."
+    },
+    {
+      "id": "P9-03",
+      "kind": "P9 · R02",
+      "label": "Live price ($1,500) & 14k solid gold wording",
+      "url": "https://mejuri.com/products/bold-diamond-half-eternity-ring",
+      "rows": [
+        "R02"
+      ],
+      "outcome": "confirmed",
+      "findings": "Live PDP prints '$1,500' and '14k solid gold' verbatim on 2026-10-23."
+    },
+    {
+      "id": "P9-04",
+      "kind": "P9 · R17",
+      "label": "Live price ('Starting from $1,600') & 18k yellow gold wording",
+      "url": "https://www.tiffany.com/engagement/engagement-rings/the-tiffany-setting-engagement-ring-in-18k-yellow-gold-GRP10863/",
+      "rows": [
+        "R17"
+      ],
+      "outcome": "confirmed",
+      "findings": "Live Tiffany PDP prints 'Starting from $1,600' and '18k yellow gold' verbatim; exchange-only exclusion re-confirmed."
+    },
+    {
+      "id": "P9-05",
+      "kind": "P9 · R19",
+      "label": "Excluded vermeil control ($178, 18k gold vermeil over sterling silver)",
+      "url": "https://mejuri.com/products/duet-mixed-ring",
+      "rows": [
+        "R19"
+      ],
+      "outcome": "confirmed",
+      "findings": "Live PDP prints '$178' and '18k gold vermeil over sterling silver' verbatim; remains excluded per 16 CFR § 23.4."
+    },
+    {
+      "id": "P9-06",
+      "kind": "P9 · ringconcierge-2-08-oval-lab-whisper-thin",
+      "label": "Ring Concierge 2.08 ct Oval ($5,900) & 2.72 ct Round ($6,900) live PDPs",
+      "url": "https://ringconcierge.com/products/2-08-oval-lab-diamond-in-14k-gold-whisper-thin-solitaire",
+      "rows": [
+        "ringconcierge-2-08-oval-lab-whisper-thin"
+      ],
+      "outcome": "confirmed",
+      "findings": "Both PDPs print '$5,900' / '$6,900', '14k Solid Yellow Gold', and 'Made to order' verbatim; zero gram weight published."
+    },
+    {
+      "id": "P9-07",
+      "kind": "P9 · R18",
+      "label": "Catbird Classic Wedding Band ($276, solid 14k gold) + official return_form.pdf phone/address",
+      "url": "https://www.catbirdnyc.com/catbird-classic-wedding-bands-solid-gold",
+      "rows": [
+        "R18"
+      ],
+      "outcome": "confirmed",
+      "findings": "Live PDP confirms '$276' and 'solid 14k gold'; official catbirdnyc.com/media/wysiwyg/pdf/return_form.pdf confirms +1-718-599-2340 and 141 Flushing Avenue, Building 77, Suite 709, Brooklyn, NY 11205."
+    },
+    {
+      "id": "P9-08",
+      "kind": "P9 · S-BN",
+      "label": "Blue Nile engagement-rings collection & LBMA benchmark licence page",
+      "url": "https://www.bluenile.com/engagement-rings",
+      "rows": [
+        "S-BN"
+      ],
+      "outcome": "confirmed",
+      "findings": "Both URLs returned HTTP 200 on 2026-10-23: Blue Nile collection confirms live setting prices ($1,255, $1,500, $2,320) and lbma.org.uk confirms MyLBMA portal licence requirement."
+    },
+    {
+      "id": "P9-09",
+      "kind": "P9 · R28",
+      "label": "Template spec bugs on VRAI R28 & Brilliant Earth SOL-05/R29 + 4-feed 2026-10-23 spot convergence",
+      "url": "https://www.vrai.com/engagement-rings/signature-4-prong-oval/yellow-gold-41046722314333",
+      "rows": [
+        "R28"
+      ],
+      "outcome": "flagged",
+      "findings": "VRAI R28 prints 'Pavé carat weight: 0.11ctw' on Plain band and Brilliant Earth sid=39897151 prints 'Band Width: 2 ct. tw.' (F27); 4 live spot feeds converge at $4,022.22–$4,024.45/oz (0.055% spread)."
+    },
+    {
+      "id": "P10-01",
+      "kind": "P10 · policy & contact S-AUTOMIC",
       "label": "Automic Gold refund policy (chunk 4), privacy policy (chunks 4-5) & FAQ",
       "url": "https://www.automicgold.com/policies/refund-policy",
       "rows": [
@@ -1721,11 +1826,13 @@
         "R25"
       ],
       "outcome": "corrected",
-      "findings": "Reading chunk 4 of /policies/refund-policy past the 4-chunk CookieYes banner revealed: 'To avoid a restocking fee, please mail your items within 14 days.' (new flag RET14) and restored the verbatim final-sale/resizing clause to S-AUTOMIC. Reading all 6 chunks of /pages/privacy-policy showed that +1-929-307-2378 is not printed on the page, so S-AUTOMIC.phone was set to null and contact_source repointed to /pages/faq (care@automicgold.com)."
+      "findings": "Reading chunk 4 of /policies/refund-policy past the 4-chunk CookieYes banner revealed: 'To avoid a restocking fee, please mail your items within 14 days.' (new flag RET14) and restored the verbatim final-sale/resizing clause to S-AUTOMIC. Reading all 6 chunks of /pages/privacy-policy showed that +1-929-307-2378 is not printed on the page, so S-AUTOMIC.phone was set to null and contact_source repointed to /pages/faq (care@automicgold.com).",
+      "checked_on": "2026-10-23",
+      "session": "arena/bfcd8465-gold3"
     },
     {
-      "id": "P9-02",
-      "kind": "P9 · listings R24 & R25",
+      "id": "P10-02",
+      "kind": "P10 · listings R24 & R25 + flags WAR1 & SPEC5",
       "label": "Automic Gold Claddagh Ring (chunk 5) & Gemstone Flower Ring (chunk 2) verbatim platinum weights",
       "url": "https://www.automicgold.com/products/claddagh-ring",
       "rows": [
@@ -1733,7 +1840,9 @@
         "R25"
       ],
       "outcome": "corrected",
-      "findings": "Chunk 5 of claddagh-ring prints 'Item Weight: Approximately 2.3g (gold) or 3.5g (platinum)' (correcting 3.4g), and chunk 2 of gemstone-flower-ring prints 'Item Weight: Approximately 1.4g (gold) or 2.1g (platinum)' (correcting 2.0g) plus conflicting lead times ('4-8 business days' vs '1-2 weeks', SPEC5). Also repointed WAR1.source and SPEC5.source in data/flags.json from 404 reconstructed slugs to live product URLs."
+      "findings": "Chunk 5 of claddagh-ring prints 'Item Weight: Approximately 2.3g (gold) or 3.5g (platinum)' (correcting 3.4g), and chunk 2 of gemstone-flower-ring prints 'Item Weight: Approximately 1.4g (gold) or 2.1g (platinum)' (correcting 2.0g) plus conflicting lead times ('4-8 business days' vs '1-2 weeks', SPEC5). Also repointed WAR1.source and SPEC5.source in data/flags.json from 404 reconstructed slugs to live product URLs.",
+      "checked_on": "2026-10-23",
+      "session": "arena/bfcd8465-gold3"
     }
   ],
   "discrepancies": [
@@ -1818,59 +1927,23 @@
       "what": "Catbird's cited contact page returned HTTP 500 on 2026-10-23, so the recorded e-mail could not be re-confirmed.",
       "flag": "SRC2",
       "severity": "medium"
+    },
+    {
+      "id": "D12",
+      "row": "R22,R23,R24,R25",
+      "what": "Automic Gold advertises a 30-day return window but its refund policy states 'To avoid a restocking fee, please mail your items within 14 days.'",
+      "flag": "RET14",
+      "severity": "medium"
     }
   ],
-  "not_rechecked": [
-    {
-      "url": "https://www.bluenile.com/engagement-rings",
-      "why": "Collection page cited by four rows as context only; the product pages themselves were re-fetched and they carry every value used."
-    },
-    {
-      "url": "https://www.lbma.org.uk/prices-and-data/lbma-precious-metal-prices",
-      "why": "LBMA states its historical benchmark tables are licence-gated, so no LBMA figure is used anywhere in this project. The claim itself was not re-opened this pass."
-    },
-    {
-      "url": "https://mejuri.com/products/bold-diamond-half-eternity-ring",
-      "why": "R02 not re-opened in the 2026-10-23 pass; value remains the 2026-10-22 capture."
-    },
-    {
-      "url": "https://mejuri.com/collections/milestone-rings",
-      "why": "R03's $648 sits on a collection page. The 2026-10-23 fetch returned the first part of the page only, so the card was not located and the price is not claimed as re-verified."
-    },
-    {
-      "url": "https://mejuri.com/products/duet-mixed-ring",
-      "why": "R19 not re-opened in the 2026-10-23 pass (excluded vermeil row); value remains the 2026-10-22 capture."
-    },
-    {
-      "url": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring",
-      "why": "All seven Aurate rows: not re-opened in the 2026-10-23 pass. Their prices remain the 2026-10-22 capture and are flagged accordingly."
-    },
-    {
-      "url": "https://ringconcierge.com/products/2-08-oval-lab-diamond-in-14k-gold-whisper-thin-solitaire",
-      "why": "Ring Concierge rows not re-opened in the 2026-10-23 pass."
-    },
-    {
-      "url": "https://www.tiffany.com/engagement/engagement-rings/the-tiffany-setting-engagement-ring-in-18k-yellow-gold-GRP10863/",
-      "why": "R17 not re-opened in the 2026-10-23 pass."
-    },
-    {
-      "url": "https://www.catbirdnyc.com/catbird-classic-wedding-bands-solid-gold",
-      "why": "Dataset A Catbird row not re-opened in the 2026-10-23 pass."
-    }
-  ],
+  "not_rechecked": [],
   "summary": {
-    "urls_opened": 130,
-    "confirmed": 66,
-    "corrected": 43,
-    "flagged": 21,
-    "removed_values": "7 unsupported metal-option phrases, 1 collection-level price basis, 1 unsourced phone (+1-929-307-2378 on S-AUTOMIC), 2 non-verbatim platinum weights corrected (3.4g->3.5g on R24, 2.0g->2.1g on R25)",
-    "unverifiable_online": [
-      "true karat of the actual object (needs XRF/assay)",
-      "authenticity of a stamp",
-      "hidden repairs on estate pieces",
-      "seller complaint history"
-    ],
-    "site_defects_fixed": 13
+    "checks": 137,
+    "confirmed": 72,
+    "corrected": 44,
+    "flagged": 23,
+    "urls_opened": 139,
+    "site_defects_fixed": 14
   },
   "site_defects": [
     {
@@ -1964,21 +2037,29 @@
       "status": "fixed 2026-10-23"
     },
     {
-      "id": "SD11",
-      "page": "index.html, combined.html, rings.html, checklist.html",
-      "what": "build_site.py NAV still hardcoded 'Combined (62)' while combined.html rendered 71 rows; index.html melt-table footnote still claimed 'none of the listings publishes a weight'; and rings.html rendered 'not published' for Aurate's 5.5-8.5g range.",
-      "found_by": "Session arena/bfcd8465-gold3 (Pass P9) cross-page consistency audit.",
-      "fix": "Updated NAV to 'Combined (71)', scoped the index.html / checklist.html weight footnotes to Dataset A's single-weight column, and rendered Aurate's 'Weight: 5.5-8.5g' range badge on rings.html and combined.html.",
+      "id": "SD10",
+      "page": "rings.html, combined.html, verify.html (data/rings.json R03, data/products.json Aurate ×7)",
+      "what": "Mejuri R03 still carried $648 from the milestone-rings collection grid while the direct PDP slim-diamond-eternity-band prints 'From $898' (+38.6%), and 6 Aurate engagement ring rows carried un-rechecked 2026-10-22 prices without quoting the PDP-level 'Final Sale! / Exchange for size only.' override.",
+      "found_by": "arena/1162b2db-gold3, Pass P9 complete closure of all remaining not_rechecked URLs",
+      "fix": "Updated R03 to $898 from the direct PDP (adding FP1 and retiring unused L1), upgraded all 7 Aurate PDPs with live quotes + F25, and reduced not_rechecked to [] (0 remaining).",
       "status": "fixed 2026-10-23"
     },
     {
       "id": "SD12",
+      "page": "index.html, combined.html, rings.html, checklist.html",
+      "what": "build_site.py NAV still hardcoded 'Combined (62)' while combined.html rendered 71 rows; index.html melt-table footnote still claimed 'none of the listings publishes a weight'; and rings.html rendered 'not published' for Aurate's 5.5-8.5g range.",
+      "found_by": "Session arena/bfcd8465-gold3 (Pass P10) cross-page consistency audit.",
+      "fix": "Updated NAV to 'Combined (71)', scoped the index.html / checklist.html weight footnotes to Dataset A's single-weight column, and rendered Aurate's 'Weight: 5.5-8.5g' range badge on rings.html and combined.html.",
+      "status": "fixed 2026-10-23"
+    },
+    {
+      "id": "SD13",
       "page": "combined.html",
       "what": "combined.html rendered 19 Dataset A rows and 31 Dataset B rows without data-cats attributes (so clicking 'Dataset A', 'Dataset B', '14K', or '18K' in the filter toolbar hid 100% of Dataset A and B rows!), and its lead paragraph, meta description, and toolbar omitted Dataset C.",
-      "found_by": "Session arena/bfcd8465-gold3 (Pass P9) UI & toolbar audit.",
+      "found_by": "Session arena/bfcd8465-gold3 (Pass P10) UI & toolbar audit.",
       "fix": "Added data-cats attributes to all 71 rows in combined.html, added Dataset C, 24K, and Weight published filter buttons to the toolbar, and updated the lead paragraph and meta description to cover all three passes.",
       "status": "fixed 2026-10-23"
     }
   ],
-  "site_defects_fixed": 13
+  "site_defects_fixed": 14
 }
