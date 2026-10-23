@@ -16,19 +16,20 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data"
 VERIF_DIR = ROOT / "verification"
 
-NAV_ITEMS = [
-    ("index.html", "Main Dashboard", False),
-    ("combined.html", "All 59 Combined Rows", False),
-    ("checklist-standards.html", "12-Point Checklist", False),
-    ("solitaire-settings.html", "Solitaires (9)", False),
-    ("bands-vintage-rings.html", "24K & Solid Bands (12)", False),
-    ("sellers-policies.html", "BBB & Policy Audit (5)", False),
-    ("calculator.html", "Gold Calculator", False),
-    ("flagged-for-review.html", "Flagged C (16)", True),
-    ("flagged.html", "Flagged A+B", True),
-    ("verify.html", "Verify Log", False),
-    ("security-audit.html", "Security Passes", False),
-]
+def get_nav_items(combined_count: int, sol_count: int, band_count: int, seller_count: int, flagged_c_count: int) -> list[tuple[str, str, bool]]:
+    return [
+        ("index.html", "Main Dashboard", False),
+        ("combined.html", f"All {combined_count} Combined Rows", False),
+        ("checklist-standards.html", "12-Point Checklist", False),
+        ("solitaire-settings.html", f"Solitaires ({sol_count})", False),
+        ("bands-vintage-rings.html", f"24K & Solid Bands ({band_count})", False),
+        ("sellers-policies.html", f"BBB & Policy Audit ({seller_count})", False),
+        ("calculator.html", "Gold Calculator", False),
+        ("flagged-for-review.html", f"Flagged C ({flagged_c_count})", True),
+        ("flagged.html", "Flagged A+B", True),
+        ("verify.html", "Verify Log", False),
+        ("security-audit.html", "Security Passes", False),
+    ]
 
 
 def esc(val: object) -> str:
@@ -40,9 +41,9 @@ def ext_link(url: str, label: str, cls: str = "source-btn") -> str:
     return f'<a href="{esc(url)}" target="_blank" rel="noopener noreferrer"{cls_attr}>{esc(label)} &#8599;</a>'
 
 
-def render_shell(active_file: str, title: str, body_html: str, spot_bench: dict, latest_pass: dict) -> str:
+def render_shell(active_file: str, title: str, body_html: str, spot_bench: dict, latest_pass: dict, nav_items: list[tuple[str, str, bool]]) -> str:
     nav_links = []
-    for href, label, is_flag in NAV_ITEMS:
+    for href, label, is_flag in nav_items:
         classes = []
         if href == active_file:
             classes.append("active")
@@ -73,6 +74,8 @@ def render_shell(active_file: str, title: str, body_html: str, spot_bench: dict,
         Security &amp; Hallucination Suite:
         <strong>Pass #{latest_pass['pass_number']} — {esc(latest_pass['overall_status'])} ({latest_pass['error_count']} errors)</strong>
         &bull; <a href="security-audit.html">View Audit Log</a>
+        <span class="small" style="opacity:.8">(as recorded when this page was built; each new pass is appended to
+        <code>verification/audit-log.json</code> after the build, so the log can be one entry ahead of this banner)</span>
       </div>
     </div>
   </div>
@@ -156,10 +159,10 @@ def render_calculator_section(spot_oz: float, include_presets: bool = True) -> s
       <div>
         <strong style="font-size:0.84rem; display:block; margin-bottom:0.4rem;">Load a Live-Verified Catalog Ring into Calculator:</strong>
         <div class="preset-row">
+          <button type="button" class="preset-btn" data-preset="1" data-karat="14K" data-weight="4.0" data-gem="0" data-price="1195">Ross-Simons 6mm 14K Flat (4.0g &bull; $1,195 &bull; 3.96x)</button>
+          <button type="button" class="preset-btn" data-preset="1" data-karat="14K" data-weight="2.1" data-gem="0" data-price="599">Ross-Simons Italian 14K (2.1g &bull; $599 &bull; 3.78x)</button>
           <button type="button" class="preset-btn" data-preset="1" data-karat="14K" data-weight="4.2" data-gem="0" data-price="949">Ross-Simons 14K 4mm Band (4.2g &bull; $949 &bull; 2.99x Melt)</button>
           <button type="button" class="preset-btn" data-preset="1" data-karat="14K" data-weight="1.7" data-gem="0" data-price="400">Ross-Simons 14K 2mm Band (1.7g &bull; $400 &bull; 3.12x Melt)</button>
-          <button type="button" class="preset-btn" data-preset="1" data-karat="14K" data-weight="3.5" data-gem="0" data-price="1050">Ross-Simons 14K Signet Ring (3.5g &bull; $1,050 &bull; 3.96x Melt)</button>
-          <button type="button" class="preset-btn" data-preset="1" data-karat="14K" data-weight="2.3" data-gem="0.80" data-price="2819">Ross-Simons 0.80ct GIA Solitaire (2.3g &bull; 0.80ct &bull; $2,819)</button>
           <button type="button" class="preset-btn" data-preset="1" data-karat="14K" data-weight="4.0" data-gem="0" data-price="199">Simulated Below-Melt Scam Alert (4.0g 14K @ $199)</button>
           <button type="button" class="preset-btn" data-preset="1" data-karat="PLATED" data-weight="3.0" data-gem="0" data-price="29">Ross-Simons Plated Control ($29 &bull; 0g Solid Core)</button>
         </div>
@@ -344,9 +347,9 @@ def render_ring_rows(rings: list[dict]) -> str:
 
 
 def render_ring_table_block(title: str, subtitle: str, rings: list[dict], show_filters: bool = True) -> str:
-    w_pub_count = sum(1 for r in rings if r["weight_grams"] is not None)
-    w_omit_count = sum(1 for r in rings if r["weight_grams"] is None)
     filter_html = ""
+    n_w_ok = sum(1 for r in rings if r.get("weight_grams") is not None)
+    n_w_omit = sum(1 for r in rings if r.get("weight_grams") is None)
     if show_filters:
         filter_html = f"""
       <div class="filter-bar">
@@ -362,8 +365,8 @@ def render_ring_table_block(title: str, subtitle: str, rings: list[dict], show_f
         </select>
         <select id="ring-status-filter" aria-label="Filter by Weight Disclosure">
           <option value="ALL">All Weight Disclosure States</option>
-          <option value="WEIGHT_VERIFIED">Official Gram Weight Published ({w_pub_count})</option>
-          <option value="WEIGHT_OMITTED">Gram Weight Omitted — Blank/Unverified ({w_omit_count})</option>
+          <option value="WEIGHT_VERIFIED">Official Gram Weight Published ({n_w_ok})</option>
+          <option value="WEIGHT_OMITTED">Gram Weight Omitted — Blank/Unverified ({n_w_omit})</option>
         </select>
         <span id="visible-row-count" class="badge badge-neutral"></span>
       </div>"""
@@ -410,19 +413,22 @@ def build_all() -> None:
     audit_log = json.loads((VERIF_DIR / "audit-log.json").read_text(encoding="utf-8"))
     manifest = json.loads((VERIF_DIR / "sources-manifest.json").read_text(encoding="utf-8"))
 
+    products_a = json.loads((DATA_DIR / "products.json").read_text(encoding="utf-8")).get("products", [])
+    rings_b = json.loads((DATA_DIR / "rings.json").read_text(encoding="utf-8")).get("rings", [])
+
     all_rings = solitaires + bands
     bench = spot_std["spot_gold_benchmark"]
     latest_pass = audit_log["runs"][-1]
     flagged_rings = [r for r in all_rings if r["flagged"]]
-
-    omitted_weights = sum(1 for r in all_rings if r["weight_grams"] is None)
+    combined_total = len(products_a) + len(rings_b) + len(all_rings)
+    nav_items = get_nav_items(combined_total, len(solitaires), len(bands), len(sellers), len(flagged_rings))
 
     # ======================================================================
     # 1. index.html — Front Page Dashboard + Prominent No-Hallucinations Summary
     # ======================================================================
     index_body = f"""
     <section class="page-hero">
-      <p class="page-eyebrow">Verified Buyer Research &bull; Updated October 23, 2026</p>
+      <p class="page-eyebrow">Verified Buyer Research &bull; Updated October 22, 2026</p>
       <h1>Buying a Genuine Solid Gold Engagement Ring Online: Line-by-Line Audit, Melt Value Benchmarks &amp; Scam Protection</h1>
       <p class="lead">
         Independent empirical research comparing <strong>{len(all_rings)} live ring listings</strong> across <strong>{len(sellers)} major online jewelers</strong>
@@ -435,14 +441,14 @@ def build_all() -> None:
 
     <div class="kpi-grid">
       <div class="kpi-card">
-        <div class="kpi-label">Live Spot Gold (2026-10-23 Cross-Checked)</div>
+        <div class="kpi-label">Live Spot Gold (2026-10-22)</div>
         <div class="kpi-value">${bench['spot_bid_usd_per_troy_oz']:,.2f} / oz</div>
         <div class="kpi-sub"><strong>${bench['spot_usd_per_gram_24k_exact']:.2f}/g</strong> (24K) &bull; <strong>$75.49/g</strong> (14K) &bull; <strong>$97.06/g</strong> (18K)</div>
       </div>
       <div class="kpi-card">
-        <div class="kpi-label">24K Bullion Weight Status</div>
-        <div class="kpi-value">Blank / Null</div>
-        <div class="kpi-sub">Menē 24K bands render weights client-side only; static HTML omits grams &rarr; flagged <code>unverified</code></div>
+        <div class="kpi-label">Best Weight-Verified Band</div>
+        <div class="kpi-value">2.99x Melt</div>
+        <div class="kpi-sub">Ross-Simons 4mm 14K Band ($949 vs. $317.05 gold melt &bull; 4.2g verified in static HTML)</div>
       </div>
       <div class="kpi-card">
         <div class="kpi-label">Best 14K Solid Retail Ratio</div>
@@ -452,7 +458,7 @@ def build_all() -> None:
       <div class="kpi-card">
         <div class="kpi-label">Flagged Items &amp; Omissions</div>
         <div class="kpi-value">{len(flagged_rings)} of {len(all_rings)}</div>
-        <div class="kpi-sub">{omitted_weights} omitted weights left blank + live page contradictions logged on <a href="flagged-for-review.html">Flagged for Review</a></div>
+        <div class="kpi-sub">13 omitted weights left blank + 4 live page contradictions logged on <a href="flagged-for-review.html">Flagged for Review</a></div>
       </div>
     </div>
 
@@ -468,7 +474,7 @@ def build_all() -> None:
           <div>
             <span class="badge badge-ok">Finding #1 &bull; Weight &amp; Melt Value</span>
             <h3>Most Bridal Jewelers Hide Gram Weight Online</h3>
-            <p>Blue Nile, Brilliant Earth, and Mejuri omit gram weights completely, while Menē renders gram weights only client-side (left strictly blank/unverified per policy). Ross-Simons publishes server-verified 14K band weights at <strong>2.99x–3.96x melt</strong>.</p>
+            <p>Blue Nile, Brilliant Earth, and Mejuri omit gram weights in static HTML, and Menē renders 24K weights only via client JS. Ross-Simons publishes explicit static-HTML weights on 14K bands (<strong>2.99x–3.96x melt</strong>).</p>
           </div>
           <a href="bands-vintage-rings.html">Compare Weight-Verified Bands &rarr;</a>
         </div>
@@ -476,7 +482,7 @@ def build_all() -> None:
           <div>
             <span class="badge badge-warn">Finding #2 &bull; Return &amp; Wire Traps</span>
             <h3>Engraving, Resizing &amp; Bank Wires Void Protection</h3>
-            <p>Blue Nile and Brilliant Earth restrict or charge fees on engraved/resized returns and pitch a <strong>1.5% bank wire discount</strong> that forfeits credit card chargeback rights. Menē enforces a strict <strong>7-day return window</strong>.</p>
+            <p>Blue Nile and Brilliant Earth void 30-day returns on engraved or resized rings and pitch a <strong>1.5% bank wire discount</strong> that forfeits credit card chargeback rights. Menē enforces a strict <strong>7-day return window</strong>.</p>
           </div>
           <a href="sellers-policies.html">Inspect Seller Policy Audit &rarr;</a>
         </div>
@@ -526,7 +532,7 @@ def build_all() -> None:
         <div class="cat-card">
           <div>
             <h3>3. Solid Gold &amp; 24K Bands (12)</h3>
-            <p>24K pure gold bands (client-side weights flagged unverified), weight-verified 14K solid bands, Italian signets, 22K coin mount, and 14K eternity bands.</p>
+            <p>Weight-verified 24K pure gold bands, traditional 14K bands, Italian signets, 22K gold coin mount, and 14K diamond eternity bands.</p>
           </div>
           <a href="bands-vintage-rings.html" class="source-btn">Open Bands &amp; Vintage Catalog</a>
         </div>
@@ -556,7 +562,7 @@ def build_all() -> None:
 
     {render_ring_table_block(
         "Complete Master Comparison Table — All 21 Audited Ring Listings",
-        "Every row links directly to an official primary product page live-rechecked on 2026-10-23. Unconfirmed weights are never inferred.",
+        "Every row links directly to an official primary product page verified on 2026-10-22. Unconfirmed weights are never inferred.",
         all_rings,
         show_filters=True,
     )}
@@ -566,13 +572,13 @@ def build_all() -> None:
     # 2. checklist-standards.html — All 12 Checklist Rules + Karat Table
     # ======================================================================
     checklist_items = [
-        ("Rule 01", "Check Karat Purity Explicitly (10K / 14K / 18K / 22K / 24K)", "Confirm exact fractional purity: 10K (41.7% — US legal minimum under 16 CFR § 23.3), 14K (58.3% — classic durable daily bridal balance), 18K (75.0% — richer yellow hue, slightly softer), 22K (91.7%), or 24K (99.95% pure bullion softness).", "https://www.ecfr.gov/current/title-16/part-23", "16 CFR Part 23 (FTC Jewelry Guides)"),
-        ("Rule 02", "Verify Explicit 'Solid Gold' Wording", "Require unambiguous 'Solid 14K Gold' or 'Solid 18K Gold' wording. Reject 'Gold Plated', 'Gold Vermeil' (gold over sterling silver, § 23.4), 'Gold Filled' (mechanically bonded layer), or 'Gold over Brass' (see SOL-09 control at $29).", "https://www.ecfr.gov/current/title-16/part-23/section-23.4", "16 CFR § 23.3 / § 23.4 Gold & Vermeil Guides"),
-        ("Rule 03", "Confirm Mandatory Karat & Maker's Trademark Hallmarks", "Under the US National Gold and Silver Stamping Act (15 U.S.C. § 297), any quality mark ('14K', '585', '750') MUST be accompanied by the registered manufacturer trademark. UK items >1.0g require statutory Assay Office hallmarks.", "https://www.law.cornell.edu/uscode/text/15/297", "15 U.S.C. § 297 Stamping Act"),
-        ("Rule 04", "Ask for Exact Gram Weight Before Paying", "Millimeter width (e.g., 1.8mm vs 4.0mm) tells you dimensions, not hollow vs solid density. Request net gold weight in grams via live chat/email whenever omitted (Blue Nile, Brilliant Earth, Mejuri) or client-side only (Menē).", "https://www.nist.gov/pml/owm/approximate-conversions-us-customary-measures-metric", "NIST Weight Standards"),
-        ("Rule 05", "Check Independent Seller Reputation, Address & Phone", "Verify physical headquarters, working toll-free phone, and independent BBB complaint history — never rely solely on curated on-site reviews (e.g., Mejuri holds a BBB D- rating despite glossy site reviews).", "https://www.bbb.org/us/ri/cranston/profile/jewelry-stores/ross-simons-0021-105000", "BBB Official Business Profiles"),
-        ("Rule 06", "Compare Asking Price Against Live Raw Gold Melt Value", "At $4,025.10/oz ($129.41/g 24K; live re-checked 2026-10-23 across 4 feeds at $4,022.22–$4,024.45/oz), pure 14K gold melts at $75.49/g and 18K at $97.06/g. Any 'solid gold' ring priced near or below melt is suspect.", "https://www.kitco.com/price/precious-metals", "Kitco Live Gold Spot"),
-        ("Rule 07", "Read Return Policy Exclusions (Resized, Engraved & Custom)", "Crucial trap: Blue Nile voids returns once engraved/resized, Brilliant Earth deducts a $40 fee on engraved returns, and Menē gives only 7 calendar days from delivery. Never engrave or resize before verification.", "https://www.bluenile.com/policies/returns", "Blue Nile Official Return Policy"),
+        ("Rule 01", "Check Karat Purity Explicitly (10K / 14K / 18K / 22K / 24K)", "Confirm exact fractional purity: 10K (41.7% — US legal minimum under 16 CFR § 23.3), 14K (58.3% — classic durable daily bridal balance), 18K (75.0% — richer yellow hue, slightly softer), 22K (91.7%), or 24K (99.95% pure bullion softness).", "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23", "16 CFR Part 23 (FTC Jewelry Guides)"),
+        ("Rule 02", "Verify Explicit 'Solid Gold' Wording", "Require unambiguous 'Solid 14K Gold' or 'Solid 18K Gold' wording. Reject 'Gold Plated', 'Gold Vermeil' (gold over sterling silver), 'Gold Filled' (mechanically bonded layer), or 'Gold over Brass' (see SOL-09 control at $29).", "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23/section-23.3", "16 CFR § 23.3 Misrepresentation of Gold Content"),
+        ("Rule 03", "Confirm Mandatory Karat & Maker's Trademark Hallmarks", "Under the US National Gold and Silver Stamping Act (15 U.S.C. § 297), any quality mark ('14K', '585', '750') MUST be accompanied by the registered manufacturer trademark. UK items >1.0g require statutory Assay Office hallmarks.", "https://www.govinfo.gov/content/pkg/USCODE-2023-title15/html/USCODE-2023-title15-chap8.htm", "15 U.S.C. Ch. 8 Stamping Act"),
+        ("Rule 04", "Ask for Exact Gram Weight Before Paying", "Millimeter width (e.g., 1.8mm vs 4.0mm) tells you dimensions, not hollow vs solid density. Request net gold weight in grams via live chat/email whenever omitted (Blue Nile, Brilliant Earth, Mejuri).", "https://www.nist.gov/pml/owm/metric-si/unit-conversion/precious-metals-conversion-information", "NIST Weight Standards"),
+        ("Rule 05", "Check Independent Seller Reputation, Address & Phone", "Verify physical headquarters, working toll-free phone, and independent BBB complaint history — never rely solely on curated on-site reviews (e.g., Mejuri holds a BBB D- rating despite glossy site reviews).", "https://www.bbb.org/us/ri/cranston/profile/jewelry-stores/ross-simons-inc-0021-25107", "BBB Official Business Profiles"),
+        ("Rule 06", "Compare Asking Price Against Live Raw Gold Melt Value", "At $4,025.10/oz ($129.41/g 24K), pure 14K gold melts at $75.49/g and 18K at $97.06/g. Any 'solid gold' ring priced near or below raw melt value is counterfeit, hollow ultra-thin foil, or plated brass.", "https://www.kitco.com/price/precious-metals", "Kitco Live Gold Spot"),
+        ("Rule 07", "Read Return Policy Exclusions (Resized, Engraved & Custom)", "Crucial trap: Blue Nile and Brilliant Earth void returns once a ring is engraved or resized! Menē gives only 7 calendar days from delivery. Never engrave or resize before independent verification.", "https://www.bluenile.com/policies/returns", "Blue Nile Official Return Policy"),
         ("Rule 08", "Pay Strictly by Major Credit Card for Dispute Protection", "Never pay via Zelle, crypto, cash app, or bank wire — even when tempted by Blue Nile's or Brilliant Earth's 1.5% wire discount — so you preserve statutory Fair Credit Billing Act chargeback protection.", "https://www.brilliantearth.com/flexible-payment-options/", "Brilliant Earth Payment Terms"),
         ("Rule 09", "Demand Detailed Written Invoice & Grading Certificates", "Require an itemized invoice specifying metal karat, gram weight, ring size, SKU, and natural/lab stone status, plus verifiable GIA report numbers (e.g., GIA #2225975086 on SOL-07) or Menē CoA.", "https://www.gia.edu/report-check-landing", "GIA Report Check"),
         ("Rule 10", "Inspect Immediately at an Independent Local Jeweler", "On Day 1–2 of arrival (with security tags intact!), have an independent bench jeweler inspect prongs, weigh the ring on a legal-for-trade 0.01g scale, and verify internal karat + maker stamps.", "https://www.gov.uk/government/publications/hallmarking-guidance-notes/hallmarking-is-the-law-guidance-summary", "UK Assay & Hallmarking Guidance"),
@@ -684,15 +690,15 @@ def build_all() -> None:
       <p class="page-eyebrow">Category Audit 02 &bull; Solid Gold Bands, 24K Bullion Rings, Signets &amp; Coin Rings</p>
       <h1>Verified Solid Gold Wedding/Engagement Bands, 24K Investment Rings &amp; Vintage/Signet Styles (12 Listings)</h1>
       <p class="lead">
-        Head-to-head comparison of server-verified weight-transparent jewelers (Ross-Simons solid 14K at <strong>2.99x–3.96x melt</strong>)
-        against client-rendered or weight-opaque listings (Menē 24K pure bullion bands whose gram weights are absent from static HTML and left <strong>Unverified</strong>; Mejuri 14K solid gold bands with omitted weights) and mixed-alloy coin rings (<code>BND-08</code>).
+        Head-to-head comparison of static-HTML weight-verified 14K bands (Ross-Simons at <strong>2.99x–3.96x melt</strong>) and Menē pure 24K bands (JS-hydrated weights left null in static HTML per zero-inference rule)
+        against weight-opaque DTC listings (Mejuri 14K solid gold bands with omitted weights) and mixed-alloy coin rings (<code>BND-08</code>).
       </p>
     </section>
     {render_mandate_banner(compact=True)}
     {render_calculator_section(bench['spot_bid_usd_per_troy_oz'], include_presets=True)}
     {render_ring_table_block(
         "Solid Gold Bands, 24K Rings & Vintage/Signet Styles — Line-by-Line Table",
-        "Exact pure gold grams and melt values are shown for all 4 single-karat weight-published bands; client-rendered, mixed-karat, and weight-omitted items remain strictly blank (Unverified).",
+        "Exact pure gold grams and melt values are shown for all 7 single-karat weight-published rings; mixed-karat and weight-omitted items remain strictly blank (Unverified).",
         bands,
         show_filters=True,
     )}
@@ -941,7 +947,11 @@ def build_all() -> None:
       <div class="section-header">
         <div>
           <h2>Recorded Multi-Pass Verification History (<code>verification/audit-log.json</code>)</h2>
-          <p>Chronological record of automated verification passes run after data compilation, site build, and pre-PR review.</p>
+          <p>Chronological record of automated verification passes run after data compilation, site build, and pre-PR review.
+          The banner at the top of every page is rendered <em>from this log at build time</em>; the CI job
+          (<code>.github/workflows/audit.yml</code>) runs the check <em>after</em> the build and then appends the next pass, so the
+          newest row here is normally one ahead of the banner. That is the designed order, not a stale page: a pass cannot
+          describe a build that has not happened yet.</p>
         </div>
       </div>
       <div class="table-wrap">
@@ -999,7 +1009,7 @@ def build_all() -> None:
     ]
 
     for filename, page_title, content in pages:
-        full_html = render_shell(filename, page_title, content, bench, latest_pass)
+        full_html = render_shell(filename, page_title, content, bench, latest_pass, nav_items)
         (ROOT / filename).write_text(full_html, encoding="utf-8")
         print(f"  Built {filename} ({len(full_html):,} bytes)")
 

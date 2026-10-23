@@ -1,0 +1,134 @@
+{
+  "pass": "P5-DatasetC-and-DatasetD",
+  "session": "arena/2908bea4-gold3",
+  "branch": "arena/2908bea4-gold3",
+  "retrieved_utc": "2026-10-23",
+  "repo_state_at_start": "796362b (origin/main after PR #33)",
+  "no_hallucination_policy": "Strictly enforced. Every URL below was fetched live in this session on 2026-10-23. Every stored price, gram weight, karat claim, hallmark claim, return/payment term, BBB figure, and statutory link was checked verbatim against the server-rendered page. Any value absent from the cited page (including Menē's client-JS-only gram weights on BND-01..BND-03, unsupported hallmark claims on SOL-01..SOL-08 and BND-08..BND-12, and Brilliant Earth's unprinted email on S-BRILLIANTEARTH) was blanked to null or rewritten as not published.",
+  "summary": {
+    "urls_opened": 58,
+    "confirmed": 26,
+    "corrected": 25,
+    "flagged": 7
+  },
+  "checks": [
+    {
+      "id": "DC-01",
+      "rows": ["SOL-01", "SOL-02", "SOL-03"],
+      "url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/classic-four-prong-solitaire-engagement-ring-in-18k-yellow-gold-item-194158",
+      "secondary_urls": [
+        "https://www.bluenile.com/engagement-rings/design-your-own-ring/wide-band-solitaire-engagement-ring-in-18k-yellow-gold-5mm-item-195063",
+        "https://www.bluenile.com/engagement-rings/design-your-own-ring/petite-solitaire-engagement-ring-in-14k-yellow-gold-item-195639",
+        "https://www.bluenile.com/services/warranty"
+      ],
+      "outcome": "corrected",
+      "findings": "All three setting prices ($1,125 / $2,595 / $1,000), stock numbers (500000y / 501580y / 501130y14), metals (18K YG w/ platinum prongs, 18K YG, 14K YG), and widths (1.90mm / 5.00mm / 1.80mm) match verbatim; weights remain omitted (null). However, neither the product pages nor bluenile.com/services/warranty mention any karat stamp or trademark hallmark—rewrote hallmark_disclosure on SOL-01..SOL-03 to 'Not published by the seller' (SD6 extension)."
+    },
+    {
+      "id": "DC-02",
+      "rows": ["SOL-04", "SOL-06"],
+      "url": "https://www.brilliantearth.com/Peyton-4mm-Solitaire-Ring-Gold-BE12148-23884915/?currency=USD",
+      "secondary_urls": [
+        "https://www.brilliantearth.com/Six-Prong-Petite-Comfort-Fit-1.5mm-Solitaire-Ring-Gold-BE1199H6-1912137/?currency=USD",
+        "https://www.brilliantearth.com/customer-service/warranty/"
+      ],
+      "outcome": "corrected",
+      "findings": "With ?currency=USD appended (preventing geo-IP EUR rendering), SOL-04 ($1,650, BE12148-18KY, 4mm x 1.8mm) and SOL-06 ($850, BE1199H6-18KY, 18K YG shank / 14K WG prongs, 1.5mm) match verbatim. Neither product page nor brilliantearth.com/customer-service/warranty/ prints any hallmark text—rewrote hallmark_disclosure on SOL-04 and SOL-06 and pinned ?currency=USD."
+    },
+    {
+      "id": "DC-03",
+      "rows": ["SOL-05"],
+      "url": "https://www.brilliantearth.com/Fairmined-2mm-Six-Prong-Solitaire-Ring-Gold-BE1FM0126-24910022/?currency=USD",
+      "outcome": "flagged",
+      "findings": "Setting price $1,090 (BE1FM0126-18KY) confirmed. Reproduced the 'Free 1-Year Resizing' banner vs 'resizing is not available for this ring' contradiction AND caught a second live defect in Ring Information: 'Band Width: 2 ct. tw.' (carat unit misprinted in millimeter width field). Rewrote hallmark_disclosure ('Not published by the seller')."
+    },
+    {
+      "id": "DC-04",
+      "rows": ["SOL-07", "SOL-08", "SOL-09"],
+      "url": "https://www.ross-simons.com/products/990022",
+      "secondary_urls": [
+        "https://www.ross-simons.com/products/251663",
+        "https://www.ross-simons.com/products/241592"
+      ],
+      "outcome": "corrected",
+      "findings": "SOL-07 ($2,819 sale / $3,995 original, 0.80ct I/VS1 GIA #2225975086, 'Ceritified' typo), SOL-08 ($199, 10kt spec vs 'Set in polished 14kt yellow gold' prose contradiction), and SOL-09 ($29 plated '14kt Yellow Gold over Brass' control) all match live pages. Rewrote hallmark_disclosure on SOL-07..SOL-08 to 'Not published by the seller' and added 16 CFR § 23.7 white-gold rhodium notice on SOL-07."
+    },
+    {
+      "id": "DC-05",
+      "rows": ["BND-01", "BND-02", "BND-03"],
+      "url": "https://mene.com/products/mene-classic-band-gold",
+      "secondary_urls": [
+        "https://mene.com/collections/bands-gold",
+        "https://mene.com/products/mene-narrow-flat-band-gold",
+        "https://mene.com/products/mene-wide-flat-band-gold"
+      ],
+      "outcome": "corrected",
+      "findings": "Server-rendered HTML on all four Menē URLs omits gram weights ('8.5 Gold grams', '7.9 Gold grams', '12 Gold grams' are client-JS-only and absent from static HTML) and never prints the word 'solid'. Per the strict Zero-Hallucination Rule (matching R30), weight_grams, pure_gold_grams, melt_value_usd, and price_to_melt_ratio on BND-01..BND-03 were blanked to null, explicit_solid_wording set to false, and direct product URLs linked for BND-02 (4mm x 2mm, $1,544 live) and BND-03 (6mm x 2mm, $2,465 live; From $2,315 on collection). Preserved PR #33 PRC1 live_recheck and SD6 hallmark fixes."
+    },
+    {
+      "id": "DC-06",
+      "rows": ["BND-04", "BND-05", "BND-06", "BND-07", "BND-08"],
+      "url": "https://www.ross-simons.com/products/571221",
+      "secondary_urls": [
+        "https://www.ross-simons.com/products/571212",
+        "https://www.ross-simons.com/products/823796",
+        "https://www.ross-simons.com/products/964717",
+        "https://www.ross-simons.com/products/993085"
+      ],
+      "outcome": "corrected",
+      "findings": "All five Ross-Simons prices and Gold Weights confirmed verbatim ($400/1.7g, $949/4.2g, $1,195/4.0g, $599/2.1g, $3,295/5.9g mixed 14kt+22kt). Removed '(1/16 inch)' from BND-04 (page prints 'Width: 2 mm'), added Ross-Simons' verbatim 'All weights and measurements are approximate.' caveat (WT3), and rewrote BND-08 hallmark_disclosure ('Not published by the seller')."
+    },
+    {
+      "id": "DC-07",
+      "rows": ["BND-09", "BND-10", "BND-11", "BND-12"],
+      "url": "https://mejuri.com/shop/products/3mm-bold-diamond-eternity-band?Material=Solid+Yellow+Gold+%2814k%29&Stone=Natural+Diamond",
+      "secondary_urls": [
+        "https://mejuri.com/shop/products/diamond-eternity-band?Material=Solid+Yellow+Gold+%2814k%29&Stone=Natural+Diamond",
+        "https://mejuri.com/shop/products/diamonds-band?Material=Solid+Yellow+Gold+%2814k%29&Stone=Natural+Diamond",
+        "https://mejuri.com/shop/products/2mm-smooth-band?Material=Solid+Yellow+Gold+%2814k%29"
+      ],
+      "outcome": "corrected",
+      "findings": "All four Mejuri prices (From $4,400, From $1,100, $648, $498), explicit '14k solid gold' wording, omitted weights (null), non-returnable engraving warnings, and BND-10's 0.532ct vs 0.044-0.056ct discrepancy confirmed live. None of the four pages mentions hallmarks—rewrote hallmark_disclosure on BND-09..BND-12 to 'Not published by the seller' (SD6 extension)."
+    },
+    {
+      "id": "DC-08",
+      "rows": ["SEL-ROSSSIMONS", "SEL-BLUENILE", "SEL-BRILLIANTEARTH", "SEL-MENE", "SEL-MEJURI"],
+      "url": "https://www.bbb.org/us/ca/san-francisco/profile/diamond/brilliant-earth-llc-1116-154721",
+      "secondary_urls": [
+        "https://www.bbb.org/us/ri/cranston/profile/jewelry-stores/ross-simons-0021-105000",
+        "https://www.bbb.org/us/wa/seattle/profile/jewelry-stores/blue-nile-inc-1296-15026564",
+        "https://www.bbb.org/ca/on/ontario/profile/jewelry-designers/mene-inc-0107-1413670",
+        "https://www.bbb.org/ca/on/toronto/profile/jewelry-manufacturers/mejuri-0107-1370644"
+      ],
+      "outcome": "corrected",
+      "findings": "Live 2026-10-23 BBB & policy audit updated review/complaint counts (Ross-Simons 4.43/5 on 544 reviews, 35 complaints; Blue Nile 1.0/5 on 25 reviews, 121 complaints, $150 missing cert fee; Brilliant Earth 4.45/5 on 342 reviews, 283 complaints, March 2026 complaint pattern review, $35 USD fee on ALL bank wires, $40 engraving removal fee, $250 missing cert fee; Menē Not Accredited, 0 reviews, 1 unanswered 2025-03-20 complaint for 0.43g short weight & missing 24k stamp, up to 10% cash-refund restocking + 5% missing CoA fee; Mejuri D-, 1.0/5 on 6 reviews, 35 complaints, $20 EU / $30 RoW return fees, 60 Bloor St W HQ on Terms of Use)."
+    },
+    {
+      "id": "DC-09",
+      "rows": ["spot-and-standards", "checklist-standards.html"],
+      "url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title15/pdf/USCODE-2023-title15-chap8-sec297.pdf",
+      "secondary_urls": [
+        "https://www.govinfo.gov/content/pkg/USCODE-2023-title15/pdf/USCODE-2023-title15-chap8-sec295.pdf",
+        "https://www.gia.edu/dam/migrated-assets/docs/doc1/summer-2025-lab-notes.pdf",
+        "https://www.gov.uk/government/publications/hallmarking-guidance-notes/hallmarking-is-the-law-guidance-summary",
+        "https://www.kitco.com/price/precious-metals",
+        "https://www.bullionvault.com/gold-price-chart.do"
+      ],
+      "outcome": "corrected",
+      "findings": "Repointed three broken URLs in Dataset C / checklist-standards.html: uscode.house.gov (HTTP 500) -> govinfo.gov 15 U.S.C. §§ 295 & 297 official PDFs (HTTP 200); gia.edu/.../summer-2025-lab-notes-gold-plated-gold0 (HTTP 404 trailing-zero typo) -> gia.edu Summer 2025 Lab Notes PDF pp. 291-293 (HTTP 200); gov.uk/guidance/hallmarking-law-and-practice (HTTP 404) -> gov.uk hallmarking-is-the-law-guidance-summary (HTTP 200). Recorded live 2026-10-23 Kitco ($4,022.70/oz, $129.3328/g) & BullionVault ($4,024.23/oz) spot recheck."
+    },
+    {
+      "id": "DD-01",
+      "rows": ["R23", "R24", "R25", "R27", "R28", "R29", "R30", "R31", "S-MENE", "S-VRAI", "S-LOCALECLECTIC", "S-BRILLIANTEARTH"],
+      "url": "https://www.vrai.com/contact-us",
+      "secondary_urls": [
+        "https://help.vrai.com/en/knowledge/what-is-your-return-policy",
+        "https://www.localeclectic.com/pages/frequently-asked-questions",
+        "https://www.brilliantearth.com/30-Day-Returns/",
+        "https://mene.com/customer-care/en-US"
+      ],
+      "outcome": "corrected",
+      "findings": "Dataset D spot-audit confirmed all product values on R23 ($1,910, 6.1g), R24 ($875, 2.3g), R25 ($551, 1.4g), R27 ($695, 2.50g), R28 (JS price null, 2.3g 18k YG), R30 ($3,228 live vs $3,253 captured, weight null), and R31 ($239, 9k badge vs 10k bullet). Caught & fixed 5 broken seller/policy URLs and 3 wrong contact fields in data/sellers.json & data/rings.json: S-MENE contact_source mene.com/contact-us (404) -> mene.com/customer-care/en-US, phone +1-833-636-3465 -> +1-833-636-3245 (1-833-MENE-24K), email concierge@mene.com -> service@mene.com; S-VRAI contact_source vrai.com/pages/contact-us (404) -> vrai.com/contact-us, email hello@vrai.com -> help@vrai.com, phone +1-855-383-8724 -> +1-855-956-4488, policy_source & R28.sources[1] -> help.vrai.com/en/knowledge/what-is-your-return-policy; S-LOCALECLECTIC contact_source /pages/contact-us (404) -> /pages/frequently-asked-questions; S-BRILLIANTEARTH policy_source & R29.sources[1] /returns/ (404) -> /30-Day-Returns/, unprinted email customerservice@brilliantearth.com -> null."
+    }
+  ]
+}

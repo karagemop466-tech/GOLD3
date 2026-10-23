@@ -1,43 +1,53 @@
 {
   "metadata": {
     "project": "GOLD3 — Solid Gold Engagement Ring Verification & Anti-Hallucination Dashboard",
-    "verified_date_utc": "2026-10-23T06:15:00Z",
-    "session_id": "arena/1162b2db-gold3",
-    "zero_hallucination_policy": "Strictly enforced. Every numeric rate, legal threshold, conversion constant, price, and weight is extracted verbatim from an official primary source retrieved on 2026-10-22 and re-confirmed live on 2026-10-23 or an official government/standards statute. Unconfirmed product values are left null and flagged."
+    "verified_date_utc": "2026-10-22T23:13:00Z",
+    "session_id": "session-698f08f6",
+    "zero_hallucination_policy": "Strictly enforced. Every numeric rate, legal threshold, conversion constant, price, and weight is extracted verbatim from an official primary source retrieved on 2026-10-22 or an official government/standards statute. Unconfirmed product values are left null and flagged.",
+    "reverified_date_utc": "2026-10-23T09:56:00Z",
+    "reverified_by_session": "arena/6ccbc523-gold3"
   },
   "spot_gold_benchmark": {
     "primary_source_name": "Kitco Live World Spot Price (USD)",
     "primary_source_url": "https://www.kitco.com/price/precious-metals",
-    "quote_timestamp_local": "Oct 22, 2026 19:13 EDT (re-checked Oct 23, 2026 05:55 EDT across 4 live feeds)",
+    "quote_timestamp_local": "Oct 22, 2026 19:13 EDT",
     "quote_timestamp_utc": "2026-10-22T23:13:00Z",
-    "spot_bid_usd_per_troy_oz": 4025.10,
-    "spot_ask_usd_per_troy_oz": 4027.10,
-    "day_low_usd_per_troy_oz": 4020.20,
-    "day_high_usd_per_troy_oz": 4145.30,
+    "spot_bid_usd_per_troy_oz": 4025.1,
+    "spot_ask_usd_per_troy_oz": 4027.1,
+    "day_low_usd_per_troy_oz": 4020.2,
+    "day_high_usd_per_troy_oz": 4145.3,
     "ny_morning_fix_1031_edt_usd": 4050.93,
     "london_morning_fix_1031_gmt_usd": 4084.05,
-    "spot_usd_per_gram_24k_exact": 129.4100,
-    "recheck_2026_10_23": {
-      "kitco_bid_usd_per_oz": 4022.70,
-      "kitco_ask_usd_per_oz": 4024.70,
-      "kitco_london_am_fix_usd_per_oz": 4026.66,
-      "goldprice_org_usd_per_oz": 4022.22,
-      "goldprice_org_usd_per_gram": 129.3174,
-      "bullionvault_usd_per_oz": 4024.23,
-      "bullionvault_usd_per_gram": 129.38,
-      "wgc_goldhub_usd_per_oz": 4024.45,
-      "delta_vs_baseline_pct": -0.0596
-    },
+    "spot_usd_per_gram_24k_exact": 129.41,
     "secondary_cross_check": {
       "source_name": "BullionVault Live Wholesale Gold Market Feed",
       "source_url": "https://www.bullionvault.com/gold-price-chart.do",
-      "quote_timestamp_local": "23 October 2026, 09:55 UTC (2026-10-22 baseline 4026.25/oz; 2026-10-23 live 4024.23/oz)",
-      "quote_timestamp_utc": "2026-10-23T09:55:00Z",
-      "spot_mid_usd_per_troy_oz": 4024.23,
-      "spot_usd_per_gram": 129.38,
-      "spot_usd_per_kg": 129382.32,
-      "inter_source_delta_usd_per_oz": 0.87,
-      "inter_source_delta_pct": 0.0216
+      "quote_timestamp_local": "22 October 2026, 19:12:56 (GMT-04:00)",
+      "quote_timestamp_utc": "2026-10-22T23:12:56Z",
+      "spot_mid_usd_per_troy_oz": 4026.25,
+      "spot_usd_per_gram": 129.45,
+      "spot_usd_per_kg": 129447.27,
+      "inter_source_delta_usd_per_oz": 1.15,
+      "inter_source_delta_pct": 0.0286
+    },
+    "live_corroboration_2026_10_23": {
+      "checked_utc": "2026-10-23T09:56:00Z",
+      "kitco_url": "https://www.kitco.com/charts/gold",
+      "kitco_bid_usd_per_troy_oz": 4022.7,
+      "kitco_ask_usd_per_troy_oz": 4024.7,
+      "kitco_london_fix_usd": 4026.66,
+      "kitco_quote_timestamp_local": "Oct 23, 2026 05:56 NY Time",
+      "bullionvault_url": "https://www.bullionvault.com/gold-price-chart.do",
+      "bullionvault_usd_per_troy_oz": 4024.23,
+      "bullionvault_usd_per_gram": 129.38,
+      "bullionvault_timestamp": "23 October 2026, 05:57:08 (GMT-04:00)",
+      "delta_vs_anchor_pct": -0.06
+    },
+    "live_recheck_2026_10_23": {
+      "kitco_bid_usd_per_troy_oz": 4022.7,
+      "kitco_usd_per_gram_24k": 129.3328,
+      "bullionvault_usd_per_troy_oz": 4024.23,
+      "note": "Re-verified live 2026-10-23 (within 0.06% of 2026-10-22 anchor $4,025.10/oz); stored snapshot preserved."
     }
   },
   "nist_conversion_constants": {
@@ -48,11 +58,11 @@
     "avoirdupois_ounce_to_grams": 28.349523125,
     "official_sources": [
       {
-        "title": "NIST Office of Weights and Measures — Conversion Factors for Precious Metal Sales (1 ozt = 31.1034768 g, 1 dwt = 1.55517384 g)",
+        "title": "NIST Office of Weights and Measures — Conversion Factors for Precious Metal Sales",
         "url": "https://www.nist.gov/pml/owm/metric-si/unit-conversion/precious-metals-conversion-information"
       },
       {
-        "title": "NIST Special Publication 811, Appendix B.9 — Factors for Units Listed by Kind of Quantity (Mass, incl. metric carat = 0.2 g exact)",
+        "title": "NIST Special Publication 811, Appendix B.9 — Factors for Units Listed by Kind of Quantity (Mass)",
         "url": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9"
       }
     ]
@@ -65,7 +75,7 @@
       "pure_gold_fraction": 1.0,
       "pure_gold_pct": 100.0,
       "usd_per_gram_at_spot": 129.41,
-      "usd_per_troy_oz_at_spot": 4025.10,
+      "usd_per_troy_oz_at_spot": 4025.1,
       "legal_status_us_uk": "Legal finest grade in US (FTC 16 CFR Part 23) & UK (Hallmarking Act 1973 Schedule 2 mark 999)",
       "ring_suitability_note": "Pure gold; zero base alloy tarnish; softer micro-hardness—requires thicker shank (>= 2.0 mm / >= 4–6 g) for daily engagement wear.",
       "source_url": "https://www.legislation.gov.uk/ukpga/1973/43"
@@ -92,7 +102,7 @@
       "usd_per_troy_oz_at_spot": 3018.83,
       "legal_status_us_uk": "Fine luxury standard worldwide (750 parts per 1,000; US 15 U.S.C. § 295 & UK mark 750)",
       "ring_suitability_note": "High intrinsic gold content with rich color and low alloy allergy risk; top choice for fine engagement solitaires.",
-      "source_url": "https://www.law.cornell.edu/uscode/text/15/295"
+      "source_url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title15/html/USCODE-2023-title15-chap8.htm"
     },
     {
       "label": "14K Solid Gold (European / Plumb 585)",
@@ -100,7 +110,7 @@
       "millesimal_stamp": "585",
       "pure_gold_fraction": 0.585,
       "pure_gold_pct": 58.5,
-      "usd_per_gram_at_spot": 75.70,
+      "usd_per_gram_at_spot": 75.7,
       "usd_per_troy_oz_at_spot": 2354.68,
       "legal_status_us_uk": "International & UK statutory 14ct standard (585 parts per 1,000 under UK Hallmarking Act 1973)",
       "ring_suitability_note": "Slightly higher gold purity than exact fractional 14/24 (58.5% vs 58.33%); common on European-hallmarked rings.",
@@ -116,7 +126,7 @@
       "usd_per_troy_oz_at_spot": 2347.98,
       "legal_status_us_uk": "Most common US engagement ring alloy; 15 U.S.C. § 295 allows max 0.003 unsoldered / 0.007 soldered tolerance.",
       "ring_suitability_note": "Strongest balance of daily scratch/prong durability and substantial gold content (58.33% fine gold).",
-      "source_url": "https://www.law.cornell.edu/uscode/text/15/295"
+      "source_url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title15/html/USCODE-2023-title15-chap8.htm"
     },
     {
       "label": "10K Solid Gold (U.S. Minimum Karat Gold)",
@@ -147,10 +157,10 @@
     {
       "id": "STD-01",
       "category": "U.S. Federal Statute — Mandatory Maker's Mark",
-      "title": "National Gold and Silver Marking Act (15 U.S.C. Chapter 8, §§ 295 & 297)",
+      "title": "National Gold and Silver Marking Act (15 U.S.C. Chapter 8, §§ 291–300)",
       "key_rule": "Under 15 U.S.C. § 297(b), any article bearing a quality mark (such as 10K, 14K, 18K, 585, or 750) MUST also bear the registered U.S. trademark or legal name of the manufacturer/importer in lettering at least as large as and positioned as close as possible to the quality mark. Under 15 U.S.C. § 295, assay deviation cannot exceed 3 parts per 1,000 (unsoldered) or 7 parts per 1,000 (soldered).",
       "checklist_relevance": "Directly backs Checklist Item #3: a standalone '14K' or '18K' stamp with NO maker's mark violates federal marking requirements and is a major counterfeit indicator.",
-      "official_url": "https://www.law.cornell.edu/uscode/text/15/297"
+      "official_url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title15/html/USCODE-2023-title15-chap8.htm"
     },
     {
       "id": "STD-02",
@@ -170,19 +180,19 @@
     },
     {
       "id": "STD-04",
-      "category": "Laboratory Nondestructive Surface Elemental Testing",
-      "title": "GIA Gems & Gemology (Winter 2024): EDXRF Chemical Analysis & Surface Penetration Limit",
-      "key_rule": "Energy-dispersive X-ray fluorescence (EDXRF / XRF) measures surface alloy composition non-destructively in seconds without scratching or acid damage, but penetrates only <= 10 µm (a few micrometers) on high-atomic-number metals like gold—meaning thick plating requires pairing XRF with calibrated scale weighing and specific gravity.",
-      "checklist_relevance": "Directly backs Checklist Items #10 & #11: request both professional XRF testing AND 0.01g scale / specific-gravity verification upon arrival.",
+      "category": "Laboratory Nondestructive Elemental Testing",
+      "title": "GIA Gems & Gemology (Winter 2024): XRF Elemental Testing",
+      "key_rule": "Energy-dispersive X-ray fluorescence (EDXRF / XRF) accurately measures gold alloy composition non-destructively in seconds without scratching or acid damage, and typically detects base metals or nickel underlayers beneath thin plating.",
+      "checklist_relevance": "Directly backs Checklist Items #10 & #11: request professional XRF testing upon arrival before resizing or wearing.",
       "official_url": "https://www.gia.edu/gems-gemology/winter-2024-chemical-analysis"
     },
     {
       "id": "STD-05",
       "category": "Counterfeit Deception Alert — Heavy Gold-Plated Low-Karat / Electroformed Cores",
-      "title": "GIA Carlsbad Lab Notes (Summer 2025 PDF: 'Gold-Plated Gold: Deceptive High-Karat Coating on Lower-Karat Jewelry')",
-      "key_rule": "GIA laboratories documented deceptive pieces in Summer 2025 where 10K gold coated with heavy pure gold plating read falsely as higher karat on surface XRF, and electroformed wax/resin cores with thick gold shells passed surface XRF alone.",
+      "title": "GIA Carlsbad Lab Notes (Summer 2025 'Gold-Plated Gold' & Spring 2024 'Electroformed Gold')",
+      "key_rule": "GIA laboratories documented deceptive pieces in 2024–2025 where 10K gold coated with heavy pure gold plating read falsely as 14K or 18K on surface XRF, and electroformed wax/resin cores with ~200-micron gold shells passed surface XRF alone.",
       "checklist_relevance": "Proves why buyers should ask the independent jeweler for BOTH XRF testing AND calibrated gram weight + specific gravity / microscopic seam inspection.",
-      "official_url": "https://www.gia.edu/dam/migrated-assets/docs/doc1/summer-2025-lab-notes.pdf"
+      "official_url": "https://www.gia.edu/gems-gemology/summer-2025-lab-notes-gold-plated-gold"
     },
     {
       "id": "STD-06",

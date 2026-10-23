@@ -308,7 +308,7 @@
       "what": "VRAI's official return help article states that engraved or setting-only engagement ring returns refunded to the original payment method incur a $300 USD recycling fee, and its Los Angeles BBB profile carries an unaccredited F rating for unanswered complaints.",
       "why_it_matters": "A $300 deduction penalises a buyer who exercises the return right after independent inspection, and unanswered BBB complaints signal post-purchase friction.",
       "action": "Do not engrave before independent scale and XRF verification, confirm fee-free return eligibility in writing, and pay by credit card.",
-      "source": "https://help.vrai.com/hc/en-us/articles/360000836514-What-is-your-return-policy"
+      "source": "https://help.vrai.com/en/knowledge/what-is-your-return-policy"
     },
     {
       "id": "RET9",
@@ -405,7 +405,7 @@
       "id": "SRC1",
       "severity": "high",
       "label": "Cited official source URL returns 404",
-      "what": "Two source URLs recorded by other sessions do not resolve: Sarraf's policy_source https://www.sarraf.com/pages/returns-and-refunds.html returns '404 Error - Page not found' (title 'Sarraf - Not Found'), and Automic's policy_source https://www.automicgold.com/pages/return-policy returns '404 Not Found - Automic Gold'. The live pages are https://www.sarraf.com/30-day-returns-and-exchange-policy/ and https://www.automicgold.com/policies/refund-policy. Both records were repointed on 2026-10-23.",
+      "what": "Seven seller/policy URLs recorded by earlier sessions returned HTTP 404 or redirected to a generic KB index when opened live on 2026-10-23: Sarraf's https://www.sarraf.com/pages/returns-and-refunds.html (404 -> /30-day-returns-and-exchange-policy/), Automic's https://www.automicgold.com/pages/return-policy (404 -> /policies/refund-policy), Brilliant Earth's https://www.brilliantearth.com/returns/ (404 -> /30-Day-Returns/), VRAI's https://www.vrai.com/pages/contact-us (404 -> /contact-us) and https://help.vrai.com/hc/en-us/articles/360000836514-What-is-your-return-policy (redirect -> /en/knowledge/what-is-your-return-policy), Local Eclectic's https://www.localeclectic.com/pages/contact-us (404 -> /pages/frequently-asked-questions), and Men\u0113's https://mene.com/contact-us (404 -> /customer-care/en-US). All seven records were repointed to live HTTP 200 official pages on 2026-10-23.",
       "why_it_matters": "The brief requires every table row to carry a working source link to an official site. A dead citation is worse than no citation: it looks like evidence but cannot be checked, and the values attributed to it become unverifiable.",
       "action": "Re-fetch every cited URL before publishing, and prefer the canonical page reached from the site's own policy index over a guessed slug.",
       "source": "https://www.sarraf.com/30-day-returns-and-exchange-policy/",
@@ -439,13 +439,12 @@
     {
       "id": "SRC2",
       "severity": "medium",
-      "label": "Cited /contact-us page returned HTTP 500 \u2014 contact details re-confirmed on two HTTP 200 official pages",
-      "what": "Catbird's contact page https://www.catbirdnyc.com/contact-us returned \"HTTP 500 Internal Server Error\" (nginx) during both pass P4 (arena/6d6192d1-gold3) and pass P5 (arena/1162b2db-gold3) on 2026-10-23. Pass P5 repointed S-CB's primary contact sources to two live HTTP 200 official Catbird documents: https://www.catbirdnyc.com/facts (verbatim: 'Customer Email: customerservice@catbirdnyc.com' and 'Primary Materials: Solid gold (never plated; over 95% recycled gold)') and https://www.catbirdnyc.com/media/files/return_form.pdf (verbatim: 'Catbird, 141 Flushing Avenue, Building 77, Suite 709, Brooklyn, NY 11205, 718-599-2340').",
-      "why_it_matters": "A buyer who cannot reach a seller cannot exercise a return. Replacing the broken /contact-us endpoint with two live HTTP 200 official Catbird pages restores verified contact information while documenting that the storefront's primary Contact Us route itself returns a server error.",
-      "action": "Contact customerservice@catbirdnyc.com (verified on catbirdnyc.com/facts) or +1-718-599-2340 (verified on return_form.pdf), and process returns via catbirdnyc.com/returns.",
+      "label": "Cited contact page returned a server error",
+      "what": "Catbird's contact page https://www.catbirdnyc.com/contact-us returned \"HTTP 500 Internal Server Error\" (nginx) on two attempts on 2026-10-23, so the e-mail address recorded against S-CB could not be re-confirmed that day. The same site's returns page and product page loaded normally in the same session, so this is a fault on one page rather than a dead domain.",
+      "why_it_matters": "A buyer who cannot reach a seller cannot exercise a return. A contact claim that cannot be re-checked is unverified even when it was right when it was captured, and the checklist's \"verify the business has real contact information\" item fails on that page as it stands today.",
+      "action": "Resolved via Catbird's live https://www.catbirdnyc.com/facts ('Customer Email: customerservice@catbirdnyc.com') and official return_form.pdf (+1-718-599-2340, 141 Flushing Avenue, Building 77, Suite 709, Brooklyn, NY 11205); avoid /contact-us while nginx 500 persists.",
       "source": "https://www.catbirdnyc.com/facts",
-      "source_2": "https://www.catbirdnyc.com/media/files/return_form.pdf",
-      "quote": "Customer Email: customerservice@catbirdnyc.com (catbirdnyc.com/facts); 141 Flushing Avenue, Building 77, Suite 709, Brooklyn, NY 11205 \u00b7 718-599-2340 (return_form.pdf)",
+      "quote": "500 Internal Server Error",
       "first_seen": "2026-10-23"
     }
   ]

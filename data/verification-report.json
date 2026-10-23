@@ -42,7 +42,8 @@
         "WEIGHT_RANGE_ONLY",
         "EXCHANGE_ONLY_FINAL_SALE",
         "PAGE_SELF_CONTRADICTION",
-        "HALLMARK_NOT_STATED"
+        "HALLMARK_NOT_STATED",
+        "FINAL_SALE_PDP_OVERRIDE"
       ],
       "derived": {
         "karat": "14K",
@@ -62,9 +63,7 @@
         "PRICE_FROM_LOWEST_VARIANT",
         "WEIGHT_NOT_PUBLISHED",
         "HALLMARK_NOT_STATED",
-        "WEIGHT_RANGE_ONLY",
-        "EXCHANGE_ONLY_FINAL_SALE",
-        "PAGE_SELF_CONTRADICTION"
+        "FINAL_SALE_PDP_OVERRIDE"
       ],
       "derived": {
         "karat": "14K",
@@ -84,9 +83,7 @@
         "PRICE_FROM_LOWEST_VARIANT",
         "WEIGHT_NOT_PUBLISHED",
         "HALLMARK_NOT_STATED",
-        "WEIGHT_RANGE_ONLY",
-        "EXCHANGE_ONLY_FINAL_SALE",
-        "PAGE_SELF_CONTRADICTION"
+        "FINAL_SALE_PDP_OVERRIDE"
       ],
       "derived": {
         "karat": "14K",
@@ -106,9 +103,7 @@
         "PRICE_FROM_LOWEST_VARIANT",
         "WEIGHT_NOT_PUBLISHED",
         "HALLMARK_NOT_STATED",
-        "WEIGHT_RANGE_ONLY",
-        "EXCHANGE_ONLY_FINAL_SALE",
-        "PAGE_SELF_CONTRADICTION"
+        "FINAL_SALE_PDP_OVERRIDE"
       ],
       "derived": {
         "karat": "14K",
@@ -128,9 +123,7 @@
         "PRICE_FROM_LOWEST_VARIANT",
         "WEIGHT_NOT_PUBLISHED",
         "HALLMARK_NOT_STATED",
-        "WEIGHT_RANGE_ONLY",
-        "EXCHANGE_ONLY_FINAL_SALE",
-        "PAGE_SELF_CONTRADICTION"
+        "FINAL_SALE_PDP_OVERRIDE"
       ],
       "derived": {
         "karat": "14K",
@@ -150,9 +143,7 @@
         "PRICE_FROM_LOWEST_VARIANT",
         "WEIGHT_NOT_PUBLISHED",
         "HALLMARK_NOT_STATED",
-        "WEIGHT_RANGE_ONLY",
-        "EXCHANGE_ONLY_FINAL_SALE",
-        "PAGE_SELF_CONTRADICTION"
+        "FINAL_SALE_PDP_OVERRIDE"
       ],
       "derived": {
         "karat": "14K",
@@ -172,9 +163,7 @@
         "PRICE_FROM_LOWEST_VARIANT",
         "WEIGHT_NOT_PUBLISHED",
         "HALLMARK_NOT_STATED",
-        "WEIGHT_RANGE_ONLY",
-        "EXCHANGE_ONLY_FINAL_SALE",
-        "PAGE_SELF_CONTRADICTION"
+        "FINAL_SALE_PDP_OVERRIDE"
       ],
       "derived": {
         "karat": "14K",
@@ -211,6 +200,7 @@
       "flags": [
         "SETTING_PRICE_ONLY",
         "SOLID_NOT_STATED",
+        "PRICE_NOT_RECONFIRMED",
         "WEIGHT_NOT_PUBLISHED",
         "HALLMARK_NOT_STATED"
       ],
@@ -230,6 +220,7 @@
       "flags": [
         "SETTING_PRICE_ONLY",
         "SOLID_NOT_STATED",
+        "PRICE_NOT_RECONFIRMED",
         "WEIGHT_NOT_PUBLISHED",
         "HALLMARK_NOT_STATED"
       ],
@@ -269,6 +260,7 @@
       "flags": [
         "SETTING_PRICE_ONLY",
         "SOLID_NOT_STATED",
+        "PRICE_NOT_RECONFIRMED",
         "WEIGHT_NOT_PUBLISHED",
         "HALLMARK_NOT_STATED"
       ],
@@ -304,6 +296,7 @@
       "purity": "10K",
       "solid_gold": true,
       "flags": [
+        "PRICE_NOT_RECONFIRMED",
         "WEIGHT_NOT_PUBLISHED",
         "HALLMARK_NOT_STATED",
         "NOT_ENGAGEMENT_RING"
@@ -346,9 +339,9 @@
         "SOLID_NOT_STATED",
         "PURITY_NOT_IN_BODY_TEXT",
         "MIXED_METAL",
+        "PRICE_NOT_RECONFIRMED",
         "WEIGHT_NOT_PUBLISHED",
-        "HALLMARK_NOT_STATED",
-        "MADE_TO_ORDER"
+        "HALLMARK_NOT_STATED"
       ],
       "derived": {
         "karat": "14K",
@@ -468,7 +461,7 @@
     {
       "id": "F10",
       "severity": "low",
-      "title": "Mejuri's dedicated returns page could not be read, so its policy is quoted from the product page"
+      "title": "Mejuri's main /help hub requires JavaScript, while direct leaf FAQ articles render server-side"
     },
     {
       "id": "F11",
@@ -537,28 +530,23 @@
     },
     {
       "id": "F24",
-      "severity": "high",
-      "title": "Menē gram weights (8.5 g, 7.9 g, 12.0 g) removed on BND-01..BND-03 because static HTML omits ring weights"
+      "severity": "medium",
+      "title": "Catbird's /contact-us page returned HTTP 500 on 2026-10-23 live re-verification"
     },
     {
       "id": "F25",
       "severity": "high",
-      "title": "All seven Aurate lab-grown engagement ring PDPs override the 60-day return policy with 'Final Sale! / Exchange for size only.'"
+      "title": "All 7 Aurate lab-grown engagement ring PDPs enforce 'Final Sale! / Exchange for size only.' + 30% MTO cancellation fee after 24h"
     },
     {
       "id": "F26",
       "severity": "high",
-      "title": "Mejuri R03 (Slim Diamond Eternity Band) printed From $898 on its live PDP — 38.6% above the $648 collection figure stored earlier"
+      "title": "Mejuri Slim Diamond Eternity Band (R03) live PDP reads 'From $898' vs $648 stored from collection grid (+38.6%)"
     },
     {
       "id": "F27",
       "severity": "medium",
-      "title": "Broken Catbird /contact-us (HTTP 500) and dead government/GIA links replaced with live HTTP 200 primary documents"
-    },
-    {
-      "id": "F28",
-      "severity": "medium",
-      "title": "Template spec bugs caught on Brilliant Earth SOL-05/R29 ('Band Width: 2 ct. tw.') and VRAI R28 ('Pavé carat weight: 0.11ctw' on Plain band)"
+      "title": "Live PDP template specification bugs on Brilliant Earth SOL-05/R29 ('Band Width: 2 ct. tw.') and VRAI R28 ('Pavé carat weight: 0.11ctw' on Plain band)"
     }
   ],
   "parallel_dataset": {

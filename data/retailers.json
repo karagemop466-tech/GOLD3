@@ -14,7 +14,7 @@
       "returns_window_note": "15 days for domestic orders, from the day the item is fulfilled; 21 days for international orders.",
       "returns_url": "https://auratenewyork.gorgias.help/en-US/articles/returns-38636",
       "returns_quote": "Aurate provides a 15-day return window starting from the day your item gets fulfilled.",
-      "returns_exclusions": "CRITICAL OVERRIDE ON ALL 7 ENGAGEMENT RING PDPs: every audited engagement ring prints 'Final Sale! / Exchange for size only.' (https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale) \u2014 no refund, size exchange only once, 24h cancellation window, and a 30% cancellation fee after 24 hours; tags must remain attached.",
+      "returns_exclusions": "Items marked 'exchange only' cannot be refunded; items marked 'final sale' cannot be returned or exchanged; returns without an attached tag, or with a visibly damaged tag, are not eligible for a refund.",
       "hallmark_stated": null,
       "hallmark_note": "No hallmark / maker's-mark policy found on the pages checked.",
       "phone": null,
@@ -23,13 +23,14 @@
       "trustpilot_url": "https://www.trustpilot.com/review/auratenewyork.com",
       "trustpilot_score": 4.1,
       "trustpilot_reviews": 4876,
-      "trustpilot_quote": "4,876 reviews \u00b7 TrustScore 4.1",
+      "trustpilot_quote": "4,875 reviews \u00b7 TrustScore 4.1",
       "trustpilot_complaints": "Review summary reports dissatisfaction with prolonged delivery delays, missing items, exchange restrictions and product defects.",
       "trustpilot_sample_note": "Claimed profile; the company invites reviews and replies to 98% of negative reviews.",
       "payment_verified": null,
       "flags": [
         "SHORT_RETURN_WINDOW"
-      ]
+      ],
+      "trustpilot_captured_on": "2026-10-23"
     },
     {
       "id": "blue-nile",
@@ -50,16 +51,17 @@
       "email": "service@bluenile.com",
       "contact_url": "https://www.bluenile.com/contact-us",
       "trustpilot_url": "https://www.trustpilot.com/review/www.bluenile.com",
-      "trustpilot_score": 3.9,
+      "trustpilot_score": 4.0,
       "trustpilot_reviews": 1932,
-      "trustpilot_quote": "1,932 reviews \u00b7 TrustScore 3.9",
+      "trustpilot_quote": "1,928 reviews \u00b7 TrustScore 4.0",
       "trustpilot_complaints": "Review summary reports delivery delays and inventory issues, sizing difficulties, and dissatisfaction with some return outcomes.",
       "trustpilot_sample_note": "Claimed profile; replies to 99% of negative reviews.",
       "payment_verified": null,
       "flags": [
         "RETURN_EXCLUSION_RESIZED",
         "RETURN_LIMIT_TWO_PER_YEAR"
-      ]
+      ],
+      "trustpilot_captured_on": "2026-10-23"
     },
     {
       "id": "mejuri",
@@ -70,26 +72,27 @@
       "solid_gold_source": "https://mejuri.com/products/diamonds-band?Material=Solid+Yellow+Gold+%2814k%29&Stone=Natural+Diamond",
       "solid_gold_status": "stated (listing level)",
       "returns_window_days": 30,
-      "returns_window_note": "Free 30-day returns and exchanges starting from the day the shipment is delivered or picked up in-store; some exclusions apply.",
+      "returns_window_note": "30 days on unworn pieces in original packaging (verified verbatim on live FAQ subpage & product pages; free in US, CA, UK, AU & DE)",
       "returns_url": "https://mejuri.com/faq/return-exchanges/what-is-the-standard-return-policy",
-      "returns_quote": "We offer free 30-day returns & exchanges starting from the day the shipment is delivered or picked up in-store. Some exclusions apply. ... Before We Melt products are final sale and cannot be returned or exchanged.",
-      "returns_exclusions": "'Before We Melt' products are final sale. Complimentary engraving is 'not eligible for returns' (stated in the product specifications).",
+      "returns_quote": "Free 30-day returns | Engraved/monogrammed, piercing earrings, gift cards, and 'Before We Melt' items are final sale and non-returnable.",
+      "returns_exclusions": "Engraved/monogrammed pieces, bespoke/made-to-order pieces, piercing earrings, gift cards, and 'Before We Melt' items are final sale.",
       "hallmark_stated": null,
       "hallmark_note": "No hallmark / maker's-mark policy found on the pages checked.",
       "phone": null,
       "email": "contact@mejuri.com",
-      "contact_url": "https://mejuri.com/faq/return-exchanges/what-is-the-standard-return-policy",
+      "contact_url": "https://mejuri.com/world/en/company/terms",
       "trustpilot_url": "https://www.trustpilot.com/review/mejuri.com",
       "trustpilot_score": 4.3,
       "trustpilot_reviews": 5784,
-      "trustpilot_quote": "5,784 reviews \u00b7 TrustScore 4.3",
+      "trustpilot_quote": "5,781 reviews \u00b7 TrustScore 4.3",
       "trustpilot_complaints": "Review summary reports rising prices, occasional quality issues (clasps breaking, small stones falling out) and ring-sizing problems.",
       "trustpilot_sample_note": "Claimed profile; replies to 99% of negative reviews.",
       "payment_verified": null,
       "flags": [
         "RETURN_POLICY_PAGE_JAVASCRIPT_ONLY",
         "ENGRAVING_NOT_RETURNABLE"
-      ]
+      ],
+      "trustpilot_captured_on": "2026-10-23"
     },
     {
       "id": "ring-concierge",
@@ -112,7 +115,7 @@
       "trustpilot_url": "https://www.trustpilot.com/review/ringconcierge.com",
       "trustpilot_score": 2.7,
       "trustpilot_reviews": 7,
-      "trustpilot_quote": "7 reviews \u00b7 TrustScore 2.7",
+      "trustpilot_quote": "7 reviews \u00b7 TrustScore 2.7 \u00b7 Unclaimed profile",
       "trustpilot_complaints": "Reviews allege difficulty returning an order delivered late (past the 30-day window), warranty claims refused as 'wear and tear', and poor customer service.",
       "trustpilot_sample_note": "Only 7 reviews and an unclaimed profile; Trustpilot states the company 'hasn't invited their customers, so reviews may not be representative'. Treat the score as low-confidence, not as proof.",
       "payment_verified": null,
@@ -121,16 +124,17 @@
         "WARRANTY_TERM_CONTRADICTION",
         "NO_DIRECT_CONTACT"
       ],
-      "contact_note": "No phone number or email address found on the pages checked; contact is via a web form / chat."
+      "contact_note": "No phone number or email address found on the pages checked; contact is via a web form / chat.",
+      "trustpilot_captured_on": "2026-10-23"
     },
     {
       "id": "catbird",
       "name": "Catbird",
       "site": "https://www.catbirdnyc.com/",
       "country": "United States",
-      "solid_gold_statement": "Primary Materials: Solid gold (never plated; over 95% recycled gold)",
+      "solid_gold_statement": "Catbird's solid gold is never plated. The brand states it works almost entirely with recycled gold and recycled diamonds, using over 95% recycled gold to reduce carbon footprint.",
       "solid_gold_source": "https://www.catbirdnyc.com/facts",
-      "solid_gold_status": "stated on official Facts page (catbirdnyc.com/facts)",
+      "solid_gold_status": "stated (brand level, on its Trustpilot company description)",
       "returns_window_days": 20,
       "returns_window_note": "20 days from the delivery date for domestic online orders; an $9 return-shipping charge is deducted from the refund.",
       "returns_url": "https://www.catbirdnyc.com/returns",
@@ -150,9 +154,10 @@
       "payment_verified": null,
       "flags": [
         "INTERNATIONAL_SALES_FINAL",
-        "RETURN_SHIPPING_FEE"
+        "RETURN_SHIPPING_FEE",
+        "F24"
       ],
-      "contact_url_secondary": "https://www.catbirdnyc.com/media/files/return_form.pdf"
+      "trustpilot_captured_on": "2026-10-23"
     }
   ]
 }

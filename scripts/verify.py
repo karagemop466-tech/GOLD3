@@ -70,9 +70,6 @@ OFFICIAL_DOMAINS = {
     "consumer.ftc.gov",
     "www.kitco.com", "kitco.com",
     "www.bullionvault.com", "bullionvault.com",
-    "www.legislation.gov.uk", "legislation.gov.uk",
-    "www.gov.uk", "gov.uk",
-    "www.gia.edu", "gia.edu",
     "github.com",
 }
 

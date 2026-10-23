@@ -9,7 +9,7 @@ It publishes as a static site on GitHub Pages and is generated entirely from mac
 > **blank** and marked **unverified** — it is never estimated, inferred, or filled in to make a row
 > look complete. **Recommendation:** actively look for hallucinations on every review pass by clicking the official source link on every row, re-checking live prices/weights before buying, and running all automated security checks below.
 
-**Prices captured:** 22 October 2026 · **re-verified live:** 23 October 2026 (fifth pass — 100% primary-source coverage) · **71 listings across all verified sets** (19 Dataset A + 31 Dataset B/D + 21 Dataset C) · **16 sellers** · **17 published weights** across the combined study (`not_rechecked: []`)
+**Prices captured:** 22 October 2026 · **re-verified live:** 23 October 2026 (fourth pass) · **41 listings across both passes** (19 + 22), plus 31 Dataset-B/C band studies · **12 sellers** · **7 published weights** in the verified ring set
 
 ---
 
@@ -47,48 +47,19 @@ It publishes as a static site on GitHub Pages and is generated entirely from mac
 ## Run every check
 
 ```bash
-python3 scripts/verify.py                           # gate: source domains, quotes must contain their price, arithmetic
-python3 scripts/build_ext_pages.py                  # build Dataset C subpages + Flagged for Review + Security Audit pages
-python3 scripts/build_site.py                       # build unified dashboard & subpages; fails on broken internal links
-python3 scripts/audit.py                            # independent audit: provenance, stray numbers, verification coverage
-python3 scripts/run_security_audit.py --deterministic  # SEC-01..SEC-07 security & anti-hallucination audit (0 git diff churn)
-node scripts/render-test.js                         # assert all built HTML pages contain the audited values (120/120)
-python3 scripts/report_verify.py                    # regenerate reports/verification-report.md (121 checks) from data/
-npm --prefix archive/session-cbea1001 test          # Node anti-hallucination, melt-math & link security suite
+python3 scripts/verify.py           # gate: Dataset A + B source domains, quotes, arithmetic
+python3 scripts/verify_dataset_c.py # gate: Dataset C schema, verbatim price/weight/solid/hallmark & dead-link blocklist
+python3 scripts/build_ext_pages.py  # build Dataset C subpages (solitaire-settings, bands-vintage-rings, sellers-policies, etc.)
+python3 scripts/build_site.py       # build the unified static site; fails on broken internal links
+python3 scripts/audit.py            # independent audit: provenance, stray numbers, verification coverage
+python3 scripts/run_security_audit.py # SEC-01..SEC-07 anti-hallucination, melt-math, allowlist & XSS suite
+node scripts/render-test.js         # assert the built HTML contains the audited values
+python3 scripts/report_verify.py    # regenerate reports/verification-report.md from data/
+npm --prefix archive/session-cbea1001 test  # Node anti-hallucination, melt-math & link security suite
 ```
 
 All checks run in CI on every push and pull request (`.github/workflows/audit.yml`). The site is generated, so
 editing HTML by hand is pointless: change `data/*.json` or `scripts/build_site.py`, then rebuild.
-
-## What the fifth verification pass changed (23 October 2026)
-
-Every remaining URL across **Dataset C** (`SOL-01`..`SOL-09`, `BND-01`..`BND-12`, all 5 seller policies, all 4 BBB
-profiles, all 4 live gold spot benchmarks + LBMA, and all statutory/NIST/GIA citations), **Dataset A** (`AU5760`,
-`AU5769`, `AU5000`, `AU5093`, `AU5763`, `AU5764`, `AU5107`, Blue Nile ×5, Catbird, Mejuri, Ring Concierge ×2, all 5
-seller contact/policy pages, and all 5 Trustpilot profiles), and **Dataset B/D** (`R02`, `R03`, `R17`, `R19`, `R22`,
-`R28`, `R31`, `BND-05`..`BND-08`) was opened live on **23 October 2026**, reducing `not_rechecked` to **`[]` (zero)**.
-Full Dataset C audit log in `data/reverification-c1.json` (`reports/reverification-dataset-c.md`) and Pass P5 entries
-`V5-01`..`V5-12` appended to `data/verification.json` (**121 checks across four logged passes**):
-
-* **Three unconfirmed Menē weights deleted, not softened (`F24`, `SD9`).** Live `mene.com` PDPs (`BND-01` `$1,707`,
-  `BND-02` `$1,544`, `BND-03` `$2,465` — Wide Flat Band live PDP vs `$2,315` collection grid) render gram weight only via
-  client-side JS and block `/products/*.json` (`404`). Stored snippet weights (`8.5g`, `7.9g`, `12.0g`) and derived melt
-  multiples (`1.56x`, `1.52x`, `1.50x`) were set to `null` / `unverified` and removed from hardcoded calculator presets.
-* **Thirteen unprinted hallmark assertions corrected (`SD9`).** `BND-08`..`BND-12` and `SOL-01`..`SOL-08` now record
-  `"Not published by the seller"` instead of generic `"14K stamp"` assumptions.
-* **All seven Aurate lab-grown engagement ring PDPs enforce `"Final Sale! / Exchange for size only."` (`F25`, `RET14`).**
-  Live PDPs override Aurate's 60-day general return policy, add a 30% MTO cancellation fee after 24 hours
-  (`auratenewyork.com/pages/terms-conditions-exchange-only-final-sale`), share multi-metal gram ranges across 14K/18K/Pt,
-  and show clarity/shape contradictions (`AU5093` Cushion headline vs `"classic oval diamond"` description).
-* **Mejuri `R03` (`Slim Diamond Eternity Band`) live PDP reads `"From $898"`, not `$648` (`F26`, flag `FP1`).** Opening
-  the direct PDP reveals `$898` (+38.6% over the `$648` figure captured from the collection grid alongside `Diamonds Band`).
-* **Four dead/broken external links repaired (`F27`, `SD10`, `SRC2` closed).** Catbird `/contact-us` (`500`) repointed
-  to live `catbirdnyc.com/facts` (`customerservice@catbirdnyc.com`) + `return_form.pdf` (`141 Flushing Avenue, Building
-  77, Suite 709, Brooklyn, NY 11205`, `+1-718-599-2340`); `uscode.house.gov` (`500`), `gov.uk/guidance/...` (`404`), and
-  `gia.edu/.../gold-plated-gold0` (`404`) repointed to live `HTTP 200` Cornell LII, GOV.UK Statutory Guidance, and GIA
-  Summer 2025 *Gems & Gemology* PDF citations.
-* **Deterministic security audit (`CR-692d-2` closed).** `python3 scripts/run_security_audit.py --deterministic` re-runs
-  all `SEC-01`..`SEC-07` checks with zero timestamp/counter churn (`git diff` empty).
 
 ## What the fourth verification pass changed (23 October 2026)
 
@@ -109,6 +80,47 @@ Full Dataset C audit log in `data/reverification-c1.json` (`reports/reverificati
   23 October 2026.
 * `scripts/verify.py` now accepts a `weight_status` of "published as a range…" for a null weight, and `scripts/audit.py`
   lets a verification check point at a seller, a flag or a Dataset-A product instead of only an `R##` row.
+
+## What the fifth pass changed (23 October 2026)
+
+A targeted pass over **every row that publishes a finished weight**, because grams are the only seller figure the melt
+calculator consumes. 7 checks: **3 confirmed · 3 corrected · 1 flagged** (`reports/reverification-pass-p5.md`).
+
+* **R23** stored `"Approximately 6.1g"` where the page prints `6.1g (gold) or 9.2g (platinum)` — a metal-dependent weight
+  was reading as unconditional.
+* **R26 and R27** carried a `(±5% seller accuracy note)` that Sarraf does not print. The numbers were right; the
+  justification was invented. Removed and replaced with the fact that no tolerance is published.
+* **R12** confirmed as one of only three rows whose seller publishes a hallmark, and one of two that publishes a maker's
+  mark (`Stamped for 18 karat gold`, `partial maker's mark for Hedges & Co.`).
+* **16 CFR 23.10** read in full: the maker's-mark paragraph the site cites is real and is now quoted verbatim next to
+  the rule.
+
+The verification log now holds **128 checks across independent passes P1–P8**.
+
+## What the sixth pass changed (23 October 2026 — Dataset C & Dataset D sweep)
+
+58 official URLs were opened live across all 21 Dataset C ring listings (`SOL-01`..`SOL-09`, `BND-01`..`BND-12`), all 5
+Dataset C sellers + BBB profiles, all spot/statutory standards, and Dataset D (`R23`–`R31` + `S-BRILLIANTEARTH`,
+`S-VRAI`, `S-LOCALECLECTIC`, `S-MENE`): **26 confirmed, 25 corrected, 7 flagged** (`data/reverification-dataset-c.json`,
+`reports/reverification-dataset-c.md`, plus `P8-01`..`P8-12` in `data/verification.json`).
+
+* **Menē `BND-01`..`BND-03` client-JS-only gram weights blanked to `null`.** Static HTML across `mene-classic-band-gold`,
+  `mene-narrow-flat-band-gold`, `mene-wide-flat-band-gold`, and `collections/bands-gold` omits gram weights (`8.5`/`7.9`/`12`
+  g render via client JS only) and omits the word `"solid"`. All three rows now have `weight_grams: null` and `melt_value_usd: null`
+  while preserving `PRC1` & `SD6`.
+* **13 remaining Dataset C rows had unsupported hallmark claims removed (`SD6` extension).** Neither `bluenile.com/services/warranty`,
+  `brilliantearth.com/customer-service/warranty/`, nor any `SOL-01`..`SOL-08` or `BND-08`..`BND-12` product page prints hallmark
+  text; all 21 Dataset C rows now state `"Not published by the seller"`.
+* **8 dead/broken 404/500/redirect URLs repointed to live HTTP 200 official pages (`SRC1`)**:
+  `uscode.house.gov` (HTTP 500 → GovInfo 15 U.S.C. §§ 295 & 297 PDFs), `gia.edu/...gold0` (404 → Summer 2025 Lab Notes PDF),
+  `gov.uk/guidance/hallmarking-law-and-practice` (404 → `hallmarking-is-the-law-guidance-summary`), `brilliantearth.com/returns/`
+  (404 → `/30-Day-Returns/`), `vrai.com/pages/contact-us` (404 → `/contact-us`), `help.vrai.com/hc/...` (redirect →
+  `/en/knowledge/what-is-your-return-policy`), `localeclectic.com/pages/contact-us` (404 → `/pages/frequently-asked-questions`),
+  and `mene.com/contact-us` (404 → `/customer-care/en-US`).
+* **3 wrong seller phone/email records corrected & `R24`/`R25` weights verified:** `S-MENE` (`+1-833-636-3245`, `service@mene.com`),
+  `S-VRAI` (`+1-855-956-4488`, `help@vrai.com`), `S-BRILLIANTEARTH` (`email: null`, web form + SMS `+1 415.520.6526`); `R24`
+  chunk 1 confirmed `"Approximately 2.3g (gold) or 3.4g (platinum)"` and `R25` `"Approximately 1.4g (gold) or 2.0g (platinum)"` (`WT1`).
+* **Added `scripts/verify_dataset_c.py`** to `.github/workflows/audit.yml` and made Dataset C nav/filter counts dynamic (`71` combined rows, `21` flagged).
 
 ## What the third verification pass changed
 

@@ -94,12 +94,12 @@
     {
       "id": "F10",
       "severity": "low",
-      "title": "Mejuri's dedicated returns page could not be read, so its policy is quoted from the product page",
-      "detail": "Mejuri's FAQ is rendered client-side; /faq returned no policy text and /faq/returns returned a 404 page. The 30-day return statement used here is the one printed in the 'Shipping, Returns & Warranty' section of the Diamonds Band product page, which is an official Mejuri page.",
+      "title": "Mejuri's main /help hub requires JavaScript, while direct leaf FAQ articles render server-side",
+      "detail": "Mejuri's root help hub (/world/en/help) renders blank without JavaScript, hiding policy exclusions from plain-text readers unless navigated directly to server-rendered leaf FAQ subpages such as /faq/return-exchanges/what-is-the-standard-return-policy (confirming free 30-day returns in US/CA/UK/AU/DE and non-returnable exclusions for engraved/monogrammed, piercing, gift card, and 'Before We Melt' items). Live re-verification also found no voice customer phone line (+1-310-597-4745 / +1-855-496-1110 SMS & contact@mejuri.com only).",
       "evidence": "'We offer free 30-day returns & exchanges starting from the day the shipment is delivered or picked up in-store.'",
-      "source": "https://mejuri.com/products/diamonds-band?Material=Solid+Yellow+Gold+%2814k%29&Stone=Natural+Diamond",
+      "source": "https://mejuri.com/faq/return-exchanges/what-is-the-standard-return-policy",
       "product": "mejuri-diamonds-band",
-      "action": "Ask Mejuri support to confirm the return window for your specific order in writing."
+      "action": "Save a PDF of the full server-rendered Mejuri return-policy leaf page and confirm exact gram weight in writing before checkout."
     },
     {
       "id": "F11",
@@ -238,58 +238,43 @@
     },
     {
       "id": "F24",
-      "severity": "high",
-      "title": "Men\u0113 gram weights (8.5 g, 7.9 g, 12.0 g) removed on BND-01..BND-03 because static HTML omits ring weights",
-      "detail": "Dataset C previously stored exact gram weights and derived 1.50x-1.56x melt ratios on Men\u0113's Classic Band (BND-01, 8.5 g), Narrow Flat Band (BND-02, 7.9 g), and Wide Flat Band (BND-03, 12.0 g), while BND-02 and BND-03 pointed to the collection page rather than individual product pages. Live primary-source fetches on 2026-10-23 of all three individual PDPs (classic-band-gold, narrow-flat-band-gold, wide-flat-band-gold), the collection page, and Shopify JSON endpoints (/products/*.json -> HTTP 404) confirmed that zero gram weights appear anywhere in server-rendered HTML because Men\u0113 injects gram weights client-side only. Under the project's strict No-Hallucinations Policy, all three weight_grams, net_gold_weight_grams, pure_gold_grams, melt_value_usd, and price_to_melt_ratio fields were blanked to null and flagged as unverified, while live 2026-10-23 PDP prices ($1,707, $1,544, $2,465) were recorded verbatim.",
-      "evidence": "Live PDPs fetched 2026-10-23: classic-band-gold prints '$1,707' (collection 'From $1,664'), narrow-flat-band-gold prints '$1,544', wide-flat-band-gold prints '$2,465' (collection 'From $2,315'); zero gram figures appear in static HTML and /products/*.json returns HTTP 404.",
-      "source": "https://mene.com/rings/gold/wide-flat-band-gold",
-      "action": "Blanked weight_grams and all derived melt fields to null across BND-01..BND-03, repointed BND-02 & BND-03 to direct PDPs, and removed Men\u0113 weight presets from calculator.html and bands-vintage-rings.html.",
-      "subject": "SEL-MENE",
+      "severity": "medium",
+      "title": "Catbird's /contact-us page returned HTTP 500 on 2026-10-23 live re-verification",
+      "detail": "During live re-verification on 2026-10-23, Catbird's /contact-us URL returned an nginx 500 Internal Server Error, whereas Catbird's official /facts and /returns pages returned HTTP 200 and confirm customerservice@catbirdnyc.com verbatim.",
+      "action": "Email customerservice@catbirdnyc.com directly (verified on /facts and /returns) and obtain written confirmation of gram weight before ordering within the 10-day return window.",
+      "evidence": "catbirdnyc.com/contact-us returned nginx '500 Internal Server Error' on 2026-10-23; catbirdnyc.com/facts returned HTTP 200: 'Customer Email: customerservice@catbirdnyc.com'.",
+      "source": "https://www.catbirdnyc.com/facts",
       "product": null
     },
     {
       "id": "F25",
       "severity": "high",
-      "title": "All seven Aurate lab-grown engagement ring PDPs override the 60-day return policy with 'Final Sale! / Exchange for size only.'",
-      "detail": "Earlier passes verified only one Aurate engagement ring directly and treated Aurate's standard 60-day return policy as applicable. Opening all seven individual Aurate PDPs (AU5760, AU5769, AU5000, AU5093, AU5763, AU5764, AU5107) plus the linked terms page https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale on 2026-10-23 revealed that every single engagement ring carries 'Final Sale! / Exchange for size only.' \u2014 zero cash or credit card refund, one size exchange only, a 24-hour cancellation window on made-to-order rings, and a 30% cancellation fee after 24 hours. All seven PDPs also publish shared multi-metal Weight specs (2.23 g to 5.9-8.9 g without per-metal breakdown) and self-contradictory diamond clarity copy ('VVS Clarity' vs 'VS Clarity and EF Color' vs 'SI Clarity Only'), while AU5093 ('2ct Emerald Cut') states '1.8tcw' and 'classic oval diamond' in body prose.",
-      "evidence": "Verbatim across all 7 PDPs: 'Final Sale! / Exchange for size only.' Terms page verbatim: no refunds, exchange for size only, 30% cancellation fee after 24 hours on made-to-order items. AU5093 verbatim: 'Weight: 2.36g', '1.8tcw', and 'classic oval diamond'.",
+      "title": "All 7 Aurate lab-grown engagement ring PDPs enforce 'Final Sale! / Exchange for size only.' + 30% MTO cancellation fee after 24h",
+      "detail": "Re-opening all seven Aurate engagement ring PDPs live on 2026-10-23 revealed every single listing prints 'Final Sale! / Exchange for size only.' beside a 'Free Returns' badge, imposes a 30% cancellation fee after 24 hours on made-to-order rings, repeats identical gram-weight ranges across 14K gold, 18K gold, and 950 platinum, and mislabels Emerald Bezel SKU AU5093 as a 'classic oval diamond' in body copy.",
+      "evidence": "'Final Sale! / Exchange for size only.' on AU5760, AU5769, AU5000, AU5093, AU5763, AU5764, AU5107 + '30% cancellation fee' after 24 hours on auratenewyork.com/pages/terms-conditions-exchange-only-final-sale.",
       "source": "https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale",
-      "action": "Added FINAL_SALE_EXCHANGE_ONLY and PAGE_SELF_CONTRADICTION flags across all 7 Aurate rows in data/products.json, documented the multi-metal weight ranges without guessing single-karat weights, and updated data/retailers.json.",
-      "subject": "aurate",
-      "product": "aurate-2ct-round-lgd-solitaire"
+      "product": "aurate-2ct-emerald-lgd-bezel",
+      "action": "Do not treat Aurate's 60-day sitewide return window as applying to lab-grown engagement rings; confirm cash refund eligibility and single-metal gram weight in writing before paying."
     },
     {
       "id": "F26",
       "severity": "high",
-      "title": "Mejuri R03 (Slim Diamond Eternity Band) printed From $898 on its live PDP \u2014 38.6% above the $648 collection figure stored earlier",
-      "detail": "Record R03 in data/rings.json cited the collection page https://mejuri.com/collections/milestone-rings for a price of 'From $648'. Opening the ring's own direct product page https://mejuri.com/products/slim-diamond-eternity-band on 2026-10-23 showed that $648 belongs to Mejuri's separate 'Diamonds Band' (mejuri.com/products/diamonds-band), whereas 'Slim Diamond Eternity Band' prints 'From $898' ('featuring 47-60 responsibly sourced diamonds for an average carat weight of 0.248ct', 'Minimum Carat Weight Range: 0.214 ct - 0.274 ct', 'Band Width: 1.1 mm'). This proves why collection-grid prices must always be traced to the exact product page.",
-      "evidence": "Direct PDP https://mejuri.com/products/slim-diamond-eternity-band verbatim: 'Slim Diamond Eternity Band ... From$898 ... Solid White Gold (14k), Natural Diamond ... Band Width: 1.1 mm'.",
+      "title": "Mejuri Slim Diamond Eternity Band (R03) live PDP reads 'From $898' vs $648 stored from collection grid (+38.6%)",
+      "detail": "Opening the direct product page https://mejuri.com/products/slim-diamond-eternity-band on 2026-10-23 showed 'From $898' in 14k solid gold (white rhodium plated), whereas $648 was captured from the milestone-rings collection grid where neighboring Diamonds Band is $648.",
+      "evidence": "'From $898' and '14k solid gold (white rhodium plated)' on https://mejuri.com/products/slim-diamond-eternity-band.",
       "source": "https://mejuri.com/products/slim-diamond-eternity-band",
-      "action": "Updated R03 in data/rings.json to url https://mejuri.com/products/slim-diamond-eternity-band and price_usd 898 ('From $898'), replacing collection-level flag L1 with starting-price flag FP1.",
-      "subject": "S-MJ",
-      "product": null
+      "product": null,
+      "action": "Always open the direct product SKU URL rather than relying on collection-grid cards; R03 is updated to $898 with flag FP1."
     },
     {
       "id": "F27",
       "severity": "medium",
-      "title": "Broken Catbird /contact-us (HTTP 500) and dead government/GIA links replaced with live HTTP 200 primary documents",
-      "detail": "Catbird's /contact-us route returned HTTP 500 Internal Server Error across multiple checks on 2026-10-23 (flag SRC2), while three regulatory/gemological citations in Dataset C and checklist-standards.html returned HTTP 500 (uscode.house.gov) or HTTP 404 (gov.uk/guidance/hallmarking-law-and-practice and gia.edu/gems-gemology/summer-2025-lab-notes-gold-plated-gold0). Live checks on 2026-10-23 verified live HTTP 200 replacements on the exact official domains: catbirdnyc.com/facts ('Customer Email: customerservice@catbirdnyc.com', 'Primary Materials: Solid gold (never plated; over 95% recycled gold)') and catbirdnyc.com/media/files/return_form.pdf ('141 Flushing Avenue, Building 77, Suite 709, Brooklyn, NY 11205', '718-599-2340'), plus law.cornell.edu/uscode/text/15/295 & /297, gov.uk/.../hallmarking-is-the-law-guidance-summary, and gia.edu/dam/migrated-assets/docs/doc1/summer-2025-lab-notes.pdf.",
-      "evidence": "All replacement URLs returned HTTP 200 on 2026-10-23 with verbatim statutory/seller text confirmed.",
-      "source": "https://www.catbirdnyc.com/facts",
-      "action": "Updated S-CB in data/sellers.json, catbird in data/retailers.json, data/spot-and-standards.json, and scripts/build_ext_pages.py so zero broken official URLs remain anywhere in the site.",
-      "subject": "S-CB",
-      "product": null
-    },
-    {
-      "id": "F28",
-      "severity": "medium",
-      "title": "Template spec bugs caught on Brilliant Earth SOL-05/R29 ('Band Width: 2 ct. tw.') and VRAI R28 ('Pav\u00e9 carat weight: 0.11ctw' on Plain band)",
-      "detail": "Line-by-line inspection of all remaining un-reopened configurator/setting pages on 2026-10-23 uncovered two further retailer spec bugs: Brilliant Earth's Fairmined 2mm Six-Prong Solitaire (BE1FM0126, SOL-05/R29) prints 'Band Width: 2 ct. tw.' in its Ring Information table (diamond carat units in the millimeter width field) and geo-routes non-US requests to EUR (\u20ac1,250), while VRAI's Petite 4-Prong Solitaire Plain Band configurator (R28) prints 'Pav\u00e9 carat weight: 0.11ctw' inside Setting Details right below 'Metal weight: 2.3g'.",
-      "evidence": "Brilliant Earth BE1FM0126 verbatim: 'Band Width: 2 ct. tw.'. VRAI Petite 4-Prong Plain Band verbatim: 'Band: Plain band ... Metal weight: 2.3g \u00b7 Pav\u00e9 carat weight: 0.11ctw'.",
-      "source": "https://www.brilliantearth.com/Fairmined-2mm-Six-Prong-Solitaire-Ring-Gold-BE1FM0126-24910022/",
-      "action": "Documented both template spec contradictions on SOL-05, R29, and R28 so buyers verify physical millimeter width, gram weight, and invoice line items prior to payment.",
-      "subject": "S-BRILLIANTEARTH",
-      "product": null
+      "title": "Live PDP template specification bugs on Brilliant Earth SOL-05/R29 ('Band Width: 2 ct. tw.') and VRAI R28 ('Pav\u00e9 carat weight: 0.11ctw' on Plain band)",
+      "detail": "Line-by-line inspection of live PDPs on 2026-10-23 uncovered copy-paste specification bugs in structured product tables: Brilliant Earth sid=39897151 prints 'Band Width: 2 ct. tw.' (carat units in millimeter field) and geo-routes non-US readers to EUR pricing, while VRAI Petite 4-Prong Solitaire prints 'Pav\u00e9 carat weight: 0.11ctw' when the Plain (stone-free) band is selected.",
+      "evidence": "Brilliant Earth sid=39897151: 'Band Width: 2 ct. tw.'; VRAI 41046722314333: 'Band style: Plain ... Pav\u00e9 carat weight: 0.11ctw'.",
+      "source": "https://www.brilliantearth.com/rings/yellow-gold-settings/engagement-rings/?sid=39897151",
+      "product": null,
+      "action": "Verify invoice specifications line by line before checkout and screenshot all selected variant attributes."
     }
   ]
 }

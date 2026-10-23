@@ -372,18 +372,10 @@ if verif_doc:
                 verified_rows.add(rid)
                 continue
             # A check may also be aimed at a seller record, a flag definition,
-            # a Dataset-A product id, a Dataset-C item/seller/standard id, or
-            # the excluded-listing set. Those are real subjects of a verification
-            # check; what must not happen is a check pointing at something that
-            # does not exist anywhere in the data.
+            # a Dataset-A product id or the excluded-listing set. Those are real
+            # subjects of a verification check; what must not happen is a check
+            # pointing at something that does not exist anywhere in the data.
             if rid in seller_ids or rid in flag_defs or rid in product_ids:
-                continue
-            if rid in (
-                {x.get("id") for x in json.loads((DATA / "solitaire-rings.json").read_text(encoding="utf-8"))["items"]}
-                | {x.get("id") for x in json.loads((DATA / "bands-and-high-karat.json").read_text(encoding="utf-8"))["items"]}
-                | {x.get("id") for x in json.loads((DATA / "sellers-policies.json").read_text(encoding="utf-8"))["sellers"]}
-                | {x.get("id") for x in json.loads((DATA / "spot-and-standards.json").read_text(encoding="utf-8"))["regulatory_and_testing_standards"]}
-            ):
                 continue
             if rid in ("excluded", "bands", "products", "retailers"):
                 continue
@@ -576,7 +568,7 @@ for _ms in re.findall(r"\$([0-9][0-9,]*\.?[0-9]*)", json.dumps(rings_doc)):
     data_prices.add(_ms.rstrip("."))
 data_prices.update({"0.02", "129.4100"})
 
-# Register all verified numeric USD figures from Dataset A & C JSON files
+# Register all verified numeric USD figures from Dataset C JSON files
 for ext_json in ("products.json", "spot-and-standards.json", "solitaire-rings.json", "bands-and-high-karat.json", "sellers-policies.json"):
     ext_path = DATA / ext_json
     if ext_path.exists():
