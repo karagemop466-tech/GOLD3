@@ -88,10 +88,10 @@
       "phone": "+1-833-294-5766",
       "email": "info@wilsonsestatejewelry.com",
       "contact_source": "https://www.wilsonsestatejewelry.com/products/art-deco-old-mine-cut-diamond-18-karat-white-gold-antique-lotus-engagement-ring-gia",
-      "return_window": "Contact within 7 calendar days of delivery; item must be back within 3 calendar days of receiving the return label",
+      "return_window": "Contact within 7 calendar days of delivery; item must be back within 3 calendar days of receiving the return label (international returns: within 5 days of the label, and \"International returns are not complimentary. We will invoice you for the cost of international return shipping.\")",
       "return_exclusions": "Sold 'as is'; no refund if contacted late or returned late; items must be unworn, unaltered and in original packaging; cancelled-before-shipment orders are not refunded the 3% credit-card processing fee",
       "resize_policy": "Listings state whether a ring is 'sizable'; resizing is done by the buyer's jeweller",
-      "payment_notes": "Card processing fee of 3% is referenced for cancellations, confirming card payment is accepted; instalment plan shown on product pages",
+      "payment_notes": "Card processing fee of 3% is referenced for cancellations, confirming card payment is accepted; instalment plan shown on product pages. Complimentary layaway is offered \"for up to 12 months with 20% down via a PayPal invoice\", no interest, the down payment must be made within 12 hours of the invoice or it is cancelled, and \"Any layaway not paid in full in the 365 day period will once again be offered for sale to the general public ... and store credit will be issued.\"",
       "publishes_weight": true,
       "publishes_hallmark": true,
       "offers_xrf_or_assay": "Not offered per item; 'Stamped for X karat' is the seller's statement. Some pieces are described as 'tested as' a karat",
@@ -103,31 +103,34 @@
         "X1",
         "M1"
       ],
-      "verification": "Weight in grams, stamp description, maker's mark, phone and email verified verbatim on three individual official product pages on 2026-10-22. This is the only seller in the study that publishes gram weights."
+      "verification": "Weight in grams, stamp description, maker's mark, phone and email verified verbatim on three individual official product pages on 2026-10-22. This is the only seller in the study that publishes gram weights. Re-read on 2026-10-22 (pass P3, session arena/699d8e05-gold3): the cancellation fee is verbatim \"Please note that orders cancelled prior to shipment will not be refunded for credit card processing fees incurred at the rate of 3%.\", the return trigger is \"Return QR codes are sent via email. If Wilson's is not contacted within 7 calendar days, and/or we do not receive the items within 3 calendar days from receipt of return label, no refund will be issued.\", and refunds follow inspection \"within 3 days of receipt\". R11 still shows \"Sale price$3,725.00\" and \"Total Weight: 6.1 grams\"."
     },
     {
       "id": "S-RS",
       "name": "Ross-Simons",
       "website": "https://www.ross-simons.com/",
       "type": "Online and catalogue retailer (Cranston, Rhode Island, trading since 1972)",
-      "phone": null,
-      "email": null,
-      "contact_source": null,
-      "return_window": "Not verified — no official return-policy page was captured",
-      "return_exclusions": "Not verified",
-      "resize_policy": null,
-      "payment_notes": "Affirm instalments advertised on product pages",
+      "phone": "+1-800-835-0919",
+      "email": "customerservice@ross-simons.com",
+      "contact_source": "https://www.ross-simons.com/pages/customer-care",
+      "return_window": "30 days from the date you receive your order (\"30-Day No-Risk Return Guarantee\"); shipping and handling charges are non-refundable and a flat $4.95 return shipping and handling fee applies; refunds are processed within 4 business days of the return being received",
+      "return_exclusions": "\"Items must be returned in original, unused condition.\" \"Merchandise that has been damaged, altered, or resized by a jeweler other than Ross-Simons cannot be accepted for return.\" Returns of gifts are issued as merchandise credit. Returns go to 9 Ross Simons Dr., Cranston, RI 02920.",
+      "resize_policy": "No resize service is offered on the returns page; resizing by any jeweller other than Ross-Simons voids the return right",
+      "payment_notes": "Affirm instalments advertised on product pages. Refunds go back to the original payment method within 4 business days of receipt; gift returns are merchandise credit only.",
       "publishes_weight": true,
       "publishes_hallmark": false,
       "offers_xrf_or_assay": "Not stated",
       "price_display": "Fixed price per size, all sizes in stock at the same price",
-      "policy_source": "https://www.ross-simons.com/products/985230",
+      "policy_source": "https://www.ross-simons.com/pages/returns-exchanges",
       "flags": [
         "WT2",
-        "POL1",
+        "RET8",
+        "RET9",
         "M1"
       ],
-      "verification": "Publishes an explicit 'Gold Weight' in grams with the qualifier 'All weights and measurements are approximate'. Weight and price re-verified on the live product pages on 2026-10-22. No return-policy page was captured, so return terms are left unverified rather than assumed."
+      "verification": "Return policy read live on 2026-10-22 (pass P3, session arena/699d8e05-gold3) at ross-simons.com/pages/returns-exchanges, and contact details at ross-simons.com/pages/customer-care: phone 800-835-0919 (7 days a week, 7:00am-11:00pm ET), email customerservice@ross-simons.com. Verbatim: \"30-Day No-Risk Return Guarantee\", \"30 days from the date you receive your order\", \"(shipping and handling charges are non-refundable)\", \"a flat fee of $4.95 for return shipping and handling\", \"Items must be returned in original, unused condition.\", \"Merchandise that has been damaged, altered, or resized by a jeweler other than Ross-Simons cannot be accepted for return.\" The product pages were re-read the same day and still show $249 / \"Gold Weight 0.7 grams\" (985230) and $299 / \"Gold Weight 0.8 grams\" (932728), with \"All weights and measurements are approximate\". POL1 is closed for this seller: the terms are now sourced, not assumed.",
+      "weight_source": "https://www.ross-simons.com/products/985230",
+      "phone_as_printed": "800-835-0919 (printed on the customer-care page as \"Phone 800-835-0919\", 7 days a week 7:00am-11:00pm ET); stored in international form so it matches the format used by the other seller records"
     },
     {
       "id": "S-TI",
@@ -163,23 +166,23 @@
       "website": "https://www.catbirdnyc.com/",
       "type": "Independent jeweller, Brooklyn NY",
       "phone": null,
-      "email": null,
-      "contact_source": null,
-      "return_window": "Not verified — no official return-policy page was captured",
-      "return_exclusions": "Not verified",
-      "resize_policy": null,
-      "payment_notes": "Not verified",
+      "email": "customerservice@catbirdnyc.com",
+      "contact_source": "https://www.catbirdnyc.com/contact-us",
+      "return_window": "20 days from the date your package was delivered, for a refund or credit on online orders; in-store purchases can be exchanged for store credit only, within 20 days",
+      "return_exclusions": "Item must be unused, in its original packaging and authorised by Catbird. \"An $9 charge for return shipping will be deducted from your refund.\" Final sale: special orders, engraved items, Forever jewelry, earrings from piercing events, home & beauty items and comestibles. \"All international sales are final.\" Exchanges are handled as a return plus a new order.",
+      "resize_policy": "\"We can only accept repairs or resizing on jewelry bought from Catbird.\"",
+      "payment_notes": "Checkout payment methods were not read this pass, so nothing is asserted about card acceptance. The site loads a Klarna widget (\"Klarna Communication Bridge\") and the contact page directs customers to its form (\"We strive to respond to all emails within 24-48 hrs\"); no customer-service phone number is published there.",
       "publishes_weight": false,
       "publishes_hallmark": false,
       "offers_xrf_or_assay": "Not stated",
       "price_display": "Sale price shown against a regular price",
-      "policy_source": "https://www.catbirdnyc.com/woodland-ring.html",
+      "policy_source": "https://www.catbirdnyc.com/returns",
       "flags": [
         "AV1",
-        "POL1",
+        "RET8",
         "M1"
       ],
-      "verification": "Price, sale/regular price and sold-out indicators verified on the live product page on 2026-10-22. The brand states 'Solid gold always, never plated' on its own site, but that wording did not appear in the product text captured for this ring, so the row stays unverified."
+      "verification": "Return policy read live on 2026-10-22 (pass P3, session arena/699d8e05-gold3) at catbirdnyc.com/returns and contact details at catbirdnyc.com/contact-us: \"Order Status, Availability, Product Details or Shipping Questions - customerservice@catbirdnyc.com\"; the postal address printed there is Catbird, 141 Flushing Avenue, Suite 903, Brooklyn, NY 11205. Verbatim from the returns page: \"...for a refund or credit within 20 days of the date your package was delivered\", \"An $9 charge for return shipping will be deducted from your refund\", \"All international sales are final.\", \"We can only accept repairs or resizing on jewelry bought from Catbird.\" The product page was re-read the same day: \"Woodland Ring $276.00 Regular Price $368.00\" with sold-out/waitlist assets. POL1 is closed for this seller. Dataset A's retailers.json already carried the same Catbird quote, so the two datasets now agree instead of one saying \"Not verified\". The brand's \"Solid gold always, never plated\" wording still did not appear in the product text captured for R18, so that row stays UNVERIFIED."
     },
     {
       "id": "S-JA",
@@ -214,10 +217,10 @@
       "email": null,
       "contact_source": null,
       "address": "650 South Hill Street, #728, Los Angeles, CA 90014 (from the return-policy text on the product page)",
-      "return_window": "30 days from receipt of the item",
-      "return_exclusions": "Items that are damaged or used do not qualify; orders past 30 days of receipt do not qualify; shipping/insurance of the return is the customer's risk",
-      "resize_policy": "Not stated on the pages read",
-      "payment_notes": "Card refunds to the original card are stated; instalment financing displayed. No irreversible-only method was asserted.",
+      "return_window": "30 days from receipt (\"30-Day Return Policy\"); \"Orders which are over 30 days of receipt do not qualify for return policy.\" No return authorisation is needed; once received the return is reviewed by Quality Assurance and \"You will receive credit back to the same credit card which was charged to or exchange within seven business days.\"",
+      "return_exclusions": "\"Items that are damaged or are used do not qualify for return policy.\" \"Items that show signs of wear or have been resized (by a jeweler other than Sarraf Jewelry Inc.), altered, special ordered items or damaged in any way cannot be accepted for return.\" \"Engraving and shipping Charges are nonrefundable.\" \"Bangles and watches that have been engraved are not eligible for return.\" \"Custom made name plates are not eligible for return.\" An engraved ring may still be returned, exchanged or resized where possible (special orders excepted) but \"the $25.00 engraving fee is non-refundable\". The customer must insure the return and require a signature: \"We are not responsible for lost or stolen articles\" and \"Sarraf Jewelry Inc. will not be responsible for loss or damage of return shipments\". Returns go to Sarraf Inc., Attn: Returns, 650 South Hill Street, # 728, Los Angeles, CA 90014.",
+      "resize_policy": "Resizing by a jeweller other than Sarraf voids the return. \"All rings purchased from SARRAF is covered for lifetime refinishing.\"",
+      "payment_notes": "Refund credited back to the same credit card that was charged (or an exchange) within seven business days of the return being received; instalment financing is displayed on product pages (\"or 4 interest-free payments of $153.25\"). Note: the 3% cancellation fee that an earlier version of flag RET7 attributed to this seller is Wilson's, not Sarraf's — no such fee appears in Sarraf's policy text.",
       "publishes_weight": true,
       "publishes_hallmark": false,
       "offers_xrf_or_assay": "Not stated",
@@ -227,10 +230,13 @@
         "WT3",
         "WT4",
         "RET7",
+        "RET9",
+        "WAR1",
         "H1",
         "X1"
       ],
-      "verification": "Product pages fetched 2026-10-22: material \"14K/10K Solid Gold\", approximate metal weight in grams with a stated ±5% tolerance, and a 30-day return clause were read directly. No phone or email recorded because none was verified on a page this pass — left blank rather than guessed."
+      "verification": "Both product pages and the return-policy block on them re-fetched live on 2026-10-22 (pass P3, session arena/699d8e05-gold3), independently of the pass that added these rows. Confirmed verbatim: R20 \"MSRP: US$11,683.00 / Was: US$3,513.00 / Now: US$3,004.00\", \"Material: 14K Solid Gold\", \"Approximate Metal Weight: 3.80 grams\", \"Diamond Weight: 0.94 Ct.\", \"Diamond Color: G\", \"Diamond Clarity: I 1\", \"Natural\", SKU 238401-102; R21 \"MSRP: US$2,384.00 / Was: US$717.00 / Now: US$613.00\", \"Material: 10K Solid Gold\", \"Approximate Metal Weight: 8.30 grams\", \"The weight listed is an approximate weight of a ring in size 10 Made in the USA\", SKU IB-PBWB06-10KY. The tolerance note was also found verbatim: \"we strive to maintain an accuracy of ± 5%\". No phone or email is printed on these pages, so both stay blank rather than guessed.",
+      "warranty": "\"Sarraf.com Jewelry is guaranteed to be free of defects in materials and workmanship\", with lifetime refinishing, subject to: the original invoice must accompany the return; \"All jewelry returned for repair or replacement are subject to a Shipping and handling fee of $100.00 or 10% of purchase price which ever amount is greater\"; \"Lifetime Guarantee cannot be used for chipped or missing stones\"; \"Third Party alteration to the jewelry will automatically void the Lifetime Guarantee\"; \"Normal wear and tear are not covered\"; and \"Sarraf reserves the right to modify this policy at any time and without notice\"."
     },
     {
       "id": "S-AUTOMIC",
@@ -240,8 +246,8 @@
       "phone": null,
       "email": "custom@automicgold.com",
       "contact_source": "https://www.automicgold.com/products/radiant-cut-lab-diamond-cathedral-ring",
-      "return_window": "Free returns stated on the product page, US only",
-      "return_exclusions": "Engraved items are final sale",
+      "return_window": "\"Returns can be made within 30 days of the delivery date. Free return shipping on US orders. Engraved items are final sale and cannot be returned.\"",
+      "return_exclusions": "Engraved items are final sale and cannot be returned (\"All engraved items are final sale\"; engraving is offered at checkout: \"Engrave up to thirty characters on the inside of the band. Engraving adds $60 per line\"). Free return shipping applies to US orders only.",
       "resize_policy": "Not stated on the page read",
       "payment_notes": "Card checkout plus Afterpay instalments advertised",
       "publishes_weight": true,
@@ -252,10 +258,14 @@
       "flags": [
         "WT5",
         "POL2",
+        "SPEC2",
         "H1",
-        "X1"
+        "X1",
+        "M1"
       ],
-      "verification": "Product page fetched 2026-10-22: \"Solid 14k Gold\", \"Approximately 5.4g for gold\", \"Free returns (US only)\", \"All engraved items are final sale\". The custom-order email is quoted from that page; no phone number was verified, so it stays blank."
+      "verification": "Product page re-fetched live on 2026-10-22 (pass P3, session arena/699d8e05-gold3) and read past the cookie-consent layer: \"3ct Radiant Cut Lab Diamond Cathedral Ring\", \"$3,074\", \"Solid 14k Gold and 950 Platinum\", metal options \"14k Yellow Gold / 14k White Gold / Nickel Free 14k White Gold / 14k Rose Gold / 14k Champagne Gold / 950 Platinum\", \"Item Weight: Approximately 5.4g for gold or 8.1g for platinum\", \"Material: 950 platinum and/or Solid 14k gold\", \"Gold source: 100% Recycled gold\", \"Manufacturing: In house in New York\", \"Crafted from solid recycled 14k gold or 950 platinum\", \"Only 2 units left in stock!\", custom@automicgold.com. The 30-day window in return_window comes from the page's Shipping & Returns section — an earlier pass had only the buy-box line \"Free returns (US only)\", so the window was recorded as unstated. All R22 values confirmed independently.",
+      "warranty": "\"Automic Gold jewelry is made with durable, sustainable materials, hand-crafted by our expert jewelers, thoroughly inspected before shipping, and is backed by a limited lifetime warranty that protects against manufacturer defects\" (automicgold.com/pages/lifetime-guarantee).",
+      "lead_time": "Buy box: \"Ships from New York City • Production time is 4-8 business days\". Shipping & Returns section of the same page: \"This item is made to order. Production time is 1-2 weeks. If you are adding engraving, production time is 2-3 weeks.\" Both readings are recorded; neither is averaged."
     }
   ],
   "provenance": {

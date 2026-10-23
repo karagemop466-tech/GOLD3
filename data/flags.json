@@ -240,7 +240,7 @@
       "id": "POL1",
       "severity": "medium",
       "label": "Return policy page not read",
-      "what": "No official return-policy page was captured for this seller, so return terms are unknown rather than favourable.",
+      "what": "No official return-policy page was captured for this seller, so return terms are unknown rather than favourable. As of the P3 pass on 2026-10-22 this applies only to James Allen, whose product URLs redirect to Blue Nile; Ross-Simons and Catbird had their policy pages read and now carry sourced terms.",
       "why_it_matters": "An unread policy is not a permissive one. Assuming a return right that has not been verified is how buyers get stuck.",
       "action": "Read the seller's return policy before ordering and keep a copy.",
       "source": null
@@ -303,10 +303,11 @@
       "id": "RET7",
       "severity": "low",
       "label": "Return window exists but is conditional and short-fused",
-      "what": "Sarraf accepts returns within 30 days of receipt, but damaged or used items do not qualify and orders past 30 days are refused. A cancelled order is charged a 3% card-processing fee (Wilson's terms state the same fee structure).",
+      "what": "Sarraf accepts returns within 30 days of receipt, but only in original condition: \"Items that show signs of wear or have been resized (by a jeweler other than Sarraf Jewelry Inc.), altered, special ordered items or damaged in any way cannot be accepted for return\", and \"Orders which are over 30 days of receipt do not qualify for return policy.\" \"Engraving and shipping Charges are nonrefundable\" — an engraved ring may still be returned, exchanged or resized where possible (special orders excepted), but \"the $25.00 engraving fee is non-refundable\".",
       "why_it_matters": "A return right you cannot practically use is not protection. Waiting past the window, or wearing the ring once, can end it.",
       "action": "Inspect on arrival, keep the packaging untouched, and start the return in writing inside the window if anything fails verification.",
-      "source": "https://www.sarraf.com/products/14k-white-gold-solitaire-ring-0-94-ctw.html"
+      "source": "https://www.sarraf.com/products/14k-white-gold-solitaire-ring-0-94-ctw.html",
+      "correction_note": "P3 correction, 2026-10-22 (session arena/699d8e05-gold3): this entry previously said \"A cancelled order is charged a 3% card-processing fee (Wilson's terms state the same fee structure)\". Sarraf's return policy was re-read end to end on the live page and contains no such fee — the 3% cancellation fee is Wilson's (\"orders cancelled prior to shipment will not be refunded for credit card processing fees incurred at the rate of 3%\", wilsonsestatejewelry.com). The fees Sarraf does publish are the $25.00 engraving fee and, for warranty repair or replacement, \"a Shipping and handling fee of $100.00 or 10% of purchase price which ever amount is greater\" (see WAR1). A number belonging to one seller had been attached to another — the exact failure mode this board exists to catch."
     },
     {
       "id": "POL2",
@@ -315,6 +316,42 @@
       "what": "The product page states that engraved items are final sale, and engraving is offered as an option at checkout.",
       "why_it_matters": "A free or cheap engraving can quietly remove the return right that the rest of the policy advertises.",
       "action": "Decline engraving until the ring has been independently verified, or accept that the purchase becomes non-returnable.",
+      "source": "https://www.automicgold.com/products/radiant-cut-lab-diamond-cathedral-ring"
+    },
+    {
+      "id": "RET8",
+      "severity": "medium",
+      "label": "A fee is deducted from the refund",
+      "what": "Ross-Simons charges \"a flat fee of $4.95 for return shipping and handling\"; Catbird states \"An $9 charge for return shipping will be deducted from your refund\" and that \"All international sales are final.\"",
+      "why_it_matters": "A return right that costs money is still a real right, but the fee is only visible in the policy text, not in the \"free returns\" headline. On a low-value band it is a meaningful share of the refund.",
+      "action": "Read the fee before you order, and factor it into the decision to buy two sizes to compare.",
+      "source": "https://www.ross-simons.com/pages/returns-exchanges"
+    },
+    {
+      "id": "RET9",
+      "severity": "high",
+      "label": "Resizing or altering the ring ends the return right",
+      "what": "Ross-Simons: \"Merchandise that has been damaged, altered, or resized by a jeweler other than Ross-Simons cannot be accepted for return.\" Sarraf: items \"resized (by a jeweler other than Sarraf Jewelry Inc.), altered, special ordered items or damaged in any way cannot be accepted for return\". Blue Nile excludes \"items resized after initial purchase\".",
+      "why_it_matters": "Your checklist has the ring sized, inspected and possibly XRF-tested by an independent jeweller on arrival. If that jeweller resizes it first, these sellers stop accepting the return — the verification step has to happen before any work is done on the ring.",
+      "action": "Inspect and test first, resize second. If a resize is needed, ask the seller to do it (Blue Nile offers one free resize within two sizes in 6 months; Sarraf offers lifetime refinishing) so the return right survives.",
+      "source": "https://www.ross-simons.com/pages/returns-exchanges"
+    },
+    {
+      "id": "WAR1",
+      "severity": "medium",
+      "label": "The warranty costs money to use",
+      "what": "Sarraf's lifetime guarantee covers defects in materials and workmanship, but \"All jewelry returned for repair or replacement are subject to a Shipping and handling fee of $100.00 or 10% of purchase price which ever amount is greater\", must be accompanied by the original invoice, excludes chipped or missing stones and normal wear and tear, and \"Third Party alteration to the jewelry will automatically void the Lifetime Guarantee\". The policy also ends with \"Sarraf reserves the right to modify this policy at any time and without notice\".",
+      "why_it_matters": "A lifetime guarantee that charges $100 or 10% per visit — and that a third-party resize voids outright — is not the protection the headline implies.",
+      "action": "Price the warranty before relying on it, keep every invoice, and use only the seller's own service if you want the guarantee to survive.",
+      "source": "https://www.sarraf.com/products/14k-white-gold-solitaire-ring-0-94-ctw.html"
+    },
+    {
+      "id": "SPEC2",
+      "severity": "low",
+      "label": "One page states the same term two different ways",
+      "what": "Automic Gold's product page says \"Production time is 4-8 business days\" in the buy box and \"This item is made to order. Production time is 1-2 weeks. If you are adding engraving, production time is 2-3 weeks.\" in its Shipping & Returns section. Aurate's solitaire page describes \"a refined 1.8mm width\" in the copy while its specs block lists \"Width: 2.75mm\" and \"Thickness: 1.8mm\".",
+      "why_it_matters": "When a page disagrees with itself, neither sentence can be quoted as the fact. Recording both, verbatim, is the only honest option — picking one would be an invention dressed as a citation.",
+      "action": "Ask the seller to confirm the term (lead time, width, weight) in writing before ordering, and keep the reply with the order.",
       "source": "https://www.automicgold.com/products/radiant-cut-lab-diamond-cathedral-ring"
     }
   ]
