@@ -61,6 +61,22 @@ npm --prefix archive/session-cbea1001 test  # Node anti-hallucination, melt-math
 All checks run in CI on every push and pull request (`.github/workflows/audit.yml`). The site is generated, so
 editing HTML by hand is pointless: change `data/*.json` or `scripts/build_site.py`, then rebuild.
 
+## What the ninth pass changed (23 October 2026 — Pass P13)
+
+Seven official pages re-opened live — **5 confirmed · 1 corrected · 1 flagged** — plus **three site defects** found by auditing the
+repo against its own data (`reports/reverification-pass-fb7e5e3c.md`, `data/reverification-fb7e5e3c.json`, ledger `P13-01`…`P13-07`).
+This pass sits on top of `main` @ `7406ee9` and preserves the concurrent pass `P12` in full.
+
+* **Mejuri prints a `Solid Yellow Gold (14k)` materials heading above a white-gold selection** on R01 and R03. New flag **`SPEC8`**;
+  the misapplied `SPEC2` (which is the Local Eclectic 9k/10k contradiction) removed from R03.
+* **`18k.html` claimed no complete verified 18K ring existed**, while Dataset B held four with live prices plus Dataset C settings.
+  Both the 14K and 18K pages now list the Dataset B/C rows at that karat (31 and 13 rows) with a source link on every row.
+* **Typed-in prose is gone**: the spot anchor, the weight-coverage sentence and the audit-check count in `combined.html` and
+  `methodology.html` are derived from the data files at build time, so they cannot drift again — and the calculator now surfaces
+  the labelled live-check spot reading (0.62% below the dated snapshot the melt values use).
+* Every stored price, karat and gram weight on the seven re-read pages matched verbatim (R02, R15/R16, R20, R21, R31 confirmed;
+  R01/R03 confirmed with the new heading flag).
+
 ## What the fourth verification pass changed (23 October 2026)
 
 25 official URLs were re-opened on the merged tree: **15 confirmed, 8 corrected, 2 flagged**. Full log in

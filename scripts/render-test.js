@@ -153,6 +153,59 @@ check("SD8 combined.html renders all 71 rows with data-cats",
   _combinedRows.length === 71 && _combinedRows.every((m) => /data-cats="[^"]+"/.test(m[1])),
   `${_combinedRows.length} rows`);
 
+
+// ------------------------------------------------ SD18–SD20 / F41–F43 (Pass P13, arena/fb7e5e3c-gold3)
+const _verif = JSON.parse(read("data/verification.json"));
+const _ids = _verif.checks.map((c) => c.id);
+check("SD18 verification ledger still has unique check ids after P13",
+  new Set(_ids).size === _ids.length, `${_ids.length} checks`);
+check("SD18 summary.checks equals the number of ledger entries",
+  _verif.summary.checks === _verif.checks.length);
+check("SD18 verify.html renders the P13 pass",
+  includesText(html["verify.html"].replace(/&#x27;/g, "'"), "arena/fb7e5e3c-gold3"));
+
+const _prices = JSON.parse(read("data/prices.json"));
+const _primary = _prices.snapshots.find((s) => s.role === "primary");
+const _cross = _prices.snapshots.find((s) => s.role === "cross-check");
+const _live = _prices.snapshots.find((s) => String(s.role).startsWith("live-check"));
+check("SD20 combined.html prints the stored primary spot",
+  html["combined.html"].includes(`$${_primary.price_usd_per_troy_oz.toLocaleString("en-US", { minimumFractionDigits: 2 })}`));
+check("SD20 combined.html prints the stored cross-check",
+  html["combined.html"].includes(`$${_cross.price_usd_per_troy_oz.toLocaleString("en-US", { minimumFractionDigits: 2 })}`));
+check("SD20 combined.html no longer prints the stale $4,026.79 anchor",
+  !html["combined.html"].includes("4,026.79"));
+check("SD20 methodology.html no longer claims 15 of 22 rows lack a weight",
+  !includesText(html["methodology.html"], "15 of 22 rows"));
+check("SD20 methodology.html no longer claims 115 checks",
+  !includesText(html["methodology.html"], "115 checks"));
+check("SD20 methodology.html carries the live audit tally",
+  /\d+ checks, 0 errors at the last recorded run/.test(html["methodology.html"]));
+check("SD20 calculator prints the labelled live-check reading",
+  !!_live && html["calculator.html"].includes(
+    `$${_live.price_usd_per_troy_oz.toLocaleString("en-US", { minimumFractionDigits: 2 })}`));
+
+const _ringsDoc = JSON.parse(read("data/rings.json"));
+const _b14 = _ringsDoc.rings.filter((r) => /14k/i.test(r.karat || "") && !/plating|vermeil/i.test(r.karat || ""));
+const _b18 = _ringsDoc.rings.filter((r) => /18k/i.test(r.karat || "") && !/plating|vermeil/i.test(r.karat || ""));
+check("SD19 14k.html lists Dataset B 14K rows",
+  _b14.every((r) => html["14k.html"].includes(`id="x-${r.id}"`)), `${_b14.length} rows`);
+check("SD19 18k.html lists Dataset B 18K rows",
+  _b18.every((r) => html["18k.html"].includes(`id="x-${r.id}"`)), `${_b18.length} rows`);
+check("SD19 18k.html no longer claims no complete verified 18K ring exists",
+  !includesText(html["18k.html"], "No 18K listing here is a complete, verified ring"));
+check("SD19 18k.html carries the Dataset B/C cross-karat table",
+  html["18k.html"].includes('id="cross-18k"'));
+check("SD19 every cross-karat row carries an https source link",
+  [...html["18k.html"].matchAll(/<tr id="x-[^"]+">([\s\S]*?)<\/tr>/g)]
+    .every((m) => /href="https:\/\//.test(m[1])));
+
+const _flags = JSON.parse(read("data/flags.json")).flags.map((f) => f.id);
+check("SD19 SPEC8 flag defined", _flags.includes("SPEC8"));
+const _r01 = _ringsDoc.rings.find((r) => r.id === "R01");
+const _r03 = _ringsDoc.rings.find((r) => r.id === "R03");
+check("SD19 R01 and R03 carry SPEC8", _r01.flags.includes("SPEC8") && _r03.flags.includes("SPEC8"));
+check("SD19 R03 no longer carries the misapplied SPEC2", !_r03.flags.includes("SPEC2"));
+
 // ------------------------------------------------------------------- report
 let failed = 0;
 console.log("render test (static site)\n" + "=".repeat(66));

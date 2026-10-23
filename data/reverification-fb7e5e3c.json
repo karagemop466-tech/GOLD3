@@ -1,0 +1,143 @@
+{
+  "pass": "P13",
+  "session": "arena/fb7e5e3c-gold3",
+  "checked_on": "2026-10-23",
+  "integrated_on": "main @ 7406ee9 (PR #51) - preserves 100% of the concurrent arena/57724486-gold3 pass P12",
+  "method": "Seven official pages re-opened live with the page fetcher (Mejuri R01/R02/R03, Ross-Simons R15/R16, Sarraf R20/R21, Local Eclectic R31); each stored price, karat, weight and quote searched for in the returned text. The repo's flag definitions, karat category pages and the prose typed into scripts/build_site.py were then audited against data/*.json.",
+  "result": {
+    "checks": 7,
+    "confirmed": 5,
+    "corrected": 1,
+    "flagged": 1,
+    "site_defects_fixed": 3
+  },
+  "spot_recheck": {
+    "note": "Taken this session and already recorded by the concurrent pass P12 / snapshot goldprice-org-2026-10-23T20-17Z; not duplicated.",
+    "goldprice_org": {
+      "price_usd_per_troy_oz": 3997.22,
+      "as_of_text": "Oct 23rd, 2026 at 04:17 NY Time",
+      "url": "https://goldprice.org/"
+    },
+    "world_gold_council": {
+      "price_usd_per_troy_oz": 3996.31,
+      "url": "https://www.gold.org/goldhub/data/gold-prices"
+    },
+    "delta_vs_stored_primary_pct": -0.62
+  },
+  "checks": [
+    {
+      "id": "P13-01",
+      "url": "https://mejuri.com/products/bold-diamond-eternity-ring",
+      "outcome": "corrected",
+      "rows": [
+        "R01"
+      ],
+      "stored": "From $2,900; Solid White Gold (14k); rhodium note; 30-day returns; engraving not returnable",
+      "live": "From $2,900; 'Solid White Gold (14k), Natural Diamond'; 'handcrafted in 14k solid gold'; rhodium sentence; free 30-day returns; engraving 'not eligible for returns'; Materials subheading 'Solid Yellow Gold (14k)'",
+      "verdict": "Stored values confirmed; flag SPEC8 added for the contradictory subheading (F41)."
+    },
+    {
+      "id": "P13-02",
+      "url": "https://mejuri.com/products/bold-diamond-half-eternity-ring",
+      "outcome": "confirmed",
+      "rows": [
+        "R02"
+      ],
+      "stored": "$1,500 listed; Solid Yellow Gold (14k); 0.4 ct minimum",
+      "live": "$1,500; 'Solid Yellow Gold (14k), Natural Diamond'; 'seven round cut diamonds'; 'Minimum Carat Weight: 0.4 ct'; 'Only a few left'",
+      "verdict": "Exact match; no change."
+    },
+    {
+      "id": "P13-03",
+      "url": "https://mejuri.com/products/slim-diamond-eternity-band",
+      "outcome": "corrected",
+      "rows": [
+        "R03"
+      ],
+      "stored": "From $898; 0.214-0.274 ct; rhodium note; flags included SPEC2",
+      "live": "From $898; 'Minimum Carat Weight Range: 0.214 ct - 0.274 ct'; 'average carat weight of 0.248ct'; rhodium sentence; 'Solid Yellow Gold (14k)' subheading",
+      "verdict": "Price/weight confirmed, PRC2 stands. Misapplied SPEC2 removed; SPEC8 added (F41)."
+    },
+    {
+      "id": "P13-04",
+      "url": "https://www.ross-simons.com/products/985230",
+      "outcome": "confirmed",
+      "rows": [
+        "R15",
+        "R16"
+      ],
+      "stored": "R15 $249 / 0.7 g 18kt; R16 $299 / 0.8 g 14kt",
+      "live": "R15 '$249', 'Gold Weight 0.7 grams', 'Metal 18ktYellow Gold'; R16 '$299', 'Gold Weight 0.8 grams', 'Metal 14ktYellow Gold'; both 'All weights and measurements are approximate'",
+      "verdict": "Exact match; WT2 already recorded."
+    },
+    {
+      "id": "P13-05",
+      "url": "https://www.sarraf.com/products/14k-white-gold-solitaire-ring-0-94-ctw.html",
+      "outcome": "confirmed",
+      "rows": [
+        "R20"
+      ],
+      "stored": "$3,004; 14K Solid Gold; 3.80 grams",
+      "live": "'Now: US$3,004.00'; 'Material: 14K Solid Gold'; 'Approximate Metal Weight: 3.80 grams'; 'Diamond Weight 0.94 Ct.'",
+      "verdict": "Exact match."
+    },
+    {
+      "id": "P13-06",
+      "url": "https://www.sarraf.com/products/10k-gold-6mm-high-polished-comfort-fit-wedding-band.html",
+      "outcome": "confirmed",
+      "rows": [
+        "R21"
+      ],
+      "stored": "$613; 10K Solid Gold; 8.30 grams; WT4 size-10 note",
+      "live": "'Now: US$613.00'; 'Material: 10K Solid Gold'; 'Approximate Metal Weight: 8.30 grams'; 'The weight listed is an approximate weight of a ring in size 10'",
+      "verdict": "Exact match; WT4 already recorded."
+    },
+    {
+      "id": "P13-07",
+      "url": "https://www.localeclectic.com/products/solid-gold-simple-knot-ring",
+      "outcome": "confirmed",
+      "rows": [
+        "R31"
+      ],
+      "stored": "$239; 10k solid gold",
+      "live": "'Regular price $239' / 'Sale price $239'; 'Only a Few Left'; 29 reviews; image alt text '10k yellow gold'",
+      "verdict": "Price confirmed; the 9k-vs-10k badge contradiction (SPEC2) is unchanged on this page."
+    }
+  ],
+  "irregularities": [
+    {
+      "id": "F41",
+      "summary": "Mejuri prints a 'Solid Yellow Gold (14k)' materials heading above a white-gold selection; R03's SPEC2 flag described a different seller's defect",
+      "action": "SPEC8 added to R01/R03; SPEC2 removed from R03"
+    },
+    {
+      "id": "F42",
+      "summary": "14k.html/18k.html listed only Dataset A and 18k.html claimed no complete verified 18K ring exists, contradicting Dataset B",
+      "action": "cross-karat Dataset B/C tables added to both pages"
+    },
+    {
+      "id": "F43",
+      "summary": "Hardcoded spot and count figures in build_site.py no longer matched data/*.json, and the live-check snapshot was not surfaced",
+      "action": "all figures derived at build time; calculator shows the live-check reading"
+    },
+    {
+      "id": "SD18",
+      "summary": "Karat category pages omitted Dataset B/C and made a false completeness claim",
+      "action": "fixed"
+    },
+    {
+      "id": "SD19",
+      "summary": "Flag definition mismatch on R03",
+      "action": "fixed"
+    },
+    {
+      "id": "SD20",
+      "summary": "Stale prose and unsurfaced live-check reading",
+      "action": "fixed"
+    }
+  ],
+  "not_rechecked": [],
+  "notes": [
+    "No stored price, weight or policy value was overwritten in this pass."
+  ]
+}

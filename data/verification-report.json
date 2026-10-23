@@ -626,6 +626,21 @@
       "id": "F40",
       "severity": "medium",
       "title": "Menē repriced two bands down within one day and its Wide Flat Band page returned HTTP 500"
+    },
+    {
+      "id": "F41",
+      "severity": "medium",
+      "title": "Mejuri's white-gold eternity rings print a 'Solid Yellow Gold (14k)' materials heading above a white-gold swatch line"
+    },
+    {
+      "id": "F42",
+      "severity": "high",
+      "title": "The 18K category page listed only Dataset A and asserted that no complete verified 18K ring exists"
+    },
+    {
+      "id": "F43",
+      "severity": "medium",
+      "title": "Generated prose still carried a spot figure and two counts that no longer matched the data files"
     }
   ],
   "parallel_dataset": {

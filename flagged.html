@@ -33,7 +33,7 @@
 </div>
 
 <div class="grid cols-3" style="margin-bottom:20px">
-  <div class="kpi"><div class="label">Editorial findings</div><div class="value">40</div><div class="sub">18 high severity</div></div>
+  <div class="kpi"><div class="label">Editorial findings</div><div class="value">43</div><div class="sub">19 high severity</div></div>
   <div class="kpi"><div class="label">Listing-level flags</div><div class="value">101</div><div class="sub">across 19 listings</div></div>
   <div class="kpi"><div class="label">Unverified cells</div><div class="value">0 guesses</div><div class="sub">blank is used instead</div></div>
 </div>
@@ -238,6 +238,17 @@
           
           <p class="action"><strong>What to do:</strong> Phone set to null on S-AUTOMIC, contact_source repointed to https://www.automicgold.com/pages/faq (care@automicgold.com), resize_policy restored verbatim from chunk 4 of /policies/refund-policy, and new flag RET14 attached to S-AUTOMIC and R22-R25.</p>
         </div>
+        <div class="card finding high" id="F42">
+          <div class="finding-head">
+            <h3>F42 · The 18K category page listed only Dataset A and asserted that no complete verified 18K ring exists</h3>
+            <span class="badge bad">HIGH</span>
+          </div>
+          <p class="small">18k.html rendered only the two Dataset-A Blue Nile 18K settings and stated &quot;No 18K listing here is a complete, verified ring at a verified price&quot;. The repository&#x27;s own data contradicts that: Dataset B carries complete 18K rings with live prices and published weights, including Ross-Simons&#x27; 2mm 18kt polished ring (R15, $249, 0.7 g, re-read live on 2026-10-23), Tiffany&#x27;s Setting in 18k yellow gold (R17, from $1,600), Sarraf&#x27;s 18k men&#x27;s solitaire (R26, $4,068, 6.3 g) and Brilliant Earth&#x27;s Fairmined 18K (R29, $1,090), plus Dataset C 18K solitaire settings. The 14K page had the same omission: 14 Dataset-A rows and none of the Dataset B 14K listings.</p>
+          <div class="evidence">18k.html rendered 2 rows. data/rings.json holds 18K rows R07, R08, R12, R15, R17, R26, R28, R29 (R04/R19 are plating-only controls). Ross-Simons R15 verified live 2026-10-23 at $249 with &#x27;Gold Weight 0.7 grams&#x27;.</div>
+          <p class="small"><strong>Source:</strong> <a href="https://www.ross-simons.com/products/985230" target="_blank" rel="noopener">https://www.ross-simons.com/products/985230</a></p>
+          
+          <p class="action"><strong>What to do:</strong> 14k.html and 18k.html now list Dataset B rows at that karat (A/B badge, per-row source link) and Dataset C items, and state counts derived from the data instead of hardcoded prose.</p>
+        </div>
         <div class="card finding medium" id="F4">
           <div class="finding-head">
             <h3>F4 · 7 of 17 listings never use the word &#x27;solid&#x27;</h3>
@@ -435,6 +446,28 @@
           <p class="small"><strong>Source:</strong> <a href="https://mene.com/products/mene-wide-flat-band-gold" target="_blank" rel="noopener">https://mene.com/products/mene-wide-flat-band-gold</a></p>
           
           <p class="action"><strong>What to do:</strong> Re-check any Menē price on the product page before ordering, and ask customer care to confirm the Wide Flat Band price in writing while that page errors.</p>
+        </div>
+        <div class="card finding medium" id="F41">
+          <div class="finding-head">
+            <h3>F41 · Mejuri&#x27;s white-gold eternity rings print a &#x27;Solid Yellow Gold (14k)&#x27; materials heading above a white-gold swatch line</h3>
+            <span class="badge warn">MEDIUM</span>
+          </div>
+          <p class="small">On the Bold Diamond Eternity Ring (R01) and the Slim Diamond Eternity Band (R03) the swatch line reads &quot;Solid White Gold (14k), Natural Diamond&quot; and the copy says the ring is handcrafted in 14k solid gold, but the Materials &amp; Specifications subheading prints &quot;Solid Yellow Gold (14k)&quot;. The karat is consistent at 14k, so purity is unaffected; the colour label contradicts the material actually selected. R03 had been carrying flag SPEC2, whose stored definition is the Local Eclectic 9k-vs-10k contradiction, so the flag described the wrong defect.</p>
+          <div class="evidence">R01 and R03 read live 2026-10-23: swatch &quot;Solid White Gold (14k), Natural Diamond&quot; vs subheading &quot;Solid Yellow Gold (14k)&quot;; both pages also print the rhodium-plating sentence for white gold.</div>
+          <p class="small"><strong>Source:</strong> <a href="https://mejuri.com/products/bold-diamond-eternity-ring" target="_blank" rel="noopener">https://mejuri.com/products/bold-diamond-eternity-ring</a></p>
+          
+          <p class="action"><strong>What to do:</strong> New flag SPEC8 created and attached to R01 and R03; the misapplied SPEC2 removed from R03 and left on the Local Eclectic row it describes. Confirm the metal colour in writing on the order.</p>
+        </div>
+        <div class="card finding medium" id="F43">
+          <div class="finding-head">
+            <h3>F43 · Generated prose still carried a spot figure and two counts that no longer matched the data files</h3>
+            <span class="badge warn">MEDIUM</span>
+          </div>
+          <p class="small">combined.html still described the gold anchor as &quot;the World Gold Council figure of $4,024.36/oz (21 Oct 2026)&quot; and &quot;GoldPrice.org at $4,026.79/oz (22 Oct 2026) ... 0.06% apart&quot;, while data/prices.json holds 4,022.22 primary / 4,024.45 cross-check (0.055%) and now also a clearly labelled live-check reading of 3,997.22. methodology.html still said &quot;15 of 22 rows do not publish a weight&quot; and &quot;115 checks, 0 errors&quot; while the data holds 31 Dataset B rows (17 without a usable weight) and audit.py reports 174 passing checks. These were literals typed into scripts/build_site.py, so they drifted as the datasets grew.</p>
+          <div class="evidence">data/prices.json: primary 4,022.22, cross-check 4,024.45, delta 0.0554%, live-check 3,997.22. data/rings.json: 31 rows, 14 with weight_g. audit.py on 2026-10-23: passed=174. combined.html printed $4,026.79 / $4,024.36 / 0.06%; methodology.html printed 15 of 22 and 115 checks.</div>
+          <p class="small"><strong>Source:</strong> <a href="https://www.gold.org/goldhub/data/gold-prices" target="_blank" rel="noopener">https://www.gold.org/goldhub/data/gold-prices</a></p>
+          
+          <p class="action"><strong>What to do:</strong> The spot figures now come from data/prices.json, the weight-coverage counts from data/rings.json and the audit tally from reports/audit-report.md at build time, so the prose cannot drift from the data again.</p>
         </div>
         <div class="card finding low" id="F10">
           <div class="finding-head">
@@ -1305,6 +1338,14 @@ exists. A flag with no source of its own is a question about one specific listin
           <p class="small" style="margin:8px 0 4px">On VRAI&#x27;s Signature 6-Prong Solitaire page (R28), the active configuration reads &#x27;Band: Plain&#x27; ($1,460), yet the Details block on the exact same page prints &#x27;Pavé carat weight: 0.11ctw&#x27;.</p>
           <p class="small" style="margin:0"><strong>What to do:</strong> Confirm exact SKU specifications (plain shank vs pavé melee carat weight) on the written order invoice before paying.</p>
           <p class="small" style="margin:6px 0 0"><strong>Source:</strong> <a href="https://www.vrai.com/engagement-rings/signature-6-prong/round-brilliant-yellow-gold-41046738731101" target="_blank" rel="noopener">official page</a></p>
+        </div><div class="card" id="flag-SPEC8">
+          <div style="display:flex;gap:8px;align-items:baseline;flex-wrap:wrap">
+            <span class="badge warn">medium</span>
+            <span class="mono">SPEC8</span><strong>Material heading contradicts the material actually selected</strong>
+          </div>
+          <p class="small" style="margin:8px 0 4px">On Mejuri&#x27;s Bold Diamond Eternity Ring (R01) and Slim Diamond Eternity Band (R03) the swatch line and body copy name &quot;Solid White Gold (14k)&quot;, while the Materials &amp; Specifications subheading on the same page prints &quot;Solid Yellow Gold (14k)&quot;. The karat (14k) is consistent; the colour is not. Read live on 2026-10-23.</p>
+          <p class="small" style="margin:0"><strong>What to do:</strong> Ask the seller in writing to confirm the metal colour of the exact variant ordered; keep the reply with the order confirmation.</p>
+          <p class="small" style="margin:6px 0 0"><strong>Source:</strong> <a href="https://mejuri.com/products/bold-diamond-eternity-ring" target="_blank" rel="noopener">official page</a></p>
         </div><div class="card" id="flag-SRC2">
           <div style="display:flex;gap:8px;align-items:baseline;flex-wrap:wrap">
             <span class="badge warn">medium</span>
