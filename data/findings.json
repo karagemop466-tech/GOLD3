@@ -180,6 +180,61 @@
       "source": "https://www.gold.org/goldhub/data/gold-prices",
       "product": null,
       "action": "None — control check. If a future pass refreshes the anchor, it must re-run the calculator and rebuild every page so the printed melt values stay reproducible from the data."
+    },
+    {
+      "id": "F19",
+      "severity": "high",
+      "title": "Sarraf's recorded e-mail address was wrong and its cited policy page returns 404",
+      "detail": "data/sellers.json listed Sarraf's e-mail as info@sarraf.com with contact_source https://www.sarraf.com/pages/contact-us.html. That page (which redirects to https://www.sarraf.com/contact-us/) publishes no e-mail address at all - only a contact form, two phone numbers and business hours - so the recorded address was unsupported by its own citation. Sarraf's official About page prints 'E-mail: service@sarraf.com', and the returns policy page requires wholesale return requests to go to the same address. Separately, the policy_source recorded for this seller, https://www.sarraf.com/pages/returns-and-refunds.html, returns '404 Error - Page not found' with the page title 'Sarraf - Not Found'; the live policy page is https://www.sarraf.com/30-day-returns-and-exchange-policy/, reached from Sarraf's own policy index. Both values were corrected on 2026-10-23 and the dead-link class of defect recorded as flag SRC1.",
+      "evidence": "About page verbatim: 'Phone: (888) 4-SARRAF ( 888-472-7723)  FAX: (213) 627-5212  E-mail: service@sarraf.com'. Returns page verbatim: 'All return require prior authorization. You must submit your request for return to service@sarraf.com'. Dead URL response verbatim: '404 Error - Page not found ... Uh oh, looks like the page you are looking for has moved or no longer exists.'",
+      "source": "https://www.sarraf.com/about-sarraf/",
+      "action": "Corrected in data/sellers.json: email service@sarraf.com, contact_source the About page, policy_source the live returns page. Any buyer contacting Sarraf should use service@sarraf.com.",
+      "subject": "S-SARRAF",
+      "product": null
+    },
+    {
+      "id": "F20",
+      "severity": "high",
+      "title": "Automic Gold's cited return-policy URL returns 404, so its resize claim had no source",
+      "detail": "data/sellers.json cited https://www.automicgold.com/pages/return-policy as Automic's policy_source. Fetched on 2026-10-23 it returns '404 Not Found - Automic Gold'. The live page is https://www.automicgold.com/policies/refund-policy, and it does confirm the recorded window verbatim: 'Automic Gold offers free returns within 30 days of the delivery date for customers who reside in the U.S. You will be provided with one prepaid shipping label per order. For additional returns and exchanges, shipping fees may apply.' The resize_policy value resting on the dead URL ('Custom-altered or resized rings beyond standard stock are final sale') could not be re-sourced, because the live page's resizing clause was not captured verbatim in this pass; it has been set to null with a note rather than carried forward unsourced.",
+      "evidence": "Live page verbatim: 'Automic Gold offers free returns within 30 days of the delivery date for customers who reside in the U.S. You will be provided with one prepaid shipping label per order.' Free-label portal verbatim: 'Click the link for your free return label: https://automic.aftership.com. AfterShip is available for U.S residents only.' Dead URL response: page title '404 Not Found - Automic Gold'.",
+      "source": "https://www.automicgold.com/policies/refund-policy",
+      "action": "policy_source repointed to the live refund-policy page; resize_policy blanked with a note so the owning session can restore it with a verbatim quote. Recorded as flag SRC1.",
+      "subject": "S-AUTOMIC",
+      "product": null
+    },
+    {
+      "id": "F21",
+      "severity": "medium",
+      "title": "Sarraf counts returns over $10,000 as 'high-risk' behaviour under a three-strike policy",
+      "detail": "Sarraf's live returns policy publishes a 'NOTICE OF EXCESSIVE RETURNS' defining high-risk return behaviour as 'Returning 30 or more items', 'Returning purchases greater than $10K' or an 'Overall return rate of 85%'. Clients who reach three strikes 'will be prohibited from making any new orders'. Strikes are not assessed where the fault is Sarraf's, for example a damaged or incorrectly listed item. A buyer returning an expensive engagement ring can therefore be counted as high-risk purely because of the item's price. This is a seller-reputation and return-friendliness fact that the checklist's 'return policy' item should carry, and it is now recorded as flag RET13 and on the S-SARRAF record.",
+      "evidence": "Verbatim: 'The Sarraf.com operates on a three strike policy for clients who exhibit high-risk return behavior. High-risk behavior is identified as: Returning 30 or more items; Returning purchases greater than $10K; Overall return rate of 85%.' and 'Clients who reach three strikes will be prohibited from making any new orders.'",
+      "source": "https://www.sarraf.com/30-day-returns-and-exchange-policy/",
+      "action": "Published as flag RET13 on the Sarraf record and on the flagged-for-review page. Treat the return right as usable but consequential: return decisively, once.",
+      "subject": "S-SARRAF",
+      "product": null
+    },
+    {
+      "id": "F22",
+      "severity": "high",
+      "title": "Two official Sarraf pages contradict each other on whether engraved rings can be returned",
+      "detail": "Sarraf's About page describes the 30-day policy as covering 'any non-engraved items still in new condition and we'll give you a full refund within the first 30 days. No questions asked.' The returns policy page says the opposite for engraved rings: 'Any ring where personal engraving was added or a special finish may be returned, exchanged, or resized where possible (with the exception of special orders); however, the $25.00 engraving fee or $50.00 finsh charges are non-refundable.' One page excludes engraved items outright, the other accepts them with non-refundable fees. data/sellers.json had previously recorded the stricter reading as a flat exclusion ('Custom-sized, special-order, or engraved items do not qualify'), which is not what either page says on its own. Where two official pages conflict, a buyer should assume the stricter one applies until the seller confirms otherwise in writing.",
+      "evidence": "About page verbatim: '30-Day Return Policy - Return any non-engraved items still in new condition and we'll give you a full refund within the first 30 days. No questions asked.' Returns page verbatim: 'CAN I RETURN OR RESIZE AN ENGRAVED RING? Any ring where personal engraving was added or a special finish may be returned, exchanged, or resized where possible (with the exception of special orders); however, the $25.00 engraving fee or $50.00 finsh charges are non-refundable.'",
+      "source": "https://www.sarraf.com/about-sarraf/",
+      "action": "Recorded as flag SPEC4 with both URLs; S-SARRAF resize_policy corrected to quote both pages. Do not engrave until the return window has passed, or get written confirmation first.",
+      "subject": "S-SARRAF",
+      "product": null
+    },
+    {
+      "id": "F23",
+      "severity": "medium",
+      "title": "Three Catbird values drafted in this pass did not survive contact with the live pages",
+      "detail": "The same defect class this pass hunts in other sessions appeared in its own draft data. An intermediate version of the S-CB record carried hello@catbirdnyc.com as Catbird's e-mail, '219 Bedford Avenue, Brooklyn, NY 11211' as a return address, and a final-sale list reading 'pierced earrings, body jewelry, items from the Final Sale collection, gift cards'. Re-fetching both pages on 2026-10-23 showed: the contact page publishes customerservice@catbirdnyc.com for order, availability, product and shipping questions (plus two role-specific addresses that are not customer service); the returns page publishes no postal return address at all, only a Narvar return portal and in-store returns; and the actual final-sale list is 'Special orders, engraved items, Forever jewelry, earrings from piercing events, home & beauty items, and comestibles' - the earlier wording had been carried over from data/retailers.json rather than from Catbird's own page. All three were corrected or blanked. The page also adds two facts a buyer needs: 'Once your order is placed we are unable to cancel it or make changes', and there is no exchange - 'place a new order on line for your new size. This is currently the only way we are able to accomodate exchanges.'",
+      "evidence": "Contact page verbatim: 'Order Status, Availability, Product Details or Shipping Questions - customerservice@catbirdnyc.com'. Returns page verbatim: 'Special orders, engraved items, Forever jewelry, earrings from piercing events, home & beauty items, and comestibles are final sale and cannot be returned.' and 'An $9 charge for return shipping will be deducted from your refund.' and 'All international sales are final.'",
+      "source": "https://www.catbirdnyc.com/returns",
+      "action": "Corrected in data/sellers.json: email set to customerservice@catbirdnyc.com, return_address set to null with a note, exclusions replaced with the page's own list, and the no-cancellation and return-then-reorder rules added as their own fields.",
+      "subject": "S-CB",
+      "product": null
     }
   ]
 }

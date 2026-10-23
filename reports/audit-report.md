@@ -1,9 +1,9 @@
 # Anti-hallucination audit report
 
-- Run: 2026-10-22 23:48 UTC
+- Run: 2026-10-23 00:15 UTC
 - Rows audited: **31**
 - Sellers audited: **14**
-- Flag definitions: **40**
+- Flag definitions: **47**
 - Result: **PASS** — 0 error(s), 0 warning(s), 173 check(s) passed
 
 ## What this pass is looking for
@@ -175,7 +175,7 @@ None.
 - [domain] R31: localeclectic.com belongs to localeclectic.com
 - [verify] all 31 rows appear in the verification log
 - [verify] summary counts recomputed from the entries and match
-- [flags] 40 flag definitions validated
+- [flags] 47 flag definitions validated
 - [standards] all karat fractions reproduce n/24
 - [standards] 8 legal rules carry citations
 - [site] verify.html present

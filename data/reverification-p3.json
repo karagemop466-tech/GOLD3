@@ -3,7 +3,7 @@
   "session": "arena/699d8e05-gold3",
   "branch": "arena/699d8e05-gold3",
   "retrieved_utc": "2026-10-22",
-  "completed_utc": "2026-10-22T23:55Z",
+  "completed_utc": "2026-10-23T00:00:00Z",
   "repo_state_at_start": "main @ cdf62fd (22 dataset-B rows, 19 dataset-A products, 10 sellers, 13 retailers)",
   "method": "Every URL below was opened live with a page reader on 2026-10-22 (no cached copies, no search-result snippets, no memory of an earlier fetch). Each value stored in this repository for that target was then searched for in the returned text. A value that was found verbatim is 'confirmed'. A value that was wrong, unsupported, or missing where the source does state it is 'corrected' and the correction is recorded with the quote that justifies it. Something true but adverse is 'flagged'. Nothing was averaged, rounded up, or filled in from what a retailer usually says.",
   "no_hallucination_rule": "The rule printed in the site's front-page banner governs this file: every number was read off an official seller or government page and is linked; where a seller does not publish a value the cell is empty and flagged, never filled in with a guess. This pass applied the rule in both directions — it also deleted a number that a source did not support (the 3% fee wrongly attributed to Sarraf, F15) and corrected a claim that a source contradicted ('no ring weight on the listing' where the listing prints 5.5-8.5g, F14).",
@@ -187,7 +187,7 @@
         "NO 3% CARD-PROCESSING FEE APPEARS ANYWHERE IN THIS POLICY"
       ],
       "outcome": "corrected",
-      "action": "Flag RET7 asserted \"A cancelled order is charged a 3% card-processing fee (Wilson's terms state the same fee structure)\". That fee is Wilson's, not Sarraf's — a true fact about one seller transplanted onto another. RET7 has been rewritten from Sarraf's own words, the transplant is recorded in a correction_note on the flag, and it is published as finding F15. New flag RET9 covers the third-party-resize exclusion.",
+      "action": "Flag RET7 asserted \"A cancelled order is charged a 3% card-processing fee (Wilson's terms state the same fee structure)\". That fee is Wilson's, not Sarraf's — a true fact about one seller transplanted onto another. RET7 has been rewritten from Sarraf's own words, the transplant is recorded in a correction_note on the flag, and it is published as finding F15. New flag RET12 covers the third-party-resize exclusion.",
       "fetched_utc": "2026-10-22"
     },
     {
@@ -235,7 +235,7 @@
         "Stone details: \"Stone is 9.7mm x 7.3mm\" · \"Engagement band is 3mm\" · \"Lab created diamond\" · \"Diamond clarity VS/VVS\" · \"Diamond color D/E/F\" · \"Diamond weight Approximately 3ct\""
       ],
       "outcome": "corrected",
-      "action": "R22's numbers all match. But the seller record said the return window was unstated (\"Free returns stated on the product page, US only\") when the same page states 30 days from delivery; S-AUTOMIC now carries the verbatim window, plus its warranty and both lead-time readings. New flag SPEC2 records the lead-time self-contradiction. Published as finding F16.",
+      "action": "R22's numbers all match. But the seller record said the return window was unstated (\"Free returns stated on the product page, US only\") when the same page states 30 days from delivery; S-AUTOMIC now carries the verbatim window, plus its warranty and both lead-time readings. New flag SPEC5 records the lead-time self-contradiction. Published as finding F16.",
       "fetched_utc": "2026-10-22"
     },
     {
@@ -258,7 +258,7 @@
         "gift returns are issued as merchandise credit"
       ],
       "outcome": "corrected",
-      "action": "POL1 closed for S-RS: return_window, return_exclusions, resize_policy and policy_source are now filled from this page. New flags RET8 ($4.95 fee) and RET9 (third-party resize voids the return) attached. Rows R15/R16 still carry their own \"Not verified\" return_window text — that file is inside PR #20's diff, so it is change request CR-1 rather than an edit here. Published as finding F17.",
+      "action": "POL1 closed for S-RS: return_window, return_exclusions, resize_policy and policy_source are now filled from this page. New flags RET11 ($4.95 fee) and RET12 (third-party resize voids the return) attached. Rows R15/R16 still carry their own \"Not verified\" return_window text — that file is inside PR #20's diff, so it is change request CR-1 rather than an edit here. Published as finding F17.",
       "fetched_utc": "2026-10-22"
     },
     {
@@ -541,7 +541,7 @@
         "$150 fee if the diamond report is missing · bank-wire refunds mentioned"
       ],
       "outcome": "confirmed",
-      "action": "S-BN's record matches on every point. The \"items resized after initial purchase\" exclusion is why RET9 is attached to S-BN as well as to Ross-Simons and Sarraf.",
+      "action": "S-BN's record matches on every point. The \"items resized after initial purchase\" exclusion is why RET12 is attached to S-BN as well as to Ross-Simons and Sarraf.",
       "fetched_utc": "2026-10-22"
     },
     {
@@ -767,6 +767,190 @@
       "outcome": "confirmed",
       "action": "Exclusion reason still true: the listing no longer exists.",
       "fetched_utc": "2026-10-22"
+    },
+    {
+      "id": "P3-39",
+      "url": "https://www.sarraf.com/pages/returns-and-refunds.html",
+      "publisher": "Sarraf.com",
+      "target": "Re-fetch the URL recorded as S-SARRAF's policy_source by another session, to confirm the stored return terms still have a live citation.",
+      "rows": [
+        "S-SARRAF"
+      ],
+      "checked": "Re-fetch the URL recorded as S-SARRAF's policy_source by another session, to confirm the stored return terms still have a live citation.",
+      "evidence": [
+        "Response is a 404 page: heading '404 Error - Page not found' and body 'Uh oh, looks like the page you are looking for has moved or no longer exists.' Page title: 'Sarraf - Not Found'."
+      ],
+      "outcome": "flagged",
+      "action": "policy_source repointed to the live page (see P3-40) and the dead-link defect recorded as new flag SRC1 and finding F19. The same URL still appears in data/rings.json, data/verified-data.js and verification/sources-manifest.json, which are other sessions' files - filed as change request CR-10 rather than edited.",
+      "fetched_utc": "2026-10-23"
+    },
+    {
+      "id": "P3-40",
+      "url": "https://www.sarraf.com/30-day-returns-and-exchange-policy/",
+      "publisher": "Sarraf.com",
+      "target": "Read the live Sarraf returns policy in full (2 chunks) and test every return-related value stored on S-SARRAF and in flag RET7.",
+      "rows": [
+        "S-SARRAF",
+        "RET7",
+        "R20",
+        "R21"
+      ],
+      "checked": "Read the live Sarraf returns policy in full (2 chunks) and test every return-related value stored on S-SARRAF and in flag RET7.",
+      "evidence": [
+        "'Return or exchange of an item within 30 days of receipt' · 'Items that are damaged or used do not qualify for the return policy' · 'Orders that are over 30 days from receipt do not qualify'",
+        "'Items from which the Sarraf.com tag has been removed are not eligible for return or exchange' · 'Items that show signs of wear or have been resized (by a jeweler other than Sarraf Jewelry Inc.), altered, special-ordered items, or damaged in any way cannot be accepted for return'",
+        "'CAN I RETURN OR RESIZE AN ENGRAVED RING? Any ring where personal engraving was added or a special finish may be returned, exchanged, or resized where possible (with the exception of special orders); however, the $25.00 engraving fee or $50.00 finsh charges are non-refundable.' (the 'finsh' spelling is the site's own)",
+        "'You will receive credit back to the same credit card that was charged or an exchange within seven business days.' · 'You do not need a return authorization.' (retail) · return address 'Sarraf Inc. Attn: Returns 650 South Hill Street, # 728 Los Angeles, CA 90014'",
+        "'NOTICE OF EXCESSIVE RETURNS ... High-risk behavior is identified as: Returning 30 or more items / Returning purchases greater than $10K / Overall return rate of 85% ... Clients who reach three strikes will be prohibited from making any new orders.'",
+        "Wholesale clause: 'Your have two weeks from the date the order was received to return the item ... Engraved items are not eligible for return. All return require prior authorization. You must submit your request for return to service@sarraf.com'",
+        "No percentage or card-processing fee appears anywhere in either chunk - confirming the RET7 correction (F15) a second time on the canonical policy page."
+      ],
+      "outcome": "corrected",
+      "action": "S-SARRAF return_window, return_exclusions and resize_policy rewritten from this page; new fields excessive_returns_notice and wholesale_note added; new flags RET13 (three-strike policy) and RET12 (third-party resizing) attached. Published as findings F21 and F22.",
+      "fetched_utc": "2026-10-23",
+      "note": "Both chunks read. This is the page the site's own policy index links to as 'Return Policy'."
+    },
+    {
+      "id": "P3-41",
+      "url": "https://www.sarraf.com/about-sarraf/",
+      "publisher": "Sarraf.com",
+      "target": "Read Sarraf's About page for the official e-mail address, phone, hours and address, and for the marketing wording of its return and warranty promises.",
+      "rows": [
+        "S-SARRAF"
+      ],
+      "checked": "Read Sarraf's About page for the official e-mail address, phone, hours and address, and for the marketing wording of its return and warranty promises.",
+      "evidence": [
+        "'Phone: (888) 4-SARRAF ( 888-472-7723)' · 'FAX: (213) 627-5212' · 'E-mail: service@sarraf.com'",
+        "'Sarraf Jewelry Inc. 650 S. Hill St., #728 Los Angeles, CA 90014' · 'The Showroom is for Pickup only (No in-store shopping)' · 'Monday - Thursday 10:00 AM to 4:00 PM Pacific Standard Time'",
+        "'30-Day Return Policy - Return any non-engraved items still in new condition and we'll give you a full refund within the first 30 days. No questions asked.'",
+        "'Lifetime Guarantee - Any item purchased at Sarraf Jewelry is guaranteed to be free of defects in both craftsmanship and materials... Some restrictions apply.'",
+        "'Best Price Guarantee ... If you find a matching product with a lower price, we will give you back the difference in store credit.' · 'Founded in 1986' · links to its 'A+ Rating with the Better Business Bureau'"
+      ],
+      "outcome": "corrected",
+      "action": "S-SARRAF email corrected from info@sarraf.com to service@sarraf.com and contact_source repointed to this page; phone_as_printed, contact_hours and the pickup-only address note added. The 'non-engraved items' wording contradicts the returns page and is recorded as flag SPEC4 / finding F22.",
+      "fetched_utc": "2026-10-23",
+      "note": "Also supplies the canonical policy index: Return Policy, Shipping Policy, Privacy Policy, lifetime-guarantee, International-orders, satisfaction-guarantee, Pricing & Availability, Layaway."
+    },
+    {
+      "id": "P3-42",
+      "url": "https://www.sarraf.com/pages/contact-us.html",
+      "publisher": "Sarraf.com",
+      "target": "Fetch the URL recorded as S-SARRAF's contact_source, to test whether it supports the phone and e-mail stored against it.",
+      "rows": [
+        "S-SARRAF"
+      ],
+      "checked": "Fetch the URL recorded as S-SARRAF's contact_source, to test whether it supports the phone and e-mail stored against it.",
+      "evidence": [
+        "The URL redirects to https://www.sarraf.com/contact-us/ (page title 'Sarraf Contact Us | Sarraf.com').",
+        "'You can also reach us by calling 888-472-7723 or 213-612-4690 during the business hours listed below.' · 'Normal Business Hours Pacific Standard Time / Monday - Thursday 10:00 AM to 4:00 PM'",
+        "The page contains a contact form only ('Please fill out the form below if you need assistance. We normally respond to your message within one business day.') with fields Full Name, Phone Number, Email Address, Order Number, Company Name, RMA Number, Comments. No Sarraf e-mail address is published anywhere on it."
+      ],
+      "outcome": "flagged",
+      "action": "The phone number this URL was cited for is confirmed verbatim (and a second line, 213-612-4690, was found), but the e-mail recorded against the same citation is not on the page at all. contact_source moved to the About page, which does print the address; finding F19 records both halves.",
+      "fetched_utc": "2026-10-23",
+      "note": "Second official confirmation of 888-472-7723, so the phone value itself was kept."
+    },
+    {
+      "id": "P3-43",
+      "url": "https://www.sarraf.com/",
+      "publisher": "Sarraf.com",
+      "target": "Read the Sarraf homepage for any independently published contact e-mail, return promise or warranty wording.",
+      "rows": [
+        "S-SARRAF"
+      ],
+      "checked": "Read the Sarraf homepage for any independently published contact e-mail, return promise or warranty wording.",
+      "evidence": [
+        "'In business since 1986, Sarraf Jewelry has worked tirelessly ... earned us a stellar A+ Rating from the Better Business Bureau ... backing them with a lifetime warranty.'",
+        "'We offer a range of perks like free shipping and a 30-day satisfaction program because we truly want you to be confident in your purchase.'",
+        "No e-mail address and no telephone number are printed on the homepage."
+      ],
+      "outcome": "confirmed",
+      "action": "No change needed. Confirms the 30-day programme and the lifetime-warranty marketing claim (both narrower in practice - see WAR1 and SPEC4), and confirms that the homepage is not a source for the contact e-mail.",
+      "fetched_utc": "2026-10-23"
+    },
+    {
+      "id": "P3-44",
+      "url": "https://www.automicgold.com/pages/return-policy",
+      "publisher": "Automic Gold",
+      "target": "Re-fetch the URL recorded as S-AUTOMIC's policy_source by another session.",
+      "rows": [
+        "S-AUTOMIC",
+        "R22"
+      ],
+      "checked": "Re-fetch the URL recorded as S-AUTOMIC's policy_source by another session.",
+      "evidence": [
+        "Page title is '404 Not Found - Automic Gold'. The body served is the site's cookie-consent layer followed by a 404; no return terms appear."
+      ],
+      "outcome": "flagged",
+      "action": "policy_source repointed to the live refund-policy page (see P3-45); the resize_policy claim that rested on this dead URL was set to null with a note rather than kept unsourced. Flag SRC1, finding F20. The same URL still appears in data/rings.json (3 rows) and verification/sources-manifest.json - filed as CR-10.",
+      "fetched_utc": "2026-10-23"
+    },
+    {
+      "id": "P3-45",
+      "url": "https://www.automicgold.com/policies/refund-policy",
+      "publisher": "Automic Gold",
+      "target": "Read Automic's live refund policy and test the 30-day window, the free-return-shipping claim and the final-sale wording stored on S-AUTOMIC.",
+      "rows": [
+        "S-AUTOMIC",
+        "R22"
+      ],
+      "checked": "Read Automic's live refund policy and test the 30-day window, the free-return-shipping claim and the final-sale wording stored on S-AUTOMIC.",
+      "evidence": [
+        "'# Refund policy / # Returns & Exchanges / Not in love with your item or want to exchange? Click the link for your free return label: https://automic.aftership.com. AfterShip is available for U.S residents only. Returns and exchanges are subject to our standard return policy.'",
+        "'Standard Return Policy / US Residents: Automic Gold offers free returns within 30 days of the delivery date for customers who reside in the U.S. You will be provided with one prepaid shipping label per order. For additional returns and exchanges, shipping fees may apply.'"
+      ],
+      "outcome": "corrected",
+      "action": "policy_source repointed here; return_window kept (the stored 30-days-from-delivery value is confirmed verbatim) and extended with the one-prepaid-label-per-order limit and the U.S.-only AfterShip portal; resize_policy blanked with a note because this pass did not capture the page's resizing clause verbatim.",
+      "fetched_utc": "2026-10-23",
+      "note": "Read past the cookie-consent layer, which occupies the first three chunks of this page."
+    },
+    {
+      "id": "P3-46",
+      "url": "https://www.catbirdnyc.com/contact-us",
+      "publisher": "Catbird",
+      "target": "Re-read Catbird's contact page for the customer-service e-mail, any phone number, response times and postal address.",
+      "rows": [
+        "S-CB",
+        "R04",
+        "R17"
+      ],
+      "checked": "Re-read Catbird's contact page for the customer-service e-mail, any phone number, response times and postal address.",
+      "evidence": [
+        "'Order Status, Availability, Product Details or Shipping Questions - customerservice@catbirdnyc.com'",
+        "Role-specific addresses that are not customer service: 'Press & partnership inquiries / Please contact Sriya Karumanchi (sriya@catbirdnyc.com)' and 'Submitting your work ... leigh@catbirdnyc.com'",
+        "'We strive to respond to all emails within 24-48 hrs.' · 'For the fastest response, please use the form above'",
+        "'Catbird, Attn: Leigh, 141 Flushing Avenue, Suite 903, Brooklyn, NY 11205' - printed under 'Submitting your work' for mailing design samples, with 'No phone calls please.'",
+        "No telephone number is published anywhere on the page. A Klarna country/currency selector is present."
+      ],
+      "outcome": "corrected",
+      "action": "S-CB email corrected to customerservice@catbirdnyc.com (an earlier draft of this pass had recorded hello@catbirdnyc.com, which the page does not contain) and contact_hours set from the 24-48 hour line. phone stays null. Finding F23 records the self-correction.",
+      "fetched_utc": "2026-10-23",
+      "note": "The 141 Flushing Avenue address is for sample submissions, not returns, so it was not used as a return address."
+    },
+    {
+      "id": "P3-47",
+      "url": "https://www.catbirdnyc.com/returns",
+      "publisher": "Catbird",
+      "target": "Re-read Catbird's returns page in full and test the 20-day window, the $9 fee, the final-sale list and the resizing rule stored on S-CB and on data/retailers.json 'catbird'.",
+      "rows": [
+        "S-CB",
+        "R04",
+        "R17"
+      ],
+      "checked": "Re-read Catbird's returns page in full and test the 20-day window, the $9 fee, the final-sale list and the resizing rule stored on S-CB and on data/retailers.json 'catbird'.",
+      "evidence": [
+        "'you can send it back to us for a refund or credit within 20 days of the date your package was delivered' · 'the item must be unused and sent back in its original packaging. All returns must be authorized by Catbird.' · 'An $9 charge for return shipping will be deducted from your refund.'",
+        "'Special orders, engraved items, Forever jewelry, earrings from piercing events, home & beauty items, and comestibles are final sale and cannot be returned.'",
+        "'We reserve the right to deny credit if the merchandise returned does not meet our return policy requirements. We are not able to cover lost, stolen or missing packages.' · 'processing can take up to 7-10 business days before your refund is issued'",
+        "'Once your order is placed we are unable to cancel it or make changes.'",
+        "'I NEED THE EXACT SAME RING IN A DIFFERENT SIZE! Please return your ring using the return portal and place a new order on line for your new size. This is currently the only way we are able to accomodate exchanges.'",
+        "'We can only accept repairs or resizing on jewelry bought from Catbird.' · 'All international sales are final.' · returns run through https://returns.narvar.com/catbird/returns or any Catbird store",
+        "No postal return address is printed on this page."
+      ],
+      "outcome": "corrected",
+      "action": "S-CB return_window, return_exclusions and resize_policy rewritten from this page's own words, and two new fields added: cancellation_policy ('unable to cancel it or make changes') and exchange_policy (return and reorder is the only exchange route). The return_address drafted earlier in this pass was removed because the page publishes none. Flags RET11 ($9 fee) and RET12 (third-party alteration) attached. Finding F23.",
+      "fetched_utc": "2026-10-23",
+      "note": "The 20-day window and $9 fee already agreed with data/retailers.json 'catbird'; the final-sale list did not, and Catbird's own wording now governs the seller record."
     }
   ],
   "corrections_applied": [
@@ -782,28 +966,28 @@
     },
     {
       "file": "data/flags.json",
-      "id": "RET8, RET9, WAR1, SPEC2",
+      "id": "RET11, RET12, WAR1, SPEC5",
       "what": "Four new definitions, each attached to at least one seller so none is unused."
     },
     {
       "file": "data/sellers.json",
       "id": "S-RS",
-      "what": "Return window (30 days from receipt, $4.95 fee), exclusions, resize rule, phone, email, policy_source and contact_source filled from two official pages; POL1 removed; RET8 and RET9 added."
+      "what": "Return window (30 days from receipt, $4.95 fee), exclusions, resize rule, phone, email, policy_source and contact_source filled from two official pages; POL1 removed; RET11 and RET12 added."
     },
     {
       "file": "data/sellers.json",
       "id": "S-CB",
-      "what": "Return window (20 days from delivery), $9 fee, final-sale list, international-final rule, resize rule, email and both sources filled; POL1 removed; RET8 added; phone left null because none is published."
+      "what": "Return window (20 days from delivery), $9 fee, final-sale list, international-final rule, resize rule, email and both sources filled; POL1 removed; RET11 added; phone left null because none is published."
     },
     {
       "file": "data/sellers.json",
       "id": "S-AUTOMIC",
-      "what": "Return window corrected to the page's own 30-days-from-delivery text; warranty and both lead-time readings added; SPEC2 added."
+      "what": "Return window corrected to the page's own 30-days-from-delivery text; warranty and both lead-time readings added; SPEC5 added."
     },
     {
       "file": "data/sellers.json",
       "id": "S-SARRAF",
-      "what": "Full return-policy text, engraving-fee rule, warranty conditions ($100 or 10% handling fee, third-party alteration voids) added; RET9 and WAR1 added; a note records that the 3% fee is not this seller's."
+      "what": "Full return-policy text, engraving-fee rule, warranty conditions ($100 or 10% handling fee, third-party alteration voids) added; RET12 and WAR1 added; a note records that the 3% fee is not this seller's."
     },
     {
       "file": "data/sellers.json",
@@ -880,6 +1064,12 @@
       "file": "site pages (via scripts/build_site.py)",
       "rows": "all",
       "request": "Rebuild after this merge so sellers.html, retailers.html, flagged.html and analysis.html pick up the corrected seller records and findings F13-F18. This session deliberately did not run the generator, because build_site.py and every page it writes are inside both open PRs' diffs; regenerating here would have collided with them. Until the rebuild, the data is ahead of the committed HTML."
+    },
+    {
+      "id": "CR-10",
+      "file": "data/rings.json, data/verified-data.js, verification/sources-manifest.json",
+      "rows": "rings.json lines citing the two dead URLs; verified-data.js entries 2710 and 3465; sources-manifest.json entries 527 and 1282",
+      "request": "Repoint two dead official URLs wherever they appear outside data/sellers.json. https://www.sarraf.com/pages/returns-and-refunds.html returns '404 Error - Page not found' and the live page is https://www.sarraf.com/30-day-returns-and-exchange-policy/. https://www.automicgold.com/pages/return-policy returns '404 Not Found - Automic Gold' and the live page is https://www.automicgold.com/policies/refund-policy. Both dead URLs were fetched on 2026-10-23 (evidence in checks P3-39 and P3-44). These files are claimed by other sessions, so this pass filed a request instead of editing them: the brief requires every table row to carry a working source link to an official site, and a citation that 404s cannot be checked by a reviewer."
     }
   ],
   "confirmed_independently": {
@@ -892,11 +1082,11 @@
     "result": "Every stored value matched the live page verbatim, including both gram weights, both 'Solid Gold' material strings, the ±5% tolerance note and the size-10 reference caveat. Two of the three sellers' return terms turned out to be stated more precisely on the page than the record said (see F16)."
   },
   "summary": {
-    "urls_opened": 38,
-    "confirmed": 26,
-    "corrected": 8,
-    "flagged": 4,
-    "values_deleted": "1 (the 3% cancellation fee attributed to Sarraf — it is Wilson's)",
+    "urls_opened": 47,
+    "confirmed": 27,
+    "corrected": 13,
+    "flagged": 7,
+    "values_deleted": "2 (the 3% cancellation fee attributed to Sarraf - it is Wilson's; and a Catbird return address this pass had drafted, which the returns page does not publish)",
     "values_added": "Ross-Simons phone + email + full return terms; Catbird email + full return terms; Automic 30-day window, warranty and lead times; Sarraf warranty conditions; Wilson's layaway and international terms; Aurate certificate quote and weight range; Ring Concierge availability text",
     "cells_left_empty_on_purpose": [
       "Catbird phone (none published)",
@@ -906,7 +1096,10 @@
       "Catbird and Automic checkout payment methods (not read)",
       "every hallmark / maker's mark / XRF field the sellers do not publish"
     ],
-    "gates_after_this_pass": "verify.py PASS (0 errors / 0 warnings / 11 notes) · audit.py rows=22 errors=0 warnings=0 passed=124 · render-test.js 110/110"
+    "gates_after_this_pass": "verify.py PASS (0 errors / 0 warnings / 11 notes) · audit.py rows=22 errors=0 warnings=0 passed=124 · render-test.js 110/110",
+    "self_corrections": "3 values drafted by this pass were caught by re-fetching the live pages and are recorded in finding F23: Catbird's e-mail (hello@ -> customerservice@catbirdnyc.com), a Catbird return address (219 Bedford Avenue, not published on the returns page -> null) and a Catbird final-sale list copied from data/retailers.json instead of from catbirdnyc.com/returns.",
+    "flag_ids_after_merge": "RET7 corrected · POL1 re-scoped · new RET11 (flat return fee), RET12 (third-party resizing voids the return), RET13 (three-strike excessive-returns policy), WAR1 (warranty fee), SPEC4 (About-vs-Returns engraved contradiction), SPEC5 (lead-time contradiction), SRC1 (cited source URL returns 404). Renamed during the merge because main had taken RET8, RET9 and SPEC2 for other meanings."
   },
-  "url_hygiene_note": "Every URL in this file was checked against the URLs already recorded in data/*.json before the file was committed. Seven entries had been written from memory with plausible-looking slugs (Wilson's R13, the four excluded listings, and two others) and were corrected to the exact URLs the repository records, because a reconstructed URL in an anti-hallucination record is itself a hallucination. One entry (Mejuri's returns FAQ) was deleted rather than kept with an unpinnable URL."
+  "url_hygiene_note": "Every URL in this file was checked against the URLs already recorded in data/*.json before the file was committed. Seven entries had been written from memory with plausible-looking slugs (Wilson's R13, the four excluded listings, and two others) and were corrected to the exact URLs the repository records, because a reconstructed URL in an anti-hallucination record is itself a hallucination. One entry (Mejuri's returns FAQ) was deleted rather than kept with an unpinnable URL.",
+  "post_merge_note": "Merged with origin/main at commit 1f6f7b1 on 2026-10-23 (PRs #22-#30 landed while this pass was running). Three flag ids this pass had allocated were already taken by other sessions with different meanings (RET8 = a VRAI recycling fee, RET9 = a Local Eclectic cash-refund cutoff, SPEC2 = a Local Eclectic 9k-vs-10k contradiction), so this pass's new definitions were renamed before the merge: the $4.95/$9 flat return fee is now RET11, third-party resizing voiding a return is now RET12, and the Automic lead-time contradiction is now SPEC5. POL2 needed no rename - main's definition ('Engraving makes the item final sale') is the same one this pass used. Four further definitions were added during the merge itself after re-fetching source URLs that other sessions had recorded: RET13 (Sarraf three-strike excessive-returns policy), WAR1 (Sarraf warranty fee), SPEC4 (Sarraf About-vs-Returns contradiction on engraved rings) and SRC1 (cited official source URL returns 404). Two corrections this pass had already made were found to be redundant after the merge and were dropped: S-AUTOMIC's 30-day window and S-SARRAF's phone number had been filled independently by another session, and that session's values were kept."
 }
