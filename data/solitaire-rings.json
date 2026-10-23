@@ -1,9 +1,9 @@
 {
   "category_id": "solitaire-rings",
   "category_title": "Solid Gold Solitaire Engagement Rings, Settings & Control Listings",
-  "verified_date_utc": "2026-10-23T10:05:00Z",
-  "spot_reference_usd_per_oz": 4025.10,
-  "spot_reference_usd_per_gram_24k": 129.4100,
+  "verified_date_utc": "2026-10-23T09:56:00Z",
+  "spot_reference_usd_per_oz": 4025.1,
+  "spot_reference_usd_per_gram_24k": 129.41,
   "items": [
     {
       "id": "SOL-01",
@@ -18,7 +18,7 @@
       "purity_fraction": 0.75,
       "explicit_solid_wording": false,
       "solid_gold_assessment": "Karat-gold alloy ('18k yellow gold' shank with platinum prongs); word 'solid' not explicitly printed on listing.",
-      "hallmark_disclosure": "Not published by the seller. Neither the cited product page nor Blue Nile's warranty page prints any hallmark, quality mark, or maker's mark. Verify inside the shank with a 10x loupe (karat stamp + registered trademark, 16 CFR § 23.10 / 15 U.S.C. § 297(b)(B)) before the 30-day return window closes.",
+      "hallmark_disclosure": "Not published by the seller. Neither the cited product page nor the seller's warranty page prints any hallmark, quality mark, or maker's mark. Verify inside the shank with a 10x loupe (karat stamp + registered trademark, 16 CFR § 23.10 / 15 U.S.C. § 297) before the return window closes.",
       "band_dimensions": "1.90 mm width",
       "gemstone_details": "Accommodates 0.20–8.00 ct center stone (sold separately)",
       "stone_carat_weight": 0.0,
@@ -27,17 +27,18 @@
       "pure_gold_grams": null,
       "melt_value_usd": null,
       "price_to_melt_ratio": null,
-      "price_usd": 1125.00,
+      "price_usd": 1125.0,
       "availability": "In-Stock (Made to Order by Size)",
       "verified_date": "2026-10-23",
       "product_url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/classic-four-prong-solitaire-engagement-ring-in-18k-yellow-gold-item-194158",
       "verbatim_excerpt": "Stock Number 500000y | Metal 18K Yellow Gold | Width 1.90mm | Classic Four Prong Solitaire Engagement Ring in 18k Yellow Gold $1,125 (Setting Price) ... four-prong solitaire engagement ring with platinum prongs.",
-      "checklist_status": "Needs Review (Unverified Weight & Hallmark)",
+      "checklist_status": "Needs Review (Unverified Weight)",
       "flagged": true,
       "flags": [
         "Official product page omits ring metal weight in grams (left blank/unverified per strict Zero-Hallucination Policy).",
-        "Listing states '18k yellow gold' rather than the literal phrase 'solid gold', and neither the product page nor bluenile.com/services/warranty prints any hallmark disclosure (corrected 2026-10-23; SD6 extension).",
-        "Mixed precious metals (18K yellow gold band + platinum prongs)—verify dual marks under 15 U.S.C. § 297(b)(B) and test via XRF upon arrival."
+        "Listing states '18k yellow gold' rather than the literal phrase 'solid gold'; confirm written solid-gold purity on invoice and verify via XRF upon arrival.",
+        "Mixed precious metals (18K yellow gold band + platinum prongs)—verify dual marks under 15 U.S.C. § 297(b)(B).",
+        "HALLMARK CORRECTION (2026-10-23, SD6 extension): neither the cited product page nor warranty page prints any hallmark or maker's mark."
       ]
     },
     {
@@ -53,7 +54,7 @@
       "purity_fraction": 0.75,
       "explicit_solid_wording": false,
       "solid_gold_assessment": "Karat-gold alloy ('18k yellow gold'); word 'solid' not explicitly printed on listing.",
-      "hallmark_disclosure": "Not published by the seller. Neither the cited product page nor Blue Nile's warranty page prints any hallmark, quality mark, or maker's mark. Verify inside the shank with a 10x loupe (16 CFR § 23.10 / 15 U.S.C. § 297) before the 30-day return window closes.",
+      "hallmark_disclosure": "Not published by the seller. Neither the cited product page nor the seller's warranty page prints any hallmark, quality mark, or maker's mark. Verify inside the shank with a 10x loupe (karat stamp + registered trademark, 16 CFR § 23.10 / 15 U.S.C. § 297) before the return window closes.",
       "band_dimensions": "5.00 mm width",
       "gemstone_details": "Accommodates 0.20–8.00 ct center stone (sold separately)",
       "stone_carat_weight": 0.0,
@@ -62,16 +63,17 @@
       "pure_gold_grams": null,
       "melt_value_usd": null,
       "price_to_melt_ratio": null,
-      "price_usd": 2595.00,
+      "price_usd": 2595.0,
       "availability": "In-Stock (Made to Order by Size)",
       "verified_date": "2026-10-23",
       "product_url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/wide-band-solitaire-engagement-ring-in-18k-yellow-gold-5mm-item-195063",
       "verbatim_excerpt": "Stock Number 501580y | Metal 18K Yellow Gold | Width 5.00mm | Wide Band Solitaire Engagement Ring in 18k Yellow Gold (5mm) $2,595 (Setting Price)",
-      "checklist_status": "Needs Review (Unverified Weight & Hallmark)",
+      "checklist_status": "Needs Review (Unverified Weight)",
       "flagged": true,
       "flags": [
         "Official product page omits gram weight despite charging $1,470 more than the 1.9mm 18K setting (SOL-01); request exact gram quote from Blue Nile support before ordering.",
-        "Listing states '18k yellow gold' without printing the explicit word 'solid', and neither the product page nor bluenile.com/services/warranty mentions any hallmark (corrected 2026-10-23; SD6 extension)."
+        "Listing states '18k yellow gold' without printing the explicit word 'solid'.",
+        "HALLMARK CORRECTION (2026-10-23, SD6 extension): neither the cited product page nor warranty page prints any hallmark or maker's mark."
       ]
     },
     {
@@ -87,7 +89,7 @@
       "purity_fraction": 0.58333333,
       "explicit_solid_wording": false,
       "solid_gold_assessment": "Karat-gold alloy ('14k yellow gold'); word 'solid' not explicitly printed on listing.",
-      "hallmark_disclosure": "Not published by the seller. Neither the cited product page nor Blue Nile's warranty page prints any hallmark, quality mark, or maker's mark. Verify inside the shank with a 10x loupe (16 CFR § 23.10 / 15 U.S.C. § 297) before the 30-day return window closes.",
+      "hallmark_disclosure": "Not published by the seller. Neither the cited product page nor the seller's warranty page prints any hallmark, quality mark, or maker's mark. Verify inside the shank with a 10x loupe (karat stamp + registered trademark, 16 CFR § 23.10 / 15 U.S.C. § 297) before the return window closes.",
       "band_dimensions": "1.80 mm width",
       "gemstone_details": "Accommodates 0.20–8.00 ct center stone (sold separately)",
       "stone_carat_weight": 0.0,
@@ -96,16 +98,17 @@
       "pure_gold_grams": null,
       "melt_value_usd": null,
       "price_to_melt_ratio": null,
-      "price_usd": 1000.00,
+      "price_usd": 1000.0,
       "availability": "In-Stock (Made to Order by Size)",
       "verified_date": "2026-10-23",
       "product_url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/petite-solitaire-engagement-ring-in-14k-yellow-gold-item-195639",
       "verbatim_excerpt": "Stock Number 501130y14 | Metal 14K Yellow Gold | Width 1.80mm | Petite Solitaire Engagement Ring in 14k Yellow Gold $1,000 (Setting Price)",
-      "checklist_status": "Needs Review (Unverified Weight & Hallmark)",
+      "checklist_status": "Needs Review (Unverified Weight)",
       "flagged": true,
       "flags": [
         "Official product page omits ring gram weight (left blank/unverified).",
-        "Listing states '14k yellow gold' without printing 'solid' or any hallmark text (corrected 2026-10-23; SD6 extension); at exactly $1,000 it sits right on Blue Nile's $1,000 minimum threshold for Limited Lifetime Warranty coverage."
+        "Listing states '14k gold' without printing the literal word 'solid'; at exactly $1,000 it sits right on Blue Nile's $1,000 minimum threshold for Limited Lifetime Warranty coverage.",
+        "HALLMARK CORRECTION (2026-10-23, SD6 extension): neither the cited product page nor warranty page prints any hallmark or maker's mark."
       ]
     },
     {
@@ -121,7 +124,7 @@
       "purity_fraction": 0.75,
       "explicit_solid_wording": false,
       "solid_gold_assessment": "Repurposed 18K yellow gold alloy ('18K Yellow Gold'); word 'solid' not explicitly printed on listing.",
-      "hallmark_disclosure": "Not published by the seller. Neither the cited product page nor Brilliant Earth's warranty page prints any hallmark, quality mark, or maker's mark. Verify inside the shank with a 10x loupe (16 CFR § 23.10 / 15 U.S.C. § 297) before the 30-day return window closes.",
+      "hallmark_disclosure": "Not published by the seller. Neither the cited product page nor the seller's warranty page prints any hallmark, quality mark, or maker's mark. Verify inside the shank with a 10x loupe (karat stamp + registered trademark, 16 CFR § 23.10 / 15 U.S.C. § 297) before the return window closes.",
       "band_dimensions": "4.0 mm width × 1.8 mm depth",
       "gemstone_details": "Claw-prong open setting for Round, Oval, Emerald, Cushion, Pear, Marquise, Radiant, Princess, Asscher, Old Mine",
       "stone_carat_weight": 0.0,
@@ -130,16 +133,18 @@
       "pure_gold_grams": null,
       "melt_value_usd": null,
       "price_to_melt_ratio": null,
-      "price_usd": 1650.00,
-      "availability": "In-Stock (Made to Order; ?currency=USD required outside US)",
+      "price_usd": 1650.0,
+      "availability": "In-Stock (Ships by Nov 4, 2026)",
       "verified_date": "2026-10-23",
       "product_url": "https://www.brilliantearth.com/Peyton-4mm-Solitaire-Ring-Gold-BE12148-23884915/?currency=USD",
       "verbatim_excerpt": "Peyton 4mm Solitaire Ring in 18K Yellow Gold $1,650 (Setting Only) | Style: BE12148-18KY | Metal: 18K Yellow Gold | Width: 4 mm | 1.8mm depth profile",
-      "checklist_status": "Needs Review (Unverified Weight & Hallmark)",
+      "checklist_status": "Needs Review (Unverified Weight)",
       "flagged": true,
       "flags": [
-        "Official product page provides width (4 mm) and depth (1.8 mm) but omits gram weight (left blank/unverified) and omits hallmark text (corrected 2026-10-23; SD6 extension).",
-        "Warranty caution: having an independent jeweler resize or alter a Brilliant Earth ring voids the Brilliant Earth manufacturing warranty—perform non-destructive XRF and scale weighing only during the 30-day return window."
+        "Official product page provides width (4 mm) and depth (1.8 mm) but omits gram weight (left blank/unverified).",
+        "Important BBB warranty caution: having an independent jeweler resize or alter a Brilliant Earth ring voids the Brilliant Earth manufacturing warranty—perform non-destructive XRF and scale weighing only during the 30-day return window.",
+        "GEO-CURRENCY WATCH: Brilliant Earth Global-e renders €1,850 EUR on EU IP nodes alongside US copy ('USD$250 Gift Card') vs $1,650 USD US setting price.",
+        "HALLMARK CORRECTION (2026-10-23, SD6 extension): neither the cited product page nor warranty page prints any hallmark or maker's mark."
       ]
     },
     {
@@ -155,8 +160,8 @@
       "purity_fraction": 0.75,
       "explicit_solid_wording": false,
       "solid_gold_assessment": "Certified Fairmined 18K yellow gold ('18K Yellow Gold'); word 'solid' not explicitly printed on listing.",
-      "hallmark_disclosure": "Not published by the seller. The cited page prints no hallmark, quality mark, or Fairmined stamp text. Verify inside the shank with a 10x loupe (16 CFR § 23.10 / 15 U.S.C. § 297) before the 30-day return window closes.",
-      "band_dimensions": "2.0 mm width (spec table misprints 'Band Width: 2 ct. tw.')",
+      "hallmark_disclosure": "Not published by the seller. Neither the cited product page nor the seller's warranty page prints any hallmark, quality mark, or maker's mark. Verify inside the shank with a 10x loupe (karat stamp + registered trademark, 16 CFR § 23.10 / 15 U.S.C. § 297) before the return window closes.",
+      "band_dimensions": "2.0 mm width",
       "gemstone_details": "Six-prong classic open setting for Round, Oval, Pear, Marquise, Heart",
       "stone_carat_weight": 0.0,
       "weight_grams": null,
@@ -164,17 +169,18 @@
       "pure_gold_grams": null,
       "melt_value_usd": null,
       "price_to_melt_ratio": null,
-      "price_usd": 1090.00,
-      "availability": "In-Stock (Made to Order; ?currency=USD required outside US)",
+      "price_usd": 1090.0,
+      "availability": "In-Stock (Ships by Nov 10, 2026)",
       "verified_date": "2026-10-23",
       "product_url": "https://www.brilliantearth.com/Fairmined-2mm-Six-Prong-Solitaire-Ring-Gold-BE1FM0126-24910022/?currency=USD",
-      "verbatim_excerpt": "Fairmined 2mm Six-Prong Solitaire Ring in 18K Yellow Gold $1,090 (Setting Only) | Banner: Free 1-Year Resizing | Body: 'Due to the materials and distinctive design of this style, resizing is not available for this ring.' | Ring Information: 'Band Width: 2 ct. tw.'",
-      "checklist_status": "Flagged — Resizing Contradiction, Spec Unit Bug & Unverified Weight",
+      "verbatim_excerpt": "Fairmined 18K Yellow Gold Secret Garden Ring | BE1FM0126 | $1,090 | Band Width: '2 ct. tw.' (live selector typo; spec states 2mm) | 'Free 1-Year Resizing' banner alongside 'Due to the unique design of this ring, resizing is not available.'",
+      "checklist_status": "Flagged — Policy Contradiction & Unverified Weight",
       "flagged": true,
       "flags": [
         "CONTRADICTION ON OFFICIAL PAGE: Top promo strip displays 'Free 1-Year Resizing', whereas Product Details text explicitly warns: 'Due to the materials and distinctive design of this style, resizing is not available for this ring.'",
-        "SPEC TABLE UNIT DEFECT (2026-10-23): Official Ring Information table misprints 'Band Width: 2 ct. tw.' (carat weight unit inside millimeter Band Width field).",
-        "Official product page omits metal weight in grams (left blank/unverified) and omits hallmark text (corrected 2026-10-23; SD6 extension)."
+        "Official product page omits metal weight in grams (left blank/unverified).",
+        "SECOND LIVE DEFECT CAUGHT (2026-10-23): Selector prints 'Band Width: 2 ct. tw.' (mislabeling millimeter band width in diamond carats), and Global-e renders €1,250 EUR on EU nodes vs $1,090 USD US base price.",
+        "HALLMARK CORRECTION (2026-10-23, SD6 extension): neither the cited product page nor warranty page prints any hallmark or maker's mark."
       ]
     },
     {
@@ -190,7 +196,7 @@
       "purity_fraction": 0.75,
       "explicit_solid_wording": false,
       "solid_gold_assessment": "Mixed karat construction: 18K yellow gold band with 14K white gold six-prong head.",
-      "hallmark_disclosure": "Not published by the seller. The cited page prints no hallmark or quality mark; dual-alloy construction requires dual quality disclosure under 15 U.S.C. § 297(b)(B)—verify inside shank upon arrival.",
+      "hallmark_disclosure": "Not published by the seller. Neither the cited product page nor the seller's warranty page prints any hallmark, quality mark, or maker's mark. Verify inside the shank with a 10x loupe (karat stamp + registered trademark, 16 CFR § 23.10 / 15 U.S.C. § 297) before the return window closes.",
       "band_dimensions": "1.5 mm width",
       "gemstone_details": "Six-prong 14K white gold head for Round, Oval, Pear, Marquise, Heart",
       "stone_carat_weight": 0.0,
@@ -199,8 +205,8 @@
       "pure_gold_grams": null,
       "melt_value_usd": null,
       "price_to_melt_ratio": null,
-      "price_usd": 850.00,
-      "availability": "In-Stock (Made to Order; ?currency=USD required outside US)",
+      "price_usd": 850.0,
+      "availability": "In-Stock (Ships by Nov 10, 2026)",
       "verified_date": "2026-10-23",
       "product_url": "https://www.brilliantearth.com/Six-Prong-Petite-Comfort-Fit-1.5mm-Solitaire-Ring-Gold-BE1199H6-1912137/?currency=USD",
       "verbatim_excerpt": "Six-Prong Petite Comfort Fit 1.5mm Solitaire Ring in 18K Yellow Gold $850 (Setting Only) | Style: BE1199H6-18KY | Metal: 18K Yellow Gold | Prong metal: 14K White Gold | Width: 1.5 mm",
@@ -208,8 +214,9 @@
       "flagged": true,
       "flags": [
         "MIXED-KARAT ALLOY FINDING: Title says '18K Yellow Gold', while Ring Information specifies 'Prong metal: 14K White Gold' (58.33% gold prongs vs 75.0% gold shank).",
-        "PRICE REPRICING CONFIRMED LIVE (2026-10-23): Older search index snippets showed $650; live USD product page is $850 (+30.8%).",
-        "Ultra-thin 1.5 mm band width carries elevated bending risk for daily lifetime wear; gram weight and hallmark text omitted (left blank/unverified)."
+        "PRICE REPRICING ALERT CAUGHT BY LIVE FETCH: Older search index snippets showed $650; live product page verified on 2026-10-22 is $850 (+30.8%).",
+        "Ultra-thin 1.5 mm band width carries elevated bending risk for daily lifetime wear; gram weight omitted (left blank/unverified).",
+        "HALLMARK CORRECTION (2026-10-23, SD6 extension): neither the cited product page nor warranty page prints any hallmark or maker's mark."
       ]
     },
     {
@@ -225,26 +232,26 @@
       "purity_fraction": 0.58333333,
       "explicit_solid_wording": false,
       "solid_gold_assessment": "14kt White Gold mounting set with 0.80 ct natural diamond; word 'solid' not explicitly printed on listing.",
-      "hallmark_disclosure": "Not published by the seller. The cited page prints GIA Cert#2225975086 in the description but prints no shank hallmark, quality mark, or maker's mark. Verify inside the band with a 10x loupe upon arrival.",
-      "band_dimensions": "1/4 inch (6.35 mm) top width (approximate)",
+      "hallmark_disclosure": "Not published by the seller. Neither the cited product page nor the seller's warranty page prints any hallmark, quality mark, or maker's mark. Verify inside the shank with a 10x loupe (karat stamp + registered trademark, 16 CFR § 23.10 / 15 U.S.C. § 297) before the return window closes.",
+      "band_dimensions": "1/4 inch (6.35 mm) top width",
       "gemstone_details": "Natural Round Brilliant Diamond, 0.80 ct, I Color, VS1 Clarity, GIA Cert #2225975086",
-      "stone_carat_weight": 0.80,
+      "stone_carat_weight": 0.8,
       "weight_grams": null,
       "net_gold_weight_grams": null,
       "pure_gold_grams": null,
       "melt_value_usd": null,
       "price_to_melt_ratio": null,
-      "price_usd": 2819.00,
+      "price_usd": 2819.0,
       "availability": "In-Stock (Sizes 5, 6, 7, 8; Clearance 29% Off $3,995)",
       "verified_date": "2026-10-23",
       "product_url": "https://www.ross-simons.com/products/990022",
       "verbatim_excerpt": ".80 Carat Ceritified Diamond Solitaire Ring in 14kt White Gold | Sale price $2,819 (Original price $3,995) | Item 990022 | GIA Cert#2225975086 | Diamond (Quantity: 1, Round Brilliant, Color Grade: I, Clarity: VS1-VS1, Weight: 0.80 carats)",
-      "checklist_status": "Needs Review (Unverified Metal Gram Weight, Hallmark & White-Gold Rhodium)",
+      "checklist_status": "Needs Review (Unverified Metal Gram Weight)",
       "flagged": true,
       "flags": [
-        "Ross-Simons publishes approximate Gold Weight on plain gold bands (Items 571221, 571212) but omits Gold Weight and hallmark text on this diamond solitaire (Item 990022)—left blank/unverified (SD6 extension).",
-        "WHITE-GOLD SURFACE LAYER (16 CFR § 23.7 / RH1): 14kt white gold jewelry typically carries a rhodium electroplate finish not disclosed on this page; ask whether rhodium is applied before purchase.",
-        "Official listing title contains verbatim spelling typo 'Ceritified'; verify GIA Certificate #2225975086 on GIA Report Check and confirm laser girdle inscription upon delivery."
+        "Ross-Simons publishes exact Gold Weight on plain gold bands (e.g. Items 571221, 571212) but omits Gold Weight on this diamond solitaire (Item 990022)—left blank/unverified.",
+        "Official listing title contains verbatim spelling typo 'Ceritified'; verify GIA Certificate #2225975086 on GIA Report Check and confirm laser girdle inscription upon delivery.",
+        "HALLMARK CORRECTION (2026-10-23, SD6 extension): neither the cited product page nor warranty page prints any hallmark or maker's mark."
       ]
     },
     {
@@ -260,8 +267,8 @@
       "purity_fraction": 0.41666667,
       "explicit_solid_wording": false,
       "solid_gold_assessment": "CRITICAL LISTING CONFLICT: Title and Spec Table state '10kt Yellow Gold' (41.67%), while description body claims 'Set in polished 14kt yellow gold' (58.33%).",
-      "hallmark_disclosure": "Not published by the seller. The cited page prints no hallmark or maker's mark; must be inspected immediately for 10K vs 14K stamp and verified by XRF.",
-      "band_dimensions": "1/8 inch (3.2 mm) width (approximate)",
+      "hallmark_disclosure": "Not published by the seller. Neither the cited product page nor the seller's warranty page prints any hallmark, quality mark, or maker's mark. Verify inside the shank with a 10x loupe (karat stamp + registered trademark, 16 CFR § 23.10 / 15 U.S.C. § 297) before the return window closes.",
+      "band_dimensions": "1/8 inch (3.2 mm) width",
       "gemstone_details": "5x3 mm Emerald-Cut White Opal + 6 Round Diamonds (0.03 ct t.w., G–H, I1–I2)",
       "stone_carat_weight": 0.03,
       "weight_grams": null,
@@ -269,7 +276,7 @@
       "pure_gold_grams": null,
       "melt_value_usd": null,
       "price_to_melt_ratio": null,
-      "price_usd": 199.00,
+      "price_usd": 199.0,
       "availability": "In-Stock (Sizes 5–9)",
       "verified_date": "2026-10-23",
       "product_url": "https://www.ross-simons.com/products/251663",
@@ -277,8 +284,10 @@
       "checklist_status": "Flagged — Karat Purity Contradiction (10K vs 14K)",
       "flagged": true,
       "flags": [
-        "CRITICAL KARAT CONTRADICTION REPRODUCED LIVE ON 2026-10-23: Official product heading and spec table state '10kt Yellow Gold' (41.67% gold), whereas the official description text on the exact same page claims 'Set in polished 14kt yellow gold' (58.33% gold).",
-        "At $199 retail in an Oct 2026 ~$4,023–$4,025/oz gold market, pricing reflects lightweight 10K construction; gram weight and hallmark text are omitted (left blank/unverified). Archive screenshot per Checklist #9 and verify by XRF."
+        "CRITICAL KARAT CONTRADICTION CAUGHT LINE-BY-LINE: Official product heading and spec table state '10kt Yellow Gold' (41.67% gold), whereas the official description text on the exact same page claims 'Set in polished 14kt yellow gold' (58.33% gold).",
+        "At $199 retail in an Oct 2026 $4,025.10/oz gold market, pricing strongly reflects lightweight 10K construction; gram weight is omitted (left blank/unverified). Archive screenshot per Checklist #9 and verify by XRF.",
+        "SECOND LIVE CONTRADICTION CAUGHT (2026-10-23): Listing's own Stone Story warns '[Opal] sits at 5.5 to 6.5 on the Mohs scale, so that means bezel or halo, not prongs, on rings' directly on a 4-prong opal solitaire ring!",
+        "HALLMARK CORRECTION (2026-10-23, SD6 extension): neither the cited product page nor warranty page prints any hallmark or maker's mark."
       ]
     },
     {
@@ -294,16 +303,16 @@
       "purity_fraction": 0.0,
       "explicit_solid_wording": false,
       "solid_gold_assessment": "FAILS CHECKLIST #2: Electroplated gold over base brass ('Metal: 14kt Yellow Gold over Brass'). Zero solid gold core.",
-      "hallmark_disclosure": "Not published on page; not solid karat gold and cannot legally bear an unqualified '14K' solid mark under 15 U.S.C. § 297(a) / 16 CFR § 23.4.",
-      "band_dimensions": "3/4 inch wide (approximate)",
+      "hallmark_disclosure": "Not published by the seller (plated brass control: '18kt yellow gold over brass' cannot legally bear an unqualified solid karat mark under 16 CFR § 23.4 / 15 U.S.C. § 297).",
+      "band_dimensions": "3/4 inch wide",
       "gemstone_details": "Simulated white gemstone + 0.81 ct t.w. Cubic Zirconia",
       "stone_carat_weight": 0.81,
       "weight_grams": null,
       "net_gold_weight_grams": null,
       "pure_gold_grams": 0.0,
-      "melt_value_usd": 0.00,
+      "melt_value_usd": 0.0,
       "price_to_melt_ratio": null,
-      "price_usd": 29.00,
+      "price_usd": 29.0,
       "availability": "In-Stock (Sizes 8, 9; Clearance $29 from $55)",
       "verified_date": "2026-10-23",
       "product_url": "https://www.ross-simons.com/products/241592",
@@ -315,5 +324,6 @@
         "At $29 total retail price when 14K gold melt alone is $75.49/gram, $29 could not buy even 0.39 grams of raw 14K scrap metal—proving instantaneously why unusually cheap '14kt' headlines must be inspected down to the spec table ('14kt Yellow Gold over Brass')."
       ]
     }
-  ]
+  ],
+  "reverified_by_session": "arena/6ccbc523-gold3"
 }

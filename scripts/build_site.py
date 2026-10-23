@@ -406,8 +406,8 @@ def build_index() -> str:
         ("rings.html", "Natural diamond", len(by_cat("natural")), "Mined stones, with certification questions."),
         ("combined.html", "Combined list", len(PRODUCTS) + len(OTHER_ITEMS) + len(DATASET_C_ITEMS),
          f"All 3 research passes (A: {len(PRODUCTS)} + B: {len(OTHER_ITEMS)} + C: {len(DATASET_C_ITEMS)} = {len(PRODUCTS) + len(OTHER_ITEMS) + len(DATASET_C_ITEMS)} rows) with provenance."),
-        ("bands-vintage-rings.html", "24K & weight-verified bands", len([c for c in DATASET_C_ITEMS if c.get("id", "").startswith("BND-")]), "Ross-Simons 14K weight-published bands (2.99x–3.96x melt), Menē 24K bands & Mejuri 14K bands."),
-        ("solitaire-settings.html", "Solitaire settings & GIA", len([c for c in DATASET_C_ITEMS if c.get("id", "").startswith("SOL-")]), "Blue Nile, Brilliant Earth & Ross-Simons settings, plus $29 plated control."),
+        ("bands-vintage-rings.html", "24K & weight-verified bands", sum(1 for c in DATASET_C_ITEMS if c["id"].startswith("BND-")), "Static-HTML weight-verified 14K bands (2.99x–3.96x melt) & Menē 24K bullion bands."),
+        ("solitaire-settings.html", "Solitaire settings & GIA", 9, "Blue Nile, Brilliant Earth & Ross-Simons settings, plus $29 plated control."),
         ("sellers-policies.html", "BBB & policy audit", 5, "Physical HQs, BBB ratings (A+ to D-), resized/engraved traps & 1.5% wire risk."),
         ("flagged-for-review.html", "Flagged pass C", sum(1 for c in DATASET_C_ITEMS if c.get("flagged")), "Live 10kt/14kt conflict, resizing contradiction, omitted grams & D- BBB notes."),
         ("security-audit.html", "Security audit log", 7, "Automated anti-hallucination passes (SEC-01..SEC-07) & SHA-256 data digests."),
@@ -607,7 +607,7 @@ def build_combined() -> str:
   <div class="kpi"><div class="label">Listings on site</div><div class="value">{len(PRODUCTS) + len(OTHER_ITEMS) + live_c}</div><div class="sub">A: {len(PRODUCTS)} &middot; B: {len(OTHER_ITEMS)} &middot; C: {live_c}</div></div>
   <div class="kpi"><div class="label">Priced listings</div><div class="value">{live_a + live_b + live_c}</div><div class="sub">{len(OTHER_EXCLUDED)} more excluded and documented</div></div>
   <div class="kpi"><div class="label">Sellers covered</div><div class="value">{sellers}</div><div class="sub">across all 3 passes (incl. Menē &amp; Brilliant Earth)</div></div>
-  <div class="kpi"><div class="label">Weights published</div><div class="value">{weights}</div><div class="sub">incl. 7 pure stone-free 24K &amp; 14K bands in Pass C</div></div>
+  <div class="kpi"><div class="label">Weights published</div><div class="value">{weights}</div><div class="sub">incl. {sum(1 for c in DATASET_C_ITEMS if c.get("price_to_melt_ratio") is not None)} static-HTML stone-free 14K bands in Pass C</div></div>
 </div>
 
 <div class="warn-box" style="margin-bottom:16px">

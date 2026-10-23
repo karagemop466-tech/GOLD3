@@ -50,6 +50,7 @@ TRUSTED_OFFICIAL_DOMAINS = {
     "www.law.cornell.edu",
     "law.cornell.edu",
     "uscode.house.gov",
+    "govinfo.gov",
     "www.govinfo.gov",
     "govinfo.gov",
     "www.legislation.gov.uk",
@@ -160,7 +161,7 @@ def format_price_tokens(price: float) -> list[str]:
     return tokens
 
 
-def run_audit(pass_label: str, session_id: str | None = None) -> int:
+def run_audit(pass_label: str, session_id: str | None = None, record_pass: bool = False) -> int:
     now_utc = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     errors: list[str] = []
     warnings_flagged: list[dict] = []
@@ -432,7 +433,38 @@ def run_audit(pass_label: str, session_id: str | None = None) -> int:
 
     VERIF_DIR.mkdir(parents=True, exist_ok=True)
     log_path = VERIF_DIR / "audit-log.json"
+    manifest_path = VERIF_DIR / "sources-manifest.json"
+    current_hashes = {p.name: sha256_file(p) for p in sorted(DATA_DIR.glob("*.json"))}
+    overall_now = "PASS" if not errors else "FAIL"
+
+    # Resolve CR-692d-2: keep working tree clean on read-only checks when data/*.json SHA-256 digests already match
+    if not record_pass and log_path.exists() and manifest_path.exists():
+        try:
+            prev_manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+            prev_log = json.loads(log_path.read_text(encoding="utf-8"))
+            if prev_manifest.get("data_file_sha256") == current_hashes and prev_log.get("latest_status") == overall_now:
+                print(f"[GOLD3 AUDIT] Clean-tree check ({pass_label}) -> {overall_now} (SHA-256 digests match committed manifest)")
+                for c in check_summaries:
+                    print(f"  - {c['check_id']}: {c['status']} ({c['verified_count']}) — {c['name']}")
+                if errors:
+                    for e in errors:
+                        print("  !", e)
+                    return 1
+                return 0
+        except Exception:
+            pass
+
     existing_runs = json.loads(log_path.read_text(encoding="utf-8"))["runs"] if log_path.exists() else []
+    git_branch = None
+    try:
+        import subprocess
+        git_branch = subprocess.check_output(
+            ["git", "rev-parse", "--abbrev-ref", "HEAD"], cwd=ROOT, text=True, stderr=subprocess.DEVNULL
+        ).strip()
+        if git_branch == "HEAD":
+            git_branch = None
+    except Exception:
+        git_branch = None
 
     run_record = {
         "pass_number": len(existing_runs) + 1,
@@ -440,7 +472,7 @@ def run_audit(pass_label: str, session_id: str | None = None) -> int:
         "timestamp_utc": now_utc,
         "session_id": (session_id or os.environ.get("GOLD3_SESSION_ID")
                        or os.environ.get("GITHUB_REF_NAME") or os.environ.get("GITHUB_HEAD_REF")
-                       or "unattributed"),
+                       or git_branch or "unattributed"),
         "overall_status": "PASS" if not errors else "FAIL",
         "error_count": len(errors),
         "errors": errors,
@@ -540,6 +572,8 @@ if __name__ == "__main__":
     ap.add_argument("--pass-label", default="Scheduled Verification Pass")
     ap.add_argument("--session-id", default=None,
                     help="Session that is running this audit; recorded in verification/audit-log.json. "
-                         "Falls back to the GOLD3_SESSION_ID environment variable.")
+                         "Falls back to GOLD3_SESSION_ID, GITHUB_REF_NAME, or current git branch.")
+    ap.add_argument("--record-pass", action="store_true",
+                    help="Explicitly record a new pass in verification/audit-log.json and regenerate manifest/bundle.")
     args = ap.parse_args()
-    sys.exit(run_audit(args.pass_label, args.session_id))
+    sys.exit(run_audit(args.pass_label, args.session_id, record_pass=args.record_pass))

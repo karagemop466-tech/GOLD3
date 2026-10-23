@@ -159,10 +159,10 @@ def render_calculator_section(spot_oz: float, include_presets: bool = True) -> s
       <div>
         <strong style="font-size:0.84rem; display:block; margin-bottom:0.4rem;">Load a Live-Verified Catalog Ring into Calculator:</strong>
         <div class="preset-row">
+          <button type="button" class="preset-btn" data-preset="1" data-karat="14K" data-weight="4.0" data-gem="0" data-price="1195">Ross-Simons 6mm 14K Flat (4.0g &bull; $1,195 &bull; 3.96x)</button>
+          <button type="button" class="preset-btn" data-preset="1" data-karat="14K" data-weight="2.1" data-gem="0" data-price="599">Ross-Simons Italian 14K (2.1g &bull; $599 &bull; 3.78x)</button>
           <button type="button" class="preset-btn" data-preset="1" data-karat="14K" data-weight="4.2" data-gem="0" data-price="949">Ross-Simons 14K 4mm Band (4.2g &bull; $949 &bull; 2.99x Melt)</button>
           <button type="button" class="preset-btn" data-preset="1" data-karat="14K" data-weight="1.7" data-gem="0" data-price="400">Ross-Simons 14K 2mm Band (1.7g &bull; $400 &bull; 3.12x Melt)</button>
-          <button type="button" class="preset-btn" data-preset="1" data-karat="14K" data-weight="2.1" data-gem="0" data-price="599">Ross-Simons 14K Signet (2.1g &bull; $599 &bull; 3.78x Melt)</button>
-          <button type="button" class="preset-btn" data-preset="1" data-karat="14K" data-weight="4.0" data-gem="0" data-price="1195">Ross-Simons 14K Dome (4.0g &bull; $1,195 &bull; 3.96x Melt)</button>
           <button type="button" class="preset-btn" data-preset="1" data-karat="14K" data-weight="4.0" data-gem="0" data-price="199">Simulated Below-Melt Scam Alert (4.0g 14K @ $199)</button>
           <button type="button" class="preset-btn" data-preset="1" data-karat="PLATED" data-weight="3.0" data-gem="0" data-price="29">Ross-Simons Plated Control ($29 &bull; 0g Solid Core)</button>
         </div>
@@ -347,9 +347,9 @@ def render_ring_rows(rings: list[dict]) -> str:
 
 
 def render_ring_table_block(title: str, subtitle: str, rings: list[dict], show_filters: bool = True) -> str:
-    w_pub = sum(1 for r in rings if r["weight_grams"] is not None)
-    w_omit = len(rings) - w_pub
     filter_html = ""
+    n_w_ok = sum(1 for r in rings if r.get("weight_grams") is not None)
+    n_w_omit = sum(1 for r in rings if r.get("weight_grams") is None)
     if show_filters:
         filter_html = f"""
       <div class="filter-bar">
@@ -364,9 +364,9 @@ def render_ring_table_block(title: str, subtitle: str, rings: list[dict], show_f
           <option value="PLATED">Plated Brass Control (Rejected)</option>
         </select>
         <select id="ring-status-filter" aria-label="Filter by Weight Disclosure">
-          <option value="ALL">All Weight Disclosure States ({len(rings)})</option>
-          <option value="WEIGHT_VERIFIED">Official Gram Weight Published ({w_pub})</option>
-          <option value="WEIGHT_OMITTED">Gram Weight Omitted — Blank/Unverified ({w_omit})</option>
+          <option value="ALL">All Weight Disclosure States</option>
+          <option value="WEIGHT_VERIFIED">Official Gram Weight Published ({n_w_ok})</option>
+          <option value="WEIGHT_OMITTED">Gram Weight Omitted — Blank/Unverified ({n_w_omit})</option>
         </select>
         <span id="visible-row-count" class="badge badge-neutral"></span>
       </div>"""
@@ -446,9 +446,9 @@ def build_all() -> None:
         <div class="kpi-sub"><strong>${bench['spot_usd_per_gram_24k_exact']:.2f}/g</strong> (24K) &bull; <strong>$75.49/g</strong> (14K) &bull; <strong>$97.06/g</strong> (18K)</div>
       </div>
       <div class="kpi-card">
-        <div class="kpi-label">Best Pure Bullion Ratio</div>
-        <div class="kpi-value">1.50x Melt</div>
-        <div class="kpi-sub">Menē 24K Wide Band ($2,333 vs. $1,552.92 gold melt &bull; 66.6% pure gold value)</div>
+        <div class="kpi-label">Best Weight-Verified Band</div>
+        <div class="kpi-value">2.99x Melt</div>
+        <div class="kpi-sub">Ross-Simons 4mm 14K Band ($949 vs. $317.05 gold melt &bull; 4.2g verified in static HTML)</div>
       </div>
       <div class="kpi-card">
         <div class="kpi-label">Best 14K Solid Retail Ratio</div>
@@ -474,7 +474,7 @@ def build_all() -> None:
           <div>
             <span class="badge badge-ok">Finding #1 &bull; Weight &amp; Melt Value</span>
             <h3>Most Bridal Jewelers Hide Gram Weight Online</h3>
-            <p>Blue Nile, Brilliant Earth, and Mejuri publish millimeter band widths (1.5mm–5.0mm) but omit gram weights on product pages. Ross-Simons (14K bands at <strong>2.99x–3.96x melt</strong>) and Menē (24K bands at <strong>1.50x–1.56x melt</strong>) publish exact weights.</p>
+            <p>Blue Nile, Brilliant Earth, and Mejuri omit gram weights in static HTML, and Menē renders 24K weights only via client JS. Ross-Simons publishes explicit static-HTML weights on 14K bands (<strong>2.99x–3.96x melt</strong>).</p>
           </div>
           <a href="bands-vintage-rings.html">Compare Weight-Verified Bands &rarr;</a>
         </div>
@@ -492,7 +492,7 @@ def build_all() -> None:
             <h3>Even Established Retailers Publish Conflicting Specs</h3>
             <p>Line-by-line reading caught Ross-Simons Item <code>251663</code> advertising <code>10kt</code> in specs and <code>14kt</code> in prose, and Brilliant Earth <code>BE1FM0126</code> displaying a <code>Free 1-Year Resizing</code> banner above text stating resizing is unavailable.</p>
           </div>
-          <a href="flagged-for-review.html">Review All 16 Flagged Listings &rarr;</a>
+          <a href="flagged-for-review.html">Review All {len(flagged_rings)} Flagged Listings &rarr;</a>
         </div>
         <div class="cat-card">
           <div>
@@ -545,7 +545,7 @@ def build_all() -> None:
         </div>
         <div class="cat-card">
           <div>
-            <h3>5. Flagged for Review (16 Items)</h3>
+            <h3>5. Flagged for Review ({len(flagged_rings)} Items)</h3>
             <p>Complete transparency register of every omitted weight, 10kt/14kt copy error, resizing contradiction, BBB D- rating, and plated control.</p>
           </div>
           <a href="flagged-for-review.html" class="source-btn">Open Flagged Items</a>
@@ -572,11 +572,11 @@ def build_all() -> None:
     # 2. checklist-standards.html — All 12 Checklist Rules + Karat Table
     # ======================================================================
     checklist_items = [
-        ("Rule 01", "Check Karat Purity Explicitly (10K / 14K / 18K / 22K / 24K)", "Confirm exact fractional purity: 10K (41.7% — US legal minimum under 16 CFR § 23.3), 14K (58.3% — classic durable daily bridal balance), 18K (75.0% — richer yellow hue, slightly softer), 22K (91.7%), or 24K (99.95% pure bullion softness).", "https://www.ecfr.gov/current/title-16/part-23", "16 CFR Part 23 (FTC Jewelry Guides)"),
-        ("Rule 02", "Verify Explicit 'Solid Gold' Wording", "Require unambiguous 'Solid 14K Gold' or 'Solid 18K Gold' wording. Reject 'Gold Plated', 'Gold Vermeil' (gold over sterling silver), 'Gold Filled' (mechanically bonded layer), or 'Gold over Brass' (see SOL-09 control at $29).", "https://www.ecfr.gov/current/title-16/part-23/section-23.4", "16 CFR § 23.4 Misuse of 'Gold'"),
-        ("Rule 03", "Confirm Mandatory Karat & Maker's Trademark Hallmarks", "Under the US National Gold and Silver Stamping Act (15 U.S.C. § 297), any quality mark ('14K', '585', '750') MUST be accompanied by the registered manufacturer trademark. UK items >1.0g require statutory Assay Office hallmarks.", "https://www.govinfo.gov/content/pkg/USCODE-2023-title15/pdf/USCODE-2023-title15-chap8-sec297.pdf", "15 U.S.C. § 297 Stamping Act (GovInfo)"),
-        ("Rule 04", "Ask for Exact Gram Weight Before Paying", "Millimeter width (e.g., 1.8mm vs 4.0mm) tells you dimensions, not hollow vs solid density. Request net gold weight in grams via live chat/email whenever omitted (Blue Nile, Brilliant Earth, Mejuri).", "https://www.nist.gov/pml/owm/approximate-conversions-us-customary-measures-metric", "NIST Weight Standards"),
-        ("Rule 05", "Check Independent Seller Reputation, Address & Phone", "Verify physical headquarters, working toll-free phone, and independent BBB complaint history — never rely solely on curated on-site reviews (e.g., Mejuri holds a BBB D- rating despite glossy site reviews).", "https://www.bbb.org/us/ri/cranston/profile/jewelry-stores/ross-simons-0021-105000", "BBB Official Business Profiles"),
+        ("Rule 01", "Check Karat Purity Explicitly (10K / 14K / 18K / 22K / 24K)", "Confirm exact fractional purity: 10K (41.7% — US legal minimum under 16 CFR § 23.3), 14K (58.3% — classic durable daily bridal balance), 18K (75.0% — richer yellow hue, slightly softer), 22K (91.7%), or 24K (99.95% pure bullion softness).", "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23", "16 CFR Part 23 (FTC Jewelry Guides)"),
+        ("Rule 02", "Verify Explicit 'Solid Gold' Wording", "Require unambiguous 'Solid 14K Gold' or 'Solid 18K Gold' wording. Reject 'Gold Plated', 'Gold Vermeil' (gold over sterling silver), 'Gold Filled' (mechanically bonded layer), or 'Gold over Brass' (see SOL-09 control at $29).", "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23/section-23.3", "16 CFR § 23.3 Misrepresentation of Gold Content"),
+        ("Rule 03", "Confirm Mandatory Karat & Maker's Trademark Hallmarks", "Under the US National Gold and Silver Stamping Act (15 U.S.C. § 297), any quality mark ('14K', '585', '750') MUST be accompanied by the registered manufacturer trademark. UK items >1.0g require statutory Assay Office hallmarks.", "https://www.govinfo.gov/content/pkg/USCODE-2023-title15/html/USCODE-2023-title15-chap8.htm", "15 U.S.C. Ch. 8 Stamping Act"),
+        ("Rule 04", "Ask for Exact Gram Weight Before Paying", "Millimeter width (e.g., 1.8mm vs 4.0mm) tells you dimensions, not hollow vs solid density. Request net gold weight in grams via live chat/email whenever omitted (Blue Nile, Brilliant Earth, Mejuri).", "https://www.nist.gov/pml/owm/metric-si/unit-conversion/precious-metals-conversion-information", "NIST Weight Standards"),
+        ("Rule 05", "Check Independent Seller Reputation, Address & Phone", "Verify physical headquarters, working toll-free phone, and independent BBB complaint history — never rely solely on curated on-site reviews (e.g., Mejuri holds a BBB D- rating despite glossy site reviews).", "https://www.bbb.org/us/ri/cranston/profile/jewelry-stores/ross-simons-inc-0021-25107", "BBB Official Business Profiles"),
         ("Rule 06", "Compare Asking Price Against Live Raw Gold Melt Value", "At $4,025.10/oz ($129.41/g 24K), pure 14K gold melts at $75.49/g and 18K at $97.06/g. Any 'solid gold' ring priced near or below raw melt value is counterfeit, hollow ultra-thin foil, or plated brass.", "https://www.kitco.com/price/precious-metals", "Kitco Live Gold Spot"),
         ("Rule 07", "Read Return Policy Exclusions (Resized, Engraved & Custom)", "Crucial trap: Blue Nile and Brilliant Earth void returns once a ring is engraved or resized! Menē gives only 7 calendar days from delivery. Never engrave or resize before independent verification.", "https://www.bluenile.com/policies/returns", "Blue Nile Official Return Policy"),
         ("Rule 08", "Pay Strictly by Major Credit Card for Dispute Protection", "Never pay via Zelle, crypto, cash app, or bank wire — even when tempted by Blue Nile's or Brilliant Earth's 1.5% wire discount — so you preserve statutory Fair Credit Billing Act chargeback protection.", "https://www.brilliantearth.com/flexible-payment-options/", "Brilliant Earth Payment Terms"),
@@ -688,17 +688,17 @@ def build_all() -> None:
     bands_body = f"""
     <section class="page-hero">
       <p class="page-eyebrow">Category Audit 02 &bull; Solid Gold Bands, 24K Bullion Rings, Signets &amp; Coin Rings</p>
-      <h1>Verified Solid Gold Wedding/Engagement Bands, 24K Investment Rings &amp; Vintage/Signet Styles ({len(bands)} Listings)</h1>
+      <h1>Verified Solid Gold Wedding/Engagement Bands, 24K Investment Rings &amp; Vintage/Signet Styles (12 Listings)</h1>
       <p class="lead">
-        Head-to-head comparison of server-HTML weight-published jewelers (Ross-Simons 14K bands at <strong>2.99x–3.96x melt</strong>)
-        against client-JS-only listings (Menē 24K bands, blanked to <code>Unverified</code> per Zero-Hallucination Rule), weight-opaque DTC listings (Mejuri 14K solid gold bands), and mixed-alloy coin rings (<code>BND-08</code>).
+        Head-to-head comparison of static-HTML weight-verified 14K bands (Ross-Simons at <strong>2.99x–3.96x melt</strong>) and Menē pure 24K bands (JS-hydrated weights left null in static HTML per zero-inference rule)
+        against weight-opaque DTC listings (Mejuri 14K solid gold bands with omitted weights) and mixed-alloy coin rings (<code>BND-08</code>).
       </p>
     </section>
     {render_mandate_banner(compact=True)}
     {render_calculator_section(bench['spot_bid_usd_per_troy_oz'], include_presets=True)}
     {render_ring_table_block(
         "Solid Gold Bands, 24K Rings & Vintage/Signet Styles — Line-by-Line Table",
-        "Exact pure gold grams and melt values are shown for all 4 single-karat server-HTML weight-published rings; client-JS-only, mixed-karat, and weight-omitted items remain strictly blank (Unverified).",
+        "Exact pure gold grams and melt values are shown for all 7 single-karat weight-published rings; mixed-karat and weight-omitted items remain strictly blank (Unverified).",
         bands,
         show_filters=True,
     )}

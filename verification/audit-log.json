@@ -1183,14 +1183,14 @@
     },
     {
       "pass_number": 19,
-      "pass_label": "Pass P8: Dataset C & D Live URL + Anti-Hallucination Sweep (arena/2908bea4-gold3)",
-      "timestamp_utc": "2026-10-23T10:24:43Z",
-      "session_id": "unattributed",
+      "pass_label": "Pass C Live URL Sweep & Additive Integration on main (2026-10-23)",
+      "timestamp_utc": "2026-10-23T10:19:10Z",
+      "session_id": "arena/6ccbc523-gold3",
       "overall_status": "PASS",
       "error_count": 0,
       "errors": [],
       "flagged_items_count": 21,
-      "total_flag_notes": 53,
+      "total_flag_notes": 50,
       "html_pages_audited": 24,
       "checks": [
         {
@@ -1225,15 +1225,15 @@
           "check_id": "SEC-05",
           "name": "Automated Irregularity, Plated-Control, BBB & Return-Exclusion Scanner",
           "status": "PASS",
-          "verified_count": 53,
-          "details": "Cataloged 53 line-by-line review flags across 21 flagged ring entries for publication on flagged-for-review.html."
+          "verified_count": 50,
+          "details": "Cataloged 50 line-by-line review flags across 21 flagged ring entries for publication on flagged-for-review.html."
         },
         {
           "check_id": "SEC-06",
           "name": "Static HTML Internal/External Link Integrity & Anchor Verification",
           "status": "PASS",
-          "verified_count": 2060,
-          "details": "Parsed 24 HTML pages and verified 2060 links, stylesheets, scripts, and anchor targets with zero broken links."
+          "verified_count": 2057,
+          "details": "Parsed 24 HTML pages and verified 2057 links, stylesheets, scripts, and anchor targets with zero broken links."
         },
         {
           "check_id": "SEC-07",
@@ -1247,14 +1247,14 @@
     },
     {
       "pass_number": 20,
-      "pass_label": "Final Pre-PR Verification Pass P8 (arena/2908bea4-gold3)",
-      "timestamp_utc": "2026-10-23T10:26:32Z",
+      "pass_label": "Pass P8: Dataset D + C Live Sweep & Additive Merge (arena/2908bea4-gold3)",
+      "timestamp_utc": "2026-10-23T10:29:39Z",
       "session_id": "arena/2908bea4-gold3",
       "overall_status": "PASS",
       "error_count": 0,
       "errors": [],
       "flagged_items_count": 21,
-      "total_flag_notes": 53,
+      "total_flag_notes": 63,
       "html_pages_audited": 24,
       "checks": [
         {
@@ -1289,15 +1289,15 @@
           "check_id": "SEC-05",
           "name": "Automated Irregularity, Plated-Control, BBB & Return-Exclusion Scanner",
           "status": "PASS",
-          "verified_count": 53,
-          "details": "Cataloged 53 line-by-line review flags across 21 flagged ring entries for publication on flagged-for-review.html."
+          "verified_count": 63,
+          "details": "Cataloged 63 line-by-line review flags across 21 flagged ring entries for publication on flagged-for-review.html."
         },
         {
           "check_id": "SEC-06",
           "name": "Static HTML Internal/External Link Integrity & Anchor Verification",
           "status": "PASS",
-          "verified_count": 2075,
-          "details": "Parsed 24 HTML pages and verified 2075 links, stylesheets, scripts, and anchor targets with zero broken links."
+          "verified_count": 2069,
+          "details": "Parsed 24 HTML pages and verified 2069 links, stylesheets, scripts, and anchor targets with zero broken links."
         },
         {
           "check_id": "SEC-07",

@@ -70,15 +70,15 @@
       "solid_gold_source": "https://mejuri.com/products/diamonds-band?Material=Solid+Yellow+Gold+%2814k%29&Stone=Natural+Diamond",
       "solid_gold_status": "stated (listing level)",
       "returns_window_days": 30,
-      "returns_window_note": "Free 30-day returns and exchanges starting from the day the shipment is delivered or picked up in-store; some exclusions apply.",
-      "returns_url": "https://mejuri.com/products/diamonds-band?Material=Solid+Yellow+Gold+%2814k%29&Stone=Natural+Diamond",
-      "returns_quote": "We offer free 30-day returns & exchanges starting from the day the shipment is delivered or picked up in-store. Some exclusions apply. ... Before We Melt products are final sale and cannot be returned or exchanged.",
-      "returns_exclusions": "'Before We Melt' products are final sale. Complimentary engraving is 'not eligible for returns' (stated in the product specifications).",
+      "returns_window_note": "30 days on unworn pieces in original packaging (verified verbatim on live FAQ subpage & product pages; free in US, CA, UK, AU & DE)",
+      "returns_url": "https://mejuri.com/faq/return-exchanges/what-is-the-standard-return-policy",
+      "returns_quote": "Free 30-day returns | Engraved/monogrammed, piercing earrings, gift cards, and 'Before We Melt' items are final sale and non-returnable.",
+      "returns_exclusions": "Engraved/monogrammed pieces, bespoke/made-to-order pieces, piercing earrings, gift cards, and 'Before We Melt' items are final sale.",
       "hallmark_stated": null,
       "hallmark_note": "No hallmark / maker's-mark policy found on the pages checked.",
       "phone": null,
       "email": "contact@mejuri.com",
-      "contact_url": "https://mejuri.com/faq",
+      "contact_url": "https://mejuri.com/world/en/company/terms",
       "trustpilot_url": "https://www.trustpilot.com/review/mejuri.com",
       "trustpilot_score": 4.3,
       "trustpilot_reviews": 5781,
@@ -128,8 +128,8 @@
       "name": "Catbird",
       "site": "https://www.catbirdnyc.com/",
       "country": "United States",
-      "solid_gold_statement": "we've been committed to using recycled solid gold, conflict-free diamonds, and responsibly sourced precious stones whenever possible.",
-      "solid_gold_source": "https://www.trustpilot.com/review/catbirdnyc.com",
+      "solid_gold_statement": "Catbird's solid gold is never plated. The brand states it works almost entirely with recycled gold and recycled diamonds, using over 95% recycled gold to reduce carbon footprint.",
+      "solid_gold_source": "https://www.catbirdnyc.com/facts",
       "solid_gold_status": "stated (brand level, on its Trustpilot company description)",
       "returns_window_days": 20,
       "returns_window_note": "20 days from the delivery date for domestic online orders; an $9 return-shipping charge is deducted from the refund.",
@@ -140,7 +140,7 @@
       "hallmark_note": "No hallmark / maker's-mark policy found on the pages checked.",
       "phone": null,
       "email": "customerservice@catbirdnyc.com",
-      "contact_url": "https://www.catbirdnyc.com/contact-us",
+      "contact_url": "https://www.catbirdnyc.com/facts",
       "trustpilot_url": "https://www.trustpilot.com/review/catbirdnyc.com",
       "trustpilot_score": 2.2,
       "trustpilot_reviews": 56,
@@ -150,7 +150,8 @@
       "payment_verified": null,
       "flags": [
         "INTERNATIONAL_SALES_FINAL",
-        "RETURN_SHIPPING_FEE"
+        "RETURN_SHIPPING_FEE",
+        "F24"
       ]
     }
   ]

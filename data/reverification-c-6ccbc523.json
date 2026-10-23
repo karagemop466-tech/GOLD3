@@ -1,0 +1,108 @@
+{
+  "metadata": {
+    "pass_id": "PASS-C-6CCBC523",
+    "session_id": "arena/6ccbc523-gold3",
+    "verified_at": "2026-10-23T09:56:00Z",
+    "scope": "Dataset C full live re-verification (solitaire-rings.json, bands-and-high-karat.json, sellers-policies.json, spot-and-standards.json, checklist-standards.html links) + Dataset A retailer policy/contact cross-check (retailers.json, findings.json)",
+    "methodology": "Every product page, policy page, payment page, BBB profile, statutory standard, and live spot feed was fetched directly on 2026-10-23 via fetch_page. Unconfirmed static-HTML values were set to null and flagged under strict zero-inference rules."
+  },
+  "summary": {
+    "urls_live_checked": 63,
+    "broken_or_500_urls_repaired": 6,
+    "statutory_citation_errors_repaired": 2,
+    "unverifiable_contact_or_bbb_claims_repaired": 3,
+    "js_hidden_weights_nullified_and_flagged": 3,
+    "new_live_listing_contradictions_logged": 2,
+    "dataset_c_rings_total": 21,
+    "dataset_c_static_html_weight_verified": 5,
+    "dataset_c_weight_omitted_flagged": 16,
+    "dataset_c_flagged_total": 17
+  },
+  "spot_corroboration": {
+    "kitco_url": "https://www.kitco.com/charts/gold",
+    "kitco_bid_usd_oz": 4022.70,
+    "kitco_ask_usd_oz": 4024.70,
+    "kitco_london_fix_usd_oz": 4026.66,
+    "kitco_timestamp": "Oct 23, 2026 05:56 NY Time",
+    "bullionvault_url": "https://www.bullionvault.com/gold-price-chart.do",
+    "bullionvault_usd_oz": 4024.23,
+    "bullionvault_usd_g": 129.38,
+    "bullionvault_timestamp": "23 October 2026, 05:57:08 GMT-04:00",
+    "calculation_anchor_usd_oz": 4025.10,
+    "drift_pct": -0.06
+  },
+  "defects_repaired": [
+    {
+      "id": "REV-C-01",
+      "severity": "critical",
+      "target": "data/spot-and-standards.json (STD-05)",
+      "prior_value": "https://www.gia.edu/gems-gemology/summer-2025-lab-notes-gold-plated-gold0",
+      "repaired_value": "https://www.gia.edu/gems-gemology/summer-2025-lab-notes-gold-plated-gold",
+      "evidence": "Trailing '0' typo returned HTTP 404 Page Not Found on gia.edu; repaired URL returned HTTP 200 and confirmed Carlos Bautista's Summer 2025 Gems & Gemology Vol. 61 No. 2 Lab Notes article verbatim."
+    },
+    {
+      "id": "REV-C-02",
+      "severity": "critical",
+      "target": "data/spot-and-standards.json (STD-01, 18K, 14K) & scripts/build_ext_pages.py (Rule 03)",
+      "prior_value": "https://uscode.house.gov/view.xhtml?path=/prelim@title15/chapter8&edition=prelim",
+      "repaired_value": "https://www.govinfo.gov/content/pkg/USCODE-2023-title15/html/USCODE-2023-title15-chap8.htm",
+      "evidence": "uscode.house.gov returned an HTTP 500 error page ('The requested page could not be returned as a technical error occurred'); GovInfo official U.S. Government Publishing Office Title 15 Chapter 8 page returned HTTP 200 with full statutory text of 15 U.S.C. §§ 291–300."
+    },
+    {
+      "id": "REV-C-03",
+      "severity": "critical",
+      "target": "scripts/build_ext_pages.py (Rule 10 in checklist-standards.html)",
+      "prior_value": "https://www.gov.uk/guidance/hallmarking-law-and-practice",
+      "repaired_value": "https://www.gov.uk/government/publications/hallmarking-guidance-notes/hallmarking-is-the-law-guidance-summary",
+      "evidence": "gov.uk/guidance/hallmarking-law-and-practice returned HTTP 404 ('Page not found' on GOV.UK); British Hallmarking Council official statutory guidance summary returned HTTP 200."
+    },
+    {
+      "id": "REV-C-04",
+      "severity": "high",
+      "target": "scripts/build_ext_pages.py (Rule 02 & Rule 04 in checklist-standards.html)",
+      "prior_value": "16 CFR § 23.4 ('Misuse of Gold') & NIST SP 365 wallet card URL",
+      "repaired_value": "16 CFR § 23.3 ('Misrepresentation as to Gold Content') & NIST SP 811 Precious Metals Conversion Information URL",
+      "evidence": "Live inspection of eCFR Title 16 Part 23 showed § 23.4 covers Vermeil while § 23.3 governs solid gold / karat thresholds; NIST SP 365 page lacked troy-ounce conversions whereas NIST Precious Metals Conversion Information explicitly confirms 1 oz t = 31.1034768 g."
+    },
+    {
+      "id": "REV-C-05",
+      "severity": "critical",
+      "target": "data/sellers-policies.json (SEL-MEJURI) & data/retailers.json (mejuri)",
+      "prior_value": "bbb_url .../jewelry-stores/mejuri-0107-1359829 (HTTP 404), verified_phone '+1-844-598-9694' (unverifiable), 52 complaints, JS-only FAQ hubs",
+      "repaired_value": "bbb_url https://www.bbb.org/ca/on/toronto/profile/jewelry-manufacturers/mejuri-0107-1370644 (D-, Not Accredited, 35 3-yr complaints, 906 Dundas St W Toronto HQ), verified SMS/HQ phones +1-310-597-4745 / +1-855-496-1110 (no live voice line), direct server-rendered FAQ leaf pages",
+      "evidence": "Live fetch of old BBB slug returned HTTP 404 and '+1-844-598-9694' appeared nowhere on mejuri.com or bbb.org; live Toronto HQ BBB profile and server-rendered Mejuri FAQ subpages confirmed verbatim."
+    },
+    {
+      "id": "REV-C-06",
+      "severity": "high",
+      "target": "data/bands-and-high-karat.json (BND-01, BND-02, BND-03)",
+      "prior_value": "Static-unverifiable gram weights (8.5 g, 7.9 g, 12.0 g) from pre-migration search snippets & collection URLs on BND-02/BND-03",
+      "repaired_value": "Direct product page URLs, live 2026-10-23 prices ($1,707, $1,544, $2,465), secondary /collections/bands-gold URL, and weight_grams/melt fields set to null with explicit JS-hydration audit flags matching Dataset B R30",
+      "evidence": "Live fetches of /products/mene-classic-band-gold, /products/mene-narrow-flat-band-gold, /products/mene-wide-flat-band-gold, and /collections/bands-gold confirmed Shopify Oxygen v2 omits gram weights from server HTML."
+    },
+    {
+      "id": "REV-C-07",
+      "severity": "medium",
+      "target": "data/retailers.json (catbird) & data/findings.json (F24)",
+      "prior_value": "contact_url https://www.catbirdnyc.com/contact-us",
+      "repaired_value": "contact_url https://www.catbirdnyc.com/facts + Finding F24",
+      "evidence": "Live fetch of https://www.catbirdnyc.com/contact-us on 2026-10-23 returned nginx '500 Internal Server Error'; https://www.catbirdnyc.com/facts returned HTTP 200 and confirms 'Customer Email: customerservice@catbirdnyc.com' verbatim."
+    },
+    {
+      "id": "REV-C-08",
+      "severity": "medium",
+      "target": "data/solitaire-rings.json (SOL-04, SOL-05, SOL-08) & data/sellers-policies.json (SEL-BLUENILE, SEL-MENE)",
+      "prior_value": "Omitted live spec defect ('Band Width: 2 ct. tw.'), second SOL-08 contradiction ('bezel or halo, not prongs' warning on prong ring), Blue Nile 6-month resize change, and Menē 10% card refund fee nuance",
+      "repaired_value": "Recorded verbatim across SOL-04, SOL-05, SOL-08, SEL-BLUENILE, and SEL-MENE",
+      "evidence": "Confirmed directly on live product and returns pages fetched 2026-10-23."
+    },
+    {
+      "id": "REV-C-09",
+      "severity": "high",
+      "target": "scripts/render-test.js (SD6) & scripts/run_security_audit.py (CR-692d-2)",
+      "prior_value": "4 SD4 checks in render-test.js ran after failed filter with non-negated boolean; run_security_audit.py dirtying tracked files on every read-only check",
+      "repaired_value": "Moved SD4 assertions prior to failed computation with boolean negated; added SHA-256 parity clean-tree check + --record-pass + git branch attribution in run_security_audit.py",
+      "evidence": "Verified directly via node scripts/render-test.js and python3 scripts/run_security_audit.py on clean working tree."
+    }
+  ]
+}
