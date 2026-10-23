@@ -14,32 +14,32 @@
   },
   "snapshots": [
     {
-      "id": "goldprice-org-2026-10-22",
+      "id": "goldprice-org-2026-10-23",
       "publisher": "GoldPrice.org",
       "url": "https://goldprice.org/",
       "metal": "gold",
-      "price_usd_per_troy_oz": 4026.79,
-      "as_of_text": "Oct 22nd, 2026 at 07:07 NY Time",
-      "captured_on": "2026-10-22",
+      "price_usd_per_troy_oz": 4022.22,
+      "as_of_text": "Oct 23rd, 2026 at 05:55 NY Time",
+      "captured_on": "2026-10-23",
       "role": "primary",
-      "quote": "Spot Gold Price: USD 4,026.79 / Ounce | Spot Silver Price: USD 54.63 / Ounce Oct 22nd, 2026 at 07:07 NY Time"
+      "quote": "Spot Gold Price: USD 4,022.22 / Ounce | Spot Silver Price: USD 53.82 / Ounce Oct 23rd, 2026 at 05:55 NY Time"
     },
     {
-      "id": "world-gold-council-2026-10-21",
+      "id": "world-gold-council-2026-10-22",
       "publisher": "World Gold Council (Goldhub), market data by ICE Data Services",
       "url": "https://www.gold.org/goldhub/data/gold-prices",
       "metal": "gold",
-      "price_usd_per_troy_oz": 4024.36,
-      "as_of_text": "Data as of 21 October, 2026",
-      "captured_on": "2026-10-22",
+      "price_usd_per_troy_oz": 4024.45,
+      "as_of_text": "Data as of 22 October, 2026",
+      "captured_on": "2026-10-23",
       "role": "cross-check",
-      "quote": "Gold Spot price USD /oz 4,024.36 ... Data as of 21 October, 2026"
+      "quote": "Gold Spot price USD /oz - 4,024.45 ... Data as of 22 October, 2026"
     }
   ],
   "cross_check": {
-    "difference_usd_per_oz": 2.43,
-    "difference_percent": 0.0604,
-    "note": "The two independent snapshots differ by 0.06%, which is consistent with normal intraday movement between the two timestamps. Calculations use the primary (GoldPrice.org) snapshot; the World Gold Council figure is shown next to it so the reader can see the spread.",
-    "benchmark_note": "The LBMA Gold Price is the global benchmark, set twice daily by ICE Benchmark Administration. LBMA states that real-time and historical benchmark data require an IBA licence and that the public tables have moved behind the MyLBMA portal, so no LBMA figure is reproduced here. Source: https://www.lbma.org.uk/prices-and-data/lbma-precious-metal-prices"
+    "difference_usd_per_oz": 2.23,
+    "difference_percent": 0.0554,
+    "note": "The two independent snapshots read on 2026-10-23 differ by 0.055%, which is consistent with normal intraday movement between the two timestamps (and within 0.06% of Dataset C's simultaneous Kitco $4,022.70/oz & BullionVault $4,024.23/oz quotes). Calculations use the primary (GoldPrice.org) snapshot; the World Gold Council figure is shown next to it so the reader can see the spread.",
+    "benchmark_note": "The LBMA Gold Price is the global benchmark, set twice daily by ICE Benchmark Administration. LBMA states (re-verified live 2026-10-23) that real-time and historical benchmark data require an IBA licence and that the public tables have moved behind the MyLBMA portal, so no LBMA figure is reproduced here. Source: https://www.lbma.org.uk/prices-and-data/lbma-precious-metal-prices"
   }
 }

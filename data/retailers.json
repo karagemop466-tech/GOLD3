@@ -11,7 +11,7 @@
       "solid_gold_source": "https://auratenewyork.gorgias.help/en-US/articles/our-jewelry-38634",
       "solid_gold_status": "stated (brand level)",
       "returns_window_days": 15,
-      "returns_window_note": "15 days for domestic orders, from the day the item is fulfilled; 21 days for international orders.",
+      "returns_window_note": "15 days for domestic orders, from the day the item is fulfilled (~10+ days post-delivery); 21 days for international orders. Note: engagement solitaire PDPs display 'Exchange for size only. Final Sale!' alongside a 'Free Returns' badge.",
       "returns_url": "https://auratenewyork.gorgias.help/en-US/articles/returns-38636",
       "returns_quote": "Aurate provides a 15-day return window starting from the day your item gets fulfilled.",
       "returns_exclusions": "Items marked 'exchange only' cannot be refunded; items marked 'final sale' cannot be returned or exchanged; returns without an attached tag, or with a visibly damaged tag, are not eligible for a refund.",
@@ -19,13 +19,13 @@
       "hallmark_note": "No hallmark / maker's-mark policy found on the pages checked.",
       "phone": null,
       "email": "care@auratenewyork.com",
-      "contact_url": "https://auratenewyork.gorgias.help/en-US/contact",
+      "contact_url": "https://auratenewyork.gorgias.help/en-US/articles/our-jewelry-38634",
       "trustpilot_url": "https://www.trustpilot.com/review/auratenewyork.com",
       "trustpilot_score": 4.1,
-      "trustpilot_reviews": 4875,
-      "trustpilot_quote": "4,875 reviews · TrustScore 4.1",
+      "trustpilot_reviews": 4876,
+      "trustpilot_quote": "4,876 reviews · TrustScore 4.1",
       "trustpilot_complaints": "Review summary reports dissatisfaction with prolonged delivery delays, missing items, exchange restrictions and product defects.",
-      "trustpilot_sample_note": "Claimed profile; the company invites reviews and replies to 98% of negative reviews.",
+      "trustpilot_sample_note": "Claimed profile; the company invites reviews and replies to 98% of negative reviews (re-verified live 2026-10-23).",
       "payment_verified": null,
       "flags": [
         "SHORT_RETURN_WINDOW"
@@ -98,30 +98,32 @@
       "country": "United States",
       "solid_gold_statement": null,
       "solid_gold_source": null,
-      "solid_gold_status": "not stated in product body text checked",
-      "returns_window_days": 30,
-      "returns_window_note": "30 days from the delivery date on most fine jewelry orders; 15 days for limited-edition collaboration pieces.",
+      "solid_gold_status": "not stated in product body text checked (spec states 'Metal: 14K Yellow Gold with Platinum Prongs', without the word 'solid')",
+      "returns_window_days": 7,
+      "returns_window_note": "CONTRADICTION CAUGHT LIVE (2026-10-23): General Refund Policy (/policies/refund-policy & /pages/fine-jewelry-returns) states 30 days on most Fine Jewelry (bespoke bridal & engraved final sale), WHEREAS the engagement-ring product page itself states: 'You have 1 week (7 days) from the date of delivery to return your ready-made engagement ring or wedding band. ... Any customizations or resizing to the ring results in it becoming final sale.' Buyer must assume the stricter 7-day bridal window.",
       "returns_url": "https://ringconcierge.com/policies/refund-policy",
-      "returns_quote": "If within 30 days from the delivery date you change your mind, we are happy to offer you a refund or you may opt to do an even exchange for the same item in a different size or color on most Fine Jewelry orders.",
-      "returns_exclusions": "Gift cards, special orders, deposits for custom pieces and pieces marked Final Sale. Item must be unused, in original packaging with tags attached.",
+      "returns_quote": "General policy: 'If within 30 days from the delivery date you change your mind, we are happy to offer you a refund... on most Fine Jewelry orders.' Engagement-ring PDP FAQ: 'You have one week (7 days) from the date of delivery to return your ready-made engagement ring. ... Any customizations or resizing to the ring results in it becoming final sale.'",
+      "returns_exclusions": "Bespoke bridal orders, engraved pieces, special orders, deposits for custom pieces, gift cards, and pieces marked Final Sale are non-returnable; original black Ring Concierge tag must remain attached; any customization or resizing makes a ready-made engagement ring final sale.",
       "hallmark_stated": null,
       "hallmark_note": "No hallmark / maker's-mark policy found on the pages checked.",
       "phone": null,
-      "email": null,
-      "contact_url": "https://ringconcierge.com/pages/bridal-contact",
+      "email": "info@ringconcierge.com",
+      "contact_url": "https://ringconcierge.com/products/2-08-oval-lab-diamond-in-whisper-thina-hidden-halo",
       "trustpilot_url": "https://www.trustpilot.com/review/ringconcierge.com",
       "trustpilot_score": 2.7,
       "trustpilot_reviews": 7,
       "trustpilot_quote": "7 reviews · TrustScore 2.7 · Unclaimed profile",
-      "trustpilot_complaints": "Reviews allege difficulty returning an order delivered late (past the 30-day window), warranty claims refused as 'wear and tear', and poor customer service.",
-      "trustpilot_sample_note": "Only 7 reviews and an unclaimed profile; Trustpilot states the company 'hasn't invited their customers, so reviews may not be representative'. Treat the score as low-confidence, not as proof.",
+      "trustpilot_complaints": "Reviews allege difficulty returning an order delivered late, warranty claims refused as 'wear and tear', and poor customer service.",
+      "trustpilot_sample_note": "Only 7 reviews and an unclaimed profile; Trustpilot states the company 'hasn't invited their customers, so reviews may not be representative' (re-verified live 2026-10-23).",
       "payment_verified": null,
       "flags": [
+        "SHORT_RETURN_WINDOW",
+        "RETURN_EXCLUSION_RESIZED",
         "LOW_REVIEW_SAMPLE",
         "WARRANTY_TERM_CONTRADICTION",
-        "NO_DIRECT_CONTACT"
+        "F25"
       ],
-      "contact_note": "No phone number or email address found on the pages checked; contact is via a web form / chat."
+      "contact_note": "info@ringconcierge.com is printed in the Resizing & Repairs / Insured Shipping accordions on the engagement-ring PDPs; no phone number published on pages checked."
     },
     {
       "id": "catbird",
@@ -154,5 +156,6 @@
         "F24"
       ]
     }
-  ]
+  ],
+  "retrieved_utc": "2026-10-23T09:57:00Z"
 }

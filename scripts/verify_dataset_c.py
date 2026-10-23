@@ -42,6 +42,10 @@ CONFIRMED_DEAD_URLS = {
     "https://www.brilliantearth.com/returns/",
     "https://www.sarraf.com/pages/returns-and-refunds.html",
     "https://www.automicgold.com/pages/return-policy",
+    "https://www.automicgold.com/products/1-50ctw-pear-shaped-lab-grown-diamond-engagement-ring-bezel-set",
+    "https://www.sarraf.com/products/14k-white-gold-1-00-ctw-round-3-stone-diamond-engagement-ring-g-i1-3-80-gr.html",
+    "https://auratenewyork.com/pages/returns-exchanges",
+    "https://ringconcierge.com/pages/shipping-returns",
 }
 
 

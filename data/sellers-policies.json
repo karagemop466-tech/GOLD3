@@ -1,7 +1,7 @@
 {
   "category_id": "sellers-policies",
   "category_title": "Verified Online Gold Ring Sellers — Reputation, Return Policies, Resizing Exclusions & Payment Protection",
-  "verified_date_utc": "2026-10-23T09:56:00Z",
+  "verified_date_utc": "2026-10-23T10:34:00Z",
   "sellers": [
     {
       "id": "SEL-ROSSSIMONS",
@@ -95,28 +95,28 @@
       "name": "Menē Inc.",
       "founded_year": 2016,
       "years_in_business": 10,
-      "headquarters_address": "334 Adelaide St W, Suite 307, Toronto, ON M5V 1R4, Canada (USA manufacturing)",
+      "headquarters_address": "307 - 334 Adelaide St W, Toronto, ON M5V 1R4, Canada",
       "verified_phone": "1-833-636-3245 (1-833-MENE-24K)",
       "verified_email": "service@mene.com",
       "official_site_url": "https://mene.com/",
       "bbb_accredited": false,
-      "bbb_rating": "D+ (Mene Inc file) / Not Rated (Mene file)",
+      "bbb_rating": "D+ (Mene Inc 0107-1413670) / Not Rated (Mene 0107-1378080)",
       "bbb_complaints_3yr": 1,
-      "bbb_customer_rating": "1.0 / 5 (2 BBB reviews)",
+      "bbb_customer_rating": "File 0107-1413670: D+, 1 unanswered complaint, 0 reviews | File 0107-1378080: Not Rated, 0 complaints, 2 reviews (avg 1.0/5)",
       "bbb_url": "https://www.bbb.org/ca/on/ontario/profile/jewelry-designers/mene-inc-0107-1413670",
-      "gram_weight_transparency": "Partial in static HTML — pure 24K bullion pricing (+/-0.5g in-stock / +/-1.0g Crafted-on-Demand & signed CoA), but Shopify Oxygen v2 static HTML omits gram weights until client JS hydrates.",
+      "gram_weight_transparency": "Client-Side JS Only Online + CoA on Delivery — Product & collection HTML omit static gram figures (size-dependent weights load via JS; Terms of Service §5 allows +/-0.5g standard / +/-1.0g Crafted-on-Demand variance; Certificate of Authenticity states final weight).",
       "return_window_days": 7,
-      "return_shipping_terms": "7-day return window from receipt: Menē Credit waives the 10% restocking fee; original credit-card refunds incur a 10% collection & processing fee.",
-      "resized_custom_exclusions": "Pure 24K bands are sold by weight, not traditional resizing; discount-code orders face store-credit restrictions on buybacks/returns.",
+      "return_shipping_terms": "SHORT 7-DAY RETURN WINDOW ONLY from receipt: full refund in Menē Credit OR refund to original payment method MINUS a 10% restocking fee (support.mene.com policy 2465633); CoA & packaging required.",
+      "resized_custom_exclusions": "Pure 24K bands are sold by weight, not traditional resizing; Lifetime Buyback applies to 24k gold & platinum only after a 60-day waiting period (minus 10% buyback fee; promo-discount orders receive Menē Credit).",
       "return_policy_url": "https://mene.com/customer-care?hcUrl=%2Fen-US%2Farticles%2Freturns-319505",
-      "accepted_payments": "Major Credit Cards, PayPal, Affirm, Menē Credit",
+      "accepted_payments": "Major Credit Cards, PayPal, Affirm, Menē Credit, Bank Wire (10-day settlement lock)",
       "credit_card_supported": true,
-      "wire_transfer_risk_note": "Pay strictly with a major credit card (avoid discount promo codes if cash buyback flexibility matters).",
+      "wire_transfer_risk_note": "Pay strictly with a major credit card (never 10-day bank wire, which locks spot obligation and forfeits chargeback rights).",
       "payment_policy_url": "https://mene.com/terms-of-service",
-      "checklist_grade": "FLAGGED FOR REVIEW (Best 24K Gram Value, But Strict 7-Day Window & BBB D+)",
+      "checklist_grade": "FLAGGED FOR REVIEW (Pure 24K Bullion Model, But JS-Gated Weights, 7-Day / 10%-Fee Return & BBB D+)",
       "flagged_notes": [
-        "Highest intrinsic gold value in entire study (64%–67% melt value at ~1.50x–1.56x spot), ideal for pure bullion value seekers.",
-        "Flagged because 7-day return window leaves zero margin for delay—must book independent jeweler XRF + gram scale verification BEFORE ordering so you test on Day 1."
+        "Static HTML re-verification (2026-10-23) proved Menē PDPs and /collections/bands-gold do not render gram weights without client-side JS size selection—weights on BND-01..03 are left null/unverified per Zero-Inference Policy.",
+        "Flagged for strict 7-day return window with 10% cash-refund restocking fee and dual BBB profiles (0107-1413670 rated D+ with 1 unanswered complaint; 0107-1378080 Not Rated with 2 x 1-star reviews)."
       ]
     },
     {
