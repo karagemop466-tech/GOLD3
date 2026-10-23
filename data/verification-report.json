@@ -24,7 +24,7 @@
   "counts": {
     "products": 19,
     "retailers": 5,
-    "sources": 10,
+    "sources": 12,
     "errors": 0,
     "warnings": 0
   },
@@ -520,6 +520,31 @@
       "id": "F23",
       "severity": "medium",
       "title": "Three Catbird values drafted in this pass did not survive contact with the live pages"
+    },
+    {
+      "id": "F24",
+      "severity": "high",
+      "title": "VRAI's recorded phone number and e-mail address were wrong, its contact URL returns 404, and two Help Center pages disagree on response time"
+    },
+    {
+      "id": "F25",
+      "severity": "high",
+      "title": "Menē's phone number had transposed digits in Dataset B, its e-mail was unsourced, and its contact URL returns 404"
+    },
+    {
+      "id": "F26",
+      "severity": "high",
+      "title": "Automic Gold requires mailing returns within 14 days to avoid a restocking fee, and its recorded phone number was not on the cited page"
+    },
+    {
+      "id": "F27",
+      "severity": "high",
+      "title": "Six more dead or redirecting source URLs and an unsourced Brilliant Earth e-mail were caught and repaired in Pass P4"
+    },
+    {
+      "id": "F28",
+      "severity": "medium",
+      "title": "Dataset C live sweep: two more on-page contradictions caught, Ross-Simons weights are explicitly approximate, and Menē weights sit in a JS modal"
     }
   ],
   "parallel_dataset": {

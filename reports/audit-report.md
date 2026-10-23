@@ -1,6 +1,6 @@
 # Anti-hallucination audit report
 
-- Run: 2026-10-23 00:19 UTC
+- Run: 2026-10-23 10:16 UTC
 - Rows audited: **31**
 - Sellers audited: **14**
 - Flag definitions: **47**
@@ -73,15 +73,15 @@ None.
 - [price] R13: $2,850 matches its quoted source text
 - [sources] R14: 2 official source link(s)
 - [price] R14: $1,145 matches its quoted source text
-- [sources] R15: 1 official source link(s)
+- [sources] R15: 2 official source link(s)
 - [price] R15: $249 matches its quoted source text
 - [weight] R15: 0.7 g traced to a quoted seller statement
-- [sources] R16: 1 official source link(s)
+- [sources] R16: 2 official source link(s)
 - [price] R16: $299 matches its quoted source text
 - [weight] R16: 0.8 g traced to a quoted seller statement
 - [sources] R17: 2 official source link(s)
 - [price] R17: $1,600 matches its quoted source text
-- [sources] R18: 1 official source link(s)
+- [sources] R18: 2 official source link(s)
 - [price] R18: $276 matches its quoted source text
 - [sources] R19: 2 official source link(s)
 - [price] R19: $178 matches its quoted source text
@@ -94,7 +94,7 @@ None.
 - [price] R21: $613 matches its quoted source text
 - [weight] R21: 8.3 g traced to a quoted seller statement
 - [solid] R21: PASS backed by a quote containing 'solid'
-- [sources] R22: 1 official source link(s)
+- [sources] R22: 2 official source link(s)
 - [price] R22: $3,074 matches its quoted source text
 - [weight] R22: 5.4 g traced to a quoted seller statement
 - [solid] R22: PASS backed by a quote containing 'solid'

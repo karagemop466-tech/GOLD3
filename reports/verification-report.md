@@ -2,7 +2,7 @@
 
 - Pass date: **2026-10-22**
 - Session: `arena/e6fe3e4f-gold3`
-- URLs opened: **37** — confirmed 20, corrected 8, flagged 9
+- URLs opened: **45** — confirmed 20, corrected 16, flagged 9
 
 ## Method
 
@@ -16,6 +16,8 @@ Every URL cited in data/rings.json, data/sellers.json and data/gold-price.json w
 | P2 | Request pass | Checked that every row's product URL returns the product it claims to be — not a redirect to something else, not a sold-out placeholder, not a dead link. | 1 redirect (R17), 1 sold-out/back-order state (R18), 1 identifier mismatch (R10), 0 dead links. |
 | P3 | Internet pass | Each cited URL was opened rather than trusted: host checked against the seller's own domain, and the exact wording quoted. | 28 URLs opened; 0 unreachable; 0 off-domain citations. |
 | P4 | Hallucination pass | Deliberately hostile re-read: any figure that felt plausible but was not literally on the page was removed. This is what caught the 'white/rose gold & platinum also offered' phrases on five Blue Nile rows and two Mejuri rows. | 7 metal-option claims deleted; 1 price basis corrected; 1 temporary provenance flag retired. |
+| P5 | Third re-verification pass (session arena/699d8e05-gold3) | Re-opened 47 official URLs live across Datasets A and B to hunt transplanted claims and dead links. | Caught Wilson's 3% cancellation fee transplanted onto Sarraf (RET7/F15), 2 dead policy URLs (SRC1), wrong Sarraf email (F19), Ross-Simons & Catbird return policies filled (POL1 closed for both), Aurate 5.5-8.5g range & Exchange-Only Final Sale notice recorded (F13/F14). |
+| P6 | Fourth re-verification & integration pass (session arena/bfcd8465-gold3) | Re-opened R23-R31, all 21 Dataset C product pages, and every seller contact/policy/BBB URL; resolved CR-P3-1..CR-P3-9 and site defects SD7-SD8. | Caught 6 more dead/404 URLs (VRAI, Menē, Local Eclectic contact_source; 2 reconstructed slugs in flags.json; 1 trailing-zero GIA URL), fixed wrong VRAI phone/email (F24), digit-transposed Menē phone & email (F25), unsourced Automic phone + restored Automic 14-day restocking-fee rule & resize clause (RET14/F26), unsourced Brilliant Earth email + homepage-redirecting policy URL (F27), and 2 new on-page contradictions in Dataset C (F28). |
 
 ## Checks
 
@@ -57,7 +59,15 @@ Every URL cited in data/rings.json, data/sellers.json and data/gold-price.json w
 | V34 | [VRAI — Petite 4-Prong Solitaire Round Brilliant Engagement Ring (18k Yellow Gold)](https://www.vrai.com/configure/setting-to-diamond/petite-4-prong-ring/round-brilliant-yellow-gold-41015509221469) | R28 | **flagged** | Fetched 2026-10-22 (session arena/cbea1001-gold3): "Metal weight: 2.3g" and "solid gold band" confirmed; dollar price is rendered via client-side JS so left null (P2), and official return policy imposes a $300 recycling fee (RET8). |
 | V35 | [Brilliant Earth — Fairmined 2mm Six-Prong Solitaire Ring in 18K Yellow Gold](https://www.brilliantearth.com/Fairmined-2mm-Six-Prong-Solitaire-Ring-Gold-BE1FM0126-24910022/) | R29 | **flagged** | Fetched 2026-10-22 (session arena/cbea1001-gold3): "$1,090" Setting Price and "18K Yellow Gold" confirmed; flagged SPEC3 because page shows 'Free 1-Year Resizing' badge alongside 'resizing is not available for this ring'. |
 | V36 | [Menē — Wrap Ring (Pure 24k Gold)](https://mene.com/products/wrap-ring-gold) | R30 | **flagged** | Fetched 2026-10-22 (session arena/cbea1001-gold3): "$3,253" and "crafted from pure 24k gold" confirmed; exact gram weight hidden in JS modal so left null (W1); 7-day return window and up to 10% restocking fee flagged (RET10). |
-| V37 | [Local Eclectic — Solid Gold Simple Knot Ring](https://www.localeclectic.com/products/solid-gold-simple-knot-ring) | R31 | **flagged** | Fetched 2026-10-22 (session arena/cbea1001-gold3): "$239" confirmed; flagged SPEC2 because page callout states '9k Solid Gold' while bullet list states '10k solid yellow gold', plus 14-day original-payment refund cutoff (RET9). |
+| V37 | [Local Eclectic — Solid Gold Simple Knot Ring](https://www.localeclectic.com/products/solid-gold-simple-knot-ring) | R31 | **flagged** | Fetched 2026-10-22 (session arena/cbea1001-gold3) and re-verified 2026-10-23 (pass P4): "$239" confirmed; flagged SPEC2 because page callout states '9k Solid Gold' while bullet list states '10k solid yellow gold', plus 14-day original-payment refund cutoff (RET9). |
+| V38 | [Ross-Simons — Returns & Exchanges and Customer Care](https://www.ross-simons.com/pages/returns-exchanges) | R15, R16 | **corrected** | Re-read live (passes P3 & P4): '30-Day No-Risk Returns Guarantee', '$4.95 flat rate will be deducted from your refund' (RET11), and 'ITEMS THAT HAVE BEEN ALTERED IN ANY WAY INCLUDING BUT NOT LIMITED TO RESIZED BY ANOTHER JEWELLER ARE NOT ELIGIBLE FOR RETURN OR EXCHANGE' (RET12). Closes POL1 on S-RS, R15 and R16; PD1 retired on R16 after $299 was re-confirmed live. |
+| V39 | [Catbird — Returns & Exchanges and Contact Us](https://www.catbirdnyc.com/returns) | R18 | **corrected** | Re-read live (passes P3 & P4): 20 days from delivery, '$9 charge for return shipping will be deducted' (RET11), 'Special orders, engraved items, Forever jewelry ... are final sale', 'All international sales are final', and 'Once your order is placed we are unable to cancel it or make changes'. Contact page prints customerservice@catbirdnyc.com and no phone number. Closes POL1 on S-CB and R18. |
+| V40 | [Sarraf.com — 30-Day Returns & Exchange Policy and About page](https://www.sarraf.com/30-day-returns-and-exchange-policy/) | R20, R21, R26, R27 | **corrected** | Re-read live (passes P3 & P4): repointed from dead /pages/returns-and-refunds.html (404, SRC1); removed Wilson's 3% cancellation fee that had been wrongly attached to RET7 (F15); corrected email to service@sarraf.com from /about-sarraf/ (F19); added three-strike excessive-returns rule counting returns >$10K (RET13/F21), $100-or-10% warranty fee (WAR1), and About-vs-Returns engraved-ring contradiction (SPEC4/F22). |
+| V41 | [Automic Gold — Refund Policy (all 5 chunks) and FAQ](https://www.automicgold.com/policies/refund-policy) | R22, R23, R24, R25 | **corrected** | Re-read live in full past the 4-chunk CookieYes banner (pass P4, session arena/bfcd8465-gold3): 30-day US return window with one prepaid label per order, plus 'To avoid a restocking fee, please mail your items within 14 days' (new flag RET14), final-sale exclusions (Gift Cards, Engraved, Custom, Modified items) and paid resizing/recycling offer restored to S-AUTOMIC. Unsourced phone +1-929-307-2378 removed after reading all 6 chunks of /pages/privacy-policy; email updated to care@automicgold.com from /pages/faq (F26). |
+| V42 | [VRAI — Returns & Exchanges and Help Center Contact Articles](https://www.vrai.com/returns-exchanges) | R28 | **corrected** | Re-read live (pass P4, session arena/bfcd8465-gold3): S-VRAI contact_source /pages/contact-us returned 404 (SRC1) and policy_source /hc/en-us/articles/360000836514... redirected to Help Center root. Repointed to live pages; corrected phone from +1-855-383-8724 to +1-855-956-4488 and email from hello@vrai.com to help@vrai.com; added $15,000 store-credit-only cap and 1-day vs 4-day Help Center response-time contradiction (F24). |
+| V43 | [Brilliant Earth — Free 30-Day Returns & 1-Year Resizes and Contact Us](https://www.brilliantearth.com/30-Day-Returns/) | R29 | **corrected** | Re-read live (pass P4, session arena/bfcd8465-gold3): repointed policy_source from /returns/ (which serves the homepage) to /30-Day-Returns/; corrected return clock from 'from delivery' to 'when your purchase is available for shipment or pickup'; removed unsourced customerservice@brilliantearth.com (contact page uses a form and prints only marketing@, pr@, jobs@, phone 800.691.0952, and SMS +1 415.520.6526); caught 'Band Width: 2 ct. tw.' unit error on R29/SOL-05 (F27, F28). |
+| V44 | [Local Eclectic — Frequently Asked Questions and Contact Form](https://www.localeclectic.com/pages/frequently-asked-questions) | R31 | **corrected** | Re-read live (pass P4, session arena/bfcd8465-gold3): S-LOCALECLECTIC contact_source /pages/contact-us returned 404 (SRC1); repointed to /pages/frequently-asked-questions which prints hello@localeclectic.com verbatim and confirms the 14-day original-payment refund / 90-day store-credit policy (F27). |
+| V45 | [Menē — Terms of Service, Privacy Policy and BBB Profile](https://mene.com/privacy-policy) | R30 | **corrected** | Re-read live (pass P4, session arena/bfcd8465-gold3): S-MENE contact_source /contact-us returned 404 (SRC1); corrected digit-transposed phone +1-833-636-3465 to +1-833-636-3245 (1-833-MENE-24K on Terms of Service/product pages and (833) 636-3245 on BBB profile); corrected email from concierge@mene.com to service@mene.com printed on /privacy-policy and product pages (F25). |
 
 ## Irregularities raised
 
@@ -67,17 +77,20 @@ Every URL cited in data/rings.json, data/sellers.json and data/gold-price.json w
 | R17 | Product URL redirects to a different product path; page content still matches the ring. | `RDR1` | low |
 | R10 | URL ends in 100675127, page prints "Item 1596365". | `ID1` | low |
 | R21 | 8.30 g is stated to be the weight of a size 10 ring, while sizes 3-16 are sold. | `WT4` | medium |
-| R22 | One weight line covers both 14k gold (5.4 g) and platinum (8.1 g). | `WT5` | medium |
-| R20,R21 | Weights are explicitly approximate, with a stated ±5% tolerance. | `WT3` | medium |
+| R22,R23,R24,R25 | One weight line covers both 14k gold and 950 platinum options. | `WT5` | medium |
+| R20,R21,R26,R27 | Weights are explicitly approximate, with a stated ±5% tolerance. | `WT3` | medium |
 | R17 | Product page says non-returnable and exchange-only, while the brand's general policy advertises 30-day returns. | `RET6` | high |
 | R10 | Costco's official policy lists precious metals as non-refundable. | `RET1` | high |
 | R31 | Product page callout states '9k Solid Gold' (below US 10K threshold) while bullet list states '10k solid yellow gold', and cash refunds expire after 14 days. | `SPEC2` | high |
-| R29 | Trust badge advertises 'Free 1-Year Resizing' while Product Details states 'resizing is not available for this ring'. | `SPEC3` | medium |
+| R29 | Trust badge advertises 'Free 1-Year Resizing' while Product Details states 'resizing is not available for this ring' (and Band Width selector prints '2 ct. tw.'). | `SPEC3` | medium |
+| R20,R21,R26,R27 | Sarraf's About page limits 30-day returns to 'non-engraved items', while its Returns page accepts engraved rings minus non-refundable $25 engraving / $50 finish fees. | `SPEC4` | high |
+| R22,R25 | Automic Gold product page states '4-8 business days' in the buy box and '1-2 weeks' (2-3 weeks engraved) in Shipping & Returns. | `SPEC5` | medium |
+| R22,R23,R24,R25 | Automic Gold advertises a 30-day return window but its refund policy states 'To avoid a restocking fee, please mail your items within 14 days.' | `RET14` | medium |
 
 ## Deliberately not re-checked
 
 - https://www.bluenile.com/engagement-rings — Collection page cited by four rows as context only; the product pages themselves were re-fetched and they carry every value used.
-- https://www.lbma.org.uk/prices-and-data/lbma-precious-metal-prices — LBMA states its historical benchmark tables are licence-gated, so no LBMA figure is used anywhere in this project. The claim itself was not re-opened this pass.
+- https://www.lbma.org.uk/prices-and-data/lbma-precious-metal-prices — LBMA states its historical benchmark tables are licence-gated, so no LBMA figure is used anywhere in this project. Re-confirmed in Pass P3.
 
 ## What no website can verify
 

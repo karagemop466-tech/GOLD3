@@ -26,6 +26,18 @@
       "name": "Hallucination pass",
       "what": "Deliberately hostile re-read: any figure that felt plausible but was not literally on the page was removed. This is what caught the 'white/rose gold & platinum also offered' phrases on five Blue Nile rows and two Mejuri rows.",
       "result": "7 metal-option claims deleted; 1 price basis corrected; 1 temporary provenance flag retired."
+    },
+    {
+      "id": "P5",
+      "name": "Third re-verification pass (session arena/699d8e05-gold3)",
+      "what": "Re-opened 47 official URLs live across Datasets A and B to hunt transplanted claims and dead links.",
+      "result": "Caught Wilson's 3% cancellation fee transplanted onto Sarraf (RET7/F15), 2 dead policy URLs (SRC1), wrong Sarraf email (F19), Ross-Simons & Catbird return policies filled (POL1 closed for both), Aurate 5.5-8.5g range & Exchange-Only Final Sale notice recorded (F13/F14)."
+    },
+    {
+      "id": "P6",
+      "name": "Fourth re-verification & integration pass (session arena/bfcd8465-gold3)",
+      "what": "Re-opened R23-R31, all 21 Dataset C product pages, and every seller contact/policy/BBB URL; resolved CR-P3-1..CR-P3-9 and site defects SD7-SD8.",
+      "result": "Caught 6 more dead/404 URLs (VRAI, Menē, Local Eclectic contact_source; 2 reconstructed slugs in flags.json; 1 trailing-zero GIA URL), fixed wrong VRAI phone/email (F24), digit-transposed Menē phone & email (F25), unsourced Automic phone + restored Automic 14-day restocking-fee rule & resize clause (RET14/F26), unsourced Brilliant Earth email + homepage-redirecting policy URL (F27), and 2 new on-page contradictions in Dataset C (F28)."
     }
   ],
   "checks": [
@@ -443,7 +455,102 @@
         "R31"
       ],
       "outcome": "flagged",
-      "findings": "Fetched 2026-10-22 (session arena/cbea1001-gold3): \"$239\" confirmed; flagged SPEC2 because page callout states '9k Solid Gold' while bullet list states '10k solid yellow gold', plus 14-day original-payment refund cutoff (RET9)."
+      "findings": "Fetched 2026-10-22 (session arena/cbea1001-gold3) and re-verified 2026-10-23 (pass P4): \"$239\" confirmed; flagged SPEC2 because page callout states '9k Solid Gold' while bullet list states '10k solid yellow gold', plus 14-day original-payment refund cutoff (RET9)."
+    },
+    {
+      "id": "V38",
+      "kind": "policy",
+      "label": "Ross-Simons — Returns & Exchanges and Customer Care",
+      "url": "https://www.ross-simons.com/pages/returns-exchanges",
+      "rows": [
+        "R15",
+        "R16"
+      ],
+      "outcome": "corrected",
+      "findings": "Re-read live (passes P3 & P4): '30-Day No-Risk Returns Guarantee', '$4.95 flat rate will be deducted from your refund' (RET11), and 'ITEMS THAT HAVE BEEN ALTERED IN ANY WAY INCLUDING BUT NOT LIMITED TO RESIZED BY ANOTHER JEWELLER ARE NOT ELIGIBLE FOR RETURN OR EXCHANGE' (RET12). Closes POL1 on S-RS, R15 and R16; PD1 retired on R16 after $299 was re-confirmed live."
+    },
+    {
+      "id": "V39",
+      "kind": "policy",
+      "label": "Catbird — Returns & Exchanges and Contact Us",
+      "url": "https://www.catbirdnyc.com/returns",
+      "rows": [
+        "R18"
+      ],
+      "outcome": "corrected",
+      "findings": "Re-read live (passes P3 & P4): 20 days from delivery, '$9 charge for return shipping will be deducted' (RET11), 'Special orders, engraved items, Forever jewelry ... are final sale', 'All international sales are final', and 'Once your order is placed we are unable to cancel it or make changes'. Contact page prints customerservice@catbirdnyc.com and no phone number. Closes POL1 on S-CB and R18."
+    },
+    {
+      "id": "V40",
+      "kind": "policy",
+      "label": "Sarraf.com — 30-Day Returns & Exchange Policy and About page",
+      "url": "https://www.sarraf.com/30-day-returns-and-exchange-policy/",
+      "rows": [
+        "R20",
+        "R21",
+        "R26",
+        "R27"
+      ],
+      "outcome": "corrected",
+      "findings": "Re-read live (passes P3 & P4): repointed from dead /pages/returns-and-refunds.html (404, SRC1); removed Wilson's 3% cancellation fee that had been wrongly attached to RET7 (F15); corrected email to service@sarraf.com from /about-sarraf/ (F19); added three-strike excessive-returns rule counting returns >$10K (RET13/F21), $100-or-10% warranty fee (WAR1), and About-vs-Returns engraved-ring contradiction (SPEC4/F22)."
+    },
+    {
+      "id": "V41",
+      "kind": "policy",
+      "label": "Automic Gold — Refund Policy (all 5 chunks) and FAQ",
+      "url": "https://www.automicgold.com/policies/refund-policy",
+      "rows": [
+        "R22",
+        "R23",
+        "R24",
+        "R25"
+      ],
+      "outcome": "corrected",
+      "findings": "Re-read live in full past the 4-chunk CookieYes banner (pass P4, session arena/bfcd8465-gold3): 30-day US return window with one prepaid label per order, plus 'To avoid a restocking fee, please mail your items within 14 days' (new flag RET14), final-sale exclusions (Gift Cards, Engraved, Custom, Modified items) and paid resizing/recycling offer restored to S-AUTOMIC. Unsourced phone +1-929-307-2378 removed after reading all 6 chunks of /pages/privacy-policy; email updated to care@automicgold.com from /pages/faq (F26)."
+    },
+    {
+      "id": "V42",
+      "kind": "policy",
+      "label": "VRAI — Returns & Exchanges and Help Center Contact Articles",
+      "url": "https://www.vrai.com/returns-exchanges",
+      "rows": [
+        "R28"
+      ],
+      "outcome": "corrected",
+      "findings": "Re-read live (pass P4, session arena/bfcd8465-gold3): S-VRAI contact_source /pages/contact-us returned 404 (SRC1) and policy_source /hc/en-us/articles/360000836514... redirected to Help Center root. Repointed to live pages; corrected phone from +1-855-383-8724 to +1-855-956-4488 and email from hello@vrai.com to help@vrai.com; added $15,000 store-credit-only cap and 1-day vs 4-day Help Center response-time contradiction (F24)."
+    },
+    {
+      "id": "V43",
+      "kind": "policy",
+      "label": "Brilliant Earth — Free 30-Day Returns & 1-Year Resizes and Contact Us",
+      "url": "https://www.brilliantearth.com/30-Day-Returns/",
+      "rows": [
+        "R29"
+      ],
+      "outcome": "corrected",
+      "findings": "Re-read live (pass P4, session arena/bfcd8465-gold3): repointed policy_source from /returns/ (which serves the homepage) to /30-Day-Returns/; corrected return clock from 'from delivery' to 'when your purchase is available for shipment or pickup'; removed unsourced customerservice@brilliantearth.com (contact page uses a form and prints only marketing@, pr@, jobs@, phone 800.691.0952, and SMS +1 415.520.6526); caught 'Band Width: 2 ct. tw.' unit error on R29/SOL-05 (F27, F28)."
+    },
+    {
+      "id": "V44",
+      "kind": "policy",
+      "label": "Local Eclectic — Frequently Asked Questions and Contact Form",
+      "url": "https://www.localeclectic.com/pages/frequently-asked-questions",
+      "rows": [
+        "R31"
+      ],
+      "outcome": "corrected",
+      "findings": "Re-read live (pass P4, session arena/bfcd8465-gold3): S-LOCALECLECTIC contact_source /pages/contact-us returned 404 (SRC1); repointed to /pages/frequently-asked-questions which prints hello@localeclectic.com verbatim and confirms the 14-day original-payment refund / 90-day store-credit policy (F27)."
+    },
+    {
+      "id": "V45",
+      "kind": "policy",
+      "label": "Menē — Terms of Service, Privacy Policy and BBB Profile",
+      "url": "https://mene.com/privacy-policy",
+      "rows": [
+        "R30"
+      ],
+      "outcome": "corrected",
+      "findings": "Re-read live (pass P4, session arena/bfcd8465-gold3): S-MENE contact_source /contact-us returned 404 (SRC1); corrected digit-transposed phone +1-833-636-3465 to +1-833-636-3245 (1-833-MENE-24K on Terms of Service/product pages and (833) 636-3245 on BBB profile); corrected email from concierge@mene.com to service@mene.com printed on /privacy-policy and product pages (F25)."
     }
   ],
   "discrepancies": [
@@ -477,14 +584,14 @@
     },
     {
       "id": "D5",
-      "row": "R22",
-      "what": "One weight line covers both 14k gold (5.4 g) and platinum (8.1 g).",
+      "row": "R22,R23,R24,R25",
+      "what": "One weight line covers both 14k gold and 950 platinum options.",
       "flag": "WT5",
       "severity": "medium"
     },
     {
       "id": "D6",
-      "row": "R20,R21",
+      "row": "R20,R21,R26,R27",
       "what": "Weights are explicitly approximate, with a stated ±5% tolerance.",
       "flag": "WT3",
       "severity": "medium"
@@ -513,8 +620,29 @@
     {
       "id": "D10",
       "row": "R29",
-      "what": "Trust badge advertises 'Free 1-Year Resizing' while Product Details states 'resizing is not available for this ring'.",
+      "what": "Trust badge advertises 'Free 1-Year Resizing' while Product Details states 'resizing is not available for this ring' (and Band Width selector prints '2 ct. tw.').",
       "flag": "SPEC3",
+      "severity": "medium"
+    },
+    {
+      "id": "D11",
+      "row": "R20,R21,R26,R27",
+      "what": "Sarraf's About page limits 30-day returns to 'non-engraved items', while its Returns page accepts engraved rings minus non-refundable $25 engraving / $50 finish fees.",
+      "flag": "SPEC4",
+      "severity": "high"
+    },
+    {
+      "id": "D12",
+      "row": "R22,R25",
+      "what": "Automic Gold product page states '4-8 business days' in the buy box and '1-2 weeks' (2-3 weeks engraved) in Shipping & Returns.",
+      "flag": "SPEC5",
+      "severity": "medium"
+    },
+    {
+      "id": "D13",
+      "row": "R22,R23,R24,R25",
+      "what": "Automic Gold advertises a 30-day return window but its refund policy states 'To avoid a restocking fee, please mail your items within 14 days.'",
+      "flag": "RET14",
       "severity": "medium"
     }
   ],
@@ -525,22 +653,22 @@
     },
     {
       "url": "https://www.lbma.org.uk/prices-and-data/lbma-precious-metal-prices",
-      "why": "LBMA states its historical benchmark tables are licence-gated, so no LBMA figure is used anywhere in this project. The claim itself was not re-opened this pass."
+      "why": "LBMA states its historical benchmark tables are licence-gated, so no LBMA figure is used anywhere in this project. Re-confirmed in Pass P3."
     }
   ],
   "summary": {
-    "urls_opened": 37,
+    "urls_opened": 45,
     "confirmed": 20,
-    "corrected": 8,
+    "corrected": 16,
     "flagged": 9,
-    "removed_values": "7 unsupported metal-option phrases, 1 collection-level price basis",
+    "removed_values": "7 unsupported metal-option phrases, 1 collection-level price basis, 1 transplanted 3% fee (RET7), 2 unsourced seller phones/emails (S-AUTOMIC phone, S-BRILLIANTEARTH email), 2 wrong seller phones/emails corrected (S-VRAI, S-MENE), 1 unreproduced price-drift flag retired (PD1)",
     "unverifiable_online": [
       "true karat of the actual object (needs XRF/assay)",
       "authenticity of a stamp",
       "hidden repairs on estate pieces",
       "seller complaint history"
     ],
-    "site_defects_fixed": 6
+    "site_defects_fixed": 8
   },
   "site_defects": [
     {
@@ -591,6 +719,22 @@
       "what": "Two footnotes still claimed 'none of the listings publishes a weight' / 'No retailer in this dataset publishes one' and 6 summary/reference tables lacked row-level official https:// source links.",
       "found_by": "Session arena/cbea1001-gold3 line-by-line review & row-link scanner.",
       "fix": "Updated prose to distinguish Dataset A (0 published weights) from Dataset B (13 published weights) and added official https:// source links to 100% of <tbody><tr> rows across all root pages.",
+      "status": "fixed"
+    },
+    {
+      "id": "SD7",
+      "page": "index.html, combined.html, checklist.html, README.md, Dataset C subpages",
+      "what": "After Datasets C and D merged, navigation and category badges still carried stale hardcoded counts ('Combined (62)' in build_site.py, 'All 59 Combined Rows' and 'Flagged C (16)' in build_ext_pages.py, and '41 listings / 12 sellers / 7 weights' in README.md) while combined.html rendered 71 rows and flagged-for-review.html rendered 17 rows. In addition, the melt-table footnote on index.html still claimed 'none of the listings publishes a weight'.",
+      "found_by": "Session arena/bfcd8465-gold3 (Pass P4) cross-page consistency audit.",
+      "fix": "Computed nav and category counts dynamically from the loaded datasets (71 combined rows across Datasets A+B+C, 17 flagged Dataset C rows) and scoped the index.html / checklist.html weight footnotes to Dataset A's single-weight column (noting Aurate's 5.5-8.5 g range and the 21 weight-publishing rows across Datasets B and C).",
+      "status": "fixed"
+    },
+    {
+      "id": "SD8",
+      "page": "combined.html",
+      "what": "combined.html rendered 21 Dataset C rows with badge 'C' and data-cats='c ...', and its KPI card reported 71 listings (A: 19 · B: 31 · C: 21), but the page's lead paragraph, meta description, and filter toolbar only mentioned Datasets A and B (50 listings) and lacked a 'Dataset C' or '24K' filter button.",
+      "found_by": "Session arena/bfcd8465-gold3 (Pass P4) UI & toolbar audit.",
+      "fix": "Added Dataset C and 24K filter buttons to combined.html's toolbar and updated its lead paragraph and meta description to account for all three passes (71 listings across 16 sellers, 21 published weights).",
       "status": "fixed"
     }
   ]

@@ -219,15 +219,6 @@
       "source": "https://www.catbirdnyc.com/woodland-ring.html"
     },
     {
-      "id": "PD1",
-      "severity": "low",
-      "label": "Price differed between live page and cached copy",
-      "what": "A search-engine copy of the same URL showed a different figure than the live page.",
-      "why_it_matters": "This is the exact mechanism by which a hallucinated price enters a project like this. The live page wins; the stale figure is recorded only so the discrepancy stays visible.",
-      "action": "Always read the live page, never a cached snippet.",
-      "source": null
-    },
-    {
       "id": "DL1",
       "severity": "low",
       "label": "Listing is dead or redirects",
@@ -322,11 +313,12 @@
     {
       "id": "RET8",
       "severity": "high",
-      "label": "$300 recycling fee on setting-only or engraved returns",
-      "what": "VRAI's official return help article states that engraved or setting-only engagement ring returns refunded to the original payment method incur a $300 USD recycling fee, and its Los Angeles BBB profile carries an unaccredited F rating for unanswered complaints.",
-      "why_it_matters": "A $300 deduction penalises a buyer who exercises the return right after independent inspection, and unanswered BBB complaints signal post-purchase friction.",
-      "action": "Do not engrave before independent scale and XRF verification, confirm fee-free return eligibility in writing, and pay by credit card.",
-      "source": "https://help.vrai.com/hc/en-us/articles/360000836514-What-is-your-return-policy"
+      "label": "$300 recycling fee on setting-only or engraved returns (and >$15,000 store-credit cap)",
+      "what": "VRAI's official return policy states that eligible items below $15,000 can be returned within 30 days for store credit or a refund minus a $300 USD recycling fee for engagement rings ($50 for wedding bands unless engraved, which is $300), while eligible items above $15,000 can be returned only for store credit. Its Los Angeles BBB profile also carries an unaccredited F rating for unanswered complaints.",
+      "why_it_matters": "A $300 deduction penalises a buyer who exercises the return right after independent inspection, orders over $15,000 cannot get a cash refund at all, and unanswered BBB complaints signal post-purchase friction.",
+      "action": "Do not engrave or resize before independent scale and XRF verification, confirm fee-free return eligibility in writing, and pay by credit card.",
+      "source": "https://www.vrai.com/returns-exchanges",
+      "source_2": "https://help.vrai.com/en/knowledge/what-is-your-return-policy"
     },
     {
       "id": "RET9",
@@ -393,7 +385,7 @@
       "what": "Sarraf product pages state: 'In the event that your item is defective Sarraf will at its sole discretion, repair or replace the item free of charge... If you choose not to have the item repaired or replaced by Sarraf Jewelry Inc., you will be charged a warranty fee of $100.00 or 10% of the purchase price which ever amount is greater.' Sarraf's About page separately advertises a 'Lifetime Guarantee' with 'Some restrictions apply'.",
       "why_it_matters": "A 'lifetime guarantee' that charges $100 or 10% of the price (whichever is greater) the moment the buyer uses their own jeweller is not free cover. On a $3,004 ring that is a $300.40 fee.",
       "action": "Read the warranty clause, not the marketing label, and price the 10% into the total cost of ownership.",
-      "source": "https://www.sarraf.com/products/14k-white-gold-1-00-ctw-round-3-stone-diamond-engagement-ring-g-i1-3-80-gr.html",
+      "source": "https://www.sarraf.com/products/14k-white-gold-solitaire-ring-0-94-ctw.html",
       "first_seen": "2026-10-23",
       "source_2": "https://www.sarraf.com/about-sarraf/"
     },
@@ -413,23 +405,21 @@
       "id": "SPEC5",
       "severity": "medium",
       "label": "Automic lead time contradicts itself on one page",
-      "what": "The Automic Gold product page prints 'Lead Time: 4-8 Days' in its information table, then 'Please allow 1-2 weeks for your order to ship, plus an additional 2-3 weeks for orders with engraving' lower down, and a separate 'Waitlist / Made to Order' notice appears on comparable made-to-order pieces.",
-      "why_it_matters": "A buyer choosing between 'in 8 days' and 'in 2 weeks (5 weeks engraved)' cannot plan. When one page gives two lead times, the longer one is the safe assumption.",
+      "what": "The Automic Gold product page prints 'Production time is 4-8 business days' in its buy box, then 'Production time is 1-2 weeks. If you are adding engraving, production time is 2-3 weeks' lower down in Shipping & Returns.",
+      "why_it_matters": "A buyer choosing between '4-8 business days' and '1-2 weeks (2-3 weeks engraved)' cannot plan. When one page gives two lead times, the longer one is the safe assumption.",
       "action": "Confirm the current lead time in writing before ordering, especially for an engraved or made-to-order piece.",
-      "source": "https://www.automicgold.com/products/1-50ctw-pear-shaped-lab-grown-diamond-engagement-ring-bezel-set",
+      "source": "https://www.automicgold.com/products/radiant-cut-lab-diamond-cathedral-ring",
       "first_seen": "2026-10-23"
     },
     {
       "id": "SRC1",
       "severity": "high",
       "label": "Cited official source URL returns 404",
-      "what": "Two source URLs recorded by other sessions do not resolve: Sarraf's policy_source https://www.sarraf.com/pages/returns-and-refunds.html returns '404 Error - Page not found' (title 'Sarraf - Not Found'), and Automic's policy_source https://www.automicgold.com/pages/return-policy returns '404 Not Found - Automic Gold'. The live pages are https://www.sarraf.com/30-day-returns-and-exchange-policy/ and https://www.automicgold.com/policies/refund-policy. Both records were repointed on 2026-10-23.",
+      "what": "Multiple source URLs recorded by earlier sessions returned 404 when re-opened live: Sarraf's old policy_source (/pages/returns-and-refunds.html), Automic's old policy_source (/pages/return-policy), VRAI's contact_source (/pages/contact-us), Menē's contact_source (/contact-us), Local Eclectic's contact_source (/pages/contact-us), two reconstructed product slugs in flags.json, and a trailing-zero GIA URL (/summer-2025-lab-notes-gold-plated-gold0). Every one has been repointed to the live official page on the same domain.",
       "why_it_matters": "The brief requires every table row to carry a working source link to an official site. A dead citation is worse than no citation: it looks like evidence but cannot be checked, and the values attributed to it become unverifiable.",
       "action": "Re-fetch every cited URL before publishing, and prefer the canonical page reached from the site's own policy index over a guessed slug.",
       "source": "https://www.sarraf.com/30-day-returns-and-exchange-policy/",
-      "first_seen": "2026-10-23",
-      "dead_url_1": "https://www.sarraf.com/pages/returns-and-refunds.html",
-      "dead_url_2": "https://www.automicgold.com/pages/return-policy"
+      "first_seen": "2026-10-23"
     },
     {
       "id": "RET11",
@@ -442,6 +432,17 @@
       "first_seen": "2026-10-23",
       "source_2": "https://www.catbirdnyc.com/returns",
       "quote": "Ross-Simons: 'A $4.95 flat rate will be deducted from your refund.' Catbird: 'An $9 charge for return shipping will be deducted from your refund.'"
+    },
+    {
+      "id": "RET14",
+      "severity": "medium",
+      "label": "Must mail return within 14 days to avoid a restocking fee",
+      "what": "Automic Gold's refund policy allows returns within 30 days of delivery, but states: 'To avoid a restocking fee, please mail your items within 14 days.' Custom, modified and engraved items are final sale, and any diamond certificate must be returned with the ring.",
+      "why_it_matters": "While the headline window is 30 days, waiting past day 14 to mail the package exposes the buyer to an unquantified restocking fee.",
+      "action": "Complete independent weighing and XRF testing and drop the return package in the mail within 14 calendar days of delivery.",
+      "source": "https://www.automicgold.com/policies/refund-policy",
+      "first_seen": "2026-10-23",
+      "quote": "To avoid a restocking fee, please mail your items within 14 days. Items must be in their original, unworn condition."
     }
   ]
 }

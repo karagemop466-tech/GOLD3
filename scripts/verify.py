@@ -298,8 +298,8 @@ def main() -> int:
             if not domain_ok(p.get("weight_source")):
                 err(f"product {pid}: weight_g present without a weight_source")
         else:
-            if p.get("weight_status") != "not published":
-                err(f"product {pid}: null weight must carry weight_status='not published'")
+            if p.get("weight_status") not in ("not published", "published as a range"):
+                err(f"product {pid}: null weight must carry weight_status='not published' or 'published as a range'")
         if p.get("carat") is not None and not domain_ok(p.get("carat_source")):
             err(f"product {pid}: carat present without carat_source")
         if p.get("hallmark_stated") is not None:

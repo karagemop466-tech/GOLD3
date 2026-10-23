@@ -173,6 +173,7 @@
       "flagged": true,
       "flags": [
         "CONTRADICTION ON OFFICIAL PAGE: Top promo strip displays 'Free 1-Year Resizing', whereas Product Details text explicitly warns: 'Due to the materials and distinctive design of this style, resizing is not available for this ring.'",
+        "SECOND ON-PAGE SPEC ERROR CAUGHT (Pass P4): Selector prints 'Band Width: 2 ct. tw.' (1.5 ct. tw. / 2 ct. tw.), mislabelling millimeter band width with carat total weight ('ct. tw.') units.",
         "Official product page omits metal weight in grams (left blank/unverified)."
       ]
     },
@@ -276,6 +277,7 @@
       "flagged": true,
       "flags": [
         "CRITICAL KARAT CONTRADICTION CAUGHT LINE-BY-LINE: Official product heading and spec table state '10kt Yellow Gold' (41.67% gold), whereas the official description text on the exact same page claims 'Set in polished 14kt yellow gold' (58.33% gold).",
+        "SECOND ON-PAGE SELF-CONTRADICTION CAUGHT (Pass P4): While this ring sets its 5x3mm opal in prongs, the 'Stone Story' section on the exact same page states: 'Opal sits at 5.5 to 6.5 on the Mohs scale, so that means bezel or halo, not prongs, on rings.'",
         "At $199 retail in an Oct 2026 $4,025.10/oz gold market, pricing strongly reflects lightweight 10K construction; gram weight is omitted (left blank/unverified). Archive screenshot per Checklist #9 and verify by XRF."
       ]
     },

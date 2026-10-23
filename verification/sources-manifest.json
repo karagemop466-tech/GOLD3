@@ -1,25 +1,26 @@
 {
-  "generated_at_utc": "2026-10-23T00:15:08Z",
+  "generated_at_utc": "2026-10-23T10:16:44Z",
   "data_file_sha256": {
-    "bands-and-high-karat.json": "fd6b7c175980cfad74b34145c03e2632e809c6a94de48ef399b96c55d8ea333c",
-    "findings.json": "ab9bc570436602ab1166ad274e53a3b80dd1cb3c1b691cd1758e90950fb54873",
-    "flags.json": "6a588c9a3c76af47044f8d6de0e44bdcd5c48299723df651a5dc6b41f0e9763d",
+    "bands-and-high-karat.json": "dfefd801f1d3c3a15acce77e4f8ef487d2032fef8570f8026bd8fbb330ba9644",
+    "findings.json": "85dfc1dd390215b1da1c3a85eb699e343fd7581d866e8c55cec0061426356e85",
+    "flags.json": "ec2f06c6ccc921cb54328b322a28f9e97dd93d01583e8ff1abb885c072a35f41",
     "gold-price.json": "bdb3a741c6696f56ec713c090706cb98fefb53901fe284dfe105308a7d6a7e08",
     "prices.json": "639b30ebe844d1e7740046c0c1aa474117ab0a34d14df6077be23ca532226f0a",
-    "products.json": "bac54f10685ad44ec13e3af7118d2e175ce1f67b71bcfe90325580a67ec073f3",
+    "products.json": "2d0ca7ed16ea275024a347ff9d178e0f4cbf8e5ddb3428cf5beebfab8b8396b6",
     "retailers.json": "fc2130447e547458e380d666c0b6598352464a2dedffbd8d0aefc7ce7ffabab3",
-    "reverification-p3.json": "605b62ab0bd0f220f2fe2c7c88d282f8305a58525f43bec643b9c557b123019b",
-    "rings.json": "238cf2fa864fd91c8e2a2ea90ba6d6a71bdd739704ef31609f533b23b1337b41",
+    "reverification-p3.json": "b1dca1669099d66e45b08588f8827b24f59edd65e4f4b4a806ef2a02987b5d16",
+    "reverification-p4.json": "46f99c832ef98244d5d535ef4389dabc9313f1f92833e11157a3b9a09ec2cae8",
+    "rings.json": "384951978799809668181a4a548cdcc85c2f4c038ebb93c6e727e1d2c7cc4e43",
     "sellers-policies.json": "372689ba815fb011c15b17e52773385718f972b174023f8bd67e01bc10d27ea6",
-    "sellers.json": "4754237cf4aeda1d27c072d8f7a518230279b675c7fdc4b1cd9e505e828614a4",
-    "solitaire-rings.json": "1b0d493a2835471df5bf8610622bf2f668a0c2d62e7961c112d46591ae19f769",
-    "sources.json": "1496e3741397057c11913b06d748bf838b6781b5686e7ab733d3ac5e76a49f41",
-    "spot-and-standards.json": "77a3ff10db7fe885bc1f51eece4311fa6a62034f73ce2292d2e4bf1841b9a5ed",
+    "sellers.json": "90259e42f45a423366b4c7fe4676a4d15efe5772d57ecd834e6db806dc475e06",
+    "solitaire-rings.json": "1f24aa389723b9c395b2f0ed103fe3b5fa60b4b658e5196806370aa06ff6ffaa",
+    "sources.json": "e9f8a68dc22397b9e6d0bc24dbc8c079dd62a58a794a3d1a4362b69f2c2df236",
+    "spot-and-standards.json": "060e3a9379792d784c93800ca93120d2bb6089d0544ff27cb23114a84230a9f0",
     "standards.json": "7d10a2520465c2b2734d236d9dfe93e4db44bc5d0649cb6cf82bb35cc94b668c",
-    "verification-report.json": "a58a48d836389be639184621d736fc01e4cf527e7e80a34f9e3c43ddd056282e",
-    "verification.json": "25db638f8498645c22831bd8a2275179ce34ea80b0ad8987553f8f714c7c1181"
+    "verification-report.json": "32c2828bc87735fffb7d3d4f7a60be8c8b494c035c134afcc7a6e58920e343ea",
+    "verification.json": "9efc32e804a90276fbbb296c3982939303dcbba8c8f9a0f14cc66539ea5c7a5b"
   },
-  "unique_official_urls_count": 164,
+  "unique_official_urls_count": 172,
   "official_sources": [
     {
       "url": "https://auratenewyork.com/",
@@ -158,6 +159,7 @@
       "referenced_by": [
         "HTML Link in security-audit.html",
         "HTML Link in sellers.html",
+        "HTML Link in sources.html",
         "HTML Link in verify.html"
       ]
     },
@@ -184,10 +186,15 @@
       ]
     },
     {
+      "url": "https://help.vrai.com/en/knowledge/when-is-your-customer-experience-team-available",
+      "referenced_by": [
+        "HTML Link in sellers.html"
+      ]
+    },
+    {
       "url": "https://help.vrai.com/hc/en-us/articles/360000836514-What-is-your-return-policy",
       "referenced_by": [
-        "HTML Link in security-audit.html",
-        "HTML Link in sellers.html"
+        "HTML Link in security-audit.html"
       ]
     },
     {
@@ -372,6 +379,12 @@
     {
       "url": "https://mene.com/bands/gold",
       "referenced_by": [
+        "HTML Link in security-audit.html"
+      ]
+    },
+    {
+      "url": "https://mene.com/collections/bands-gold",
+      "referenced_by": [
         "HTML Link in bands-vintage-rings.html",
         "HTML Link in flagged-for-review.html",
         "HTML Link in security-audit.html",
@@ -381,21 +394,9 @@
       ]
     },
     {
-      "url": "https://mene.com/collections/bands-gold",
-      "referenced_by": [
-        "HTML Link in bands-vintage-rings.html",
-        "HTML Link in combined.html",
-        "HTML Link in flagged-for-review.html",
-        "HTML Link in security-audit.html",
-        "Ring BND-02 Product Page",
-        "Ring BND-03 Product Page"
-      ]
-    },
-    {
       "url": "https://mene.com/contact-us",
       "referenced_by": [
-        "HTML Link in security-audit.html",
-        "HTML Link in sellers.html"
+        "HTML Link in security-audit.html"
       ]
     },
     {
@@ -404,6 +405,13 @@
         "HTML Link in security-audit.html",
         "HTML Link in sellers-policies.html",
         "Seller SEL-MENE Returns"
+      ]
+    },
+    {
+      "url": "https://mene.com/privacy-policy",
+      "referenced_by": [
+        "HTML Link in sellers.html",
+        "HTML Link in verify.html"
       ]
     },
     {
@@ -417,6 +425,24 @@
       ]
     },
     {
+      "url": "https://mene.com/products/mene-narrow-flat-band-gold",
+      "referenced_by": [
+        "HTML Link in bands-vintage-rings.html",
+        "HTML Link in combined.html",
+        "HTML Link in flagged-for-review.html",
+        "Ring BND-02 Product Page"
+      ]
+    },
+    {
+      "url": "https://mene.com/products/mene-wide-flat-band-gold",
+      "referenced_by": [
+        "HTML Link in bands-vintage-rings.html",
+        "HTML Link in combined.html",
+        "HTML Link in flagged-for-review.html",
+        "Ring BND-03 Product Page"
+      ]
+    },
+    {
       "url": "https://mene.com/products/wrap-ring-gold",
       "referenced_by": [
         "HTML Link in combined.html",
@@ -427,6 +453,7 @@
     {
       "url": "https://mene.com/terms-of-service",
       "referenced_by": [
+        "HTML Link in flagged.html",
         "HTML Link in security-audit.html",
         "HTML Link in sellers-policies.html",
         "HTML Link in sellers.html",
@@ -519,10 +546,15 @@
       ]
     },
     {
+      "url": "https://www.automicgold.com/pages/faq",
+      "referenced_by": [
+        "HTML Link in sellers.html"
+      ]
+    },
+    {
       "url": "https://www.automicgold.com/pages/privacy-policy",
       "referenced_by": [
-        "HTML Link in security-audit.html",
-        "HTML Link in sellers.html"
+        "HTML Link in security-audit.html"
       ]
     },
     {
@@ -530,7 +562,8 @@
       "referenced_by": [
         "HTML Link in flagged.html",
         "HTML Link in security-audit.html",
-        "HTML Link in sellers.html"
+        "HTML Link in sellers.html",
+        "HTML Link in verify.html"
       ]
     },
     {
@@ -773,8 +806,11 @@
     {
       "url": "https://www.brilliantearth.com/30-Day-Returns/",
       "referenced_by": [
+        "HTML Link in flagged.html",
         "HTML Link in security-audit.html",
         "HTML Link in sellers-policies.html",
+        "HTML Link in sellers.html",
+        "HTML Link in verify.html",
         "Seller SEL-BRILLIANTEARTH Returns"
       ]
     },
@@ -828,8 +864,7 @@
     {
       "url": "https://www.brilliantearth.com/returns/",
       "referenced_by": [
-        "HTML Link in security-audit.html",
-        "HTML Link in sellers.html"
+        "HTML Link in security-audit.html"
       ]
     },
     {
@@ -883,7 +918,8 @@
         "HTML Link in security-audit.html",
         "HTML Link in sellers.html",
         "HTML Link in sources.html",
-        "HTML Link in under-1000.html"
+        "HTML Link in under-1000.html",
+        "HTML Link in verify.html"
       ]
     },
     {
@@ -966,10 +1002,15 @@
       ]
     },
     {
+      "url": "https://www.gia.edu/gems-gemology/summer-2025-lab-notes-gold-plated-gold",
+      "referenced_by": [
+        "Standard STD-05"
+      ]
+    },
+    {
       "url": "https://www.gia.edu/gems-gemology/summer-2025-lab-notes-gold-plated-gold0",
       "referenced_by": [
-        "HTML Link in security-audit.html",
-        "Standard STD-05"
+        "HTML Link in security-audit.html"
       ]
     },
     {
@@ -1009,6 +1050,12 @@
       "referenced_by": [
         "HTML Link in checklist-standards.html",
         "HTML Link in security-audit.html"
+      ]
+    },
+    {
+      "url": "https://www.govinfo.gov/link/uscode/15/297",
+      "referenced_by": [
+        "HTML Link in sources.html"
       ]
     },
     {
@@ -1101,15 +1148,15 @@
     {
       "url": "https://www.localeclectic.com/pages/contact-us",
       "referenced_by": [
-        "HTML Link in security-audit.html",
-        "HTML Link in sellers.html"
+        "HTML Link in security-audit.html"
       ]
     },
     {
       "url": "https://www.localeclectic.com/pages/frequently-asked-questions",
       "referenced_by": [
         "HTML Link in security-audit.html",
-        "HTML Link in sellers.html"
+        "HTML Link in sellers.html",
+        "HTML Link in verify.html"
       ]
     },
     {
@@ -1179,6 +1226,7 @@
         "HTML Link in security-audit.html",
         "HTML Link in sellers-policies.html",
         "HTML Link in sellers.html",
+        "HTML Link in verify.html",
         "Seller SEL-ROSSSIMONS Returns"
       ]
     },
@@ -1198,6 +1246,7 @@
         "HTML Link in checklist-standards.html",
         "HTML Link in combined.html",
         "HTML Link in flagged-for-review.html",
+        "HTML Link in flagged.html",
         "HTML Link in security-audit.html",
         "HTML Link in solitaire-settings.html",
         "Ring SOL-08 Product Page"
@@ -1289,7 +1338,8 @@
       "referenced_by": [
         "HTML Link in flagged.html",
         "HTML Link in security-audit.html",
-        "HTML Link in sellers.html"
+        "HTML Link in sellers.html",
+        "HTML Link in verify.html"
       ]
     },
     {
@@ -1297,7 +1347,8 @@
       "referenced_by": [
         "HTML Link in flagged.html",
         "HTML Link in security-audit.html",
-        "HTML Link in sellers.html"
+        "HTML Link in sellers.html",
+        "HTML Link in verify.html"
       ]
     },
     {
@@ -1435,8 +1486,15 @@
     {
       "url": "https://www.vrai.com/pages/contact-us",
       "referenced_by": [
-        "HTML Link in security-audit.html",
-        "HTML Link in sellers.html"
+        "HTML Link in security-audit.html"
+      ]
+    },
+    {
+      "url": "https://www.vrai.com/returns-exchanges",
+      "referenced_by": [
+        "HTML Link in flagged.html",
+        "HTML Link in sellers.html",
+        "HTML Link in verify.html"
       ]
     },
     {

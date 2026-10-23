@@ -9,7 +9,7 @@ It publishes as a static site on GitHub Pages and is generated entirely from mac
 > **blank** and marked **unverified** — it is never estimated, inferred, or filled in to make a row
 > look complete. **Recommendation:** actively look for hallucinations on every review pass by clicking the official source link on every row, re-checking live prices/weights before buying, and running all automated security checks below.
 
-**Captured:** 22 October 2026 · **41 listings across both passes** (19 + 22) · **12 sellers** · **7 published weights**
+**Captured:** 22–23 October 2026 · **71 listings across all three passes** (A: 19 + B: 31 + C: 21; 50 in Datasets A+B) · **16 sellers** · **21 published weights** (13 in Dataset B + 8 in Dataset C, plus 1 weight range in Dataset A)
 
 ---
 
@@ -75,11 +75,9 @@ surviving datasets are published rather than one being discarded:
 |---|---|---|---|---|
 | **A** (this session) | `data/products.json` | 19 (17 gold + 2 excluded) | Aurate, Blue Nile, Catbird, Mejuri, Ring Concierge | Verbatim price quote + capture date per row |
 | **B** (parallel sessions `8aaa18bf`, `e6fe3e4f`, `cbea1001`) | `data/rings.json` | 31 rings + 5 excluded look-alikes | Blue Nile, Brilliant Earth, Catbird, Costco, James Allen, Local Eclectic, Mejuri, Menē, Ross-Simons, Sarraf, Automic Gold, Tiffany, VRAI, Wilson's Estate Jewelry | Per-field quote for karat, solid-gold claim, weight, hallmark, plus a flag legend |
+| **C** (parallel session `698f08f6`) | `data/solitaire-rings.json`, `data/bands-and-high-karat.json` | 21 rings (9 solitaires + 12 bands) | Blue Nile, Brilliant Earth, Ross-Simons, Menē, Mejuri | Verbatim primary listing excerpt, exact NIST melt value & BBB audit |
 
-`scripts/verify.py` gates **both**. For Dataset B it checks official-domain sources, a per-listing source list, that the
-numeric price appears inside `price_as_shown`, that any weight carries a weight quote, that a `PASS` solid-gold verdict
-carries a quote, and that each excluded look-alike states a reason and an official URL. Combined metrics land in
-`data/verification-report.json` (41 listings, 12 sellers, 7 published weights).
+`scripts/verify.py` gates Datasets A & B; `scripts/audit.py` gates Dataset B and the rendered HTML; and `scripts/run_security_audit.py` gates Dataset C and all 24 HTML pages. Combined metrics land in `data/verification-report.json` (50 listings in Datasets A+B, 71 across Datasets A+B+C, 16 sellers, 21 published weights).
 
 `combined.html` shows both sets with an A/B badge so nothing is misattributed. Dataset B's own pages
 (`sellers.html`, `standards.html`, `methodology.html`, `analysis.html`, `verify.html`) are generated from the same

@@ -235,6 +235,61 @@
       "action": "Corrected in data/sellers.json: email set to customerservice@catbirdnyc.com, return_address set to null with a note, exclusions replaced with the page's own list, and the no-cancellation and return-then-reorder rules added as their own fields.",
       "subject": "S-CB",
       "product": null
+    },
+    {
+      "id": "F24",
+      "severity": "high",
+      "title": "VRAI's recorded phone number and e-mail address were wrong, its contact URL returns 404, and two Help Center pages disagree on response time",
+      "detail": "data/sellers.json (S-VRAI) listed phone +1-855-383-8724 and e-mail hello@vrai.com against contact_source https://www.vrai.com/pages/contact-us, and cited https://help.vrai.com/hc/en-us/articles/360000836514-What-is-your-return-policy as policy_source. Re-opening those URLs live in pass P4 (2026-10-23) showed: (1) https://www.vrai.com/pages/contact-us returns '404 - Page not found'; (2) VRAI's live Help Center articles print 'Phone: +1.855.956.4488' and 'Email: help@vrai.com' (help@vrai.com is also printed on https://www.vrai.com/returns-exchanges); (3) the old Zendesk /hc/en-us/articles/360000836514... URL redirects to the Help Center root rather than the return policy, whose live URLs are https://www.vrai.com/returns-exchanges and https://help.vrai.com/en/knowledge/what-is-your-return-policy; (4) those live return pages add a $15,000 refund cap ('Eligible items above $15,000 can be returned within 30 days for full credit to store'); and (5) two live Help Center articles contradict each other on customer-service response times ('strives to respond to every customer inquiry within 1 business day!' vs 'strives to respond to every customer inquiry within 4 business days!').",
+      "evidence": "Live Help Center (when-is-your-customer-experience-team-available): 'Email: help@vrai.com · Phone: +1.855.956.4488 · strives to respond to every customer inquiry within 4 business days!'. Live Help Center (can-i-speak-to-a-vrai-representative-on-the-phone-1): 'calling +1.855.956.4488 ... strives to respond to every customer inquiry within 1 business day!'. Live Returns page (vrai.com/returns-exchanges): 'Eligible items below $15,000 can be returned within 30 days for full credit to store or refund minus recycling fee to the original payment method. Eligible items above $15,000 can be returned within 30 days for full credit to store.'",
+      "source": "https://www.vrai.com/returns-exchanges",
+      "action": "Corrected in data/sellers.json (S-VRAI) and data/rings.json (R28): phone updated to +1-855-956-4488, email to help@vrai.com, contact_source and policy_source repointed to live pages, and the $15,000 cash-refund cap added to RET8.",
+      "subject": "S-VRAI",
+      "product": null
+    },
+    {
+      "id": "F25",
+      "severity": "high",
+      "title": "Menē's phone number had transposed digits in Dataset B, its e-mail was unsourced, and its contact URL returns 404",
+      "detail": "data/sellers.json (S-MENE) recorded phone +1-833-636-3465 and e-mail concierge@mene.com against contact_source https://mene.com/contact-us, while Dataset C (data/sellers-policies.json SEL-MENE) recorded 1-833-636-3245 (1-833-MENE-24K) and service@mene.com. Re-fetching live in pass P4 (2026-10-23) showed: (1) https://mene.com/contact-us returns '404 Page Not Found (# Are you lost?)'; (2) Menē's Terms of Service and product pages print '1-833-MENE-24K' (= +1-833-636-3245, also printed as (833) 636-3245 on Menē's BBB profile), proving +1-833-636-3465 had transposed '24' to '46'; and (3) Menē's Privacy Policy and product-page Customer Care Concierge block print 'service@mene.com', not 'concierge@mene.com'.",
+      "evidence": "Terms of Service & Classic Band page verbatim: 'Chat with a Customer Care Concierge 1-833-MENE-24K service@mene.com'. Privacy Policy verbatim: 'please contact service@mene.com'. BBB profile verbatim: '(833) 636-3245'. Dead URL https://mene.com/contact-us verbatim: 'Page Not Found | Menē — # Are you lost? 404 Page Not Found'.",
+      "source": "https://mene.com/terms-of-service",
+      "action": "Corrected in data/sellers.json (S-MENE): phone fixed to +1-833-636-3245, email to service@mene.com, contact_source repointed to https://mene.com/privacy-policy, and flag SRC1 attached.",
+      "subject": "S-MENE",
+      "product": null
+    },
+    {
+      "id": "F26",
+      "severity": "high",
+      "title": "Automic Gold requires mailing returns within 14 days to avoid a restocking fee, and its recorded phone number was not on the cited page",
+      "detail": "Reading all 5 chunks of https://www.automicgold.com/policies/refund-policy and all 6 chunks of https://www.automicgold.com/pages/privacy-policy past the 4-chunk CookieYes banner in pass P4 (2026-10-23) uncovered two facts missed by earlier passes: (1) S-AUTOMIC listed phone +1-929-307-2378 against /pages/privacy-policy, which prints no phone number at all (only accessibility@automicgold.com, while /pages/faq prints care@automicgold.com and product pages print custom@automicgold.com), so phone was set to null; and (2) while Automic Gold's headline return window is 30 days from delivery, chunk 4 of the live refund policy states: 'To avoid a restocking fee, please mail your items within 14 days.' It also restores the exact final-sale and resizing clause that pass P3 had blanked because chunk 0 only contained the cookie banner.",
+      "evidence": "Refund policy chunk 4 verbatim: 'Automic Gold offers free returns within 30 days of the delivery date for customers who reside in the U.S. ... To avoid a restocking fee, please mail your items within 14 days.' and 'The following Items are excluded from the return policy and are deemed Final Sale: Gift Cards / Engraved items / Custom items / Modified Items. However, if you are not satisfied with your final sale item, we may be able to work with you on making changes to your piece by resizing or modifying it for an additional fee, or we can purchase the item back from you at a reduced rate for recycling.'",
+      "source": "https://www.automicgold.com/policies/refund-policy",
+      "action": "Phone set to null on S-AUTOMIC, contact_source repointed to https://www.automicgold.com/pages/faq (care@automicgold.com), resize_policy restored verbatim from chunk 4 of /policies/refund-policy, and new flag RET14 attached to S-AUTOMIC and R22-R25.",
+      "subject": "S-AUTOMIC",
+      "product": null
+    },
+    {
+      "id": "F27",
+      "severity": "high",
+      "title": "Six more dead or redirecting source URLs and an unsourced Brilliant Earth e-mail were caught and repaired in Pass P4",
+      "detail": "Following the standing recommendation from Pass P3 (§10.4 items 1-2) to test every cited source URL and verify that each contact_source/policy_source prints the value attributed to it, Pass P4 found and repaired: (1) two reconstructed product slugs left in data/flags.json (WAR1.source https://www.sarraf.com/products/14k-white-gold-1-00-ctw-round-3-stone-diamond-engagement-ring-g-i1-3-80-gr.html and SPEC5.source https://www.automicgold.com/products/1-50ctw-pear-shaped-lab-grown-diamond-engagement-ring-bezel-set), both returning 404; (2) a trailing-zero typo in data/spot-and-standards.json (https://www.gia.edu/gems-gemology/summer-2025-lab-notes-gold-plated-gold0, returning 404) repointed to the live GIA article (.../summer-2025-lab-notes-gold-plated-gold); (3) S-LOCALECLECTIC contact_source https://www.localeclectic.com/pages/contact-us (404) repointed to https://www.localeclectic.com/pages/frequently-asked-questions (which prints hello@localeclectic.com verbatim); and (4) S-BRILLIANTEARTH policy_source https://www.brilliantearth.com/returns/ (which serves the homepage) repointed to https://www.brilliantearth.com/30-Day-Returns/, its return-window start trigger corrected from 'from delivery' to 'when your purchase is available for shipment or pickup', and its unsourced email customerservice@brilliantearth.com set to null because /contact/ uses a web form and prints only marketing@, pr@, and jobs@.",
+      "evidence": "Live /30-Day-Returns/ verbatim: 'Please note our return and exchange policy timelines begin when your purchase is available for shipment or pickup.' Live /contact/ verbatim: 'Marketing: marketing@brilliantearth.com · PR: pr@brilliantearth.com · Careers: jobs@brilliantearth.com · Call tel:+1.800.691.0952 · text sms: +1 415.520.6526'. Live GIA Summer 2025 Lab Notes title: 'Gold-Plated Gold' at https://www.gia.edu/gems-gemology/summer-2025-lab-notes-gold-plated-gold.",
+      "source": "https://www.brilliantearth.com/30-Day-Returns/",
+      "action": "All dead or redirecting citations repointed in data/flags.json, data/sellers.json, data/rings.json, and data/spot-and-standards.json; zero 404 citations remain on any published page.",
+      "subject": "S-BRILLIANTEARTH, S-LOCALECLECTIC",
+      "product": null
+    },
+    {
+      "id": "F28",
+      "severity": "medium",
+      "title": "Dataset C live sweep: two more on-page contradictions caught, Ross-Simons weights are explicitly approximate, and Menē weights sit in a JS modal",
+      "detail": "Re-opening all 21 Dataset C product pages live in pass P4 (2026-10-23) confirmed all 21 recorded prices and 8 weights against their 2026-10-22 snapshots, and uncovered four nuances now recorded on the rows: (1) on Brilliant Earth Fairmined 2mm Six-Prong Solitaire (SOL-05 / R29), in addition to the resizing contradiction, the Band Width selector prints 'Band Width: 2 ct. tw.' (1.5 ct. tw. / 2 ct. tw.), mislabelling millimeter width with carat total weight units; (2) on Ross-Simons Item 251663 (SOL-08, a prong-set opal ring with a 10kt vs 14kt conflict), the page's own 'Stone Story' section warns 'Opal sits at 5.5 to 6.5 on the Mohs scale, so that means bezel or halo, not prongs, on rings'; (3) on Ross-Simons bands BND-04..BND-07, the spec table is followed by 'All weights and measurements are approximate', which is now quoted in every row's excerpt and assessment; and (4) on Menē 24K bands BND-01..BND-03, the static HTML no longer prints the gram figure outside the client-side JS 'Price breakdown' modal, and real-time bullion-linked prices moved ~0.77% intraday ($1,720 -> $1,707 on BND-01; $1,556 -> $1,544 on BND-02; From $2,333 -> From $2,315 on BND-03).",
+      "evidence": "Brilliant Earth BE1FM0126 verbatim: 'Band Width: 2 ct. tw.'. Ross-Simons 251663 verbatim: 'Opal sits at 5.5 to 6.5 on the Mohs scale, so that means bezel or halo, not prongs, on rings.' Ross-Simons 571221/571212/823796/964717 verbatim: 'All weights and measurements are approximate.'",
+      "source": "https://www.ross-simons.com/products/251663",
+      "action": "Added both newly discovered contradictions to SOL-05 and SOL-08, added Ross-Simons's approximate-weight disclaimer to BND-04..BND-07, and documented the JS-modal weight and live bullion price movement on BND-01..BND-03.",
+      "subject": "Dataset C",
+      "product": null
     }
   ]
 }

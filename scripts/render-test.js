@@ -129,6 +129,30 @@ check("rings.html: setting-only prices are labelled",
   /Setting Price|setting price|Setting only|setting only/.test(html["rings.html"]));
 check("flagged.html: high-severity content present", /high/i.test(html["flagged.html"]));
 
+// SD4: rings.html must not claim to be the complete list. It renders dataset A only.
+const _ringsHtml = read("rings.html");
+check("SD4 rings.html title says dataset A", includesText(_ringsHtml, "Dataset A: all verified listings"));
+check("SD4 rings.html carries a scope box", includesText(_ringsHtml, "Scope of this page"));
+check("SD4 rings.html links the full combined list", _ringsHtml.includes('href="combined.html"'));
+check("SD4 rings.html makes no completeness claim", !/every verified solid gold ring listing/i.test(_ringsHtml));
+
+// SD7: nav & footnote consistency across datasets
+check("SD7 nav carries Combined (71)", html["index.html"].includes("Combined (71)"));
+check("SD7 index.html melt footnote does not claim zero weights overall",
+  !/none of the listings publishes a weight/i.test(html["index.html"]));
+check("SD7 rings.html renders Aurate published weight range",
+  html["rings.html"].includes("Weight: 5.5-8.5g") && html["rings.html"].includes("range only (unverified)"));
+
+// SD8: combined.html filter toolbar & data-cats attributes on all 3 passes
+check("SD8 combined.html toolbar has Dataset C filter", html["combined.html"].includes('data-filter="c"'));
+check("SD8 combined.html toolbar has 24K filter", html["combined.html"].includes('data-filter="24k"'));
+check("SD8 combined.html toolbar has Weight published filter", html["combined.html"].includes('data-filter="weighted"'));
+const _combinedTb = (html["combined.html"].match(/<table id="combined-table">[\s\S]*?<tbody>([\s\S]*?)<\/tbody>/) || ["", ""])[1];
+const _combinedRows = [..._combinedTb.matchAll(/<tr([^>]*)>/g)];
+check("SD8 combined.html renders all 71 rows with data-cats",
+  _combinedRows.length === 71 && _combinedRows.every((m) => /data-cats="[^"]+"/.test(m[1])),
+  `${_combinedRows.length} rows`);
+
 // ------------------------------------------------------------------- report
 let failed = 0;
 console.log("render test (static site)\n" + "=".repeat(66));
@@ -142,13 +166,6 @@ for (const c of checks) {
   if (c.ok) console.log(`PASS  ${c.name}${c.detail ? `  (${c.detail})` : ""}`);
 }
 console.log("=".repeat(66));
-
-// SD4: rings.html must not claim to be the complete list. It renders dataset A only.
-const _ringsHtml = read("rings.html");
-check("SD4 rings.html title says dataset A", includesText(_ringsHtml, "Dataset A: all verified listings"), true);
-check("SD4 rings.html carries a scope box", includesText(_ringsHtml, "Scope of this page"), true);
-check("SD4 rings.html links the full combined list", _ringsHtml.includes('href="combined.html"'), true);
-check("SD4 rings.html makes no completeness claim", /every verified solid gold ring listing/i.test(_ringsHtml), false);
 
 console.log(`${checks.length - failed}/${checks.length} checks passed`);
 process.exit(failed ? 1 : 0);

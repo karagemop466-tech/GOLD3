@@ -18,13 +18,13 @@ VERIF_DIR = ROOT / "verification"
 
 NAV_ITEMS = [
     ("index.html", "Main Dashboard", False),
-    ("combined.html", "All 59 Combined Rows", False),
+    ("combined.html", "All 71 Combined Rows", False),
     ("checklist-standards.html", "12-Point Checklist", False),
     ("solitaire-settings.html", "Solitaires (9)", False),
     ("bands-vintage-rings.html", "24K & Solid Bands (12)", False),
     ("sellers-policies.html", "BBB & Policy Audit (5)", False),
     ("calculator.html", "Gold Calculator", False),
-    ("flagged-for-review.html", "Flagged C (16)", True),
+    ("flagged-for-review.html", "Flagged C (17)", True),
     ("flagged.html", "Flagged A+B", True),
     ("verify.html", "Verify Log", False),
     ("security-audit.html", "Security Passes", False),
