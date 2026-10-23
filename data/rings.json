@@ -1082,7 +1082,7 @@
       "solid_gold_quote": "Material: \"Solid 14k gold\" · \"100% Recycled gold, In house in New York\"",
       "solid_gold_verdict": "PASS",
       "weight_g": 2.3,
-      "weight_quote": "Item Weight: \"Approximately 2.3g\" — the page abbreviates grams as \"g\".",
+      "weight_quote": "Item Weight: \"Approximately 2.3g (gold) or 3.4g (platinum)\" — read verbatim in chunk 1 on 2026-10-23; the page abbreviates grams as \"g\".",
       "hallmark_reported": null,
       "maker_mark_reported": null,
       "return_window": "30 days from delivery; optional +$60 engraving states 'No returns on engraved rings'",
@@ -1112,9 +1112,8 @@
         "maker_mark_reported",
         "certification"
       ],
-      "last_verified": "2026-10-22",
-      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3): price $875, Solid 14k gold, and Item Weight Approximately 2.3g confirmed verbatim.",
-      "weight_status": "not re-checked this pass"
+      "last_verified": "2026-10-23",
+      "verification": "Re-verified live 2026-10-23 across chunks 0-1 (session arena/2908bea4-gold3): price $875, Solid 14k gold, and Item Weight 'Approximately 2.3g (gold) or 3.4g (platinum)' confirmed verbatim."
     },
     {
       "id": "R25",
@@ -1129,7 +1128,7 @@
       "solid_gold_quote": "Material: \"Solid 14k gold\" · \"100% Recycled gold, In house in New York\"",
       "solid_gold_verdict": "PASS",
       "weight_g": 1.4,
-      "weight_quote": "Item Weight: \"Approximately 1.4g\" — the page abbreviates grams as \"g\".",
+      "weight_quote": "Item Weight: \"Approximately 1.4g (gold) or 2.0g (platinum)\" (total item weight includes 3mm centre stone) — the page abbreviates grams as \"g\".",
       "hallmark_reported": null,
       "maker_mark_reported": null,
       "return_window": "30 days from delivery (free US return shipping)",
@@ -1140,6 +1139,7 @@
         "https://www.automicgold.com/policies/refund-policy"
       ],
       "flags": [
+        "WT1",
         "WT2",
         "H1",
         "X1"
@@ -1158,8 +1158,8 @@
         "maker_mark_reported",
         "certification"
       ],
-      "last_verified": "2026-10-22",
-      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3): price $551, Solid 14k gold, and Item Weight Approximately 1.4g confirmed verbatim."
+      "last_verified": "2026-10-23",
+      "verification": "Re-verified live 2026-10-23 (session arena/2908bea4-gold3): price $551, Solid 14k gold, and Item Weight 'Approximately 1.4g (gold) or 2.0g (platinum)' (including 3mm gemstone, WT1) confirmed verbatim."
     },
     {
       "id": "R26",
@@ -1274,13 +1274,14 @@
       "url": "https://www.vrai.com/configure/setting-to-diamond/petite-4-prong-ring/round-brilliant-yellow-gold-41015509221469",
       "sources": [
         "https://www.vrai.com/configure/setting-to-diamond/petite-4-prong-ring/round-brilliant-yellow-gold-41015509221469",
-        "https://help.vrai.com/hc/en-us/articles/360000836514-What-is-your-return-policy"
+        "https://help.vrai.com/en/knowledge/what-is-your-return-policy"
       ],
       "flags": [
         "P2",
         "RET8",
         "H1",
-        "X1"
+        "X1",
+        "SRC1"
       ],
       "verified_fields": [
         "karat",
@@ -1295,8 +1296,8 @@
         "maker_mark_reported",
         "certification"
       ],
-      "last_verified": "2026-10-22",
-      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3): Metal weight 2.3g and solid gold band wording verified; price is injected via JS so left null."
+      "last_verified": "2026-10-23",
+      "verification": "Re-verified live 2026-10-23 (session arena/2908bea4-gold3): Metal weight 2.3g and solid gold band wording verified in static HTML; price remains JS-only (null); repointed return-policy source to https://help.vrai.com/en/knowledge/what-is-your-return-policy (SRC1)."
     },
     {
       "id": "R29",
@@ -1316,10 +1317,10 @@
       "maker_mark_reported": null,
       "return_window": "30 days from delivery (free US return shipping); resizing is not available for this ring",
       "certification": null,
-      "url": "https://www.brilliantearth.com/Fairmined-2mm-Six-Prong-Solitaire-Ring-Gold-BE1FM0126-24910022/",
+      "url": "https://www.brilliantearth.com/Fairmined-2mm-Six-Prong-Solitaire-Ring-Gold-BE1FM0126-24910022/?currency=USD",
       "sources": [
-        "https://www.brilliantearth.com/Fairmined-2mm-Six-Prong-Solitaire-Ring-Gold-BE1FM0126-24910022/",
-        "https://www.brilliantearth.com/returns/"
+        "https://www.brilliantearth.com/Fairmined-2mm-Six-Prong-Solitaire-Ring-Gold-BE1FM0126-24910022/?currency=USD",
+        "https://www.brilliantearth.com/30-Day-Returns/"
       ],
       "flags": [
         "P1",
@@ -1327,7 +1328,8 @@
         "W1",
         "H1",
         "X1",
-        "SPEC3"
+        "SPEC3",
+        "SRC1"
       ],
       "verified_fields": [
         "price_usd",
@@ -1342,8 +1344,8 @@
         "maker_mark_reported",
         "certification"
       ],
-      "last_verified": "2026-10-22",
-      "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3): $1,090 setting price confirmed; caught resizing badge contradiction (SPEC3)."
+      "last_verified": "2026-10-23",
+      "verification": "Re-verified live 2026-10-23 with ?currency=USD (session arena/2908bea4-gold3): $1,090 setting price confirmed; reproduced resizing badge contradiction (SPEC3), caught Ring Information unit bug ('Band Width: 2 ct. tw.'), and repointed dead /returns/ 404 to /30-Day-Returns/ (SRC1)."
     },
     {
       "id": "R30",

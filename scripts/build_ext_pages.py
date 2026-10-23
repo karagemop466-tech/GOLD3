@@ -16,19 +16,20 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data"
 VERIF_DIR = ROOT / "verification"
 
-NAV_ITEMS = [
-    ("index.html", "Main Dashboard", False),
-    ("combined.html", "All 59 Combined Rows", False),
-    ("checklist-standards.html", "12-Point Checklist", False),
-    ("solitaire-settings.html", "Solitaires (9)", False),
-    ("bands-vintage-rings.html", "24K & Solid Bands (12)", False),
-    ("sellers-policies.html", "BBB & Policy Audit (5)", False),
-    ("calculator.html", "Gold Calculator", False),
-    ("flagged-for-review.html", "Flagged C (16)", True),
-    ("flagged.html", "Flagged A+B", True),
-    ("verify.html", "Verify Log", False),
-    ("security-audit.html", "Security Passes", False),
-]
+def get_nav_items(combined_count: int, sol_count: int, band_count: int, seller_count: int, flagged_c_count: int) -> list[tuple[str, str, bool]]:
+    return [
+        ("index.html", "Main Dashboard", False),
+        ("combined.html", f"All {combined_count} Combined Rows", False),
+        ("checklist-standards.html", "12-Point Checklist", False),
+        ("solitaire-settings.html", f"Solitaires ({sol_count})", False),
+        ("bands-vintage-rings.html", f"24K & Solid Bands ({band_count})", False),
+        ("sellers-policies.html", f"BBB & Policy Audit ({seller_count})", False),
+        ("calculator.html", "Gold Calculator", False),
+        ("flagged-for-review.html", f"Flagged C ({flagged_c_count})", True),
+        ("flagged.html", "Flagged A+B", True),
+        ("verify.html", "Verify Log", False),
+        ("security-audit.html", "Security Passes", False),
+    ]
 
 
 def esc(val: object) -> str:
@@ -40,9 +41,9 @@ def ext_link(url: str, label: str, cls: str = "source-btn") -> str:
     return f'<a href="{esc(url)}" target="_blank" rel="noopener noreferrer"{cls_attr}>{esc(label)} &#8599;</a>'
 
 
-def render_shell(active_file: str, title: str, body_html: str, spot_bench: dict, latest_pass: dict) -> str:
+def render_shell(active_file: str, title: str, body_html: str, spot_bench: dict, latest_pass: dict, nav_items: list[tuple[str, str, bool]]) -> str:
     nav_links = []
-    for href, label, is_flag in NAV_ITEMS:
+    for href, label, is_flag in nav_items:
         classes = []
         if href == active_file:
             classes.append("active")
@@ -412,10 +413,15 @@ def build_all() -> None:
     audit_log = json.loads((VERIF_DIR / "audit-log.json").read_text(encoding="utf-8"))
     manifest = json.loads((VERIF_DIR / "sources-manifest.json").read_text(encoding="utf-8"))
 
+    products_a = json.loads((DATA_DIR / "products.json").read_text(encoding="utf-8")).get("products", [])
+    rings_b = json.loads((DATA_DIR / "rings.json").read_text(encoding="utf-8")).get("rings", [])
+
     all_rings = solitaires + bands
     bench = spot_std["spot_gold_benchmark"]
     latest_pass = audit_log["runs"][-1]
     flagged_rings = [r for r in all_rings if r["flagged"]]
+    combined_total = len(products_a) + len(rings_b) + len(all_rings)
+    nav_items = get_nav_items(combined_total, len(solitaires), len(bands), len(sellers), len(flagged_rings))
 
     # ======================================================================
     # 1. index.html — Front Page Dashboard + Prominent No-Hallucinations Summary
@@ -1003,7 +1009,7 @@ def build_all() -> None:
     ]
 
     for filename, page_title, content in pages:
-        full_html = render_shell(filename, page_title, content, bench, latest_pass)
+        full_html = render_shell(filename, page_title, content, bench, latest_pass, nav_items)
         (ROOT / filename).write_text(full_html, encoding="utf-8")
         print(f"  Built {filename} ({len(full_html):,} bytes)")
 
