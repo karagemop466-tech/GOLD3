@@ -444,6 +444,16 @@
       "source": "https://www.gold.org/goldhub/data/gold-prices",
       "product": null,
       "action": "The spot figures now come from data/prices.json, the weight-coverage counts from data/rings.json and the audit tally from reports/audit-report.md at build time, so the prose cannot drift from the data again."
+    },
+    {
+      "id": "F44",
+      "severity": "low",
+      "title": "The calculator dated its pre-filled spot snapshot from Dataset A's capture date, not the snapshot's own",
+      "detail": "Reading the deployed page back after PR #54 (f3b7887) showed 'Pre-filled with the 22 October 2026 snapshot: $4,022.22/oz (Oct 23rd, 2026 at 05:55 NY Time)' - two different dates in one sentence. data/prices.json records that snapshot's captured_on as 2026-10-23; 22 October is Dataset A's product capture date, which the build script applied to every page regardless of what the number described. flagged.html had the same problem with 'Last automated pass: 22 October 2026' while reports/audit-report.md was generated on 2026-10-23.",
+      "evidence": "Live calculator.html (deployed from f3b7887) printed 'Pre-filled with the 22 October 2026 snapshot ... (Oct 23rd, 2026 at 05:55 NY Time)'; reports/audit-report.md prints 'Run: 2026-10-23 20:24 UTC' while flagged.html printed 'Last automated pass: 22 October 2026'.",
+      "source": "https://goldprice.org/",
+      "product": null,
+      "action": "Both dates are now read from the files that own them - the snapshot's captured_on from data/prices.json and the audit run date from reports/audit-report.md - and asserted in scripts/render-test.js (SD21)."
     }
   ]
 }

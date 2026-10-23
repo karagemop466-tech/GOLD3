@@ -33,7 +33,7 @@
 </div>
 
 <div class="grid cols-3" style="margin-bottom:20px">
-  <div class="kpi"><div class="label">Editorial findings</div><div class="value">43</div><div class="sub">19 high severity</div></div>
+  <div class="kpi"><div class="label">Editorial findings</div><div class="value">44</div><div class="sub">19 high severity</div></div>
   <div class="kpi"><div class="label">Listing-level flags</div><div class="value">101</div><div class="sub">across 19 listings</div></div>
   <div class="kpi"><div class="label">Unverified cells</div><div class="value">0 guesses</div><div class="sub">blank is used instead</div></div>
 </div>
@@ -512,6 +512,17 @@
           <p class="small"><strong>Source:</strong> <a href="https://www.gold.org/goldhub/data/gold-prices" target="_blank" rel="noopener">https://www.gold.org/goldhub/data/gold-prices</a></p>
           
           <p class="action"><strong>What to do:</strong> None — control check. If a future pass refreshes the anchor, it must re-run the calculator and rebuild every page so the printed melt values stay reproducible from the data.</p>
+        </div>
+        <div class="card finding low" id="F44">
+          <div class="finding-head">
+            <h3>F44 · The calculator dated its pre-filled spot snapshot from Dataset A&#x27;s capture date, not the snapshot&#x27;s own</h3>
+            <span class="badge info">LOW</span>
+          </div>
+          <p class="small">Reading the deployed page back after PR #54 (f3b7887) showed &#x27;Pre-filled with the 22 October 2026 snapshot: $4,022.22/oz (Oct 23rd, 2026 at 05:55 NY Time)&#x27; - two different dates in one sentence. data/prices.json records that snapshot&#x27;s captured_on as 2026-10-23; 22 October is Dataset A&#x27;s product capture date, which the build script applied to every page regardless of what the number described. flagged.html had the same problem with &#x27;Last automated pass: 22 October 2026&#x27; while reports/audit-report.md was generated on 2026-10-23.</p>
+          <div class="evidence">Live calculator.html (deployed from f3b7887) printed &#x27;Pre-filled with the 22 October 2026 snapshot ... (Oct 23rd, 2026 at 05:55 NY Time)&#x27;; reports/audit-report.md prints &#x27;Run: 2026-10-23 20:24 UTC&#x27; while flagged.html printed &#x27;Last automated pass: 22 October 2026&#x27;.</div>
+          <p class="small"><strong>Source:</strong> <a href="https://goldprice.org/" target="_blank" rel="noopener">https://goldprice.org/</a></p>
+          
+          <p class="action"><strong>What to do:</strong> Both dates are now read from the files that own them - the snapshot&#x27;s captured_on from data/prices.json and the audit run date from reports/audit-report.md - and asserted in scripts/render-test.js (SD21).</p>
         </div>
 
 <h2 style="margin-top:36px">Every listing-level flag</h2>
@@ -1472,7 +1483,7 @@ exists. A flag with no source of its own is a question about one specific listin
 
 <h2 id="verification">Verification passes</h2>
 <div class="card">
-  <p><strong>Last automated pass: 22 October 2026 &middot; result <span class="badge good">PASS</span></strong>
+  <p><strong>Last automated pass: 23 October 2026 &middot; result <span class="badge good">PASS</span></strong>
   &middot; 0 errors &middot; 0 warnings &middot;
   12 notes.</p>
   <p class="small">The build refuses to run unless this pass is clean, so an unsourced or contradictory value cannot reach the

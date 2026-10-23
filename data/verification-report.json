@@ -641,6 +641,11 @@
       "id": "F43",
       "severity": "medium",
       "title": "Generated prose still carried a spot figure and two counts that no longer matched the data files"
+    },
+    {
+      "id": "F44",
+      "severity": "low",
+      "title": "The calculator dated its pre-filled spot snapshot from Dataset A's capture date, not the snapshot's own"
     }
   ],
   "parallel_dataset": {
