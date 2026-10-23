@@ -28,6 +28,7 @@ Read it before starting any work. Update it when you claim, finish, or hand off 
 | `arena/438a583e-gold3` | `arena/438a583e-gold3` | 2026-10-23T20:17Z | **complete** — Pass `P14` (renumbered three times as PRs #51, #54 and #56 landed the same ids): every weight-bearing PDP re-read live (0 changes), four-feed spot corroboration to 0.026%, `scripts/refresh_spot_anchor.py`, finding `F45`; §19 |
 | `arena/db2fe957-gold3` | `arena/db2fe957-gold3` | 2026-10-23T20:20Z | **complete** — `P15` + `P16`: PRs #64 and #65 merged (`d3db33f`, `0560c57`), main CI green, Pages built, live read-back verified including SD24 (§21). |
 | `arena/bf5f63da-gold3` | `arena/bf5f63da-gold3` | 2026-10-23T23:41Z | **complete** — Final review pass (R1): line-by-line data-consistency audit, zero-hallucination front-page confirmation, all 9 CI gates green, PR #67 merged as `f2c69a6` to `main`, GitHub Pages built and live at https://karagemop466-tech.github.io/GOLD3/ | `COORDINATION.md`, generated `*.html`, verification scripts output | 2026-10-23T23:41Z → merged 2026-10-23 |
+| `arena/36ebce13-gold3` | `arena/36ebce13-gold3` | 2026-10-23T23:41Z | **in progress** — `P17` full source/consistency review and `P18` final integration/deploy; stale registry entries older than 60 minutes are not treated as active claims. |
 
 ### Branch naming note (important)
 The protocol below asks for `session-<id>/<task>` branches. **This sandbox pins each session to a
@@ -97,6 +98,8 @@ Status values: `unclaimed` · `in progress` · `done` · `needs review`
 | P16 | Final additive integration complete: PR #64 merged as `d3db33f` (CI `40022197030`, Pages `40022195726`); SD24 follow-up PR #65 merged as `0560c57` (CI `40022618277`, Pages `40022617874`). Live read-back verified P15 attribution, 222 checks, JSON presets and F2 `19 of 71`. All local gates green: render 156/156, 1,014/1,014 official row links, security #36, archive 7/7. | done | `arena/db2fe957-gold3` | repo root (integration window), `COORDINATION.md` | 2026-10-23T20:54Z |
 | P12 | Eleventh independent live verification pass on the post-PR-#50 tree (`253ab39`): **7 live checks — 3 confirmed / 2 corrected / 2 flagged**. Spot anchor 0.62% below the stored snapshot with an inverted clock label (F39); Menē Classic Band $1,707→$1,694 and Narrow Flat Band $1,544→$1,532 (F40); Menē Wide Flat Band page returned HTTP 500 so its price was left captured (SRC3); Sarraf R20, Ross-Simons BND-04 and Mejuri R03 confirmed verbatim. Also fixed SD14 (three headline counts said 50 while the site renders 71) and SD15 (duplicate `P11-01/P11-02` ids, duplicate `SD6/SD10`, stale `summary.checks` 137 vs 185) and added three audit guard rails. Published `data/reverification-57724486.json` + `reports/reverification-pass-57724486.md`; log now **192 checks**. Verification pass on the post-PR-#50 tree (`253ab39`): re-open the spot benchmark and a rotating sample of price/weight-bearing rows live, sweep every published headline count against `data/`, fix any discrepancy found, publish `data/reverification-57724486.json` + report, then final integration (rebuild, all 9 CI gates, PR → `main`, merge, Pages deploy read-back) | done | `arena/57724486-gold3` | `data/reverification-57724486.json`, `reports/reverification-pass-57724486.md`, `data/verification.json`, `COORDINATION.md`; integration window over generated `*.html`, `data/*.json`, `verification/*`, `reports/*` | 2026-10-23T21:00Z |
 | R1 | Final review pass: line-by-line data-consistency audit (every row carries an `https://` official source link; unpublished values left `null`/`blank` and flagged `unverified`), confirm the zero-hallucination commitment is the front-page top summary, re-run all nine CI gates, rebuild the static site, open a PR from `arena/bf5f63da-gold3` to `main`, merge after green CI, confirm GitHub Pages deploys, and record the PR link + merge SHA here. | done | `arena/bf5f63da-gold3` | `COORDINATION.md`, generated `*.html`, all `data/*.json` (read-only audit), `scripts/*` (read-only audit) | 2026-10-23T23:41Z → merged 2026-10-23 |
+| P17 | Additive line-by-line source and consistency review: re-open official listing/policy/authority sources, prioritize the remaining Dataset A PDPs and seller-policy drift, preserve blank/unverified values, publish a new dated evidence artifact, and run the hallucination/security suites after the review. | done | `arena/36ebce13-gold3` | `data/reverification-p17.json`, `reports/reverification-pass-p17.md`, `data/verification.json`, `data/findings.json`, `data/flags.json`, sourced dataset corrections if required, verification/build scripts and generated artifacts, `README.md`, `COORDINATION.md` | 2026-10-23T23:58Z |
+| P18 | Final integration after P17: re-verify combined data, regenerate all pages, confirm no broken internal links, pass every CI/security/render gate, PR from the fixed Arena branch to `main`, merge, and verify GitHub Pages read-back. | in progress | `arena/36ebce13-gold3` | repo root integration window after P17 | 2026-10-23T23:58Z |
 
 > **T10 closed 2026-10-23** by its owner's own work, merged as PR #13 (board record) and PR #15
 > (text corrections). This session only recorded the closure — no file owned by `arena/92d7dd0a-gold3`
@@ -1202,3 +1205,47 @@ After every review, rerun all gates and look specifically for values absent from
 | GitHub Pages deploy | **built** — live at https://karagemop466-tech.github.io/GOLD3/ (source `main:/`, HTTPS enforced) | 2026-10-23 |
 
 **Result.** Task `R1` marked `done`. Site is live and all flagged irregularities remain published (non-blocking) on `flagged.html` / `verify.html` for owner review.
+
+---
+
+## 23. Session `arena/36ebce13-gold3` — Pass `P17` source correction & `P18` integration, 2026-10-23
+
+### 23.1 Scope and no-hallucinations result
+
+P17 re-opened all **19 Dataset A official product pages**, all five Dataset A seller-policy and Trustpilot records, Ross-Simons Item 571221 and four gold-price publishers. Evidence: `data/reverification-p17.json`; human report: `reports/reverification-pass-p17.md`.
+
+**31 checks: 10 confirmed / 18 corrected / 3 flagged.** Every Dataset A numeric price was confirmed with **0 numeric price changes** and **0 published-weight changes**. The combined append-only ledger now has **253 checks** (118 confirmed / 95 corrected / 40 flagged), with unique IDs. Missing values remain null and all live source contradictions remain published.
+
+### 23.2 Corrections and irregularities
+
+- **F50:** removed unsupported Aurate stone-inclusion arithmetic; updated current bezel dimensions/clarity; left conflicting carats and ambiguous weights null.
+- **F51:** Mejuri Stacker now records `Width: 1 mm` and current solid-gold wording. Alt text mentioning a 10K purity stamp is explicitly not visual or maker's-mark verification.
+- **F52:** Ross-Simons BND-04–BND-07 weights are approximate, not exact; weight, geometry and reviews are not proof of solid construction. No weight, price or melt number changed.
+- **F53:** removed Mejuri's unsupported blanket bespoke/made-to-order return exclusion and stale JavaScript-only flag; recorded actual SCS-certificate, complete-set and same-country requirements.
+- **F54:** corrected Blue Nile Hidden Halo/Riviera stock-width pairs and removed false Ring Concierge karat-not-in-body flags plus demonstrated duplicate flags. Floral metal and 2.08/5.63ct conflicts remain.
+- **F55:** four spot publishers displayed $3,995.47–$3,995.88/oz (0.025% numeric spread). Only the labelled live reference changed; the $4,022.22/oz calculation anchor and all melt arithmetic remain fixed.
+- Retailer Trustpilot snapshots now show Aurate 4,876 / 4.1, Blue Nile 1,937 / 4.0, Mejuri 5,785 / 4.3, Ring Concierge 7 / 2.7 and Catbird 56 / 2.2, with sample/reply context and reviewer allegations not presented as verified facts.
+
+### 23.3 Local gates after P17
+
+| Gate | Result |
+|---|---|
+| `verify.py` | **PASS** — 0 errors / 0 warnings / 12 notes |
+| `verify_dataset_c.py` | **PASS** — 21 rings, 5 published weights, 16 null/unverified, 0 dead links |
+| Both builders | **PASS** — internal links, styles and product URLs OK |
+| `audit.py` | **PASS** — 31 rows, 0 errors / 0 warnings / 176 checks |
+| Deterministic security | **PASS #40 + read-back clean-tree PASS** — SEC-01…SEC-07; 2,364 links/anchors |
+| Render suite | **PASS** — 165/165, including nine P17 guards |
+| Verification report | **PASS** — 253 checks rendered |
+| Root official-link gate | **PASS** — 1,037/1,037 rows |
+| Archive suite | **PASS** — 7/7; 156 internal and 270 external links |
+
+### 23.4 P18 integration record
+
+P18 is claimed for final clean rebuild, full gate rerun, PR from the fixed Arena branch, merge and GitHub Pages read-back. Deployment identifiers and live results will be appended only after they are observed; they are not assumed.
+
+Local generated-page read-back caught a draft-only word-order error in two Ross-Simons assessments (`14kt Italian Yellow Gold`). Before commit, all four assessments were conformed to the exact common source phrase `Metal: 14kt Yellow Gold`; Dataset C, build, audit, security #40, clean-tree security, render and report gates were rerun green. Corrective history on `flagged.html` was distinguished from current product prose in the stale-phrase sweep.
+
+### 23.5 Recommended next hallucination hunt
+
+Read the deployed landing-page **No hallucinations** summary, F50–F55 and all 253 ledger rows back against the JSON. Sample the remaining Dataset B/C weight-bearing rows and any prose mentioning availability, exact weight or stone inclusion. Re-run the deterministic security suite after that review; never carry an old listing or spot price forward as current.

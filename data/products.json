@@ -7,33 +7,33 @@
       "retailer": "aurate",
       "brand": "Aurate New York",
       "name": "2ct Round Lab Grown Diamond Solitaire Ring",
-      "url": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring",
+      "url": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring?variant=46776936792236",
       "categories": [
         "14k",
         "lab-grown"
       ],
       "purity": "14K",
-      "purity_source": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring",
+      "purity_source": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring?variant=46776936792236",
       "metal_detail": "14k gold, 18k gold or platinum band (1.8mm width)",
       "solid_gold": true,
       "solid_gold_status": "stated at brand level",
-      "solid_gold_evidence": "Aurate offers three rates of gold \u2013 Vermeil, 14-karat solid gold and 18-karat solid gold.",
+      "solid_gold_evidence": "Aurate offers three rates of gold – Vermeil, 14-karat solid gold and 18-karat solid gold.",
       "solid_gold_source": "https://auratenewyork.gorgias.help/en-US/articles/our-jewelry-38634",
       "price": 2858,
       "currency": "USD",
       "price_type": "listed",
-      "price_variant_note": "Re-read live on 2026-10-22 (pass P3): the product page shows \"$2,858\" for the variant selected on the page (\"Rate - 14k GOLD\", \"Color - Yellow\", \"Size - 7\", \"In Stock \u2022 Ready to Ship\"), so this is a listed price for a real in-stock configuration, not only a \"From\" price. 18k gold and platinum variants cost more and were not captured. The page also advertises \"From $137/month with Klarna\" and a marketing comparison (\"62% Fairer Price\" / \"$7,431 Traditional Retail\"), which is the seller's own claim and is not used here.",
+      "price_variant_note": "Current official variant page lists $2,858 for 14k yellow gold, size 2.5, made to order. Other metal options are not included in this stored price.",
       "price_captured_on": "2026-10-23",
-      "price_source": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring",
-      "price_quote": "2ct Round Lab Grown Diamond Solitaire Ring $2,858 | Rate - 14k GOLD | In Stock \u2022 Ready to Ship | Exchange for size only. Final Sale! | Weight: 5.5-8.5g | SKU: AU5760",
+      "price_source": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring?variant=46776936792236",
+      "price_quote": "2ct Round Lab Grown Diamond Solitaire Ring $2,858 | Rate - 14k GOLD | Color - Yellow | Size - 2.5 | Made to Order | Weight: 5.5-8.5g | SKU: AU5760",
       "weight_g": null,
-      "weight_status": "published as a range",
-      "weight_source": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring",
+      "weight_status": "published as a range 5.5-8.5g; exact variant mapping and weight scope unverified",
+      "weight_source": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring?variant=46776936792236",
       "diamond_type": "lab-grown",
-      "diamond_source": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring",
+      "diamond_source": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring?variant=46776936792236",
       "carat": 2.0,
       "carat_note": "2ct stated in the product name",
-      "carat_source": "https://auratenewyork.com/collections/engagement-rings",
+      "carat_source": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring?variant=46776936792236",
       "setting_included": true,
       "hallmark_stated": null,
       "flags": [
@@ -42,20 +42,12 @@
           "note": "The listing describes a 'polished 14k, 18k gold or platinum band' but does not itself use the word 'solid'; that comes from Aurate's help-centre policy."
         },
         {
-          "code": "PRICE_FROM_LOWEST_VARIANT",
-          "note": "Superseded by the P3 re-read: the live page shows $2,858 against a specific in-stock variant (14k gold, yellow, size 7), so price_type is now 'listed'. The 18k and platinum prices are still not captured."
-        },
-        {
-          "code": "WEIGHT_NOT_PUBLISHED",
-          "note": "CORRECTED by the P3 re-read: the listing publishes \"Weight: 5.5-8.5g\", a range spanning the 14k/18k/platinum options. No single gram figure exists for the ring a buyer receives, so weight_g stays null and nothing is estimated. Ask the seller for the weight of the exact variant in writing."
-        },
-        {
           "code": "WEIGHT_RANGE_ONLY",
-          "note": "The published weight is a 3.0 g-wide range (5.5-8.5g). At $4,022.22/oz the difference between the ends is more than the entire melt value of a light band, so the range cannot be used for a price-per-gram test."
+          "note": "The published 5.5-8.5g range cannot supply one per-variant gold weight. No midpoint, endpoint selection or stone-weight deduction is made."
         },
         {
           "code": "EXCHANGE_ONLY_FINAL_SALE",
-          "note": "The live listing carries the notices \"Exchange for size only. Final Sale!\" and \"Exchange only! Return & cancellation policy.\", both linking to https://auratenewyork.com/pages/terms-conditions-exchange-only \u2014 while the same page displays a \"Free Returns\" service badge and \"Lifetime Warranty\". A $2,858 engagement ring that can only be exchanged for size is precisely the case the buying checklist says to walk away from unless the seller confirms otherwise in writing."
+          "note": "The listing states 'Exchange for size only. Final Sale!' beside a generic 'Free Returns' badge. The linked policy says exchange-for-size items are not eligible for return and made-to-order cancellations after 24 hours incur a 30% fee. The listing-specific restriction controls; obtain written terms before paying."
         },
         {
           "code": "PAGE_SELF_CONTRADICTION",
@@ -66,27 +58,19 @@
           "note": "No hallmark / maker's-mark statement on the listing."
         },
         {
-          "code": "FINAL_SALE_PDP_OVERRIDE",
-          "note": "Live PDP states 'Final Sale! / Exchange for size only.' alongside a 'Free Returns' badge, plus a 30% MTO cancellation fee after 24 hours (https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale)."
-        },
-        {
-          "code": "WEIGHT_RANGE_ONLY",
-          "note": "The published weight is a 3.0 g-wide range (5.5-8.5g). At $4,026.79/oz the difference between the ends is more than the entire melt value of a light band, so the range cannot be used for a price-per-gram test."
-        },
-        {
-          "code": "EXCHANGE_ONLY_FINAL_SALE",
-          "note": "The live listing carries the notices \"Exchange for size only. Final Sale!\" and \"Exchange only! Return & cancellation policy.\", linking to https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale (30% cancellation fee after 24 hours on made-to-order items; exchange for size only; no refunds) \u2014 while displaying a \"Free Returns\" service badge on the same page."
+          "code": "WEIGHT_SCOPE_UNVERIFIED",
+          "note": "Specs publish 'Weight: 5.5-8.5g', but do not define metal-only versus total-item scope or assign a single figure to the selected variant. weight_g stays null."
         }
       ],
       "notes": "Diamond described as \"EF color, VVS clarity\" in the product copy, \"VS/EF\" in the specs block, with an \"SI Clarity Only\" quality badge elsewhere on the same page. Re-read live on 2026-10-22 (pass P3, session arena/699d8e05-gold3): price unchanged, and the exchange-only/final-sale notices were present.",
-      "price_recheck": "2026-10-22 (pass P3, session arena/699d8e05-gold3) \u2014 figure unchanged at $2,858.",
+      "price_recheck": "2026-10-23 (pass P17, session arena/36ebce13-gold3) — official product source re-opened; stored price $2,858 confirmed; no numeric price change.",
       "weight_quote": "Weight: 5.5-8.5g",
-      "weight_note": "Live PDP prints 'Weight: 5.5-8.5g' (includes 2tcw stone and repeats across 14k/18k/Platinum variants) and 'Exchange for size only. Final Sale!' alongside 'Free Returns'.",
-      "specs_quote": "Width: 2.75mm \u00b7 Thickness: 1.8mm \u00b7 Weight: 5.5-8.5g \u00b7 Diamonds: 1 Round VS/EF Lab Grown Diamond \u00b7 Diamonds Size: 8.2mm \u00b7 2tcw \u00b7 SKU: AU5760",
+      "weight_note": "Specs publish 'Weight: 5.5-8.5g' and '2tcw' separately. The page does not define whether the gram range is metal-only or total-item weight and does not assign one value to the selected variant; weight_g remains null and no stone mass is deducted.",
+      "specs_quote": "Width: 2.75mm · Thickness: 1.8mm · Weight: 5.5-8.5g · Diamonds: 1 Round VS/EF Lab Grown Diamond · Diamonds Size: 8.2mm · 2tcw · SKU: AU5760",
       "specs_source": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring",
       "certification_quote": "All of our engagement diamond solitaire rings come with a certificate certifying the quality (cut, color, clarity and carat) of your diamond. It is run through one of two accredited institutions: The Gemological Institute of America or The International Gemological Institute. Trust but verify, always.",
       "certification_source": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring",
-      "certification_note": "A certificate is promised at brand level on the product page, but the issuing lab is stated as \"GIA or IGI\" \u2014 which one arrives is not knowable from the page, and no report number exists before purchase. The checklist's documentation item is therefore only partly satisfiable in advance: ask which lab will issue it, in writing.",
+      "certification_note": "A certificate is promised at brand level on the product page, but the issuing lab is stated as \"GIA or IGI\" — which one arrives is not knowable from the page, and no report number exists before purchase. The checklist's documentation item is therefore only partly satisfiable in advance: ask which lab will issue it, in writing.",
       "price_basis": "listed"
     },
     {
@@ -94,33 +78,33 @@
       "retailer": "aurate",
       "brand": "Aurate New York",
       "name": "2ct Emerald Lab Grown Diamond Solitaire Ring",
-      "url": "https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring",
+      "url": "https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring?variant=46776938266796",
       "categories": [
         "14k",
         "lab-grown"
       ],
       "purity": "14K",
-      "purity_source": "https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring",
+      "purity_source": "https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring?variant=46776938266796",
       "metal_detail": "14k gold, 18k gold or platinum band (1.8mm copy width / 2.75mm specs width)",
       "solid_gold": true,
       "solid_gold_status": "stated at brand level",
-      "solid_gold_evidence": "Aurate offers three rates of gold \u2013 Vermeil, 14-karat solid gold and 18-karat solid gold.",
+      "solid_gold_evidence": "Aurate offers three rates of gold – Vermeil, 14-karat solid gold and 18-karat solid gold.",
       "solid_gold_source": "https://auratenewyork.gorgias.help/en-US/articles/our-jewelry-38634",
       "price": 2638,
       "currency": "USD",
       "price_type": "from",
-      "price_variant_note": "Starting price shown for the 14k option at the smallest size.",
+      "price_variant_note": "Current official variant page lists $2,638 for 14k yellow gold, size 2.5, made to order. Other metal options are not included in this stored price.",
       "price_captured_on": "2026-10-23",
-      "price_source": "https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring",
-      "price_quote": "2ct Emerald Lab Grown Diamond Solitaire Ring $2,638 | Rate - 14k GOLD | Made to Order | Exchange for size only. Final Sale! | Weight: 5.5-8.5g | SKU: AU5769",
+      "price_source": "https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring?variant=46776938266796",
+      "price_quote": "2ct Emerald Lab Grown Diamond Solitaire Ring $2,638 | Rate - 14k GOLD | Color - Yellow | Size - 2.5 | Made to Order | Weight: 5.5-8.5g | SKU: AU5769",
       "weight_g": null,
-      "weight_status": "published as a range",
-      "weight_source": null,
+      "weight_status": "published as a range 5.5-8.5g; exact variant mapping and weight scope unverified",
+      "weight_source": "https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring?variant=46776938266796",
       "diamond_type": "lab-grown",
-      "diamond_source": "https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring",
+      "diamond_source": "https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring?variant=46776938266796",
       "carat": 2.0,
       "carat_note": "2ct stated in the product name",
-      "carat_source": "https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring",
+      "carat_source": "https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring?variant=46776938266796",
       "setting_included": true,
       "hallmark_stated": null,
       "flags": [
@@ -129,33 +113,30 @@
           "note": "Purity statement is at brand level, not on the listing."
         },
         {
-          "code": "WEIGHT_NOT_PUBLISHED",
-          "note": "Live product page prints \"Weight: 5.5-8.5g\" across 14k gold, 18k gold, and platinum variants \u2014 no single ring weight is published, so weight_g stays null."
-        },
-        {
           "code": "HALLMARK_NOT_STATED",
           "note": "No hallmark / maker's-mark statement on the listing."
         },
         {
-          "code": "FINAL_SALE_PDP_OVERRIDE",
-          "note": "Live PDP states 'Final Sale! / Exchange for size only.' alongside a 'Free Returns' badge, plus a 30% MTO cancellation fee after 24 hours (https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale)."
-        },
-        {
           "code": "WEIGHT_RANGE_ONLY",
-          "note": "Published weight \"Weight: 5.5-8.5g\" spans a 3.0 g range across three metals of different densities and cannot be used for a single melt ratio."
+          "note": "The published 5.5-8.5g range cannot supply one per-variant gold weight. No midpoint, endpoint selection or stone-weight deduction is made."
         },
         {
           "code": "EXCHANGE_ONLY_FINAL_SALE",
-          "note": "The live listing carries the notices \"Exchange for size only. Final Sale!\" and \"Exchange only! Return & cancellation policy.\", linking to https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale (30% cancellation fee after 24 hours on made-to-order items; exchange for size only; no refunds) \u2014 while displaying a \"Free Returns\" service badge on the same page."
+          "note": "The listing states 'Exchange for size only. Final Sale!' beside a generic 'Free Returns' badge. The linked policy says exchange-for-size items are not eligible for return and made-to-order cancellations after 24 hours incur a 30% fee. The listing-specific restriction controls; obtain written terms before paying."
         },
         {
           "code": "PAGE_SELF_CONTRADICTION",
           "note": "Same 3-way diamond clarity contradiction as AU5760 (\"VVS clarity\" in body copy, \"VS/EF\" in Specs, and \"SI Clarity Only\" badge) plus \"1.8mm width\" in prose vs \"Width: 2.75mm\" in Specs."
+        },
+        {
+          "code": "WEIGHT_SCOPE_UNVERIFIED",
+          "note": "Specs publish 'Weight: 5.5-8.5g', but do not define metal-only versus total-item scope or assign a single figure to the selected variant. weight_g stays null."
         }
       ],
       "notes": "",
-      "weight_note": "Live PDP prints 'Weight: 5.5-8.5g' (includes 2tcw stone and repeats across 14k/18k/Platinum variants) and 'Exchange for size only. Final Sale!' alongside 'Free Returns'.",
-      "price_basis": "listed"
+      "weight_note": "Specs publish 'Weight: 5.5-8.5g' and '2tcw' separately. The page does not define whether the gram range is metal-only or total-item weight and does not assign one value to the selected variant; weight_g remains null and no stone mass is deducted.",
+      "price_basis": "listed",
+      "price_recheck": "2026-10-23 (pass P17, session arena/36ebce13-gold3) — official product source re-opened; stored price $2,638 confirmed; no numeric price change."
     },
     {
       "id": "aurate-1ct-round-lgd-bezel",
@@ -170,25 +151,25 @@
       ],
       "purity": "14K",
       "purity_source": "https://auratenewyork.com/products/1ct-round-lab-grown-diamond-bezel-ring",
-      "metal_detail": "14k gold, 18k gold or platinum bezel setting (Thickness: 1.75mm)",
+      "metal_detail": "14k gold, 18k gold or platinum bezel setting (Width: 9.05mm; Thickness: 5.04mm)",
       "solid_gold": true,
       "solid_gold_status": "stated at brand level",
-      "solid_gold_evidence": "Aurate offers three rates of gold \u2013 Vermeil, 14-karat solid gold and 18-karat solid gold.",
+      "solid_gold_evidence": "Aurate offers three rates of gold – Vermeil, 14-karat solid gold and 18-karat solid gold.",
       "solid_gold_source": "https://auratenewyork.gorgias.help/en-US/articles/our-jewelry-38634",
       "price": 1498,
       "currency": "USD",
       "price_type": "from",
-      "price_variant_note": "Starting price shown for the 14k option at the smallest size.",
+      "price_variant_note": "Current official product and structured endpoints support the stored minimum 14k price; higher-priced metal options are not included.",
       "price_captured_on": "2026-10-23",
       "price_source": "https://auratenewyork.com/products/1ct-round-lab-grown-diamond-bezel-ring",
       "price_quote": "1ct Round Lab Grown Diamond Bezel Ring $1,498 | Rate - 14k GOLD | Made to Order | Final Sale! / Exchange for size only. | Weight: 2.23g | 1.05tcw | SKU: AU5000",
       "weight_g": null,
-      "weight_status": "not published",
-      "weight_source": null,
+      "weight_status": "published as unscoped weight",
+      "weight_source": "https://auratenewyork.com/products/1ct-round-lab-grown-diamond-bezel-ring",
       "diamond_type": "lab-grown",
       "diamond_source": "https://auratenewyork.com/products/1ct-round-lab-grown-diamond-bezel-ring",
-      "carat": 1.0,
-      "carat_note": "Title says '1ct' while Specs print '1.05tcw' (0.21 g stone included in 'Weight: 2.23g', shared across 14k, 18k and platinum).",
+      "carat": null,
+      "carat_note": "UNVERIFIED SINGLE CARAT VALUE: title says '1ct' while Specs print '1.05tcw'. Both statements are preserved; no single numeric carat value is selected.",
       "carat_source": "https://auratenewyork.com/products/1ct-round-lab-grown-diamond-bezel-ring",
       "setting_included": true,
       "hallmark_stated": null,
@@ -198,29 +179,26 @@
           "note": "Purity statement is at brand level, not on the listing."
         },
         {
-          "code": "WEIGHT_NOT_PUBLISHED",
-          "note": "Live product page prints one static \"Weight: 2.23g\" figure across 14k gold, 18k gold, and platinum without deducting the center diamond, so net gold weight is unknowable and weight_g stays null."
-        },
-        {
           "code": "HALLMARK_NOT_STATED",
           "note": "No hallmark / maker's-mark statement on the listing."
         },
         {
-          "code": "FINAL_SALE_PDP_OVERRIDE",
-          "note": "Live PDP states 'Final Sale! / Exchange for size only.' alongside a 'Free Returns' badge, plus a 30% MTO cancellation fee after 24 hours (https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale)."
-        },
-        {
           "code": "EXCHANGE_ONLY_FINAL_SALE",
-          "note": "The live listing carries the notices \"Exchange for size only. Final Sale!\" and \"Exchange only! Return & cancellation policy.\", linking to https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale (30% cancellation fee after 24 hours on made-to-order items; exchange for size only; no refunds) \u2014 while displaying a \"Free Returns\" service badge on the same page."
+          "note": "The listing states 'Exchange for size only. Final Sale!' beside a generic 'Free Returns' badge. The linked policy says exchange-for-size items are not eligible for return and made-to-order cancellations after 24 hours incur a 30% fee. The listing-specific restriction controls; obtain written terms before paying."
         },
         {
           "code": "PAGE_SELF_CONTRADICTION",
-          "note": "Title says '1ct' while Specs print '1.05tcw' (0.21 g stone included in 'Weight: 2.23g', shared across 14k, 18k and platinum). Page also prints \"VVS clarity\" in copy vs \"VS/EF\" in Specs vs \"SI Clarity Only\" badge."
+          "note": "Title says '1ct' while Specs print '1.05tcw'; no single carat value is selected. Current Specs say Width: 9.05mm; Thickness: 5.04mm, '1 Round VS1/VS2 Lab Grown Diamond', and 'Weight: 2.23g'. The older VVS-copy claim is not present in the current bezel description and has been removed; the generic 'SI Clarity Only' badge remains visible."
+        },
+        {
+          "code": "WEIGHT_SCOPE_UNVERIFIED",
+          "note": "Specs publish 'Weight: 2.23g' without defining metal-only versus total-item scope or the exact metal/size weighed. weight_g stays null; stone inclusion is not assumed."
         }
       ],
       "notes": "Lowest-priced lab-grown entry in this dataset.",
-      "weight_note": "Live PDP prints 'Weight: 2.23g' with '1.05tcw' across 14k/18k/Platinum variants without stating whether stone weight is included or which metal/size was weighed; kept null.",
-      "price_basis": "listed"
+      "weight_note": "Specs publish 'Weight: 2.23g' and '1.05tcw' separately. They do not state whether the gram figure is metal-only or total-item weight, nor assign it to a specific metal/size; weight_g remains null and no stone mass is deducted.",
+      "price_basis": "listed",
+      "price_recheck": "2026-10-23 (pass P17, session arena/36ebce13-gold3) — official product source re-opened; stored price $1,498 confirmed; no numeric price change."
     },
     {
       "id": "aurate-2ct-emerald-lgd-bezel",
@@ -235,25 +213,25 @@
       ],
       "purity": "14K",
       "purity_source": "https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-bezel-ring",
-      "metal_detail": "14k gold, 18k gold or platinum bezel setting (Thickness: 1.75mm)",
+      "metal_detail": "14k gold, 18k gold or platinum bezel setting (Width: 11.42mm; Thickness: 4.6mm)",
       "solid_gold": true,
       "solid_gold_status": "stated at brand level",
-      "solid_gold_evidence": "Aurate offers three rates of gold \u2013 Vermeil, 14-karat solid gold and 18-karat solid gold.",
+      "solid_gold_evidence": "Aurate offers three rates of gold – Vermeil, 14-karat solid gold and 18-karat solid gold.",
       "solid_gold_source": "https://auratenewyork.gorgias.help/en-US/articles/our-jewelry-38634",
       "price": 1968,
       "currency": "USD",
       "price_type": "from",
-      "price_variant_note": "Starting price shown for the 14k option at the smallest size.",
+      "price_variant_note": "Current official product and structured endpoints support the stored minimum 14k price; higher-priced metal options are not included.",
       "price_captured_on": "2026-10-23",
       "price_source": "https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-bezel-ring",
       "price_quote": "2ct Emerald Lab Grown Diamond Bezel Ring $1,968 | Rate - 14k GOLD | Made to Order | Exchange for size only. Final Sale! | Weight: 2.36g | 1.8tcw | SKU: AU5093",
       "weight_g": null,
-      "weight_status": "not published",
-      "weight_source": null,
+      "weight_status": "published as unscoped weight",
+      "weight_source": "https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-bezel-ring",
       "diamond_type": "lab-grown",
       "diamond_source": "https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-bezel-ring",
-      "carat": 2.0,
-      "carat_note": "CARAT MISMATCH: Product title advertises '2ct Emerald Lab Grown Diamond Bezel Ring', whereas Specs print '1.8tcw' (-10% below advertised 2.00 ct!) and 'Weight: 2.36g' (shared across 14k, 18k and platinum, including 0.36 g stone).",
+      "carat": null,
+      "carat_note": "UNVERIFIED SINGLE CARAT VALUE: title says '2ct' while Specs print '1.8tcw'. Both statements are preserved; no single numeric carat value is selected.",
       "carat_source": "https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-bezel-ring",
       "setting_included": true,
       "hallmark_stated": null,
@@ -263,62 +241,59 @@
           "note": "Purity statement is at brand level, not on the listing."
         },
         {
-          "code": "WEIGHT_NOT_PUBLISHED",
-          "note": "Live product page prints one static \"Weight: 2.36g\" figure across 14k gold, 18k gold, and platinum without deducting the center diamond, so net gold weight is unknowable and weight_g stays null."
-        },
-        {
           "code": "HALLMARK_NOT_STATED",
           "note": "No hallmark / maker's-mark statement on the listing."
         },
         {
-          "code": "FINAL_SALE_PDP_OVERRIDE",
-          "note": "Live PDP states 'Final Sale! / Exchange for size only.' alongside a 'Free Returns' badge, plus a 30% MTO cancellation fee after 24 hours (https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale)."
-        },
-        {
           "code": "EXCHANGE_ONLY_FINAL_SALE",
-          "note": "The live listing carries the notices \"Exchange for size only. Final Sale!\" and \"Exchange only! Return & cancellation policy.\", linking to https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale (30% cancellation fee after 24 hours on made-to-order items; exchange for size only; no refunds) \u2014 while displaying a \"Free Returns\" service badge on the same page."
+          "note": "The listing states 'Exchange for size only. Final Sale!' beside a generic 'Free Returns' badge. The linked policy says exchange-for-size items are not eligible for return and made-to-order cancellations after 24 hours incur a 30% fee. The listing-specific restriction controls; obtain written terms before paying."
         },
         {
           "code": "PAGE_SELF_CONTRADICTION",
-          "note": "CARAT MISMATCH: Product title advertises '2ct Emerald Lab Grown Diamond Bezel Ring', whereas Specs print '1.8tcw' (-10% below advertised 2.00 ct!) and 'Weight: 2.36g' (shared across 14k, 18k and platinum, including 0.36 g stone). Page also prints \"VVS clarity\" in copy vs \"VS/EF\" in Specs vs \"SI Clarity Only\" badge."
+          "note": "Title says '2ct' while Specs print '1.8tcw'; no single carat value is selected. Current Specs say Width: 11.42mm; Thickness: 4.6mm, '1 Emerald VS1/VS2 Lab Grown Diamond', and 'Weight: 2.36g'. The older VVS-copy claim is not present in the current bezel description and has been removed; the generic 'SI Clarity Only' badge remains visible. Separate body copy incorrectly calls the emerald stone a 'classic oval diamond'."
+        },
+        {
+          "code": "WEIGHT_SCOPE_UNVERIFIED",
+          "note": "Specs publish 'Weight: 2.36g' without defining metal-only versus total-item scope or the exact metal/size weighed. weight_g stays null; stone inclusion is not assumed."
         }
       ],
       "notes": "",
-      "weight_note": "Live PDP prints 'Weight: 2.36g' with '1.8tcw' across 14k/18k/Platinum variants (kept null) and body prose misstates 'giving the classic oval diamond a distinctly modern point of view' on an Emerald Bezel ring (F25).",
-      "price_basis": "listed"
+      "weight_note": "Specs publish 'Weight: 2.36g' and '1.8tcw' separately. They do not state whether the gram figure is metal-only or total-item weight, nor assign it to a specific metal/size; weight_g remains null and no stone mass is deducted.",
+      "price_basis": "listed",
+      "price_recheck": "2026-10-23 (pass P17, session arena/36ebce13-gold3) — official product source re-opened; stored price $1,968 confirmed; no numeric price change."
     },
     {
       "id": "aurate-2ct-oval-lgd-solitaire",
       "retailer": "aurate",
       "brand": "Aurate New York",
       "name": "2ct Oval Lab Grown Diamond Solitaire Ring",
-      "url": "https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring",
+      "url": "https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring?variant=46776937513132",
       "categories": [
         "14k",
         "lab-grown"
       ],
       "purity": "14K",
-      "purity_source": "https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring",
+      "purity_source": "https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring?variant=46776937513132",
       "metal_detail": "14k gold, 18k gold or platinum band (1.8mm copy width / 2.75mm specs width)",
       "solid_gold": true,
       "solid_gold_status": "stated at brand level",
-      "solid_gold_evidence": "Aurate offers three rates of gold \u2013 Vermeil, 14-karat solid gold and 18-karat solid gold.",
+      "solid_gold_evidence": "Aurate offers three rates of gold – Vermeil, 14-karat solid gold and 18-karat solid gold.",
       "solid_gold_source": "https://auratenewyork.gorgias.help/en-US/articles/our-jewelry-38634",
       "price": 2858,
       "currency": "USD",
       "price_type": "from",
-      "price_variant_note": "Starting price shown for the 14k option at the smallest size.",
+      "price_variant_note": "Current official variant page lists $2,858 for 14k yellow gold, size 2.5, made to order. Other metal options are not included in this stored price.",
       "price_captured_on": "2026-10-23",
-      "price_source": "https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring",
-      "price_quote": "2ct Oval Lab Grown Diamond Solitaire Ring $2,858 | Rate - 14k GOLD | In Stock \u2022 Ready to Ship | Exchange for size only. Final Sale! | Weight: 5.7-8.7g | SKU: AU5763",
+      "price_source": "https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring?variant=46776937513132",
+      "price_quote": "2ct Oval Lab Grown Diamond Solitaire Ring $2,858 | Rate - 14k GOLD | Color - Yellow | Size - 2.5 | Made to Order | Weight: 5.7-8.7g | SKU: AU5763",
       "weight_g": null,
-      "weight_status": "published as a range",
-      "weight_source": null,
+      "weight_status": "published as a range 5.7-8.7g; exact variant mapping and weight scope unverified",
+      "weight_source": "https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring?variant=46776937513132",
       "diamond_type": "lab-grown",
-      "diamond_source": "https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring",
+      "diamond_source": "https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring?variant=46776937513132",
       "carat": 2.0,
       "carat_note": "2ct stated in the product name",
-      "carat_source": "https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring",
+      "carat_source": "https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring?variant=46776937513132",
       "setting_included": true,
       "hallmark_stated": null,
       "flags": [
@@ -327,66 +302,63 @@
           "note": "Purity statement is at brand level, not on the listing."
         },
         {
-          "code": "WEIGHT_NOT_PUBLISHED",
-          "note": "Live product page prints \"Weight: 5.7-8.7g\" across 14k gold, 18k gold, and platinum variants \u2014 no single ring weight is published, so weight_g stays null."
-        },
-        {
           "code": "HALLMARK_NOT_STATED",
           "note": "No hallmark / maker's-mark statement on the listing."
         },
         {
-          "code": "FINAL_SALE_PDP_OVERRIDE",
-          "note": "Live PDP states 'Final Sale! / Exchange for size only.' alongside a 'Free Returns' badge, plus a 30% MTO cancellation fee after 24 hours (https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale)."
-        },
-        {
           "code": "WEIGHT_RANGE_ONLY",
-          "note": "Published weight \"Weight: 5.7-8.7g\" spans a 3.0 g range across three metals of different densities and cannot be used for a single melt ratio."
+          "note": "The published 5.7-8.7g range cannot supply one per-variant gold weight. No midpoint, endpoint selection or stone-weight deduction is made."
         },
         {
           "code": "EXCHANGE_ONLY_FINAL_SALE",
-          "note": "The live listing carries the notices \"Exchange for size only. Final Sale!\" and \"Exchange only! Return & cancellation policy.\", linking to https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale (30% cancellation fee after 24 hours on made-to-order items; exchange for size only; no refunds) \u2014 while displaying a \"Free Returns\" service badge on the same page."
+          "note": "The listing states 'Exchange for size only. Final Sale!' beside a generic 'Free Returns' badge. The linked policy says exchange-for-size items are not eligible for return and made-to-order cancellations after 24 hours incur a 30% fee. The listing-specific restriction controls; obtain written terms before paying."
         },
         {
           "code": "PAGE_SELF_CONTRADICTION",
           "note": "Same 3-way diamond clarity contradiction as AU5760 (\"VVS clarity\" in body copy, \"VS/EF\" in Specs, and \"SI Clarity Only\" badge) plus \"1.8mm width\" in prose vs \"Width: 2.75mm\" in Specs."
+        },
+        {
+          "code": "WEIGHT_SCOPE_UNVERIFIED",
+          "note": "Specs publish 'Weight: 5.7-8.7g', but do not define metal-only versus total-item scope or assign a single figure to the selected variant. weight_g stays null."
         }
       ],
       "notes": "",
-      "weight_note": "Live PDP prints 'Weight: 5.7-8.7g' (includes 2tcw stone and repeats across 14k/18k/Platinum variants) and 'Exchange for size only. Final Sale!' alongside 'Free Returns'.",
-      "price_basis": "listed"
+      "weight_note": "Specs publish 'Weight: 5.7-8.7g' and '2tcw' separately. The page does not define whether the gram range is metal-only or total-item weight and does not assign one value to the selected variant; weight_g remains null and no stone mass is deducted.",
+      "price_basis": "listed",
+      "price_recheck": "2026-10-23 (pass P17, session arena/36ebce13-gold3) — official product source re-opened; stored price $2,858 confirmed; no numeric price change."
     },
     {
       "id": "aurate-3ct-oval-lgd-solitaire",
       "retailer": "aurate",
       "brand": "Aurate New York",
       "name": "3ct Oval Lab Grown Diamond Solitaire Ring",
-      "url": "https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring",
+      "url": "https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring?variant=44854218981548",
       "categories": [
         "14k",
         "lab-grown"
       ],
       "purity": "14K",
-      "purity_source": "https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring",
+      "purity_source": "https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring?variant=44854218981548",
       "metal_detail": "14k gold, 18k gold or platinum band (1.8mm copy width / 2.75mm specs width)",
       "solid_gold": true,
       "solid_gold_status": "stated at brand level",
-      "solid_gold_evidence": "Aurate offers three rates of gold \u2013 Vermeil, 14-karat solid gold and 18-karat solid gold.",
+      "solid_gold_evidence": "Aurate offers three rates of gold – Vermeil, 14-karat solid gold and 18-karat solid gold.",
       "solid_gold_source": "https://auratenewyork.gorgias.help/en-US/articles/our-jewelry-38634",
       "price": 3958,
       "currency": "USD",
       "price_type": "from",
-      "price_variant_note": "Starting price shown for the 14k option at the smallest size.",
+      "price_variant_note": "Current official variant page lists $3,958 for 14k yellow gold, size 3, made to order. Other metal options are not included in this stored price.",
       "price_captured_on": "2026-10-23",
-      "price_source": "https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring",
-      "price_quote": "3ct Oval Lab Grown Diamond Solitaire Ring $3,958 | Rate - 14k GOLD | In Stock \u2022 Ready to Ship | Exchange for size only. Final Sale! | Weight: 5.9-8.9g | SKU: AU5764",
+      "price_source": "https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring?variant=44854218981548",
+      "price_quote": "3ct Oval Lab Grown Diamond Solitaire Ring $3,958 | Rate - 14k GOLD | Color - Yellow | Size - 3 | Made to Order | Weight: 5.9-8.9g | SKU: AU5764",
       "weight_g": null,
-      "weight_status": "published as a range",
-      "weight_source": null,
+      "weight_status": "published as a range 5.9-8.9g; exact variant mapping and weight scope unverified",
+      "weight_source": "https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring?variant=44854218981548",
       "diamond_type": "lab-grown",
-      "diamond_source": "https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring",
+      "diamond_source": "https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring?variant=44854218981548",
       "carat": 3.0,
       "carat_note": "3ct stated in the product name",
-      "carat_source": "https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring",
+      "carat_source": "https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring?variant=44854218981548",
       "setting_included": true,
       "hallmark_stated": null,
       "flags": [
@@ -395,33 +367,30 @@
           "note": "Purity statement is at brand level, not on the listing."
         },
         {
-          "code": "WEIGHT_NOT_PUBLISHED",
-          "note": "Live product page prints \"Weight: 5.9-8.9g\" across 14k gold, 18k gold, and platinum variants \u2014 no single ring weight is published, so weight_g stays null."
-        },
-        {
           "code": "HALLMARK_NOT_STATED",
           "note": "No hallmark / maker's-mark statement on the listing."
         },
         {
-          "code": "FINAL_SALE_PDP_OVERRIDE",
-          "note": "Live PDP states 'Final Sale! / Exchange for size only.' alongside a 'Free Returns' badge, plus a 30% MTO cancellation fee after 24 hours (https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale)."
-        },
-        {
           "code": "WEIGHT_RANGE_ONLY",
-          "note": "Published weight \"Weight: 5.9-8.9g\" spans a 3.0 g range across three metals of different densities and cannot be used for a single melt ratio."
+          "note": "The published 5.9-8.9g range cannot supply one per-variant gold weight. No midpoint, endpoint selection or stone-weight deduction is made."
         },
         {
           "code": "EXCHANGE_ONLY_FINAL_SALE",
-          "note": "The live listing carries the notices \"Exchange for size only. Final Sale!\" and \"Exchange only! Return & cancellation policy.\", linking to https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale (30% cancellation fee after 24 hours on made-to-order items; exchange for size only; no refunds) \u2014 while displaying a \"Free Returns\" service badge on the same page."
+          "note": "The listing states 'Exchange for size only. Final Sale!' beside a generic 'Free Returns' badge. The linked policy says exchange-for-size items are not eligible for return and made-to-order cancellations after 24 hours incur a 30% fee. The listing-specific restriction controls; obtain written terms before paying."
         },
         {
           "code": "PAGE_SELF_CONTRADICTION",
           "note": "Same 3-way diamond clarity contradiction as AU5760 (\"VVS clarity\" in body copy, \"VS/EF\" in Specs, and \"SI Clarity Only\" badge) plus \"1.8mm width\" in prose vs \"Width: 2.75mm\" in Specs."
+        },
+        {
+          "code": "WEIGHT_SCOPE_UNVERIFIED",
+          "note": "Specs publish 'Weight: 5.9-8.9g', but do not define metal-only versus total-item scope or assign a single figure to the selected variant. weight_g stays null."
         }
       ],
       "notes": "",
-      "weight_note": "Live PDP prints 'Weight: 5.9-8.9g' (includes 3tcw stone and repeats across 14k/18k/Platinum variants) and 'Exchange for size only. Final Sale!' alongside 'Free Returns'.",
-      "price_basis": "listed"
+      "weight_note": "Specs publish 'Weight: 5.9-8.9g' and '3tcw' separately. The page does not define whether the gram range is metal-only or total-item weight and does not assign one value to the selected variant; weight_g remains null and no stone mass is deducted.",
+      "price_basis": "listed",
+      "price_recheck": "2026-10-23 (pass P17, session arena/36ebce13-gold3) — official product source re-opened; stored price $3,958 confirmed; no numeric price change."
     },
     {
       "id": "aurate-3ct-pear-lgd-bezel",
@@ -435,25 +404,25 @@
       ],
       "purity": "14K",
       "purity_source": "https://auratenewyork.com/products/3ct-pear-lab-grown-diamond-bezel-ring",
-      "metal_detail": "14k gold, 18k gold or platinum bezel setting (Thickness: 1.75mm)",
+      "metal_detail": "14k gold, 18k gold or platinum bezel setting (Width: 15.92mm; Thickness: 6.10mm)",
       "solid_gold": true,
       "solid_gold_status": "stated at brand level",
-      "solid_gold_evidence": "Aurate offers three rates of gold \u2013 Vermeil, 14-karat solid gold and 18-karat solid gold.",
+      "solid_gold_evidence": "Aurate offers three rates of gold – Vermeil, 14-karat solid gold and 18-karat solid gold.",
       "solid_gold_source": "https://auratenewyork.gorgias.help/en-US/articles/our-jewelry-38634",
       "price": 2498,
       "currency": "USD",
       "price_type": "from",
-      "price_variant_note": "Starting price shown for the 14k option at the smallest size.",
+      "price_variant_note": "Current official product and structured endpoints support the stored minimum 14k price; higher-priced metal options are not included.",
       "price_captured_on": "2026-10-23",
       "price_source": "https://auratenewyork.com/products/3ct-pear-lab-grown-diamond-bezel-ring",
       "price_quote": "3ct Pear Lab Grown Diamond Bezel Ring $2,498 | Rate - 14k GOLD | Made to Order | Exchange for size only. Final Sale! | Weight: 3.33g | 3.6tcw | SKU: AU5107",
       "weight_g": null,
-      "weight_status": "not published",
-      "weight_source": null,
+      "weight_status": "published as unscoped weight",
+      "weight_source": "https://auratenewyork.com/products/3ct-pear-lab-grown-diamond-bezel-ring",
       "diamond_type": "lab-grown",
       "diamond_source": "https://auratenewyork.com/products/3ct-pear-lab-grown-diamond-bezel-ring",
-      "carat": 3.0,
-      "carat_note": "CARAT MISMATCH: Product title advertises '3ct Pear Lab Grown Diamond Bezel Ring', whereas Specs print '3.6tcw' (0.72 g stone weight included inside 'Weight: 3.33g', shared across 14k, 18k and platinum).",
+      "carat": null,
+      "carat_note": "UNVERIFIED SINGLE CARAT VALUE: title says '3ct' while Specs print '3.6tcw'. Both statements are preserved; no single numeric carat value is selected.",
       "carat_source": "https://auratenewyork.com/products/3ct-pear-lab-grown-diamond-bezel-ring",
       "setting_included": true,
       "hallmark_stated": null,
@@ -463,29 +432,26 @@
           "note": "Purity statement is at brand level, not on the listing."
         },
         {
-          "code": "WEIGHT_NOT_PUBLISHED",
-          "note": "Live product page prints one static \"Weight: 3.33g\" figure across 14k gold, 18k gold, and platinum without deducting the center diamond, so net gold weight is unknowable and weight_g stays null."
-        },
-        {
           "code": "HALLMARK_NOT_STATED",
           "note": "No hallmark / maker's-mark statement on the listing."
         },
         {
-          "code": "FINAL_SALE_PDP_OVERRIDE",
-          "note": "Live PDP states 'Final Sale! / Exchange for size only.' alongside a 'Free Returns' badge, plus a 30% MTO cancellation fee after 24 hours (https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale)."
-        },
-        {
           "code": "EXCHANGE_ONLY_FINAL_SALE",
-          "note": "The live listing carries the notices \"Exchange for size only. Final Sale!\" and \"Exchange only! Return & cancellation policy.\", linking to https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale (30% cancellation fee after 24 hours on made-to-order items; exchange for size only; no refunds) \u2014 while displaying a \"Free Returns\" service badge on the same page."
+          "note": "The listing states 'Exchange for size only. Final Sale!' beside a generic 'Free Returns' badge. The linked policy says exchange-for-size items are not eligible for return and made-to-order cancellations after 24 hours incur a 30% fee. The listing-specific restriction controls; obtain written terms before paying."
         },
         {
           "code": "PAGE_SELF_CONTRADICTION",
-          "note": "CARAT MISMATCH: Product title advertises '3ct Pear Lab Grown Diamond Bezel Ring', whereas Specs print '3.6tcw' (0.72 g stone weight included inside 'Weight: 3.33g', shared across 14k, 18k and platinum). Page also prints \"VVS clarity\" in copy vs \"VS/EF\" in Specs vs \"SI Clarity Only\" badge."
+          "note": "Title says '3ct' while Specs print '3.6tcw'; no single carat value is selected. Current Specs say Width: 15.92mm; Thickness: 6.10mm, '1 Pear VS1/VS2 Lab Grown Diamond', and 'Weight: 3.33g'. The older VVS-copy claim is not present in the current bezel description and has been removed; the generic 'SI Clarity Only' badge remains visible."
+        },
+        {
+          "code": "WEIGHT_SCOPE_UNVERIFIED",
+          "note": "Specs publish 'Weight: 3.33g' without defining metal-only versus total-item scope or the exact metal/size weighed. weight_g stays null; stone inclusion is not assumed."
         }
       ],
       "notes": "",
-      "weight_note": "Live PDP prints 'Weight: 3.33g' alongside '3.6tcw' across 14k/18k/Platinum variants without separating stone vs gold weight; kept null.",
-      "price_basis": "listed"
+      "weight_note": "Specs publish 'Weight: 3.33g' and '3.6tcw' separately. They do not state whether the gram figure is metal-only or total-item weight, nor assign it to a specific metal/size; weight_g remains null and no stone mass is deducted.",
+      "price_basis": "listed",
+      "price_recheck": "2026-10-23 (pass P17, session arena/36ebce13-gold3) — official product source re-opened; stored price $2,498 confirmed; no numeric price change."
     },
     {
       "id": "bluenile-petite-solitaire-14k-yg",
@@ -540,7 +506,7 @@
         }
       ],
       "notes": "Can be set with 0.20-8.00 ct stones in 13 shapes.",
-      "price_recheck": "2026-10-23 (pass P6, session arena/a05b3c00-gold3) \u2014 product page re-opened live; price unchanged at $1,000."
+      "price_recheck": "2026-10-23 (pass P17, session arena/36ebce13-gold3) — official product source re-opened; stored price $1,000 confirmed; no numeric price change."
     },
     {
       "id": "bluenile-petite-hidden-halo-14k-yg",
@@ -554,7 +520,7 @@
       ],
       "purity": "14K",
       "purity_source": "https://www.bluenile.com/engagement-rings/design-your-own-ring/petite-hidden-halo-solitaire-plus-diamond-engagement-ring-in-14k-yellow-gold-item-192506",
-      "metal_detail": "14K Yellow Gold; stock number 500850y14; width 1.70mm",
+      "metal_detail": "14K Yellow Gold; stock number 502250y14; width 1.60mm",
       "solid_gold": null,
       "solid_gold_status": "not stated",
       "solid_gold_evidence": null,
@@ -564,7 +530,7 @@
       "price_type": "setting-only",
       "price_variant_note": "Setting price only - centre diamond excluded.",
       "price_captured_on": "2026-10-23",
-      "price_source": "https://www.bluenile.com/engagement-rings",
+      "price_source": "https://www.bluenile.com/engagement-rings/design-your-own-ring/petite-hidden-halo-solitaire-plus-diamond-engagement-ring-in-14k-yellow-gold-item-192506",
       "price_quote": "Petite Hidden Halo Solitaire Plus Diamond Engagement Ring in 14k Yellow Gold $1,255(Setting Price)",
       "weight_g": null,
       "weight_status": "not published",
@@ -595,13 +561,13 @@
         }
       ],
       "notes": "",
-      "price_recheck": "2026-10-23 (pass P6, session arena/a05b3c00-gold3) \u2014 opened product page directly and confirmed $1,255(Setting Price)."
+      "price_recheck": "2026-10-23 (pass P17, session arena/36ebce13-gold3) — official product source re-opened; stored price $1,255 confirmed; no numeric price change."
     },
     {
       "id": "bluenile-riviera-pave-14k-wg",
       "retailer": "blue-nile",
       "brand": "Blue Nile",
-      "name": "Riviera Pav\u00e9 Diamond Engagement Ring in 14k White Gold (1/6 ct. tw.)",
+      "name": "Riviera Pavé Diamond Engagement Ring in 14k White Gold (1/6 ct. tw.)",
       "url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/riviera-pave-diamond-engagement-ring-in-14k-white-gold-1-6-ct-tw-item-195326",
       "categories": [
         "14k",
@@ -609,7 +575,7 @@
       ],
       "purity": "14K",
       "purity_source": "https://www.bluenile.com/engagement-rings/design-your-own-ring/riviera-pave-diamond-engagement-ring-in-14k-white-gold-1-6-ct-tw-item-195326",
-      "metal_detail": "14K White Gold; stock number 501050w14; width 1.60mm; rhodium finish Yes",
+      "metal_detail": "14K White Gold; stock number 501590w14; width 2.00mm; rhodium finish Yes",
       "solid_gold": null,
       "solid_gold_status": "not stated",
       "solid_gold_evidence": null,
@@ -619,8 +585,8 @@
       "price_type": "setting-only",
       "price_variant_note": "Setting price only - centre diamond excluded. 1/6 ct. total weight refers to the pave side stones.",
       "price_captured_on": "2026-10-23",
-      "price_source": "https://www.bluenile.com/engagement-rings",
-      "price_quote": "Riviera Pav\u00e9 Diamond Engagement Ring in 14k White Gold (1/6 ct. tw.) $1,500(Setting Price)",
+      "price_source": "https://www.bluenile.com/engagement-rings/design-your-own-ring/riviera-pave-diamond-engagement-ring-in-14k-white-gold-1-6-ct-tw-item-195326",
+      "price_quote": "Riviera Pavé Diamond Engagement Ring in 14k White Gold (1/6 ct. tw.) $1,500(Setting Price)",
       "weight_g": null,
       "weight_status": "not published",
       "weight_source": null,
@@ -650,7 +616,7 @@
         }
       ],
       "notes": "",
-      "price_recheck": "2026-10-23 (pass P6, session arena/a05b3c00-gold3) \u2014 opened product page directly and confirmed $1,500(Setting Price)."
+      "price_recheck": "2026-10-23 (pass P17, session arena/36ebce13-gold3) — official product source re-opened; stored price $1,500 confirmed; no numeric price change."
     },
     {
       "id": "bluenile-floral-marquise-18k-wg",
@@ -709,7 +675,7 @@
         }
       ],
       "notes": "The clearest example in this dataset of why a karat claim on a page cannot be taken as proof.",
-      "price_recheck": "2026-10-23 (pass P6, session arena/a05b3c00-gold3) \u2014 product page re-opened live; price unchanged at $2,210."
+      "price_recheck": "2026-10-23 (pass P17, session arena/36ebce13-gold3) — official product source re-opened; stored price $2,210 confirmed; no numeric price change."
     },
     {
       "id": "bluenile-criss-cross-18k-yg",
@@ -733,7 +699,7 @@
       "price_type": "setting-only",
       "price_variant_note": "Setting price only - centre diamond excluded.",
       "price_captured_on": "2026-10-23",
-      "price_source": "https://www.bluenile.com/engagement-rings",
+      "price_source": "https://www.bluenile.com/engagement-rings/design-your-own-ring/criss-cross-solitaire-engagement-ring-in-18k-yellow-gold-by-james-allen-item-311132",
       "price_quote": "Criss Cross Solitaire Engagement Ring In 18K Yellow Gold By James Allen $2,320(Setting Price)",
       "weight_g": null,
       "weight_status": "not published",
@@ -764,7 +730,7 @@
         }
       ],
       "notes": "Sold on Blue Nile's site as part of the James Allen collection.",
-      "price_recheck": "2026-10-23 (pass P6, session arena/a05b3c00-gold3) \u2014 opened product page directly and confirmed $2,320(Setting Price)."
+      "price_recheck": "2026-10-23 (pass P17, session arena/36ebce13-gold3) — official product source re-opened; stored price $2,320 confirmed; no numeric price change."
     },
     {
       "id": "mejuri-diamonds-band",
@@ -816,7 +782,7 @@
         }
       ],
       "notes": "Free 30-day returns and exchanges from delivery; 2-year warranty.",
-      "price_recheck": "2026-10-23 (pass P6, session arena/a05b3c00-gold3) \u2014 product page re-opened live; price unchanged at $648."
+      "price_recheck": "2026-10-23 (pass P17, session arena/36ebce13-gold3) — official product source re-opened; stored price $648 confirmed; no numeric price change."
     },
     {
       "id": "mejuri-stacker-ring-10k",
@@ -830,10 +796,10 @@
       ],
       "purity": "10K",
       "purity_source": "https://mejuri.com/products/stacker-ring?Material=Solid+Yellow+Gold+%2810k%29",
-      "metal_detail": "Solid Yellow Gold (10k); band width 1.3mm; thickness 1.35mm",
+      "metal_detail": "Solid Yellow Gold (10k); Width: 1 mm",
       "solid_gold": true,
       "solid_gold_status": "stated on listing",
-      "solid_gold_evidence": "Handcrafted in 10k solid gold ... Solid Yellow Gold (10k)",
+      "solid_gold_evidence": "Our 10k solid gold ... Solid Yellow Gold (10k)",
       "solid_gold_source": "https://mejuri.com/products/stacker-ring?Material=Solid+Yellow+Gold+%2810k%29",
       "price": 138.0,
       "currency": "USD",
@@ -858,22 +824,22 @@
           "note": "No ring weight in grams on the listing."
         },
         {
-          "code": "HALLMARK_NOT_STATED",
-          "note": "No hallmark / maker's-mark statement on the listing."
-        },
-        {
           "code": "NOT_ENGAGEMENT_RING",
           "note": "A stacking ring, not an engagement ring - included as the lowest-cost solid-gold entry point for comparison."
+        },
+        {
+          "code": "HALLMARK_ALT_TEXT_ONLY",
+          "note": "Official image alt text mentions a '10K purity stamp'. This is seller-supplied alt text, not visual inspection of the ring and not evidence of a maker's mark. No maker's mark is stated; obtain close-up photos and inspect both marks independently."
         }
       ],
       "notes": "Lowest-priced solid-gold ring in this dataset.",
-      "price_recheck": "2026-10-23 (pass P6, session arena/a05b3c00-gold3) \u2014 opened product page directly and confirmed $138 and 'Handcrafted in 10k solid gold'."
+      "price_recheck": "2026-10-23 (pass P17, session arena/36ebce13-gold3) — official product source re-opened; stored price $138 confirmed; no numeric price change."
     },
     {
       "id": "ringconcierge-2-08-oval-lab-whisper-thin",
       "retailer": "ring-concierge",
       "brand": "Ring Concierge",
-      "name": "2.08 Oval Lab Diamond in Whisper Thin\u00ae Hidden Halo",
+      "name": "2.08 Oval Lab Diamond in Whisper Thin® Hidden Halo",
       "url": "https://ringconcierge.com/products/2-08-oval-lab-diamond-in-whisper-thina-hidden-halo",
       "categories": [
         "14k",
@@ -889,17 +855,17 @@
       "price": 6038.0,
       "currency": "USD",
       "price_type": "listed",
-      "price_variant_note": "Listed price for the single \"Default Title\" configuration. Corrected by the P3 re-read on 2026-10-22 and re-confirmed 2026-10-23: this is NOT a ready-to-ship item \u2014 every size option on the live page reads \"Made to Order\", the page states \"Estimated production time is 3-4 weeks\", and it offers a waitlist (\"Join the Waitlist\").",
+      "price_variant_note": "Listed price for the single \"Default Title\" configuration. Corrected by the P3 re-read on 2026-10-22 and re-confirmed 2026-10-23: this is NOT a ready-to-ship item — every size option on the live page reads \"Made to Order\", the page states \"Estimated production time is 3-4 weeks\", and it offers a waitlist (\"Join the Waitlist\").",
       "price_captured_on": "2026-10-23",
       "price_source": "https://ringconcierge.com/products/2-08-oval-lab-diamond-in-whisper-thina-hidden-halo",
-      "price_quote": "2.08 Oval Lab Diamond in Whisper Thin\u00ae Hidden Halo | Regular price $6,038 | 2.08 Carat E VS1 Oval Lab Grown Diamond | Metal: 14K Yellow Gold | Estimated production time is 3-4 weeks. Made to Order",
+      "price_quote": "2.08 Oval Lab Diamond in Whisper Thin® Hidden Halo | Regular price $6,038 | 2.08 Carat E VS1 Oval Lab Grown Diamond | Metal: 14K Yellow Gold with Platinum Prongs | Estimated production time is 3-4 weeks. Made to Order",
       "weight_g": null,
       "weight_status": "not published",
       "weight_source": null,
       "diamond_type": "lab-grown",
       "diamond_source": "https://ringconcierge.com/products/2-08-oval-lab-diamond-in-whisper-thina-hidden-halo",
       "carat": 2.08,
-      "carat_note": "2.08 Carat E VS1 Oval Lab Grown Diamond in title & Details accordion \u2014 CONTRADICTED by description copy claiming '5.63 Carat D VVS2 Oval Lab Diamond'",
+      "carat_note": "2.08 Carat E VS1 Oval Lab Grown Diamond in title & Details accordion — CONTRADICTED by description copy claiming '5.63 Carat D VVS2 Oval Lab Diamond'",
       "carat_source": "https://ringconcierge.com/products/2-08-oval-lab-diamond-in-whisper-thina-hidden-halo",
       "setting_included": true,
       "hallmark_stated": null,
@@ -918,11 +884,11 @@
         },
         {
           "code": "MIXED_METAL",
-          "note": "Details accordion states 'Metal: 14K Yellow Gold with Platinum Prongs' - two different metals in one ring, so a single purity claim does not describe the whole piece."
+          "note": "Product Details explicitly states 'Metal: 14K Yellow Gold with Platinum Prongs'. Two metals are present, so a single karat does not describe the whole piece."
         },
         {
           "code": "MADE_TO_ORDER",
-          "note": "Estimated production time 3-4 weeks and every size marked \"Made to Order\" on the live page (re-read 2026-10-23); the page also offers a waitlist."
+          "note": "Every size is marked Made to Order with an estimated 3-4 week production time; the page also offers a waitlist. The engagement-ring FAQ separately states a 7-day return window for eligible ready-made rings and final sale after customization or resizing."
         },
         {
           "code": "WEIGHT_NOT_PUBLISHED",
@@ -931,22 +897,10 @@
         {
           "code": "HALLMARK_NOT_STATED",
           "note": "No hallmark / maker's-mark statement."
-        },
-        {
-          "code": "PURITY_NOT_IN_BODY_TEXT",
-          "note": "The karat is not stated in the page body; 'Yellow Gold ... with Platinum Prongs' appears only in the product image descriptions, and the collection filter lists '14k Yellow Gold'. Confirm the karat in writing."
-        },
-        {
-          "code": "MIXED_METAL",
-          "note": "Band in yellow gold with platinum prongs - two different metals in one ring, so a single purity claim does not describe the whole piece."
-        },
-        {
-          "code": "MADE_TO_ORDER",
-          "note": "Estimated production time 3-4 weeks and every size marked \"Made to Order\" on the live page (P3 re-read 2026-10-22); the 30-day return window runs from delivery, so the clock starts after a 3-4 week wait. The page also offers a waitlist, so availability is not guaranteed."
         }
       ],
       "notes": "Re-read live 2026-10-23 (session arena/15b00e99-gold3): caught major stone spec conflict (2.08 ct E VS1 vs 5.63 ct D VVS2), confirmed 'Metal: 14K Yellow Gold with Platinum Prongs', info@ringconcierge.com, and 7-day bridal return window.",
-      "price_recheck": "2026-10-23 (session arena/15b00e99-gold3) \u2014 figure unchanged at $6,038; caught 2.08 ct E VS1 vs 5.63 ct D VVS2 copy contradiction and 7-day bridal return window.",
+      "price_recheck": "2026-10-23 (pass P17, session arena/36ebce13-gold3) — official product source re-opened; stored price $6,038 confirmed; no numeric price change.",
       "availability_quote": "Every size option read \"Made to Order\"; \"Estimated production time is 3-4 weeks\"; \"Receive a notification when this item is back in stock!\"; \"Join the Waitlist\"; page banners \"FREE RETURNS + COMPLIMENTARY WARRANTY\" and \"COMPLIMENTARY LIFETIME WARRANTY\".",
       "availability_source": "https://ringconcierge.com/products/2-08-oval-lab-diamond-in-whisper-thina-hidden-halo",
       "price_basis": "listed"
@@ -955,7 +909,7 @@
       "id": "ringconcierge-2-72-round-lab-whisper-thin",
       "retailer": "ring-concierge",
       "brand": "Ring Concierge",
-      "name": "2.72 Round Lab Diamond in Whisper Thin\u00ae",
+      "name": "2.72 Round Lab Diamond in Whisper Thin®",
       "url": "https://ringconcierge.com/products/2-72-round-lab-diamond-in-whisper-thina",
       "categories": [
         "14k",
@@ -974,7 +928,7 @@
       "price_variant_note": "Listed price re-confirmed directly on the product page on 2026-10-23 ($7,268; all sizes marked Made to Order, 3-4 weeks).",
       "price_captured_on": "2026-10-23",
       "price_source": "https://ringconcierge.com/products/2-72-round-lab-diamond-in-whisper-thina",
-      "price_quote": "2.72 Round Lab Diamond in Whisper Thin\u00ae | Regular price $7,268 | 2.72 Carat E VVS2 Round Lab Grown Diamond | Metal: 14K Yellow Gold with Platinum Prongs | Estimated production time is 3-4 weeks. Made to Order",
+      "price_quote": "2.72 Round Lab Diamond in Whisper Thin® | Regular price $7,268 | 2.72 Carat E VVS2 Round Lab Grown Diamond | Metal: 14K Yellow Gold with Platinum Prongs | Estimated production time is 3-4 weeks. Made to Order",
       "weight_g": null,
       "weight_status": "not published",
       "weight_source": null,
@@ -996,11 +950,11 @@
         },
         {
           "code": "MIXED_METAL",
-          "note": "Details accordion states 'Metal: 14K Yellow Gold with Platinum Prongs'."
+          "note": "Product Details explicitly states 'Metal: 14K Yellow Gold with Platinum Prongs'. Two metals are present, so a single karat does not describe the whole piece."
         },
         {
           "code": "MADE_TO_ORDER",
-          "note": "Every size option marked 'Made to Order' (3-4 weeks production) despite appearing in the ready-to-ship collection."
+          "note": "Every size is marked Made to Order with an estimated 3-4 week production time; the page also offers a waitlist. The engagement-ring FAQ separately states a 7-day return window for eligible ready-made rings and final sale after customization or resizing."
         },
         {
           "code": "WEIGHT_NOT_PUBLISHED",
@@ -1009,22 +963,11 @@
         {
           "code": "HALLMARK_NOT_STATED",
           "note": "No hallmark / maker's-mark statement."
-        },
-        {
-          "code": "MADE_TO_ORDER",
-          "note": "Every size option reads \"Made to Order\" (\"Estimated production time is 3-4 weeks\") with a \"Join the Waitlist\" prompt on the live product page (re-read 2026-10-23)."
-        },
-        {
-          "code": "PURITY_NOT_IN_BODY_TEXT",
-          "note": "Karat inferred from the collection's '14k Yellow Gold' metal filter and image descriptions, not stated in body text."
-        },
-        {
-          "code": "MIXED_METAL",
-          "note": "Yellow gold band with platinum prongs."
         }
       ],
       "notes": "Product page opened directly on 2026-10-23 (session arena/15b00e99-gold3): $7,268, 'Metal: 14K Yellow Gold with Platinum Prongs', 2.72 ct E VS1, and 7-day bridal return window confirmed.",
-      "price_basis": "listed"
+      "price_basis": "listed",
+      "price_recheck": "2026-10-23 (pass P17, session arena/36ebce13-gold3) — official product source re-opened; stored price $7,268 confirmed; no numeric price change."
     },
     {
       "id": "catbird-classic-half-round-2mm",
@@ -1078,14 +1021,14 @@
           "note": "An $9 return-shipping charge is deducted from the refund."
         }
       ],
-      "notes": "Plain solid-gold wedding band - the lowest markup route to a solid gold ring in this dataset.",
-      "price_recheck": "2026-10-23 (pass P6, session arena/a05b3c00-gold3) \u2014 product page re-opened live; price unchanged at $550."
+      "notes": "Plain solid-gold wedding band. The seller publishes a from-price and 14k yellow-gold image text but no usable gram weight; no markup or price-per-gram ranking is claimed.",
+      "price_recheck": "2026-10-23 (pass P17, session arena/36ebce13-gold3) — official product source re-opened; stored price $550 confirmed; no numeric price change."
     },
     {
       "id": "mejuri-dome-figure-vermeil",
       "retailer": "mejuri",
       "brand": "Mejuri",
-      "name": "D\u00f4me Figure Ring (18k Gold Vermeil)",
+      "name": "Dôme Figure Ring (18k Gold Vermeil)",
       "url": "https://mejuri.com/products/dome-figure-ring?Material=18k+Gold+Vermeil",
       "categories": [
         "excluded"
@@ -1095,7 +1038,7 @@
       "metal_detail": "18k Gold Vermeil",
       "solid_gold": false,
       "solid_gold_status": "excluded - not solid gold",
-      "solid_gold_evidence": "D\u00f4me Figure Ring ... $158 ... 18k Gold Vermeil",
+      "solid_gold_evidence": "Dôme Figure Ring ... $158 ... 18k Gold Vermeil",
       "solid_gold_source": "https://mejuri.com/collections/rings",
       "price": 158.0,
       "currency": "USD",
@@ -1103,7 +1046,7 @@
       "price_variant_note": "Listed price for the 18k Gold Vermeil option.",
       "price_captured_on": "2026-10-23",
       "price_source": "https://mejuri.com/collections/rings",
-      "price_quote": "D\u00f4me Figure Ring ... $158 ... 18k Gold Vermeil",
+      "price_quote": "Dôme Figure Ring ... $158 ... 18k Gold Vermeil",
       "weight_g": null,
       "weight_status": "not published",
       "weight_source": null,
@@ -1121,13 +1064,13 @@
         }
       ],
       "notes": "Same design also sold in Sterling Silver at $138 and (elsewhere) in solid gold - a good example of one design name spanning three very different metals.",
-      "price_recheck": "2026-10-23 (pass P6, session arena/a05b3c00-gold3) \u2014 opened product page directly and confirmed $158 ... 18k Gold Vermeil."
+      "price_recheck": "2026-10-23 (pass P17, session arena/36ebce13-gold3) — official product source re-opened; stored price $158 confirmed; no numeric price change."
     },
     {
       "id": "mejuri-dome-figure-sterling",
       "retailer": "mejuri",
       "brand": "Mejuri",
-      "name": "D\u00f4me Figure Ring (Sterling Silver)",
+      "name": "Dôme Figure Ring (Sterling Silver)",
       "url": "https://mejuri.com/products/dome-figure-ring?Material=Sterling+Silver",
       "categories": [
         "excluded"
@@ -1137,7 +1080,7 @@
       "metal_detail": "Sterling Silver",
       "solid_gold": false,
       "solid_gold_status": "excluded - no gold",
-      "solid_gold_evidence": "D\u00f4me Figure Ring ... $138 ... Sterling Silver",
+      "solid_gold_evidence": "Dôme Figure Ring ... $138 ... Sterling Silver",
       "solid_gold_source": "https://mejuri.com/collections/rings",
       "price": 138.0,
       "currency": "USD",
@@ -1145,7 +1088,7 @@
       "price_variant_note": "Listed price for the Sterling Silver option.",
       "price_captured_on": "2026-10-23",
       "price_source": "https://mejuri.com/collections/rings",
-      "price_quote": "D\u00f4me Figure Ring ... $138 ... Sterling Silver",
+      "price_quote": "Dôme Figure Ring ... $138 ... Sterling Silver",
       "weight_g": null,
       "weight_status": "not published",
       "weight_source": null,
@@ -1163,7 +1106,7 @@
         }
       ],
       "notes": "",
-      "price_recheck": "2026-10-23 (pass P6, session arena/a05b3c00-gold3) \u2014 opened product page directly and confirmed $138 ... Sterling Silver."
+      "price_recheck": "2026-10-23 (pass P17, session arena/36ebce13-gold3) — official product source re-opened; stored price $138 confirmed; no numeric price change."
     }
   ]
 }
