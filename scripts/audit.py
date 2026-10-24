@@ -594,7 +594,28 @@ for _s in _spots:
         _raw_numbers.add(_per_g * _frac)
         _raw_numbers.add(_per_g * _frac * 3)
 
-data_prices = {f"{v:,.0f}" for v in _raw_numbers} | {f"{v:,.2f}" for v in _raw_numbers}
+# The exact 24K gram price recorded in data/spot-and-standards.json is a published
+# constant (Kitco bid / 31.1034768) and is the one Dataset C's stored melt values were
+# computed from. Register it, and the melt values the requirements matrix derives from
+# it, so a derived figure is recognised instead of being reported as a stray number.
+try:
+    _bench_std = json.loads((DATA / "spot-and-standards.json").read_text(encoding="utf-8"))
+    _per_g_exact = float(_bench_std["spot_gold_benchmark"]["spot_usd_per_gram_24k_exact"])
+    _raw_numbers.add(_per_g_exact)
+    for _row in rings:
+        _w, _m = _row.get("weight_g"), re.search(r"(\d+)\s*K", _row.get("karat") or "")
+        if isinstance(_w, (int, float)) and _m:
+            _raw_numbers.add(_w * (int(_m.group(1)) / 24.0) * _per_g_exact)
+    _pdoc_exact = json.loads((DATA / "products.json").read_text(encoding="utf-8"))
+    for _row in _pdoc_exact.get("products", []):
+        _w, _m = _row.get("weight_g"), re.search(r"(\d+)\s*K", _row.get("purity") or "")
+        if isinstance(_w, (int, float)) and _m:
+            _raw_numbers.add(_w * (int(_m.group(1)) / 24.0) * _per_g_exact)
+except Exception:  # noqa: BLE001 - the file is optional for this check
+    pass
+
+data_prices = ({f"{v:,.0f}" for v in _raw_numbers} | {f"{v:,.2f}" for v in _raw_numbers}
+               | {f"{v:,.4f}" for v in _raw_numbers})
 if isinstance(spot, (int, float)):
     data_prices.add(f"{spot:,.2f}")
 

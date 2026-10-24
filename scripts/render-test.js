@@ -34,7 +34,7 @@ const pages = [
   "index.html", "rings.html", "combined.html", "14k.html", "18k.html", "lab-grown.html",
   "under-1000.html", "retailers.html", "sellers.html", "standards.html", "calculator.html",
   "flagged.html", "verify.html", "sources.html", "checklist.html", "methodology.html",
-  "analysis.html", "excluded.html",
+  "analysis.html", "excluded.html", "requirements.html",
 ];
 
 // ---------------------------------------------------------------- pages exist
@@ -217,8 +217,17 @@ check("SD19 R03 no longer carries the misapplied SPEC2", !_r03.flags.includes("S
 check("SD21 calculator labels the pre-filled snapshot with its own capture date",
   /Pre-filled with the 23 October 2026 snapshot/.test(html["calculator.html"]) &&
   !/Pre-filled with the 22 October 2026 snapshot/.test(html["calculator.html"]));
+// SD21: the flagged page must print the date from reports/audit-report.md, whatever it is.
+// A literal date here fails the moment the audit runs on a new day, which is a guard bug,
+// not a site bug — so the expected string is derived from the report itself.
+const _auditRun = (read("reports/audit-report.md").match(/- Run: (\d{4})-(\d{2})-(\d{2})/) || []);
+const _months = ["January", "February", "March", "April", "May", "June", "July",
+  "August", "September", "October", "November", "December"];
+const _auditDate = _auditRun.length
+  ? `${Number(_auditRun[3])} ${_months[Number(_auditRun[2]) - 1]} ${_auditRun[1]}`
+  : "";
 check("SD21 flagged.html audit date comes from the audit report, not a typed literal",
-  /Last automated pass: 23 October 2026/.test(html["flagged.html"]));
+  _auditDate !== "" && new RegExp(`Last automated pass: ${_auditDate}`).test(html["flagged.html"]));
 
 // P15: additive Dataset-C weight, source-attribution and calculator-provenance guards.
 const _p15C = [
@@ -258,7 +267,7 @@ check("SD24 F2 uses full counts and distinguishes entered weights from published
   includesText(html["flagged.html"], "Published ranges and unscoped figures") &&
   !includesText(html["flagged.html"], "Only 14 of 50 listings publish a weight"));
 check("SD24 README pass range and ledger count are current",
-  read("README.md").includes("P1`–`P17") && read("README.md").includes("253 logged checks"));
+  read("README.md").includes("P1`–`P19") && read("README.md").includes("265 logged checks"));
 
 // P17: source-drift, duplicate-flag and unsupported-inference regression guards.
 const _p17 = JSON.parse(read("data/reverification-p17.json"));
@@ -309,6 +318,32 @@ check("P17 refreshes only the live spot reference and preserves the calculation 
   _p17Primary.price_usd_per_troy_oz === 4022.22 && _p17Live.price_usd_per_troy_oz === 3995.88 &&
   html["calculator.html"].includes("3,995.88") && html["calculator.html"].includes("finding F55") &&
   !html["calculator.html"].includes("findings F39 and F43"));
+
+
+// P17: the requirements matrix must stay derived, not typed in.
+const _reqRows = JSON.parse(read("data/requirements-matrix.json"));
+const _p19verif = JSON.parse(read("data/verification.json"));
+check("P19 requirements matrix covers every listing",
+  _reqRows.summary.n_rows === 71 && _reqRows.rows.length === 71);
+check("P19 requirements matrix has ten requirements per row",
+  _reqRows.summary.requirements.length === 10 &&
+  _reqRows.rows.every(r => Object.keys(r.cells).filter(k => k !== "value").length === 10));
+check("P19 requirements page renders every row and the headline honestly",
+  includesText(html["requirements.html"], ">R01<") &&
+  includesText(html["requirements.html"], ">BND-12<") &&
+  includesText(html["requirements.html"], "pass all ten"));
+check("P19 every blank cell renders as an explicit unverified badge",
+  (html["requirements.html"].match(/unverified/g) || []).length >= 400 &&
+  !html["requirements.html"].includes(">n/a<") &&
+  !html["requirements.html"].includes(">N/A<"));
+check("P19 verification ledger includes the P19 checks",
+  _p19verif.checks.some(c => c.id.startsWith("P19-")) &&
+  includesText(html["verify.html"], "P19"));
+check("P19 findings F56-F58 are published for manual review",
+  includesText(html["flagged.html"], "F56") && includesText(html["flagged.html"], "F58"));
+check("P19 index links to the requirements matrix",
+  html["index.html"].includes('href="requirements.html"') &&
+  html["requirements.html"].includes('href="index.html"'));
 
 // ------------------------------------------------------------------- report
 let failed = 0;

@@ -24,7 +24,7 @@
   "counts": {
     "products": 19,
     "retailers": 5,
-    "sources": 12,
+    "sources": 14,
     "errors": 0,
     "warnings": 0
   },
@@ -690,6 +690,21 @@
       "id": "F55",
       "severity": "low",
       "title": "P17 four-feed spot check corroborates the live reference; the dated calculation anchor is unchanged"
+    },
+    {
+      "id": "F56",
+      "severity": "medium",
+      "title": "Menē moved the Wrap Ring twice on 23 October — a 'current price' from this seller is a moving target"
+    },
+    {
+      "id": "F57",
+      "severity": "low",
+      "title": "The repo carries two gold-price anchors 0.012% apart, and different pages used different ones"
+    },
+    {
+      "id": "F58",
+      "severity": "high",
+      "title": "No listing on this site satisfies all ten checklist requirements — and the gaps are the seller's to close"
     }
   ],
   "parallel_dataset": {

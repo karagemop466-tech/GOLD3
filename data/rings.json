@@ -1424,9 +1424,21 @@
       "live_recheck": {
         "checked_on": "2026-10-23",
         "url": "https://mene.com/products/wrap-ring-gold",
-        "price_as_shown": "$3,228",
-        "quote": "$3,228 \u00b7 USD \u00b7 \u201cPrice breakdown\u201d \u2014 read live 2026-10-23",
-        "note": "The captured figure ($3,253, 2026-10-22) is 0.8% above the price the same page printed the next day. Men\u0113 sells by gram weight and re-prices as the metal moves, so the captured price is a dated observation. price_usd is deliberately left at the captured value rather than overwritten, so the movement stays visible."
+        "price_as_shown": "$3,202",
+        "readings": [
+          {
+            "read_utc": "2026-10-23T20:17Z",
+            "price_as_shown": "$3,228",
+            "by": "arena/57724486-gold3 (P12)"
+          },
+          {
+            "read_utc": "2026-10-23T23:40Z",
+            "price_as_shown": "$3,202",
+            "by": "arena/76359c22-gold3 (P17)"
+          }
+        ],
+        "quote": "$3,202 \u00b7 USD \u00b7 Price breakdown \u2014 read live 2026-10-23T23:40Z (earlier the same day: $3,228)",
+        "note": "The captured figure ($3,253, 2026-10-22) is 1.57% above this pass's reading and 0.81% above the earlier same-day reading, so Men\u0113 re-prices inside a single day. The seller states 'Products are sold by weight, not size'. price_usd is deliberately left at the captured value rather than overwritten, so the movement stays visible; finding F50 records the intra-day drift."
       }
     },
     {
