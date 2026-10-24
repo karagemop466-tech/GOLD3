@@ -87,10 +87,10 @@
       "publisher": "GoldPrice.org",
       "url": "https://goldprice.org/",
       "type": "market-data",
-      "supports": "Gold spot snapshots. The PRIMARY capture used by every calculation on this site is $4,022.22/oz read 'Oct 23rd, 2026 at 05:55 NY Time'. A later read the same evening printed $3,997.22/oz at '04:17 NY Time' (0.62% lower, same market date) and is shown only as a labelled live-check: it is NOT used in any calculation.",
+      "supports": "Gold spot snapshots. The PRIMARY capture used by every calculation on this site is $4,022.22/oz read 'Oct 23rd, 2026 at 05:55 NY Time'. A later P17 read printed $3,995.88/oz at '07:41 NY Time' (0.65% lower, same market date) and is shown only as a labelled live-check: it is NOT used in any calculation.",
       "quotes": [
         "Primary capture: Spot Gold Price: USD 4,022.22 / Ounce | Spot Silver Price: USD 53.82 / Ounce Oct 23rd, 2026 at 05:55 NY Time",
-        "Live-check read later the same day: Spot Gold Price: USD 3,997.22 / Ounce | Spot Silver Price: USD 53.92 / Ounce Oct 23rd, 2026 at 04:17 NY Time"
+        "P17 live-check read later the same day: Spot Gold Price: USD 3,995.88 / Ounce | Spot Silver Price: USD 53.92 / Ounce Oct 23rd, 2026 at 07:41 NY Time"
       ],
       "accessed": "2026-10-23"
     },

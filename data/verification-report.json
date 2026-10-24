@@ -37,15 +37,11 @@
       "solid_gold": true,
       "flags": [
         "SOLID_NOT_ON_LISTING",
-        "PRICE_FROM_LOWEST_VARIANT",
-        "WEIGHT_NOT_PUBLISHED",
         "WEIGHT_RANGE_ONLY",
         "EXCHANGE_ONLY_FINAL_SALE",
         "PAGE_SELF_CONTRADICTION",
         "HALLMARK_NOT_STATED",
-        "FINAL_SALE_PDP_OVERRIDE",
-        "WEIGHT_RANGE_ONLY",
-        "EXCHANGE_ONLY_FINAL_SALE"
+        "WEIGHT_SCOPE_UNVERIFIED"
       ],
       "derived": {
         "karat": "14K",
@@ -62,12 +58,11 @@
       "solid_gold": true,
       "flags": [
         "SOLID_NOT_ON_LISTING",
-        "WEIGHT_NOT_PUBLISHED",
         "HALLMARK_NOT_STATED",
-        "FINAL_SALE_PDP_OVERRIDE",
         "WEIGHT_RANGE_ONLY",
         "EXCHANGE_ONLY_FINAL_SALE",
-        "PAGE_SELF_CONTRADICTION"
+        "PAGE_SELF_CONTRADICTION",
+        "WEIGHT_SCOPE_UNVERIFIED"
       ],
       "derived": {
         "karat": "14K",
@@ -84,11 +79,10 @@
       "solid_gold": true,
       "flags": [
         "SOLID_NOT_ON_LISTING",
-        "WEIGHT_NOT_PUBLISHED",
         "HALLMARK_NOT_STATED",
-        "FINAL_SALE_PDP_OVERRIDE",
         "EXCHANGE_ONLY_FINAL_SALE",
-        "PAGE_SELF_CONTRADICTION"
+        "PAGE_SELF_CONTRADICTION",
+        "WEIGHT_SCOPE_UNVERIFIED"
       ],
       "derived": {
         "karat": "14K",
@@ -105,11 +99,10 @@
       "solid_gold": true,
       "flags": [
         "SOLID_NOT_ON_LISTING",
-        "WEIGHT_NOT_PUBLISHED",
         "HALLMARK_NOT_STATED",
-        "FINAL_SALE_PDP_OVERRIDE",
         "EXCHANGE_ONLY_FINAL_SALE",
-        "PAGE_SELF_CONTRADICTION"
+        "PAGE_SELF_CONTRADICTION",
+        "WEIGHT_SCOPE_UNVERIFIED"
       ],
       "derived": {
         "karat": "14K",
@@ -126,12 +119,11 @@
       "solid_gold": true,
       "flags": [
         "SOLID_NOT_ON_LISTING",
-        "WEIGHT_NOT_PUBLISHED",
         "HALLMARK_NOT_STATED",
-        "FINAL_SALE_PDP_OVERRIDE",
         "WEIGHT_RANGE_ONLY",
         "EXCHANGE_ONLY_FINAL_SALE",
-        "PAGE_SELF_CONTRADICTION"
+        "PAGE_SELF_CONTRADICTION",
+        "WEIGHT_SCOPE_UNVERIFIED"
       ],
       "derived": {
         "karat": "14K",
@@ -148,12 +140,11 @@
       "solid_gold": true,
       "flags": [
         "SOLID_NOT_ON_LISTING",
-        "WEIGHT_NOT_PUBLISHED",
         "HALLMARK_NOT_STATED",
-        "FINAL_SALE_PDP_OVERRIDE",
         "WEIGHT_RANGE_ONLY",
         "EXCHANGE_ONLY_FINAL_SALE",
-        "PAGE_SELF_CONTRADICTION"
+        "PAGE_SELF_CONTRADICTION",
+        "WEIGHT_SCOPE_UNVERIFIED"
       ],
       "derived": {
         "karat": "14K",
@@ -170,11 +161,10 @@
       "solid_gold": true,
       "flags": [
         "SOLID_NOT_ON_LISTING",
-        "WEIGHT_NOT_PUBLISHED",
         "HALLMARK_NOT_STATED",
-        "FINAL_SALE_PDP_OVERRIDE",
         "EXCHANGE_ONLY_FINAL_SALE",
-        "PAGE_SELF_CONTRADICTION"
+        "PAGE_SELF_CONTRADICTION",
+        "WEIGHT_SCOPE_UNVERIFIED"
       ],
       "derived": {
         "karat": "14K",
@@ -305,8 +295,8 @@
       "solid_gold": true,
       "flags": [
         "WEIGHT_NOT_PUBLISHED",
-        "HALLMARK_NOT_STATED",
-        "NOT_ENGAGEMENT_RING"
+        "NOT_ENGAGEMENT_RING",
+        "HALLMARK_ALT_TEXT_ONLY"
       ],
       "derived": {
         "karat": "10K",
@@ -328,10 +318,7 @@
         "MIXED_METAL",
         "MADE_TO_ORDER",
         "WEIGHT_NOT_PUBLISHED",
-        "HALLMARK_NOT_STATED",
-        "PURITY_NOT_IN_BODY_TEXT",
-        "MIXED_METAL",
-        "MADE_TO_ORDER"
+        "HALLMARK_NOT_STATED"
       ],
       "derived": {
         "karat": "14K",
@@ -352,10 +339,7 @@
         "MIXED_METAL",
         "MADE_TO_ORDER",
         "WEIGHT_NOT_PUBLISHED",
-        "HALLMARK_NOT_STATED",
-        "MADE_TO_ORDER",
-        "PURITY_NOT_IN_BODY_TEXT",
-        "MIXED_METAL"
+        "HALLMARK_NOT_STATED"
       ],
       "derived": {
         "karat": "14K",
@@ -440,7 +424,7 @@
     {
       "id": "F2",
       "severity": "high",
-      "title": "Only {n_all_weights} of {n_all_listings} listings publish a weight - none from Dataset A's five retailers"
+      "title": "Only {n_all_weights} of {n_all_listings} listings have a numeric gram weight for melt review - none from Dataset A's five retailers"
     },
     {
       "id": "F3",
@@ -580,7 +564,7 @@
     {
       "id": "F30",
       "severity": "high",
-      "title": "All seven Aurate engagement listings conflict 'Free Returns' with 'Exchange for size only. Final Sale!' — and two bezels misstate carat weight in their titles"
+      "title": "All seven Aurate engagement listings conflict 'Free Returns' with 'Exchange for size only. Final Sale!' — and two bezels have major title/spec carat differences"
     },
     {
       "id": "F31",
@@ -679,6 +663,36 @@
     },
     {
       "id": "F50",
+      "severity": "medium",
+      "title": "Aurate records inferred stone-weight inclusion and carried stale bezel specifications"
+    },
+    {
+      "id": "F51",
+      "severity": "medium",
+      "title": "Mejuri Stacker width, solid-gold quotation and hallmark flag had drifted from the official page"
+    },
+    {
+      "id": "F52",
+      "severity": "medium",
+      "title": "Ross-Simons rows called approximate weights 'exact' and used unsupported proof of solid construction"
+    },
+    {
+      "id": "F53",
+      "severity": "medium",
+      "title": "Mejuri return exclusions were broader than the current official policy"
+    },
+    {
+      "id": "F54",
+      "severity": "low",
+      "title": "P17 corrected stale Blue Nile specifications and false Ring Concierge purity flags"
+    },
+    {
+      "id": "F55",
+      "severity": "low",
+      "title": "P17 four-feed spot check corroborates the live reference; the dated calculation anchor is unchanged"
+    },
+    {
+      "id": "F56",
       "severity": "medium",
       "title": "The live gold spot keeps drifting below the dated anchor, and Menē repriced again"
     }

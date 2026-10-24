@@ -9,7 +9,7 @@ It publishes as a static site on GitHub Pages and is generated entirely from mac
 > **blank** and marked **unverified** — it is never estimated, inferred, or filled in to make a row
 > look complete. **Recommendation:** actively look for hallucinations on every review pass by clicking the official source link on every row, re-checking live prices/weights before buying, and running all automated security checks below.
 
-**Prices captured:** 22 October 2026 · **re-verified live:** 23 October 2026 (passes `P1`–`P17`, **247 logged checks**) · **71 rows** — Dataset A 19, Dataset B 31, Dataset C 21 · **16 sellers** · **19 published weights** (14 in Dataset B, 5 in Dataset C)
+**Price snapshots:** 22–23 October 2026 · **P17/P17b live re-verification:** 23 October 2026 (passes `P1`–`P17b`, **278 logged checks**) · **71 rows** — Dataset A 19, Dataset B 31, Dataset C 21 · **16 sellers** · **19 published weights** (14 in Dataset B, 5 in Dataset C)
 
 ---
 
@@ -60,6 +60,41 @@ npm --prefix archive/session-cbea1001 test  # Node anti-hallucination, melt-math
 
 All checks run in CI on every push and pull request (`.github/workflows/audit.yml`). The site is generated, so
 editing HTML by hand is pointless: change `data/*.json` or `scripts/build_site.py`, then rebuild.
+
+## What Pass P17 changed (23 October 2026)
+
+All **19 Dataset A official product sources**, five seller-policy records, five Trustpilot profiles, Ross-Simons Item 571221 and four spot publishers were re-read: **31 checks — 10 confirmed, 18 corrected, 3 flagged**. Every Dataset A numeric price was confirmed with **zero price changes**; no published gram weight changed. See `reports/reverification-pass-p17.md` and `data/reverification-p17.json`.
+
+* Removed unsupported assertions that Aurate's listed diamond mass was included in its listed ring weight. Ambiguous weights stay null, and conflicting bezel title/spec carat values are no longer assigned one numeric value.
+* Corrected current Blue Nile stock/width pairs, Mejuri Stacker's `Width: 1 mm`, Aurate bezel dimensions/clarity, Ring Concierge metal provenance, seller-policy drift and Trustpilot sample counts.
+* Replaced Mejuri's blanket no-hallmark flag with an explicit **alt-text-only purity stamp** warning: alt text is not visual verification and does not establish a maker's mark.
+* Ross-Simons weights remain published but are correctly labelled **approximate**, not exact; weight, geometry and customer reviews are not treated as proof of solid construction.
+* The live spot reference is corroborated by four feeds within **0.025%** and sits **0.65% below** the morning anchor. Calculations still use the dated **$4,022.22/oz** primary snapshot for reproducibility.
+* Published findings **F50–F55** and added guards for duplicate flags, stale source wording and unsupported inclusion/solidity inferences.
+
+## What Pass P17b changed (23 October 2026)
+
+Pass `P17b` (session `arena/1ee91485-gold3`) is the additive twin of the peer's `P17`: it re-opened a different set of
+rows and re-measured the benchmark. **25 checks — 22 confirmed, 2 corrected, 1 flagged.** See
+`reports/reverification-pass-p17b.md` and `data/reverification-p17b.json`.
+
+* **Gold benchmark re-measured on five independent feeds** — GoldPrice.org `$3,995.88/oz`, Kitco bid `$3,994.90`,
+  BullionVault `$3,995.74/oz`, World Gold Council `$3,995.47/oz` (data as of 22 Oct 2026), LBMA AM `$4,026.70` —
+  the four spot feeds cluster within **0.025%** and sit **0.655%** below the dated anchor. The dated anchor is
+  kept; a further labelled `live-check` snapshot is appended to `data/prices.json` and the calculator now selects
+  the **newest** live-check snapshot.
+* **20 product rows rotated back onto live pages, every stored value found verbatim** — Wilson's `R12` (also the
+  only row that publishes both a karat stamp and a maker's mark), Sarraf `R20`/`R21`/`R26`/`R27`, Mejuri
+  `R01`/`BND-12`, Blue Nile `R08`/`SOL-01`, Ross-Simons `R15`/`BND-04`/`BND-05`/`BND-06`/`BND-08`, Automic `R24` and
+  Brilliant Earth `SOL-05`. `F1` (Blue Nile 18K vs 14k body) and `F27` (Brilliant Earth band-width unit bug) remain
+  live and published on *Flagged for Review*.
+* **Menē repriced twice more** — `R30` Wrap Ring now prints `$3,202` (captured `$3,253`) and `BND-03` Wide Flat Band's
+  page, which returned **HTTP 500** in pass P12, recovered and prints `$2,445` (captured `$2,465`). Both are recorded
+  additively in `live_recheck.history`; no stored figure was overwritten.
+* **CR-P15-2 closed** — the conflicted `reports/reverification-1162b2db.md` is split into the clean P5 report, the
+  live-verified Dataset C surface in `reports/reverification-dataset-c.md`, and a new
+  `reports/reverification-incomplete.md` cataloguing the stale/historical artifacts.
+* Published finding **F56** (renumbered from `F50` to avoid colliding with the peer session's `F50`).
 
 ## What the ninth pass changed (23 October 2026 — Pass P13)
 
@@ -192,32 +227,11 @@ python3 scripts/build_site.py   # refuses to build unless the report says PASS
 11. Findings must have a severity, an official source, an action, and only known placeholders.
 12. Metric arithmetic must reconcile (gold + excluded = total; status buckets sum correctly).
 
-## What the seventeenth pass changed (23 October 2026 — Pass P17)
-
-* **The gold benchmark was re-measured live and has drifted below the dated anchor.** Five independent feeds
-  read 2026-10-23T23:43-23:45Z cluster within 0.025% — GoldPrice.org **$3,995.88/oz**, Kitco bid **$3,994.90**,
-  BullionVault **$3,995.74/oz**, World Gold Council **$3,995.47/oz** (data as of 22 Oct 2026) — which is **0.65%**
-  below the dated primary snapshot of **$4,022.22/oz**. The dated anchor is deliberately kept so every melt value
-  stays reproducible, and the newest live reading is appended to `data/prices.json` as a fourth, labelled
-  `live-check` snapshot and shown on the calculator. Published as finding **F50**.
-* **20 rows were rotated back onto live product pages and every stored value was found verbatim** — Wilson's
-  `R12`, Sarraf `R20`/`R21`/`R26`/`R27`, Mejuri `R01`/`BND-12`, Blue Nile `R08`/`SOL-01`, Ross-Simons
-  `R15`/`BND-04`/`BND-05`/`BND-06`/`BND-08`, Automic `R24` and Brilliant Earth `SOL-05`. `F1` (Blue Nile 18K/14k) and
-  `F27` (Brilliant Earth band-width unit bug) are still live and still published on *Flagged for Review*.
-* **Menē moved twice more**: the Wrap Ring (`R30`) now prints **$3,202** (captured $3,253) and the Wide Flat Band
-  (`BND-03`) page — HTTP 500 in pass P12 — recovered and prints **$2,445** (captured $2,465). Both are recorded
-  additively in `live_recheck.history`; no stored figure was overwritten.
-* **CR-P15-2 closed**: the conflicted `reports/reverification-1162b2db.md` is split — the clean P5 report, the
-  live-verified Dataset C surface in `reports/reverification-dataset-c.md`, and a new
-  `reports/reverification-incomplete.md` cataloguing the stale/historical artifacts. No session's evidence was
-  discarded.
-
 ## Verification status and limits
 
 * **Verified:** each price/policy quote was read from the retailer's own page on 22 Oct 2026.
-* **Cross-checked:** gold spot from GoldPrice.org ($4,022.22/oz, captured 23 Oct 2026 05:55 NY) and the World Gold
-  Council ($4,024.45/oz) — 0.06% apart. A labelled live reading ($3,995.88/oz, 23 Oct 2026) is shown beside them;
-  see finding F50.
+* **Cross-checked:** gold spot from GoldPrice.org ($4,026.79/oz) and the World Gold Council
+  ($4,024.36/oz) — 0.06% apart.
 * **Not verified, deliberately blank:** finished ring weights (0 of 17), hallmarks (0 of 5 retailers),
   per-retailer payment methods, and 18K Aurate prices.
 * **Known limitation:** this sandbox has no outbound HTTP except a small allowlist, so there is no
