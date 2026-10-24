@@ -1166,3 +1166,97 @@ The session claimed P12/P13 at 20:20Z on `253ab39`, then peer sessions merged PR
 ### 21.5 Recommended next hallucination hunt
 
 After every review, rerun all gates and look specifically for values absent from their own source. Next: the 52 rows without published weights; the full 161-URL manifest for dead links; seller return/BBB/Trustpilot drift; Aurate and Ring Concierge final-sale wording; Menē JS-only weights; VRAI configurable-template specs; and CR-P15-1/CR-P15-2 cleanup. Never carry an old spot or listing price forward as “current.”
+
+---
+
+## 22. Session `arena/76359c22-gold3` — Pass `P17`: live re-verification + requirements compliance matrix, 2026-10-23
+
+### 22.1 Claim and scope
+
+Claimed as `P17` at 2026-10-23T23:10Z on branch `arena/76359c22-gold3` (base `85ac1fa`, i.e. after PR #66) with a
+non-overlapping scope: `scripts/requirements_matrix.py` (new), `scripts/hallucination_scan.py` (new),
+`data/requirements-matrix.json` (new), `data/reverification-p17.json` (new), `reports/reverification-pass-p17.md` (new),
+`requirements.html` (new), plus additive edits to `scripts/build_site.py` (NAV entry + matrix page + two KPI
+relabels), `scripts/audit.py` (derived-figure allowance for the second gold anchor), `scripts/render-test.js`
+(SD24 count refresh + seven P17 guards), `README.md`, `data/findings.json` (append `F50`–`F52`),
+`data/sources.json` (append `usc-1666`, `cfr-435`), `data/verification.json` (append `P17-*`, `SD25`, `SD26`),
+`data/rings.json` (`R30.live_recheck` only), `.github/workflows/audit.yml` (wire the two new gates) and the generated
+pages. No file owned by another session was rewritten: every change is an append or a relabel, and
+`git diff` on `data/rings.json` is 15 insertions against 3 deletions confined to `R30`.
+
+### 22.2 What was verified live (2026-10-23T23:35Z – 23:46Z)
+
+Ten official pages opened across all three datasets plus the benchmark. **8 confirmed, 0 corrected, 2 flagged.**
+No stored price, karat or gram weight was contradicted.
+
+| Check | Row | Source | Result |
+|---|---|---|---|
+| `P17-01` | `mejuri-diamonds-band` / `BND-11` | <https://mejuri.com/products/diamonds-band> | `$648`, `Solid Yellow Gold (14k)`, 30-day returns, engraving excluded — confirmed |
+| `P17-02` | `R18` | <https://www.catbirdnyc.com/woodland-ring.html> | `$276.00` / `$368.00` — confirmed; no weight, no hallmark |
+| `P17-03` | `R17` | <https://www.tiffany.com/engagement/engagement-rings/the-tiffany-setting-engagement-ring-in-18k-yellow-gold-GRP10863/> | `Starting from $1,600`; both "non returnable" and "only exchanged" — confirmed |
+| `P17-04` | `R31` | <https://www.localeclectic.com/products/solid-gold-simple-knot-ring> | `$239`; 9k badge vs 10k bullet — confirmed |
+| `P17-05` | `R30` | <https://mene.com/products/wrap-ring-gold> | `$3,202` vs captured `$3,253` — **flagged, `F50`** |
+| `P17-06` | `BND-10` | <https://mejuri.com/shop/products/diamond-eternity-band> | `From $1,100`; 0.532 ct prose vs 0.044–0.056 ct spec — confirmed |
+| `P17-07` | `SOL-07` | <https://www.ross-simons.com/products/990022> | `Sale price $2,819`, GIA `#2225975086` — confirmed |
+| `P17-08` | `BND-08` | <https://www.ross-simons.com/products/993085> | `$3,295`, `Gold Weight 5.9 grams`, 14kt + 22kt — confirmed |
+| `P17-09` | `ringconcierge-2-08-oval-lab-whisper-thin` | <https://ringconcierge.com/products/2-08-oval-lab-diamond-in-whisper-thina-hidden-halo> | `$6,038`, made to order — confirmed |
+| `P17-SPOT` | spot | <https://goldprice.org/> | `USD 3,995.88/oz` at `07:41 NY` vs anchor `4,022.22` at `05:55 NY` — **flagged, −0.66%**, no re-anchor |
+| `P17-11` | authority | <https://www.law.cornell.edu/uscode/text/15/1666> · <https://www.ecfr.gov/current/title-16/chapter-I/subchapter-D/part-435> | both opened live, quotes registered |
+| `P17-12` | matrix | repo | independent re-derivation agrees cell for cell |
+
+### 22.3 New deliverable — the requirements compliance matrix
+
+`requirements.html` scores **all 71 rows against all 10 checklist requirements** (710 cells). Each cell is
+`good` (an official page states it), `partial` (brand-level, a range, seller-level, or a small review sample),
+`fail` (the record shows the listing does not meet it) or `unverified` (nobody publishes it — **left blank**).
+Cells are clickable through to the page they came from.
+
+| Requirement | good | partial | fail | blank |
+|---|---|---|---|---|
+| Karat stated | 67 | 4 | 0 | 0 |
+| Word "solid" | 19 | 7 | 4 | 41 |
+| Hallmark | 3 | 0 | 0 | 68 |
+| Maker's mark | 2 | 0 | 0 | 69 |
+| Weight in grams | 19 | 4 | 0 | 48 |
+| Reputation sample | 46 | 10 | 0 | 15 |
+| Return window | 34 | 28 | 9 | 0 |
+| Credit card | 29 | 29 | 0 | 13 |
+| Documentation | 71 | 0 | 0 | 0 |
+| XRF / assay | 0 | 7 | 0 | 64 |
+
+**0 of 71 rows clear all ten; 6 clear the four facts a seller controls; 290 of 710 cells are backed by a source.**
+That is the deliverable's headline and it is published as finding `F52`.
+
+### 22.4 Irregularities found (published, non-blocking)
+
+| ID | Irregularity | Source |
+|---|---|---|
+| `F50` | Menē moved the Wrap Ring twice in one day: `$3,228` (P12) → `$3,202` (P17), −1.57% vs capture. Captured price kept; both readings stored. | <https://mene.com/products/wrap-ring-gold> |
+| `F51` | The repo carries two gold anchors 0.012% apart (`129.3174` vs `129.3328` USD/g). Dataset A's dashboard tiles use one, Dataset C's stored melt values the other. `requirements.html` prints both and derives from the exact constant. | <https://www.kitco.com/price/precious-metals> |
+| `F52` | No listing satisfies all ten requirements; 13 rows leave card payment unverified and 9 are final sale. | <https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23> |
+| `SD25` | `index.html` printed Dataset-A-only values under site-wide KPI labels. Relabelled. | `index.html` |
+| `SD26` | First draft of the matrix cited authority pages at unregistered paths (16 CFR Part 23 under subchapter A). All authorities now resolve to a registered, quoted source. | `scripts/requirements_matrix.py` |
+
+### 22.5 Gates (all local, in workflow order, on the committed tree)
+
+| Gate | Result |
+|---|---|
+| `scripts/verify.py` | **PASS** — 0 errors / 0 warnings / 12 notes |
+| `scripts/verify_dataset_c.py` | **PASS** |
+| `scripts/build_ext_pages.py` + `build_site.py` | **PASS** — 19 pages, internal links and product URLs OK |
+| `scripts/requirements_matrix.py` | **PASS** — 71 rows, 10 requirements, 0 rows all-ten |
+| `scripts/hallucination_scan.py` | **PASS** — HS-01…HS-10, 0 errors |
+| `scripts/audit.py` | **PASS** — 31 rows, 0 errors / 0 warnings |
+| `scripts/run_security_audit.py` | **PASS** — SEC-01…SEC-07, 3,301 links/anchors |
+| `scripts/render-test.js` | **PASS** — 168/168 |
+| `scripts/report_verify.py` | **PASS** — 234 checks rendered |
+| Root official-link gate | **PASS** — 1,116/1,116 rows |
+| Archive suite (`npm --prefix archive/session-cbea1001 test`) | **PASS** |
+| `git diff --check` + `json.load` on `data/*.json` | **PASS** |
+
+### 22.6 Recommended next hallucination hunt
+
+The 48 rows still without a published weight, the 13 rows whose payment method is unverified, seller claim drift
+on returns/BBB, and Menē's intra-day repricing. After every review: rebuild, then run
+`python3 scripts/hallucination_scan.py` — a matrix that disagrees with its own page is exactly the failure this
+pass exists to prevent. Never quote a captured price as "current".
