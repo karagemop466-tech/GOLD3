@@ -690,6 +690,36 @@
       "id": "F55",
       "severity": "low",
       "title": "P17 four-feed spot check corroborates the live reference; the dated calculation anchor is unchanged"
+    },
+    {
+      "id": "F56",
+      "severity": "low",
+      "title": "Independent Trustpilot re-read corroborates the merged P17 count corrections"
+    },
+    {
+      "id": "F57",
+      "severity": "low",
+      "title": "Excluded Mejuri rows now cite their own PDPs, not just the collection"
+    },
+    {
+      "id": "F58",
+      "severity": "medium",
+      "title": "Aurate gram figures are now quoted on every row but remain scope-unverified"
+    },
+    {
+      "id": "F59",
+      "severity": "low",
+      "title": "Ring Concierge 2.72 prose was corrected to its live VVS2 clarity"
+    },
+    {
+      "id": "F60",
+      "severity": "medium",
+      "title": "Structured Kitco cross-check and prior live-check history were added without moving the anchor"
+    },
+    {
+      "id": "F61",
+      "severity": "low",
+      "title": "Both P15 documentation change requests remain closed with evidence preserved"
     }
   ],
   "parallel_dataset": {

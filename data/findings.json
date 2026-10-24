@@ -577,6 +577,72 @@
       "action": "Treat melt figures as dated arithmetic, not a live quote. Use the calculator's editable spot input for a current scenario, or deliberately re-anchor with the documented refresh script and a new dated capture.",
       "found_by": "arena/36ebce13-gold3",
       "date": "2026-10-23"
+    },
+    {
+      "id": "F56",
+      "severity": "low",
+      "title": "Independent Trustpilot re-read corroborates the merged P17 count corrections",
+      "detail": "P19 reopened all five Trustpilot profiles after peer P17 merged. Aurate 4,876 / 4.1, Blue Nile 1,937 / 4.0 with replies to 97% of negative reviews, Mejuri 5,785 / 4.3 with replies to 98%, Ring Concierge 7 / 2.7 unclaimed and Catbird 56 / 2.2 all matched the live pages. The Catbird link was normalized to its canonical www path; every retailer record carries a P19 recheck stamp.",
+      "evidence": "Live pages read 2026-10-24T00:02Z: Aurate “4,876 · 4.1”; Blue Nile “1,937 · 4.0”; Mejuri “5,785 · 4.3”; Ring Concierge “7 · 2.7”; Catbird “56 · 2.2”.",
+      "source": "https://www.trustpilot.com/review/auratenewyork.com",
+      "action": "Treat review totals as date-stamped observations; open each profile again immediately before buying.",
+      "found_by": "arena/bd0ed905-gold3 (P19)",
+      "date": "2026-10-23"
+    },
+    {
+      "id": "F57",
+      "severity": "low",
+      "title": "Excluded Mejuri rows now cite their own PDPs, not just the collection",
+      "detail": "Peer P17 tightened most Dataset A sources, but both excluded Dôme Figure variants still pointed to the general Mejuri rings collection. P19 repointed price and material evidence to the exact variant PDP, which prints $158 for 18k Gold Vermeil and $138 for Sterling Silver. No numeric price changed.",
+      "evidence": "Vermeil PDP: “Dôme Figure Ring · $158 · 18k Gold Vermeil · thick layer of 18k solid gold on sterling silver.” Sterling PDP: “Dôme Figure Ring · $138 · Sterling Silver · 92.5% pure silver.”",
+      "source": "https://mejuri.com/products/dome-figure-ring?Material=18k+Gold+Vermeil",
+      "action": "Open the exact variant URL before assuming any Dôme Figure ring is solid gold.",
+      "found_by": "arena/bd0ed905-gold3 (P19)",
+      "date": "2026-10-23"
+    },
+    {
+      "id": "F58",
+      "severity": "medium",
+      "title": "Aurate gram figures are now quoted on every row but remain scope-unverified",
+      "detail": "P19 added the exact live weight strings for all seven Aurate rows: 5.5-8.5g, 5.7-8.7g and 5.9-8.9g ranges, plus 2.23g, 2.36g and 3.33g static figures. Aurate does not state whether those figures are metal-only or total-item weight, nor map them to one metal/size. Every weight_g remains null and the calculator consumes none of them.",
+      "evidence": "Live Aurate Specs print “Weight: 5.5-8.5g”, “Weight: 5.7-8.7g”, “Weight: 5.9-8.9g”, “Weight: 2.23g”, “Weight: 2.36g” and “Weight: 3.33g” beside separate tcw values.",
+      "source": "https://auratenewyork.com/products/1ct-round-lab-grown-diamond-bezel-ring",
+      "action": "Request the exact metal-only and total weight in writing before a price-per-gram comparison; weigh and XRF-test the delivered ring.",
+      "found_by": "arena/bd0ed905-gold3 (P19)",
+      "date": "2026-10-23"
+    },
+    {
+      "id": "F59",
+      "severity": "low",
+      "title": "Ring Concierge 2.72 prose was corrected to its live VVS2 clarity",
+      "detail": "The merged tree had already corrected the carat_note to E VVS2 but retained an older notes sentence saying E VS1. P19 corrected that last stale string. The product page also states 14K Yellow Gold with Platinum Prongs, so the karat does not describe every metal in the ring.",
+      "evidence": "Live Product Details: “Carat: 2.72”, “Clarity: VVS2”, “Metal: 14K Yellow Gold with Platinum Prongs”; price $7,268 unchanged.",
+      "source": "https://ringconcierge.com/products/2-72-round-lab-diamond-in-whisper-thina",
+      "action": "Get the IGI certificate and written metal breakdown before purchase; independently inspect the ring on arrival.",
+      "found_by": "arena/bd0ed905-gold3 (P19)",
+      "date": "2026-10-23"
+    },
+    {
+      "id": "F60",
+      "severity": "medium",
+      "title": "Structured Kitco cross-check and prior live-check history were added without moving the anchor",
+      "detail": "Peer P17 text recorded four-feed corroboration. P19 added a machine-readable Kitco live_cross_check ($3,994.90/oz), preserved the earlier 20:17Z $3,997.22/oz reading in snapshot history, and refreshed the source register. The two P19 feeds agree to 0.0245%; the $4,022.22/oz primary calculation snapshot remains fixed.",
+      "evidence": "GoldPrice.org printed “Spot Gold Price: USD 3,995.88 / Ounce” with “Oct 23rd, 2026 at 07:41 NY Time”. Kitco printed “Bid 3,994.90” and “7:42 p.m. EDT”. The calculator input remains value=4022.22.",
+      "source": "https://www.kitco.com/charts/gold",
+      "action": "Enter the live purchase-date quote in the calculator; use the labelled feeds as reference observations, not as a re-anchored melt price.",
+      "found_by": "arena/bd0ed905-gold3 (P19)",
+      "date": "2026-10-23"
+    },
+    {
+      "id": "F61",
+      "severity": "low",
+      "title": "Both P15 documentation change requests remain closed with evidence preserved",
+      "detail": "P19 verified the merged tree after CR-P15-1/CR-P15-2 were closed: the historical NIST evidence still keeps its original assertion in evidence_original_preserved while the active text uses the NIST SP 811 B.9 grain derivation; the archived report bundle retains both authored versions with no conflict markers. No peer evidence was overwritten.",
+      "evidence": "Active historical evidence states 480 grains/troy oz × 0.06479891 g/grain = 31.1034768 g derived from SP 811 B.9. reports/reverification-1162b2db.md contains “Version A”, “Version B” and no Git conflict markers.",
+      "source": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9",
+      "action": "Use the exact NIST derivation for the constant and consult both preserved report versions if provenance is disputed.",
+      "found_by": "arena/bd0ed905-gold3 (P19)",
+      "date": "2026-10-23"
     }
   ]
 }

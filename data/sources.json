@@ -87,10 +87,12 @@
       "publisher": "GoldPrice.org",
       "url": "https://goldprice.org/",
       "type": "market-data",
-      "supports": "Gold spot snapshots. The PRIMARY capture used by every calculation on this site is $4,022.22/oz read 'Oct 23rd, 2026 at 05:55 NY Time'. A later P17 read printed $3,995.88/oz at '07:41 NY Time' (0.65% lower, same market date) and is shown only as a labelled live-check: it is NOT used in any calculation.",
+      "supports": "Gold spot snapshots. The PRIMARY capture used by every calculation is $4,022.22/oz read 'Oct 23rd, 2026 at 05:55 NY Time'. Peer P17 and independent P19 both re-read GoldPrice.org at $3,995.88/oz ('Oct 23rd, 2026 at 07:41 NY Time'); P19 independently re-opened Kitco bid $3,994.90/oz. The live readings are 0.0245% apart, labelled reference checks and never used in calculations. The earlier $3,997.22/oz live-check is preserved in prices.json history.",
       "quotes": [
         "Primary capture: Spot Gold Price: USD 4,022.22 / Ounce | Spot Silver Price: USD 53.82 / Ounce Oct 23rd, 2026 at 05:55 NY Time",
-        "P17 live-check read later the same day: Spot Gold Price: USD 3,995.88 / Ounce | Spot Silver Price: USD 53.92 / Ounce Oct 23rd, 2026 at 07:41 NY Time"
+        "Earlier live-check retained in history: Spot Gold Price: USD 3,997.22 / Ounce | Spot Silver Price: USD 53.92 / Ounce Oct 23rd, 2026 at 04:17 NY Time",
+        "P17/P19 GoldPrice.org live-check: Spot Gold Price: USD 3,995.88 / Ounce | Spot Silver Price: USD 53.92 / Ounce Oct 23rd, 2026 at 07:41 NY Time",
+        "P19 Kitco live cross-check: Oct 23, 2026 - 19:43 NY Time | Bid 3,994.90 | Ask 3,996.90 | gram 128.44 | as of October 23, 2026 at 7:42 p.m. EDT"
       ],
       "accessed": "2026-10-23"
     },

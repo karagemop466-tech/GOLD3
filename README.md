@@ -9,7 +9,7 @@ It publishes as a static site on GitHub Pages and is generated entirely from mac
 > **blank** and marked **unverified** — it is never estimated, inferred, or filled in to make a row
 > look complete. **Recommendation:** actively look for hallucinations on every review pass by clicking the official source link on every row, re-checking live prices/weights before buying, and running all automated security checks below.
 
-**Price snapshots:** 22–23 October 2026 · **P17 official-source review:** 23 October 2026 (passes `P1`–`P17`, **253 logged checks**) · **71 rows** — Dataset A 19, Dataset B 31, Dataset C 21 · **16 sellers** · **19 published weights** (14 in Dataset B, 5 in Dataset C)
+**Price snapshots:** 22–23 October 2026 · **independent official-source reviews through P19:** 23 October 2026 (passes `P1`–`P19`, **289 logged checks**) · **71 rows** — Dataset A 19, Dataset B 31, Dataset C 21 · **16 sellers** · **19 published weights** (14 in Dataset B, 5 in Dataset C)
 
 ---
 
@@ -60,6 +60,18 @@ npm --prefix archive/session-cbea1001 test  # Node anti-hallucination, melt-math
 
 All checks run in CI on every push and pull request (`.github/workflows/audit.yml`). The site is generated, so
 editing HTML by hand is pointless: change `data/*.json` or `scripts/build_site.py`, then rebuild.
+
+## What Pass P19 changed (independent corroboration after peer P17, 23 October 2026)
+
+A simultaneous peer session merged its own `P17` as PR #69, so this session preserved those 31 checks and publication artifacts and renumbered its independent work to **`P19`** to keep every check ID unique. P19 reopened all 19 Dataset A PDPs, five return policies, five Trustpilot profiles, GoldPrice.org, Kitco, NIST SP 811 B.9, NIST Precious Metals Conversion Information and 16 CFR 23.10: **13 confirmed · 21 corrected · 2 flagged** (`data/reverification-p19.json`, `reports/reverification-pass-p19.md`, ledger `P19-01`…`P19-36`).
+
+* **Peer work preserved:** PR #69 / `arena/36ebce13-gold3` P17 (31 checks, F50–F55, 253 cumulative checks) remains intact; this branch adds 36 independent checks rather than replacing them.
+* **Aurate:** exact live weight strings are now stored on all seven rows, but every `weight_g` stays `null` because metal-only/total scope and exact variant mapping are not stated (`F58`).
+* **Ring Concierge:** the last stale `E VS1` prose on the 2.72 ct row was corrected to live `E VVS2`; mixed-metal/return-window warnings remain (`F59`).
+* **Excluded Mejuri variants:** price and material evidence now link to their own PDPs, which print `$158` for 18k gold vermeil and `$138` for sterling silver (`F57`).
+* **Gold feeds:** a structured Kitco `$3,994.90/oz` cross-check and the prior 20:17Z live-check history were added; the dated `$4,022.22/oz` calculator anchor did not move (`F60`).
+* **Change requests:** CR-P15-1/CR-P15-2 remain closed with the original NIST assertion and both historical report versions preserved (`F61`).
+* **Standing recommendation:** after every review, run all gates and actively hunt hallucinations by opening each row’s official source. Re-read live prices immediately before buying.
 
 ## What Pass P17 changed (23 October 2026)
 

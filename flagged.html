@@ -33,7 +33,7 @@
 </div>
 
 <div class="grid cols-3" style="margin-bottom:20px">
-  <div class="kpi"><div class="label">Editorial findings</div><div class="value">55</div><div class="sub">19 high severity</div></div>
+  <div class="kpi"><div class="label">Editorial findings</div><div class="value">61</div><div class="sub">19 high severity</div></div>
   <div class="kpi"><div class="label">Listing-level flags</div><div class="value">85</div><div class="sub">across 19 listings</div></div>
   <div class="kpi"><div class="label">Unverified cells</div><div class="value">0 guesses</div><div class="sub">blank is used instead</div></div>
 </div>
@@ -546,6 +546,28 @@
 
           <p class="action"><strong>What to do:</strong> Read the exact product&#x27;s final-sale/engraving status at checkout and retain the SCS certificate, tags and all original packaging. Do not assume every made-to-order item is excluded without product-specific wording.</p>
         </div>
+        <div class="card finding medium" id="F58">
+          <div class="finding-head">
+            <h3>F58 · Aurate gram figures are now quoted on every row but remain scope-unverified</h3>
+            <span class="badge warn">MEDIUM</span>
+          </div>
+          <p class="small">P19 added the exact live weight strings for all seven Aurate rows: 5.5-8.5g, 5.7-8.7g and 5.9-8.9g ranges, plus 2.23g, 2.36g and 3.33g static figures. Aurate does not state whether those figures are metal-only or total-item weight, nor map them to one metal/size. Every weight_g remains null and the calculator consumes none of them.</p>
+          <div class="evidence">Live Aurate Specs print “Weight: 5.5-8.5g”, “Weight: 5.7-8.7g”, “Weight: 5.9-8.9g”, “Weight: 2.23g”, “Weight: 2.36g” and “Weight: 3.33g” beside separate tcw values.</div>
+          <p class="small"><strong>Source:</strong> <a href="https://auratenewyork.com/products/1ct-round-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">https://auratenewyork.com/products/1ct-round-lab-grown-diamond-bezel-ring</a></p>
+
+          <p class="action"><strong>What to do:</strong> Request the exact metal-only and total weight in writing before a price-per-gram comparison; weigh and XRF-test the delivered ring.</p>
+        </div>
+        <div class="card finding medium" id="F60">
+          <div class="finding-head">
+            <h3>F60 · Structured Kitco cross-check and prior live-check history were added without moving the anchor</h3>
+            <span class="badge warn">MEDIUM</span>
+          </div>
+          <p class="small">Peer P17 text recorded four-feed corroboration. P19 added a machine-readable Kitco live_cross_check ($3,994.90/oz), preserved the earlier 20:17Z $3,997.22/oz reading in snapshot history, and refreshed the source register. The two P19 feeds agree to 0.0245%; the $4,022.22/oz primary calculation snapshot remains fixed.</p>
+          <div class="evidence">GoldPrice.org printed “Spot Gold Price: USD 3,995.88 / Ounce” with “Oct 23rd, 2026 at 07:41 NY Time”. Kitco printed “Bid 3,994.90” and “7:42 p.m. EDT”. The calculator input remains value=4022.22.</div>
+          <p class="small"><strong>Source:</strong> <a href="https://www.kitco.com/charts/gold" target="_blank" rel="noopener">https://www.kitco.com/charts/gold</a></p>
+
+          <p class="action"><strong>What to do:</strong> Enter the live purchase-date quote in the calculator; use the labelled feeds as reference observations, not as a re-anchored melt price.</p>
+        </div>
         <div class="card finding low" id="F10">
           <div class="finding-head">
             <h3>F10 · Mejuri&#x27;s main /help hub requires JavaScript, while direct leaf FAQ articles render server-side</h3>
@@ -645,6 +667,50 @@
 
           <p class="action"><strong>What to do:</strong> Treat melt figures as dated arithmetic, not a live quote. Use the calculator&#x27;s editable spot input for a current scenario, or deliberately re-anchor with the documented refresh script and a new dated capture.</p>
         </div>
+        <div class="card finding low" id="F56">
+          <div class="finding-head">
+            <h3>F56 · Independent Trustpilot re-read corroborates the merged P17 count corrections</h3>
+            <span class="badge info">LOW</span>
+          </div>
+          <p class="small">P19 reopened all five Trustpilot profiles after peer P17 merged. Aurate 4,876 / 4.1, Blue Nile 1,937 / 4.0 with replies to 97% of negative reviews, Mejuri 5,785 / 4.3 with replies to 98%, Ring Concierge 7 / 2.7 unclaimed and Catbird 56 / 2.2 all matched the live pages. The Catbird link was normalized to its canonical www path; every retailer record carries a P19 recheck stamp.</p>
+          <div class="evidence">Live pages read 2026-10-24T00:02Z: Aurate “4,876 · 4.1”; Blue Nile “1,937 · 4.0”; Mejuri “5,785 · 4.3”; Ring Concierge “7 · 2.7”; Catbird “56 · 2.2”.</div>
+          <p class="small"><strong>Source:</strong> <a href="https://www.trustpilot.com/review/auratenewyork.com" target="_blank" rel="noopener">https://www.trustpilot.com/review/auratenewyork.com</a></p>
+
+          <p class="action"><strong>What to do:</strong> Treat review totals as date-stamped observations; open each profile again immediately before buying.</p>
+        </div>
+        <div class="card finding low" id="F57">
+          <div class="finding-head">
+            <h3>F57 · Excluded Mejuri rows now cite their own PDPs, not just the collection</h3>
+            <span class="badge info">LOW</span>
+          </div>
+          <p class="small">Peer P17 tightened most Dataset A sources, but both excluded Dôme Figure variants still pointed to the general Mejuri rings collection. P19 repointed price and material evidence to the exact variant PDP, which prints $158 for 18k Gold Vermeil and $138 for Sterling Silver. No numeric price changed.</p>
+          <div class="evidence">Vermeil PDP: “Dôme Figure Ring · $158 · 18k Gold Vermeil · thick layer of 18k solid gold on sterling silver.” Sterling PDP: “Dôme Figure Ring · $138 · Sterling Silver · 92.5% pure silver.”</div>
+          <p class="small"><strong>Source:</strong> <a href="https://mejuri.com/products/dome-figure-ring?Material=18k+Gold+Vermeil" target="_blank" rel="noopener">https://mejuri.com/products/dome-figure-ring?Material=18k+Gold+Vermeil</a></p>
+
+          <p class="action"><strong>What to do:</strong> Open the exact variant URL before assuming any Dôme Figure ring is solid gold.</p>
+        </div>
+        <div class="card finding low" id="F59">
+          <div class="finding-head">
+            <h3>F59 · Ring Concierge 2.72 prose was corrected to its live VVS2 clarity</h3>
+            <span class="badge info">LOW</span>
+          </div>
+          <p class="small">The merged tree had already corrected the carat_note to E VVS2 but retained an older notes sentence saying E VS1. P19 corrected that last stale string. The product page also states 14K Yellow Gold with Platinum Prongs, so the karat does not describe every metal in the ring.</p>
+          <div class="evidence">Live Product Details: “Carat: 2.72”, “Clarity: VVS2”, “Metal: 14K Yellow Gold with Platinum Prongs”; price $7,268 unchanged.</div>
+          <p class="small"><strong>Source:</strong> <a href="https://ringconcierge.com/products/2-72-round-lab-diamond-in-whisper-thina" target="_blank" rel="noopener">https://ringconcierge.com/products/2-72-round-lab-diamond-in-whisper-thina</a></p>
+
+          <p class="action"><strong>What to do:</strong> Get the IGI certificate and written metal breakdown before purchase; independently inspect the ring on arrival.</p>
+        </div>
+        <div class="card finding low" id="F61">
+          <div class="finding-head">
+            <h3>F61 · Both P15 documentation change requests remain closed with evidence preserved</h3>
+            <span class="badge info">LOW</span>
+          </div>
+          <p class="small">P19 verified the merged tree after CR-P15-1/CR-P15-2 were closed: the historical NIST evidence still keeps its original assertion in evidence_original_preserved while the active text uses the NIST SP 811 B.9 grain derivation; the archived report bundle retains both authored versions with no conflict markers. No peer evidence was overwritten.</p>
+          <div class="evidence">Active historical evidence states 480 grains/troy oz × 0.06479891 g/grain = 31.1034768 g derived from SP 811 B.9. reports/reverification-1162b2db.md contains “Version A”, “Version B” and no Git conflict markers.</div>
+          <p class="small"><strong>Source:</strong> <a href="https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9" target="_blank" rel="noopener">https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9</a></p>
+
+          <p class="action"><strong>What to do:</strong> Use the exact NIST derivation for the constant and consult both preserved report versions if provenance is disputed.</p>
+        </div>
 
 <h2 style="margin-top:36px">Every listing-level flag</h2>
 <p class="small">These are the machine-checked flags attached to individual rows. Collapse or expand as needed.</p>
@@ -671,7 +737,7 @@
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-round-lgd-solitaire">2ct Round Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
               <td><span class="badge warn">Page Self Contradiction</span><span class="sub mono">PAGE_SELF_CONTRADICTION</span></td>
-              <td class="small">Band width: the copy says &quot;a refined 1.8mm width&quot; while the specs block says &quot;Width: 2.75mm / Thickness: 1.8mm&quot;. Diamond clarity: the copy says &quot;VVS clarity&quot;, the specs say &quot;1 Round VS/EF Lab Grown Diamond&quot;, and a quality badge on the same page says &quot;SI Clarity Only&quot;. All three readings are recorded; none is averaged or chosen.</td>
+              <td class="small">Product copy says “VVS clarity”; Specs print “1 Round VS/EF Lab Grown Diamond”; the quality badge says “SI Clarity Only”. Copy also says a refined 1.8mm width while Specs print Width 2.75mm / Thickness 1.8mm. All readings are recorded; none is chosen.</td>
               <td><a href="https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring?variant=46776936792236" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-aurate-2ct-round-lgd-solitaire">2ct Round Lab Grown Diamond Solitaire Ring</a><span class="sub">Aurate New York</span></td>
@@ -977,12 +1043,12 @@
               <td><a href="rings.html#p-mejuri-stacker-ring-10k">Stacker Ring</a><span class="sub">Mejuri</span></td>
               <td><span class="badge warn">Not an engagement ring</span><span class="sub mono">NOT_ENGAGEMENT_RING</span></td>
               <td class="small">A stacking ring, not an engagement ring - included as the lowest-cost solid-gold entry point for comparison.</td>
-              <td><a href="https://mejuri.com/collections/rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://mejuri.com/products/stacker-ring?Material=Solid+Yellow+Gold+%2810k%29" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-mejuri-stacker-ring-10k">Stacker Ring</a><span class="sub">Mejuri</span></td>
               <td><span class="badge warn">Purity stamp alt text only</span><span class="sub mono">HALLMARK_ALT_TEXT_ONLY</span></td>
               <td class="small">Official image alt text mentions a &#x27;10K purity stamp&#x27;. This is seller-supplied alt text, not visual inspection of the ring and not evidence of a maker&#x27;s mark. No maker&#x27;s mark is stated; obtain close-up photos and inspect both marks independently.</td>
-              <td><a href="https://mejuri.com/collections/rings" target="_blank" rel="noopener">source</a></td>
+              <td><a href="https://mejuri.com/products/stacker-ring?Material=Solid+Yellow+Gold+%2810k%29" target="_blank" rel="noopener">source</a></td>
             </tr><tr>
               <td><a href="rings.html#p-ringconcierge-2-08-oval-lab-whisper-thin">2.08 Oval Lab Diamond in Whisper Thin® Hidden Halo</a><span class="sub">Ring Concierge</span></td>
               <td><span class="badge warn">No &#x27;solid&#x27;</span><span class="sub mono">SOLID_NOT_STATED</span></td>

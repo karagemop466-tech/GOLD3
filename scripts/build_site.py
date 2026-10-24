@@ -168,7 +168,7 @@ if LIVE:
         f"Latest independent re-read ({e(LIVE.get('captured_on',''))}): "
         f"{money(float(LIVE['price_usd_per_troy_oz']), 2)}/oz ({e(LIVE.get('as_of_text',''))}), "
         f"{abs(_delta):.2f}% {_direction} the pre-filled snapshot. The stored figure is a dated capture, not today's price: "
-        "enter the live one before you rely on a melt comparison (findings F39, F43 and F54)."
+        "enter the live one before you rely on a melt comparison (findings F39, F43, F55 and F60)."
     )
     LIVE_X = prices_doc.get("live_cross_check")
     if LIVE_X:
@@ -273,9 +273,9 @@ def weight_cell(p) -> str:
         return f'{p["weight_g"]:g} g'
     if str(p.get("weight_status") or "").startswith("published as a range") and p.get("weight_quote"):
         return f'<span class="badge warn">{e(p["weight_quote"])}</span><span class="sub">range only (unverified)</span>'
-    if str(p.get("weight_status") or "").startswith("published as unscoped total weight") and p.get("weight_quote"):
+    if str(p.get("weight_status") or "").startswith("published as unscoped") and p.get("weight_quote"):
         return (f'<span class="badge warn">{e(p["weight_quote"])}</span>'
-                '<span class="sub">unscoped total (unverified)</span>')
+                '<span class="sub">unscoped weight (unverified)</span>')
     return '<span class="badge neutral">not published</span>'
 
 
