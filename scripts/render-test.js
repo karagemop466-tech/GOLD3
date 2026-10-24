@@ -167,7 +167,10 @@ check("SD18 verify.html renders the P13 pass",
 const _prices = JSON.parse(read("data/prices.json"));
 const _primary = _prices.snapshots.find((s) => s.role === "primary");
 const _cross = _prices.snapshots.find((s) => s.role === "cross-check");
-const _live = _prices.snapshots.find((s) => String(s.role).startsWith("live-check"));
+// P17: build_site.py selects the NEWEST live-check snapshot, so the guard must do the same
+// rather than re-assert the first (now superseded) reading.
+const _lives = _prices.snapshots.filter((s) => String(s.role).startsWith("live-check"));
+const _live = _lives[_lives.length - 1];
 check("SD20 combined.html prints the stored primary spot",
   html["combined.html"].includes(`$${_primary.price_usd_per_troy_oz.toLocaleString("en-US", { minimumFractionDigits: 2 })}`));
 check("SD20 combined.html prints the stored cross-check",
@@ -249,7 +252,7 @@ check("SD24 F2 uses full A+B+C weight and listing counts",
   includesText(html["flagged.html"], "Only 19 of 71 listings publish a weight") &&
   !includesText(html["flagged.html"], "Only 14 of 50 listings publish a weight"));
 check("SD24 README pass range and ledger count are current",
-  read("README.md").includes("P1`–`P15") && read("README.md").includes("222 logged checks"));
+  read("README.md").includes("P1`–`P17") && read("README.md").includes("247 logged checks"));
 
 // ------------------------------------------------------------------- report
 let failed = 0;

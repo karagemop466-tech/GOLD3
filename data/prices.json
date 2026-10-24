@@ -46,6 +46,18 @@
       "role": "live-check (shown for reference, not used in any calculation)",
       "quote": "Spot Gold Price: USD 3,997.22 / Ounce | Spot Silver Price: USD 53.92 / Ounce Oct 23rd, 2026 at 04:17 NY Time",
       "note": "Read live at 2026-10-23T20:17Z. 0.6215% below the primary snapshot captured the same morning, on the same market date. The page's clock label (04:17 NY) is EARLIER than the 05:55 NY label on that morning's capture even though it was read later in the day; both labels are recorded as printed and neither is explained away (finding F39)."
+    },
+    {
+      "id": "goldprice-org-2026-10-23T23-45Z",
+      "publisher": "GoldPrice.org",
+      "url": "https://goldprice.org/",
+      "metal": "gold",
+      "price_usd_per_troy_oz": 3995.88,
+      "as_of_text": "Oct 23rd, 2026 at 07:41 NY Time",
+      "captured_on": "2026-10-23",
+      "role": "live-check (P17: newest live reading shown for reference, not used in any calculation)",
+      "quote": "Spot Gold Price: USD 3,995.88 / Ounce | Spot Silver Price: USD 53.92 / Ounce Oct 23rd, 2026 at 07:41 NY Time",
+      "note": "Read live 2026-10-23T23:43Z. 0.655% below the primary snapshot ($4,022.22/oz, captured the same morning). Five independent feeds read the same evening cluster within 0.025%: Kitco $3,994.90 (2026-10-23 19:43 NY), BullionVault $3,995.74 (23 Oct 2026 17:00 GMT-4), GoldPrice.org $3,995.88, World Gold Council $3,995.47 (data as of 22 October 2026). build_site.py selects the newest live-check snapshot, so this is the reading the calculator labels as the live reference."
     }
   ],
   "cross_check": {

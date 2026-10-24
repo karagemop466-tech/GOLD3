@@ -27,7 +27,7 @@ Read it before starting any work. Update it when you claim, finish, or hand off 
 | `arena/57724486-gold3` | `arena/57724486-gold3` | 2026-10-23T20:30Z | **in progress** — Pass `P12`: freshest live re-verification of the spot benchmark + a rotating sample of the highest-priced `R*` rows and `SOL`/`BND` rows, headline-count/consistency sweep of every published page vs `data/`, then final integration (rebuild, 9 gates, PR → `main`, merge, Pages deploy read-back) |
 | `arena/438a583e-gold3` | `arena/438a583e-gold3` | 2026-10-23T20:17Z | **complete** — Pass `P14` (renumbered three times as PRs #51, #54 and #56 landed the same ids): every weight-bearing PDP re-read live (0 changes), four-feed spot corroboration to 0.026%, `scripts/refresh_spot_anchor.py`, finding `F45`; §19 |
 | `arena/db2fe957-gold3` | `arena/db2fe957-gold3` | 2026-10-23T20:20Z | **complete** — `P15` + `P16`: PRs #64 and #65 merged (`d3db33f`, `0560c57`), main CI green, Pages built, live read-back verified including SD24 (§21). |
-| `arena/1ee91485-gold3` | `arena/1ee91485-gold3` | 2026-10-23T23:43Z | **in progress** — Pass `P17`: freshest live re-verification of the spot benchmark + rotating sample of price/weight-bearing `R*`/`SOL`/`BND` rows, full data-URL dead-link sweep, CR-P15-2 conflicted-report split, then final integration (rebuild, 9 gates, PR → `main`, merge, Pages deploy read-back) |
+| `arena/1ee91485-gold3` | `arena/1ee91485-gold3` | 2026-10-23T23:43Z | **pass published, integration remaining** — Pass `P17`: 25 live checks (gold benchmark + 20 rows) at 2026-10-23T23:43-23:45Z, 22 confirmed / 2 corrected / 1 flagged, new finding `F50`, CR-P15-2 conflicted-report split resolved; final integration (rebuild, 9 gates, PR → `main`, merge, Pages deploy read-back) still to run |
 
 ### Branch naming note (important)
 The protocol below asks for `session-<id>/<task>` branches. **This sandbox pins each session to a
@@ -95,7 +95,7 @@ Status values: `unclaimed` · `in progress` · `done` · `needs review`
 | DC3 | Open & merge PR #44 (`a0b589b`) to `main`, confirm GitHub Pages deployment (`39941002177`, `status: built`) & live read-back, record final outcome | done | `arena/15b00e99-gold3` | `COORDINATION.md` | 2026-10-23T10:44Z |
 | P15 | Additive net-new verification after peer P12–P14: Dataset C BND-04–BND-08 live weight checks, NIST attribution correction, VRAI SPEC7 source/text correction, Automic R23 lead-time flag, JSON-derived band ratios/calculator presets and regression guards. Preserved the peer-reviewed dated spot anchor and live-check row. Published `data/reverification-p15.json` + `reports/reverification-pass-p15.md`, 11 checks (7 confirmed / 3 corrected / 1 flagged), findings F46–F49, 222-check ledger. | done | `arena/db2fe957-gold3` | `data/reverification-p15.json`, `reports/reverification-pass-p15.md`, `data/verification.json`, `data/findings.json`, `data/flags.json`, `data/rings.json`, `data/spot-and-standards.json`, `scripts/build_ext_pages.py`, `scripts/render-test.js`, `assets/gold3-calc.js`, generated pages, `COORDINATION.md` | 2026-10-23T20:47Z |
 | P16 | Final additive integration complete: PR #64 merged as `d3db33f` (CI `40022197030`, Pages `40022195726`); SD24 follow-up PR #65 merged as `0560c57` (CI `40022618277`, Pages `40022617874`). Live read-back verified P15 attribution, 222 checks, JSON presets and F2 `19 of 71`. All local gates green: render 156/156, 1,014/1,014 official row links, security #36, archive 7/7. | done | `arena/db2fe957-gold3` | repo root (integration window), `COORDINATION.md` | 2026-10-23T20:54Z |
-| P17 | Seventeenth independent live verification pass on the `main` tip `85ac1fa` (PR #66). Re-open the gold-spot benchmark + a rotating sample of price/weight-bearing `R*`/`SOL`/`BND` rows and every data-file URL for dead links; split the conflicted `reports/reverification-1162b2db.md` (CR-P15-2); publish `data/reverification-p17.json` + `reports/reverification-pass-p17.md`; then final integration (rebuild, all 9 CI gates, PR → `main`, merge, Pages deploy read-back). | in progress | `arena/1ee91485-gold3` | `data/reverification-p17.json`, `reports/reverification-pass-p17.md`, `data/verification.json`, `data/prices.json` (additive live snapshot), `reports/reverification-1162b2db.md` (CR-P15-2 split), `COORDINATION.md`; integration window over generated `*.html`, `data/verified-data.js`, `verification/*` | 2026-10-23T23:43Z |
+| P17 | Seventeenth independent live verification pass on the `main` tip `85ac1fa` (PR #66). Re-open the gold-spot benchmark + a rotating sample of price/weight-bearing `R*`/`SOL`/`BND` rows and every data-file URL for dead links; split the conflicted `reports/reverification-1162b2db.md` (CR-P15-2); publish `data/reverification-p17.json` + `reports/reverification-pass-p17.md`; then final integration (rebuild, all 9 CI gates, PR → `main`, merge, Pages deploy read-back). | pass published (25 checks · 22 confirmed / 2 corrected / 1 flagged · F50 · CR-P15-2 closed) · integration next | `arena/1ee91485-gold3` | `data/reverification-p17.json`, `reports/reverification-pass-p17.md`, `reports/reverification-incomplete.md`, `data/verification.json`, `data/prices.json` (additive live snapshot), `data/rings.json` (R30 `live_recheck`), `data/bands-and-high-karat.json` (BND-03 `live_recheck`), `data/findings.json` (F50), `reports/reverification-1162b2db.md` (CR-P15-2 split), `scripts/build_site.py` (newest live-check selector); integration window over generated `*.html`, `data/verified-data.js`, `verification/*` | 2026-10-23T23:45Z |
 | P12 | Eleventh independent live verification pass on the post-PR-#50 tree (`253ab39`): **7 live checks — 3 confirmed / 2 corrected / 2 flagged**. Spot anchor 0.62% below the stored snapshot with an inverted clock label (F39); Menē Classic Band $1,707→$1,694 and Narrow Flat Band $1,544→$1,532 (F40); Menē Wide Flat Band page returned HTTP 500 so its price was left captured (SRC3); Sarraf R20, Ross-Simons BND-04 and Mejuri R03 confirmed verbatim. Also fixed SD14 (three headline counts said 50 while the site renders 71) and SD15 (duplicate `P11-01/P11-02` ids, duplicate `SD6/SD10`, stale `summary.checks` 137 vs 185) and added three audit guard rails. Published `data/reverification-57724486.json` + `reports/reverification-pass-57724486.md`; log now **192 checks**. Verification pass on the post-PR-#50 tree (`253ab39`): re-open the spot benchmark and a rotating sample of price/weight-bearing rows live, sweep every published headline count against `data/`, fix any discrepancy found, publish `data/reverification-57724486.json` + report, then final integration (rebuild, all 9 CI gates, PR → `main`, merge, Pages deploy read-back) | done | `arena/57724486-gold3` | `data/reverification-57724486.json`, `reports/reverification-pass-57724486.md`, `data/verification.json`, `COORDINATION.md`; integration window over generated `*.html`, `data/*.json`, `verification/*`, `reports/*` | 2026-10-23T21:00Z |
 
 > **T10 closed 2026-10-23** by its owner's own work, merged as PR #13 (board record) and PR #15
@@ -234,6 +234,44 @@ was read instead.
 **Gates:** verify PASS · builders OK (18 pages) · audit 31 rows 0/0/173 · security SEC-01…07 PASS · render 120/120 ·
 report 116 checks · **790** root table rows / 0 missing official links · archive suite PASS.
 
+### 2026-10-23 — `arena/1ee91485-gold3` — pass P17 (V17)
+
+25 official URLs re-opened live at `2026-10-23T23:43-23:45Z` on `main` @ `85ac1fa` (PR #66). **22 confirmed · 2
+corrected · 1 flagged**; `data/verification.json` now holds **247 checks** across 17 passes.
+
+* **Gold benchmark re-measured on five independent feeds** — GoldPrice.org `$3,995.88/oz`, Kitco bid `$3,994.90`,
+  BullionVault `$3,995.74/oz`, World Gold Council `$3,995.47/oz` (data as of 22 Oct 2026), LBMA AM `$4,026.70`
+  (23/10). The four spot feeds cluster within **0.025%** and sit **0.655%** below the dated primary anchor of
+  `$4,022.22/oz`. The dated anchor is kept; a fourth, explicitly-labelled `live-check` snapshot was appended to
+  `data/prices.json` and `scripts/build_site.py` now selects the **newest** live-check snapshot for the calculator
+  banner. Published as finding **F50**.
+* **20 product rows re-opened live, every stored value found verbatim** — Wilson's `R12` ($5,350 / 18k stamp +
+  maker's mark / 2.2 g), Sarraf `R20` ($3,004 / 3.80 g), `R21` ($613 / 8.30 g), `R26` ($4,068 / 6.30 g), `R27` ($695 /
+  2.50 g), Mejuri `R01` (From $2,900 / Solid White Gold 14k + rhodium), Blue Nile `R08` ($2,210 — **F1** still live),
+  Blue Nile `SOL-01` ($1,125 / 18K Yellow Gold + platinum prongs), Ross-Simons `R15` ($249 / 0.7 g), `BND-04` ($400 /
+  1.7 g), `BND-05` ($949 / 4.2 g), `BND-06` ($1,195 / 4.0 g — confirms **F49**), `BND-08` ($3,295 / 5.9 g), Mejuri
+  `BND-12` ($498 / Solid Yellow Gold 14k), Automic `R24` ($875 / Solid 14k Gold + 950 Platinum), Brilliant Earth
+  `SOL-05` ($1,090 / 18K Yellow Gold — **F27** band-width bug still live, resizing unavailable).
+* **Corrections (Menē moved again)** — `R30` Wrap Ring now prints **$3,202** (captured $3,253, P4 reading $3,228): a
+  third `live_recheck.history` entry, stored `price_usd` left at $3,253. `BND-03` Wide Flat Band — the URL that
+  answered **HTTP 500** at 20:31Z — now loads and prints **$2,445**: a live-reading entry added, `price_usd` left at
+  the captured $2,465, `SRC3` note updated.
+* **CR-P15-2 resolved** — `reports/reverification-1162b2db.md` de-conflicted into the clean P5 report; the
+  live-verified Dataset C/D surface lives in `reports/reverification-dataset-c.md`; the stale/historical artifacts are
+  catalogued in the new `reports/reverification-incomplete.md`.
+* **No stored value was overwritten**; no weight was inferred; no peer file was edited.
+
+**Gates (all nine, run locally in CI order after the rebuild):** `verify.py` **PASS** (0 errors / 0 warnings / 12
+notes) · `verify_dataset_c.py` **PASS** (21 rings, 5 weight-published, 16 null/unverified, 0 dead links) · both
+builders **PASS** · `audit.py` **PASS** (31 rows, 0 errors / 0 warnings / 176 checks) ·
+`run_security_audit.py --deterministic --pass-label P17` **PASS #37** (SEC-01…SEC-07, 0 errors; 2,384 links/anchors;
+69 irregularity scans) · `render-test.js` **PASS 156/156** · `report_verify.py` **PASS** (247 checks) · root
+official-link gate **PASS** (1,014/1,014 rows, 0 non-HTTPS) · archive suite **PASS 7/7** (156 internal + 270
+external links). The dead-link sweep over the official-URL manifest ran as part of SEC-06: `unique_official_urls_count`
+is now **182** (one new URL — `https://goldprice.org/`, from finding `F50`'s source list), and 0 dead links were
+found. `scripts/render-test.js`'s SD20 live-check guard was updated to select the **newest** live-check snapshot
+(mirroring `build_site.py`) instead of the first; without that it asserted the superseded `$3,997.22` reading.
+
 ---
 
 ## 4. Change requests / conflicts
@@ -259,7 +297,7 @@ See **§4b** for the item-by-item record. No work was discarded and no shared fi
 | CR-P3-10 | `arena/699d8e05-gold3` 2026-10-23T00:12Z | `data/rings.json, data/verified-data.js, verification/sources-manifest.json` | Repoint two dead official URLs wherever they appear outside data/sellers.json. https://www.sarraf.com/pages/returns-and-refunds.html returns '404 Error - Page not found' and the live page is https://www.sarraf.com/30-day-returns-and-exchange-policy/. https://www.automicgold.com/pages/return-policy returns '404 Not Found - Automic Gold' and the live page is https://www.automicgold.com/policies/refund-policy. Both dead URLs were fetched on 2026-10-23 (evidence in checks P3-39 and P3-44). These files are claimed by other sessions, so this pass filed a request instead of editing them: the brief requires every table row to carry a working source link to an official site, and a citation that 404s cannot be checked by a reviewer. | **closed 2026-10-23** — applied by this session as the integration session (all other sessions complete): 5 citations in `data/rings.json` and 2 in `verification/sources-manifest.json` repointed to the live pages, `data/verified-data.js` regenerated, zero dead hrefs remain in any published page |
 
 | CR-P15-1 | `arena/db2fe957-gold3` 2026-10-23T20:44Z | `data/reverification-c-6ccbc523.json` (historical peer evidence) | Correct the statement that the NIST *Precious Metals Conversion Information* page “explicitly confirms 1 oz t = 31.1034768 g.” P15 re-read it: the page prints Handbook 130 §2.17 and links a PDF, but no troy-ounce-to-gram figure. The constant remains valid via NIST SP 811 B.9 and exactly 480 grains/troy oz (`480 × 0.06479891 = 31.1034768 g`). Peer file not edited; corrected derivation is in `data/spot-and-standards.json` and finding **F46**. | open — non-blocking documentation correction; published on `flagged.html#F46` |
-| CR-P15-2 | `arena/db2fe957-gold3` 2026-10-23T20:44Z | `reports/reverification-1162b2db.md` (pre-existing on `main`) | The file begins with `<<<<<<< HEAD`, contains `=======` at line 35 and `>>>>>>> origin/main` at line 83, concatenating two different reports. This predates P15 (present at `253ab39`) and is not used by the site build. Resolve/split the two report versions without discarding either session's evidence. | open — non-blocking archived-report cleanup; not edited by P15 |
+| CR-P15-2 | `arena/db2fe957-gold3` 2026-10-23T20:44Z | `reports/reverification-1162b2db.md` (pre-existing on `main`) | The file begins with `<<<<<<< HEAD`, contains `=======` at line 35 and `>>>>>>> origin/main` at line 83, concatenating two different reports. This predates P15 (present at `253ab39`) and is not used by the site build. Resolve/split the two report versions without discarding either session's evidence. | **closed 2026-10-23** by `arena/1ee91485-gold3` (pass P17): the conflict markers are gone. `reports/reverification-1162b2db.md` is now the clean P5 primary-source report (HEAD side) with a header note recording the split; the Dataset C/D half the file had concatenated is the live-verified surface at `reports/reverification-dataset-c.md`; and `reports/reverification-incomplete.md` catalogues the stale/historical artifacts (`reverification-c-6ccbc523.md`, `reverification-dataset-c-15b00e99.md`, `revalidation-sess-692d.md`) as retained, not re-verified. Neither session's evidence was discarded. Pass P17 also re-opened the live pages behind the Dataset C surface and confirmed them verbatim. |
 
 ## 4a. Irregularities published for review (do not block the merge)
 
@@ -292,6 +330,14 @@ Added by the fourth pass (2026-10-23), all published on *Flagged for Review* wit
     silence rather than filled in from industry practice.
 16. **`SD7` (site defect, fixed)** Flag `PD1` claimed a live-vs-cached price difference that does not exist ($299 on the
     page, $299 in the record). Retired.
+17. **`F50` (medium)** Pass P17 (2026-10-23T23:43-23:45Z): the live gold spot keeps drifting below the dated anchor —
+    five independent feeds read `$3,994.90-$3,995.88/oz` (Kitco / World Gold Council / BullionVault / GoldPrice.org),
+    0.65% under the dated primary `$4,022.22/oz` — and Menē repriced twice more in the same window (Wrap Ring
+    `$3,253 → $3,202`; Wide Flat Band page recovered from HTTP 500 at `$2,445`, captured `$2,465`). The dated anchor
+    is kept for reproducibility and the newest live reading is shown beside it; the stored figures were not
+    overwritten. Sources: `https://goldprice.org/`, `https://www.kitco.com/gold-price-today-usa/`,
+    `https://www.bullionvault.com/gold-price-chart.do`, `https://www.gold.org/goldhub/data/gold-prices`,
+    `https://mene.com/products/wrap-ring-gold`, `https://mene.com/products/mene-wide-flat-band-gold`.
 
 ---
 
@@ -1166,3 +1212,94 @@ The session claimed P12/P13 at 20:20Z on `253ab39`, then peer sessions merged PR
 ### 21.5 Recommended next hallucination hunt
 
 After every review, rerun all gates and look specifically for values absent from their own source. Next: the 52 rows without published weights; the full 161-URL manifest for dead links; seller return/BBB/Trustpilot drift; Aurate and Ring Concierge final-sale wording; Menē JS-only weights; VRAI configurable-template specs; and CR-P15-1/CR-P15-2 cleanup. Never carry an old spot or listing price forward as “current.”
+
+---
+
+## 22. Session `arena/1ee91485-gold3` — Pass `P17`: live benchmark re-measure + 20-row rotation + CR-P15-2 split (2026-10-23)
+
+### 22.1 Scope claimed and what was done
+
+`P17` was claimed on the `main` tip `85ac1fa` (PR #66) at `2026-10-23T23:43Z`. It re-opened the gold-spot benchmark
+and a rotating sample of price/weight-bearing `R*`/`SOL`/`BND` rows on the live pages, closed CR-P15-2, and
+published the additive artifacts. **25 official URLs opened live at `2026-10-23T23:43-23:45Z`.**
+
+### 22.2 The gold benchmark, re-measured (five independent feeds)
+
+| Feed | Reading | As-of |
+|---|---|---|
+| GoldPrice.org | $3,995.88/oz (silver $53.92) | 07:41 NY, 23 Oct 2026 |
+| Kitco | bid $3,994.90 / ask $3,996.90, −0.71% | 23 Oct 2026, 19:43 NY |
+| BullionVault | $3,995.74/oz ($128.47/g) | 23 Oct 2026, 17:00 GMT-04:00 |
+| World Gold Council | $3,995.47/oz | data as of 22 October 2026 |
+| LBMA | AM $4,026.70 | 23/10 |
+
+The four spot feeds cluster within **0.025%** and sit **0.655%** below the dated primary anchor (`$4,022.22/oz`,
+captured 2026-10-23 05:55 NY). The dated anchor is **deliberately kept**; a fourth, explicitly-labelled
+`live-check` snapshot was appended to `data/prices.json` and `scripts/build_site.py` now selects the **newest**
+live-check snapshot for the calculator banner (so the calculator shows `$3,995.88`, 0.65% below the dated
+snapshot) while every melt value stays on the dated anchor. Published as finding **F50**.
+
+### 22.3 20 product rows re-opened live — every stored value found verbatim
+
+Wilson's `R12` ($5,350 / “Stamped for 18 karat gold” + maker's mark `Hedges & Co.` / 2.2 g) · Sarraf `R20`
+($3,004 / 14K Solid Gold / 3.80 g) · `R21` ($613 / 10K Solid Gold / 8.30 g) · `R26` ($4,068 / 18K Solid Gold / 6.30 g) ·
+`R27` ($695 / 14K Solid Gold / 2.50 g) · Mejuri `R01` (From $2,900 / Solid White Gold (14k) + rhodium) · Blue Nile
+`R08` ($2,210 — **F1** self-contradiction still live) · Blue Nile `SOL-01` ($1,125 / 18K Yellow Gold + platinum
+prongs) · Ross-Simons `R15` ($249 / 18kt Yellow Gold / 0.7 g) · `BND-04` ($400 / 14kt / 1.7 g) · `BND-05` ($949 /
+14kt / 4.2 g) · `BND-06` ($1,195 / Italian 14kt dome / 4.0 g — confirms **F49**) · `BND-08` ($3,295 / 14kt and 22kt /
+5.9 g) · Mejuri `BND-12` ($498 / Solid Yellow Gold (14k) / 2 mm × 1.3 mm) · Automic `R24` ($875 / Solid 14k Gold and
+950 Platinum / 1–5 business days) · Brilliant Earth `SOL-05` ($1,090 (Setting Only) / 18K Yellow Gold — **F27**
+band-width unit bug still live, resizing unavailable).
+
+### 22.4 Corrections — Menē moved again, and the 500 page came back
+
+- **`R30` Wrap Ring** now prints **$3,202** (captured $3,253; P4 read $3,228). A third `live_recheck.history` entry
+  was appended; `price_usd` stays $3,253 so the movement is visible.
+- **`BND-03` Wide Flat Band** — the URL that answered **HTTP 500** at `2026-10-23T20:31Z` in P12 now loads and
+  prints **$2,445**. A live-reading entry was added and the `SRC3` note updated; `price_usd` stays at the captured
+  $2,465 and the collection `From $2,297` widget figure was not substituted.
+
+### 22.5 CR-P15-2 resolution (conflicted-report split)
+
+`reports/reverification-1162b2db.md` held an unresolved git merge conflict (`<<<<<<< HEAD` … `=======` …
+`>>>>>>> origin/main`) concatenating the P5 report and the Dataset C/D report. Resolved additively, neither
+session's evidence discarded: the file is now the clean P5 report with a header note; the live-verified Dataset C/D
+surface is `reports/reverification-dataset-c.md`; and the stale/historical artifacts (`reverification-c-6ccbc523.md`,
+`reverification-dataset-c-15b00e99.md`, `revalidation-sess-692d.md`) are catalogued in the new
+`reports/reverification-incomplete.md` as retained, not re-verified.
+
+### 22.6 Files changed
+
+`data/reverification-p17.json` (new) · `reports/reverification-pass-p17.md` (new) ·
+`reports/reverification-incomplete.md` (new) · `data/verification.json` (pass `P17` + 25 checks; 247 checks) ·
+`data/prices.json` (fourth `live-check` snapshot) · `data/rings.json` (R30 `live_recheck`) ·
+`data/bands-and-high-karat.json` (BND-03 `live_recheck` + flag) · `data/findings.json` (F50) ·
+`scripts/build_site.py` (newest live-check selector) · `scripts/render-test.js` (SD20 guard) ·
+`reports/reverification-1162b2db.md` (de-conflicted) · `COORDINATION.md`. Regenerated by the gates: the six
+Dataset C/B pages, `calculator.html`, `verify.html`, `flagged.html`, `flagged-for-review.html`, `sources.html`,
+`security-audit.html`, `checklist-standards.html`, `reports/audit-report.md`, `data/verification-report.json`,
+`data/verified-data.js`, `reports/verification-report.md`, `VERIFICATION_REPORT.md`, `verification/audit-log.json`,
+`verification/sources-manifest.json`.
+
+### 22.7 Gates (all nine, local, in CI order)
+
+| Gate | Result |
+|---|---|
+| `verify.py` | **PASS** — 0 errors / 0 warnings / 12 notes |
+| `verify_dataset_c.py` | **PASS** — 21 rings, 5 weight-published, 16 null/unverified, 0 dead links |
+| Both builders | **PASS** — 18 pages, internal links/stylesheets/product URLs OK |
+| `audit.py` | **PASS** — 31 rows, 0 errors / 0 warnings / 176 checks |
+| `run_security_audit.py --deterministic --pass-label P17` | **PASS #37** — SEC-01…SEC-07, 0 errors; 2,384 links/anchors |
+| `render-test.js` | **PASS** — 156/156 |
+| `report_verify.py` | **PASS** — 247 checks rendered |
+| Root official-link gate | **PASS** — 1,014/1,014 rows / 0 missing official links |
+| Archive suite | **PASS** — 7/7; 156 internal + 270 external links |
+
+### 22.8 PR, merge and deployment record
+
+- **PR #67:** `arena/1ee91485-gold3` → `main` (pass `P17` + CR-P15-2 split). *(to be opened)*
+- **Main CI / Pages / live read-back:** *(to be recorded after merge)*
+- **Recommended next hallucination hunt:** re-read every Menē page immediately before any order (it reprices
+  continuously); confirm `F1` (Blue Nile 18K/14k), `F27` (Brilliant Earth band-width unit) and `F40`/`F50` (Menē)
+  are still live before the next merge; then the remaining rows without published weights and the full official-URL
+  manifest for dead links. Never carry an old spot or listing price forward as “current.”

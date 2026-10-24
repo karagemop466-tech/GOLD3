@@ -158,15 +158,34 @@
         "Subject to Menē strict 7-day return window and D+ BBB rating; verify gram weight on 0.01g scale and XRF scan immediately on arrival.",
         "PRICE MOVED (PRC1): Updated to live $2,465 USD PDP ($2,315 collection minimum) on 2026-10-23 versus captured $2,333 on 2026-10-22.",
         "HALLMARK CORRECTION (2026-10-23): this record previously described a stamp the seller never printed; see the corrected hallmark_disclosure field and site defect SD6.",
-        "CITED PAGE RETURNED HTTP 500 (SRC3): https://mene.com/products/mene-wide-flat-band-gold answered with '500 Internal Server Error / Page Not Found | Menē' to our fetch on 2026-10-23T20:30Z, although Menē's own product pages link that exact URL and print 'Wide Flat Band - Gold … From $2,297'. The stored price was left at its captured figure rather than replaced by the collection-level number."
+        "CITED PAGE RETURNED HTTP 500 (SRC3): https://mene.com/products/mene-wide-flat-band-gold answered with '500 Internal Server Error / Page Not Found | Menē' to our fetch on 2026-10-23T20:30Z, although Menē's own product pages link that exact URL and print 'Wide Flat Band - Gold … From $2,297'. The stored price was left at its captured figure rather than replaced by the collection-level number.",
+        "RECOVERED (P17): the URL that answered HTTP 500 at 2026-10-23T20:31Z now loads and prints $2,445 USD (2026-10-23T23:45Z). price_usd keeps the captured $2,465; the new reading is recorded in live_recheck."
       ],
       "live_recheck": {
         "checked_on": "2026-10-23",
-        "checked_at_utc": "2026-10-23T20:31:00Z",
+        "checked_at_utc": "2026-10-23T23:45:00Z",
         "url": "https://mene.com/products/mene-wide-flat-band-gold",
-        "price_as_shown": null,
-        "quote": "Fetch returned: “Page Not Found | Menē” with body “# Something went wrong / 500 Internal Server Error”. Cross-check from Menē's own Recommended widget on /products/mene-classic-band-gold and /products/mene-narrow-flat-band-gold: “Wide Flat Band - Gold … From $2,297”.",
-        "note": "UNVERIFIED TODAY: the product page could not be read, so price_usd keeps the 2026-10-23 capture of $2,465. The 'From $2,297' widget figure is a different number from a different surface and is recorded as a cross-check only — substituting it would be an inference, not a source."
+        "price_as_shown": "$2,445",
+        "quote": "Product page: “Wide Flat Band … $2,445 … USD”, “Metal: 24k Gold”, “Width: 6mm Thickness: 2mm” — read live 2026-10-23T23:45Z. The same URL answered HTTP 500 at 2026-10-23T20:31Z in pass P12.",
+        "history": [
+          {
+            "read_on": "2026-10-22",
+            "price_usd": 2333.0
+          },
+          {
+            "read_on": "2026-10-23 (collection 'From')",
+            "price_usd": 2315.0
+          },
+          {
+            "read_on": "2026-10-23 (PDP capture)",
+            "price_usd": 2465.0
+          },
+          {
+            "read_on": "2026-10-23T23:45Z (pass P17)",
+            "price_usd": 2445.0
+          }
+        ],
+        "note": "price_usd stays at the captured $2,465. The page is live again and prints $2,445; the collection 'From $2,297' widget figure is a cross-check only and was not substituted."
       }
     },
     {

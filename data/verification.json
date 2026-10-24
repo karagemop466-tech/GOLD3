@@ -1,6 +1,6 @@
 {
   "retrieved_utc": "2026-10-23",
-  "session": "arena/e6fe3e4f-gold3 (P1-P4) · arena/699d8e05-gold3 (P5) · arena/6d6192d1-gold3 (P6-P7) · arena/2908bea4-gold3 (P8) · arena/15b00e99-gold3 (P10) · arena/bfcd8465-gold3 (P11) · arena/57724486-gold3 (P12) · arena/fb7e5e3c-gold3 (P13) · arena/438a583e-gold3 (P14) · arena/db2fe957-gold3 (P15)",
+  "session": "arena/e6fe3e4f-gold3 (P1-P4) · arena/699d8e05-gold3 (P5) · arena/6d6192d1-gold3 (P6-P7) · arena/2908bea4-gold3 (P8) · arena/15b00e99-gold3 (P10) · arena/bfcd8465-gold3 (P11) · arena/57724486-gold3 (P12) · arena/fb7e5e3c-gold3 (P13) · arena/438a583e-gold3 (P14) · arena/db2fe957-gold3 (P15) · arena/1ee91485-gold3 (P17)",
   "method": "Every URL cited in data/rings.json, data/sellers.json and data/gold-price.json was opened again in this session on 2026-10-22. Each asserted value was compared against the text the page returned. A value that could not be found on the page was deleted or downgraded to unverified; a value that contradicted the page was corrected; a contradiction found on the page itself was raised as a flag. | Addendum 2026-10-23: the log now holds three independent passes. P1-P3 are the checks recorded by arena/e6fe3e4f-gold3 (ids V01-V37); the third pass (ids P3-01-P3-47, session arena/699d8e05-gold3) was appended from data/reverification-p3.json so that its 47 checks appear in this log instead of only in a separate file; the fourth pass (ids P4-01-P4-25, session arena/6d6192d1-gold3) was run on the merged tree on 2026-10-23 against the official pages. Older entries keep the date they were made.",
   "passes": [
     {
@@ -98,6 +98,13 @@
       "name": "Independent pass 15: Dataset C weights, NIST attribution, VRAI/Automic flags & calculator provenance (arena/db2fe957-gold3)",
       "what": "Additive net-new pass after peer P12-P14. Re-opened the five Dataset C rows with published weights, both NIST pages behind the conversion constant, VRAI R28, Automic R23 and the BND-06 identity used by the calculator. The peer-reviewed dated spot anchor and live-check reference were preserved.",
       "result": "11 checks: 7 confirmed, 3 corrected, 1 flagged. BND-04..BND-08 all matched verbatim; corrected the NIST attribution (F46), VRAI SPEC7 (F47), Automic R23 lead-time flag (F48), and the BND-06 calculator preset/product mismatch plus hardcoded ratios (F49). Combined current weight coverage is 19/19 when P14's 14 Dataset B checks are included."
+    },
+    {
+      "id": "P17",
+      "name": "Independent re-verification pass 17",
+      "what": "Re-read the gold-spot benchmark and every corroborating feed, plus a rotating sample of the highest-priced and weight-bearing R* rows, the weight-bearing Dataset C SOL/BND rows, and the Menē rows known to re-price. Every stored value was searched for verbatim.",
+      "result": "25 checks recorded (22 confirmed / 2 corrected / 1 flagged). Five independent gold-spot feeds read 2026-10-23T23:43-23:45Z cluster within 0.025% ($3,994.90-$3,995.88/oz) and sit 0.65% below the dated anchor. Wilson's R12, Sarraf R20/R21/R26/R27, Mejuri R01/BND-12, Blue Nile R08/SOL-01, Ross-Simons R15/BND-04/BND-05/BND-06/BND-08, Automic R24 and Brilliant Earth SOL-05 all matched verbatim. Menē R30 moved to $3,202 and BND-03's page recovered at $2,445; both were recorded additively. New finding F50. No stored value was overwritten.",
+      "urls_opened": 25
     }
   ],
   "checks": [
@@ -2920,6 +2927,282 @@
       ],
       "outcome": "corrected",
       "findings": "The official product is 'Italian 14kt Yellow Gold Diamond-Cut Dome Ring' (3/4 inch wide), not the template's 'Ross-Simons 6mm 14K Flat'. Calculator presets now derive the real product name, weight, price and ratio from Dataset C JSON; published as F49."
+    },
+    {
+      "id": "P17-01",
+      "kind": "benchmark",
+      "label": "GoldPrice.org live reading has drifted further below the dated anchor",
+      "url": "https://goldprice.org/",
+      "rows": [
+        "spot"
+      ],
+      "outcome": "flagged",
+      "findings": "Read 2026-10-23T23:43Z: 'Spot Gold Price: USD 3,995.88 / Ounce | Spot Silver Price: USD 53.92 / Ounce Oct 23rd, 2026 at 07:41 NY Time'. The dated primary snapshot is $4,022.22/oz, so the live reading is 0.655% below it. The calculation anchor is deliberately kept dated and reproducible; the live reading is recorded here and shown on the calculator, never fed into the melt arithmetic. Published as finding F50."
+    },
+    {
+      "id": "P17-02",
+      "kind": "benchmark",
+      "label": "World Gold Council goldhub spot corroboration",
+      "url": "https://www.gold.org/goldhub/data/gold-prices",
+      "rows": [
+        "spot"
+      ],
+      "outcome": "confirmed",
+      "findings": "Gold spot price USD /oz 3,995.47, 'Data as of 22 October, 2026', market data by ICE Data Services. Corroborates the four-feed live cluster (Kitco 3,994.90 / BullionVault 3,995.74 / GoldPrice.org 3,995.88) to within 0.025%."
+    },
+    {
+      "id": "P17-03",
+      "kind": "benchmark",
+      "label": "LBMA benchmark page and licensing note still correct",
+      "url": "https://www.lbma.org.uk/prices-and-data/lbma-precious-metal-prices",
+      "rows": [
+        "spot"
+      ],
+      "outcome": "confirmed",
+      "findings": "LBMA AM gold $4,026.70 23/10. The page still states the historical tabulated data moved to the MyLBMA Portal and requires an IBA licence, so no LBMA benchmark figure is reproduced in the project. Supports the standing LBMA note in data/prices.json."
+    },
+    {
+      "id": "P17-04",
+      "kind": "benchmark",
+      "label": "Kitco live bid corroboration",
+      "url": "https://www.kitco.com/gold-price-today-usa/",
+      "rows": [
+        "spot"
+      ],
+      "outcome": "confirmed",
+      "findings": "Bid $3,994.90, Ask $3,996.90, 'Oct 23, 2026 - 19:43 NY Time', -0.71%. Gold price per gram $128.44. Fourth independent feed confirming the live cluster."
+    },
+    {
+      "id": "P17-05",
+      "kind": "benchmark",
+      "label": "BullionVault live spot corroboration",
+      "url": "https://www.bullionvault.com/gold-price-chart.do",
+      "rows": [
+        "spot"
+      ],
+      "outcome": "confirmed",
+      "findings": "'Current Gold Price - $3,995.74 per Ounce', 'Gold Price per Gram $128.47', '23 October 2026, 17:00:00 (GMT-04:00)'. Fifth independent feed confirming the live cluster."
+    },
+    {
+      "id": "P17-06",
+      "kind": "ring",
+      "label": "Wilson's R12 Art Deco Lotus ring still $5,350 with its stamp and maker's mark",
+      "url": "https://www.wilsonsestatejewelry.com/products/art-deco-old-mine-cut-diamond-18-karat-white-gold-antique-lotus-engagement-ring-gia",
+      "rows": [
+        "R12"
+      ],
+      "outcome": "confirmed",
+      "findings": "'Sale price $5,350.00'; 'Stamped for 18 karat gold'; 'With partial maker's mark for Hedges & Co.'; 'Total Weight: 2.2 grams'. All four stored figures found verbatim; R12 remains one of the few rows that publishes both a karat stamp and a maker's mark."
+    },
+    {
+      "id": "P17-07",
+      "kind": "ring",
+      "label": "Sarraf R20 14k white gold solitaire still $3,004 / 3.80 g",
+      "url": "https://www.sarraf.com/products/14k-white-gold-solitaire-ring-0-94-ctw.html",
+      "rows": [
+        "R20"
+      ],
+      "outcome": "confirmed",
+      "findings": "'Now: US$3,004.00'; Material '14K Solid Gold'; 'Approximate Metal Weight: 3.80 grams'. Stored price, karat and weight all verbatim."
+    },
+    {
+      "id": "P17-08",
+      "kind": "ring",
+      "label": "Sarraf R26 18k men's solitaire still $4,068 / 6.30 g",
+      "url": "https://www.sarraf.com/products/18k-yellow-gold-mens-solitaire-diamond-ring-3-4-ct.html",
+      "rows": [
+        "R26"
+      ],
+      "outcome": "confirmed",
+      "findings": "'Now: US$4,068.00'; Material '18K Solid Gold'; 'Approximate Metal Weight: 6.30 grams'. Stored price, karat and weight all verbatim."
+    },
+    {
+      "id": "P17-09",
+      "kind": "ring",
+      "label": "Sarraf R21 10k comfort-fit band still $613 / 8.30 g",
+      "url": "https://www.sarraf.com/products/10k-gold-6mm-high-polished-comfort-fit-wedding-band.html",
+      "rows": [
+        "R21"
+      ],
+      "outcome": "confirmed",
+      "findings": "'Now: US$613.00'; Material '10K Solid Gold'; 'Approximate Metal Weight: 8.30 grams'. Stored price, karat and weight all verbatim. The page also prints 'The weight listed is an approximate weight of a ring in size 10', which is the WT3/WT4 caveat already recorded."
+    },
+    {
+      "id": "P17-10",
+      "kind": "ring",
+      "label": "Sarraf R27 14k CZ ring still $695 / 2.50 g",
+      "url": "https://www.sarraf.com/products/14k-yellow-gold-round-cut-8-8mm-wide-1-0ct-cz-engagement-ring.html",
+      "rows": [
+        "R27"
+      ],
+      "outcome": "confirmed",
+      "findings": "'Now: US$695.00'; Material '14K Solid Gold'; 'Approximate Metal Weight: 2.50 grams'. Stored price, karat and weight all verbatim."
+    },
+    {
+      "id": "P17-11",
+      "kind": "ring",
+      "label": "Mejuri R01 Bold Diamond Eternity Ring still 'From $2,900'",
+      "url": "https://mejuri.com/products/bold-diamond-eternity-ring",
+      "rows": [
+        "R01"
+      ],
+      "outcome": "confirmed",
+      "findings": "'From $2,900'; Material & Stone Options 'Solid White Gold (14k), Natural Diamond'; materials heading 'Solid Yellow Gold (14k)' (the SPEC8 mis-heading still prints above a white-gold selection); '14k solid white gold pieces are finished with rhodium plating' (RH1)."
+    },
+    {
+      "id": "P17-12",
+      "kind": "ring",
+      "label": "Blue Nile R08 self-contradiction (F1) still live",
+      "url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/floral-marquise-diamond-engagement-ring-in-18k-white-gold-item-203738",
+      "rows": [
+        "R08"
+      ],
+      "outcome": "confirmed",
+      "findings": "'$2,210 (Setting Price)'; spec 'Metal Type: 18K White Gold' and 'Rhodium Finish Yes', while the body prose still reads 'artfully crafted from warmly lustrous 14k yellow gold'. F1's contradiction is unchanged and remains published on flagged.html."
+    },
+    {
+      "id": "P17-13",
+      "kind": "ring",
+      "label": "Blue Nile SOL-01 classic four-prong solitaire still $1,125",
+      "url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/classic-four-prong-solitaire-engagement-ring-in-18k-yellow-gold-item-194158",
+      "rows": [
+        "SOL-01"
+      ],
+      "outcome": "confirmed",
+      "findings": "'$1,125 (Setting Price)'; 'Metal Type: 18K Yellow Gold'; 'platinum prongs'. Stored price, karat and the mixed-metal note all verbatim."
+    },
+    {
+      "id": "P17-14",
+      "kind": "ring",
+      "label": "Ross-Simons R15 2mm 18kt band still $249 / 0.7 g",
+      "url": "https://www.ross-simons.com/products/985230",
+      "rows": [
+        "R15"
+      ],
+      "outcome": "confirmed",
+      "findings": "'$249'; 'Metal 18kt Yellow Gold'; 'Gold Weight 0.7 grams'. Stored price, karat and weight all verbatim."
+    },
+    {
+      "id": "P17-15",
+      "kind": "ring",
+      "label": "Ross-Simons BND-04 2mm 14kt band still $400 / 1.7 g",
+      "url": "https://www.ross-simons.com/products/571221",
+      "rows": [
+        "BND-04"
+      ],
+      "outcome": "confirmed",
+      "findings": "'$400'; 'Metal 14kt Yellow Gold'; 'Gold Weight 1.7 grams'. Stored price, karat and weight all verbatim."
+    },
+    {
+      "id": "P17-16",
+      "kind": "ring",
+      "label": "Ross-Simons BND-05 4mm 14kt band still $949 / 4.2 g",
+      "url": "https://www.ross-simons.com/products/571212",
+      "rows": [
+        "BND-05"
+      ],
+      "outcome": "confirmed",
+      "findings": "'$949'; 'Metal 14kt Yellow Gold'; 'Gold Weight 4.2 grams'. Stored price, karat and weight all verbatim."
+    },
+    {
+      "id": "P17-17",
+      "kind": "ring",
+      "label": "Ross-Simons BND-06 Italian dome ring still $1,195 / 4.0 g",
+      "url": "https://www.ross-simons.com/products/823796",
+      "rows": [
+        "BND-06"
+      ],
+      "outcome": "confirmed",
+      "findings": "'Italian 14kt Yellow Gold Diamond-Cut Dome Ring'; '$1,195'; 'Metal 14kt Yellow Gold'; 'Gold Weight 4.0 grams'; width 3/4 inch. Confirms the F49 correction (the real product behind the calculator preset)."
+    },
+    {
+      "id": "P17-18",
+      "kind": "ring",
+      "label": "Ross-Simons BND-08 22kt coin ring still $3,295 / 5.9 g",
+      "url": "https://www.ross-simons.com/products/993085",
+      "rows": [
+        "BND-08"
+      ],
+      "outcome": "confirmed",
+      "findings": "'Men's 22kt Yellow Gold American Eagle Coin Ring in 14kt Yellow Gold'; '$3,295'; 'Metal 14kt and 22kt Gold'; 'Gold Weight 5.9 grams'. Stored price, mixed-karat label and weight all verbatim."
+    },
+    {
+      "id": "P17-19",
+      "kind": "ring",
+      "label": "Mejuri BND-12 2mm smooth band still $498 / Solid Yellow Gold (14k)",
+      "url": "https://mejuri.com/products/2mm-smooth-band?Material=Solid+Yellow+Gold+%2814k%29",
+      "rows": [
+        "BND-12"
+      ],
+      "outcome": "confirmed",
+      "findings": "'$498'; Material 'Solid Yellow Gold (14k)'; 'Width: 2 mm'; 'Thickness: 1.3 mm'. Stored price, karat and the explicit solid-gold wording all verbatim."
+    },
+    {
+      "id": "P17-20",
+      "kind": "ring",
+      "label": "Menē R30 Wrap Ring moved again, to $3,202",
+      "url": "https://mene.com/products/wrap-ring-gold",
+      "rows": [
+        "R30"
+      ],
+      "outcome": "corrected",
+      "findings": "Product page reads '$3,202 USD' at 2026-10-23T23:45Z. The captured price_usd stays $3,253 (2026-10-22) and the P4 live reading $3,228 is kept, so a third history entry ($3,202) was appended to live_recheck. The stored figure was deliberately not overwritten so the continued movement stays visible. Extends F40/PRC1."
+    },
+    {
+      "id": "P17-21",
+      "kind": "ring",
+      "label": "Menē BND-01 Classic Band still $1,694",
+      "url": "https://mene.com/products/mene-classic-band-gold",
+      "rows": [
+        "BND-01"
+      ],
+      "outcome": "confirmed",
+      "findings": "'Classic Band ... $1,694 ... USD'; 'Metal: 24k Gold'; 'Width: 5mm Thickness: 2mm'. The P12 live figure now matches the stored price_usd exactly, so no change was needed."
+    },
+    {
+      "id": "P17-22",
+      "kind": "ring",
+      "label": "Menē BND-02 Narrow Flat Band still $1,532",
+      "url": "https://mene.com/products/mene-narrow-flat-band-gold",
+      "rows": [
+        "BND-02"
+      ],
+      "outcome": "confirmed",
+      "findings": "'Narrow Flat Band ... $1,532 ... USD'; 'Metal: 24k Gold'; 'Width: 4mm Thickness: 2mm'. The P12 live figure now matches the stored price_usd exactly, so no change was needed."
+    },
+    {
+      "id": "P17-23",
+      "kind": "ring",
+      "label": "Menē BND-03 Wide Flat Band page recovered and now reads $2,445",
+      "url": "https://mene.com/products/mene-wide-flat-band-gold",
+      "rows": [
+        "BND-03"
+      ],
+      "outcome": "corrected",
+      "findings": "The page that answered HTTP 500 in P12 now loads and prints 'Wide Flat Band ... $2,445 ... USD' at 2026-10-23T23:45Z. The captured price_usd stays $2,465; a live_recheck entry with the new reading was added and the SRC3 note updated to record that the page is live again. The collection 'From $2,297' widget figure is still only a cross-check and was not substituted."
+    },
+    {
+      "id": "P17-24",
+      "kind": "ring",
+      "label": "Automic Gold R24 Claddagh Ring still $875 / Solid 14k Gold and 950 Platinum",
+      "url": "https://www.automicgold.com/products/claddagh-ring",
+      "rows": [
+        "R24"
+      ],
+      "outcome": "confirmed",
+      "findings": "'$875'; 'Solid 14k Gold and 950 Platinum'; 'Production time is 1 to 5 business days'; 'Free returns (US only)'. The stored price, metal and production-time quote are verbatim; the 2.3 g / 3.4 g weight split was read in an earlier chunk of the same page by P11/P15 and is unchanged."
+    },
+    {
+      "id": "P17-25",
+      "kind": "ring",
+      "label": "Brilliant Earth SOL-05 Fairmined solitaire still $1,090, with F27 band-width bug and no resizing",
+      "url": "https://www.brilliantearth.com/Fairmined-2mm-Six-Prong-Solitaire-Ring-Gold-BE1FM0126-24910022/",
+      "rows": [
+        "SOL-05",
+        "R29"
+      ],
+      "outcome": "confirmed",
+      "findings": "'fairmined 2mm six-prong solitaire -$1,090'; 'Metal: 18K Yellow Gold'; the Ring Information spec table still prints 'Band Width: 2 ct. tw.' (the F27 template bug); and 'Due to the materials and distinctive design of this style, resizing is not available for this ring.' Confirms the stored price, the mixed-surface template defect and the resize exclusion."
     }
   ],
   "discrepancies": [
@@ -3015,13 +3298,14 @@
   ],
   "not_rechecked": [],
   "summary": {
-    "checks": 222,
-    "confirmed": 108,
-    "corrected": 77,
-    "flagged": 37,
-    "urls_opened": 222,
+    "checks": 247,
+    "confirmed": 130,
+    "corrected": 79,
+    "flagged": 38,
+    "urls_opened": 247,
     "site_defects_fixed": 19,
-    "p15_note": "P15 added 11 net-new checks after P12-P14 (7 confirmed, 3 corrected, 1 flagged). It preserves the dated calculation anchor and adds Dataset C weight coverage, NIST/VRAI/Automic corrections and JSON-derived calculator presets."
+    "p15_note": "P15 added 11 net-new checks after P12-P14 (7 confirmed, 3 corrected, 1 flagged). It preserves the dated calculation anchor and adds Dataset C weight coverage, NIST/VRAI/Automic corrections and JSON-derived calculator presets.",
+    "p17_note": "Pass P17 (arena/1ee91485-gold3) re-opened 25 official URLs live on 2026-10-23T23:43-23:45Z: the five gold-spot feeds plus 20 product rows. All stored prices/weights matched verbatim except the two Menē rows that moved again. The dated calculation anchor is unchanged; the newest live-check snapshot is now shown on the calculator."
   },
   "site_defects": [
     {

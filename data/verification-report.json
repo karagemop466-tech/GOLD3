@@ -676,6 +676,11 @@
       "id": "F49",
       "severity": "low",
       "title": "A calculator preset label did not match the sourced ring, and band ratios were hardcoded"
+    },
+    {
+      "id": "F50",
+      "severity": "medium",
+      "title": "The live gold spot keeps drifting below the dated anchor, and Menē repriced again"
     }
   ],
   "parallel_dataset": {
