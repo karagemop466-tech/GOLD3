@@ -9,7 +9,7 @@ It publishes as a static site on GitHub Pages and is generated entirely from mac
 > **blank** and marked **unverified** — it is never estimated, inferred, or filled in to make a row
 > look complete. **Recommendation:** actively look for hallucinations on every review pass by clicking the official source link on every row, re-checking live prices/weights before buying, and running all automated security checks below.
 
-**Prices captured:** 22 October 2026 · **re-verified live:** 23 October 2026 (passes `P1`–`P17`, **258 logged checks**) · **71 rows** — Dataset A 19, Dataset B 31, Dataset C 21 · **16 sellers** · **19 published weights** (14 in Dataset B, 5 in Dataset C)
+**Price snapshots:** 22–23 October 2026 · **P17 official-source review:** 23 October 2026 (passes `P1`–`P17`, **253 logged checks**) · **71 rows** — Dataset A 19, Dataset B 31, Dataset C 21 · **16 sellers** · **19 published weights** (14 in Dataset B, 5 in Dataset C)
 
 ---
 
@@ -61,17 +61,16 @@ npm --prefix archive/session-cbea1001 test  # Node anti-hallucination, melt-math
 All checks run in CI on every push and pull request (`.github/workflows/audit.yml`). The site is generated, so
 editing HTML by hand is pointless: change `data/*.json` or `scripts/build_site.py`, then rebuild.
 
-## What the final independent pass changed (23 October 2026 — Pass P17)
+## What Pass P17 changed (23 October 2026)
 
-Pass `P17` re-opened **all 19 Dataset A product pages**, five seller return-policy pages, five Trustpilot profiles, two live gold feeds, both NIST conversion authorities and 16 CFR 23.10: **13 confirmed · 21 corrected · 2 flagged** (`data/reverification-p17.json`, `reports/reverification-pass-p17.md`, ledger `P17-01`…`P17-36`). No Dataset A price changed.
+All **19 Dataset A official product sources**, five seller-policy records, five Trustpilot profiles, Ross-Simons Item 571221 and four spot publishers were re-read: **31 checks — 10 confirmed, 18 corrected, 3 flagged**. Every Dataset A numeric price was confirmed with **zero price changes**; no published gram weight changed. See `reports/reverification-pass-p17.md` and `data/reverification-p17.json`.
 
-* **Trustpilot drift:** Aurate 4,876, Blue Nile 1,937 and Mejuri 5,785 live totals — plus Blue Nile's 97% and Mejuri's 98% reply rates — replaced stale figures. Ring Concierge's 7-review warning and Catbird's 56-review warning remain explicit (`F50`).
-* **Source precision:** six rows whose prices/materials were cited through collection pages now point to the exact PDP that prints them; Catbird's word "Solid" is labelled as page-title metadata rather than the visible product heading (`F51`).
-* **Aurate evidence cleanup:** duplicate flags, a stale `$4,026.79` note, redirecting policy URLs and solitaire-template clarity text on three bezel pages were replaced with each live page's own wording. Published Aurate weights remain ranges or unscoped totals; no exact ring weight is inferred (`F52`).
-* **Ring Concierge correction:** the 2.72 ct record now says live **E VVS2**, and the misapplied "purity not in body text" flags were removed because the Details accordion states 14K yellow gold with platinum prongs (`F53`).
-* **Gold price discipline:** fresh GoldPrice.org `$3,995.88/oz` and Kitco `$3,994.90/oz` readings agree within 0.0245% but sit 0.65% below the preserved `$4,022.22/oz` calculation anchor. They are labelled reference observations; dated melt figures remain reproducible (`F54`).
-* **Change requests closed:** CR-P15-1's NIST attribution was corrected with the original assertion preserved; CR-P15-2's report bundle retains both historical reports under clear headings with all conflict markers removed (`F55`).
-* **Standing recommendation:** run every gate below after each review and actively hunt hallucinations by opening every row's official source. Re-read live prices immediately before buying.
+* Removed unsupported assertions that Aurate's listed diamond mass was included in its listed ring weight. Ambiguous weights stay null, and conflicting bezel title/spec carat values are no longer assigned one numeric value.
+* Corrected current Blue Nile stock/width pairs, Mejuri Stacker's `Width: 1 mm`, Aurate bezel dimensions/clarity, Ring Concierge metal provenance, seller-policy drift and Trustpilot sample counts.
+* Replaced Mejuri's blanket no-hallmark flag with an explicit **alt-text-only purity stamp** warning: alt text is not visual verification and does not establish a maker's mark.
+* Ross-Simons weights remain published but are correctly labelled **approximate**, not exact; weight, geometry and customer reviews are not treated as proof of solid construction.
+* The live spot reference is corroborated by four feeds within **0.025%** and sits **0.65% below** the morning anchor. Calculations still use the dated **$4,022.22/oz** primary snapshot for reproducibility.
+* Published findings **F50–F55** and added guards for duplicate flags, stale source wording and unsupported inclusion/solidity inferences.
 
 ## What the ninth pass changed (23 October 2026 — Pass P13)
 

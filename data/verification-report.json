@@ -37,12 +37,11 @@
       "solid_gold": true,
       "flags": [
         "SOLID_NOT_ON_LISTING",
-        "WEIGHT_NOT_PUBLISHED",
         "WEIGHT_RANGE_ONLY",
         "EXCHANGE_ONLY_FINAL_SALE",
         "PAGE_SELF_CONTRADICTION",
         "HALLMARK_NOT_STATED",
-        "FINAL_SALE_PDP_OVERRIDE"
+        "WEIGHT_SCOPE_UNVERIFIED"
       ],
       "derived": {
         "karat": "14K",
@@ -59,12 +58,11 @@
       "solid_gold": true,
       "flags": [
         "SOLID_NOT_ON_LISTING",
-        "WEIGHT_NOT_PUBLISHED",
         "HALLMARK_NOT_STATED",
-        "FINAL_SALE_PDP_OVERRIDE",
         "WEIGHT_RANGE_ONLY",
         "EXCHANGE_ONLY_FINAL_SALE",
-        "PAGE_SELF_CONTRADICTION"
+        "PAGE_SELF_CONTRADICTION",
+        "WEIGHT_SCOPE_UNVERIFIED"
       ],
       "derived": {
         "karat": "14K",
@@ -81,11 +79,10 @@
       "solid_gold": true,
       "flags": [
         "SOLID_NOT_ON_LISTING",
-        "WEIGHT_NOT_PUBLISHED",
         "HALLMARK_NOT_STATED",
-        "FINAL_SALE_PDP_OVERRIDE",
         "EXCHANGE_ONLY_FINAL_SALE",
-        "PAGE_SELF_CONTRADICTION"
+        "PAGE_SELF_CONTRADICTION",
+        "WEIGHT_SCOPE_UNVERIFIED"
       ],
       "derived": {
         "karat": "14K",
@@ -102,11 +99,10 @@
       "solid_gold": true,
       "flags": [
         "SOLID_NOT_ON_LISTING",
-        "WEIGHT_NOT_PUBLISHED",
         "HALLMARK_NOT_STATED",
-        "FINAL_SALE_PDP_OVERRIDE",
         "EXCHANGE_ONLY_FINAL_SALE",
-        "PAGE_SELF_CONTRADICTION"
+        "PAGE_SELF_CONTRADICTION",
+        "WEIGHT_SCOPE_UNVERIFIED"
       ],
       "derived": {
         "karat": "14K",
@@ -123,12 +119,11 @@
       "solid_gold": true,
       "flags": [
         "SOLID_NOT_ON_LISTING",
-        "WEIGHT_NOT_PUBLISHED",
         "HALLMARK_NOT_STATED",
-        "FINAL_SALE_PDP_OVERRIDE",
         "WEIGHT_RANGE_ONLY",
         "EXCHANGE_ONLY_FINAL_SALE",
-        "PAGE_SELF_CONTRADICTION"
+        "PAGE_SELF_CONTRADICTION",
+        "WEIGHT_SCOPE_UNVERIFIED"
       ],
       "derived": {
         "karat": "14K",
@@ -145,12 +140,11 @@
       "solid_gold": true,
       "flags": [
         "SOLID_NOT_ON_LISTING",
-        "WEIGHT_NOT_PUBLISHED",
         "HALLMARK_NOT_STATED",
-        "FINAL_SALE_PDP_OVERRIDE",
         "WEIGHT_RANGE_ONLY",
         "EXCHANGE_ONLY_FINAL_SALE",
-        "PAGE_SELF_CONTRADICTION"
+        "PAGE_SELF_CONTRADICTION",
+        "WEIGHT_SCOPE_UNVERIFIED"
       ],
       "derived": {
         "karat": "14K",
@@ -167,11 +161,10 @@
       "solid_gold": true,
       "flags": [
         "SOLID_NOT_ON_LISTING",
-        "WEIGHT_NOT_PUBLISHED",
         "HALLMARK_NOT_STATED",
-        "FINAL_SALE_PDP_OVERRIDE",
         "EXCHANGE_ONLY_FINAL_SALE",
-        "PAGE_SELF_CONTRADICTION"
+        "PAGE_SELF_CONTRADICTION",
+        "WEIGHT_SCOPE_UNVERIFIED"
       ],
       "derived": {
         "karat": "14K",
@@ -302,8 +295,8 @@
       "solid_gold": true,
       "flags": [
         "WEIGHT_NOT_PUBLISHED",
-        "HALLMARK_NOT_STATED",
-        "NOT_ENGAGEMENT_RING"
+        "NOT_ENGAGEMENT_RING",
+        "HALLMARK_ALT_TEXT_ONLY"
       ],
       "derived": {
         "karat": "10K",
@@ -571,7 +564,7 @@
     {
       "id": "F30",
       "severity": "high",
-      "title": "All seven Aurate engagement listings conflict 'Free Returns' with 'Exchange for size only. Final Sale!' — and two bezels misstate carat weight in their titles"
+      "title": "All seven Aurate engagement listings conflict 'Free Returns' with 'Exchange for size only. Final Sale!' — and two bezels have major title/spec carat differences"
     },
     {
       "id": "F31",
@@ -670,33 +663,33 @@
     },
     {
       "id": "F50",
-      "severity": "low",
-      "title": "Live Trustpilot counts drifted; displayed figures were refreshed"
+      "severity": "medium",
+      "title": "Aurate records inferred stone-weight inclusion and carried stale bezel specifications"
     },
     {
       "id": "F51",
-      "severity": "low",
-      "title": "Several Dataset A prices were sourced one level too broadly"
+      "severity": "medium",
+      "title": "Mejuri Stacker width, solid-gold quotation and hallmark flag had drifted from the official page"
     },
     {
       "id": "F52",
       "severity": "medium",
-      "title": "Aurate legacy flags contained duplicate entries and claims the bezel pages do not print"
+      "title": "Ross-Simons rows called approximate weights 'exact' and used unsupported proof of solid construction"
     },
     {
       "id": "F53",
-      "severity": "low",
-      "title": "Ring Concierge 2.72 clarity note did not match its own PDP"
+      "severity": "medium",
+      "title": "Mejuri return exclusions were broader than the current official policy"
     },
     {
       "id": "F54",
-      "severity": "medium",
-      "title": "Fresh gold feeds sit below the preserved calculation anchor"
+      "severity": "low",
+      "title": "P17 corrected stale Blue Nile specifications and false Ring Concierge purity flags"
     },
     {
       "id": "F55",
       "severity": "low",
-      "title": "Two historical documentation change requests were closed without discarding evidence"
+      "title": "P17 four-feed spot check corroborates the live reference; the dated calculation anchor is unchanged"
     }
   ],
   "parallel_dataset": {

@@ -30,17 +30,17 @@
   <h1>Verification log</h1>
   <p class="lead">Every URL this project relies on was opened again on <strong>2026-10-23</strong> and the stored
   value was checked against the text the page returned. This page records what was confirmed, what was corrected, and the
-  values that were <em>deleted</em> because the page never printed them. Session <span class="mono">arena/e6fe3e4f-gold3 (P1-P4) · arena/699d8e05-gold3 (P5) · arena/6d6192d1-gold3 (P6-P7) · arena/2908bea4-gold3 (P8) · arena/15b00e99-gold3 (P10) · arena/bfcd8465-gold3 (P11) · arena/57724486-gold3 (P12) · arena/fb7e5e3c-gold3 (P13) · arena/438a583e-gold3 (P14) · arena/db2fe957-gold3 (P15) · arena/bd0ed905-gold3 (P17)</span>.</p>
+  values that were <em>deleted</em> because the page never printed them. Session <span class="mono">arena/e6fe3e4f-gold3 (P1-P4) · arena/699d8e05-gold3 (P5) · arena/6d6192d1-gold3 (P6-P7) · arena/2908bea4-gold3 (P8) · arena/15b00e99-gold3 (P10) · arena/bfcd8465-gold3 (P11) · arena/57724486-gold3 (P12) · arena/fb7e5e3c-gold3 (P13) · arena/438a583e-gold3 (P14) · arena/db2fe957-gold3 (P15) · arena/36ebce13-gold3 (P17)</span>.</p>
 </div>
 
 <div class="grid cols-3" style="grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin-bottom:8px">
-  <div class="kpi"><div class="label">URLs opened</div><div class="value">258</div>
+  <div class="kpi"><div class="label">URLs opened</div><div class="value">253</div>
     <div class="sub">each one fetched, not assumed</div></div>
-  <div class="kpi"><div class="label">Confirmed as stored</div><div class="value">121</div>
+  <div class="kpi"><div class="label">Confirmed as stored</div><div class="value">118</div>
     <div class="sub">value found verbatim on the page</div></div>
-  <div class="kpi"><div class="label">Rows corrected</div><div class="value">98</div>
+  <div class="kpi"><div class="label">Rows corrected</div><div class="value">95</div>
     <div class="sub">the page said something different</div></div>
-  <div class="kpi"><div class="label">Newly flagged</div><div class="value">39</div>
+  <div class="kpi"><div class="label">Newly flagged</div><div class="value">40</div>
     <div class="sub">page contradicts itself or the listing</div></div>
 </div>
 
@@ -48,7 +48,7 @@
 <div class="table-wrap">
   <table style="min-width:720px">
     <thead><tr><th>#</th><th>Pass</th><th>Result</th><th>Source</th></tr></thead>
-    <tbody><tr><td class="mono">P1</td><td><strong>Fact pass</strong><div class="small muted">For every row, each stored number and quote was searched for in the freshly fetched page text.</div></td><td class="small">22/22 rows re-read; 9 rows corrected; 3 rows added.</td><td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo</a></td></tr><tr><td class="mono">P2</td><td><strong>Request pass</strong><div class="small muted">Checked that every row&#x27;s product URL returns the product it claims to be — not a redirect to something else, not a sold-out placeholder, not a dead link.</div></td><td class="small">1 redirect (R17), 1 sold-out/back-order state (R18), 1 identifier mismatch (R10), 0 dead links.</td><td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo</a></td></tr><tr><td class="mono">P3</td><td><strong>Internet pass</strong><div class="small muted">Each cited URL was opened rather than trusted: host checked against the seller&#x27;s own domain, and the exact wording quoted.</div></td><td class="small">28 URLs opened; 0 unreachable; 0 off-domain citations.</td><td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo</a></td></tr><tr><td class="mono">P4</td><td><strong>Hallucination pass</strong><div class="small muted">Deliberately hostile re-read: any figure that felt plausible but was not literally on the page was removed. This is what caught the &#x27;white/rose gold &amp; platinum also offered&#x27; phrases on five Blue Nile rows and two Mejuri rows.</div></td><td class="small">7 metal-option claims deleted; 1 price basis corrected; 1 temporary provenance flag retired.</td><td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo</a></td></tr><tr><td class="mono">P5</td><td><strong>Independent re-verification pass 3 (arena/699d8e05-gold3)</strong><div class="small muted">47 official URLs re-opened; the pass found a fee attributed to the wrong seller, two dead source URLs and a wrong e-mail address, and filed ten change requests.</div></td><td class="small">27 confirmed, 13 corrected, 7 flagged.</td><td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo</a></td></tr><tr><td class="mono">P6</td><td><strong>Independent re-verification pass 4 (arena/6d6192d1-gold3)</strong><div class="small muted">25 official URLs re-opened on the merged tree (5663d5e) with every stored price, weight and policy term searched for in the returned text; the ten open CR-P3 change requests were reviewed and, where this pass could confirm it, closed.</div></td><td class="small">15 confirmed, 8 corrected, 2 flagged.</td><td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo</a></td></tr><tr><td class="mono">P7</td><td><strong>Targeted pass 5: every published weight re-read (arena/6d6192d1-gold3)</strong><div class="small muted">Every Dataset B row that publishes a finished-weight figure was looked at again, because weight is the only input the melt calculator takes from a seller. The Automic Gold product pages hide their text behind a cookie-consent wall, so chunks 4-5 were read instead of chunk 0.</div></td><td class="small">3 confirmed, 3 corrected, 1 flagged, plus the 16 CFR 23.10 text read in full; R24&#x27;s weight, R25 and R28 remain un-re-checked.</td><td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo</a></td></tr><tr><td class="mono">P8</td><td><strong>Independent pass 6: Dataset C + Dataset D URL &amp; value sweep (arena/2908bea4-gold3)</strong><div class="small muted">58 official URLs opened live across Dataset C (all 21 ring listings, 5 sellers, 5 BBB profiles, spot &amp; statutory standards) and Dataset D (R23-R31 + 4 sellers), checking every stored price, gram weight, hallmark claim, phone/email, and HTTP status.</div></td><td class="small">Blanked client-JS-only weights on BND-01..BND-03; fixed unsupported hallmarks on 13 more Dataset C rows; repointed 8 broken 404/500/redirect URLs and 3 wrong seller phone/email records; confirmed R24/R25/R28/R29/R31 and BND-05..BND-08.</td><td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo</a></td></tr><tr><td class="mono">P9</td><td><strong>Independent pass 7: Complete closure of all remaining un-rechecked rows (arena/1162b2db-gold3)</strong><div class="small muted">Opened all remaining URLs listed in not_rechecked live on 2026-10-23 across Dataset A (all 7 Aurate PDPs, Ring Concierge ×2, Catbird PDP &amp; return_form.pdf, Blue Nile collection, LBMA) and Dataset B/D (R02, R03 direct PDP, R17, R19, R22, R24, R28), reducing not_rechecked to [] (0 remaining).</div></td><td class="small">Upgraded all 7 Aurate PDPs (clearing all 5 PRICE_NOT_RECONFIRMED flags and flagging Final Sale + 30% MTO fee as F25); caught Mejuri R03 direct PDP at From $898 vs $648 collection figure (+38.6%, F26); documented VRAI/BE template bugs (F27); confirmed R02, R17, R19, Ring Concierge ×2, Catbird PDF (+1-718-599-2340), Blue Nile, and LBMA.</td><td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo</a></td></tr><tr><td class="mono">P10</td><td><strong>Pass P10 — §11.3 backlog, R24/R25 platinum weight correction, Ring Concierge &amp; dead-URL sweep + §11.3 backlog + URL-manifest sweep (arena/15b00e99-gold3)</strong><div class="small muted">Opened all 21 Dataset C product pages, all 5 Dataset C seller policy/BBB profiles, 4 spot benchmarks, statutory/GIA/NIST pages, every skipped row from §11.3 (Aurate x7, Ring Concierge x2, R02, R03, R17, R19, R22, R24, R25, R28, R29, R31), and swept unique URLs across data/*.json.</div></td><td class="small">26 checks recorded (9 confirmed, 12 corrected, 5 flagged): Menē JS-gated weights nulled (BND-01..03), R03 upgraded to PDP ($898 vs $648), R24/R25 metal-dependent weights fixed, Ring Concierge 2.08 vs 5.63 ct &amp; 7-day bridal window caught, 5 dead 404/500 seller/flag URLs &amp; 2 mis-transcribed phones fixed.</td><td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo</a></td></tr><tr><td class="mono">P11</td><td><strong>Pass 11 (reverification-p6): complete multi-chunk &amp; repo-wide URL sweep (arena/a05b3c00-gold3)</strong><div class="small muted">Every URL across Datasets A (19), B (31 + 4 excluded), C (21 + 5 sellers + standards), and sources-manifest.json — including all 19 previously un-rechecked URLs and chunks 1–5 of truncated product pages — was fetched live on 2026-10-23.</div></td><td class="small">1 confirmed, 15 corrected, 4 flagged across 20 consolidated checks; recovered R13 6.5g weight, restored Sarraf ±5% quotes on R26/R27, corrected SEL-MENE false &#x27;D+&#x27; BBB grade, fixed 9 broken/404/500 URLs, and reduced not_rechecked to 0.</td><td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo</a></td></tr><tr><td class="mono">P11b</td><td><strong>Independent pass: Deep-chunk Automic Gold &amp; flag-source sweep + UI consistency repair (arena/bfcd8465-gold3)</strong><div class="small muted">Read past Automic Gold&#x27;s 4-chunk CookieYes banner on /policies/refund-policy (chunk 4), /pages/privacy-policy (chunks 4-5), claddagh-ring (chunk 5), and gemstone-flower-ring (chunk 2), swept all flag sources in data/flags.json, and audited nav/footnote/weight-range consistency.</div></td><td class="small">2 corrected (P11-01..P11-02): removed unsourced phone +1-929-307-2378 on S-AUTOMIC, restored Automic 14-day restocking-fee rule (RET14) &amp; resize clause, confirmed R24 (2.3g/3.5g) &amp; R25 (1.4g/2.1g) in chunks 5 &amp; 2, and fixed Combined (71) nav + Aurate weight-range badge.</td><td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo</a></td></tr><tr><td class="mono">P12</td><td><strong>Pass 12 — live spot, Sarraf, all three Menē bands, Ross-Simons weight row and the Mejuri PDP (arena/57724486-gold3)</strong><div class="small muted">Re-opened 7 official URLs live on 2026-10-23 after PR #50: the GoldPrice.org spot page, Sarraf R20, the three Menē 24k product pages, Ross-Simons BND-04 and Mejuri R03. Each stored price, weight and quote was searched for in the returned text.</div></td><td class="small">3 confirmed, 2 corrected, 2 flagged: spot anchor 0.62% below the stored snapshot with an inverted clock label, Menē Classic Band and Narrow Flat Band repriced down again (1707 -&gt; 1694, 1544 -&gt; 1532), Menē Wide Flat Band page returned HTTP 500 so its price was left as captured, and two record-keeping defects (duplicate check ids P11-01/P11-02 and a stale summary.checks of 137 for 185 entries) were found and fixed.</td><td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo</a></td></tr><tr><td class="mono">P13</td><td><strong>Independent pass 9 (P13): Mejuri heading contradiction, Dataset B/C karat coverage and stale-prose repair (arena/fb7e5e3c-gold3)</strong><div class="small muted">Seven official pages re-opened live on 2026-10-23 (Mejuri R01/R02/R03, Ross-Simons R15/R16, Sarraf R20/R21, Local Eclectic R31), searching each stored price, karat, weight and quote for in the returned text. The pass then audited the repo&#x27;s own flag definitions, the karat category pages and the prose typed into scripts/build_site.py against data/*.json. The spot re-read recorded by this session is folded into P12-01, which used the same live readings.</div></td><td class="small">7 checks recorded: 5 confirmed, 1 corrected at the data level, 1 flagged - plus three site defects (SD18-SD20).</td><td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo</a></td></tr><tr><td class="mono">P14</td><td><strong>Full weight-bearing pass</strong><div class="small muted">Re-opened every listing that publishes a gram weight, plus four independent gold-spot feeds, and re-checked the melt arithmetic against the dated anchor.</div></td><td class="small">17 URLs opened; 10 confirmed, 1 flagged (spot drift, already F39), 0 corrected. 0 price changes, 0 weight changes, 0 dead links across all 14 weight-bearing rows.</td><td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo</a></td></tr><tr><td class="mono">P15</td><td><strong>Independent pass 15: Dataset C weights, NIST attribution, VRAI/Automic flags &amp; calculator provenance (arena/db2fe957-gold3)</strong><div class="small muted">Additive net-new pass after peer P12-P14. Re-opened the five Dataset C rows with published weights, both NIST pages behind the conversion constant, VRAI R28, Automic R23 and the BND-06 identity used by the calculator. The peer-reviewed dated spot anchor and live-check reference were preserved.</div></td><td class="small">11 checks: 7 confirmed, 3 corrected, 1 flagged. BND-04..BND-08 all matched verbatim; corrected the NIST attribution (F46), VRAI SPEC7 (F47), Automic R23 lead-time flag (F48), and the BND-06 calculator preset/product mismatch plus hardcoded ratios (F49). Combined current weight coverage is 19/19 when P14&#x27;s 14 Dataset B checks are included.</td><td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo</a></td></tr><tr><td class="mono">P17</td><td><strong>Final independent Dataset A / seller-policy hallucination hunt and documentation closeout</strong><div class="small muted">Re-opened all 19 Dataset A PDPs, five return-policy pages, five Trustpilot profiles, two live gold feeds, both NIST conversion authorities and 16 CFR 23.10 on 2026-10-23T23:46:52Z; corrected source-link scope, review-count drift, flag-note inaccuracies and two open change requests.</div></td><td class="small">36 checks: 13 confirmed, 21 corrected, 2 flagged. 0 Dataset A price changes. Preserved the dated calculation anchor; fresh feeds published as labelled reference checks.</td><td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo</a></td></tr></tbody>
+    <tbody><tr><td class="mono">P1</td><td><strong>Fact pass</strong><div class="small muted">For every row, each stored number and quote was searched for in the freshly fetched page text.</div></td><td class="small">22/22 rows re-read; 9 rows corrected; 3 rows added.</td><td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo</a></td></tr><tr><td class="mono">P2</td><td><strong>Request pass</strong><div class="small muted">Checked that every row&#x27;s product URL returns the product it claims to be — not a redirect to something else, not a sold-out placeholder, not a dead link.</div></td><td class="small">1 redirect (R17), 1 sold-out/back-order state (R18), 1 identifier mismatch (R10), 0 dead links.</td><td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo</a></td></tr><tr><td class="mono">P3</td><td><strong>Internet pass</strong><div class="small muted">Each cited URL was opened rather than trusted: host checked against the seller&#x27;s own domain, and the exact wording quoted.</div></td><td class="small">28 URLs opened; 0 unreachable; 0 off-domain citations.</td><td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo</a></td></tr><tr><td class="mono">P4</td><td><strong>Hallucination pass</strong><div class="small muted">Deliberately hostile re-read: any figure that felt plausible but was not literally on the page was removed. This is what caught the &#x27;white/rose gold &amp; platinum also offered&#x27; phrases on five Blue Nile rows and two Mejuri rows.</div></td><td class="small">7 metal-option claims deleted; 1 price basis corrected; 1 temporary provenance flag retired.</td><td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo</a></td></tr><tr><td class="mono">P5</td><td><strong>Independent re-verification pass 3 (arena/699d8e05-gold3)</strong><div class="small muted">47 official URLs re-opened; the pass found a fee attributed to the wrong seller, two dead source URLs and a wrong e-mail address, and filed ten change requests.</div></td><td class="small">27 confirmed, 13 corrected, 7 flagged.</td><td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo</a></td></tr><tr><td class="mono">P6</td><td><strong>Independent re-verification pass 4 (arena/6d6192d1-gold3)</strong><div class="small muted">25 official URLs re-opened on the merged tree (5663d5e) with every stored price, weight and policy term searched for in the returned text; the ten open CR-P3 change requests were reviewed and, where this pass could confirm it, closed.</div></td><td class="small">15 confirmed, 8 corrected, 2 flagged.</td><td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo</a></td></tr><tr><td class="mono">P7</td><td><strong>Targeted pass 5: every published weight re-read (arena/6d6192d1-gold3)</strong><div class="small muted">Every Dataset B row that publishes a finished-weight figure was looked at again, because weight is the only input the melt calculator takes from a seller. The Automic Gold product pages hide their text behind a cookie-consent wall, so chunks 4-5 were read instead of chunk 0.</div></td><td class="small">3 confirmed, 3 corrected, 1 flagged, plus the 16 CFR 23.10 text read in full; R24&#x27;s weight, R25 and R28 remain un-re-checked.</td><td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo</a></td></tr><tr><td class="mono">P8</td><td><strong>Independent pass 6: Dataset C + Dataset D URL &amp; value sweep (arena/2908bea4-gold3)</strong><div class="small muted">58 official URLs opened live across Dataset C (all 21 ring listings, 5 sellers, 5 BBB profiles, spot &amp; statutory standards) and Dataset D (R23-R31 + 4 sellers), checking every stored price, gram weight, hallmark claim, phone/email, and HTTP status.</div></td><td class="small">Blanked client-JS-only weights on BND-01..BND-03; fixed unsupported hallmarks on 13 more Dataset C rows; repointed 8 broken 404/500/redirect URLs and 3 wrong seller phone/email records; confirmed R24/R25/R28/R29/R31 and BND-05..BND-08.</td><td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo</a></td></tr><tr><td class="mono">P9</td><td><strong>Independent pass 7: Complete closure of all remaining un-rechecked rows (arena/1162b2db-gold3)</strong><div class="small muted">Opened all remaining URLs listed in not_rechecked live on 2026-10-23 across Dataset A (all 7 Aurate PDPs, Ring Concierge ×2, Catbird PDP &amp; return_form.pdf, Blue Nile collection, LBMA) and Dataset B/D (R02, R03 direct PDP, R17, R19, R22, R24, R28), reducing not_rechecked to [] (0 remaining).</div></td><td class="small">Upgraded all 7 Aurate PDPs (clearing all 5 PRICE_NOT_RECONFIRMED flags and flagging Final Sale + 30% MTO fee as F25); caught Mejuri R03 direct PDP at From $898 vs $648 collection figure (+38.6%, F26); documented VRAI/BE template bugs (F27); confirmed R02, R17, R19, Ring Concierge ×2, Catbird PDF (+1-718-599-2340), Blue Nile, and LBMA.</td><td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo</a></td></tr><tr><td class="mono">P10</td><td><strong>Pass P10 — §11.3 backlog, R24/R25 platinum weight correction, Ring Concierge &amp; dead-URL sweep + §11.3 backlog + URL-manifest sweep (arena/15b00e99-gold3)</strong><div class="small muted">Opened all 21 Dataset C product pages, all 5 Dataset C seller policy/BBB profiles, 4 spot benchmarks, statutory/GIA/NIST pages, every skipped row from §11.3 (Aurate x7, Ring Concierge x2, R02, R03, R17, R19, R22, R24, R25, R28, R29, R31), and swept unique URLs across data/*.json.</div></td><td class="small">26 checks recorded (9 confirmed, 12 corrected, 5 flagged): Menē JS-gated weights nulled (BND-01..03), R03 upgraded to PDP ($898 vs $648), R24/R25 metal-dependent weights fixed, Ring Concierge 2.08 vs 5.63 ct &amp; 7-day bridal window caught, 5 dead 404/500 seller/flag URLs &amp; 2 mis-transcribed phones fixed.</td><td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo</a></td></tr><tr><td class="mono">P11</td><td><strong>Pass 11 (reverification-p6): complete multi-chunk &amp; repo-wide URL sweep (arena/a05b3c00-gold3)</strong><div class="small muted">Every URL across Datasets A (19), B (31 + 4 excluded), C (21 + 5 sellers + standards), and sources-manifest.json — including all 19 previously un-rechecked URLs and chunks 1–5 of truncated product pages — was fetched live on 2026-10-23.</div></td><td class="small">1 confirmed, 15 corrected, 4 flagged across 20 consolidated checks; recovered R13 6.5g weight, restored Sarraf ±5% quotes on R26/R27, corrected SEL-MENE false &#x27;D+&#x27; BBB grade, fixed 9 broken/404/500 URLs, and reduced not_rechecked to 0.</td><td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo</a></td></tr><tr><td class="mono">P11b</td><td><strong>Independent pass: Deep-chunk Automic Gold &amp; flag-source sweep + UI consistency repair (arena/bfcd8465-gold3)</strong><div class="small muted">Read past Automic Gold&#x27;s 4-chunk CookieYes banner on /policies/refund-policy (chunk 4), /pages/privacy-policy (chunks 4-5), claddagh-ring (chunk 5), and gemstone-flower-ring (chunk 2), swept all flag sources in data/flags.json, and audited nav/footnote/weight-range consistency.</div></td><td class="small">2 corrected (P11-01..P11-02): removed unsourced phone +1-929-307-2378 on S-AUTOMIC, restored Automic 14-day restocking-fee rule (RET14) &amp; resize clause, confirmed R24 (2.3g/3.5g) &amp; R25 (1.4g/2.1g) in chunks 5 &amp; 2, and fixed Combined (71) nav + Aurate weight-range badge.</td><td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo</a></td></tr><tr><td class="mono">P12</td><td><strong>Pass 12 — live spot, Sarraf, all three Menē bands, Ross-Simons weight row and the Mejuri PDP (arena/57724486-gold3)</strong><div class="small muted">Re-opened 7 official URLs live on 2026-10-23 after PR #50: the GoldPrice.org spot page, Sarraf R20, the three Menē 24k product pages, Ross-Simons BND-04 and Mejuri R03. Each stored price, weight and quote was searched for in the returned text.</div></td><td class="small">3 confirmed, 2 corrected, 2 flagged: spot anchor 0.62% below the stored snapshot with an inverted clock label, Menē Classic Band and Narrow Flat Band repriced down again (1707 -&gt; 1694, 1544 -&gt; 1532), Menē Wide Flat Band page returned HTTP 500 so its price was left as captured, and two record-keeping defects (duplicate check ids P11-01/P11-02 and a stale summary.checks of 137 for 185 entries) were found and fixed.</td><td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo</a></td></tr><tr><td class="mono">P13</td><td><strong>Independent pass 9 (P13): Mejuri heading contradiction, Dataset B/C karat coverage and stale-prose repair (arena/fb7e5e3c-gold3)</strong><div class="small muted">Seven official pages re-opened live on 2026-10-23 (Mejuri R01/R02/R03, Ross-Simons R15/R16, Sarraf R20/R21, Local Eclectic R31), searching each stored price, karat, weight and quote for in the returned text. The pass then audited the repo&#x27;s own flag definitions, the karat category pages and the prose typed into scripts/build_site.py against data/*.json. The spot re-read recorded by this session is folded into P12-01, which used the same live readings.</div></td><td class="small">7 checks recorded: 5 confirmed, 1 corrected at the data level, 1 flagged - plus three site defects (SD18-SD20).</td><td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo</a></td></tr><tr><td class="mono">P14</td><td><strong>Full weight-bearing pass</strong><div class="small muted">Re-opened every listing that publishes a gram weight, plus four independent gold-spot feeds, and re-checked the melt arithmetic against the dated anchor.</div></td><td class="small">17 URLs opened; 10 confirmed, 1 flagged (spot drift, already F39), 0 corrected. 0 price changes, 0 weight changes, 0 dead links across all 14 weight-bearing rows.</td><td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo</a></td></tr><tr><td class="mono">P15</td><td><strong>Independent pass 15: Dataset C weights, NIST attribution, VRAI/Automic flags &amp; calculator provenance (arena/db2fe957-gold3)</strong><div class="small muted">Additive net-new pass after peer P12-P14. Re-opened the five Dataset C rows with published weights, both NIST pages behind the conversion constant, VRAI R28, Automic R23 and the BND-06 identity used by the calculator. The peer-reviewed dated spot anchor and live-check reference were preserved.</div></td><td class="small">11 checks: 7 confirmed, 3 corrected, 1 flagged. BND-04..BND-08 all matched verbatim; corrected the NIST attribution (F46), VRAI SPEC7 (F47), Automic R23 lead-time flag (F48), and the BND-06 calculator preset/product mismatch plus hardcoded ratios (F49). Combined current weight coverage is 19/19 when P14&#x27;s 14 Dataset B checks are included.</td><td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo</a></td></tr><tr><td class="mono">P17</td><td><strong>Independent pass 17: all Dataset A listings, seller-policy drift, unsupported weight/solidity inferences and live spot corroboration (arena/36ebce13-gold3)</strong><div class="small muted">Re-opened all 19 Dataset A official product sources, five official seller policy records and five Trustpilot profiles; checked Ross-Simons Item 571221 and four spot publishers. Corrected only source-supported fields, removed unsupported stone-inclusion/solidity inferences and preserved all live contradictions and null weights.</div></td><td class="small">31 checks: 10 confirmed, 18 corrected, 3 flagged. All 19 stored numeric prices confirmed with 0 price changes; 0 published-weight changes. Published F50-F55, consolidated duplicate flags, refreshed only the labelled live spot reference, and preserved the $4,022.22/oz calculation anchor.</td><td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo</a></td></tr></tbody>
   </table>
 </div>
 
@@ -1613,256 +1613,221 @@
           <td class="small">The official product is &#x27;Italian 14kt Yellow Gold Diamond-Cut Dome Ring&#x27; (3/4 inch wide), not the template&#x27;s &#x27;Ross-Simons 6mm 14K Flat&#x27;. Calculator presets now derive the real product name, weight, price and ratio from Dataset C JSON; published as F49.</td>
         </tr><tr>
           <td class="mono">P17-01</td>
-          <td><a href="https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">aurate-2ct-round-lgd-solitaire live PDP</a>
-            <div class="tiny muted"></div></td>
+          <td><a href="https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring?variant=46776936792236" target="_blank" rel="noopener">Aurate New York 2ct Round Lab Grown Diamond Solitaire Ring - official PDP price/specification review</a>
+            <div class="tiny muted">listing</div></td>
           <td class="mono">aurate-2ct-round-lgd-solitaire</td>
           <td><span class="badge info">corrected</span></td>
-          <td class="small">$2,858, Rate - 14k GOLD, In Stock • Ready to Ship, Weight: 5.5-8.5g and the exchange-only/final-sale notices all printed verbatim.</td>
+          <td class="small">Official 14k yellow size-2.5 variant prints $2,858 and Made to Order. Specs print Weight 5.5-8.5g and 2tcw separately; no stone inclusion is stated. Updated variant provenance/quote and removed stale from-price and duplicate final-sale/range flags.</td>
         </tr><tr>
           <td class="mono">P17-02</td>
-          <td><a href="https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">aurate-2ct-emerald-lgd-solitaire live PDP</a>
-            <div class="tiny muted"></div></td>
+          <td><a href="https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring?variant=46776938266796" target="_blank" rel="noopener">Aurate New York 2ct Emerald Lab Grown Diamond Solitaire Ring - official PDP price/specification review</a>
+            <div class="tiny muted">listing</div></td>
           <td class="mono">aurate-2ct-emerald-lgd-solitaire</td>
           <td><span class="badge info">corrected</span></td>
-          <td class="small">$2,638, Rate - 14k GOLD, Made to Order, Weight: 5.5-8.5g and the exchange-only/final-sale notices all printed verbatim.</td>
+          <td class="small">Official 14k yellow size-2.5 variant prints $2,638 and Made to Order; Weight 5.5-8.5g and 2tcw are separate statements. Removed unsupported stone inclusion and retained the live VVS/VS/SI and 1.8mm/2.75mm conflicts.</td>
         </tr><tr>
           <td class="mono">P17-03</td>
-          <td><a href="https://auratenewyork.com/products/1ct-round-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">aurate-1ct-round-lgd-bezel live PDP</a>
-            <div class="tiny muted"></div></td>
+          <td><a href="https://auratenewyork.com/products/1ct-round-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">Aurate New York 1ct Round Lab Grown Diamond Bezel Ring - official PDP price/specification review</a>
+            <div class="tiny muted">listing</div></td>
           <td class="mono">aurate-1ct-round-lgd-bezel</td>
           <td><span class="badge info">corrected</span></td>
-          <td class="small">$1,498, Rate - 14k GOLD, Made to Order, Final Sale!, Exchange for size only., Weight: 2.23g, 1.05tcw and SKU AU5000 printed verbatim.</td>
+          <td class="small">Official AU5000 page confirms $1,498; current Specs print Width 9.05mm, Thickness 5.04mm, Weight 2.23g, 1 Round VS1/VS2 diamond and 1.05tcw. Title says 1ct; carat is null and weight scope remains unverified.</td>
         </tr><tr>
           <td class="mono">P17-04</td>
-          <td><a href="https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">aurate-2ct-emerald-lgd-bezel live PDP</a>
-            <div class="tiny muted"></div></td>
+          <td><a href="https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">Aurate New York 2ct Emerald Lab Grown Diamond Bezel Ring - official PDP price/specification review</a>
+            <div class="tiny muted">listing</div></td>
           <td class="mono">aurate-2ct-emerald-lgd-bezel</td>
           <td><span class="badge info">corrected</span></td>
-          <td class="small">$1,968, Rate - 14k GOLD, Made to Order, Weight: 2.36g, 1.8tcw and SKU AU5093 printed verbatim; the page also mislabels its emerald copy as oval.</td>
+          <td class="small">Official AU5093 page confirms $1,968; current Specs print Width 11.42mm, Thickness 4.6mm, Weight 2.36g, 1 Emerald VS1/VS2 diamond and 1.8tcw. Title says 2ct; carat is null. Body copy&#x27;s &#x27;classic oval diamond&#x27; conflict remains flagged.</td>
         </tr><tr>
           <td class="mono">P17-05</td>
-          <td><a href="https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">aurate-2ct-oval-lgd-solitaire live PDP</a>
-            <div class="tiny muted"></div></td>
+          <td><a href="https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring?variant=46776937513132" target="_blank" rel="noopener">Aurate New York 2ct Oval Lab Grown Diamond Solitaire Ring - official PDP price/specification review</a>
+            <div class="tiny muted">listing</div></td>
           <td class="mono">aurate-2ct-oval-lgd-solitaire</td>
           <td><span class="badge info">corrected</span></td>
-          <td class="small">$2,858, Rate - 14k GOLD, In Stock • Ready to Ship, Weight: 5.7-8.7g and the exchange-only/final-sale notices all printed verbatim.</td>
+          <td class="small">Official 14k yellow size-2.5 variant confirms $2,858, now Made to Order; Weight 5.7-8.7g and 2tcw are separate statements. Updated stale in-stock wording and removed unsupported stone inclusion.</td>
         </tr><tr>
           <td class="mono">P17-06</td>
-          <td><a href="https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring" target="_blank" rel="noopener">aurate-3ct-oval-lgd-solitaire live PDP</a>
-            <div class="tiny muted"></div></td>
+          <td><a href="https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring?variant=44854218981548" target="_blank" rel="noopener">Aurate New York 3ct Oval Lab Grown Diamond Solitaire Ring - official PDP price/specification review</a>
+            <div class="tiny muted">listing</div></td>
           <td class="mono">aurate-3ct-oval-lgd-solitaire</td>
           <td><span class="badge info">corrected</span></td>
-          <td class="small">$3,958, Rate - 14k GOLD, In Stock • Ready to Ship, Weight: 5.9-8.9g and the exchange-only/final-sale notices all printed verbatim.</td>
+          <td class="small">Official 14k yellow size-3 variant confirms $3,958, now Made to Order; Weight 5.9-8.9g and 3tcw are separate statements. Updated stale in-stock wording and removed unsupported stone inclusion.</td>
         </tr><tr>
           <td class="mono">P17-07</td>
-          <td><a href="https://auratenewyork.com/products/3ct-pear-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">aurate-3ct-pear-lgd-bezel live PDP</a>
-            <div class="tiny muted"></div></td>
+          <td><a href="https://auratenewyork.com/products/3ct-pear-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">Aurate New York 3ct Pear Lab Grown Diamond Bezel Ring - official PDP price/specification review</a>
+            <div class="tiny muted">listing</div></td>
           <td class="mono">aurate-3ct-pear-lgd-bezel</td>
           <td><span class="badge info">corrected</span></td>
-          <td class="small">$2,498, Rate - 14k GOLD, Made to Order, Weight: 3.33g, 3.6tcw and SKU AU5107 printed verbatim.</td>
+          <td class="small">Official AU5107 page confirms $2,498; current Specs print Width 15.92mm, Thickness 6.10mm, Weight 3.33g, 1 Pear VS1/VS2 diamond and 3.6tcw. Title says 3ct; carat is null and weight scope remains unverified.</td>
         </tr><tr>
           <td class="mono">P17-08</td>
-          <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/petite-solitaire-engagement-ring-in-14k-yellow-gold-item-195639" target="_blank" rel="noopener">bluenile-petite-solitaire-14k-yg live PDP</a>
-            <div class="tiny muted"></div></td>
+          <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/petite-solitaire-engagement-ring-in-14k-yellow-gold-item-195639" target="_blank" rel="noopener">Blue Nile Petite Solitaire Engagement Ring in 14k Yellow Gold - official PDP price/specification review</a>
+            <div class="tiny muted">listing</div></td>
           <td class="mono">bluenile-petite-solitaire-14k-yg</td>
           <td><span class="badge good">confirmed</span></td>
-          <td class="small">$1,000(Setting Price), Metal 14K Yellow Gold and Width 1.80mm printed on the own PDP.</td>
+          <td class="small">Official PDP confirms $1,000 (Setting Price), 14K Yellow Gold, stock 500990y14 and width 1.60mm. Centre stone remains excluded; solid wording and gram weight remain unverified.</td>
         </tr><tr>
           <td class="mono">P17-09</td>
-          <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/petite-hidden-halo-solitaire-plus-diamond-engagement-ring-in-14k-yellow-gold-item-192506" target="_blank" rel="noopener">bluenile-petite-hidden-halo-14k-yg live PDP</a>
-            <div class="tiny muted"></div></td>
+          <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/petite-hidden-halo-solitaire-plus-diamond-engagement-ring-in-14k-yellow-gold-item-192506" target="_blank" rel="noopener">Blue Nile Petite Hidden Halo Solitaire Plus Diamond Engagement Ring in 14k Yellow Gold - official PDP price/specification review</a>
+            <div class="tiny muted">listing</div></td>
           <td class="mono">bluenile-petite-hidden-halo-14k-yg</td>
           <td><span class="badge info">corrected</span></td>
-          <td class="small">$1,255(Setting Price) printed on the own PDP; price_source was changed from the collection URL to this exact page.</td>
+          <td class="small">Official PDP confirms $1,255 (Setting Price) and current stock 502250y14 / Width 1.60mm. Corrected stale stock 500850y14 / 1.70mm and pointed price_source to the exact PDP.</td>
         </tr><tr>
           <td class="mono">P17-10</td>
-          <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/riviera-pave-diamond-engagement-ring-in-14k-white-gold-1-6-ct-tw-item-195326" target="_blank" rel="noopener">bluenile-riviera-pave-14k-wg live PDP</a>
-            <div class="tiny muted"></div></td>
+          <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/riviera-pave-diamond-engagement-ring-in-14k-white-gold-1-6-ct-tw-item-195326" target="_blank" rel="noopener">Blue Nile Riviera Pavé Diamond Engagement Ring in 14k White Gold (1/6 ct. tw.) - official PDP price/specification review</a>
+            <div class="tiny muted">listing</div></td>
           <td class="mono">bluenile-riviera-pave-14k-wg</td>
           <td><span class="badge info">corrected</span></td>
-          <td class="small">$1,500(Setting Price), Metal Type 14K White Gold and Rhodium Finish Yes printed on the own PDP; price_source tightened to it.</td>
+          <td class="small">Official PDP confirms $1,500 (Setting Price) and current stock 501590w14 / Width 2.00mm. Corrected stale stock 501050w14 / 1.60mm and pointed price_source to the exact PDP.</td>
         </tr><tr>
           <td class="mono">P17-11</td>
-          <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/floral-marquise-diamond-engagement-ring-in-18k-white-gold-item-203738" target="_blank" rel="noopener">bluenile-floral-marquise-18k-wg live PDP</a>
-            <div class="tiny muted"></div></td>
+          <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/floral-marquise-diamond-engagement-ring-in-18k-white-gold-item-203738" target="_blank" rel="noopener">Blue Nile Floral Marquise Diamond Engagement Ring in 18k White Gold - official PDP price/specification review</a>
+            <div class="tiny muted">listing</div></td>
           <td class="mono">bluenile-floral-marquise-18k-wg</td>
-          <td><span class="badge good">confirmed</span></td>
-          <td class="small">$2,210(Setting Price) and spec Metal 18K White Gold printed; Product Details still say “14k yellow gold”, so the existing contradiction remains flagged.</td>
+          <td><span class="badge bad">flagged</span></td>
+          <td class="small">Official PDP confirms $2,210 (Setting Price), stock 502820w and Width 1.70mm. The same-page conflict between title/spec 18K White Gold and details prose 14k yellow gold remains live and flagged; no metal choice was inferred.</td>
         </tr><tr>
           <td class="mono">P17-12</td>
-          <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/criss-cross-solitaire-engagement-ring-in-18k-yellow-gold-by-james-allen-item-311132" target="_blank" rel="noopener">bluenile-criss-cross-18k-yg live PDP</a>
-            <div class="tiny muted"></div></td>
+          <td><a href="https://www.bluenile.com/engagement-rings/design-your-own-ring/criss-cross-solitaire-engagement-ring-in-18k-yellow-gold-by-james-allen-item-311132" target="_blank" rel="noopener">Blue Nile (By James Allen) Criss Cross Solitaire Engagement Ring In 18K Yellow Gold By James Allen - official PDP price/specification review</a>
+            <div class="tiny muted">listing</div></td>
           <td class="mono">bluenile-criss-cross-18k-yg</td>
-          <td><span class="badge info">corrected</span></td>
-          <td class="small">$2,320(Setting Price) and Metal 18K Yellow Gold printed on the own PDP; price_source changed from the collection URL to this page.</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">Official PDP confirms $2,320 (Setting Price) for the James Allen Criss Cross setting. Stored price and setting-only treatment remain unchanged.</td>
         </tr><tr>
           <td class="mono">P17-13</td>
-          <td><a href="https://mejuri.com/products/diamonds-band?Material=Solid+Yellow+Gold+%2814k%29&amp;Stone=Natural+Diamond" target="_blank" rel="noopener">Mejuri Diamonds Band live PDP</a>
-            <div class="tiny muted"></div></td>
+          <td><a href="https://mejuri.com/products/diamonds-band?Material=Solid+Yellow+Gold+%2814k%29&amp;Stone=Natural+Diamond" target="_blank" rel="noopener">Mejuri Diamonds Band - official PDP price/specification review</a>
+            <div class="tiny muted">listing</div></td>
           <td class="mono">mejuri-diamonds-band</td>
           <td><span class="badge good">confirmed</span></td>
-          <td class="small">$648, Solid Yellow Gold (14k), Natural Diamond, free 30-day returns and the engraving return exclusion all printed.</td>
+          <td class="small">Official variant confirms $648, Solid Yellow Gold (14k), Natural Diamond, minimum 0.07ct, SI-I clarity, GHI color, 1.8mm stone and 2.8mm shank. Gram weight remains unpublished/null.</td>
         </tr><tr>
           <td class="mono">P17-14</td>
-          <td><a href="https://mejuri.com/products/stacker-ring?Material=Solid+Yellow+Gold+%2810k%29" target="_blank" rel="noopener">Mejuri Stacker Ring live PDP</a>
-            <div class="tiny muted"></div></td>
+          <td><a href="https://mejuri.com/products/stacker-ring?Material=Solid+Yellow+Gold+%2810k%29" target="_blank" rel="noopener">Mejuri Stacker Ring - official PDP price/specification review</a>
+            <div class="tiny muted">listing</div></td>
           <td class="mono">mejuri-stacker-ring-10k</td>
           <td><span class="badge info">corrected</span></td>
-          <td class="small">$138 and Solid Yellow Gold (10k) printed on the own PDP; price_source and solid_gold_source changed from the collection URL to this page.</td>
+          <td class="small">Official variant confirms $138, Solid Yellow Gold (10k), materials &#x27;Our 10k solid gold...&#x27;, and Width 1 mm. Removed stale 1.3mm/1.35mm dimensions and old quotation. Alt text mentions a 10K purity stamp, but no visual or maker&#x27;s-mark verification is claimed.</td>
         </tr><tr>
           <td class="mono">P17-15</td>
-          <td><a href="https://ringconcierge.com/products/2-08-oval-lab-diamond-in-whisper-thina-hidden-halo" target="_blank" rel="noopener">Ring Concierge 2.08 live PDP</a>
-            <div class="tiny muted"></div></td>
+          <td><a href="https://ringconcierge.com/products/2-08-oval-lab-diamond-in-whisper-thina-hidden-halo" target="_blank" rel="noopener">Ring Concierge 2.08 Oval Lab Diamond in Whisper Thin® Hidden Halo - official PDP price/specification review</a>
+            <div class="tiny muted">listing</div></td>
           <td class="mono">ringconcierge-2-08-oval-lab-whisper-thin</td>
-          <td><span class="badge good">confirmed</span></td>
-          <td class="small">$6,038 unchanged. Title says 2.08 Carat E VS1 while Product Details say 5.63 Carat D VVS2; PDP FAQ says one week (7 days) returns and resizing makes the ring final sale. Existing contradiction preserved, duplicate chips removed.</td>
+          <td><span class="badge bad">flagged</span></td>
+          <td class="small">Official PDP confirms $6,038 and Metal: 14K Yellow Gold with Platinum Prongs. Header/details say 2.08 E VS1 while description says 5.63 D VVS2; conflict remains flagged. Removed false karat-not-in-body flag, duplicate metal/production flags and stale product-level 30-day wording; 7-day FAQ remains.</td>
         </tr><tr>
           <td class="mono">P17-16</td>
-          <td><a href="https://ringconcierge.com/products/2-72-round-lab-diamond-in-whisper-thina" target="_blank" rel="noopener">Ring Concierge 2.72 live PDP</a>
-            <div class="tiny muted"></div></td>
+          <td><a href="https://ringconcierge.com/products/2-72-round-lab-diamond-in-whisper-thina" target="_blank" rel="noopener">Ring Concierge 2.72 Round Lab Diamond in Whisper Thin® - official PDP price/specification review</a>
+            <div class="tiny muted">listing</div></td>
           <td class="mono">ringconcierge-2-72-round-lab-whisper-thin</td>
           <td><span class="badge info">corrected</span></td>
-          <td class="small">$7,268 unchanged. Product Details print 2.72 Carat E VVS2 and Metal: 14K Yellow Gold with Platinum Prongs. The stale E VS1 note and PURITY_NOT_IN_BODY_TEXT flag were removed; duplicate chips consolidated.</td>
+          <td class="small">Official PDP confirms $7,268, 2.72 E VVS2, IGI, Metal: 14K Yellow Gold with Platinum Prongs and the 7-day ready-made return FAQ. Removed false karat-not-in-body flag and consolidated duplicate metal/production flags.</td>
         </tr><tr>
           <td class="mono">P17-17</td>
-          <td><a href="https://www.catbirdnyc.com/catbird-classic-wedding-bands-solid-half-round-band-2mm.html" target="_blank" rel="noopener">Catbird Classic Half Round live PDP</a>
-            <div class="tiny muted"></div></td>
+          <td><a href="https://www.catbirdnyc.com/catbird-classic-wedding-bands-solid-half-round-band-2mm.html" target="_blank" rel="noopener">Catbird Catbird Classic Wedding Bands, Solid Half Round Band, 2mm - official PDP price/specification review</a>
+            <div class="tiny muted">listing</div></td>
           <td class="mono">catbird-classic-half-round-2mm</td>
           <td><span class="badge info">corrected</span></td>
-          <td class="small">from$550.00 printed. Browser title contains “Solid Half Round Band”; visible heading and image alt omit/print different wording. The solid-gold evidence scope was corrected to page title metadata.</td>
+          <td class="small">Official PDP confirms &#x27;from $550.00&#x27; and official 14k yellow-gold image text. No usable gram weight is published, so the unsupported &#x27;lowest markup route&#x27; note was replaced with a factual no-ranking statement.</td>
         </tr><tr>
           <td class="mono">P17-18</td>
-          <td><a href="https://mejuri.com/products/dome-figure-ring?Material=18k+Gold+Vermeil" target="_blank" rel="noopener">Mejuri Dôme Figure vermeil live PDP</a>
-            <div class="tiny muted"></div></td>
+          <td><a href="https://mejuri.com/products/dome-figure-ring?Material=18k+Gold+Vermeil" target="_blank" rel="noopener">Mejuri Dôme Figure Ring (18k Gold Vermeil) - official PDP price/specification review</a>
+            <div class="tiny muted">listing</div></td>
           <td class="mono">mejuri-dome-figure-vermeil</td>
-          <td><span class="badge info">corrected</span></td>
-          <td class="small">$158 and 18k Gold Vermeil printed; the page defines vermeil as 18k gold on sterling silver. Price/material sources moved from the collection URL to the own PDP.</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">Official variant confirms $158 and 18k Gold Vermeil; top width 5.8mm, top height 3.5mm and shank thickness 2mm. It remains excluded from solid-gold categories; no gold weight is inferred.</td>
         </tr><tr>
           <td class="mono">P17-19</td>
-          <td><a href="https://mejuri.com/products/dome-figure-ring?Material=Sterling+Silver" target="_blank" rel="noopener">Mejuri Dôme Figure sterling live PDP</a>
-            <div class="tiny muted"></div></td>
+          <td><a href="https://mejuri.com/products/dome-figure-ring?Material=Sterling+Silver" target="_blank" rel="noopener">Mejuri Dôme Figure Ring (Sterling Silver) - official PDP price/specification review</a>
+            <div class="tiny muted">listing</div></td>
           <td class="mono">mejuri-dome-figure-sterling</td>
-          <td><span class="badge info">corrected</span></td>
-          <td class="small">$138 and Sterling Silver printed; the page defines 925 Sterling Silver as 92.5% pure silver. Price/material sources moved from the collection URL to the own PDP.</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">Official variant confirms $138 and Sterling Silver; top width 5.8mm, top height 3.5mm and shank thickness 2mm. It remains an explicit no-gold control.</td>
         </tr><tr>
           <td class="mono">P17-20</td>
-          <td><a href="https://auratenewyork.gorgias.help/en-US/articles/returns-38636" target="_blank" rel="noopener">Aurate general returns help centre</a>
-            <div class="tiny muted"></div></td>
-          <td class="mono">retailers</td>
+          <td><a href="https://auratenewyork.gorgias.help/en-US/articles/returns-38636" target="_blank" rel="noopener">aurate official returns/material policy review</a>
+            <div class="tiny muted">seller-policy</div></td>
+          <td class="mono">aurate</td>
           <td><span class="badge good">confirmed</span></td>
-          <td class="small">“Aurate provides a 15-day return window starting from the day your item gets fulfilled” and 21 days for international orders printed verbatim.</td>
+          <td class="small">Official help centre confirms 15-day domestic / 21-day international windows and final-sale/exchange-only exclusions. Listing-specific final-sale wording remains controlling; Trustpilot&#x27;s separate company-description &#x27;FREE RETURNS&#x27; claim is not used to override it.</td>
         </tr><tr>
           <td class="mono">P17-21</td>
-          <td><a href="https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale" target="_blank" rel="noopener">Aurate exchange-only/final-sale policy</a>
-            <div class="tiny muted"></div></td>
-          <td class="mono">retailers</td>
-          <td><span class="badge info">corrected</span></td>
-          <td class="small">Live policy prints 24h made-to-order cancellation, 30% fee thereafter, exchange-for-size-only scope and final-sale non-returnability. Legacy PDP links to /pages/terms-conditions-exchange-only also resolve here; stored notes now use this canonical URL.</td>
+          <td><a href="https://www.bluenile.com/policies/returns" target="_blank" rel="noopener">blue-nile official returns/material policy review</a>
+            <div class="tiny muted">seller-policy</div></td>
+          <td class="mono">blue-nile</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">Official policy confirms 30 days from shipment, original unworn condition, resized/custom/engraved/final-sale exclusions, RMA requirement and two complimentary returns per customer per year.</td>
         </tr><tr>
           <td class="mono">P17-22</td>
-          <td><a href="https://www.bluenile.com/policies/returns" target="_blank" rel="noopener">Blue Nile return policy</a>
-            <div class="tiny muted"></div></td>
-          <td class="mono">retailers</td>
-          <td><span class="badge good">confirmed</span></td>
-          <td class="small">30 days from shipment, two complimentary returns per year, RMA requirement, resized/personalized/custom/final-sale exclusions and $150 missing-report fee all printed.</td>
+          <td><a href="https://mejuri.com/company/returns-terms" target="_blank" rel="noopener">mejuri official returns/material policy review</a>
+            <div class="tiny muted">seller-policy</div></td>
+          <td class="mono">mejuri</td>
+          <td><span class="badge info">corrected</span></td>
+          <td class="small">Official FAQ and full terms confirm free 30-day returns in five named countries. Removed unsupported blanket bespoke/made-to-order exclusion and stale JavaScript-only flag; added complete-set, same-country and SCS-certificate requirements.</td>
         </tr><tr>
           <td class="mono">P17-23</td>
-          <td><a href="https://mejuri.com/faq/return-exchanges/what-is-the-standard-return-policy" target="_blank" rel="noopener">Mejuri standard return policy</a>
-            <div class="tiny muted"></div></td>
-          <td class="mono">retailers</td>
-          <td><span class="badge good">confirmed</span></td>
-          <td class="small">Free 30-day returns for US/CA/UK/AU/DE; engraved/monogrammed, piercing earrings, gift cards and final-sale/Before We Melt items non-returnable; EU €20 and Rest of World $30 return fees printed.</td>
+          <td><a href="https://ringconcierge.com/policies/refund-policy" target="_blank" rel="noopener">ring-concierge official returns/material policy review</a>
+            <div class="tiny muted">seller-policy</div></td>
+          <td class="mono">ring-concierge</td>
+          <td><span class="badge bad">flagged</span></td>
+          <td class="small">General policy still says 30 days on most Fine Jewelry, while both engagement PDPs say 1 week (7 days) for eligible ready-made rings and final sale after customization/resizing. The stricter product-specific window remains recorded.</td>
         </tr><tr>
           <td class="mono">P17-24</td>
-          <td><a href="https://ringconcierge.com/policies/refund-policy" target="_blank" rel="noopener">Ring Concierge general refund policy</a>
-            <div class="tiny muted"></div></td>
-          <td class="mono">retailers</td>
-          <td><span class="badge good">confirmed</span></td>
-          <td class="small">30 days on most Fine Jewelry, limited-edition 15 days, special orders/final sale excluded, and repairs guaranteed for 3 years printed. The engagement-ring PDP 7-day term remains the stricter applicable warning.</td>
+          <td><a href="https://www.catbirdnyc.com/returns" target="_blank" rel="noopener">catbird official returns/material policy review</a>
+            <div class="tiny muted">seller-policy</div></td>
+          <td class="mono">catbird</td>
+          <td><span class="badge info">corrected</span></td>
+          <td class="small">Official returns page confirms 20 days, $9 return-shipping deduction and international/final-sale exclusions. Official Facts page confirms &#x27;Catbird&#x27;s solid gold is never plated&#x27;; corrected the source attribution from Trustpilot to Catbird&#x27;s own page.</td>
         </tr><tr>
           <td class="mono">P17-25</td>
-          <td><a href="https://www.catbirdnyc.com/returns" target="_blank" rel="noopener">Catbird return policy</a>
-            <div class="tiny muted"></div></td>
-          <td class="mono">retailers</td>
-          <td><span class="badge good">confirmed</span></td>
-          <td class="small">20 days from delivery, $9 return shipping deduction, special/engraved/Forever/piercing/home/beauty/comestibles final sale, and all international sales final printed.</td>
+          <td><a href="https://www.trustpilot.com/review/auratenewyork.com" target="_blank" rel="noopener">aurate Trustpilot score, count and sample-context snapshot</a>
+            <div class="tiny muted">reputation</div></td>
+          <td class="mono">aurate</td>
+          <td><span class="badge info">corrected</span></td>
+          <td class="small">Trustpilot displays 4,876 reviews and TrustScore 4.1. Corrected the quote&#x27;s stale 4,875 count; retained the claimed-profile and 98% negative-review response context. Trustpilot says it does not fact-check reviewer claims; AI-summary themes are labelled as reviewer allegations, not verified facts.</td>
         </tr><tr>
           <td class="mono">P17-26</td>
-          <td><a href="https://www.trustpilot.com/review/auratenewyork.com" target="_blank" rel="noopener">Aurate Trustpilot profile</a>
-            <div class="tiny muted"></div></td>
-          <td class="mono">retailers</td>
+          <td><a href="https://www.trustpilot.com/review/www.bluenile.com" target="_blank" rel="noopener">blue-nile Trustpilot score, count and sample-context snapshot</a>
+            <div class="tiny muted">reputation</div></td>
+          <td class="mono">blue-nile</td>
           <td><span class="badge info">corrected</span></td>
-          <td class="small">Live profile prints 4,876 reviews and TrustScore 4.1; stored quote said 4,875. Quote corrected, numeric count already matched. Reply rate 98% confirmed.</td>
+          <td class="small">Trustpilot displays 1,937 reviews and TrustScore 4.0, with 97% negative-review responses. Updated from 1,932/1,928 and 99%. Trustpilot says it does not fact-check reviewer claims; AI-summary themes are labelled as reviewer allegations, not verified facts.</td>
         </tr><tr>
           <td class="mono">P17-27</td>
-          <td><a href="https://www.trustpilot.com/review/www.bluenile.com" target="_blank" rel="noopener">Blue Nile Trustpilot profile</a>
-            <div class="tiny muted"></div></td>
-          <td class="mono">retailers</td>
+          <td><a href="https://www.trustpilot.com/review/mejuri.com" target="_blank" rel="noopener">mejuri Trustpilot score, count and sample-context snapshot</a>
+            <div class="tiny muted">reputation</div></td>
+          <td class="mono">mejuri</td>
           <td><span class="badge info">corrected</span></td>
-          <td class="small">Live profile prints 1,937 reviews and TrustScore 4.0; record had 1,932 / quote 1,928. Live page also says replies to 97% of negative reviews, not 99%.</td>
+          <td class="small">Trustpilot displays 5,785 reviews and TrustScore 4.3, with 98% negative-review responses. Updated from 5,784/5,781 and 99%. Trustpilot says it does not fact-check reviewer claims; AI-summary themes are labelled as reviewer allegations, not verified facts.</td>
         </tr><tr>
           <td class="mono">P17-28</td>
-          <td><a href="https://www.trustpilot.com/review/mejuri.com" target="_blank" rel="noopener">Mejuri Trustpilot profile</a>
-            <div class="tiny muted"></div></td>
-          <td class="mono">retailers</td>
-          <td><span class="badge info">corrected</span></td>
-          <td class="small">Live profile prints 5,785 reviews and TrustScore 4.3; record had 5,784 / quote 5,781. Live page says 98% of negative reviews receive a reply, not 99%.</td>
+          <td><a href="https://www.trustpilot.com/review/ringconcierge.com" target="_blank" rel="noopener">ring-concierge Trustpilot score, count and sample-context snapshot</a>
+            <div class="tiny muted">reputation</div></td>
+          <td class="mono">ring-concierge</td>
+          <td><span class="badge good">confirmed</span></td>
+          <td class="small">Trustpilot still displays only 7 reviews, TrustScore 2.7 and an unclaimed profile with no history of asking for reviews; the tiny non-representative sample warning remains. Trustpilot says it does not fact-check reviewer claims; AI-summary themes are labelled as reviewer allegations, not verified facts.</td>
         </tr><tr>
           <td class="mono">P17-29</td>
-          <td><a href="https://www.trustpilot.com/review/ringconcierge.com" target="_blank" rel="noopener">Ring Concierge Trustpilot profile</a>
-            <div class="tiny muted"></div></td>
-          <td class="mono">retailers</td>
+          <td><a href="https://www.trustpilot.com/review/catbirdnyc.com" target="_blank" rel="noopener">catbird Trustpilot score, count and sample-context snapshot</a>
+            <div class="tiny muted">reputation</div></td>
+          <td class="mono">catbird</td>
           <td><span class="badge good">confirmed</span></td>
-          <td class="small">Live profile still prints an unclaimed profile, 7 reviews, TrustScore 2.7 and Trustpilot’s “reviews may not be representative” warning.</td>
+          <td class="small">Trustpilot displays 56 reviews and TrustScore 2.2, claimed profile, 82% negative-review responses and no recent history of asking for reviews. Counts and score match the stored record. Trustpilot says it does not fact-check reviewer claims; AI-summary themes are labelled as reviewer allegations, not verified facts.</td>
         </tr><tr>
           <td class="mono">P17-30</td>
-          <td><a href="https://www.trustpilot.com/review/www.catbirdnyc.com" target="_blank" rel="noopener">Catbird Trustpilot profile</a>
-            <div class="tiny muted"></div></td>
-          <td class="mono">retailers</td>
+          <td><a href="https://www.ross-simons.com/products/571221" target="_blank" rel="noopener">Ross-Simons approximate-weight and solid-construction language audit</a>
+            <div class="tiny muted">weight</div></td>
+          <td class="mono">BND-04, BND-05, BND-06, BND-07</td>
           <td><span class="badge info">corrected</span></td>
-          <td class="small">Live canonical profile prints 56 reviews and TrustScore 2.2; no recent review invitations and replies to 82% of negative reviews printed. Stored URL updated to the canonical /www.catbirdnyc.com path.</td>
+          <td class="small">Item 571221 freshly confirms $400, 14kt Yellow Gold, 2mm and approximate Gold Weight 1.7 grams; sizes 5-9 are shown in stock. BND-04–BND-07 no longer call approximate weights exact, and weight/geometry/customer reviews are no longer used as proof of solid construction. No price, weight or melt value changed.</td>
         </tr><tr>
           <td class="mono">P17-31</td>
-          <td><a href="https://goldprice.org/" target="_blank" rel="noopener">GoldPrice.org fresh live check</a>
-            <div class="tiny muted"></div></td>
+          <td><a href="https://goldprice.org/" target="_blank" rel="noopener">Four-publisher live spot corroboration with dated calculation anchor preserved</a>
+            <div class="tiny muted">benchmark</div></td>
           <td class="mono">spot</td>
-          <td><span class="badge bad">flagged</span></td>
-          <td class="small">Page printed “Spot Gold Price: USD 3,995.88 / Ounce” labelled “Oct 23rd, 2026 at 07:41 NY Time” (no AM/PM stated). It is 0.65% below the preserved $4,022.22/oz calculation anchor. Published only as a dated reference; finding F54.</td>
-        </tr><tr>
-          <td class="mono">P17-32</td>
-          <td><a href="https://www.kitco.com/charts/gold" target="_blank" rel="noopener">Kitco fresh live cross-check</a>
-            <div class="tiny muted"></div></td>
-          <td class="mono">spot</td>
-          <td><span class="badge bad">flagged</span></td>
-          <td class="small">Page printed Oct 23, 2026 - 19:43 NY Time, bid 3,994.90, ask 3,996.90, gram 128.44, and “7:42 p.m. EDT”. It agrees with GoldPrice.org within 0.0245% and is also 0.68% below the preserved calculation anchor; finding F54.</td>
-        </tr><tr>
-          <td class="mono">P17-33</td>
-          <td><a href="https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9" target="_blank" rel="noopener">NIST SP 811 Appendix B.9</a>
-            <div class="tiny muted"></div></td>
-          <td class="mono">standards</td>
           <td><span class="badge good">confirmed</span></td>
-          <td class="small">Live official page states factors in boldface are exact and contains the mass conversion table used for the exact grain-to-gram derivation; P17 preserved the 31.1034768 g constant.</td>
-        </tr><tr>
-          <td class="mono">P17-34</td>
-          <td><a href="https://www.nist.gov/pml/owm/metric-si/unit-conversion/precious-metals-conversion-information" target="_blank" rel="noopener">NIST Precious Metals Conversion Information</a>
-            <div class="tiny muted"></div></td>
-          <td class="mono">standards</td>
-          <td><span class="badge info">corrected</span></td>
-          <td class="small">Live official page prints Handbook 130 §2.17 and links a conversion PDF, but does not print a troy-ounce-to-gram figure. CR-P15-1 historical assertion corrected with original text preserved in evidence_original_preserved.</td>
-        </tr><tr>
-          <td class="mono">P17-35</td>
-          <td><a href="https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23/section-23.10" target="_blank" rel="noopener">eCFR 16 CFR 23.10 quality marks</a>
-            <div class="tiny muted"></div></td>
-          <td class="mono">standards</td>
-          <td><span class="badge good">confirmed</span></td>
-          <td class="small">Live eCFR text defines quality marks and states that a person applying a quality mark must also apply the trademark/name of that person under 15 U.S.C. 297. Title 16 banner reads up to date as of 10/21/2026.</td>
-        </tr><tr>
-          <td class="mono">P17-36</td>
-          <td><a href="https://auratenewyork.gorgias.help/en-US/what-does-final-sale-or-exchange-only-mean-137560" target="_blank" rel="noopener">Aurate final-sale help FAQ</a>
-            <div class="tiny muted"></div></td>
-          <td class="mono">retailers</td>
-          <td><span class="badge good">confirmed</span></td>
-          <td class="small">Help article says selected exchange-only items are not eligible for refund and selected final-sale items are not eligible for refunds or exchanges; it instructs buyers to read the product-page marking carefully.</td>
+          <td class="small">GoldPrice.org displayed $3,995.88/oz at label &#x27;07:41 NY Time&#x27;; Kitco bid $3,994.90 at &#x27;19:43 NY Time&#x27;; BullionVault $3,995.74 at &#x27;17:00:00 (GMT-04:00)&#x27;; WGC tile $3,995.47 with its historical dataset labelled 22 October. Numeric spread $0.98 (0.025%). Only the labelled live reference changed; primary $4,022.22/oz and all melt arithmetic remain fixed.</td>
         </tr></tbody>
   </table>
 </div>

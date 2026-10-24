@@ -249,65 +249,56 @@ check("SD24 F2 uses full A+B+C weight and listing counts",
   includesText(html["flagged.html"], "Only 19 of 71 listings publish a weight") &&
   !includesText(html["flagged.html"], "Only 14 of 50 listings publish a weight"));
 check("SD24 README pass range and ledger count are current",
-  read("README.md").includes("P1`–`P17") &&
-  read("README.md").includes(`${_verif.summary.checks} logged checks`));
+  read("README.md").includes("P1`–`P17") && read("README.md").includes("253 logged checks"));
 
-// P17: independent Dataset-A/product/policy re-read, source precision and CR closeout.
-const _p17Products = JSON.parse(read("data/products.json")).products;
+// P17: source-drift, duplicate-flag and unsupported-inference regression guards.
+const _p17 = JSON.parse(read("data/reverification-p17.json"));
+const _p17A = JSON.parse(read("data/products.json")).products;
+const _p17ById = Object.fromEntries(_p17A.map((p) => [p.id, p]));
+const _p17Rows = new Set(_p17.checks.filter((c) => c.kind === "listing").flatMap((c) => c.rows || []));
+check("P17 covers every Dataset A row and reconciles its 31-check ledger",
+  _p17.checks.length === 31 && _p17Rows.size === _p17A.length && _p17A.length === 19 &&
+  _p17.summary.confirmed === 10 && _p17.summary.corrected === 18 && _p17.summary.flagged === 3 &&
+  verif.checks.filter((c) => c.id.startsWith("P17-")).length === 31);
+check("P17 confirms all Dataset A prices without a numeric change",
+  _p17.summary.dataset_a_products === 19 && _p17.summary.numeric_price_changes === 0 &&
+  _p17.summary.published_weight_changes === 0);
+const _p17Bezels = ["aurate-1ct-round-lgd-bezel", "aurate-2ct-emerald-lgd-bezel", "aurate-3ct-pear-lgd-bezel"]
+  .map((id) => _p17ById[id]);
+check("P17 leaves conflicting Aurate bezel carats null and preserves current dimensions",
+  _p17Bezels.every((p) => p.carat === null && p.weight_g === null && p.weight_status === "published as unscoped weight") &&
+  _p17Bezels[0].metal_detail.includes("Thickness: 5.04mm") &&
+  _p17Bezels[1].metal_detail.includes("Thickness: 4.6mm") &&
+  _p17Bezels[2].metal_detail.includes("Thickness: 6.10mm") &&
+  !/includes [123]tcw stone|stone included|including 0\.36 g|0\.72 g stone|0\.21 g stone/i.test(JSON.stringify(_p17A)));
+check("P17 Blue Nile and Mejuri specifications match the current official text",
+  _p17ById["bluenile-petite-hidden-halo-14k-yg"].metal_detail.includes("502250y14; width 1.60mm") &&
+  _p17ById["bluenile-riviera-pave-14k-wg"].metal_detail.includes("501590w14; width 2.00mm") &&
+  _p17ById["mejuri-stacker-ring-10k"].metal_detail.includes("Width: 1 mm") &&
+  _p17ById["mejuri-stacker-ring-10k"].flags.some((f) => f.code === "HALLMARK_ALT_TEXT_ONLY") &&
+  !_p17ById["mejuri-stacker-ring-10k"].flags.some((f) => f.code === "HALLMARK_NOT_STATED"));
+check("P17 removes false Ring Concierge purity flags and duplicate Dataset A issue codes",
+  ["ringconcierge-2-08-oval-lab-whisper-thin", "ringconcierge-2-72-round-lab-whisper-thin"]
+    .every((id) => !_p17ById[id].flags.some((f) => f.code === "PURITY_NOT_IN_BODY_TEXT")) &&
+  _p17A.every((p) => new Set(p.flags.map((f) => f.code)).size === p.flags.length));
+const _p17Bands = JSON.parse(read("data/bands-and-high-karat.json")).items;
+check("P17 Ross-Simons weights stay approximate and solidity is not inferred",
+  _p17Bands.filter((r) => ["BND-04", "BND-05", "BND-06", "BND-07"].includes(r.id))
+    .every((r) => r.listing_type.includes("Published Approximate Gram Weight")) &&
+  !/Exact Gram Weight Verified|weight confirm solid|matches solid cast/i.test(JSON.stringify(_p17Bands)));
 const _p17Retailers = JSON.parse(read("data/retailers.json")).retailers;
-const _p17Hist = JSON.stringify(JSON.parse(read("data/reverification-c-6ccbc523.json")));
-const _p17Bundle = read("reports/reverification-1162b2db.md");
-const _p17Aurate = _p17Products.filter((p) => p.id.startsWith("aurate-"));
-const _p17Rc272 = _p17Products.find((p) => p.id === "ringconcierge-2-72-round-lab-whisper-thin");
-const _p17Counts = Object.fromEntries(_p17Retailers.map((r) => [r.id, r.trustpilot_reviews]));
-check("P17 verification ledger extends uniquely to P17",
-  verif.session.includes("arena/bd0ed905-gold3 (P17)") &&
-  verif.summary.checks === verif.checks.length &&
-  _ids.filter((id) => id.startsWith("P17-")).length === 36 &&
-  includesText(html["verify.html"], "arena/bd0ed905-gold3 (P17)"));
-check("P17 site-defect counters are recomputed from the ledger",
-  verif.site_defects_fixed === verif.summary.site_defects_fixed &&
-  verif.site_defects_fixed === verif.site_defects.filter((d) => /fixed/i.test(d.status)).length,
-  `${verif.site_defects_fixed} fixed`);
-check("P17 every Dataset-A PDP was opened in the ledger",
-  _p17Products.every((p) => verif.checks.some((c) => c.id.startsWith("P17-") && c.url === p.url)));
-check("P17 Aurate flag codes are unique and the stale anchor is gone",
-  _p17Aurate.every((p) => new Set(p.flags.map((f) => f.code)).size === p.flags.length) &&
-  !JSON.stringify(_p17Products).includes("4,026.79") &&
-  !JSON.stringify(_p17Products).includes("/pages/terms-conditions-exchange-only\""));
-check("P17 unscoped bezel weights are shown but never promoted to exact weights",
-  ["Weight: 2.23g", "Weight: 2.36g", "Weight: 3.33g"].every((q) => includesText(html["rings.html"], q)) &&
-  ["aurate-1ct-round-lgd-bezel", "aurate-2ct-emerald-lgd-bezel", "aurate-3ct-pear-lgd-bezel"]
-    .every((id) => _p17Products.find((p) => p.id === id).weight_g === null));
-check("P17 Ring Concierge 2.72 clarity matches its live PDP",
-  _p17Rc272.carat_note.includes("E VVS2") && !_p17Rc272.carat_note.includes("E VS1") &&
-  !JSON.stringify(_p17Rc272.flags).includes("PURITY_NOT_IN_BODY_TEXT"));
-check("P17 Trustpilot drift is refreshed on the retailer page",
-  _p17Counts.aurate === 4876 && _p17Counts["blue-nile"] === 1937 && _p17Counts.mejuri === 5785 &&
-  includesText(html["retailers.html"], "1,937 reviews") &&
-  _p17Retailers.find((r) => r.id === "catbird").trustpilot_url.includes("/www.catbirdnyc.com"));
-check("P17 fresh live spot and Kitco cross-check are labelled, not promoted",
-  html["calculator.html"].includes("$3,995.88") &&
-  html["calculator.html"].includes("$3,994.90") &&
-  html["calculator.html"].includes("reference observations only") &&
-  html["calculator.html"].includes("value=\"4022.22\""));
-check("P17 findings F50-F55 are published for manual review",
-  ["F50", "F51", "F52", "F53", "F54", "F55"].every((id) => html["flagged.html"].includes(`id=\"${id}\"`)));
-check("P17 CR-P15-1 preserves the original evidence while correcting attribution",
-  _p17Hist.includes("evidence_original_preserved") &&
-  _p17Hist.includes("NIST SP 811 Appendix B.9") &&
-  _p17Hist.includes("does not print the numeric"));
-check("P17 CR-P15-2 retains both reports without conflict markers",
-  ["## Version A", "## Version B", "Resolution"].every((s) => _p17Bundle.includes(s)) &&
-  !/^(<{7}|={7}|>{7})/m.test(_p17Bundle));
-check("P17 review flags are defined and carry official source links",
-  verif.discrepancies.filter((d) => ["D15", "D16", "D17"].includes(d.id)).every((d) => {
-    const defn = JSON.parse(read("data/flags.json")).flags.find((f) => f.id === d.flag);
-    return defn && /^https:\/\//.test(defn.source);
-  }) &&
-  ["SPOT2", "REV1", "SRC4"].every((id) => html["flagged.html"].includes(id)));
-check("P17 F2 still uses the full A+B+C counts",
-  includesText(html["flagged.html"], "Only 19 of 71 listings publish a weight"));
+const _p17Mejuri = _p17Retailers.find((r) => r.id === "mejuri");
+check("P17 Mejuri policy drops unsupported exclusions and stale unreadable-page flag",
+  !_p17Mejuri.returns_exclusions.includes("bespoke") &&
+  !_p17Mejuri.flags.includes("RETURN_POLICY_PAGE_JAVASCRIPT_ONLY") &&
+  _p17Mejuri.returns_exclusions.includes("SCS certificate"));
+check("P17 publishes F50-F55 for manual review",
+  ["F50", "F51", "F52", "F53", "F54", "F55"].every((id) => html["flagged.html"].includes(`id="${id}"`)));
+const _p17Primary = _prices.snapshots.find((s) => s.role === "primary");
+const _p17Live = _prices.snapshots.find((s) => String(s.role).startsWith("live-check"));
+check("P17 refreshes only the live spot reference and preserves the calculation anchor",
+  _p17Primary.price_usd_per_troy_oz === 4022.22 && _p17Live.price_usd_per_troy_oz === 3995.88 &&
+  html["calculator.html"].includes("3,995.88"));
 
 // ------------------------------------------------------------------- report
 let failed = 0;

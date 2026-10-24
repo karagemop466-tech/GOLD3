@@ -337,6 +337,13 @@ for s in sellers:
 #     entry points at a row that does not exist.
 # ----------------------------------------------------------------------------
 seller_ids = {s.get("id") for s in sellers}
+retailer_ids = set()
+_retailer_path = DATA / "retailers.json"
+if _retailer_path.exists():
+    try:
+        retailer_ids = {r.get("id") for r in json.loads(_retailer_path.read_text(encoding="utf-8")).get("retailers", [])}
+    except Exception:  # noqa: BLE001
+        retailer_ids = set()
 product_ids = set()
 _pdoc_path = DATA / "products.json"
 if _pdoc_path.exists():
@@ -404,7 +411,7 @@ if verif_doc:
             # a Dataset-A product id or the excluded-listing set. Those are real
             # subjects of a verification check; what must not happen is a check
             # pointing at something that does not exist anywhere in the data.
-            if rid in seller_ids or rid in flag_defs or rid in product_ids or rid in ext_ids:
+            if rid in seller_ids or rid in retailer_ids or rid in flag_defs or rid in product_ids or rid in ext_ids:
                 continue
             if rid in ("excluded", "bands", "products", "retailers"):
                 continue

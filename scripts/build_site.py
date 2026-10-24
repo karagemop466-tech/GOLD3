@@ -78,7 +78,8 @@ FLAG_LABELS = {
     "WARRANTY_TERM_CONTRADICTION": "Warranty contradiction",
     "INTERNATIONAL_SALES_FINAL": "Intl. sales final",
     "NO_DIRECT_CONTACT": "No phone or email",
-    "RETURN_SHIPPING_FEE": "$9 return fee",
+    "WEIGHT_SCOPE_UNVERIFIED": "Weight scope unverified",
+    "HALLMARK_ALT_TEXT_ONLY": "Purity stamp alt text only",
 }
 
 SEVERITY_BADGE = {"high": "bad", "medium": "warn", "low": "info"}
