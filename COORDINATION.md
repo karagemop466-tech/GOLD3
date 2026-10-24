@@ -30,7 +30,7 @@ Read it before starting any work. Update it when you claim, finish, or hand off 
 | `arena/76359c22-gold3` | `arena/76359c22-gold3` | 2026-10-23T21:10Z | **done** — Pass `P19` requirements matrix and live sample completed through PRs #72/#73/#74/#75; main CI, Pages and live read-back passed. |
 | `arena/bf5f63da-gold3` | `arena/bf5f63da-gold3` | 2026-10-23T23:41Z | **complete** — Final review pass (R1): line-by-line data-consistency audit, zero-hallucination front-page confirmation, all 9 CI gates green, PR #67 merged as `f2c69a6` to `main`, GitHub Pages built and live at https://karagemop466-tech.github.io/GOLD3/ | `COORDINATION.md`, generated `*.html`, verification scripts output | 2026-10-23T23:41Z → merged 2026-10-23 |
 | `arena/36ebce13-gold3` | `arena/36ebce13-gold3` | 2026-10-23T23:41Z | **done** — `P17` source/consistency review and `P18` integration/deploy completed through PRs #69/#71; main CI, Pages and live read-back passed (2026-10-24T00:02Z). |
-| `arena/1ee91485-gold3` | `arena/1ee91485-gold3` | 2026-10-23T23:43Z | **pass published (as `P17b`)** — Pass `P17b`: 25 live checks (gold benchmark + 20 rows) at 2026-10-23T23:43-23:45Z, 22 confirmed / 2 corrected / 1 flagged, finding `F65`, CR-P15-2 conflict bundle extended. Renumbered `P17`→`P17b` because `arena/36ebce13-gold3` independently claimed `P17`; the two passes are additive. Merged with the later `P19`/`P21`/`P22` main and integrated (§26) |
+| `arena/1ee91485-gold3` | `arena/1ee91485-gold3` | 2026-10-23T23:43Z | **merged `39e2a17` (PR #78)** — pass `P17b`: 25 live checks (gold benchmark + 20 rows) at 2026-10-23T23:43-23:45Z, 22 confirmed / 2 corrected / 1 flagged, finding `F65`, CR-P15-2 conflict bundle extended. Renumbered `P17`→`P17b` because `arena/36ebce13-gold3` independently claimed `P17`; the two passes are additive. Merged with the later `P19`/`P21`/`P22` main and integrated (§26) |
 
 ### Branch naming note (important)
 The protocol below asks for `session-<id>/<task>` branches. **This sandbox pins each session to a
@@ -105,7 +105,7 @@ Status values: `unclaimed` · `in progress` · `done` · `needs review`
 | P18 | Final integration after P17: re-verify combined data, regenerate all pages, confirm no broken internal links, pass every CI/security/render gate, PR from the fixed Arena branch to `main`, merge, and verify GitHub Pages read-back. | done | `arena/36ebce13-gold3` | repo root integration window after P17 | 2026-10-24T00:02Z |
 
 | P21 | Collision-safe independent corroborating source hunt after peer P17/P19 merged: live re-read of all 19 Dataset A PDPs, five seller-policy pages, five Trustpilot profiles, two spot feeds and three standards pages; append 36 uniquely numbered checks (301 cumulative), findings F59-F64, exact Aurate weight quotes, structured Kitco live cross-check/history, precise excluded-Mejuri PDP links and CR-P15-1/CR-P15-2 evidence closeout. Peer P17/F50-F55 and P19/F56-F58 preserved. | done | `arena/bd0ed905-gold3` | `data/reverification-p21.json`, `reports/reverification-pass-p21.md`, `data/verification.json`, `data/findings.json`, `data/flags.json`, `data/products.json`, `data/retailers.json`, `data/prices.json`, `data/sources.json`, `data/reverification-c-6ccbc523.json`, `reports/reverification-1162b2db.md`, generated HTML/audit artifacts, `scripts/build_site.py`, `scripts/audit.py`, `scripts/render-test.js`, `README.md`, `COORDINATION.md` | 2026-10-24T00:08Z |
-| P17b | Seventeenth independent live verification pass on the `main` tip `85ac1fa` (PR #66): re-open the gold-spot benchmark + a rotating sample of price/weight-bearing `R*`/`SOL`/`BND` rows; split the conflicted `reports/reverification-1162b2db.md` (CR-P15-2). Renumbered `P17`→`P17b` after the peer session claimed the same id; additive to peer `P17`/`P19`/`P21`. Published `data/reverification-p17b.json` + `reports/reverification-pass-p17b.md`, 25 checks (22 confirmed / 2 corrected / 1 flagged), finding `F65`, ledger 326 checks. Then integration: rebuild, all gates, PR → `main`, merge, Pages read-back (§26) | done | `arena/1ee91485-gold3` | `data/reverification-p17b.json`, `reports/reverification-pass-p17b.md`, `reports/reverification-incomplete.md`, `data/verification.json`, `data/prices.json`, `data/rings.json`, `data/bands-and-high-karat.json`, `data/findings.json`, `reports/reverification-1162b2db.md`, `scripts/build_site.py`, `README.md`, `COORDINATION.md` | 2026-10-23T23:45Z → merged 2026-10-24 |
+| P17b | Seventeenth independent live verification pass on the `main` tip `85ac1fa` (PR #66): re-open the gold-spot benchmark + a rotating sample of price/weight-bearing `R*`/`SOL`/`BND` rows; split the conflicted `reports/reverification-1162b2db.md` (CR-P15-2). Renumbered `P17`→`P17b` after the peer session claimed the same id; additive to peer `P17`/`P19`/`P21`. Published `data/reverification-p17b.json` + `reports/reverification-pass-p17b.md`, 25 checks (22 confirmed / 2 corrected / 1 flagged), finding `F65`, ledger 326 checks. Then integration: rebuild, all gates, PR #78 → `main` merged as `39e2a17`, Pages read-back (§26.7) | done | `arena/1ee91485-gold3` | `data/reverification-p17b.json`, `reports/reverification-pass-p17b.md`, `reports/reverification-incomplete.md`, `data/verification.json`, `data/prices.json`, `data/rings.json`, `data/bands-and-high-karat.json`, `data/findings.json`, `reports/reverification-1162b2db.md`, `scripts/build_site.py`, `README.md`, `COORDINATION.md` | 2026-10-23T23:45Z → merged 2026-10-24 |
 | P22 | Final integration after P21: pull/rebase additive peer changes, rebuild all pages, run every CI gate plus line-by-line/table-link and live-read-back checks, open/refresh PR → `main`, merge only on a green build, confirm Pages deploy, record evidence. **PR #70 merged as `ba5e1a4`; main CI `40044062104` SUCCESS; Pages `40044060849` SUCCESS; cache-busted live read-back verified 301 checks/session P21/F59-F64.** | done | `arena/bd0ed905-gold3` | repo root (integration window; no other active sessions) | 2026-10-24T00:18Z |
 > **T10 closed 2026-10-23** by its owner's own work, merged as PR #13 (board record) and PR #15
 > (text corrections). This session only recorded the closure — no file owned by `arena/92d7dd0a-gold3`
@@ -1495,4 +1495,22 @@ snapshots with the live-check snapshot's `history` carrying the 2026-10-23 readi
 **31 rows / 0 errors / 0 warnings / 176 checks**.
 
 ### 26.7 PR / CI / Pages read-back
-_TODO — filled in after the PR is merged and GitHub Pages is read back._
+
+- **PR:** [#78](https://github.com/karagemop466-tech/GOLD3/pull/78) — "Pass P17b: gold-spot
+  corroboration and 20 product rows re-verified live" from `arena/1ee91485-gold3` into `main`.
+- **State:** merged `2026-10-24T00:31:05Z` with `--merge`; **merge SHA `39e2a17`**.
+- **CI:** required job `Gate, build, audit and render` → **pass** (17s, run `40045372196`, job
+  `120725751320`). The workflow runs the nine gates in order — verify, Dataset C, requirements
+  matrix + hallucination scan, audit→rebuild, security audit, render test, report rebuild, root
+  official-link gate, archive suite.
+- **GitHub Pages:** source `branch: main`, `path: /`, `status: built`, `public: true`,
+  `https_enforced: true`; the newest build is `2026-10-24T00:31:25Z`, i.e. it rebuilt from the
+  merge commit rather than serving a stale tree. Published at
+  **https://karagemop466-tech.github.io/GOLD3/**
+- **Read-back:** this sandbox has outbound access to `api.github.com` but not to the Pages host,
+  so the live read-back was confirmed through the Pages API (`status: built`, `html_url`, latest
+  build timestamp) rather than by curling the page. The equivalent content checks were run
+  locally against the same tree: `render-test.js` **189/189**, root official-link gate
+  **1222/1222** with 0 missing `https://` links, `run_security_audit.py` SEC-01..07 clean, and
+  the calculator banner shows the newest live-check reading `$3,995.88/oz` against the dated
+  anchor `$4,022.22/oz`.
