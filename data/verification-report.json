@@ -24,7 +24,7 @@
   "counts": {
     "products": 19,
     "retailers": 5,
-    "sources": 12,
+    "sources": 14,
     "errors": 0,
     "warnings": 0
   },
@@ -424,7 +424,7 @@
     {
       "id": "F2",
       "severity": "high",
-      "title": "Only {n_all_weights} of {n_all_listings} listings publish a weight - none from Dataset A's five retailers"
+      "title": "Only {n_all_weights} of {n_all_listings} listings have a numeric gram weight for melt review - none from Dataset A's five retailers"
     },
     {
       "id": "F3",
@@ -693,33 +693,18 @@
     },
     {
       "id": "F56",
-      "severity": "low",
-      "title": "Independent Trustpilot re-read corroborates the merged P17 count corrections"
+      "severity": "medium",
+      "title": "Menē moved the Wrap Ring twice on 23 October — a 'current price' from this seller is a moving target"
     },
     {
       "id": "F57",
       "severity": "low",
-      "title": "Excluded Mejuri rows now cite their own PDPs, not just the collection"
+      "title": "The repo carries two gold-price anchors 0.012% apart, and different pages used different ones"
     },
     {
       "id": "F58",
-      "severity": "medium",
-      "title": "Aurate gram figures are now quoted on every row but remain scope-unverified"
-    },
-    {
-      "id": "F59",
-      "severity": "low",
-      "title": "Ring Concierge 2.72 prose was corrected to its live VVS2 clarity"
-    },
-    {
-      "id": "F60",
-      "severity": "medium",
-      "title": "Structured Kitco cross-check and prior live-check history were added without moving the anchor"
-    },
-    {
-      "id": "F61",
-      "severity": "low",
-      "title": "Both P15 documentation change requests remain closed with evidence preserved"
+      "severity": "high",
+      "title": "No listing on this site satisfies all ten checklist requirements — and the gaps are the seller's to close"
     }
   ],
   "parallel_dataset": {

@@ -35,10 +35,24 @@ jobs:
           python3 scripts/build_site.py
           python3 scripts/verify_dataset_c.py
 
+      # 2b. derive the requirements matrix, then re-derive it independently and read
+      #     the rendered page back: a cell the data does not hold fails the build
+      - name: Requirements matrix + hallucination scan
+        run: |
+          python3 scripts/requirements_matrix.py
+          python3 scripts/hallucination_scan.py
+
       # 3. the independent audit: provenance, weighted rows, stray numbers,
-      #    and the requirement that every row appears in the verification log
-      - name: Audit the dataset and the built pages
-        run: python3 scripts/audit.py
+      #    and the requirement that every row appears in the verification log.
+      #    audit.py rewrites reports/audit-report.md, and flagged.html prints the
+      #    date it finds there, so the pages are rebuilt immediately afterwards.
+      #    Without this the SD21 render guard fails on the first run after UTC
+      #    midnight, which is a guard-ordering bug rather than a site defect.
+      - name: Audit the dataset and the built pages (then rebuild from its report)
+        run: |
+          python3 scripts/audit.py
+          python3 scripts/build_ext_pages.py
+          python3 scripts/build_site.py
 
       # 4. Dataset C melt arithmetic, allowlist, HTML link/anchor & XSS audit
       - name: Run Dataset C & repo-wide security/hallucination audit

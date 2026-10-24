@@ -1,13 +1,14 @@
 {
-  "generated_at_utc": "2026-10-24T00:05:16Z",
+  "generated_at_utc": "2026-10-24T00:03:43Z",
   "data_file_sha256": {
     "bands-and-high-karat.json": "954cb5aa552b14adc0bfc6b81196bea9d430dcb3dd7a0813707ef00e9c55d7f1",
-    "findings.json": "91e122c7c5f3dd3abae2822ff6f3827681db95c108ee76a3370fb418955f35c9",
-    "flags.json": "2ed55192f04d6c400c9cb389ba2e5b730c5d41b746d643ae819bd4dbf3bc91d3",
+    "findings.json": "01f44b91981738870d2e106ec468439678c6042594ac5cdc8c200c2d2e24e70e",
+    "flags.json": "4b2174a3d2dc67b580a56ee12cc4ce30e8ba0c34035163fa9106252fd23a0bed",
     "gold-price.json": "bdb3a741c6696f56ec713c090706cb98fefb53901fe284dfe105308a7d6a7e08",
-    "prices.json": "ed6d29de4fe2696e94846f4cf974cc58d241d684fe941c13f5a44cd88a164a9e",
-    "products.json": "a91177ad66b579ec31815c0115d3b06b84ed96b551d8623507a403b99b393601",
-    "retailers.json": "b1b83094c3bbfff4e339e5170a3ad8a2425610ae2659edfb7435ca80659d1dbe",
+    "prices.json": "159256040f05a5a2e3a5586ee289b506e1b246c920697318d4374cb5bc5340aa",
+    "products.json": "26157967006c399925147058cbb9a2e24428c139826a7710122b2184b51ba590",
+    "requirements-matrix.json": "55c36ec8d64cce9738e2020dfd018a1d50f3ba71b68356185a4182b616ef7af6",
+    "retailers.json": "d4039b5186870537ca4747334d706df350380fd18ce8f4f27ad4fc072a4d8e47",
     "reverification-1162b2db.json": "803157bd7daddc10ea8ab4773c5ee1df1b5573c259c53c18c74c025263cea4b3",
     "reverification-57724486.json": "8b185580a5ef8bafa536151f721d3cb516e66926f02762af704284b9c3e2e2f3",
     "reverification-bfcd8465.json": "46f99c832ef98244d5d535ef4389dabc9313f1f92833e11157a3b9a09ec2cae8",
@@ -17,22 +18,22 @@
     "reverification-fb7e5e3c.json": "5b0dfdc516c0cd958d8d600ae85a28d7ad46e73aa743335110b4d1e60f3c792a",
     "reverification-p15.json": "ed96531e5576f223a77187091275b945ca35c9c5e1dbb9429d97b7973cbc7b6e",
     "reverification-p17.json": "14e3160dc5fe245c694c5099550cd65a4d638d28f30bf4c23d744f0c9b375b9d",
-    "reverification-p19.json": "745f44157e3c7bdd7825a3875feac62ff7ca1e0ad2dc336e754c47134de58843",
+    "reverification-p19.json": "6878cb48508e91c3594fdf5411b23e076a1132a97ab75ae84a8cef89a81369ef",
     "reverification-p3.json": "b1dca1669099d66e45b08588f8827b24f59edd65e4f4b4a806ef2a02987b5d16",
     "reverification-p4.json": "2e5ce8fdff92d04a3e1570960caf0bb1daafc91b2d76209a97a0fb94635e801a",
     "reverification-p5.json": "1c5ba33b93efdaa14d423fff0be8ca20622f4436d900bc6208ee44e64158bdda",
     "reverification-p6.json": "dee30027715ce1f89f414ab0bff0140b3684ba009e6b7f1fa3fc3f7322a7b62e",
-    "rings.json": "043e4eda28bfe50e5ea02dc3dde189acf1413edba23138a3cc1bdb419fa3cb5a",
+    "rings.json": "bae35b6e4293acf80c671f08b1e8cc923a0bc24d09b4213bb767eb7d53748743",
     "sellers-policies.json": "bfdc4ea96fe5daaf26fed08c1811bb8b9bb012fbb986f4310ee5bce8290ca9a9",
     "sellers.json": "4d1bd09620f904e833139fa16f7be571e87ade0115df1826472447e324bc033f",
     "solitaire-rings.json": "201fcc8aa94282160cebcb2afb706ba4c64c40617b3d7cf7f370554885077dbc",
-    "sources.json": "455599b1ce95a85a173d02dbb0bdb4275c6566edeb350073948af459b82ffd0e",
+    "sources.json": "bf79b38c367e0f1a267cf17c23f9ecf77a20dc48339870a2d2f043a27c10e338",
     "spot-and-standards.json": "b2b4203069b283be7a36228bf776aed7bda1e673435d1e2488c83e3fd890e03b",
     "standards.json": "6b745302667c70fb15800fb830471250551a37e238e507a8b993f8e3c4423ad8",
-    "verification-report.json": "0eab2d1b6a328d384458a4840ce107c6f0f1c64dd8fd1af2d5f30e12e3105483",
-    "verification.json": "f6bd6f5b5f2219e0bc803a13ae343b662fff33539f86b5fe5e0cf05da02b1448"
+    "verification-report.json": "05c3273f4a55456fc8ea7531b05ae50251329b32cd34a532c82d78a10b55be4b",
+    "verification.json": "9ca0ed85c32f6a950d9324fa52b3fb99b1570a0631b2dadc6c4133a7f7b612b3"
   },
-  "unique_official_urls_count": 187,
+  "unique_official_urls_count": 186,
   "official_sources": [
     {
       "url": "https://auratenewyork.com/",
@@ -62,6 +63,7 @@
         "HTML Link in combined.html",
         "HTML Link in flagged.html",
         "HTML Link in lab-grown.html",
+        "HTML Link in requirements.html",
         "HTML Link in rings.html",
         "HTML Link in verify.html"
       ]
@@ -74,6 +76,7 @@
         "HTML Link in combined.html",
         "HTML Link in flagged.html",
         "HTML Link in lab-grown.html",
+        "HTML Link in requirements.html",
         "HTML Link in rings.html",
         "HTML Link in verify.html"
       ]
@@ -92,6 +95,7 @@
         "HTML Link in combined.html",
         "HTML Link in flagged.html",
         "HTML Link in lab-grown.html",
+        "HTML Link in requirements.html",
         "HTML Link in rings.html",
         "HTML Link in verify.html"
       ]
@@ -110,6 +114,7 @@
         "HTML Link in combined.html",
         "HTML Link in flagged.html",
         "HTML Link in lab-grown.html",
+        "HTML Link in requirements.html",
         "HTML Link in rings.html",
         "HTML Link in verify.html"
       ]
@@ -134,6 +139,7 @@
         "HTML Link in combined.html",
         "HTML Link in flagged.html",
         "HTML Link in lab-grown.html",
+        "HTML Link in requirements.html",
         "HTML Link in rings.html",
         "HTML Link in verify.html"
       ]
@@ -152,6 +158,7 @@
         "HTML Link in combined.html",
         "HTML Link in flagged.html",
         "HTML Link in lab-grown.html",
+        "HTML Link in requirements.html",
         "HTML Link in rings.html",
         "HTML Link in verify.html"
       ]
@@ -164,6 +171,7 @@
         "HTML Link in combined.html",
         "HTML Link in flagged.html",
         "HTML Link in lab-grown.html",
+        "HTML Link in requirements.html",
         "HTML Link in rings.html",
         "HTML Link in verify.html"
       ]
@@ -173,6 +181,7 @@
       "referenced_by": [
         "HTML Link in 14k.html",
         "HTML Link in lab-grown.html",
+        "HTML Link in requirements.html",
         "HTML Link in retailers.html",
         "HTML Link in rings.html"
       ]
@@ -182,6 +191,7 @@
       "referenced_by": [
         "HTML Link in 14k.html",
         "HTML Link in lab-grown.html",
+        "HTML Link in requirements.html",
         "HTML Link in retailers.html",
         "HTML Link in rings.html",
         "HTML Link in sources.html",
@@ -204,6 +214,7 @@
       "url": "https://customerservice.costco.com/app/answers/detail/a_id/1191",
       "referenced_by": [
         "HTML Link in flagged.html",
+        "HTML Link in requirements.html",
         "HTML Link in sellers.html",
         "HTML Link in sources.html",
         "HTML Link in verify.html"
@@ -235,6 +246,7 @@
       "url": "https://help.vrai.com/en/knowledge/what-is-your-return-policy",
       "referenced_by": [
         "HTML Link in flagged.html",
+        "HTML Link in requirements.html",
         "HTML Link in sellers.html",
         "HTML Link in verify.html"
       ]
@@ -256,11 +268,23 @@
       ]
     },
     {
+      "url": "https://mejuri.com/collections/rings",
+      "referenced_by": [
+        "HTML Link in combined.html",
+        "HTML Link in excluded.html",
+        "HTML Link in flagged.html",
+        "HTML Link in requirements.html",
+        "HTML Link in rings.html",
+        "HTML Link in under-1000.html"
+      ]
+    },
+    {
       "url": "https://mejuri.com/company/returns-terms",
       "referenced_by": [
         "HTML Link in 14k.html",
         "HTML Link in excluded.html",
         "HTML Link in flagged.html",
+        "HTML Link in requirements.html",
         "HTML Link in retailers.html",
         "HTML Link in rings.html",
         "HTML Link in sources.html",
@@ -271,6 +295,7 @@
     {
       "url": "https://mejuri.com/faq/payment/what-payment-methods-do-you-accept",
       "referenced_by": [
+        "HTML Link in requirements.html",
         "HTML Link in sellers-policies.html",
         "Seller SEL-MEJURI Payments"
       ]
@@ -279,6 +304,7 @@
       "url": "https://mejuri.com/faq/return-exchanges/what-is-the-standard-return-policy",
       "referenced_by": [
         "HTML Link in flagged.html",
+        "HTML Link in requirements.html",
         "HTML Link in sellers-policies.html",
         "HTML Link in sellers.html",
         "HTML Link in verify.html",
@@ -292,6 +318,7 @@
         "HTML Link in bands-vintage-rings.html",
         "HTML Link in combined.html",
         "HTML Link in flagged-for-review.html",
+        "HTML Link in requirements.html",
         "Ring BND-12 Product Page"
       ]
     },
@@ -302,6 +329,7 @@
         "HTML Link in bands-vintage-rings.html",
         "HTML Link in combined.html",
         "HTML Link in flagged-for-review.html",
+        "HTML Link in requirements.html",
         "Ring BND-09 Product Page"
       ]
     },
@@ -309,6 +337,7 @@
       "url": "https://mejuri.com/products/aurora-lab-grown-sapphire-eternity-ring",
       "referenced_by": [
         "HTML Link in combined.html",
+        "HTML Link in requirements.html",
         "HTML Link in verify.html"
       ]
     },
@@ -318,6 +347,7 @@
         "HTML Link in 14k.html",
         "HTML Link in combined.html",
         "HTML Link in flagged.html",
+        "HTML Link in requirements.html",
         "HTML Link in verify.html"
       ]
     },
@@ -326,6 +356,7 @@
       "referenced_by": [
         "HTML Link in 14k.html",
         "HTML Link in combined.html",
+        "HTML Link in requirements.html",
         "HTML Link in verify.html"
       ]
     },
@@ -338,6 +369,7 @@
         "HTML Link in combined.html",
         "HTML Link in flagged-for-review.html",
         "HTML Link in flagged.html",
+        "HTML Link in requirements.html",
         "HTML Link in retailers.html",
         "HTML Link in rings.html",
         "HTML Link in under-1000.html",
@@ -350,7 +382,7 @@
       "referenced_by": [
         "HTML Link in combined.html",
         "HTML Link in excluded.html",
-        "HTML Link in flagged.html",
+        "HTML Link in requirements.html",
         "HTML Link in rings.html",
         "HTML Link in verify.html"
       ]
@@ -360,7 +392,7 @@
       "referenced_by": [
         "HTML Link in combined.html",
         "HTML Link in excluded.html",
-        "HTML Link in flagged.html",
+        "HTML Link in requirements.html",
         "HTML Link in rings.html",
         "HTML Link in verify.html"
       ]
@@ -369,6 +401,7 @@
       "url": "https://mejuri.com/products/duet-mixed-ring",
       "referenced_by": [
         "HTML Link in combined.html",
+        "HTML Link in requirements.html",
         "HTML Link in verify.html"
       ]
     },
@@ -378,6 +411,7 @@
         "HTML Link in 14k.html",
         "HTML Link in combined.html",
         "HTML Link in flagged.html",
+        "HTML Link in requirements.html",
         "HTML Link in verify.html"
       ]
     },
@@ -394,6 +428,7 @@
         "HTML Link in calculator.html",
         "HTML Link in combined.html",
         "HTML Link in flagged.html",
+        "HTML Link in requirements.html",
         "HTML Link in rings.html",
         "HTML Link in under-1000.html",
         "HTML Link in verify.html"
@@ -406,6 +441,7 @@
         "HTML Link in bands-vintage-rings.html",
         "HTML Link in combined.html",
         "HTML Link in flagged-for-review.html",
+        "HTML Link in requirements.html",
         "HTML Link in verify.html",
         "Ring BND-10 Product Page"
       ]
@@ -452,6 +488,7 @@
     {
       "url": "https://mene.com/customer-care?hcUrl=%2Fen-US%2Farticles%2Freturns-319505",
       "referenced_by": [
+        "HTML Link in requirements.html",
         "HTML Link in sellers-policies.html",
         "Seller SEL-MENE Returns"
       ]
@@ -462,6 +499,7 @@
         "HTML Link in bands-vintage-rings.html",
         "HTML Link in combined.html",
         "HTML Link in flagged-for-review.html",
+        "HTML Link in requirements.html",
         "HTML Link in verify.html",
         "Ring BND-01 Product Page"
       ]
@@ -472,6 +510,7 @@
         "HTML Link in bands-vintage-rings.html",
         "HTML Link in combined.html",
         "HTML Link in flagged-for-review.html",
+        "HTML Link in requirements.html",
         "HTML Link in verify.html",
         "Ring BND-02 Product Page"
       ]
@@ -483,6 +522,7 @@
         "HTML Link in combined.html",
         "HTML Link in flagged-for-review.html",
         "HTML Link in flagged.html",
+        "HTML Link in requirements.html",
         "HTML Link in verify.html",
         "Ring BND-03 Product Page"
       ]
@@ -491,6 +531,8 @@
       "url": "https://mene.com/products/wrap-ring-gold",
       "referenced_by": [
         "HTML Link in combined.html",
+        "HTML Link in flagged.html",
+        "HTML Link in requirements.html",
         "HTML Link in verify.html"
       ]
     },
@@ -498,6 +540,7 @@
       "url": "https://mene.com/terms-of-service",
       "referenced_by": [
         "HTML Link in flagged.html",
+        "HTML Link in requirements.html",
         "HTML Link in sellers-policies.html",
         "HTML Link in sellers.html",
         "HTML Link in verify.html",
@@ -517,6 +560,7 @@
         "HTML Link in 14k.html",
         "HTML Link in flagged.html",
         "HTML Link in lab-grown.html",
+        "HTML Link in requirements.html",
         "HTML Link in retailers.html",
         "HTML Link in rings.html",
         "HTML Link in sources.html",
@@ -531,6 +575,7 @@
         "HTML Link in combined.html",
         "HTML Link in flagged.html",
         "HTML Link in lab-grown.html",
+        "HTML Link in requirements.html",
         "HTML Link in retailers.html",
         "HTML Link in rings.html",
         "HTML Link in verify.html"
@@ -544,6 +589,7 @@
         "HTML Link in combined.html",
         "HTML Link in flagged.html",
         "HTML Link in lab-grown.html",
+        "HTML Link in requirements.html",
         "HTML Link in rings.html",
         "HTML Link in verify.html"
       ]
@@ -557,6 +603,7 @@
     {
       "url": "https://www.automicgold.com/pages/faq",
       "referenced_by": [
+        "HTML Link in requirements.html",
         "HTML Link in sellers.html"
       ]
     },
@@ -570,6 +617,7 @@
       "url": "https://www.automicgold.com/policies/refund-policy",
       "referenced_by": [
         "HTML Link in flagged.html",
+        "HTML Link in requirements.html",
         "HTML Link in sellers.html",
         "HTML Link in verify.html"
       ]
@@ -580,6 +628,7 @@
         "HTML Link in 14k.html",
         "HTML Link in analysis.html",
         "HTML Link in combined.html",
+        "HTML Link in requirements.html",
         "HTML Link in verify.html"
       ]
     },
@@ -590,6 +639,7 @@
         "HTML Link in analysis.html",
         "HTML Link in combined.html",
         "HTML Link in flagged.html",
+        "HTML Link in requirements.html",
         "HTML Link in verify.html"
       ]
     },
@@ -599,6 +649,7 @@
         "HTML Link in 14k.html",
         "HTML Link in analysis.html",
         "HTML Link in combined.html",
+        "HTML Link in requirements.html",
         "HTML Link in verify.html"
       ]
     },
@@ -609,12 +660,14 @@
         "HTML Link in analysis.html",
         "HTML Link in combined.html",
         "HTML Link in flagged.html",
+        "HTML Link in requirements.html",
         "HTML Link in verify.html"
       ]
     },
     {
       "url": "https://www.bbb.org/ca/on/ontario/profile/jewelry-designers/mene-inc-0107-1413670",
       "referenced_by": [
+        "HTML Link in requirements.html",
         "HTML Link in sellers-policies.html",
         "Seller SEL-MENE BBB"
       ]
@@ -628,6 +681,7 @@
     {
       "url": "https://www.bbb.org/ca/on/toronto/profile/jewelry-manufacturers/mejuri-0107-1370644",
       "referenced_by": [
+        "HTML Link in requirements.html",
         "HTML Link in sellers-policies.html",
         "Seller SEL-MEJURI BBB"
       ]
@@ -635,6 +689,7 @@
     {
       "url": "https://www.bbb.org/us/ca/san-francisco/profile/diamond/brilliant-earth-llc-1116-154721",
       "referenced_by": [
+        "HTML Link in requirements.html",
         "HTML Link in sellers-policies.html",
         "Seller SEL-BRILLIANTEARTH BBB"
       ]
@@ -643,6 +698,7 @@
       "url": "https://www.bbb.org/us/ri/cranston/profile/jewelry-stores/ross-simons-inc-0021-25107",
       "referenced_by": [
         "HTML Link in checklist-standards.html",
+        "HTML Link in requirements.html",
         "HTML Link in sellers-policies.html",
         "Seller SEL-ROSSSIMONS BBB"
       ]
@@ -650,6 +706,7 @@
     {
       "url": "https://www.bbb.org/us/wa/seattle/profile/jewelry-stores/blue-nile-inc-1296-15026564",
       "referenced_by": [
+        "HTML Link in requirements.html",
         "HTML Link in sellers-policies.html",
         "Seller SEL-BLUENILE BBB"
       ]
@@ -683,6 +740,7 @@
         "HTML Link in 18k.html",
         "HTML Link in combined.html",
         "HTML Link in flagged-for-review.html",
+        "HTML Link in requirements.html",
         "HTML Link in solitaire-settings.html",
         "HTML Link in verify.html",
         "Ring SOL-01 Product Page"
@@ -693,6 +751,7 @@
       "referenced_by": [
         "HTML Link in 14k.html",
         "HTML Link in combined.html",
+        "HTML Link in requirements.html",
         "HTML Link in verify.html"
       ]
     },
@@ -703,6 +762,7 @@
         "HTML Link in calculator.html",
         "HTML Link in combined.html",
         "HTML Link in flagged.html",
+        "HTML Link in requirements.html",
         "HTML Link in rings.html",
         "HTML Link in verify.html"
       ]
@@ -714,6 +774,7 @@
         "HTML Link in calculator.html",
         "HTML Link in combined.html",
         "HTML Link in flagged.html",
+        "HTML Link in requirements.html",
         "HTML Link in rings.html",
         "HTML Link in verify.html"
       ]
@@ -732,6 +793,7 @@
         "HTML Link in calculator.html",
         "HTML Link in combined.html",
         "HTML Link in flagged.html",
+        "HTML Link in requirements.html",
         "HTML Link in rings.html",
         "HTML Link in verify.html"
       ]
@@ -744,6 +806,7 @@
         "HTML Link in combined.html",
         "HTML Link in flagged-for-review.html",
         "HTML Link in flagged.html",
+        "HTML Link in requirements.html",
         "HTML Link in rings.html",
         "HTML Link in solitaire-settings.html",
         "HTML Link in verify.html",
@@ -757,6 +820,7 @@
         "HTML Link in calculator.html",
         "HTML Link in combined.html",
         "HTML Link in flagged.html",
+        "HTML Link in requirements.html",
         "HTML Link in rings.html",
         "HTML Link in verify.html"
       ]
@@ -767,6 +831,7 @@
         "HTML Link in 18k.html",
         "HTML Link in combined.html",
         "HTML Link in flagged-for-review.html",
+        "HTML Link in requirements.html",
         "HTML Link in solitaire-settings.html",
         "Ring SOL-02 Product Page"
       ]
@@ -778,6 +843,7 @@
         "HTML Link in 18k.html",
         "HTML Link in checklist-standards.html",
         "HTML Link in flagged.html",
+        "HTML Link in requirements.html",
         "HTML Link in retailers.html",
         "HTML Link in rings.html",
         "HTML Link in sellers-policies.html",
@@ -790,6 +856,7 @@
     {
       "url": "https://www.bluenile.com/policies/us-payment-methods",
       "referenced_by": [
+        "HTML Link in requirements.html",
         "HTML Link in sellers-policies.html",
         "Seller SEL-BLUENILE Payments"
       ]
@@ -811,6 +878,7 @@
     {
       "url": "https://www.brilliantearth.com/30-Day-Returns/",
       "referenced_by": [
+        "HTML Link in requirements.html",
         "HTML Link in sellers-policies.html",
         "HTML Link in sellers.html",
         "HTML Link in verify.html",
@@ -830,6 +898,7 @@
         "HTML Link in 18k.html",
         "HTML Link in combined.html",
         "HTML Link in flagged-for-review.html",
+        "HTML Link in requirements.html",
         "HTML Link in solitaire-settings.html",
         "HTML Link in verify.html",
         "Ring SOL-05 Product Page"
@@ -841,6 +910,7 @@
         "HTML Link in 18k.html",
         "HTML Link in combined.html",
         "HTML Link in flagged-for-review.html",
+        "HTML Link in requirements.html",
         "HTML Link in solitaire-settings.html",
         "Ring SOL-04 Product Page"
       ]
@@ -858,6 +928,7 @@
         "HTML Link in 18k.html",
         "HTML Link in combined.html",
         "HTML Link in flagged-for-review.html",
+        "HTML Link in requirements.html",
         "HTML Link in solitaire-settings.html",
         "Ring SOL-06 Product Page"
       ]
@@ -872,6 +943,7 @@
       "url": "https://www.brilliantearth.com/flexible-payment-options/",
       "referenced_by": [
         "HTML Link in checklist-standards.html",
+        "HTML Link in requirements.html",
         "HTML Link in sellers-policies.html",
         "Seller SEL-BRILLIANTEARTH Payments"
       ]
@@ -915,6 +987,7 @@
         "HTML Link in calculator.html",
         "HTML Link in combined.html",
         "HTML Link in flagged.html",
+        "HTML Link in requirements.html",
         "HTML Link in rings.html",
         "HTML Link in under-1000.html",
         "HTML Link in verify.html"
@@ -946,6 +1019,7 @@
       "referenced_by": [
         "HTML Link in 14k.html",
         "HTML Link in flagged.html",
+        "HTML Link in requirements.html",
         "HTML Link in retailers.html",
         "HTML Link in rings.html",
         "HTML Link in sellers.html",
@@ -960,6 +1034,7 @@
         "HTML Link in 14k.html",
         "HTML Link in combined.html",
         "HTML Link in flagged.html",
+        "HTML Link in requirements.html",
         "HTML Link in verify.html"
       ]
     },
@@ -982,6 +1057,7 @@
         "HTML Link in 14k.html",
         "HTML Link in combined.html",
         "HTML Link in flagged.html",
+        "HTML Link in requirements.html",
         "HTML Link in verify.html"
       ]
     },
@@ -991,6 +1067,7 @@
         "HTML Link in checklist-standards.html",
         "HTML Link in excluded.html",
         "HTML Link in flagged.html",
+        "HTML Link in requirements.html",
         "HTML Link in sources.html",
         "HTML Link in standards.html",
         "HTML Link in verify.html"
@@ -1017,6 +1094,13 @@
       "url": "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23/section-23.4",
       "referenced_by": [
         "HTML Link in verify.html"
+      ]
+    },
+    {
+      "url": "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-D/part-435",
+      "referenced_by": [
+        "HTML Link in requirements.html",
+        "HTML Link in sources.html"
       ]
     },
     {
@@ -1091,6 +1175,7 @@
     {
       "url": "https://www.jamesallen.com/",
       "referenced_by": [
+        "HTML Link in requirements.html",
         "HTML Link in sellers.html"
       ]
     },
@@ -1123,11 +1208,18 @@
       ]
     },
     {
+      "url": "https://www.kitco.com/precious-metals",
+      "referenced_by": [
+        "HTML Link in flagged.html"
+      ]
+    },
+    {
       "url": "https://www.kitco.com/price/precious-metals",
       "referenced_by": [
         "HTML Link in bands-vintage-rings.html",
         "HTML Link in checklist-standards.html",
         "HTML Link in flagged-for-review.html",
+        "HTML Link in requirements.html",
         "HTML Link in sellers-policies.html",
         "HTML Link in solitaire-settings.html",
         "HTML Link in verify.html",
@@ -1137,6 +1229,14 @@
     {
       "url": "https://www.kitco.com/price/precious-metals/gold",
       "referenced_by": [
+        "HTML Link in verify.html"
+      ]
+    },
+    {
+      "url": "https://www.law.cornell.edu/uscode/text/15/1666",
+      "referenced_by": [
+        "HTML Link in requirements.html",
+        "HTML Link in sources.html",
         "HTML Link in verify.html"
       ]
     },
@@ -1156,6 +1256,7 @@
       "url": "https://www.law.cornell.edu/uscode/text/15/297",
       "referenced_by": [
         "HTML Link in flagged.html",
+        "HTML Link in requirements.html",
         "HTML Link in sources.html",
         "HTML Link in verify.html"
       ]
@@ -1192,6 +1293,7 @@
       "url": "https://www.localeclectic.com/pages/frequently-asked-questions",
       "referenced_by": [
         "HTML Link in flagged.html",
+        "HTML Link in requirements.html",
         "HTML Link in sellers.html"
       ]
     },
@@ -1200,6 +1302,7 @@
       "referenced_by": [
         "HTML Link in combined.html",
         "HTML Link in flagged.html",
+        "HTML Link in requirements.html",
         "HTML Link in verify.html"
       ]
     },
@@ -1221,6 +1324,7 @@
       "url": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9",
       "referenced_by": [
         "HTML Link in flagged.html",
+        "HTML Link in requirements.html",
         "HTML Link in verify.html",
         "NIST Constant (NIST Special Publication 811, Appendix B.9 - Factors for Units Listed by Kind of Quantity (Mass))"
       ]
@@ -1243,6 +1347,7 @@
     {
       "url": "https://www.ross-simons.com/pages/payment-options",
       "referenced_by": [
+        "HTML Link in requirements.html",
         "HTML Link in sellers-policies.html",
         "Seller SEL-ROSSSIMONS Payments"
       ]
@@ -1251,6 +1356,7 @@
       "url": "https://www.ross-simons.com/pages/returns-exchanges",
       "referenced_by": [
         "HTML Link in flagged.html",
+        "HTML Link in requirements.html",
         "HTML Link in sellers-policies.html",
         "HTML Link in sellers.html",
         "HTML Link in verify.html",
@@ -1263,6 +1369,7 @@
         "HTML Link in 14k.html",
         "HTML Link in combined.html",
         "HTML Link in flagged-for-review.html",
+        "HTML Link in requirements.html",
         "HTML Link in solitaire-settings.html",
         "Ring SOL-09 Product Page"
       ]
@@ -1274,6 +1381,7 @@
         "HTML Link in checklist-standards.html",
         "HTML Link in combined.html",
         "HTML Link in flagged-for-review.html",
+        "HTML Link in requirements.html",
         "HTML Link in solitaire-settings.html",
         "HTML Link in verify.html",
         "Ring SOL-08 Product Page"
@@ -1286,6 +1394,7 @@
         "HTML Link in bands-vintage-rings.html",
         "HTML Link in combined.html",
         "HTML Link in flagged-for-review.html",
+        "HTML Link in requirements.html",
         "HTML Link in verify.html",
         "Ring BND-05 Product Page"
       ]
@@ -1298,6 +1407,7 @@
         "HTML Link in combined.html",
         "HTML Link in flagged-for-review.html",
         "HTML Link in flagged.html",
+        "HTML Link in requirements.html",
         "HTML Link in verify.html",
         "Ring BND-04 Product Page"
       ]
@@ -1310,6 +1420,7 @@
         "HTML Link in combined.html",
         "HTML Link in flagged-for-review.html",
         "HTML Link in flagged.html",
+        "HTML Link in requirements.html",
         "HTML Link in verify.html",
         "Ring BND-06 Product Page"
       ]
@@ -1320,6 +1431,7 @@
         "HTML Link in 14k.html",
         "HTML Link in analysis.html",
         "HTML Link in combined.html",
+        "HTML Link in requirements.html",
         "HTML Link in verify.html"
       ]
     },
@@ -1330,6 +1442,7 @@
         "HTML Link in bands-vintage-rings.html",
         "HTML Link in combined.html",
         "HTML Link in flagged-for-review.html",
+        "HTML Link in requirements.html",
         "HTML Link in verify.html",
         "Ring BND-07 Product Page"
       ]
@@ -1341,6 +1454,7 @@
         "HTML Link in analysis.html",
         "HTML Link in combined.html",
         "HTML Link in flagged.html",
+        "HTML Link in requirements.html",
         "HTML Link in verify.html"
       ]
     },
@@ -1350,7 +1464,9 @@
         "HTML Link in 14k.html",
         "HTML Link in combined.html",
         "HTML Link in flagged-for-review.html",
+        "HTML Link in requirements.html",
         "HTML Link in solitaire-settings.html",
+        "HTML Link in verify.html",
         "Ring SOL-07 Product Page"
       ]
     },
@@ -1361,6 +1477,7 @@
         "HTML Link in bands-vintage-rings.html",
         "HTML Link in combined.html",
         "HTML Link in flagged-for-review.html",
+        "HTML Link in requirements.html",
         "HTML Link in verify.html",
         "Ring BND-08 Product Page"
       ]
@@ -1376,6 +1493,7 @@
       "url": "https://www.sarraf.com/30-day-returns-and-exchange-policy/",
       "referenced_by": [
         "HTML Link in flagged.html",
+        "HTML Link in requirements.html",
         "HTML Link in sellers.html",
         "HTML Link in verify.html"
       ]
@@ -1384,6 +1502,7 @@
       "url": "https://www.sarraf.com/about-sarraf/",
       "referenced_by": [
         "HTML Link in flagged.html",
+        "HTML Link in requirements.html",
         "HTML Link in sellers.html",
         "HTML Link in verify.html"
       ]
@@ -1406,6 +1525,7 @@
         "HTML Link in analysis.html",
         "HTML Link in combined.html",
         "HTML Link in flagged.html",
+        "HTML Link in requirements.html",
         "HTML Link in verify.html"
       ]
     },
@@ -1416,6 +1536,7 @@
         "HTML Link in analysis.html",
         "HTML Link in combined.html",
         "HTML Link in flagged.html",
+        "HTML Link in requirements.html",
         "HTML Link in verify.html"
       ]
     },
@@ -1437,6 +1558,7 @@
         "HTML Link in 14k.html",
         "HTML Link in analysis.html",
         "HTML Link in combined.html",
+        "HTML Link in requirements.html",
         "HTML Link in verify.html"
       ]
     },
@@ -1447,6 +1569,7 @@
         "HTML Link in analysis.html",
         "HTML Link in combined.html",
         "HTML Link in flagged.html",
+        "HTML Link in requirements.html",
         "HTML Link in verify.html"
       ]
     },
@@ -1462,6 +1585,7 @@
         "HTML Link in 18k.html",
         "HTML Link in combined.html",
         "HTML Link in flagged.html",
+        "HTML Link in requirements.html",
         "HTML Link in sellers.html",
         "HTML Link in verify.html"
       ]
@@ -1470,6 +1594,7 @@
       "url": "https://www.tiffany.com/policy/return-policy.html",
       "referenced_by": [
         "HTML Link in flagged.html",
+        "HTML Link in requirements.html",
         "HTML Link in sellers.html",
         "HTML Link in verify.html"
       ]
@@ -1477,6 +1602,7 @@
     {
       "url": "https://www.trustpilot.com/",
       "referenced_by": [
+        "HTML Link in requirements.html",
         "HTML Link in retailers.html",
         "HTML Link in sources.html"
       ]
@@ -1484,7 +1610,7 @@
     {
       "url": "https://www.trustpilot.com/review/auratenewyork.com",
       "referenced_by": [
-        "HTML Link in flagged.html",
+        "HTML Link in requirements.html",
         "HTML Link in retailers.html",
         "HTML Link in sources.html",
         "HTML Link in verify.html"
@@ -1493,12 +1619,16 @@
     {
       "url": "https://www.trustpilot.com/review/catbirdnyc.com",
       "referenced_by": [
+        "HTML Link in requirements.html",
+        "HTML Link in retailers.html",
+        "HTML Link in sources.html",
         "HTML Link in verify.html"
       ]
     },
     {
       "url": "https://www.trustpilot.com/review/mejuri.com",
       "referenced_by": [
+        "HTML Link in requirements.html",
         "HTML Link in retailers.html",
         "HTML Link in sources.html",
         "HTML Link in verify.html"
@@ -1508,6 +1638,7 @@
       "url": "https://www.trustpilot.com/review/ringconcierge.com",
       "referenced_by": [
         "HTML Link in flagged.html",
+        "HTML Link in requirements.html",
         "HTML Link in retailers.html",
         "HTML Link in sources.html",
         "HTML Link in verify.html"
@@ -1516,6 +1647,7 @@
     {
       "url": "https://www.trustpilot.com/review/www.bluenile.com",
       "referenced_by": [
+        "HTML Link in requirements.html",
         "HTML Link in retailers.html",
         "HTML Link in sources.html",
         "HTML Link in verify.html"
@@ -1542,12 +1674,14 @@
         "HTML Link in analysis.html",
         "HTML Link in combined.html",
         "HTML Link in flagged.html",
+        "HTML Link in requirements.html",
         "HTML Link in verify.html"
       ]
     },
     {
       "url": "https://www.vrai.com/contact-us",
       "referenced_by": [
+        "HTML Link in requirements.html",
         "HTML Link in sellers.html",
         "HTML Link in verify.html"
       ]
@@ -1580,6 +1714,7 @@
       "url": "https://www.wilsonsestatejewelry.com/policies/refund-policy",
       "referenced_by": [
         "HTML Link in flagged.html",
+        "HTML Link in requirements.html",
         "HTML Link in sellers.html",
         "HTML Link in verify.html"
       ]
@@ -1591,6 +1726,7 @@
         "HTML Link in analysis.html",
         "HTML Link in combined.html",
         "HTML Link in flagged.html",
+        "HTML Link in requirements.html",
         "HTML Link in sellers.html",
         "HTML Link in verify.html"
       ]
@@ -1601,6 +1737,7 @@
         "HTML Link in analysis.html",
         "HTML Link in combined.html",
         "HTML Link in flagged.html",
+        "HTML Link in requirements.html",
         "HTML Link in verify.html"
       ]
     },
@@ -1617,6 +1754,7 @@
         "HTML Link in 14k.html",
         "HTML Link in analysis.html",
         "HTML Link in combined.html",
+        "HTML Link in requirements.html",
         "HTML Link in verify.html"
       ]
     }

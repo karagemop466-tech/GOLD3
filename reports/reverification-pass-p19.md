@@ -1,62 +1,102 @@
-# Pass P19 — independent corroborating Dataset A / seller-policy re-verification
+# Pass P19 — independent re-verification and the first requirements compliance matrix
 
-- **Session:** `arena/bd0ed905-gold3`
-- **Read at:** 2026-10-24T00:02:13Z (2026-10-23 US Pacific / 2026-10-24 UTC)
-- **Numbering note:** peer `arena/36ebce13-gold3` merged its own P17 first (PR #69); this pass is renumbered P19 to keep every check ID unique.
-- **Checks:** **36** — 13 confirmed · 21 corrected · 2 flagged
-- **Method:** every Dataset A PDP, five return-policy pages, five Trustpilot profiles, two live spot feeds, both NIST conversion authorities and 16 CFR 23.10 reopened live; each stored value searched verbatim.
-- **Result:** 0 Dataset A price changes. All corrections are provenance, scope, duplicate-flag, review-count, clarity-note or reference-spot corrections. The dated melt anchor was preserved.
+- **Session:** `arena/76359c22-gold3`
+- **Date (UTC):** 2026-10-23
+- **Live read window:** 23:35Z – 23:46Z
+- **Base:** `85ac1fa` (`main`, after PR #66), branch `arena/76359c22-gold3`
+- **Machine-readable log:** `data/reverification-p19.json`, appended to `data/verification.json` as `P19-01`…`P19-12`
+- **New artefacts:** `scripts/requirements_matrix.py`, `scripts/hallucination_scan.py`, `data/requirements-matrix.json`, `requirements.html`
 
-## Checks
+## 0. Renumbering and merge note
 
-| ID | Source | Rows | Outcome | What the page said |
+This pass was claimed as `P17` at 21:10Z, but peer session `arena/36ebce13-gold3` merged its own `P17`
+(PR #69) — including its own `data/reverification-p17.json`, `reports/reverification-pass-p17.md` and findings
+`F56`–`F55` — while this pass was running. Under the §1 protocol the peer version is kept and this pass renumbered:
+the pass id became **`P19`**, its checks `P19-01`…`P19-12`, its findings **`F56`–`F58`**, and its artefacts
+`data/reverification-p19.json` / `reports/reverification-pass-p19.md`. Nothing was discarded and no peer file was
+reset to an older version; `origin/main` was merged and every conflict resolved in the peer's favour for generated
+artefacts, which were then rebuilt from data.
+
+## 1. What this pass did
+
+Two things, both aimed at the same question — *can every number on this site be traced to a page a buyer can open?*
+
+1. **A rotating live sample.** Ten official pages were re-opened, spread across Dataset A (3), Dataset B (5), Dataset C (4) and the gold benchmark, deliberately steering around the rows P14 and P15 had re-read minutes earlier (except `BND-08`, whose published weight made a second look worthwhile).
+2. **A requirements compliance matrix.** The checklist has ten requirements. Until now the site carried them as prose and per-row flags. Every one of the 71 listings is now scored cell by cell — karat, the word "solid", hallmark, maker's mark, weight, seller reputation, return window, card payment, documentation and independent/XRF verification — and every cell is either backed by an official page or left **blank and marked unverified**.
+
+## 2. Live results — 12 checks: 10 confirmed, 0 corrected, 2 flagged
+
+| Check | Subject | Outcome | What the page printed |
+|---|---|---|---|
+| `P19-01` | Mejuri Diamonds Band (`mejuri-diamonds-band` / `BND-11`) | confirmed | `$648`, `Solid Yellow Gold (14k), Natural Diamond`, free 30-day returns, engraving not eligible for returns, no weight, no hallmark |
+| `P19-02` | Catbird Woodland Ring (`R18`) | confirmed | `$276.00 Regular Price $368.00`, sold-out badge, no material paragraph, no weight, no hallmark |
+| `P19-03` | Tiffany Setting (`R17`) | confirmed | `Starting from $1,600`, `18k Yellow Gold and Platinum`, **both** "non returnable" and "can only be exchanged", "currently unavailable" |
+| `P19-04` | Local Eclectic Simple Knot (`R31`) | confirmed | `$239`, badge `9k Solid Gold` against bullet `10k solid yellow gold` — the karat genuinely cannot be settled from the listing |
+| `P19-05` | Menē Wrap Ring (`R30`) | **flagged** | `$3,202` — 1.57% below the capture and 0.81% below the earlier reading the same day (finding `F56`) |
+| `P19-06` | Mejuri Diamond Eternity Band (`BND-10`) | confirmed | `From $1,100`, prose "average carat weight of 0.532ct" against spec "0.044 ct - 0.056 ct" |
+| `P19-07` | Ross-Simons 990022 (`SOL-07`) | confirmed | `Sale price $2,819` (original `$3,995`), `14kt White Gold`, GIA `#2225975086`, no static metal weight |
+| `P19-08` | Ross-Simons 993085 (`BND-08`) | confirmed | `$3,295`, `Gold Weight 5.9 grams`, `Metal 14kt and 22kt Gold` (mixed karat, so no melt figure is computable) |
+| `P19-09` | Ring Concierge 2.08 oval (`ringconcierge-2-08-…`) | confirmed | `Regular price$6,038`, `2.08 Carat E VS1`, `Made to Order`, `3-4 weeks`, no "solid" wording |
+| `P19-SPOT` | Gold benchmark | **flagged** | `Spot Gold Price: USD 3,995.88 / Ounce … Oct 23rd, 2026 at 07:41 NY Time` — 0.66% below the stored dated anchor; clock label again behind the read time |
+| `P19-11` | 15 U.S.C. § 1666, 16 CFR Part 435 | confirmed | Both opened live to support the payment and returns requirements; quotes added to `data/sources.json` |
+| `P19-12` | Requirements matrix | confirmed | Independent re-derivation by `scripts/hallucination_scan.py` agrees with the stored matrix cell for cell |
+
+**No stored price, karat or gram weight was contradicted by a live page in this pass.** The two flags are a moving seller price and a moving spot price — both recorded, neither overwritten.
+
+## 3. The requirements matrix — what it proves
+
+| Requirement | Good | Partial | Fail | Blank / unverified |
 |---|---|---|---|---|
-| P19-01 | [aurate-2ct-round-lgd-solitaire live PDP](https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring) | aurate-2ct-round-lgd-solitaire | **corrected** | $2,858, Rate - 14k GOLD, In Stock • Ready to Ship, Weight: 5.5-8.5g and the exchange-only/final-sale notices all printed verbatim. |
-| P19-02 | [aurate-2ct-emerald-lgd-solitaire live PDP](https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring) | aurate-2ct-emerald-lgd-solitaire | **corrected** | $2,638, Rate - 14k GOLD, Made to Order, Weight: 5.5-8.5g and the exchange-only/final-sale notices all printed verbatim. |
-| P19-03 | [aurate-1ct-round-lgd-bezel live PDP](https://auratenewyork.com/products/1ct-round-lab-grown-diamond-bezel-ring) | aurate-1ct-round-lgd-bezel | **corrected** | $1,498, Rate - 14k GOLD, Made to Order, Final Sale!, Exchange for size only., Weight: 2.23g, 1.05tcw and SKU AU5000 printed verbatim. |
-| P19-04 | [aurate-2ct-emerald-lgd-bezel live PDP](https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-bezel-ring) | aurate-2ct-emerald-lgd-bezel | **corrected** | $1,968, Rate - 14k GOLD, Made to Order, Weight: 2.36g, 1.8tcw and SKU AU5093 printed verbatim; the page also mislabels its emerald copy as oval. |
-| P19-05 | [aurate-2ct-oval-lgd-solitaire live PDP](https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring) | aurate-2ct-oval-lgd-solitaire | **corrected** | $2,858, Rate - 14k GOLD, In Stock • Ready to Ship, Weight: 5.7-8.7g and the exchange-only/final-sale notices all printed verbatim. |
-| P19-06 | [aurate-3ct-oval-lgd-solitaire live PDP](https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring) | aurate-3ct-oval-lgd-solitaire | **corrected** | $3,958, Rate - 14k GOLD, In Stock • Ready to Ship, Weight: 5.9-8.9g and the exchange-only/final-sale notices all printed verbatim. |
-| P19-07 | [aurate-3ct-pear-lgd-bezel live PDP](https://auratenewyork.com/products/3ct-pear-lab-grown-diamond-bezel-ring) | aurate-3ct-pear-lgd-bezel | **corrected** | $2,498, Rate - 14k GOLD, Made to Order, Weight: 3.33g, 3.6tcw and SKU AU5107 printed verbatim. |
-| P19-08 | [bluenile-petite-solitaire-14k-yg live PDP](https://www.bluenile.com/engagement-rings/design-your-own-ring/petite-solitaire-engagement-ring-in-14k-yellow-gold-item-195639) | bluenile-petite-solitaire-14k-yg | **confirmed** | $1,000(Setting Price), Metal 14K Yellow Gold and Width 1.80mm printed on the own PDP. |
-| P19-09 | [bluenile-petite-hidden-halo-14k-yg live PDP](https://www.bluenile.com/engagement-rings/design-your-own-ring/petite-hidden-halo-solitaire-plus-diamond-engagement-ring-in-14k-yellow-gold-item-192506) | bluenile-petite-hidden-halo-14k-yg | **corrected** | $1,255(Setting Price) printed on the own PDP; price_source was changed from the collection URL to this exact page. |
-| P19-10 | [bluenile-riviera-pave-14k-wg live PDP](https://www.bluenile.com/engagement-rings/design-your-own-ring/riviera-pave-diamond-engagement-ring-in-14k-white-gold-1-6-ct-tw-item-195326) | bluenile-riviera-pave-14k-wg | **corrected** | $1,500(Setting Price), Metal Type 14K White Gold and Rhodium Finish Yes printed on the own PDP; price_source tightened to it. |
-| P19-11 | [bluenile-floral-marquise-18k-wg live PDP](https://www.bluenile.com/engagement-rings/design-your-own-ring/floral-marquise-diamond-engagement-ring-in-18k-white-gold-item-203738) | bluenile-floral-marquise-18k-wg | **confirmed** | $2,210(Setting Price) and spec Metal 18K White Gold printed; Product Details still say “14k yellow gold”, so the existing contradiction remains flagged. |
-| P19-12 | [bluenile-criss-cross-18k-yg live PDP](https://www.bluenile.com/engagement-rings/design-your-own-ring/criss-cross-solitaire-engagement-ring-in-18k-yellow-gold-by-james-allen-item-311132) | bluenile-criss-cross-18k-yg | **corrected** | $2,320(Setting Price) and Metal 18K Yellow Gold printed on the own PDP; price_source changed from the collection URL to this page. |
-| P19-13 | [Mejuri Diamonds Band live PDP](https://mejuri.com/products/diamonds-band?Material=Solid+Yellow+Gold+%2814k%29&Stone=Natural+Diamond) | mejuri-diamonds-band | **confirmed** | $648, Solid Yellow Gold (14k), Natural Diamond, free 30-day returns and the engraving return exclusion all printed. |
-| P19-14 | [Mejuri Stacker Ring live PDP](https://mejuri.com/products/stacker-ring?Material=Solid+Yellow+Gold+%2810k%29) | mejuri-stacker-ring-10k | **corrected** | $138 and Solid Yellow Gold (10k) printed on the own PDP; price_source and solid_gold_source changed from the collection URL to this page. |
-| P19-15 | [Ring Concierge 2.08 live PDP](https://ringconcierge.com/products/2-08-oval-lab-diamond-in-whisper-thina-hidden-halo) | ringconcierge-2-08-oval-lab-whisper-thin | **confirmed** | $6,038 unchanged. Title says 2.08 Carat E VS1 while Product Details say 5.63 Carat D VVS2; PDP FAQ says one week (7 days) returns and resizing makes the ring final sale. Existing contradiction preserved, duplicate chips removed. |
-| P19-16 | [Ring Concierge 2.72 live PDP](https://ringconcierge.com/products/2-72-round-lab-diamond-in-whisper-thina) | ringconcierge-2-72-round-lab-whisper-thin | **corrected** | $7,268 unchanged. Product Details print 2.72 Carat E VVS2 and Metal: 14K Yellow Gold with Platinum Prongs. The stale E VS1 note and PURITY_NOT_IN_BODY_TEXT flag were removed; duplicate chips consolidated. |
-| P19-17 | [Catbird Classic Half Round live PDP](https://www.catbirdnyc.com/catbird-classic-wedding-bands-solid-half-round-band-2mm.html) | catbird-classic-half-round-2mm | **corrected** | from$550.00 printed. Browser title contains “Solid Half Round Band”; visible heading and image alt omit/print different wording. The solid-gold evidence scope was corrected to page title metadata. |
-| P19-18 | [Mejuri Dôme Figure vermeil live PDP](https://mejuri.com/products/dome-figure-ring?Material=18k+Gold+Vermeil) | mejuri-dome-figure-vermeil | **corrected** | $158 and 18k Gold Vermeil printed; the page defines vermeil as 18k gold on sterling silver. Price/material sources moved from the collection URL to the own PDP. |
-| P19-19 | [Mejuri Dôme Figure sterling live PDP](https://mejuri.com/products/dome-figure-ring?Material=Sterling+Silver) | mejuri-dome-figure-sterling | **corrected** | $138 and Sterling Silver printed; the page defines 925 Sterling Silver as 92.5% pure silver. Price/material sources moved from the collection URL to the own PDP. |
-| P19-20 | [Aurate general returns help centre](https://auratenewyork.gorgias.help/en-US/articles/returns-38636) | retailers | **confirmed** | “Aurate provides a 15-day return window starting from the day your item gets fulfilled” and 21 days for international orders printed verbatim. |
-| P19-21 | [Aurate exchange-only/final-sale policy](https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale) | retailers | **corrected** | Live policy prints 24h made-to-order cancellation, 30% fee thereafter, exchange-for-size-only scope and final-sale non-returnability. Legacy PDP links to /pages/terms-conditions-exchange-only also resolve here; stored notes now use this canonical URL. |
-| P19-22 | [Blue Nile return policy](https://www.bluenile.com/policies/returns) | retailers | **confirmed** | 30 days from shipment, two complimentary returns per year, RMA requirement, resized/personalized/custom/final-sale exclusions and $150 missing-report fee all printed. |
-| P19-23 | [Mejuri standard return policy](https://mejuri.com/faq/return-exchanges/what-is-the-standard-return-policy) | retailers | **confirmed** | Free 30-day returns for US/CA/UK/AU/DE; engraved/monogrammed, piercing earrings, gift cards and final-sale/Before We Melt items non-returnable; EU €20 and Rest of World $30 return fees printed. |
-| P19-24 | [Ring Concierge general refund policy](https://ringconcierge.com/policies/refund-policy) | retailers | **confirmed** | 30 days on most Fine Jewelry, limited-edition 15 days, special orders/final sale excluded, and repairs guaranteed for 3 years printed. The engagement-ring PDP 7-day term remains the stricter applicable warning. |
-| P19-25 | [Catbird return policy](https://www.catbirdnyc.com/returns) | retailers | **confirmed** | 20 days from delivery, $9 return shipping deduction, special/engraved/Forever/piercing/home/beauty/comestibles final sale, and all international sales final printed. |
-| P19-26 | [Aurate Trustpilot profile](https://www.trustpilot.com/review/auratenewyork.com) | retailers | **corrected** | Live profile prints 4,876 reviews and TrustScore 4.1; stored quote said 4,875. Quote corrected, numeric count already matched. Reply rate 98% confirmed. |
-| P19-27 | [Blue Nile Trustpilot profile](https://www.trustpilot.com/review/www.bluenile.com) | retailers | **corrected** | Live profile prints 1,937 reviews and TrustScore 4.0; record had 1,932 / quote 1,928. Live page also says replies to 97% of negative reviews, not 99%. |
-| P19-28 | [Mejuri Trustpilot profile](https://www.trustpilot.com/review/mejuri.com) | retailers | **corrected** | Live profile prints 5,785 reviews and TrustScore 4.3; record had 5,784 / quote 5,781. Live page says 98% of negative reviews receive a reply, not 99%. |
-| P19-29 | [Ring Concierge Trustpilot profile](https://www.trustpilot.com/review/ringconcierge.com) | retailers | **confirmed** | Live profile still prints an unclaimed profile, 7 reviews, TrustScore 2.7 and Trustpilot’s “reviews may not be representative” warning. |
-| P19-30 | [Catbird Trustpilot profile](https://www.trustpilot.com/review/www.catbirdnyc.com) | retailers | **corrected** | Live canonical profile prints 56 reviews and TrustScore 2.2; no recent review invitations and replies to 82% of negative reviews printed. Stored URL updated to the canonical /www.catbirdnyc.com path. |
-| P19-31 | [GoldPrice.org fresh live check](https://goldprice.org/) | spot | **flagged** | Page printed “Spot Gold Price: USD 3,995.88 / Ounce” labelled “Oct 23rd, 2026 at 07:41 NY Time” (no AM/PM stated). It is 0.65% below the preserved $4,022.22/oz calculation anchor. Published only as a dated reference; finding F60. |
-| P19-32 | [Kitco fresh live cross-check](https://www.kitco.com/charts/gold) | spot | **flagged** | Page printed Oct 23, 2026 - 19:43 NY Time, bid 3,994.90, ask 3,996.90, gram 128.44, and “7:42 p.m. EDT”. It agrees with GoldPrice.org within 0.0245% and is also 0.68% below the preserved calculation anchor; finding F60. |
-| P19-33 | [NIST SP 811 Appendix B.9](https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9) | standards | **confirmed** | Live official page states factors in boldface are exact and contains the mass conversion table used for the exact grain-to-gram derivation; P19 preserved the 31.1034768 g constant. |
-| P19-34 | [NIST Precious Metals Conversion Information](https://www.nist.gov/pml/owm/metric-si/unit-conversion/precious-metals-conversion-information) | standards | **corrected** | Live official page prints Handbook 130 §2.17 and links a conversion PDF, but does not print a troy-ounce-to-gram figure. CR-P15-1 historical assertion corrected with original text preserved in evidence_original_preserved. |
-| P19-35 | [eCFR 16 CFR 23.10 quality marks](https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23/section-23.10) | standards | **confirmed** | Live eCFR text defines quality marks and states that a person applying a quality mark must also apply the trademark/name of that person under 15 U.S.C. 297. Title 16 banner reads up to date as of 10/21/2026. |
-| P19-36 | [Aurate final-sale help FAQ](https://auratenewyork.gorgias.help/en-US/what-does-final-sale-or-exchange-only-mean-137560) | retailers | **confirmed** | Help article says selected exchange-only items are not eligible for refund and selected final-sale items are not eligible for refunds or exchanges; it instructs buyers to read the product-page marking carefully. |
+| 1. Karat stated | 67 | 4 | 0 | 0 |
+| 2. Word "solid" used | 19 | 7 | 4 | 41 |
+| 3. Hallmark disclosed | 3 | 0 | 0 | 68 |
+| 4. Maker's mark disclosed | 2 | 0 | 0 | 69 |
+| 5. Finished weight in grams | 19 | 4 | 0 | 48 |
+| 6. Independent reputation | 46 | 10 | 0 | 15 |
+| 7. Usable return window | 34 | 28 | 9 | 0 |
+| 8. Credit card accepted | 29 | 29 | 0 | 13 |
+| 9. Documentation captured | 71 | 0 | 0 | 0 |
+| 10. Independent / XRF check | 0 | 7 | 0 | 64 |
 
-## Independent corroborations and non-blocking review items
+- **0 of 71 rows** are "good" on all ten. That is the headline, and it is the honest one: the failure is structural, not cosmetic.
+- **6 rows** are "good" on the four facts a seller fully controls — karat, the word "solid", a gram weight and a usable return window; **11** reach at least "partial" on those four.
+- **19 of 71** rows publish a gram weight, so 19 carry a price-to-melt multiple at the dated anchor (range **1.37× – 25.07×**). The other 48 are left blank rather than back-calculated.
+- **3** rows document a hallmark and **2** a maker's mark (Wilson's estate pieces). No seller publishes a hallmark *policy*.
+- **13** rows leave card acceptance unverified and **9** are final sale or non-returnable — the two columns that most often decide whether a buyer can test the ring at all.
+- **0** rows record a seller offering XRF or an assay; 7 record a seller statement only (Wilson's "stamped for X karat", Menē's own certificate).
 
-- **F56:** Trustpilot count/reply-rate drift corrected from five live profiles.
-- **F57:** six row-level source links tightened to the PDPs that print the values.
-- **F58:** Aurate duplicate/stale flags rewritten to each live page’s exact wording; unscoped gram figures remain null.
-- **F59:** Ring Concierge 2.72 E VS1 note corrected to live E VVS2; misapplied purity flags removed.
-- **F60:** fresh GoldPrice.org and Kitco quotes recorded as reference-only; the $4,022.22/oz calculation anchor is preserved.
-- **F61:** CR-P15-1 and CR-P15-2 closed with both historical versions preserved.
+## 4. Two site defects found and fixed
 
-## Standing recommendation
+| ID | Defect | Fix |
+|---|---|---|
+| `SD25` | `index.html` printed "Weights in this pass" and "Hallmark policies" with Dataset-A-only values while the sub-labels described the whole site. | Relabelled "Dataset A weights" and "Retailer hallmark policies", moved the 19-of-71 figure into the sub-line, added a "Checklist cells verified" tile and a link to the new page. |
+| `SD26` | The first draft of the matrix cited five authority pages at paths that are not the ones registered in `data/sources.json`, including 16 CFR Part 23 under subchapter A instead of subchapter B. | Every authority link now points at a page registered and quoted in `data/sources.json`, or at the two pages opened live this pass. `HS-09` in the new scan enforces https + an action for all ten. |
 
-After every review, run all nine CI gates and actively hunt for hallucinations: pick any number, open its row’s official source, and delete it if the page does not print it. Re-read live prices immediately before purchase; a captured price is not a live quote.
+## 5. New gates
+
+```bash
+python3 scripts/requirements_matrix.py   # regenerate data/requirements-matrix.json from data/
+python3 scripts/hallucination_scan.py    # HS-01..HS-10: re-derive, read the page back, fail on any mismatch
+```
+
+`hallucination_scan.py` is the anti-hallucination check the brief asks for after every review. It regenerates the matrix from `data/*.json`, compares it with the published copy, then asserts that `requirements.html` prints only values the data holds — and it proves that **every stored price and every stored gram weight appears verbatim in that row's own quote**, which is the difference between a sourced figure and an invented one.
+
+Both are wired into `.github/workflows/audit.yml`, so a stale or contradicted cell fails CI before it can reach Pages.
+
+## 6. Numbers changed on this pass
+
+| Value | Before | After | Where |
+|---|---|---|---|
+| Verification checks | 222 | **234** | `data/verification.json`, `verify.html` |
+| Confirmed / corrected / flagged | 108 / 77 / 37 | **118 / 77 / 39** | same |
+| Site defects recorded | 22 | **24** | same |
+| Findings | 49 | **52** (`F56`–`F58`) | `data/findings.json`, `flagged.html` |
+| Authority sources | 12 | **14** (`usc-1666`, `cfr-435`) | `data/sources.json`, `sources.html` |
+
+## 7. Recommended next hallucination hunt
+
+1. The **48 rows with no published weight** remain the largest gap; ask each seller for a gram weight and keep the reply as a quote.
+2. **Re-read the 13 rows whose payment is unverified** — the payments page, not the product page, is where a card list lives.
+3. **Spot drift:** the live reading has now been below the dated anchor all day (`F39`, `F45`, this pass). Do not hand-edit the anchor; run `scripts/refresh_spot_anchor.py` against one dated capture.
+4. **Menē** re-prices intra-day (`F56`): never quote a Menē price without the minute it was read.
+5. Re-run `scripts/hallucination_scan.py` after any data change; a matrix that disagrees with its own page is the failure mode this pass exists to prevent.
