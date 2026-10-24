@@ -69,7 +69,7 @@ reading while the melt arithmetic stays on the dated anchor. Published as findin
   again. `price_usd` keeps the captured **$2,465**; the collection `From $2,297` widget figure is still only a
   cross-check and was not substituted.
 
-Both are recorded in finding **F50**.
+Both are recorded in finding **F65** (renumbered from `F50` after the peer session's `P21` added its own `F50`–`F64`).
 
 ## 4. What did not change (and why that is deliberate)
 
@@ -84,5 +84,24 @@ Both are recorded in finding **F50**.
 > Five gold-spot feeds confirm a ~$3,995/oz live cluster, 0.65% under the dated anchor; twenty rows were
 > re-opened live and every stored value matched; Menē moved twice more and its Wide Flat Band page came back.
 > The dated anchor stands, the newest live reading is now the calculator's reference, and CR-P15-2's
-> conflicted report is split into the clean P5 report, the live-verified Dataset C surface and this pass's
-> record.
+> conflicted report is resolved additively — the peer's Version A / Version B bundle is kept and this pass's
+> record is the additive P17b follow-up plus the stale-artifact index.
+
+## 6. Integration, merge and Pages
+
+- **Merged:** PR **[#78](https://github.com/karagemop466-tech/GOLD3/pull/78)** from `arena/1ee91485-gold3`
+  into `main`, `gh pr merge 78 --merge`, merged `2026-10-24T00:31:05Z`, **merge SHA `39e2a17`**.
+  Required CI job `Gate, build, audit and render` → **pass** (17s, run `40045372196`, job `120725751320`).
+- **GitHub Pages:** rebuilt from `main` at `2026-10-24T00:31:25Z` and published at
+  https://karagemop466-tech.github.io/GOLD3/ — verified through the Pages API (`status: built`, `public: true`,
+  `html_url` set) because this sandbox has no route to the Pages host. The content checks that the read-back
+  would cover were run locally against the same tree: `render-test.js` 189/189, root official-link gate
+  1222/1222 with 0 missing `https://` links, `run_security_audit.py` SEC-01..07 clean, and the calculator banner
+  shows the newest live-check reading `$3,995.88/oz` beside the dated anchor `$4,022.22/oz`.
+- **Nine gates, all local, in CI order:** `verify.py` PASS · `verify_dataset_c.py` PASS ·
+  `requirements_matrix.py` PASS · `hallucination_scan.py` PASS · `audit.py` PASS (31 rows, 0 errors, 0 warnings) ·
+  `build_ext_pages.py` PASS · `build_site.py` PASS (19 pages) · security audit PASS · `render-test.js` 189/189 ·
+  `report_verify.py` PASS (326 checks) · root official-link gate PASS · archive suite 7/7.
+- **State after merge:** ledger **326 checks / 163 confirmed / 118 corrected / 45 flagged** across
+  `P1`..`P15`, `P17`, `P19`, `P21`, `P17b`; `data/findings.json` = 65 findings `F1`–`F65`; `data/prices.json` =
+  3 snapshots with the live-check snapshot's `history` carrying the 2026-10-23 readings.
