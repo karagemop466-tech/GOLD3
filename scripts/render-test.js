@@ -267,7 +267,8 @@ check("SD24 F2 uses full counts and distinguishes entered weights from published
   includesText(html["flagged.html"], "Published ranges and unscoped figures") &&
   !includesText(html["flagged.html"], "Only 14 of 50 listings publish a weight"));
 check("SD24 README pass range and ledger count are current",
-  read("README.md").includes("P1`–`P19") && read("README.md").includes("265 logged checks"));
+  read("README.md").includes("P1`–`P21") &&
+  read("README.md").includes(`${_verif.summary.checks} logged checks`));
 
 // P17: source-drift, duplicate-flag and unsupported-inference regression guards.
 const _p17 = JSON.parse(read("data/reverification-p17.json"));
@@ -316,7 +317,8 @@ const _p17Primary = _prices.snapshots.find((s) => s.role === "primary");
 const _p17Live = _prices.snapshots.find((s) => String(s.role).startsWith("live-check"));
 check("P17 refreshes only the live spot reference and preserves the calculation anchor",
   _p17Primary.price_usd_per_troy_oz === 4022.22 && _p17Live.price_usd_per_troy_oz === 3995.88 &&
-  html["calculator.html"].includes("3,995.88") && html["calculator.html"].includes("finding F55") &&
+  html["calculator.html"].includes("3,995.88") &&
+  /findings? F55/.test(html["calculator.html"]) &&
   !html["calculator.html"].includes("findings F39 and F43"));
 
 
@@ -345,47 +347,51 @@ check("P19 index links to the requirements matrix",
   html["index.html"].includes('href="requirements.html"') &&
   html["requirements.html"].includes('href="index.html"'));
 
-// P19: independent corroborating pass after peer P17 merged first via PR #69.
-const _p19 = JSON.parse(read("data/reverification-p19.json"));
-const _p19Ids = verif.checks.map((c) => c.id);
-const _p19Report = read("reports/reverification-pass-p19.md");
-const _p19Hist = JSON.stringify(JSON.parse(read("data/reverification-c-6ccbc523.json")));
-const _p19Bundle = read("reports/reverification-1162b2db.md");
-check("P19 preserves peer P17 and appends 36 unique checks",
+// P21: collision-safe independent corroboration after peer P17 and P19 merged.
+const _p21 = JSON.parse(read("data/reverification-p21.json"));
+const _p21Report = read("reports/reverification-pass-p21.md");
+const _p21A = JSON.parse(read("data/products.json")).products;
+const _p21ById = Object.fromEntries(_p21A.map((p) => [p.id, p]));
+const _p21Hist = JSON.stringify(JSON.parse(read("data/reverification-c-6ccbc523.json")));
+const _p21Bundle = read("reports/reverification-1162b2db.md");
+check("P21 preserves both peer passes and appends 36 unique checks",
   verif.session.includes("arena/36ebce13-gold3 (P17)") &&
-  verif.session.includes("arena/bd0ed905-gold3 (P19)") &&
+  verif.session.includes("arena/76359c22-gold3 (P19)") &&
+  verif.session.includes("arena/bd0ed905-gold3 (P21)") &&
   verif.checks.filter((c) => c.id.startsWith("P17-")).length === 31 &&
-  verif.checks.filter((c) => c.id.startsWith("P19-")).length === 36 &&
-  _p19Ids.length === new Set(_p19Ids).size && _p19Ids.length === 289 &&
-  _p19.summary.confirmed === 13 && _p19.summary.corrected === 21 && _p19.summary.flagged === 2);
-check("P19 artifacts publish the pass and keep README/session counts current",
-  _p19Report.includes("Pass P19") && _p19Report.includes("P19-36") &&
-  read("README.md").includes("P1`–`P19") && read("README.md").includes("289 logged checks") &&
-  includesText(html["verify.html"], "arena/bd0ed905-gold3 (P19)"));
-check("P19 findings F56-F61 are published for manual review",
-  ["F56", "F57", "F58", "F59", "F60", "F61"].every((id) => html["flagged.html"].includes(`id=\"${id}\"`)));
-check("P19 all seven Aurate rows quote their live weights without inferring exact weight_g",
-  _p17A.filter((p) => p.id.startsWith("aurate-")).length === 7 &&
-  _p17A.filter((p) => p.id.startsWith("aurate-")).every((p) => p.weight_g === null && /^Weight: /.test(p.weight_quote || "")) &&
+  verif.checks.filter((c) => c.id.startsWith("P19-")).length === 12 &&
+  verif.checks.filter((c) => c.id.startsWith("P21-")).length === 36 &&
+  new Set(verif.checks.map((c) => c.id)).size === verif.checks.length &&
+  verif.checks.length === 301 &&
+  _p21.summary.confirmed === 13 && _p21.summary.corrected === 21 && _p21.summary.flagged === 2);
+check("P21 artifacts and README counts are current",
+  _p21Report.includes("Pass P21") && _p21Report.includes("P21-36") &&
+  read("README.md").includes("P1`–`P21") && read("README.md").includes("301 logged checks") &&
+  includesText(html["verify.html"], "arena/bd0ed905-gold3 (P21)"));
+check("P21 findings F59-F64 are published for manual review",
+  ["F59", "F60", "F61", "F62", "F63", "F64"].every((id) => html["flagged.html"].includes(`id=\"${id}\"`)));
+check("P21 all seven Aurate rows quote live weights without promoting exact weight_g",
+  _p21A.filter((p) => p.id.startsWith("aurate-")).length === 7 &&
+  _p21A.filter((p) => p.id.startsWith("aurate-")).every((p) => p.weight_g === null && /^Weight: /.test(p.weight_quote || "")) &&
   ["Weight: 2.23g", "Weight: 2.36g", "Weight: 3.33g"].every((q) => includesText(html["rings.html"], q)));
-check("P19 corrected the last Ring Concierge E VS1 prose and excluded-Mejuri source links",
-  !_p17ById["ringconcierge-2-72-round-lab-whisper-thin"].notes.includes("E VS1") &&
-  _p17ById["ringconcierge-2-72-round-lab-whisper-thin"].carat_note.includes("E VVS2") &&
+check("P21 corrected the last Ring Concierge E VS1 prose and excluded-Mejuri source links",
+  !_p21ById["ringconcierge-2-72-round-lab-whisper-thin"].notes.includes("E VS1") &&
+  _p21ById["ringconcierge-2-72-round-lab-whisper-thin"].carat_note.includes("E VVS2") &&
   ["mejuri-dome-figure-vermeil", "mejuri-dome-figure-sterling"]
-    .every((id) => _p17ById[id].price_source === _p17ById[id].url));
-check("P19 structured Kitco cross-check and live-check history exist while the anchor stays fixed",
+    .every((id) => _p21ById[id].price_source === _p21ById[id].url));
+check("P21 structured Kitco cross-check/history exist while the anchor stays fixed",
   _prices.live_cross_check && _prices.live_cross_check.price_usd_per_troy_oz === 3994.9 &&
   _prices.snapshots.find((s) => String(s.role).startsWith("live-check")).history?.[0]?.price_usd_per_troy_oz === 3997.22 &&
   html["calculator.html"].includes("$3,994.90") && html["calculator.html"].includes("value=\"4022.22\"") &&
   html["calculator.html"].includes("reference observations only"));
-check("P19 CR closeout preserves the original evidence and both report versions",
-  _p19Hist.includes("evidence_original_preserved") && _p19Hist.includes("NIST SP 811 Appendix B.9") &&
-  ["## Version A", "## Version B", "Resolution"].every((s) => _p19Bundle.includes(s)) &&
-  !/^(<{7}|={7}|>{7})/m.test(_p19Bundle));
-check("P19 site-defect counters and review flags stay consistent",
+check("P21 CR closeout preserves the original evidence and both report versions",
+  _p21Hist.includes("evidence_original_preserved") && _p21Hist.includes("NIST SP 811 Appendix B.9") &&
+  ["## Version A", "## Version B", "Resolution"].every((x) => _p21Bundle.includes(x)) &&
+  !/^(<{7}|={7}|>{7})/m.test(_p21Bundle));
+check("P21 review flags and site-defect counters stay consistent",
   verif.site_defects_fixed === verif.summary.site_defects_fixed &&
   verif.site_defects_fixed === verif.site_defects.filter((d) => /fixed/i.test(d.status)).length &&
-  ["SPOT2", "REV1", "SRC4"].every((id) => html["flagged.html"].includes(id)));
+  ["SPOT3", "REV2", "SRC5"].every((id) => html["flagged.html"].includes(id)));
 
 // ------------------------------------------------------------------- report
 let failed = 0;

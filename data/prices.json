@@ -63,7 +63,7 @@
     "note": "The two independent snapshots read on 2026-10-23 differ by 0.055%, which is consistent with normal intraday movement between the two timestamps (and within 0.06% of Dataset C's simultaneous Kitco $4,022.70/oz & BullionVault $4,024.23/oz quotes). Calculations use the primary (GoldPrice.org) snapshot; the World Gold Council figure is shown next to it so the reader can see the spread.",
     "benchmark_note": "The LBMA Gold Price is the global benchmark, set twice daily by ICE Benchmark Administration. LBMA states (re-verified live 2026-10-23) that real-time and historical benchmark data require an IBA licence and that the public tables have moved behind the MyLBMA portal, so no LBMA figure is reproduced here. Source: https://www.lbma.org.uk/prices-and-data/lbma-precious-metal-prices"
   },
-  "live_check_note": "Independent P19 re-read at 2026-10-24T00:02:13Z confirmed GoldPrice.org $3,995.88/oz and Kitco bid $3,994.90/oz, 0.0245% apart. Peer P17 also recorded four-feed corroboration at 23:43Z. Both readings remain reference observations; the $4,022.22/oz dated primary capture is the sole calculation anchor. The earlier 20:17Z live-check is preserved in snapshot history.",
+  "live_check_note": "Independent P21 re-read at 2026-10-24T00:08:30Z confirmed GoldPrice.org $3,995.88/oz and Kitco bid $3,994.90/oz, 0.0245% apart. Peer P17 also recorded four-feed corroboration at 23:43Z. Both readings remain reference observations; the $4,022.22/oz dated primary capture is the sole calculation anchor. The earlier 20:17Z live-check is preserved in snapshot history.",
   "live_cross_check": {
     "publisher": "Kitco Metals Inc.",
     "url": "https://www.kitco.com/charts/gold",
@@ -74,6 +74,6 @@
     "role": "independent live cross-check (reference only, not used in any calculation)",
     "spread_usd_per_oz": 0.98,
     "spread_percent": 0.0245,
-    "p19_note": "Independently re-opened by arena/bd0ed905-gold3 at 2026-10-24T00:02:13Z; reference only."
+    "p21_note": "Independently re-opened by arena/bd0ed905-gold3 at 2026-10-24T00:08:30Z; reference only."
   }
 }

@@ -33,7 +33,7 @@
 </div>
 
 <div class="grid cols-3" style="margin-bottom:20px">
-  <div class="kpi"><div class="label">Editorial findings</div><div class="value">58</div><div class="sub">20 high severity</div></div>
+  <div class="kpi"><div class="label">Editorial findings</div><div class="value">64</div><div class="sub">20 high severity</div></div>
   <div class="kpi"><div class="label">Listing-level flags</div><div class="value">85</div><div class="sub">across 19 listings</div></div>
   <div class="kpi"><div class="label">Unverified cells</div><div class="value">0 guesses</div><div class="sub">blank is used instead</div></div>
 </div>
@@ -568,6 +568,28 @@
 
           <p class="action"><strong>What to do:</strong> Treat every Menē figure on this site as a dated observation. Re-read the page on the day you buy, or ask for a written quote of the gram weight at a stated spot price.</p>
         </div>
+        <div class="card finding medium" id="F61">
+          <div class="finding-head">
+            <h3>F61 · Aurate gram figures are now quoted on every row but remain scope-unverified</h3>
+            <span class="badge warn">MEDIUM</span>
+          </div>
+          <p class="small">P21 added the exact live weight strings for all seven Aurate rows: 5.5-8.5g, 5.7-8.7g and 5.9-8.9g ranges, plus 2.23g, 2.36g and 3.33g static figures. Aurate does not state whether those figures are metal-only or total-item weight, nor map them to one metal/size. Every weight_g remains null and the calculator consumes none of them.</p>
+          <div class="evidence">Live Aurate Specs print “Weight: 5.5-8.5g”, “Weight: 5.7-8.7g”, “Weight: 5.9-8.9g”, “Weight: 2.23g”, “Weight: 2.36g” and “Weight: 3.33g” beside separate tcw values.</div>
+          <p class="small"><strong>Source:</strong> <a href="https://auratenewyork.com/products/1ct-round-lab-grown-diamond-bezel-ring" target="_blank" rel="noopener">https://auratenewyork.com/products/1ct-round-lab-grown-diamond-bezel-ring</a></p>
+
+          <p class="action"><strong>What to do:</strong> Request the exact metal-only and total weight in writing before a price-per-gram comparison; weigh and XRF-test the delivered ring.</p>
+        </div>
+        <div class="card finding medium" id="F63">
+          <div class="finding-head">
+            <h3>F63 · Structured Kitco cross-check and prior live-check history were added without moving the anchor</h3>
+            <span class="badge warn">MEDIUM</span>
+          </div>
+          <p class="small">Peer P17 text recorded four-feed corroboration. P21 added a machine-readable Kitco live_cross_check ($3,994.90/oz), preserved the earlier 20:17Z $3,997.22/oz reading in snapshot history, and refreshed the source register. The two P21 feeds agree to 0.0245%; the $4,022.22/oz primary calculation snapshot remains fixed.</p>
+          <div class="evidence">GoldPrice.org printed “Spot Gold Price: USD 3,995.88 / Ounce” with “Oct 23rd, 2026 at 07:41 NY Time”. Kitco printed “Bid 3,994.90” and “7:42 p.m. EDT”. The calculator input remains value=4022.22.</div>
+          <p class="small"><strong>Source:</strong> <a href="https://www.kitco.com/charts/gold" target="_blank" rel="noopener">https://www.kitco.com/charts/gold</a></p>
+
+          <p class="action"><strong>What to do:</strong> Enter the live purchase-date quote in the calculator; use the labelled feeds as reference observations, not as a re-anchored melt price.</p>
+        </div>
         <div class="card finding low" id="F10">
           <div class="finding-head">
             <h3>F10 · Mejuri&#x27;s main /help hub requires JavaScript, while direct leaf FAQ articles render server-side</h3>
@@ -677,6 +699,50 @@
           <p class="small"><strong>Source:</strong> <a href="https://www.kitco.com/precious-metals" target="_blank" rel="noopener">https://www.kitco.com/precious-metals</a></p>
 
           <p class="action"><strong>What to do:</strong> Unify the two anchors at the next refresh with scripts/refresh_spot_anchor.py, or read the anchor printed beside any melt figure. Do not hand-edit either file.</p>
+        </div>
+        <div class="card finding low" id="F59">
+          <div class="finding-head">
+            <h3>F59 · Independent Trustpilot re-read corroborates the merged P17 count corrections</h3>
+            <span class="badge info">LOW</span>
+          </div>
+          <p class="small">P21 reopened all five Trustpilot profiles after peer P17 merged. Aurate 4,876 / 4.1, Blue Nile 1,937 / 4.0 with replies to 97% of negative reviews, Mejuri 5,785 / 4.3 with replies to 98%, Ring Concierge 7 / 2.7 unclaimed and Catbird 56 / 2.2 all matched the live pages. The Catbird link was normalized to its canonical www path; every retailer record carries a P21 recheck stamp.</p>
+          <div class="evidence">Live pages read 2026-10-24T00:02Z: Aurate “4,876 · 4.1”; Blue Nile “1,937 · 4.0”; Mejuri “5,785 · 4.3”; Ring Concierge “7 · 2.7”; Catbird “56 · 2.2”.</div>
+          <p class="small"><strong>Source:</strong> <a href="https://www.trustpilot.com/review/auratenewyork.com" target="_blank" rel="noopener">https://www.trustpilot.com/review/auratenewyork.com</a></p>
+
+          <p class="action"><strong>What to do:</strong> Treat review totals as date-stamped observations; open each profile again immediately before buying.</p>
+        </div>
+        <div class="card finding low" id="F60">
+          <div class="finding-head">
+            <h3>F60 · Excluded Mejuri rows now cite their own PDPs, not just the collection</h3>
+            <span class="badge info">LOW</span>
+          </div>
+          <p class="small">Peer P17 tightened most Dataset A sources, but both excluded Dôme Figure variants still pointed to the general Mejuri rings collection. P21 repointed price and material evidence to the exact variant PDP, which prints $158 for 18k Gold Vermeil and $138 for Sterling Silver. No numeric price changed.</p>
+          <div class="evidence">Vermeil PDP: “Dôme Figure Ring · $158 · 18k Gold Vermeil · thick layer of 18k solid gold on sterling silver.” Sterling PDP: “Dôme Figure Ring · $138 · Sterling Silver · 92.5% pure silver.”</div>
+          <p class="small"><strong>Source:</strong> <a href="https://mejuri.com/products/dome-figure-ring?Material=18k+Gold+Vermeil" target="_blank" rel="noopener">https://mejuri.com/products/dome-figure-ring?Material=18k+Gold+Vermeil</a></p>
+
+          <p class="action"><strong>What to do:</strong> Open the exact variant URL before assuming any Dôme Figure ring is solid gold.</p>
+        </div>
+        <div class="card finding low" id="F62">
+          <div class="finding-head">
+            <h3>F62 · Ring Concierge 2.72 prose was corrected to its live VVS2 clarity</h3>
+            <span class="badge info">LOW</span>
+          </div>
+          <p class="small">The merged tree had already corrected the carat_note to E VVS2 but retained an older notes sentence saying E VS1. P21 corrected that last stale string. The product page also states 14K Yellow Gold with Platinum Prongs, so the karat does not describe every metal in the ring.</p>
+          <div class="evidence">Live Product Details: “Carat: 2.72”, “Clarity: VVS2”, “Metal: 14K Yellow Gold with Platinum Prongs”; price $7,268 unchanged.</div>
+          <p class="small"><strong>Source:</strong> <a href="https://ringconcierge.com/products/2-72-round-lab-diamond-in-whisper-thina" target="_blank" rel="noopener">https://ringconcierge.com/products/2-72-round-lab-diamond-in-whisper-thina</a></p>
+
+          <p class="action"><strong>What to do:</strong> Get the IGI certificate and written metal breakdown before purchase; independently inspect the ring on arrival.</p>
+        </div>
+        <div class="card finding low" id="F64">
+          <div class="finding-head">
+            <h3>F64 · Both P15 documentation change requests remain closed with evidence preserved</h3>
+            <span class="badge info">LOW</span>
+          </div>
+          <p class="small">P21 verified the merged tree after CR-P15-1/CR-P15-2 were closed: the historical NIST evidence still keeps its original assertion in evidence_original_preserved while the active text uses the NIST SP 811 B.9 grain derivation; the archived report bundle retains both authored versions with no conflict markers. No peer evidence was overwritten.</p>
+          <div class="evidence">Active historical evidence states 480 grains/troy oz × 0.06479891 g/grain = 31.1034768 g derived from SP 811 B.9. reports/reverification-1162b2db.md contains “Version A”, “Version B” and no Git conflict markers.</div>
+          <p class="small"><strong>Source:</strong> <a href="https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9" target="_blank" rel="noopener">https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9</a></p>
+
+          <p class="action"><strong>What to do:</strong> Use the exact NIST derivation for the constant and consult both preserved report versions if provenance is disputed.</p>
         </div>
 
 <h2 style="margin-top:36px">Every listing-level flag</h2>
@@ -1431,13 +1497,13 @@ exists. A flag with no source of its own is a question about one specific listin
           <p class="small" style="margin:8px 0 4px">On Mejuri&#x27;s Bold Diamond Eternity Ring (R01) and Slim Diamond Eternity Band (R03) the swatch line and body copy name &quot;Solid White Gold (14k)&quot;, while the Materials &amp; Specifications subheading on the same page prints &quot;Solid Yellow Gold (14k)&quot;. The karat (14k) is consistent; the colour is not. Read live on 2026-10-23.</p>
           <p class="small" style="margin:0"><strong>What to do:</strong> Ask the seller in writing to confirm the metal colour of the exact variant ordered; keep the reply with the order confirmation.</p>
           <p class="small" style="margin:6px 0 0"><strong>Source:</strong> <a href="https://mejuri.com/products/bold-diamond-eternity-ring" target="_blank" rel="noopener">official page</a></p>
-        </div><div class="card" id="flag-SPOT2">
+        </div><div class="card" id="flag-SPOT3">
           <div style="display:flex;gap:8px;align-items:baseline;flex-wrap:wrap">
             <span class="badge warn">medium</span>
-            <span class="mono">SPOT2</span><strong>Fresh gold feeds differ from the preserved calculation anchor</strong>
+            <span class="mono">SPOT3</span><strong>Independent live gold feeds remain below the dated calculation anchor</strong>
           </div>
-          <p class="small" style="margin:8px 0 4px">P17 reopened GoldPrice.org at $3,995.88/oz and Kitco bid at $3,994.90/oz; the feeds agree within 0.0245% but sit below the preserved $4,022.22/oz calculation snapshot used by the site. The live values are published only as labelled reference readings and never consumed by melt arithmetic.</p>
-          <p class="small" style="margin:0"><strong>What to do:</strong> Enter the live spot quote of the purchase date into the calculator; use scripts/refresh_spot_anchor.py only with a fresh dated capture if the owner requests a re-anchor.</p>
+          <p class="small" style="margin:8px 0 4px">P21 independently reread GoldPrice.org at $3,995.88/oz and Kitco bid at $3,994.90/oz. The feeds agree within 0.0245% but remain below the preserved $4,022.22/oz primary snapshot used by every melt calculation. Structured live cross-check and prior live-check history are published; the anchor did not move.</p>
+          <p class="small" style="margin:0"><strong>What to do:</strong> Enter the purchase-date live quote in the calculator rather than treating the dated capture as current.</p>
           <p class="small" style="margin:6px 0 0"><strong>Source:</strong> <a href="https://goldprice.org/" target="_blank" rel="noopener">official page</a></p>
         </div><div class="card" id="flag-SRC2">
           <div style="display:flex;gap:8px;align-items:baseline;flex-wrap:wrap">
@@ -1559,21 +1625,21 @@ exists. A flag with no source of its own is a question about one specific listin
           <p class="small" style="margin:8px 0 4px">Sarraf accepts returns within 30 days of receipt, but the window is heavily conditional: items that are damaged or used do not qualify, orders past 30 days from receipt are refused, items from which the Sarraf.com tag has been removed are not eligible, and anything resized by a jeweller other than Sarraf Jewelry Inc., altered, special-ordered or damaged cannot be accepted for return. The seller&#x27;s own policy pages charge no card-processing fee on a return; the only fees named are a non-refundable $25.00 engraving fee and $50.00 finish charge.</p>
           <p class="small" style="margin:0"><strong>What to do:</strong> Inspect on arrival, keep the packaging untouched, and start the return in writing inside the window if anything fails verification.</p>
           <p class="small" style="margin:6px 0 0"><strong>Source:</strong> <a href="https://www.sarraf.com/30-day-returns-and-exchange-policy/" target="_blank" rel="noopener">official page</a></p>
-        </div><div class="card" id="flag-REV1">
+        </div><div class="card" id="flag-REV2">
           <div style="display:flex;gap:8px;align-items:baseline;flex-wrap:wrap">
             <span class="badge neutral">low</span>
-            <span class="mono">REV1</span><strong>Trustpilot totals and response rates drift between reads</strong>
+            <span class="mono">REV2</span><strong>Trustpilot totals require independent re-reading</strong>
           </div>
-          <p class="small" style="margin:8px 0 4px">Aurate printed 4,876 reviews, Blue Nile 1,937 with replies to 97% of negative reviews, and Mejuri 5,785 with replies to 98% on the P17 live re-read. Stored counts/quotes/rates were refreshed; Ring Concierge remains an unclaimed 7-review profile and Catbird a 56-review profile with no recent invitations.</p>
-          <p class="small" style="margin:0"><strong>What to do:</strong> Open each Trustpilot profile immediately before purchase and read the complaint themes, not just the score.</p>
+          <p class="small" style="margin:8px 0 4px">P21 independently confirmed Aurate 4,876 / 4.1, Blue Nile 1,937 / 4.0, Mejuri 5,785 / 4.3, Ring Concierge 7 / 2.7 and Catbird 56 / 2.2. Blue Nile replies to 97% and Mejuri to 98% of negative reviews; Ring Concierge remains unclaimed and Catbird has no recent invitations.</p>
+          <p class="small" style="margin:0"><strong>What to do:</strong> Re-open each profile before purchase and read complaint themes with the sample size visible.</p>
           <p class="small" style="margin:6px 0 0"><strong>Source:</strong> <a href="https://www.trustpilot.com/review/auratenewyork.com" target="_blank" rel="noopener">official page</a></p>
-        </div><div class="card" id="flag-SRC4">
+        </div><div class="card" id="flag-SRC5">
           <div style="display:flex;gap:8px;align-items:baseline;flex-wrap:wrap">
             <span class="badge neutral">low</span>
-            <span class="mono">SRC4</span><strong>Dataset A source links and page-text scope required precision</strong>
+            <span class="mono">SRC5</span><strong>Last stale Ring Concierge clarity note corrected from its own PDP</strong>
           </div>
-          <p class="small" style="margin:8px 0 4px">P17 tightened six source links from collection pages to the exact PDPs that print the values, corrected the Ring Concierge 2.72 live clarity from E VS1 to E VVS2, and labelled Catbird’s word “Solid” as browser-title metadata rather than the visible product heading. No Dataset A price changed.</p>
-          <p class="small" style="margin:0"><strong>What to do:</strong> Use the exact linked PDP for each row and confirm variant, certificate and visible body text in writing before purchase.</p>
+          <p class="small" style="margin:8px 0 4px">The 2.72 ct row’s notes said E VS1 while its live Product Details say E VVS2. P21 corrected the prose and preserved the mixed-metal warning for 14K yellow gold with platinum prongs.</p>
+          <p class="small" style="margin:0"><strong>What to do:</strong> Confirm the IGI certificate and metal composition in writing before purchase.</p>
           <p class="small" style="margin:6px 0 0"><strong>Source:</strong> <a href="https://ringconcierge.com/products/2-72-round-lab-diamond-in-whisper-thina" target="_blank" rel="noopener">official page</a></p>
         </div></div>
 

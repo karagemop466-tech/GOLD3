@@ -169,7 +169,7 @@ if LIVE:
         f"Latest independent re-read ({e(LIVE.get('captured_on',''))}): "
         f"{money(float(LIVE['price_usd_per_troy_oz']), 2)}/oz ({e(LIVE.get('as_of_text',''))}), "
         f"{abs(_delta):.2f}% below the pre-filled snapshot. The stored figure is a dated capture, not today's price: "
-        "enter the live one before you rely on a melt comparison (finding F55)."
+        "enter the live one before you rely on a melt comparison (findings F55 and F63)."
     )
     LIVE_X = prices_doc.get("live_cross_check")
     if LIVE_X:

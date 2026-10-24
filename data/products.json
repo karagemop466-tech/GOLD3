@@ -63,7 +63,7 @@
         }
       ],
       "notes": "Diamond described as \"EF color, VVS clarity\" in the product copy, \"VS/EF\" in the specs block, with an \"SI Clarity Only\" quality badge elsewhere on the same page. Re-read live on 2026-10-22 (pass P3, session arena/699d8e05-gold3): price unchanged, and the exchange-only/final-sale notices were present.",
-      "price_recheck": "2026-10-24T00:02:13Z (independent P19 read, 2026-10-23 US Pacific / 2026-10-24 UTC) — own PDP re-opened live; stored numeric price unchanged.",
+      "price_recheck": "2026-10-24T00:08:30Z (independent P21 read, 2026-10-23 US Pacific / 2026-10-24 UTC) — own PDP re-opened live; stored numeric price unchanged.",
       "weight_quote": "Weight: 5.5-8.5g",
       "weight_note": "Specs publish 'Weight: 5.5-8.5g' and '2tcw' separately. The page does not define whether the gram range is metal-only or total-item weight and does not assign one value to the selected variant; weight_g remains null and no stone mass is deducted.",
       "specs_quote": "Width: 2.75mm · Thickness: 1.8mm · Weight: 5.5-8.5g · Diamonds: 1 Round VS/EF Lab Grown Diamond · Diamonds Size: 8.2mm · 2tcw · SKU: AU5760",
@@ -512,7 +512,7 @@
         }
       ],
       "notes": "Can be set with 0.20-8.00 ct stones in 13 shapes.",
-      "price_recheck": "2026-10-24T00:02:13Z (independent P19 read, 2026-10-23 US Pacific / 2026-10-24 UTC) — own PDP re-opened live; stored numeric price unchanged."
+      "price_recheck": "2026-10-24T00:08:30Z (independent P21 read, 2026-10-23 US Pacific / 2026-10-24 UTC) — own PDP re-opened live; stored numeric price unchanged."
     },
     {
       "id": "bluenile-petite-hidden-halo-14k-yg",
@@ -567,7 +567,7 @@
         }
       ],
       "notes": "",
-      "price_recheck": "2026-10-24T00:02:13Z (independent P19 read, 2026-10-23 US Pacific / 2026-10-24 UTC) — own PDP re-opened live; stored numeric price unchanged."
+      "price_recheck": "2026-10-24T00:08:30Z (independent P21 read, 2026-10-23 US Pacific / 2026-10-24 UTC) — own PDP re-opened live; stored numeric price unchanged."
     },
     {
       "id": "bluenile-riviera-pave-14k-wg",
@@ -622,7 +622,7 @@
         }
       ],
       "notes": "",
-      "price_recheck": "2026-10-24T00:02:13Z (independent P19 read, 2026-10-23 US Pacific / 2026-10-24 UTC) — own PDP re-opened live; stored numeric price unchanged."
+      "price_recheck": "2026-10-24T00:08:30Z (independent P21 read, 2026-10-23 US Pacific / 2026-10-24 UTC) — own PDP re-opened live; stored numeric price unchanged."
     },
     {
       "id": "bluenile-floral-marquise-18k-wg",
@@ -681,7 +681,7 @@
         }
       ],
       "notes": "The clearest example in this dataset of why a karat claim on a page cannot be taken as proof.",
-      "price_recheck": "2026-10-24T00:02:13Z (independent P19 read, 2026-10-23 US Pacific / 2026-10-24 UTC) — own PDP re-opened live; stored numeric price unchanged."
+      "price_recheck": "2026-10-24T00:08:30Z (independent P21 read, 2026-10-23 US Pacific / 2026-10-24 UTC) — own PDP re-opened live; stored numeric price unchanged."
     },
     {
       "id": "bluenile-criss-cross-18k-yg",
@@ -736,7 +736,7 @@
         }
       ],
       "notes": "Sold on Blue Nile's site as part of the James Allen collection.",
-      "price_recheck": "2026-10-24T00:02:13Z (independent P19 read, 2026-10-23 US Pacific / 2026-10-24 UTC) — own PDP re-opened live; stored numeric price unchanged."
+      "price_recheck": "2026-10-24T00:08:30Z (independent P21 read, 2026-10-23 US Pacific / 2026-10-24 UTC) — own PDP re-opened live; stored numeric price unchanged."
     },
     {
       "id": "mejuri-diamonds-band",
@@ -788,7 +788,7 @@
         }
       ],
       "notes": "Free 30-day returns and exchanges from delivery; 2-year warranty.",
-      "price_recheck": "2026-10-24T00:02:13Z (independent P19 read, 2026-10-23 US Pacific / 2026-10-24 UTC) — own PDP re-opened live; stored numeric price unchanged."
+      "price_recheck": "2026-10-24T00:08:30Z (independent P21 read, 2026-10-23 US Pacific / 2026-10-24 UTC) — own PDP re-opened live; stored numeric price unchanged."
     },
     {
       "id": "mejuri-stacker-ring-10k",
@@ -839,7 +839,7 @@
         }
       ],
       "notes": "Lowest-priced solid-gold ring in this dataset.",
-      "price_recheck": "2026-10-24T00:02:13Z (independent P19 read, 2026-10-23 US Pacific / 2026-10-24 UTC) — own PDP re-opened live; stored numeric price unchanged."
+      "price_recheck": "2026-10-24T00:08:30Z (independent P21 read, 2026-10-23 US Pacific / 2026-10-24 UTC) — own PDP re-opened live; stored numeric price unchanged."
     },
     {
       "id": "ringconcierge-2-08-oval-lab-whisper-thin",
@@ -906,7 +906,7 @@
         }
       ],
       "notes": "Re-read live 2026-10-23 (session arena/15b00e99-gold3): caught major stone spec conflict (2.08 ct E VS1 vs 5.63 ct D VVS2), confirmed 'Metal: 14K Yellow Gold with Platinum Prongs', info@ringconcierge.com, and 7-day bridal return window.",
-      "price_recheck": "2026-10-24T00:02:13Z (independent P19 read, 2026-10-23 US Pacific / 2026-10-24 UTC) — own PDP re-opened live; stored numeric price unchanged.",
+      "price_recheck": "2026-10-24T00:08:30Z (independent P21 read, 2026-10-23 US Pacific / 2026-10-24 UTC) — own PDP re-opened live; stored numeric price unchanged.",
       "availability_quote": "Every size option read \"Made to Order\"; \"Estimated production time is 3-4 weeks\"; \"Receive a notification when this item is back in stock!\"; \"Join the Waitlist\"; page banners \"FREE RETURNS + COMPLIMENTARY WARRANTY\" and \"COMPLIMENTARY LIFETIME WARRANTY\".",
       "availability_source": "https://ringconcierge.com/products/2-08-oval-lab-diamond-in-whisper-thina-hidden-halo",
       "price_basis": "listed"
@@ -973,7 +973,7 @@
       ],
       "notes": "Product page opened directly on 2026-10-23 (session arena/15b00e99-gold3): $7,268, 'Metal: 14K Yellow Gold with Platinum Prongs', 2.72 ct E VVS2, and 7-day bridal return window confirmed.",
       "price_basis": "listed",
-      "price_recheck": "2026-10-24T00:02:13Z (independent P19 read, 2026-10-23 US Pacific / 2026-10-24 UTC) — own PDP re-opened live; stored numeric price unchanged."
+      "price_recheck": "2026-10-24T00:08:30Z (independent P21 read, 2026-10-23 US Pacific / 2026-10-24 UTC) — own PDP re-opened live; stored numeric price unchanged."
     },
     {
       "id": "catbird-classic-half-round-2mm",
@@ -1027,8 +1027,8 @@
           "note": "An $9 return-shipping charge is deducted from the refund."
         }
       ],
-      "notes": "Plain solid-gold wedding band and the lowest markup route in this dataset. The word “Solid” appears in the page title metadata; the visible product heading returned on P19 reads “Catbird Classic Wedding Bands, Half Round Band, 2mm”. The $550.00 price is a from-price and no gram weight is usable.",
-      "price_recheck": "2026-10-24T00:02:13Z (independent P19 read, 2026-10-23 US Pacific / 2026-10-24 UTC) — own PDP re-opened live; stored numeric price unchanged."
+      "notes": "Plain solid-gold wedding band and the lowest markup route in this dataset. The word “Solid” appears in the page title metadata; the visible product heading returned on P21 reads “Catbird Classic Wedding Bands, Half Round Band, 2mm”. The $550.00 price is a from-price and no gram weight is usable.",
+      "price_recheck": "2026-10-24T00:08:30Z (independent P21 read, 2026-10-23 US Pacific / 2026-10-24 UTC) — own PDP re-opened live; stored numeric price unchanged."
     },
     {
       "id": "mejuri-dome-figure-vermeil",
@@ -1070,7 +1070,7 @@
         }
       ],
       "notes": "Same design also sold in Sterling Silver at $138 and (elsewhere) in solid gold - a good example of one design name spanning three very different metals.",
-      "price_recheck": "2026-10-24T00:02:13Z (independent P19 read, 2026-10-23 US Pacific / 2026-10-24 UTC) — own PDP re-opened live; stored numeric price unchanged."
+      "price_recheck": "2026-10-24T00:08:30Z (independent P21 read, 2026-10-23 US Pacific / 2026-10-24 UTC) — own PDP re-opened live; stored numeric price unchanged."
     },
     {
       "id": "mejuri-dome-figure-sterling",
@@ -1112,7 +1112,7 @@
         }
       ],
       "notes": "",
-      "price_recheck": "2026-10-24T00:02:13Z (independent P19 read, 2026-10-23 US Pacific / 2026-10-24 UTC) — own PDP re-opened live; stored numeric price unchanged."
+      "price_recheck": "2026-10-24T00:08:30Z (independent P21 read, 2026-10-23 US Pacific / 2026-10-24 UTC) — own PDP re-opened live; stored numeric price unchanged."
     }
   ]
 }

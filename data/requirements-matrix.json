@@ -68,14 +68,14 @@
     "authority_label": "16 CFR 23.4 (misuse of “gold”)",
     "if_missing": "Ask the seller to state “solid 14K gold” (or the karat bought) in writing before paying.",
     "counts": {
-     "good": 19,
-     "partial": 7,
+     "good": 18,
+     "partial": 8,
      "fail": 4,
      "unverified": 41
     },
     "gold_counts": {
-     "good": 19,
-     "partial": 7,
+     "good": 18,
+     "partial": 8,
      "fail": 0,
      "unverified": 41
     }
@@ -1370,7 +1370,7 @@
     "docs": {
      "status": "good",
      "text": "3/3 captured",
-     "url": "https://mejuri.com/collections/rings",
+     "url": "https://mejuri.com/products/stacker-ring?Material=Solid+Yellow+Gold+%2810k%29",
      "sub": "quote · source URL · read date"
     },
     "xrf": {
@@ -1566,10 +1566,10 @@
      "sub": ""
     },
     "solid": {
-     "status": "good",
-     "text": "“solid” in the product name",
+     "status": "partial",
+     "text": "stated in page title metadata",
      "url": "https://www.catbirdnyc.com/catbird-classic-wedding-bands-solid-half-round-band-2mm.html",
-     "sub": "Catbird Classic Wedding Bands, Solid Half Round Band, 2mm"
+     "sub": "Catbird Classic Wedding Bands, Solid Half Round Band, 2mm | Catbird"
     },
     "hallmark": {
      "status": "unverified",
@@ -1592,7 +1592,7 @@
     "reputation": {
      "status": "good",
      "text": "Trustpilot 2.2/5",
-     "url": "https://www.trustpilot.com/review/catbirdnyc.com",
+     "url": "https://www.trustpilot.com/review/www.catbirdnyc.com",
      "sub": "56 reviews · +1-718-599-2340, customerservice@catbirdnyc.com"
     },
     "returns": {
@@ -1690,7 +1690,7 @@
     "docs": {
      "status": "good",
      "text": "3/3 captured",
-     "url": "https://mejuri.com/collections/rings",
+     "url": "https://mejuri.com/products/dome-figure-ring?Material=18k+Gold+Vermeil",
      "sub": "quote · source URL · read date"
     },
     "xrf": {
@@ -1770,7 +1770,7 @@
     "docs": {
      "status": "good",
      "text": "3/3 captured",
-     "url": "https://mejuri.com/collections/rings",
+     "url": "https://mejuri.com/products/dome-figure-ring?Material=Sterling+Silver",
      "sub": "quote · source URL · read date"
     },
     "xrf": {
@@ -3217,7 +3217,7 @@
     "reputation": {
      "status": "good",
      "text": "Trustpilot 2.2/5",
-     "url": "https://www.trustpilot.com/review/catbirdnyc.com",
+     "url": "https://www.trustpilot.com/review/www.catbirdnyc.com",
      "sub": "56 reviews"
     },
     "returns": {

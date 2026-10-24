@@ -24,7 +24,7 @@
   "counts": {
     "products": 19,
     "retailers": 5,
-    "sources": 14,
+    "sources": 12,
     "errors": 0,
     "warnings": 0
   },
@@ -705,6 +705,36 @@
       "id": "F58",
       "severity": "high",
       "title": "No listing on this site satisfies all ten checklist requirements — and the gaps are the seller's to close"
+    },
+    {
+      "id": "F59",
+      "severity": "low",
+      "title": "Independent Trustpilot re-read corroborates the merged P17 count corrections"
+    },
+    {
+      "id": "F60",
+      "severity": "low",
+      "title": "Excluded Mejuri rows now cite their own PDPs, not just the collection"
+    },
+    {
+      "id": "F61",
+      "severity": "medium",
+      "title": "Aurate gram figures are now quoted on every row but remain scope-unverified"
+    },
+    {
+      "id": "F62",
+      "severity": "low",
+      "title": "Ring Concierge 2.72 prose was corrected to its live VVS2 clarity"
+    },
+    {
+      "id": "F63",
+      "severity": "medium",
+      "title": "Structured Kitco cross-check and prior live-check history were added without moving the anchor"
+    },
+    {
+      "id": "F64",
+      "severity": "low",
+      "title": "Both P15 documentation change requests remain closed with evidence preserved"
     }
   ],
   "parallel_dataset": {
