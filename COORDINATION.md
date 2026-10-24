@@ -1268,6 +1268,7 @@ The 52 rows still without a published weight, the 13 rows whose payment method i
 on returns/BBB, and Menē's intra-day repricing. After every review: rebuild, then run
 `python3 scripts/hallucination_scan.py` — a matrix that disagrees with its own page is exactly the failure this
 pass exists to prevent. Never quote a captured price as "current".
+
 ### 22.7 PRs, merges and deployment record
 
 - **PR #73** — <https://github.com/karagemop466-tech/GOLD3/pull/73> — **MERGED** 2026-10-24T00:04:54Z, merge commit **`abf4067`**. PR CI **`40043081340`** (head `24796ab`) SUCCESS; main CI **`40043157231`** SUCCESS; Pages **`40043156482`** SUCCESS.
