@@ -1,6 +1,6 @@
 # Anti-hallucination audit report
 
-- Run: 2026-10-24 00:00 UTC
+- Run: 2026-10-24 00:01 UTC
 - Rows audited: **31**
 - Sellers audited: **14**
 - Flag definitions: **54**
@@ -174,7 +174,7 @@ None.
 - [domain] R29: brilliantearth.com belongs to brilliantearth.com
 - [domain] R30: mene.com belongs to mene.com
 - [domain] R31: localeclectic.com belongs to localeclectic.com
-- [verify] all 234 verification check ids are unique
+- [verify] all 265 verification check ids are unique
 - [verify] all 31 rows appear in the verification log
 - [verify] summary counts recomputed from the entries and match
 - [flags] 54 flag definitions validated

@@ -1,7 +1,7 @@
 {
  "retrieved_utc": "2026-10-23",
- "session": "arena/e6fe3e4f-gold3 (P1-P4) · arena/699d8e05-gold3 (P5) · arena/6d6192d1-gold3 (P6-P7) · arena/2908bea4-gold3 (P8) · arena/15b00e99-gold3 (P10) · arena/bfcd8465-gold3 (P11) · arena/57724486-gold3 (P12) · arena/fb7e5e3c-gold3 (P13) · arena/438a583e-gold3 (P14) · arena/db2fe957-gold3 (P15)",
- "method": "Every URL cited in data/rings.json, data/sellers.json and data/gold-price.json was opened again in this session on 2026-10-22. Each asserted value was compared against the text the page returned. A value that could not be found on the page was deleted or downgraded to unverified; a value that contradicted the page was corrected; a contradiction found on the page itself was raised as a flag. | Addendum 2026-10-23: the log now holds three independent passes. P1-P3 are the checks recorded by arena/e6fe3e4f-gold3 (ids V01-V37); the third pass (ids P3-01-P3-47, session arena/699d8e05-gold3) was appended from data/reverification-p3.json so that its 47 checks appear in this log instead of only in a separate file; the fourth pass (ids P4-01-P4-25, session arena/6d6192d1-gold3) was run on the merged tree on 2026-10-23 against the official pages. Older entries keep the date they were made.",
+ "session": "arena/e6fe3e4f-gold3 (P1-P4) · arena/699d8e05-gold3 (P5) · arena/6d6192d1-gold3 (P6-P7) · arena/2908bea4-gold3 (P8) · arena/15b00e99-gold3 (P10) · arena/bfcd8465-gold3 (P11) · arena/57724486-gold3 (P12) · arena/fb7e5e3c-gold3 (P13) · arena/438a583e-gold3 (P14) · arena/db2fe957-gold3 (P15) · arena/36ebce13-gold3 (P17)",
+ "method": "Every URL cited in data/rings.json, data/sellers.json and data/gold-price.json was opened again in this session on 2026-10-22. Each asserted value was compared against the text the page returned. A value that could not be found on the page was deleted or downgraded to unverified; a value that contradicted the page was corrected; a contradiction found on the page itself was raised as a flag. | Addendum 2026-10-23: the log now holds three independent passes. P1-P3 are the checks recorded by arena/e6fe3e4f-gold3 (ids V01-V37); the third pass (ids P3-01-P3-47, session arena/699d8e05-gold3) was appended from data/reverification-p3.json so that its 47 checks appear in this log instead of only in a separate file; the fourth pass (ids P4-01-P4-25, session arena/6d6192d1-gold3) was run on the merged tree on 2026-10-23 against the official pages. Older entries keep the date they were made. | P17 (2026-10-23): all 19 Dataset A official product pages re-read line by line; seller policy/reputation drift and unsupported weight/solidity inferences corrected; F50-F55 appended.",
  "passes": [
   {
    "id": "P1",
@@ -101,9 +101,15 @@
   },
   {
    "id": "P17",
-   "name": "Independent pass 17: rotating live re-verification across all three datasets + requirements compliance matrix (arena/76359c22-gold3)",
-   "what": "Ten official pages re-opened live on 2026-10-23T23:35Z-23:46Z covering all three datasets and the gold benchmark, then a new generated page (requirements.html) scoring every listing against the ten-point checklist, with scripts/hallucination_scan.py re-deriving every cell and reading the rendered page back. The dated calculation anchor was preserved; a newer live spot reading was published for reference only.",
-   "result": "12 checks recorded: 10 confirmed, 0 corrected, 2 flagged (Menē intra-day re-pricing F50; spot reading 0.66% below the anchor). Two site defects fixed (SD25, SD26)."
+   "name": "Independent pass 17: all Dataset A listings, seller-policy drift, unsupported weight/solidity inferences and live spot corroboration (arena/36ebce13-gold3)",
+   "what": "Re-opened all 19 Dataset A official product sources, five official seller policy records and five Trustpilot profiles; checked Ross-Simons Item 571221 and four spot publishers. Corrected only source-supported fields, removed unsupported stone-inclusion/solidity inferences and preserved all live contradictions and null weights.",
+   "result": "31 checks: 10 confirmed, 18 corrected, 3 flagged. All 19 stored numeric prices confirmed with 0 price changes; 0 published-weight changes. Published F50-F55, consolidated duplicate flags, refreshed only the labelled live spot reference, and preserved the $4,022.22/oz calculation anchor."
+  },
+  {
+   "id": "P19",
+   "name": "Independent pass 19: rotating live re-verification across all three datasets + requirements compliance matrix (arena/76359c22-gold3)",
+   "what": "Ten official pages re-opened live on 2026-10-23T23:35Z-23:46Z covering all three datasets and the gold benchmark, then a new generated page (requirements.html) scoring every listing against the ten-point checklist, with scripts/hallucination_scan.py re-deriving every cell and reading the rendered page back. Claimed as P17 but renumbered to P19 when peer session arena/36ebce13-gold3 landed its own P17 (PR #69) mid-pass. The dated calculation anchor was preserved; the newer live spot reading was published for reference only.",
+   "result": "12 checks recorded: 10 confirmed, 0 corrected, 2 flagged (Menē intra-day re-pricing F56; spot reading 0.66% below the anchor). Two site defects fixed (SD25, SD26)."
   }
  ],
  "checks": [
@@ -2930,6 +2936,350 @@
   {
    "id": "P17-01",
    "kind": "listing",
+   "label": "Aurate New York 2ct Round Lab Grown Diamond Solitaire Ring - official PDP price/specification review",
+   "url": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring?variant=46776936792236",
+   "rows": [
+    "aurate-2ct-round-lgd-solitaire"
+   ],
+   "outcome": "corrected",
+   "findings": "Official 14k yellow size-2.5 variant prints $2,858 and Made to Order. Specs print Weight 5.5-8.5g and 2tcw separately; no stone inclusion is stated. Updated variant provenance/quote and removed stale from-price and duplicate final-sale/range flags."
+  },
+  {
+   "id": "P17-02",
+   "kind": "listing",
+   "label": "Aurate New York 2ct Emerald Lab Grown Diamond Solitaire Ring - official PDP price/specification review",
+   "url": "https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring?variant=46776938266796",
+   "rows": [
+    "aurate-2ct-emerald-lgd-solitaire"
+   ],
+   "outcome": "corrected",
+   "findings": "Official 14k yellow size-2.5 variant prints $2,638 and Made to Order; Weight 5.5-8.5g and 2tcw are separate statements. Removed unsupported stone inclusion and retained the live VVS/VS/SI and 1.8mm/2.75mm conflicts."
+  },
+  {
+   "id": "P17-03",
+   "kind": "listing",
+   "label": "Aurate New York 1ct Round Lab Grown Diamond Bezel Ring - official PDP price/specification review",
+   "url": "https://auratenewyork.com/products/1ct-round-lab-grown-diamond-bezel-ring",
+   "rows": [
+    "aurate-1ct-round-lgd-bezel"
+   ],
+   "outcome": "corrected",
+   "findings": "Official AU5000 page confirms $1,498; current Specs print Width 9.05mm, Thickness 5.04mm, Weight 2.23g, 1 Round VS1/VS2 diamond and 1.05tcw. Title says 1ct; carat is null and weight scope remains unverified."
+  },
+  {
+   "id": "P17-04",
+   "kind": "listing",
+   "label": "Aurate New York 2ct Emerald Lab Grown Diamond Bezel Ring - official PDP price/specification review",
+   "url": "https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-bezel-ring",
+   "rows": [
+    "aurate-2ct-emerald-lgd-bezel"
+   ],
+   "outcome": "corrected",
+   "findings": "Official AU5093 page confirms $1,968; current Specs print Width 11.42mm, Thickness 4.6mm, Weight 2.36g, 1 Emerald VS1/VS2 diamond and 1.8tcw. Title says 2ct; carat is null. Body copy's 'classic oval diamond' conflict remains flagged."
+  },
+  {
+   "id": "P17-05",
+   "kind": "listing",
+   "label": "Aurate New York 2ct Oval Lab Grown Diamond Solitaire Ring - official PDP price/specification review",
+   "url": "https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring?variant=46776937513132",
+   "rows": [
+    "aurate-2ct-oval-lgd-solitaire"
+   ],
+   "outcome": "corrected",
+   "findings": "Official 14k yellow size-2.5 variant confirms $2,858, now Made to Order; Weight 5.7-8.7g and 2tcw are separate statements. Updated stale in-stock wording and removed unsupported stone inclusion."
+  },
+  {
+   "id": "P17-06",
+   "kind": "listing",
+   "label": "Aurate New York 3ct Oval Lab Grown Diamond Solitaire Ring - official PDP price/specification review",
+   "url": "https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring?variant=44854218981548",
+   "rows": [
+    "aurate-3ct-oval-lgd-solitaire"
+   ],
+   "outcome": "corrected",
+   "findings": "Official 14k yellow size-3 variant confirms $3,958, now Made to Order; Weight 5.9-8.9g and 3tcw are separate statements. Updated stale in-stock wording and removed unsupported stone inclusion."
+  },
+  {
+   "id": "P17-07",
+   "kind": "listing",
+   "label": "Aurate New York 3ct Pear Lab Grown Diamond Bezel Ring - official PDP price/specification review",
+   "url": "https://auratenewyork.com/products/3ct-pear-lab-grown-diamond-bezel-ring",
+   "rows": [
+    "aurate-3ct-pear-lgd-bezel"
+   ],
+   "outcome": "corrected",
+   "findings": "Official AU5107 page confirms $2,498; current Specs print Width 15.92mm, Thickness 6.10mm, Weight 3.33g, 1 Pear VS1/VS2 diamond and 3.6tcw. Title says 3ct; carat is null and weight scope remains unverified."
+  },
+  {
+   "id": "P17-08",
+   "kind": "listing",
+   "label": "Blue Nile Petite Solitaire Engagement Ring in 14k Yellow Gold - official PDP price/specification review",
+   "url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/petite-solitaire-engagement-ring-in-14k-yellow-gold-item-195639",
+   "rows": [
+    "bluenile-petite-solitaire-14k-yg"
+   ],
+   "outcome": "confirmed",
+   "findings": "Official PDP confirms $1,000 (Setting Price), 14K Yellow Gold, stock 500990y14 and width 1.60mm. Centre stone remains excluded; solid wording and gram weight remain unverified."
+  },
+  {
+   "id": "P17-09",
+   "kind": "listing",
+   "label": "Blue Nile Petite Hidden Halo Solitaire Plus Diamond Engagement Ring in 14k Yellow Gold - official PDP price/specification review",
+   "url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/petite-hidden-halo-solitaire-plus-diamond-engagement-ring-in-14k-yellow-gold-item-192506",
+   "rows": [
+    "bluenile-petite-hidden-halo-14k-yg"
+   ],
+   "outcome": "corrected",
+   "findings": "Official PDP confirms $1,255 (Setting Price) and current stock 502250y14 / Width 1.60mm. Corrected stale stock 500850y14 / 1.70mm and pointed price_source to the exact PDP."
+  },
+  {
+   "id": "P17-10",
+   "kind": "listing",
+   "label": "Blue Nile Riviera Pavé Diamond Engagement Ring in 14k White Gold (1/6 ct. tw.) - official PDP price/specification review",
+   "url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/riviera-pave-diamond-engagement-ring-in-14k-white-gold-1-6-ct-tw-item-195326",
+   "rows": [
+    "bluenile-riviera-pave-14k-wg"
+   ],
+   "outcome": "corrected",
+   "findings": "Official PDP confirms $1,500 (Setting Price) and current stock 501590w14 / Width 2.00mm. Corrected stale stock 501050w14 / 1.60mm and pointed price_source to the exact PDP."
+  },
+  {
+   "id": "P17-11",
+   "kind": "listing",
+   "label": "Blue Nile Floral Marquise Diamond Engagement Ring in 18k White Gold - official PDP price/specification review",
+   "url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/floral-marquise-diamond-engagement-ring-in-18k-white-gold-item-203738",
+   "rows": [
+    "bluenile-floral-marquise-18k-wg"
+   ],
+   "outcome": "flagged",
+   "findings": "Official PDP confirms $2,210 (Setting Price), stock 502820w and Width 1.70mm. The same-page conflict between title/spec 18K White Gold and details prose 14k yellow gold remains live and flagged; no metal choice was inferred."
+  },
+  {
+   "id": "P17-12",
+   "kind": "listing",
+   "label": "Blue Nile (By James Allen) Criss Cross Solitaire Engagement Ring In 18K Yellow Gold By James Allen - official PDP price/specification review",
+   "url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/criss-cross-solitaire-engagement-ring-in-18k-yellow-gold-by-james-allen-item-311132",
+   "rows": [
+    "bluenile-criss-cross-18k-yg"
+   ],
+   "outcome": "confirmed",
+   "findings": "Official PDP confirms $2,320 (Setting Price) for the James Allen Criss Cross setting. Stored price and setting-only treatment remain unchanged."
+  },
+  {
+   "id": "P17-13",
+   "kind": "listing",
+   "label": "Mejuri Diamonds Band - official PDP price/specification review",
+   "url": "https://mejuri.com/products/diamonds-band?Material=Solid+Yellow+Gold+%2814k%29&Stone=Natural+Diamond",
+   "rows": [
+    "mejuri-diamonds-band"
+   ],
+   "outcome": "confirmed",
+   "findings": "Official variant confirms $648, Solid Yellow Gold (14k), Natural Diamond, minimum 0.07ct, SI-I clarity, GHI color, 1.8mm stone and 2.8mm shank. Gram weight remains unpublished/null."
+  },
+  {
+   "id": "P17-14",
+   "kind": "listing",
+   "label": "Mejuri Stacker Ring - official PDP price/specification review",
+   "url": "https://mejuri.com/products/stacker-ring?Material=Solid+Yellow+Gold+%2810k%29",
+   "rows": [
+    "mejuri-stacker-ring-10k"
+   ],
+   "outcome": "corrected",
+   "findings": "Official variant confirms $138, Solid Yellow Gold (10k), materials 'Our 10k solid gold...', and Width 1 mm. Removed stale 1.3mm/1.35mm dimensions and old quotation. Alt text mentions a 10K purity stamp, but no visual or maker's-mark verification is claimed."
+  },
+  {
+   "id": "P17-15",
+   "kind": "listing",
+   "label": "Ring Concierge 2.08 Oval Lab Diamond in Whisper Thin® Hidden Halo - official PDP price/specification review",
+   "url": "https://ringconcierge.com/products/2-08-oval-lab-diamond-in-whisper-thina-hidden-halo",
+   "rows": [
+    "ringconcierge-2-08-oval-lab-whisper-thin"
+   ],
+   "outcome": "flagged",
+   "findings": "Official PDP confirms $6,038 and Metal: 14K Yellow Gold with Platinum Prongs. Header/details say 2.08 E VS1 while description says 5.63 D VVS2; conflict remains flagged. Removed false karat-not-in-body flag, duplicate metal/production flags and stale product-level 30-day wording; 7-day FAQ remains."
+  },
+  {
+   "id": "P17-16",
+   "kind": "listing",
+   "label": "Ring Concierge 2.72 Round Lab Diamond in Whisper Thin® - official PDP price/specification review",
+   "url": "https://ringconcierge.com/products/2-72-round-lab-diamond-in-whisper-thina",
+   "rows": [
+    "ringconcierge-2-72-round-lab-whisper-thin"
+   ],
+   "outcome": "corrected",
+   "findings": "Official PDP confirms $7,268, 2.72 E VVS2, IGI, Metal: 14K Yellow Gold with Platinum Prongs and the 7-day ready-made return FAQ. Removed false karat-not-in-body flag and consolidated duplicate metal/production flags."
+  },
+  {
+   "id": "P17-17",
+   "kind": "listing",
+   "label": "Catbird Catbird Classic Wedding Bands, Solid Half Round Band, 2mm - official PDP price/specification review",
+   "url": "https://www.catbirdnyc.com/catbird-classic-wedding-bands-solid-half-round-band-2mm.html",
+   "rows": [
+    "catbird-classic-half-round-2mm"
+   ],
+   "outcome": "corrected",
+   "findings": "Official PDP confirms 'from $550.00' and official 14k yellow-gold image text. No usable gram weight is published, so the unsupported 'lowest markup route' note was replaced with a factual no-ranking statement."
+  },
+  {
+   "id": "P17-18",
+   "kind": "listing",
+   "label": "Mejuri Dôme Figure Ring (18k Gold Vermeil) - official PDP price/specification review",
+   "url": "https://mejuri.com/products/dome-figure-ring?Material=18k+Gold+Vermeil",
+   "rows": [
+    "mejuri-dome-figure-vermeil"
+   ],
+   "outcome": "confirmed",
+   "findings": "Official variant confirms $158 and 18k Gold Vermeil; top width 5.8mm, top height 3.5mm and shank thickness 2mm. It remains excluded from solid-gold categories; no gold weight is inferred."
+  },
+  {
+   "id": "P17-19",
+   "kind": "listing",
+   "label": "Mejuri Dôme Figure Ring (Sterling Silver) - official PDP price/specification review",
+   "url": "https://mejuri.com/products/dome-figure-ring?Material=Sterling+Silver",
+   "rows": [
+    "mejuri-dome-figure-sterling"
+   ],
+   "outcome": "confirmed",
+   "findings": "Official variant confirms $138 and Sterling Silver; top width 5.8mm, top height 3.5mm and shank thickness 2mm. It remains an explicit no-gold control."
+  },
+  {
+   "id": "P17-20",
+   "kind": "seller-policy",
+   "label": "aurate official returns/material policy review",
+   "url": "https://auratenewyork.gorgias.help/en-US/articles/returns-38636",
+   "rows": [
+    "aurate"
+   ],
+   "outcome": "confirmed",
+   "findings": "Official help centre confirms 15-day domestic / 21-day international windows and final-sale/exchange-only exclusions. Listing-specific final-sale wording remains controlling; Trustpilot's separate company-description 'FREE RETURNS' claim is not used to override it."
+  },
+  {
+   "id": "P17-21",
+   "kind": "seller-policy",
+   "label": "blue-nile official returns/material policy review",
+   "url": "https://www.bluenile.com/policies/returns",
+   "rows": [
+    "blue-nile"
+   ],
+   "outcome": "confirmed",
+   "findings": "Official policy confirms 30 days from shipment, original unworn condition, resized/custom/engraved/final-sale exclusions, RMA requirement and two complimentary returns per customer per year."
+  },
+  {
+   "id": "P17-22",
+   "kind": "seller-policy",
+   "label": "mejuri official returns/material policy review",
+   "url": "https://mejuri.com/company/returns-terms",
+   "rows": [
+    "mejuri"
+   ],
+   "outcome": "corrected",
+   "findings": "Official FAQ and full terms confirm free 30-day returns in five named countries. Removed unsupported blanket bespoke/made-to-order exclusion and stale JavaScript-only flag; added complete-set, same-country and SCS-certificate requirements."
+  },
+  {
+   "id": "P17-23",
+   "kind": "seller-policy",
+   "label": "ring-concierge official returns/material policy review",
+   "url": "https://ringconcierge.com/policies/refund-policy",
+   "rows": [
+    "ring-concierge"
+   ],
+   "outcome": "flagged",
+   "findings": "General policy still says 30 days on most Fine Jewelry, while both engagement PDPs say 1 week (7 days) for eligible ready-made rings and final sale after customization/resizing. The stricter product-specific window remains recorded."
+  },
+  {
+   "id": "P17-24",
+   "kind": "seller-policy",
+   "label": "catbird official returns/material policy review",
+   "url": "https://www.catbirdnyc.com/returns",
+   "rows": [
+    "catbird"
+   ],
+   "outcome": "corrected",
+   "findings": "Official returns page confirms 20 days, $9 return-shipping deduction and international/final-sale exclusions. Official Facts page confirms 'Catbird's solid gold is never plated'; corrected the source attribution from Trustpilot to Catbird's own page."
+  },
+  {
+   "id": "P17-25",
+   "kind": "reputation",
+   "label": "aurate Trustpilot score, count and sample-context snapshot",
+   "url": "https://www.trustpilot.com/review/auratenewyork.com",
+   "rows": [
+    "aurate"
+   ],
+   "outcome": "corrected",
+   "findings": "Trustpilot displays 4,876 reviews and TrustScore 4.1. Corrected the quote's stale 4,875 count; retained the claimed-profile and 98% negative-review response context. Trustpilot says it does not fact-check reviewer claims; AI-summary themes are labelled as reviewer allegations, not verified facts."
+  },
+  {
+   "id": "P17-26",
+   "kind": "reputation",
+   "label": "blue-nile Trustpilot score, count and sample-context snapshot",
+   "url": "https://www.trustpilot.com/review/www.bluenile.com",
+   "rows": [
+    "blue-nile"
+   ],
+   "outcome": "corrected",
+   "findings": "Trustpilot displays 1,937 reviews and TrustScore 4.0, with 97% negative-review responses. Updated from 1,932/1,928 and 99%. Trustpilot says it does not fact-check reviewer claims; AI-summary themes are labelled as reviewer allegations, not verified facts."
+  },
+  {
+   "id": "P17-27",
+   "kind": "reputation",
+   "label": "mejuri Trustpilot score, count and sample-context snapshot",
+   "url": "https://www.trustpilot.com/review/mejuri.com",
+   "rows": [
+    "mejuri"
+   ],
+   "outcome": "corrected",
+   "findings": "Trustpilot displays 5,785 reviews and TrustScore 4.3, with 98% negative-review responses. Updated from 5,784/5,781 and 99%. Trustpilot says it does not fact-check reviewer claims; AI-summary themes are labelled as reviewer allegations, not verified facts."
+  },
+  {
+   "id": "P17-28",
+   "kind": "reputation",
+   "label": "ring-concierge Trustpilot score, count and sample-context snapshot",
+   "url": "https://www.trustpilot.com/review/ringconcierge.com",
+   "rows": [
+    "ring-concierge"
+   ],
+   "outcome": "confirmed",
+   "findings": "Trustpilot still displays only 7 reviews, TrustScore 2.7 and an unclaimed profile with no history of asking for reviews; the tiny non-representative sample warning remains. Trustpilot says it does not fact-check reviewer claims; AI-summary themes are labelled as reviewer allegations, not verified facts."
+  },
+  {
+   "id": "P17-29",
+   "kind": "reputation",
+   "label": "catbird Trustpilot score, count and sample-context snapshot",
+   "url": "https://www.trustpilot.com/review/catbirdnyc.com",
+   "rows": [
+    "catbird"
+   ],
+   "outcome": "confirmed",
+   "findings": "Trustpilot displays 56 reviews and TrustScore 2.2, claimed profile, 82% negative-review responses and no recent history of asking for reviews. Counts and score match the stored record. Trustpilot says it does not fact-check reviewer claims; AI-summary themes are labelled as reviewer allegations, not verified facts."
+  },
+  {
+   "id": "P17-30",
+   "kind": "weight",
+   "label": "Ross-Simons approximate-weight and solid-construction language audit",
+   "url": "https://www.ross-simons.com/products/571221",
+   "rows": [
+    "BND-04",
+    "BND-05",
+    "BND-06",
+    "BND-07"
+   ],
+   "outcome": "corrected",
+   "findings": "Item 571221 freshly confirms $400, 14kt Yellow Gold, 2mm and approximate Gold Weight 1.7 grams; sizes 5-9 are shown in stock. BND-04–BND-07 no longer call approximate weights exact, and weight/geometry/customer reviews are no longer used as proof of solid construction. No price, weight or melt value changed."
+  },
+  {
+   "id": "P17-31",
+   "kind": "benchmark",
+   "label": "Four-publisher live spot corroboration with dated calculation anchor preserved",
+   "url": "https://goldprice.org/",
+   "rows": [
+    "spot"
+   ],
+   "outcome": "confirmed",
+   "findings": "GoldPrice.org displayed $3,995.88/oz at label '07:41 NY Time'; Kitco bid $3,994.90 at '19:43 NY Time'; BullionVault $3,995.74 at '17:00:00 (GMT-04:00)'; WGC tile $3,995.47 with its historical dataset labelled 22 October. Numeric spread $0.98 (0.025%). Only the labelled live reference changed; primary $4,022.22/oz and all melt arithmetic remain fixed."
+  },
+  {
+   "id": "P19-01",
+   "kind": "listing",
    "label": "Mejuri Diamonds Band: price, material and return window all reproduce",
    "url": "https://mejuri.com/products/diamonds-band?Material=Solid+Yellow+Gold+%2814k%29&Stone=Natural+Diamond",
    "rows": [
@@ -2940,7 +3290,7 @@
    "findings": "Price $648, the material line and the 30-day window all match the stored row. The page still prints no gram weight and no hallmark, so both cells stay blank in the matrix. The engraving exclusion is the one return caveat and is recorded."
   },
   {
-   "id": "P17-02",
+   "id": "P19-02",
    "kind": "listing",
    "label": "Catbird Woodland Ring: sale price reproduces; no material paragraph, no weight, no hallmark",
    "url": "https://www.catbirdnyc.com/woodland-ring.html",
@@ -2951,7 +3301,7 @@
    "findings": "The stored $276.00 against a $368.00 regular price reproduces exactly. The returned text carries a sold-out / waitlist badge image, so availability remains unconfirmed; the product text does not contain the word 'solid', no gram weight and no hallmark. R18's UNVERIFIED solid-gold verdict and its blanks are correct."
   },
   {
-   "id": "P17-03",
+   "id": "P19-03",
    "kind": "listing",
    "label": "Tiffany Setting: 'Starting from $1,600' with two contradictory return notices on the same page",
    "url": "https://www.tiffany.com/engagement/engagement-rings/the-tiffany-setting-engagement-ring-in-18k-yellow-gold-GRP10863/",
@@ -2962,7 +3312,7 @@
    "findings": "The $1,600 'starting from' figure and the 18k yellow gold + platinum ring style reproduce. The page prints both 'non returnable' and 'can only be exchanged', which is what the row's return_window records, and it also prints 'currently unavailable' (flag AV1). No weight, hallmark or maker's mark is printed, so those cells stay blank."
   },
   {
-   "id": "P17-04",
+   "id": "P19-04",
    "kind": "listing",
    "label": "Local Eclectic Simple Knot Ring: 9k badge against a 10k materials bullet, confirmed again",
    "url": "https://www.localeclectic.com/products/solid-gold-simple-knot-ring",
@@ -2973,7 +3323,7 @@
    "findings": "Price $239 reproduces. The same page prints '9k Solid Gold' as a badge and '10k solid yellow gold' as the materials bullet, so the stored karat (10K) and flag SPEC2 are both right: the karat cannot be settled from the listing alone. No weight and no hallmark are printed."
   },
   {
-   "id": "P17-05",
+   "id": "P19-05",
    "kind": "listing",
    "label": "Mene Wrap Ring moved again inside the same day ($3,228 -> $3,202)",
    "url": "https://mene.com/products/wrap-ring-gold",
@@ -2984,7 +3334,7 @@
    "findings": "The captured price is $3,253 (2026-10-22) and the earlier P12 reading on 2026-10-23 was $3,228; this pass reads $3,202, i.e. 1.57% below the capture and 0.81% below the earlier same-day reading. Mene re-prices by metal weight, so the capture is a dated observation, never 'current'. The static page still prints no gram weight (the weight is client-side), so R30's null weight is correct. Published as finding F50; the captured price is not overwritten and a second dated reading is added to live_recheck."
   },
   {
-   "id": "P17-06",
+   "id": "P19-06",
    "kind": "listing",
    "label": "Mejuri Diamond Eternity Band: 0.532 ct prose against a 0.044-0.056 ct spec, confirmed",
    "url": "https://mejuri.com/shop/products/diamond-eternity-band?Material=Solid+Yellow+Gold+%2814k%29&Stone=Natural+Diamond",
@@ -2995,7 +3345,7 @@
    "findings": "The 'From $1,100' price and the stated contradiction both reproduce: the prose says an average 0.532 ct while the spec block says 0.044-0.056 ct per stone. Stone weight is left out of the matrix's gold arithmetic, so the contradiction does not corrupt any melt figure. No gram weight and no hallmark are printed."
   },
   {
-   "id": "P17-07",
+   "id": "P19-07",
    "kind": "listing",
    "label": "Ross-Simons certified solitaire: $2,819 sale against $3,995 original, 14kt white gold",
    "url": "https://www.ross-simons.com/products/990022",
@@ -3006,7 +3356,7 @@
    "findings": "The stored $2,819 reproduces, as do the 14kt white gold metal line and the GIA certificate reference. The page prints no metal weight in its static HTML (the spec rows are rendered client-side), so the null weight is correct."
   },
   {
-   "id": "P17-08",
+   "id": "P19-08",
    "kind": "listing",
    "label": "Ross-Simons coin ring: $3,295 and 'Gold Weight 5.9 grams' reproduce, mixed 14kt + 22kt",
    "url": "https://www.ross-simons.com/products/993085",
@@ -3017,7 +3367,7 @@
    "findings": "Both the price and the 5.9 g 'Gold Weight' reproduce verbatim. Because the piece mixes 14kt mounting and 22kt coin, no single fineness applies, so the record correctly leaves pure-gold grams, melt value and the price-to-melt ratio null rather than picking a karat."
   },
   {
-   "id": "P17-09",
+   "id": "P19-09",
    "kind": "listing",
    "label": "Ring Concierge 2.08 oval: $6,038 reproduced, made to order in 3-4 weeks, no 'solid' wording",
    "url": "https://ringconcierge.com/products/2-08-oval-lab-diamond-in-whisper-thina-hidden-halo",
@@ -3028,7 +3378,7 @@
    "findings": "The $6,038 price, the 2.08 ct E VS1 stone description and the made-to-order lead time all reproduce. The page body does not use the word 'solid', so the matrix marks solid-gold wording unverified for this row (the stored solid_gold field is null, not false)."
   },
   {
-   "id": "P17-10",
+   "id": "P19-10",
    "kind": "spot",
    "label": "Gold benchmark re-read: USD 3,995.88/oz, 0.66% below the stored dated anchor",
    "url": "https://goldprice.org/",
@@ -3039,7 +3389,7 @@
    "findings": "The page printed $3,995.88/oz at its own clock label 07:41 NY, against the stored GoldPrice.org anchor of $4,022.22/oz labelled 05:55 NY (0.655% lower). The label again runs behind the read time, the same inverted-clock pattern recorded in F39. This reading is published for reference only; the dated anchor still drives every melt figure so the arithmetic stays reproducible. No re-anchor was performed."
   },
   {
-   "id": "P17-11",
+   "id": "P19-11",
    "kind": "authority",
    "label": "Two authority pages opened to support the payment and returns requirements",
    "url": "https://www.law.cornell.edu/uscode/text/15/1666",
@@ -3047,10 +3397,10 @@
     "standards"
    ],
    "outcome": "confirmed",
-   "findings": "15 U.S.C. § 1666 (Correction of billing errors) was read live for the credit-card requirement: it obliges a creditor to acknowledge a written billing-error notice within 30 days and to correct or explain within two billing cycles (max 90 days). 16 CFR Part 435 (Mail, Internet, or Telephone Order Merchandise) was also opened for the returns requirement; only its part page and currency banner were read, so it is cited as context and not as a statutory minimum return window. Both are now in data/sources.json with their verbatim quotes."
+   "findings": "15 U.S.C. § 1666 (Correction of billing errors) was read live for the credit-card requirement: it obliges a creditor to acknowledge a written billing-error notice within 30 days and to correct or explain within two billing cycles (max 90 days). 16 CFR Part 435 (Mail, Internet, or Telephone Order Merchandise) was also opened for the returns requirement; only its part page and currency banner were read, so it is cited as context and not as a statutory minimum return window. Both are now in data/sources.json with verbatim quotes."
   },
   {
-   "id": "P17-12",
+   "id": "P19-12",
    "kind": "site",
    "label": "Requirements matrix derived from stored fields and re-derived independently",
    "url": "https://github.com/karagemop466-tech/GOLD3",
@@ -3059,7 +3409,7 @@
     "retailers"
    ],
    "outcome": "confirmed",
-   "findings": "The new requirements.html scores all 71 rows against the ten checklist requirements using only stored fields. Independent re-derivation by scripts/hallucination_scan.py agrees cell for cell: 0 rows good on all ten, 19 publish a weight, 3 a hallmark, 2 a maker's mark, 0 confirm an XRF offer, 13 leave payment unverified and 9 are final sale or non-returnable. Published as F52."
+   "findings": "The new requirements.html scores all 71 rows against the ten checklist requirements using only stored fields. Independent re-derivation by scripts/hallucination_scan.py agrees cell for cell: 0 rows good on all ten, 19 publish a weight, 3 a hallmark, 2 a maker's mark, 0 confirm an XRF offer, 13 leave payment unverified and 9 are final sale or non-returnable. Published as F58."
   }
  ],
  "discrepancies": [
@@ -3155,14 +3505,15 @@
  ],
  "not_rechecked": [],
  "summary": {
-  "checks": 234,
-  "confirmed": 118,
-  "corrected": 77,
-  "flagged": 39,
-  "urls_opened": 234,
+  "checks": 265,
+  "confirmed": 128,
+  "corrected": 95,
+  "flagged": 42,
+  "urls_opened": 265,
   "site_defects_fixed": 21,
   "p15_note": "P15 added 11 net-new checks after P12-P14 (7 confirmed, 3 corrected, 1 flagged). It preserves the dated calculation anchor and adds Dataset C weight coverage, NIST/VRAI/Automic corrections and JSON-derived calculator presets.",
-  "p17_note": "P17 adds 12 net-new checks (10 confirmed, 2 flagged) and the first requirements compliance matrix. It preserves the peer-reviewed dated spot anchor, publishes the newer live reading beside it, and appends only net-new corrections."
+  "p17_note": "P17 added 31 checks (10 confirmed, 18 corrected, 3 flagged). Every Dataset A numeric price was confirmed without change. Unsupported stone-inclusion and solid-geometry/review inferences were removed; stale specifications, policies and review counts were corrected. F50-F55 and the labelled live-check reading are published; the dated calculation anchor is unchanged.",
+  "p19_note": "P19 adds 12 net-new checks (10 confirmed, 2 flagged) and the first requirements compliance matrix. It preserves the peer-reviewed dated spot anchor, publishes the newer live reading beside it, and appends only net-new corrections."
  },
  "site_defects": [
   {
@@ -3353,7 +3704,7 @@
    "page": "index.html",
    "what": "Two dashboard tiles were labelled 'Weights in this pass' and 'Hallmark policies' while their values described Dataset A only and their sub-labels described the whole site. A reader could not tell which denominator was which.",
    "found_by": "This pass, while deriving the requirements matrix from the same metrics.",
-   "fix": "Relabelled 'Dataset A weights' and 'Retailer hallmark policies', with the combined 19-of-71 figure moved into the sub-line, and added a 'Checklist cells verified' tile plus a link to the new Requirements page.",
+   "fix": "Relabelled 'Dataset A weights' and 'Retailer hallmark policies', moved the combined 19-of-71 figure into the sub-line, and added a 'Checklist cells verified' tile plus a link to the new Requirements page.",
    "status": "fixed"
   },
   {
@@ -3361,7 +3712,7 @@
    "page": "scripts/requirements_matrix.py",
    "what": "The first draft of the new matrix cited five authority pages at paths that were not the ones registered in data/sources.json (notably 16 CFR Part 23 under subchapter A instead of subchapter B) and used two unregistered consumer-advice URLs.",
    "found_by": "This pass, by cross-checking every authority URL against data/sources.json before publishing.",
-   "fix": "Every authority link now points at a page already registered and quoted in data/sources.json, or at one of the two pages opened live this pass (15 U.S.C. 1666, 16 CFR Part 435) and added there. HS-09 in scripts/hallucination_scan.py enforces https + an action for all ten requirements.",
+   "fix": "Every authority link now points at a page already registered and quoted in data/sources.json, or at one of the two pages opened live this pass (15 U.S.C. 1666, 16 CFR Part 435) and added there. HS-09 in scripts/hallucination_scan.py enforces https + an action for all ten.",
    "status": "fixed"
   }
  ],

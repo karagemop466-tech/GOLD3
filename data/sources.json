@@ -87,10 +87,10 @@
    "publisher": "GoldPrice.org",
    "url": "https://goldprice.org/",
    "type": "market-data",
-   "supports": "Gold spot snapshots. The PRIMARY capture used by every calculation on this site is $4,022.22/oz read 'Oct 23rd, 2026 at 05:55 NY Time'. A later read the same evening printed $3,997.22/oz at '04:17 NY Time' (0.62% lower, same market date) and is shown only as a labelled live-check: it is NOT used in any calculation.",
+   "supports": "Gold spot snapshots. The PRIMARY capture used by every calculation on this site is $4,022.22/oz read 'Oct 23rd, 2026 at 05:55 NY Time'. A later P17 read printed $3,995.88/oz at '07:41 NY Time' (0.65% lower, same market date) and is shown only as a labelled live-check: it is NOT used in any calculation.",
    "quotes": [
     "Primary capture: Spot Gold Price: USD 4,022.22 / Ounce | Spot Silver Price: USD 53.82 / Ounce Oct 23rd, 2026 at 05:55 NY Time",
-    "Live-check read later the same day: Spot Gold Price: USD 3,997.22 / Ounce | Spot Silver Price: USD 53.92 / Ounce Oct 23rd, 2026 at 04:17 NY Time"
+    "P17 live-check read later the same day: Spot Gold Price: USD 3,995.88 / Ounce | Spot Silver Price: USD 53.92 / Ounce Oct 23rd, 2026 at 07:41 NY Time"
    ],
    "accessed": "2026-10-23"
   },
@@ -163,7 +163,7 @@
    "publisher": "U.S. Code via Cornell LII",
    "url": "https://www.law.cornell.edu/uscode/text/15/1666",
    "type": "statute",
-   "supports": "Why the checklist prefers a credit card: a written billing-error notice obliges the creditor to acknowledge within 30 days and correct or explain within two billing cycles (max 90 days). Read live 2026-10-23 for the requirement that payment be reversible.",
+   "supports": "Why the checklist prefers a credit card: a written billing-error notice obliges the creditor to acknowledge within 30 days and correct or explain within two billing cycles (max 90 days). Read live 2026-10-23.",
    "quotes": [
     "15 U.S. Code § 1666 - Correction of billing errors",
     "not later than thirty days after the receipt of the notice, send a written acknowledgment thereof to the obligor",

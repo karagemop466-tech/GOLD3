@@ -249,29 +249,79 @@ check("SD24 F2 uses full A+B+C weight and listing counts",
   includesText(html["flagged.html"], "Only 19 of 71 listings publish a weight") &&
   !includesText(html["flagged.html"], "Only 14 of 50 listings publish a weight"));
 check("SD24 README pass range and ledger count are current",
-  read("README.md").includes("P1`–`P17") && read("README.md").includes("234 logged checks"));
+  read("README.md").includes("P1`–`P19") && read("README.md").includes("265 logged checks"));
+
+// P17: source-drift, duplicate-flag and unsupported-inference regression guards.
+const _p17 = JSON.parse(read("data/reverification-p17.json"));
+const _p17A = JSON.parse(read("data/products.json")).products;
+const _p17ById = Object.fromEntries(_p17A.map((p) => [p.id, p]));
+const _p17Rows = new Set(_p17.checks.filter((c) => c.kind === "listing").flatMap((c) => c.rows || []));
+check("P17 covers every Dataset A row and reconciles its 31-check ledger",
+  _p17.checks.length === 31 && _p17Rows.size === _p17A.length && _p17A.length === 19 &&
+  _p17.summary.confirmed === 10 && _p17.summary.corrected === 18 && _p17.summary.flagged === 3 &&
+  verif.checks.filter((c) => c.id.startsWith("P17-")).length === 31);
+check("P17 confirms all Dataset A prices without a numeric change",
+  _p17.summary.dataset_a_products === 19 && _p17.summary.numeric_price_changes === 0 &&
+  _p17.summary.published_weight_changes === 0);
+const _p17Bezels = ["aurate-1ct-round-lgd-bezel", "aurate-2ct-emerald-lgd-bezel", "aurate-3ct-pear-lgd-bezel"]
+  .map((id) => _p17ById[id]);
+check("P17 leaves conflicting Aurate bezel carats null and preserves current dimensions",
+  _p17Bezels.every((p) => p.carat === null && p.weight_g === null && p.weight_status === "published as unscoped weight") &&
+  _p17Bezels[0].metal_detail.includes("Thickness: 5.04mm") &&
+  _p17Bezels[1].metal_detail.includes("Thickness: 4.6mm") &&
+  _p17Bezels[2].metal_detail.includes("Thickness: 6.10mm") &&
+  !/includes [123]tcw stone|stone included|including 0\.36 g|0\.72 g stone|0\.21 g stone/i.test(JSON.stringify(_p17A)));
+check("P17 Blue Nile and Mejuri specifications match the current official text",
+  _p17ById["bluenile-petite-hidden-halo-14k-yg"].metal_detail.includes("502250y14; width 1.60mm") &&
+  _p17ById["bluenile-riviera-pave-14k-wg"].metal_detail.includes("501590w14; width 2.00mm") &&
+  _p17ById["mejuri-stacker-ring-10k"].metal_detail.includes("Width: 1 mm") &&
+  _p17ById["mejuri-stacker-ring-10k"].flags.some((f) => f.code === "HALLMARK_ALT_TEXT_ONLY") &&
+  !_p17ById["mejuri-stacker-ring-10k"].flags.some((f) => f.code === "HALLMARK_NOT_STATED"));
+check("P17 removes false Ring Concierge purity flags and duplicate Dataset A issue codes",
+  ["ringconcierge-2-08-oval-lab-whisper-thin", "ringconcierge-2-72-round-lab-whisper-thin"]
+    .every((id) => !_p17ById[id].flags.some((f) => f.code === "PURITY_NOT_IN_BODY_TEXT")) &&
+  _p17A.every((p) => new Set(p.flags.map((f) => f.code)).size === p.flags.length));
+const _p17Bands = JSON.parse(read("data/bands-and-high-karat.json")).items;
+check("P17 Ross-Simons weights stay approximate and solidity is not inferred",
+  _p17Bands.filter((r) => ["BND-04", "BND-05", "BND-06", "BND-07"].includes(r.id))
+    .every((r) => r.listing_type.includes("Published Approximate Gram Weight")) &&
+  !/Exact Gram Weight Verified|weight confirm solid|matches solid cast/i.test(JSON.stringify(_p17Bands)));
+const _p17Retailers = JSON.parse(read("data/retailers.json")).retailers;
+const _p17Mejuri = _p17Retailers.find((r) => r.id === "mejuri");
+check("P17 Mejuri policy drops unsupported exclusions and stale unreadable-page flag",
+  !_p17Mejuri.returns_exclusions.includes("bespoke") &&
+  !_p17Mejuri.flags.includes("RETURN_POLICY_PAGE_JAVASCRIPT_ONLY") &&
+  _p17Mejuri.returns_exclusions.includes("SCS certificate"));
+check("P17 publishes F50-F55 for manual review",
+  ["F50", "F51", "F52", "F53", "F54", "F55"].every((id) => html["flagged.html"].includes(`id="${id}"`)));
+const _p17Primary = _prices.snapshots.find((s) => s.role === "primary");
+const _p17Live = _prices.snapshots.find((s) => String(s.role).startsWith("live-check"));
+check("P17 refreshes only the live spot reference and preserves the calculation anchor",
+  _p17Primary.price_usd_per_troy_oz === 4022.22 && _p17Live.price_usd_per_troy_oz === 3995.88 &&
+  html["calculator.html"].includes("3,995.88"));
+
 
 // P17: the requirements matrix must stay derived, not typed in.
 const _reqRows = JSON.parse(read("data/requirements-matrix.json"));
-const _p17verif = JSON.parse(read("data/verification.json"));
-check("P17 requirements matrix covers every listing",
+const _p19verif = JSON.parse(read("data/verification.json"));
+check("P19 requirements matrix covers every listing",
   _reqRows.summary.n_rows === 71 && _reqRows.rows.length === 71);
-check("P17 requirements matrix has ten requirements per row",
+check("P19 requirements matrix has ten requirements per row",
   _reqRows.summary.requirements.length === 10 &&
   _reqRows.rows.every(r => Object.keys(r.cells).filter(k => k !== "value").length === 10));
-check("P17 requirements page renders every row and the headline honestly",
+check("P19 requirements page renders every row and the headline honestly",
   includesText(html["requirements.html"], ">R01<") &&
   includesText(html["requirements.html"], ">BND-12<") &&
   includesText(html["requirements.html"], "pass all ten"));
-check("P17 every blank cell renders as an explicit unverified badge",
+check("P19 every blank cell renders as an explicit unverified badge",
   (html["requirements.html"].match(/unverified/g) || []).length >= 400 &&
   !html["requirements.html"].includes(">n/a<") &&
   !html["requirements.html"].includes(">N/A<"));
-check("P17 verification ledger includes the P17 checks",
-  _p17verif.checks.some(c => c.id.startsWith("P17-")) &&
-  includesText(html["verify.html"], "P17"));
-check("P17 findings F50-F52 are published for manual review",
-  includesText(html["flagged.html"], "F50") && includesText(html["flagged.html"], "F52"));
+check("P19 verification ledger includes the P19 checks",
+  _p19verif.checks.some(c => c.id.startsWith("P19-")) &&
+  includesText(html["verify.html"], "P19"));
+check("P19 findings F56-F58 are published for manual review",
+  includesText(html["flagged.html"], "F56") && includesText(html["flagged.html"], "F58"));
 check("P17 index links to the requirements matrix",
   html["index.html"].includes('href="requirements.html"') &&
   html["requirements.html"].includes('href="index.html"'));

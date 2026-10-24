@@ -132,15 +132,15 @@
     "if_missing": "Ask for the weight in grams; if refused, that is the answer.",
     "counts": {
      "good": 19,
-     "partial": 4,
+     "partial": 0,
      "fail": 0,
-     "unverified": 48
+     "unverified": 52
     },
     "gold_counts": {
      "good": 19,
-     "partial": 4,
+     "partial": 0,
      "fail": 0,
-     "unverified": 44
+     "unverified": 48
     }
    },
    {
@@ -173,14 +173,14 @@
     "authority_label": "16 CFR Part 435 (FTC mail-order rule)",
     "if_missing": "Get the return window and exclusions in writing before ordering.",
     "counts": {
-     "good": 34,
-     "partial": 28,
+     "good": 38,
+     "partial": 24,
      "fail": 9,
      "unverified": 0
     },
     "gold_counts": {
-     "good": 34,
-     "partial": 26,
+     "good": 36,
+     "partial": 24,
      "fail": 7,
      "unverified": 0
     }
@@ -263,7 +263,7 @@
    "definition": "karat + word “solid” + weight in grams + a usable return window, all ‘good’"
   },
   "rows_seller_core_partial": {
-   "n": 11,
+   "n": 7,
    "definition": "the same four, at least partly documented"
   }
  },
@@ -273,7 +273,7 @@
    "dataset": "A",
    "seller": "Aurate New York",
    "name": "2ct Round Lab Grown Diamond Solitaire Ring",
-   "url": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring",
+   "url": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring?variant=46776936792236",
    "price_usd": 2858,
    "price_label": "listed",
    "karat": "14K",
@@ -282,7 +282,7 @@
     "purity": {
      "status": "good",
      "text": "14K",
-     "url": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring",
+     "url": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring?variant=46776936792236",
      "sub": ""
     },
     "solid": {
@@ -294,20 +294,20 @@
     "hallmark": {
      "status": "unverified",
      "text": "Not published",
-     "url": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring",
+     "url": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring?variant=46776936792236",
      "sub": "No hallmark / maker's-mark policy found on the pages checked."
     },
     "maker": {
      "status": "unverified",
      "text": "Not published",
-     "url": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring",
+     "url": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring?variant=46776936792236",
      "sub": ""
     },
     "weight": {
-     "status": "partial",
-     "text": "Range only",
-     "url": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring",
-     "sub": "Live PDP prints 'Weight: 5.5-8.5g' (includes 2tcw stone and repeats across 14k/18k/Platinum variants) and 'Exchange for size only. Final Sale!' alongs"
+     "status": "unverified",
+     "text": "Not published",
+     "url": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring?variant=46776936792236",
+     "sub": "Specs publish 'Weight: 5.5-8.5g' and '2tcw' separately. The page does not define whether the gram range is metal-only or total-item weight and does no"
     },
     "reputation": {
      "status": "good",
@@ -324,25 +324,25 @@
     "payment": {
      "status": "unverified",
      "text": "Not published",
-     "url": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring",
+     "url": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring?variant=46776936792236",
      "sub": ""
     },
     "docs": {
      "status": "good",
      "text": "3/3 captured",
-     "url": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring",
+     "url": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring?variant=46776936792236",
      "sub": "quote · source URL · read date"
     },
     "xrf": {
      "status": "unverified",
      "text": "Seller states nothing",
-     "url": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring",
+     "url": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring?variant=46776936792236",
      "sub": ""
     },
     "value": {
      "status": "unverified",
      "text": "No gold weight → not computable",
-     "url": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring",
+     "url": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring?variant=46776936792236",
      "sub": "left blank, never back-calculated"
     }
    },
@@ -353,7 +353,7 @@
    "dataset": "A",
    "seller": "Aurate New York",
    "name": "2ct Emerald Lab Grown Diamond Solitaire Ring",
-   "url": "https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring",
+   "url": "https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring?variant=46776938266796",
    "price_usd": 2638,
    "price_label": "listed",
    "karat": "14K",
@@ -362,7 +362,7 @@
     "purity": {
      "status": "good",
      "text": "14K",
-     "url": "https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring",
+     "url": "https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring?variant=46776938266796",
      "sub": ""
     },
     "solid": {
@@ -374,20 +374,20 @@
     "hallmark": {
      "status": "unverified",
      "text": "Not published",
-     "url": "https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring",
+     "url": "https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring?variant=46776938266796",
      "sub": "No hallmark / maker's-mark policy found on the pages checked."
     },
     "maker": {
      "status": "unverified",
      "text": "Not published",
-     "url": "https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring",
+     "url": "https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring?variant=46776938266796",
      "sub": ""
     },
     "weight": {
-     "status": "partial",
-     "text": "Range only",
-     "url": "https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring",
-     "sub": "Live PDP prints 'Weight: 5.5-8.5g' (includes 2tcw stone and repeats across 14k/18k/Platinum variants) and 'Exchange for size only. Final Sale!' alongs"
+     "status": "unverified",
+     "text": "Not published",
+     "url": "https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring?variant=46776938266796",
+     "sub": "Specs publish 'Weight: 5.5-8.5g' and '2tcw' separately. The page does not define whether the gram range is metal-only or total-item weight and does no"
     },
     "reputation": {
      "status": "good",
@@ -404,25 +404,25 @@
     "payment": {
      "status": "unverified",
      "text": "Not published",
-     "url": "https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring",
+     "url": "https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring?variant=46776938266796",
      "sub": ""
     },
     "docs": {
      "status": "good",
      "text": "3/3 captured",
-     "url": "https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring",
+     "url": "https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring?variant=46776938266796",
      "sub": "quote · source URL · read date"
     },
     "xrf": {
      "status": "unverified",
      "text": "Seller states nothing",
-     "url": "https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring",
+     "url": "https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring?variant=46776938266796",
      "sub": ""
     },
     "value": {
      "status": "unverified",
      "text": "No gold weight → not computable",
-     "url": "https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring",
+     "url": "https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring?variant=46776938266796",
      "sub": "left blank, never back-calculated"
     }
    },
@@ -467,7 +467,7 @@
      "status": "unverified",
      "text": "Not published",
      "url": "https://auratenewyork.com/products/1ct-round-lab-grown-diamond-bezel-ring",
-     "sub": "Live PDP prints 'Weight: 2.23g' with '1.05tcw' across 14k/18k/Platinum variants without stating whether stone weight is included or which metal/size w"
+     "sub": "Specs publish 'Weight: 2.23g' and '1.05tcw' separately. They do not state whether the gram figure is metal-only or total-item weight, nor assign it to"
     },
     "reputation": {
      "status": "good",
@@ -547,7 +547,7 @@
      "status": "unverified",
      "text": "Not published",
      "url": "https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-bezel-ring",
-     "sub": "Live PDP prints 'Weight: 2.36g' with '1.8tcw' across 14k/18k/Platinum variants (kept null) and body prose misstates 'giving the classic oval diamond a"
+     "sub": "Specs publish 'Weight: 2.36g' and '1.8tcw' separately. They do not state whether the gram figure is metal-only or total-item weight, nor assign it to "
     },
     "reputation": {
      "status": "good",
@@ -593,7 +593,7 @@
    "dataset": "A",
    "seller": "Aurate New York",
    "name": "2ct Oval Lab Grown Diamond Solitaire Ring",
-   "url": "https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring",
+   "url": "https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring?variant=46776937513132",
    "price_usd": 2858,
    "price_label": "listed",
    "karat": "14K",
@@ -602,7 +602,7 @@
     "purity": {
      "status": "good",
      "text": "14K",
-     "url": "https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring",
+     "url": "https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring?variant=46776937513132",
      "sub": ""
     },
     "solid": {
@@ -614,20 +614,20 @@
     "hallmark": {
      "status": "unverified",
      "text": "Not published",
-     "url": "https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring",
+     "url": "https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring?variant=46776937513132",
      "sub": "No hallmark / maker's-mark policy found on the pages checked."
     },
     "maker": {
      "status": "unverified",
      "text": "Not published",
-     "url": "https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring",
+     "url": "https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring?variant=46776937513132",
      "sub": ""
     },
     "weight": {
-     "status": "partial",
-     "text": "Range only",
-     "url": "https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring",
-     "sub": "Live PDP prints 'Weight: 5.7-8.7g' (includes 2tcw stone and repeats across 14k/18k/Platinum variants) and 'Exchange for size only. Final Sale!' alongs"
+     "status": "unverified",
+     "text": "Not published",
+     "url": "https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring?variant=46776937513132",
+     "sub": "Specs publish 'Weight: 5.7-8.7g' and '2tcw' separately. The page does not define whether the gram range is metal-only or total-item weight and does no"
     },
     "reputation": {
      "status": "good",
@@ -644,25 +644,25 @@
     "payment": {
      "status": "unverified",
      "text": "Not published",
-     "url": "https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring",
+     "url": "https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring?variant=46776937513132",
      "sub": ""
     },
     "docs": {
      "status": "good",
      "text": "3/3 captured",
-     "url": "https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring",
+     "url": "https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring?variant=46776937513132",
      "sub": "quote · source URL · read date"
     },
     "xrf": {
      "status": "unverified",
      "text": "Seller states nothing",
-     "url": "https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring",
+     "url": "https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring?variant=46776937513132",
      "sub": ""
     },
     "value": {
      "status": "unverified",
      "text": "No gold weight → not computable",
-     "url": "https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring",
+     "url": "https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring?variant=46776937513132",
      "sub": "left blank, never back-calculated"
     }
    },
@@ -673,7 +673,7 @@
    "dataset": "A",
    "seller": "Aurate New York",
    "name": "3ct Oval Lab Grown Diamond Solitaire Ring",
-   "url": "https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring",
+   "url": "https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring?variant=44854218981548",
    "price_usd": 3958,
    "price_label": "listed",
    "karat": "14K",
@@ -682,7 +682,7 @@
     "purity": {
      "status": "good",
      "text": "14K",
-     "url": "https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring",
+     "url": "https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring?variant=44854218981548",
      "sub": ""
     },
     "solid": {
@@ -694,20 +694,20 @@
     "hallmark": {
      "status": "unverified",
      "text": "Not published",
-     "url": "https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring",
+     "url": "https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring?variant=44854218981548",
      "sub": "No hallmark / maker's-mark policy found on the pages checked."
     },
     "maker": {
      "status": "unverified",
      "text": "Not published",
-     "url": "https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring",
+     "url": "https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring?variant=44854218981548",
      "sub": ""
     },
     "weight": {
-     "status": "partial",
-     "text": "Range only",
-     "url": "https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring",
-     "sub": "Live PDP prints 'Weight: 5.9-8.9g' (includes 3tcw stone and repeats across 14k/18k/Platinum variants) and 'Exchange for size only. Final Sale!' alongs"
+     "status": "unverified",
+     "text": "Not published",
+     "url": "https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring?variant=44854218981548",
+     "sub": "Specs publish 'Weight: 5.9-8.9g' and '3tcw' separately. The page does not define whether the gram range is metal-only or total-item weight and does no"
     },
     "reputation": {
      "status": "good",
@@ -724,25 +724,25 @@
     "payment": {
      "status": "unverified",
      "text": "Not published",
-     "url": "https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring",
+     "url": "https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring?variant=44854218981548",
      "sub": ""
     },
     "docs": {
      "status": "good",
      "text": "3/3 captured",
-     "url": "https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring",
+     "url": "https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring?variant=44854218981548",
      "sub": "quote · source URL · read date"
     },
     "xrf": {
      "status": "unverified",
      "text": "Seller states nothing",
-     "url": "https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring",
+     "url": "https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring?variant=44854218981548",
      "sub": ""
     },
     "value": {
      "status": "unverified",
      "text": "No gold weight → not computable",
-     "url": "https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring",
+     "url": "https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring?variant=44854218981548",
      "sub": "left blank, never back-calculated"
     }
    },
@@ -787,7 +787,7 @@
      "status": "unverified",
      "text": "Not published",
      "url": "https://auratenewyork.com/products/3ct-pear-lab-grown-diamond-bezel-ring",
-     "sub": "Live PDP prints 'Weight: 3.33g' alongside '3.6tcw' across 14k/18k/Platinum variants without separating stone vs gold weight; kept null."
+     "sub": "Specs publish 'Weight: 3.33g' and '3.6tcw' separately. They do not state whether the gram figure is metal-only or total-item weight, nor assign it to "
     },
     "reputation": {
      "status": "good",
@@ -873,7 +873,7 @@
      "status": "good",
      "text": "Trustpilot 4.0/5",
      "url": "https://www.trustpilot.com/review/www.bluenile.com",
-     "sub": "1,932 reviews · +1-800-242-2728, service@bluenile.com"
+     "sub": "1,937 reviews · +1-800-242-2728, service@bluenile.com"
     },
     "returns": {
      "status": "partial",
@@ -929,7 +929,7 @@
      "status": "unverified",
      "text": "Word “solid” not stated",
      "url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/petite-hidden-halo-solitaire-plus-diamond-engagement-ring-in-14k-yellow-gold-item-192506",
-     "sub": "14K Yellow Gold; stock number 500850y14; width 1.70mm"
+     "sub": "14K Yellow Gold; stock number 502250y14; width 1.60mm"
     },
     "hallmark": {
      "status": "unverified",
@@ -953,7 +953,7 @@
      "status": "good",
      "text": "Trustpilot 4.0/5",
      "url": "https://www.trustpilot.com/review/www.bluenile.com",
-     "sub": "1,932 reviews · +1-800-242-2728, service@bluenile.com"
+     "sub": "1,937 reviews · +1-800-242-2728, service@bluenile.com"
     },
     "returns": {
      "status": "partial",
@@ -970,7 +970,7 @@
     "docs": {
      "status": "good",
      "text": "3/3 captured",
-     "url": "https://www.bluenile.com/engagement-rings",
+     "url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/petite-hidden-halo-solitaire-plus-diamond-engagement-ring-in-14k-yellow-gold-item-192506",
      "sub": "quote · source URL · read date"
     },
     "xrf": {
@@ -1009,7 +1009,7 @@
      "status": "unverified",
      "text": "Word “solid” not stated",
      "url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/riviera-pave-diamond-engagement-ring-in-14k-white-gold-1-6-ct-tw-item-195326",
-     "sub": "14K White Gold; stock number 501050w14; width 1.60mm; rhodium finish Yes"
+     "sub": "14K White Gold; stock number 501590w14; width 2.00mm; rhodium finish Yes"
     },
     "hallmark": {
      "status": "unverified",
@@ -1033,7 +1033,7 @@
      "status": "good",
      "text": "Trustpilot 4.0/5",
      "url": "https://www.trustpilot.com/review/www.bluenile.com",
-     "sub": "1,932 reviews · +1-800-242-2728, service@bluenile.com"
+     "sub": "1,937 reviews · +1-800-242-2728, service@bluenile.com"
     },
     "returns": {
      "status": "partial",
@@ -1050,7 +1050,7 @@
     "docs": {
      "status": "good",
      "text": "3/3 captured",
-     "url": "https://www.bluenile.com/engagement-rings",
+     "url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/riviera-pave-diamond-engagement-ring-in-14k-white-gold-1-6-ct-tw-item-195326",
      "sub": "quote · source URL · read date"
     },
     "xrf": {
@@ -1113,7 +1113,7 @@
      "status": "good",
      "text": "Trustpilot 4.0/5",
      "url": "https://www.trustpilot.com/review/www.bluenile.com",
-     "sub": "1,932 reviews · +1-800-242-2728, service@bluenile.com"
+     "sub": "1,937 reviews · +1-800-242-2728, service@bluenile.com"
     },
     "returns": {
      "status": "partial",
@@ -1193,7 +1193,7 @@
      "status": "good",
      "text": "Trustpilot 4.0/5",
      "url": "https://www.trustpilot.com/review/www.bluenile.com",
-     "sub": "1,932 reviews · +1-800-242-2728, service@bluenile.com"
+     "sub": "1,937 reviews · +1-800-242-2728, service@bluenile.com"
     },
     "returns": {
      "status": "partial",
@@ -1210,7 +1210,7 @@
     "docs": {
      "status": "good",
      "text": "3/3 captured",
-     "url": "https://www.bluenile.com/engagement-rings",
+     "url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/criss-cross-solitaire-engagement-ring-in-18k-yellow-gold-by-james-allen-item-311132",
      "sub": "quote · source URL · read date"
     },
     "xrf": {
@@ -1273,13 +1273,13 @@
      "status": "good",
      "text": "Trustpilot 4.3/5",
      "url": "https://www.trustpilot.com/review/mejuri.com",
-     "sub": "5,784 reviews · contact@mejuri.com"
+     "sub": "5,785 reviews · contact@mejuri.com"
     },
     "returns": {
-     "status": "partial",
-     "text": "30-day window · final-sale items",
-     "url": "https://mejuri.com/faq/return-exchanges/what-is-the-standard-return-policy",
-     "sub": "Free 30-day returns | Engraved/monogrammed, piercing earrings, gift cards, and 'Before We Melt' items are final sale and non-returnable."
+     "status": "good",
+     "text": "30-day window",
+     "url": "https://mejuri.com/company/returns-terms",
+     "sub": "We offer free 30-day returns for customers in the US, Canada, UK, Australia, and Germany, starting from the day the shipment is delivered or picked up in-store."
     },
     "payment": {
      "status": "good",
@@ -1329,7 +1329,7 @@
      "status": "good",
      "text": "“solid” on the listing",
      "url": "https://mejuri.com/products/stacker-ring?Material=Solid+Yellow+Gold+%2810k%29",
-     "sub": "Handcrafted in 10k solid gold ... Solid Yellow Gold (10k)"
+     "sub": "Our 10k solid gold ... Solid Yellow Gold (10k)"
     },
     "hallmark": {
      "status": "unverified",
@@ -1353,13 +1353,13 @@
      "status": "good",
      "text": "Trustpilot 4.3/5",
      "url": "https://www.trustpilot.com/review/mejuri.com",
-     "sub": "5,784 reviews · contact@mejuri.com"
+     "sub": "5,785 reviews · contact@mejuri.com"
     },
     "returns": {
-     "status": "partial",
-     "text": "30-day window · final-sale items",
-     "url": "https://mejuri.com/faq/return-exchanges/what-is-the-standard-return-policy",
-     "sub": "Free 30-day returns | Engraved/monogrammed, piercing earrings, gift cards, and 'Before We Melt' items are final sale and non-returnable."
+     "status": "good",
+     "text": "30-day window",
+     "url": "https://mejuri.com/company/returns-terms",
+     "sub": "We offer free 30-day returns for customers in the US, Canada, UK, Australia, and Germany, starting from the day the shipment is delivered or picked up in-store."
     },
     "payment": {
      "status": "good",
@@ -1673,13 +1673,13 @@
      "status": "good",
      "text": "Trustpilot 4.3/5",
      "url": "https://www.trustpilot.com/review/mejuri.com",
-     "sub": "5,784 reviews · contact@mejuri.com"
+     "sub": "5,785 reviews · contact@mejuri.com"
     },
     "returns": {
-     "status": "partial",
-     "text": "30-day window · final-sale items",
-     "url": "https://mejuri.com/faq/return-exchanges/what-is-the-standard-return-policy",
-     "sub": "Free 30-day returns | Engraved/monogrammed, piercing earrings, gift cards, and 'Before We Melt' items are final sale and non-returnable."
+     "status": "good",
+     "text": "30-day window",
+     "url": "https://mejuri.com/company/returns-terms",
+     "sub": "We offer free 30-day returns for customers in the US, Canada, UK, Australia, and Germany, starting from the day the shipment is delivered or picked up in-store."
     },
     "payment": {
      "status": "good",
@@ -1753,13 +1753,13 @@
      "status": "good",
      "text": "Trustpilot 4.3/5",
      "url": "https://www.trustpilot.com/review/mejuri.com",
-     "sub": "5,784 reviews · contact@mejuri.com"
+     "sub": "5,785 reviews · contact@mejuri.com"
     },
     "returns": {
-     "status": "partial",
-     "text": "30-day window · final-sale items",
-     "url": "https://mejuri.com/faq/return-exchanges/what-is-the-standard-return-policy",
-     "sub": "Free 30-day returns | Engraved/monogrammed, piercing earrings, gift cards, and 'Before We Melt' items are final sale and non-returnable."
+     "status": "good",
+     "text": "30-day window",
+     "url": "https://mejuri.com/company/returns-terms",
+     "sub": "We offer free 30-day returns for customers in the US, Canada, UK, Australia, and Germany, starting from the day the shipment is delivered or picked up in-store."
     },
     "payment": {
      "status": "good",
@@ -1833,7 +1833,7 @@
      "status": "good",
      "text": "Trustpilot 4.3/5",
      "url": "https://www.trustpilot.com/review/mejuri.com",
-     "sub": "5,784 reviews"
+     "sub": "5,785 reviews"
     },
     "returns": {
      "status": "fail",
@@ -1913,7 +1913,7 @@
      "status": "good",
      "text": "Trustpilot 4.3/5",
      "url": "https://www.trustpilot.com/review/mejuri.com",
-     "sub": "5,784 reviews"
+     "sub": "5,785 reviews"
     },
     "returns": {
      "status": "fail",
@@ -1993,7 +1993,7 @@
      "status": "good",
      "text": "Trustpilot 4.3/5",
      "url": "https://www.trustpilot.com/review/mejuri.com",
-     "sub": "5,784 reviews"
+     "sub": "5,785 reviews"
     },
     "returns": {
      "status": "fail",
@@ -2073,7 +2073,7 @@
      "status": "good",
      "text": "Trustpilot 4.3/5",
      "url": "https://www.trustpilot.com/review/mejuri.com",
-     "sub": "5,784 reviews"
+     "sub": "5,785 reviews"
     },
     "returns": {
      "status": "fail",
@@ -2153,7 +2153,7 @@
      "status": "good",
      "text": "Trustpilot 4.0/5",
      "url": "https://www.trustpilot.com/review/www.bluenile.com",
-     "sub": "1,932 reviews"
+     "sub": "1,937 reviews"
     },
     "returns": {
      "status": "good",
@@ -2233,7 +2233,7 @@
      "status": "good",
      "text": "Trustpilot 4.0/5",
      "url": "https://www.trustpilot.com/review/www.bluenile.com",
-     "sub": "1,932 reviews"
+     "sub": "1,937 reviews"
     },
     "returns": {
      "status": "good",
@@ -2313,7 +2313,7 @@
      "status": "good",
      "text": "Trustpilot 4.0/5",
      "url": "https://www.trustpilot.com/review/www.bluenile.com",
-     "sub": "1,932 reviews"
+     "sub": "1,937 reviews"
     },
     "returns": {
      "status": "good",
@@ -2393,7 +2393,7 @@
      "status": "good",
      "text": "Trustpilot 4.0/5",
      "url": "https://www.trustpilot.com/review/www.bluenile.com",
-     "sub": "1,932 reviews"
+     "sub": "1,937 reviews"
     },
     "returns": {
      "status": "good",
@@ -2473,7 +2473,7 @@
      "status": "good",
      "text": "Trustpilot 4.0/5",
      "url": "https://www.trustpilot.com/review/www.bluenile.com",
-     "sub": "1,932 reviews"
+     "sub": "1,937 reviews"
     },
     "returns": {
      "status": "good",
@@ -2888,7 +2888,7 @@
      "status": "good",
      "text": "Trustpilot 4.0/5",
      "url": "https://www.trustpilot.com/review/www.bluenile.com",
-     "sub": "1,932 reviews"
+     "sub": "1,937 reviews"
     },
     "returns": {
      "status": "good",
@@ -3298,7 +3298,7 @@
      "status": "good",
      "text": "Trustpilot 4.3/5",
      "url": "https://www.trustpilot.com/review/mejuri.com",
-     "sub": "5,784 reviews"
+     "sub": "5,785 reviews"
     },
     "returns": {
      "status": "fail",
@@ -5300,7 +5300,7 @@
    "name": "Women's 2mm 14kt Yellow Gold Band",
    "url": "https://www.ross-simons.com/products/571221",
    "price_usd": 400.0,
-   "price_label": "14K Gold Band (Exact Gram Weight Verified)",
+   "price_label": "14K Gold Band (Published Approximate Gram Weight)",
    "karat": "14K Yellow Gold",
    "excluded": false,
    "cells": {
@@ -5314,7 +5314,7 @@
      "status": "unverified",
      "text": "Word “solid” not stated",
      "url": "https://www.ross-simons.com/products/571221",
-     "sub": "Verified 14kt yellow gold band with published 1.7 g metal weight; customer review & weight confirm solid 14K alloy (word 'solid' not printed in spec header)."
+     "sub": "Seller states 'Metal: 14kt Yellow Gold' and publishes an approximate gold weight of 1.7 g. The word 'solid' is not printed; weight, geometry and customer reviews are not "
     },
     "hallmark": {
      "status": "unverified",
@@ -5385,7 +5385,7 @@
    "name": "Men's 4mm 14kt Yellow Gold Band",
    "url": "https://www.ross-simons.com/products/571212",
    "price_usd": 949.0,
-   "price_label": "14K Gold Band (Exact Gram Weight Verified)",
+   "price_label": "14K Gold Band (Published Approximate Gram Weight)",
    "karat": "14K Yellow Gold",
    "excluded": false,
    "cells": {
@@ -5399,7 +5399,7 @@
      "status": "unverified",
      "text": "Word “solid” not stated",
      "url": "https://www.ross-simons.com/products/571212",
-     "sub": "Verified heavy 4.2-gram 14kt yellow gold band; 4.2 g weight matches solid cast 4mm 14K dome geometry."
+     "sub": "Seller states 'Metal: 14kt Yellow Gold' and publishes an approximate gold weight of 4.2 g. The word 'solid' is not printed; weight, geometry and customer reviews are not "
     },
     "hallmark": {
      "status": "unverified",
@@ -5470,7 +5470,7 @@
    "name": "Italian 14kt Yellow Gold Diamond-Cut Dome Ring",
    "url": "https://www.ross-simons.com/products/823796",
    "price_usd": 1195.0,
-   "price_label": "14K Italian Gold Ring (Exact Gram Weight Verified)",
+   "price_label": "14K Italian Gold Ring (Published Approximate Gram Weight)",
    "karat": "14K Italian Yellow Gold",
    "excluded": false,
    "cells": {
@@ -5484,7 +5484,7 @@
      "status": "unverified",
      "text": "Word “solid” not stated",
      "url": "https://www.ross-simons.com/products/823796",
-     "sub": "Italian-crafted 4.0-gram 14kt yellow gold dome ring."
+     "sub": "Seller states 'Metal: 14kt Yellow Gold' and publishes an approximate gold weight of 4 g. The word 'solid' is not printed; weight, geometry and customer reviews are not tr"
     },
     "hallmark": {
      "status": "unverified",
@@ -5555,7 +5555,7 @@
    "name": "Italian 14kt Yellow Gold Fleur-De-Lis Signet Ring",
    "url": "https://www.ross-simons.com/products/964717",
    "price_usd": 599.0,
-   "price_label": "14K Italian Signet Ring (Exact Gram Weight Verified)",
+   "price_label": "14K Italian Signet Ring (Published Approximate Gram Weight)",
    "karat": "14K Italian Yellow Gold",
    "excluded": false,
    "cells": {
@@ -5569,7 +5569,7 @@
      "status": "unverified",
      "text": "Word “solid” not stated",
      "url": "https://www.ross-simons.com/products/964717",
-     "sub": "Italian-crafted 2.1-gram 14kt yellow gold crest signet ring."
+     "sub": "Seller states 'Metal: 14kt Yellow Gold' and publishes an approximate gold weight of 2.1 g. The word 'solid' is not printed; weight, geometry and customer reviews are not "
     },
     "hallmark": {
      "status": "unverified",
@@ -5640,7 +5640,7 @@
    "name": "Men's 22kt Yellow Gold American Eagle Coin Ring in 14kt Yellow Gold",
    "url": "https://www.ross-simons.com/products/993085",
    "price_usd": 3295.0,
-   "price_label": "22K + 14K Gold Coin Ring (Total Grams Published; Split Unverified)",
+   "price_label": "22K + 14K Gold Coin Ring (Approximate Total Grams Published; Split Unverified)",
    "karat": "22K Coin + 14K Mounting (Mixed Karat)",
    "excluded": false,
    "cells": {
