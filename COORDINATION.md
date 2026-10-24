@@ -1222,14 +1222,16 @@ Cells are clickable through to the page they came from.
 | Word "solid" | 19 | 7 | 4 | 41 |
 | Hallmark | 3 | 0 | 0 | 68 |
 | Maker's mark | 2 | 0 | 0 | 69 |
-| Weight in grams | 19 | 4 | 0 | 48 |
+| Weight in grams | 19 | 0 | 0 | 52 |
 | Reputation sample | 46 | 10 | 0 | 15 |
-| Return window | 34 | 28 | 9 | 0 |
+| Return window | 38 | 24 | 9 | 0 |
 | Credit card | 29 | 29 | 0 | 13 |
 | Documentation | 71 | 0 | 0 | 0 |
 | XRF / assay | 0 | 7 | 0 | 64 |
 
 **0 of 71 rows clear all ten; 6 clear the four facts a seller controls; 290 of 710 cells are backed by a source.**
+(Counts recomputed after merging peer P17/P18, which blanked four Aurate weight ranges and updated the Mejuri and
+Catbird return terms; the page recomputes them on every build.)
 That is the deliverable's headline and it is published as finding `F58`.
 
 ### 22.4 Irregularities found (published, non-blocking)
