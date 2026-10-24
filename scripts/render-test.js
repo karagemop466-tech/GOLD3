@@ -34,7 +34,7 @@ const pages = [
   "index.html", "rings.html", "combined.html", "14k.html", "18k.html", "lab-grown.html",
   "under-1000.html", "retailers.html", "sellers.html", "standards.html", "calculator.html",
   "flagged.html", "verify.html", "sources.html", "checklist.html", "methodology.html",
-  "analysis.html", "excluded.html",
+  "analysis.html", "excluded.html", "requirements.html",
 ];
 
 // ---------------------------------------------------------------- pages exist
@@ -249,7 +249,32 @@ check("SD24 F2 uses full A+B+C weight and listing counts",
   includesText(html["flagged.html"], "Only 19 of 71 listings publish a weight") &&
   !includesText(html["flagged.html"], "Only 14 of 50 listings publish a weight"));
 check("SD24 README pass range and ledger count are current",
-  read("README.md").includes("P1`–`P15") && read("README.md").includes("222 logged checks"));
+  read("README.md").includes("P1`–`P17") && read("README.md").includes("234 logged checks"));
+
+// P17: the requirements matrix must stay derived, not typed in.
+const _reqRows = JSON.parse(read("data/requirements-matrix.json"));
+const _p17verif = JSON.parse(read("data/verification.json"));
+check("P17 requirements matrix covers every listing",
+  _reqRows.summary.n_rows === 71 && _reqRows.rows.length === 71);
+check("P17 requirements matrix has ten requirements per row",
+  _reqRows.summary.requirements.length === 10 &&
+  _reqRows.rows.every(r => Object.keys(r.cells).filter(k => k !== "value").length === 10));
+check("P17 requirements page renders every row and the headline honestly",
+  includesText(html["requirements.html"], ">R01<") &&
+  includesText(html["requirements.html"], ">BND-12<") &&
+  includesText(html["requirements.html"], "pass all ten"));
+check("P17 every blank cell renders as an explicit unverified badge",
+  (html["requirements.html"].match(/unverified/g) || []).length >= 400 &&
+  !html["requirements.html"].includes(">n/a<") &&
+  !html["requirements.html"].includes(">N/A<"));
+check("P17 verification ledger includes the P17 checks",
+  _p17verif.checks.some(c => c.id.startsWith("P17-")) &&
+  includesText(html["verify.html"], "P17"));
+check("P17 findings F50-F52 are published for manual review",
+  includesText(html["flagged.html"], "F50") && includesText(html["flagged.html"], "F52"));
+check("P17 index links to the requirements matrix",
+  html["index.html"].includes('href="requirements.html"') &&
+  html["requirements.html"].includes('href="index.html"'));
 
 // ------------------------------------------------------------------- report
 let failed = 0;

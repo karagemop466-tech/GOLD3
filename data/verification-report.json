@@ -24,7 +24,7 @@
   "counts": {
     "products": 19,
     "retailers": 5,
-    "sources": 12,
+    "sources": 14,
     "errors": 0,
     "warnings": 0
   },
@@ -676,6 +676,21 @@
       "id": "F49",
       "severity": "low",
       "title": "A calculator preset label did not match the sourced ring, and band ratios were hardcoded"
+    },
+    {
+      "id": "F50",
+      "severity": "medium",
+      "title": "Menē moved the Wrap Ring twice on 23 October \\u2014 a 'current price' from this seller is a moving target"
+    },
+    {
+      "id": "F51",
+      "severity": "low",
+      "title": "The repo carries two gold-price anchors 0.012% apart, and different pages used different ones"
+    },
+    {
+      "id": "F52",
+      "severity": "high",
+      "title": "No listing on this site satisfies all ten checklist requirements \\u2014 and the gaps are the seller's to close"
     }
   ],
   "parallel_dataset": {

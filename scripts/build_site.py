@@ -48,6 +48,7 @@ NAV = [
     ("sources.html", "Sources"),
     ("checklist.html", "Checklist"),
     ("checklist-standards.html", "12 Rules"),
+    ("requirements.html", "Requirements matrix"),
     ("methodology.html", "Method"),
 ]
 
@@ -222,6 +223,18 @@ CAT_LABELS = {
 
 
 NAV[2] = ("combined.html", f"Combined ({TOTAL_ROWS})")
+
+_REQ_CACHE = {}
+
+
+def req_summary():
+    """The requirements matrix, computed once per build. Never hand-typed."""
+    if not _REQ_CACHE:
+        import requirements_matrix as _rqm
+        _rows, _summary, _meta = _rqm.build()
+        _REQ_CACHE.update({"rows": _rows, "summary": _summary, "meta": _meta})
+    return _REQ_CACHE["summary"], _REQ_CACHE["meta"]
+
 
 VERIF = load("verification.json") if (DATA / "verification.json").exists() else None
 
@@ -410,6 +423,16 @@ def page(filename: str, title: str, body: str, desc: str = "") -> str:
 
 
 # --------------------------------------------------------------------------- pages
+def _req_cells() -> int:
+    summary, _ = req_summary()
+    return summary["n_rows"] * len(summary["requirements"])
+
+
+def _req_good_cells() -> int:
+    summary, _ = req_summary()
+    return sum(r["counts"]["good"] for r in summary["requirements"])
+
+
 def build_index() -> str:
     high = [f for f in FINDINGS if f["severity"] == "high"]
     flagged_products = [p for p in GOLD if p.get("flags")]
@@ -420,8 +443,10 @@ def build_index() -> str:
         ("Sellers covered", str(METRICS["n_sellers_total"]), "returns, contact, independent reviews"),
         ("Gold spot (USD/oz)", money(SPOT, 2), e(PRIMARY["as_of_text"])),
         ("14K melt value", money(melt["14K"], 2) + "/g", "raw gold, before labour &amp; stones"),
-        ("Weights in this pass", f"{METRICS['n_weight_published']} of {METRICS['n_solid_gold']}", f"{METRICS['n_weight_published_total'] + C_WEIGHT_PUBLISHED} of {TOTAL_ROWS} combined - see F2"),
-        ("Hallmark policies", f"{METRICS['n_hallmark_stated']} of {METRICS['n_retailers']}", "no retailer states one in writing"),
+        ("Dataset A weights", f"{METRICS['n_weight_published']} of {METRICS['n_solid_gold']}", f"{METRICS['n_weight_published_total'] + C_WEIGHT_PUBLISHED} of {TOTAL_ROWS} across all rows - see F2"),
+        ("Retailer hallmark policies", f"{METRICS['n_hallmark_stated']} of {METRICS['n_retailers']}", "none of the five states one in writing"),
+        ("Checklist cells verified", f"{_req_good_cells()} of {_req_cells()}",
+         "requirements matrix - every other cell is blank and unverified"),
     ]
     kpi_html = "".join(
         f'<div class="kpi"><div class="label">{l}</div><div class="value">{v}</div><div class="sub">{s}</div></div>'
@@ -482,6 +507,12 @@ def build_index() -> str:
 </div>
 
 <div class="grid cols-3" style="grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin-bottom:8px">{kpi_html}</div>
+<div class="note-box" style="margin:14px 0"><strong>New in this pass &mdash; the requirements matrix.</strong>
+Every one of the {TOTAL_ROWS} listings is scored cell by cell against the ten-point checklist on
+<a href="requirements.html">Requirements</a>: karat, the word &ldquo;solid&rdquo;, hallmark, maker&rsquo;s mark, published
+weight, seller reputation, return window, card payment, documentation and independent/XRF verification.
+A cell is either backed by an official page or left blank and marked <em>unverified</em> &mdash; which is why only
+{_req_good_cells()} of {_req_cells()} cells clear the bar.</div>
 <p class="tiny muted">Gold spot is one dated snapshot, not a live feed. Two independent sources are shown on every page - see
 <a href="sources.html">Sources</a>. Melt values exclude labour, setting, stones and retail margin.
 &nbsp;&middot;&nbsp; Last automated verification pass: {RECHECKED} &middot; <span class="badge good">PASS</span>
@@ -1311,6 +1342,10 @@ def build_methodology() -> str:
          f"<a href=\"verify.html\">Verification log</a>."),
         ("7", "Link and build check", "Resolve every local link, require https sources, rebuild the site and re-run the gate.",
          "Build refuses to publish if any value is unsourced or impossible."),
+        ("8", "Requirements matrix", "Score every listing against all ten checklist requirements, one source-linked cell per requirement.",
+         f"{_req_good_cells()} of {_req_cells()} cells are backed by an official page; every other cell is blank, never inferred."),
+        ("9", "Hallucination scan", "Re-derive the matrix, read the rendered page back, and fail if the page prints a value the data does not hold.",
+         "Also proves every stored price and every stored gram weight appears verbatim in that row's own quote."),
     ]
     repo_src = "https://github.com/karagemop466-tech/GOLD3"
     table = "".join(
@@ -1344,6 +1379,7 @@ def build_methodology() -> str:
 <div class="card">
   <p class="mono small" style="margin-top:0">python3 scripts/verify.py &amp;&amp; python3 scripts/build_site.py</p>
   <p class="mono small">python3 scripts/audit.py &amp;&amp; python3 scripts/report_verify.py</p>
+  <p class="mono small">python3 scripts/requirements_matrix.py &amp;&amp; python3 scripts/hallucination_scan.py</p>
   <p class="small muted" style="margin-bottom:0">The first pair gates and builds the site; the second audits the dataset and
   regenerates the verification report. All four run in CI on every push and pull request.</p>
 </div>
@@ -1606,6 +1642,7 @@ def build_verification() -> str:
   hallucinations: take any number on this site and try to find it on the linked page. If it is not there, delete it and mark the
   field unverified. This page is that pass, written down.</p>
   <p class="mono small">python3 scripts/audit.py &amp;&amp; python3 scripts/report_verify.py</p>
+  <p class="mono small">python3 scripts/requirements_matrix.py &amp;&amp; python3 scripts/hallucination_scan.py</p>
 </div>
 """
     return page("verify.html", "Verification log", body,
@@ -1909,6 +1946,226 @@ KARAT14 = karat_cross_rows("14k")[1]
 KARAT18 = karat_cross_rows("18k")[1]
 
 
+def _req_badge(cell) -> str:
+    cls = {"good": "good", "partial": "warn", "fail": "bad", "unverified": "neutral"}[cell["status"]]
+    glyph = {"good": "\u2714", "partial": "\u25d0", "fail": "\u2718", "unverified": "\u2014"}[cell["status"]]
+    label = f'<span class="badge {cls}" title="{e(cell["status"])}">{glyph} {e(cell["text"])}</span>'
+    if cell.get("url"):
+        label = (f'<a href="{e(cell["url"])}" rel="noopener noreferrer" '
+                 f'title="{e(cell["status"])} - open the official page">{label}</a>')
+    sub = cell.get("sub") or ""
+    if sub:
+        sub = _req_clip(sub)
+        return f'{label}<span class="sub">{e(sub)}</span>'
+    return label
+
+
+def _req_clip(text: str, limit: int = 110) -> str:
+    """Trim an evidence note without ever ending on a partial number or money value."""
+    t = " ".join((text or "").split())
+    if len(t) <= limit:
+        return t
+    cut = t[:limit]
+    cut = re.sub(r"[\s$]?[\d,.]+$", "", cut)      # never cut a figure in half
+    cut = cut.rsplit(" ", 1)[0].rstrip(" ,;:-\u00b7")
+    return cut + " \u2026"
+
+
+def _req_table(rows, dataset: str, caption: str, note: str) -> str:
+    keys = ["purity", "solid", "hallmark", "maker", "weight", "reputation",
+            "returns", "payment", "docs", "xrf", "value"]
+    head = ("<tr><th>Listing</th><th>Karat</th><th>“Solid”</th><th>Hallmark</th>"
+            "<th>Maker's mark</th><th>Weight</th><th>Reputation</th><th>Returns</th>"
+            "<th>Payment</th><th>Docs</th><th>XRF</th><th>Price ÷ melt</th></tr>")
+    body = []
+    for row in rows:
+        if row["dataset"] != dataset:
+            continue
+        price = (money(float(row["price_usd"])) if isinstance(row.get("price_usd"), (int, float))
+                 else "no price shown")
+        body.append(
+            f'<tr><td><a href="{e(row["url"])}" rel="noopener noreferrer"><strong>{e(row["id"])}</strong> '
+            f'{e(row["name"])}</a>'
+            f'<span class="sub">{e(row["seller"])} · {price}'
+            f'{" · EXCLUDED (not solid gold)" if row["excluded"] else ""}</span></td>'
+            f'<td>{_req_badge(row["cells"]["purity"])}</td>'
+            + "".join(f"<td>{_req_badge(row['cells'][k])}</td>" for k in keys[1:])
+            + "</tr>")
+    return (f'<h2 id="{dataset}">{caption}</h2>'
+            f'<p class="small muted">{note}</p>'
+            f'<div class="table-wrap"><table><thead>{head}</thead><tbody>'
+            + "".join(body) + "</tbody></table></div>")
+
+
+def build_requirements() -> str:
+    import requirements_matrix as rqm  # scripts/ is on sys.path when this file runs
+
+    rows, summary, meta = rqm.build()
+    (DATA / "requirements-matrix.json").write_text(
+        json.dumps({"meta": meta, "summary": summary, "rows": rows},
+                   indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
+
+    reqs = summary["requirements"]
+    by_key = {r["key"]: r for r in reqs}
+    gold = summary["n_gold_rows"]
+
+    def good(key):
+        return by_key[key]["counts"]["good"]
+
+    def blank(key):
+        return by_key[key]["counts"]["unverified"]
+
+    kpis = [
+        ("Rows scored", str(summary["n_rows"]),
+         f"{gold} offered as gold · {summary['n_rows'] - gold} look-alikes"),
+        ("Rows meeting all ten", str(summary["rows_meeting_every_requirement"]["n"]),
+         "every cell must be backed by an official page"),
+        ("Karat + solid + weight + returns", str(summary["rows_seller_core_all_good"]["n"]),
+         "all four ‘good’ · " + str(summary["rows_seller_core_partial"]["n"]) + " at least partly"),
+        ("Gold weight published", f"{good('weight')} / {summary['n_rows']}",
+         f"{by_key['weight']['counts']['partial']} more publish only a range"),
+        ("Hallmark / maker's mark", f"{good('hallmark')} / {good('maker')}",
+         "no seller publishes a hallmark policy"),
+        ("Credit card confirmed", str(good("payment")),
+         f"{by_key['payment']['counts']['partial']} partial · {blank('payment')} unverified"),
+    ]
+    kpi_html = "".join(
+        f'<div class="kpi"><div class="label">{e(l)}</div><div class="value">{e(v)}</div>'
+        f'<div class="sub">{e(s)}</div></div>' for l, v, s in kpis)
+
+    req_rows = []
+    for r in reqs:
+        c = r["counts"]
+        req_rows.append(
+            f'<tr><td class="num">{r["n"]}</td>'
+            f'<td><strong>{e(r["title"])}</strong><span class="sub">{e(r["rule"])}</span></td>'
+            f'<td class="num">{c["good"]}</td><td class="num">{c["partial"]}</td>'
+            f'<td class="num">{c["fail"]}</td><td class="num">{c["unverified"]}</td>'
+            f'<td><a href="{e(r["authority"])}" rel="noopener noreferrer">{e(r["authority_label"])}</a>'
+            f'<span class="sub">{e(r["if_missing"])}</span></td></tr>')
+
+    # derived value range over the rows that publish a gold weight
+    ratios = [r["value"]["ratio"] for r in rows if r.get("value") and r["value"].get("ratio")]
+    ratio_text = (f'{len(ratios)} rows can be priced against their own gold: '
+                  f'{min(ratios):.2f}× to {max(ratios):.2f}× melt value at the dated anchor'
+                  if ratios else "no row carries both a gold weight and a price")
+
+    live = None
+    try:
+        _p17 = json.loads((DATA / "reverification-p17.json").read_text(encoding="utf-8"))
+        live = next((c for c in _p17.get("checks", []) if c.get("id", "").endswith("SPOT")), None)
+    except Exception:
+        live = None
+    live_html = ""
+    if live:
+        live_html = (
+            f'<div class="note-box"><strong>Live reference, not used in any calculation.</strong> '
+            f'Spot was re-read at <a href="{e(live["url"])}" rel="noopener noreferrer">{e(live["url"])}</a> '
+            f'during this pass and printed <span class="mono">{e(live["quote"])}</span>. The stored '
+            f'calculation anchor stays {money(meta["spot_usd_per_troy_oz"], 2)}/oz '
+            f'({e(meta["spot_as_of_text"])}) so every melt figure below is reproducible; a live '
+            f'reading moves with the market and would change the multiples. '
+            f'<a href="flagged.html#F39">F39</a> / <a href="flagged.html#F45">F45</a> record the gap.</div>')
+
+    analysis = [
+        f"<strong>No listing clears all ten requirements.</strong> "
+        f"{summary['rows_meeting_every_requirement']['n']} of {summary['n_rows']} rows are "
+        f"‘good’ on every column. The blockers are structural, not cosmetic: only "
+        f"{good('hallmark')} rows publish a hallmark, {good('maker')} publish a maker's mark, and "
+        f"no seller states an XRF or assay offer.",
+        f"<strong>The seller can fix four of the ten himself.</strong> "
+        f"{summary['rows_seller_core_all_good']['n']} rows are ‘good’ on karat, the word “solid”, "
+        f"a gram weight and a usable return window at the same time; "
+        f"{summary['rows_seller_core_partial']['n']} reach at least ‘partial’. Those four are "
+        f"published facts, so any seller could supply them today.",
+        f"<strong>Karat is universal, proof is not.</strong> Karat is stated on "
+        f"{by_key['purity']['counts']['good']} of {summary['n_rows']} rows, but the word “solid” is "
+        f"on {good('solid')}, contradicted or absent on {blank('solid')}, and fails outright on "
+        f"{by_key['solid']['counts']['fail']} look-alikes. That gap is exactly why the stamp alone "
+        f"is not verification.",
+        f"<strong>Weight is the scarcest seller-published number.</strong> "
+        f"{good('weight')} of {summary['n_rows']} rows publish a gram weight and "
+        f"{by_key['weight']['counts']['partial']} publish only a range. Without a weight no melt "
+        f"comparison is possible — the remaining {blank('weight')} rows are left blank rather than "
+        f"back-calculated from the price.",
+        f"<strong>Where a weight exists, the multiple is wide.</strong> {ratio_text}. "
+        f"Rows whose weight includes the stone are labelled “ceiling”: the true price-to-gold "
+        f"multiple is higher.",
+        f"<strong>Payment is the quiet trap.</strong> {good('payment')} rows confirm card "
+        f"acceptance, {by_key['payment']['counts']['partial']} are partial (wire also offered, or "
+        f"only instalments advertised) and {blank('payment')} publish nothing checkable. A credit "
+        f"card is your Fair Credit Billing Act dispute route, so treat a blank here as a reason to "
+        f"ask before paying.",
+        f"<strong>Returns exist, but the useful ones are conditional.</strong> "
+        f"{by_key['returns']['counts']['good']} rows carry a window that can hold an independent "
+        f"test, {by_key['returns']['counts']['partial']} are partial (short window, store credit, "
+        f"resized/final-sale exclusion) and {by_key['returns']['counts']['fail']} are final sale or "
+        f"non-returnable. Resizing before an XRF check can destroy the return right.",
+        f"<strong>XRF is never offered in writing.</strong> {blank('xrf')} rows record no seller "
+        f"statement and {by_key['xrf']['counts']['partial']} record a seller statement only "
+        f"(Wilson's “stamped for X karat”, Menē's own certificate). Book an independent check "
+        f"inside the return window — that is the only column a seller cannot self-certify.",
+    ]
+    analysis_html = "".join(f"<li>{a}</li>" for a in analysis)
+
+    body = policy_box() + f"""
+<div class="page-head">
+  <h1>Requirements compliance matrix &mdash; No Hallucinations</h1>
+  <p class="lead">Every one of the {summary['n_rows']} listings, scored cell by cell against the
+  ten-point buying checklist. Each cell is either backed by an official page you can open
+  (click the cell), or it is left <strong>blank and marked unverified</strong>. Nothing here is
+  inferred, averaged or filled in to make a row look complete &mdash; and because of that,
+  <strong>{summary['rows_meeting_every_requirement']['n']} rows pass all ten</strong>.</p>
+</div>
+<div class="grid cols-3" style="grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin-bottom:14px">{kpi_html}</div>
+<div class="warn-box" style="margin-bottom:16px"><strong>How to read the cells.</strong>
+<span class="badge good">&#10004; good</span> an official page states it &middot;
+<span class="badge warn">&#9680; partial</span> stated only partly (brand-level, a range, seller-level, or a small review sample) &middot;
+<span class="badge bad">&#10008; fail</span> the record shows the listing does not meet it &middot;
+<span class="badge neutral">&mdash; unverified</span> not published by anyone in this file, so the cell stays
+blank and the gap is listed on <a href="flagged.html">Flagged</a>. A blank is a finding, not a zero.
+&nbsp;Legend and source for the gold arithmetic on the <a href="calculator.html">calculator</a>.</div>
+{live_html}
+<h2>The ten requirements and what the pass found</h2>
+<div class="table-wrap"><table><thead><tr><th class="num">#</th><th>Requirement &amp; test applied</th>
+<th class="num">Good</th><th class="num">Partial</th><th class="num">Fail</th><th class="num">Unverified</th>
+<th>Authority &amp; what to do if it is missing</th></tr></thead><tbody>{''.join(req_rows)}</tbody></table></div>
+<p class="tiny muted">Counts are over all {summary['n_rows']} rows, including the {summary['n_rows'] - gold}
+look-alikes that are scored ‘fail’ on solid gold. Derived, in this order: {e(meta['formula'])}.
+Spot anchor {money(meta['spot_usd_per_troy_oz'], 2)}/oz ({e(meta['spot_as_of_text'])}),
+<span class="mono">{meta['spot_usd_per_gram_24k']:.4f}</span> USD per gram of 24K.</p>
+""" + _req_table(
+        rows, "A", "Dataset A &mdash; 19 live product pages",
+        "Products captured 22 October 2026 from five retailers. ‘Payment’ and ‘XRF’ are seller-level: "
+        "where the same company has a payment record in Dataset C it is cited and flagged as seller-level.") \
+        + _req_table(
+        rows, "B", "Dataset B &mdash; 31 listings across ten more sellers",
+        "‘Reputation’ shows an independent sample only where this file holds one (Trustpilot or BBB); "
+        "otherwise the cell is blank. Wilson's is the only seller whose listings document a hallmark and "
+        "a maker's mark.") \
+        + _req_table(
+        rows, "C", "Dataset C &mdash; 21 solitaire settings and bands",
+        "Seller records for this dataset carry BBB ratings, accepted payment methods and return windows "
+        "with their own source links; weights and hallmarks are almost entirely absent.") + f"""
+<h2>What the matrix proves</h2>
+<ul class="small">{analysis_html}</ul>
+<div class="note-box"><strong>Recommended next step &mdash; look for hallucinations.</strong>
+Every cell links to the page it came from. Before buying, open the row's link, re-read the price and
+any weight, and re-run the checks below. Prices move: captured figures are dated observations, never
+“current”.</div>
+<h2>Re-run this matrix</h2>
+<pre class="mono">python3 scripts/requirements_matrix.py   # regenerate data/requirements-matrix.json
+python3 scripts/build_site.py            # rebuild this page from the data
+python3 scripts/hallucination_scan.py    # re-derive every cell and fail on any mismatch</pre>
+<p class="tiny muted">Machine-readable copy: <a href="data/requirements-matrix.json">data/requirements-matrix.json</a>
+(every status, text, sub-note and source URL for all {summary['n_rows']} rows &times; 10 requirements).
+Generated by <span class="mono">{e(meta['generated_by'])}</span>; the renderer adds no values of its own.</p>
+"""
+    return page("requirements.html", "Requirements compliance matrix", body,
+                "Every gold ring listing scored against the ten-point buying checklist, "
+                "each cell backed by an official source or left blank as unverified.")
+
+
 def build() -> None:
     pages = {
         "index.html": build_index(),
@@ -1959,6 +2216,7 @@ def build() -> None:
         "verify.html": build_verification(),
         "sources.html": build_sources(),
         "checklist.html": build_checklist(),
+        "requirements.html": build_requirements(),
     }
 
     for name, content in pages.items():

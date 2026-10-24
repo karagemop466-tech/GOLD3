@@ -1,10 +1,10 @@
 # Anti-hallucination audit report
 
-- Run: 2026-10-23 20:51 UTC
+- Run: 2026-10-24 00:00 UTC
 - Rows audited: **31**
 - Sellers audited: **14**
 - Flag definitions: **54**
-- Result: **PASS** — 0 error(s), 0 warning(s), 176 check(s) passed
+- Result: **PASS** — 0 error(s), 0 warning(s), 177 check(s) passed
 
 ## What this pass is looking for
 
@@ -174,11 +174,11 @@ None.
 - [domain] R29: brilliantearth.com belongs to brilliantearth.com
 - [domain] R30: mene.com belongs to mene.com
 - [domain] R31: localeclectic.com belongs to localeclectic.com
-- [verify] all 222 verification check ids are unique
+- [verify] all 234 verification check ids are unique
 - [verify] all 31 rows appear in the verification log
 - [verify] summary counts recomputed from the entries and match
 - [flags] 54 flag definitions validated
-- [verify] all 22 site-defect ids are unique
+- [verify] all 24 site-defect ids are unique
 - [standards] all karat fractions reproduce n/24
 - [standards] 8 legal rules carry citations
 - [site] verify.html present
@@ -196,6 +196,7 @@ None.
 - [links] index.html: local links resolved
 - [links] lab-grown.html: local links resolved
 - [links] methodology.html: local links resolved
+- [links] requirements.html: local links resolved
 - [links] retailers.html: local links resolved
 - [links] rings.html: local links resolved
 - [links] security-audit.html: local links resolved

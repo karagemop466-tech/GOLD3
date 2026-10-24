@@ -1,0 +1,123 @@
+{
+ "pass": "P17",
+ "session": "arena/76359c22-gold3",
+ "retrieved_utc": "2026-10-23",
+ "read_window_utc": "2026-10-23T23:35Z to 2026-10-23T23:46Z",
+ "method": "Ten official pages were opened live in this session, spanning all three datasets and the gold benchmark. Each stored price, karat, weight, return term and contradiction was searched for in the text the page actually returned. Anything not printed on the page stays blank in the data. The new requirements matrix was then derived from the stored fields only, and scripts/hallucination_scan.py re-derives every cell independently.",
+ "integration_note": "Additive pass on top of P1-P16. The peer-reviewed dated calculation anchor in data/prices.json (USD 4,022.22/oz, GoldPrice.org, 05:55 NY) is preserved and is still what every melt figure uses; this pass publishes a newer live reference reading beside it and does not re-anchor. No peer file was reset to an older version.",
+ "checks": [
+  {
+   "id": "P17-01",
+   "kind": "listing",
+   "label": "Mejuri Diamonds Band: price, material and return window all reproduce",
+   "url": "https://mejuri.com/products/diamonds-band?Material=Solid+Yellow+Gold+%2814k%29&Stone=Natural+Diamond",
+   "rows": ["mejuri-diamonds-band", "BND-11"],
+   "outcome": "confirmed",
+   "quote": "Diamonds Band ... $648 ... Solid Yellow Gold (14k), Natural Diamond ... We offer free 30-day returns & exchanges starting from the day the shipment is delivered or picked up in-store. ... Note: Engraving is optional (complimentary) and not eligible for returns.",
+   "findings": "Price $648, the material line and the 30-day window all match the stored row. The page still prints no gram weight and no hallmark, so both cells stay blank in the matrix. The engraving exclusion is the one return caveat and is recorded."
+  },
+  {
+   "id": "P17-02",
+   "kind": "listing",
+   "label": "Catbird Woodland Ring: sale price reproduces; no material paragraph, no weight, no hallmark",
+   "url": "https://www.catbirdnyc.com/woodland-ring.html",
+   "rows": ["R18"],
+   "outcome": "confirmed",
+   "quote": "Woodland Ring | $276.00 Regular Price $368.00 | page title: Woodland Ring in 14K Gold | Catbird",
+   "findings": "The stored $276.00 against a $368.00 regular price reproduces exactly. The returned text carries a sold-out / waitlist badge image, so availability remains unconfirmed; the product text does not contain the word 'solid', no gram weight and no hallmark. R18's UNVERIFIED solid-gold verdict and its blanks are correct."
+  },
+  {
+   "id": "P17-03",
+   "kind": "listing",
+   "label": "Tiffany Setting: 'Starting from $1,600' with two contradictory return notices on the same page",
+   "url": "https://www.tiffany.com/engagement/engagement-rings/the-tiffany-setting-engagement-ring-in-18k-yellow-gold-GRP10863/",
+   "rows": ["R17"],
+   "outcome": "confirmed",
+   "quote": "Starting from $1,600 ... Ring Style 18k Yellow Gold and Platinum ... Please note that this item is non returnable. ... Please note that this item can only be exchanged. ... Availability: This product is currently unavailable",
+   "findings": "The $1,600 'starting from' figure and the 18k yellow gold + platinum ring style reproduce. The page prints both 'non returnable' and 'can only be exchanged', which is what the row's return_window records, and it also prints 'currently unavailable' (flag AV1). No weight, hallmark or maker's mark is printed, so those cells stay blank."
+  },
+  {
+   "id": "P17-04",
+   "kind": "listing",
+   "label": "Local Eclectic Simple Knot Ring: 9k badge against a 10k materials bullet, confirmed again",
+   "url": "https://www.localeclectic.com/products/solid-gold-simple-knot-ring",
+   "rows": ["R31"],
+   "outcome": "confirmed",
+   "quote": "Regular price$239 ... badge: 9k Solid Gold ... Product Materials & Description: - 10k solid yellow gold",
+   "findings": "Price $239 reproduces. The same page prints '9k Solid Gold' as a badge and '10k solid yellow gold' as the materials bullet, so the stored karat (10K) and flag SPEC2 are both right: the karat cannot be settled from the listing alone. No weight and no hallmark are printed."
+  },
+  {
+   "id": "P17-05",
+   "kind": "listing",
+   "label": "Mene Wrap Ring moved again inside the same day ($3,228 -> $3,202)",
+   "url": "https://mene.com/products/wrap-ring-gold",
+   "rows": ["R30"],
+   "outcome": "flagged",
+   "quote": "Wrap Ring | $3,202 | USD | ... Products are sold by weight, not size.",
+   "findings": "The captured price is $3,253 (2026-10-22) and the earlier P12 reading on 2026-10-23 was $3,228; this pass reads $3,202, i.e. 1.57% below the capture and 0.81% below the earlier same-day reading. Mene re-prices by metal weight, so the capture is a dated observation, never 'current'. The static page still prints no gram weight (the weight is client-side), so R30's null weight is correct. Published as finding F50; the captured price is not overwritten and a second dated reading is added to live_recheck."
+  },
+  {
+   "id": "P17-06",
+   "kind": "listing",
+   "label": "Mejuri Diamond Eternity Band: 0.532 ct prose against a 0.044-0.056 ct spec, confirmed",
+   "url": "https://mejuri.com/shop/products/diamond-eternity-band?Material=Solid+Yellow+Gold+%2814k%29&Stone=Natural+Diamond",
+   "rows": ["BND-10"],
+   "outcome": "confirmed",
+   "quote": "From$1,100 ... 33-42 responsibly sourced diamonds for an average carat weight of 0.532ct ... Specifications: Minimum Carat Weight: 0.044 ct - 0.056 ct ... Band Width: 1.5 mm ... free 30-day returns",
+   "findings": "The 'From $1,100' price and the stated contradiction both reproduce: the prose says an average 0.532 ct while the spec block says 0.044-0.056 ct per stone. Stone weight is left out of the matrix's gold arithmetic, so the contradiction does not corrupt any melt figure. No gram weight and no hallmark are printed."
+  },
+  {
+   "id": "P17-07",
+   "kind": "listing",
+   "label": "Ross-Simons certified solitaire: $2,819 sale against $3,995 original, 14kt white gold",
+   "url": "https://www.ross-simons.com/products/990022",
+   "rows": ["SOL-07"],
+   "outcome": "confirmed",
+   "quote": "CLEARANCE 29% Off | Original price $3,995 | Sale price $2,819 | Metal 14ktWhite Gold | Gemstone 1 Diamond ( Quantity: 1, Shape & Cutting Style: Round Brilliant, Color Grade: I, Clarity: VS1-VS1, Weight: 0.80 carats ) | Item 990022",
+   "findings": "The stored $2,819 reproduces, as do the 14kt white gold metal line and the GIA certificate reference. The page prints no metal weight in its static HTML (the spec rows are rendered client-side), so the null weight is correct."
+  },
+  {
+   "id": "P17-08",
+   "kind": "listing",
+   "label": "Ross-Simons coin ring: $3,295 and 'Gold Weight 5.9 grams' reproduce, mixed 14kt + 22kt",
+   "url": "https://www.ross-simons.com/products/993085",
+   "rows": ["BND-08"],
+   "outcome": "confirmed",
+   "quote": "Men's 22kt Yellow Gold American Eagle Coin Ring in 14kt Yellow Gold | $3,295 | Width 3/4 inch | Metal 14kt and 22kt Gold | Gold Weight 5.9 grams",
+   "findings": "Both the price and the 5.9 g 'Gold Weight' reproduce verbatim. Because the piece mixes 14kt mounting and 22kt coin, no single fineness applies, so the record correctly leaves pure-gold grams, melt value and the price-to-melt ratio null rather than picking a karat."
+  },
+  {
+   "id": "P17-09",
+   "kind": "listing",
+   "label": "Ring Concierge 2.08 oval: $6,038 reproduced, made to order in 3-4 weeks, no 'solid' wording",
+   "url": "https://ringconcierge.com/products/2-08-oval-lab-diamond-in-whisper-thina-hidden-halo",
+   "rows": ["ringconcierge-2-08-oval-lab-whisper-thin"],
+   "outcome": "confirmed",
+   "quote": "2.08 Oval Lab Diamond in Whisper Thin Hidden Halo | Regular price$6,038 | 2.08 Carat E VS1 Oval Lab Grown Diamond | ... Made to Order ... Estimated production time is 3-4 weeks.",
+   "findings": "The $6,038 price, the 2.08 ct E VS1 stone description and the made-to-order lead time all reproduce. The page body does not use the word 'solid', so the matrix marks solid-gold wording unverified for this row (the stored solid_gold field is null, not false)."
+  },
+  {
+   "id": "P17-SPOT",
+   "kind": "spot",
+   "label": "Gold benchmark re-read: USD 3,995.88/oz, 0.66% below the stored dated anchor",
+   "url": "https://goldprice.org/",
+   "rows": ["spot"],
+   "outcome": "flagged",
+   "quote": "Spot Gold Price: USD 3,995.88 / Ounce | Spot Silver Price: USD 53.92 / Ounce Oct 23rd, 2026 at 07:41 NY Time",
+   "findings": "The page printed $3,995.88/oz at its own clock label 07:41 NY, against the stored GoldPrice.org anchor of $4,022.22/oz labelled 05:55 NY (0.655% lower). The label again runs behind the read time, the same inverted-clock pattern recorded in F39. This reading is published for reference only; the dated anchor still drives every melt figure so the arithmetic stays reproducible. No re-anchor was performed."
+  }
+ ],
+ "summary": {
+  "checks_recorded": 10,
+  "confirmed": 8,
+  "corrected": 0,
+  "flagged": 2,
+  "dead": 0,
+  "dataset_coverage": "Dataset A 3 rows (mejuri-diamonds-band, ringconcierge-2-08-oval, and the Mejuri band shared with BND-11), Dataset B 5 rows (R17, R18, R30, R31 and the Tiffany/Catbird pair), Dataset C 4 rows (BND-08, BND-10, SOL-07 and the shared Mejuri band), plus the spot benchmark.",
+  "weight_rows_rechecked": "BND-08 (5.9 g) only; the other 18 weight-bearing rows were re-read by P14/P15 on the same day and are not claimed as re-verified here.",
+  "data_changes": [
+   "data/rings.json R30: second dated live reading ($3,202, 2026-10-23T23:40Z) appended to live_recheck; captured price $3,253 untouched.",
+   "New generated artefact data/requirements-matrix.json and page requirements.html (71 rows x 10 requirements)."
+  ]
+ }
+}

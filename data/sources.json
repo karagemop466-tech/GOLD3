@@ -1,161 +1,189 @@
 {
-  "note": "Authority and reference sources used to justify the checklist rules. Quotes are verbatim from the cited page. Government/statute sources are primary law; industry sources are labelled as such.",
-  "sources": [
-    {
-      "id": "cfr-23-3",
-      "title": "16 CFR 23.3 - Misrepresentation as to gold content",
-      "publisher": "U.S. Federal Trade Commission (eCFR)",
-      "url": "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23",
-      "type": "regulation",
-      "supports": "What may lawfully be called gold; how plating must be disclosed; the rule that a hollow ring may not be called solid (eCFR currency banner read 2026-10-22: 'Displaying title 16, up to date as of 10/21/2026. Title 16 was last amended 10/19/2026.')",
-      "quotes": [
-        "Displaying title 16, up to date as of 10/21/2026. Title 16 was last amended 10/19/2026.",
-        "It is unfair or deceptive to misrepresent the presence of gold or gold alloy in an industry product, or the quantity or karat fineness of gold or gold alloy contained in the product",
-        "Such products should not be marked or described as “solid” or as being solidly of gold or of a gold alloy. For example, when the composition of such a product is 14 karat gold alloy, it should not be described or marked as either “14 Kt. Solid Gold” or as “Solid 14 Kt. Gold.”",
-        "Use of the word “Gold” or any abbreviation to describe all or part of an industry product that is not composed throughout of gold or a gold alloy, but is surface-plated or coated with gold alloy, unless the word “Gold” or its abbreviation is adequately qualified to indicate that the product or part is only surface-plated."
-      ],
-      "accessed": "2026-10-22",
-      "currency_banner": "\"Displaying title 16, up to date as of 10/21/2026. Title 16 was last amended 10/19/2026.\" - read on the eCFR page 2026-10-23, so a reader can tell which version of the text was checked."
-    },
-    {
-      "id": "cfr-23-4",
-      "title": "16 CFR 23.4 - Misuse of the word “vermeil”",
-      "publisher": "U.S. Federal Trade Commission (eCFR)",
-      "url": "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23",
-      "type": "regulation",
-      "supports": "Vermeil is a sterling-silver base with a gold coating - it is not solid gold",
-      "quotes": [
-        "An industry product may be described or marked as “vermeil” if it consists of a base of sterling silver coated or plated on all significant surfaces with gold, or gold alloy of not less than 10 karat fineness, that is of reasonable durability and a minimum thickness throughout equivalent to two and one half (2½) microns"
-      ],
-      "accessed": "2026-10-22",
-      "currency_banner": "\"Displaying title 16, up to date as of 10/21/2026. Title 16 was last amended 10/19/2026.\" - read on the eCFR page 2026-10-23, so a reader can tell which version of the text was checked."
-    },
-    {
-      "id": "cfr-23-3-c1",
-      "title": "16 CFR 23.3(c)(1) - acceptable karat markings",
-      "publisher": "U.S. Federal Trade Commission (eCFR)",
-      "url": "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23",
-      "type": "regulation",
-      "supports": "A fineness designation must immediately precede the word Gold and be equally conspicuous (e.g. '14 Karat Gold')",
-      "quotes": [
-        "An industry product or part thereof, composed throughout of an alloy of gold may be marked and described as “Gold” when such word “Gold,” wherever appearing, is immediately preceded by a correct designation of the karat fineness of the alloy"
-      ],
-      "accessed": "2026-10-22",
-      "currency_banner": "\"Displaying title 16, up to date as of 10/21/2026. Title 16 was last amended 10/19/2026.\" - read on the eCFR page 2026-10-23, so a reader can tell which version of the text was checked."
-    },
-    {
-      "id": "usc-295",
-      "title": "15 U.S.C. 295 - Standard of fineness of gold articles; deviation",
-      "publisher": "U.S. Code (Legal Information Institute, Cornell Law School)",
-      "url": "https://www.law.cornell.edu/uscode/text/15/295",
-      "type": "statute",
-      "supports": "A karat stamp is legally allowed a tolerance - it is a claim, not proof",
-      "quotes": [
-        "the actual fineness of such gold or alloy shall not be less by more than three one-thousandth parts than the fineness indicated by the mark stamped, branded, engraved, or printed upon any part of such article",
-        "shall not be less by more than three one-thousandth parts, in the case of a watchcase or flatware, or than seven one-thousandth parts, in the case of any other such article, than the fineness indicated by the mark"
-      ],
-      "accessed": "2026-10-22"
-    },
-    {
-      "id": "usc-297",
-      "title": "15 U.S.C. 297 - Stamping plated articles; identifying trademark",
-      "publisher": "U.S. Code (Legal Information Institute, Cornell Law School)",
-      "url": "https://www.law.cornell.edu/uscode/text/15/297",
-      "type": "statute",
-      "supports": "Why a karat stamp should be accompanied by a maker's / manufacturer's mark",
-      "quotes": [
-        "shall— (A) Apply or cause to be applied to that article a trademark of such persons, which has been duly registered or applied for registration under the laws of the United States ... or the name of such person",
-        "Each identifying trademark or name applied to any article of merchandise in compliance with clause (A) of this subsection shall be applied to that article by the same means as that used in applying the quality mark or stamp appearing thereon, in type or lettering at least as large as that used in such quality mark or stamp, and in a position as close as possible to that quality mark or stamp."
-      ],
-      "accessed": "2026-10-22"
-    },
-    {
-      "id": "usc-294",
-      "title": "15 U.S.C. 294 - Importation or transportation of falsely marked gold or silver ware prohibited",
-      "publisher": "U.S. Code (Legal Information Institute, Cornell Law School)",
-      "url": "https://www.law.cornell.edu/uscode/text/15/294",
-      "type": "statute",
-      "supports": "Overstating fineness on a mark is unlawful in interstate commerce",
-      "quotes": [
-        "any mark or word indicating or designed or intended to indicate that the gold or silver or alloy of either of said metals in such article is of a greater degree of fineness than the actual fineness or quality of such gold, silver, or alloy"
-      ],
-      "accessed": "2026-10-22"
-    },
-    {
-      "id": "goldprice-org",
-      "title": "Gold spot price (primary capture and later live-check reading)",
-      "publisher": "GoldPrice.org",
-      "url": "https://goldprice.org/",
-      "type": "market-data",
-      "supports": "Gold spot snapshots. The PRIMARY capture used by every calculation on this site is $4,022.22/oz read 'Oct 23rd, 2026 at 05:55 NY Time'. A later read the same evening printed $3,997.22/oz at '04:17 NY Time' (0.62% lower, same market date) and is shown only as a labelled live-check: it is NOT used in any calculation.",
-      "quotes": [
-        "Primary capture: Spot Gold Price: USD 4,022.22 / Ounce | Spot Silver Price: USD 53.82 / Ounce Oct 23rd, 2026 at 05:55 NY Time",
-        "Live-check read later the same day: Spot Gold Price: USD 3,997.22 / Ounce | Spot Silver Price: USD 53.92 / Ounce Oct 23rd, 2026 at 04:17 NY Time"
-      ],
-      "accessed": "2026-10-23"
-    },
-    {
-      "id": "wgc-gold-prices",
-      "title": "Gold spot prices & market history",
-      "publisher": "World Gold Council (Goldhub); market data by ICE Data Services",
-      "url": "https://www.gold.org/goldhub/data/gold-prices",
-      "type": "market-data",
-      "supports": "Independent cross-check of the spot snapshot",
-      "quotes": [
-        "Gold Spot price USD/oz - 3,996.31 ... Data as of 22 October, 2026"
-      ],
-      "accessed": "2026-10-23"
-    },
-    {
-      "id": "lbma-prices",
-      "title": "LBMA Precious Metal Prices",
-      "publisher": "London Bullion Market Association",
-      "url": "https://www.lbma.org.uk/prices-and-data/lbma-precious-metal-prices",
-      "type": "benchmark-administrator",
-      "supports": "Explains the LBMA Gold Price benchmark and that historical tables now require an IBA licence (so no LBMA number is reproduced here)",
-      "quotes": [
-        "The LBMA Gold Price is set twice daily in auctions independently operated and administered by ICE Benchmark Administration Limited (IBA) and commencing at 10:30 and 15:00 London time.",
-        "The historical tabulated data for the LBMA Precious Metals Prices has been moved to our MyLBMA Portal. In order to view this data on our Portal, you will need to have the relevant licence from IBA."
-      ],
-      "accessed": "2026-10-23"
-    },
-    {
-      "id": "usc-297-govinfo",
-      "title": "15 U.S.C. 297 - Official U.S. Government Publishing Office (GovInfo) text linked by 16 CFR 23.10",
-      "publisher": "U.S. Government Publishing Office (govinfo.gov)",
-      "url": "https://www.govinfo.gov/link/uscode/15/297",
-      "type": "statute",
-      "supports": "Primary government statute link embedded directly in eCFR 16 CFR 23.10 requiring a quality mark on gold to be accompanied by a registered trademark or manufacturer name",
-      "quotes": [
-        "Note 1 to § 23.10: The National Stamping Act provides that any person, firm, corporation, or association, being a manufacturer or dealer subject to section 294 of title 15, who applies or causes to be applied a quality mark or stamp to any article of merchandise ... shall apply to the article the trademark or name of such person. 15 U.S.C. 297"
-      ],
-      "accessed": "2026-10-22"
-    },
-    {
-      "id": "costco-return-policy-cu2573",
-      "title": "Costco Return Policy Exceptions (Document ID CU2573, Version 18.0, Published 10/02/2025)",
-      "publisher": "Costco Wholesale Customer Service",
-      "url": "https://customerservice.costco.com/app/answers/detail/a_id/1191",
-      "type": "retailer-policy",
-      "supports": "Why Costco fails the return-after-inspection requirement for precious metals and requires a 48-hour gemologist credit-memo inspection for >=1.00 ct diamonds",
-      "quotes": [
-        "Precious metals are non-refundable.",
-        "When returning an item with a 1.00ct or larger diamond, our warehouses require additional time to verify the diamond, in which case a Jewelry Credit Memo will be issued to the member and the diamond will be sent to our Graduate Gemologist for inspection within 48 hours.",
-        "Document ID: CU2573 · Version: 18.0 · Published: 10/02/2025"
-      ],
-      "accessed": "2026-10-22"
-    },
-    {
-      "id": "trustpilot",
-      "title": "Trustpilot business review profiles",
-      "publisher": "Trustpilot",
-      "url": "https://www.trustpilot.com/",
-      "type": "independent-reviews",
-      "supports": "Independent customer-review scores and complaint themes for each retailer",
-      "quotes": [
-        "We use technology to protect platform integrity, but we don't fact-check reviews"
-      ],
-      "accessed": "2026-10-22"
-    }
-  ]
+ "note": "Authority and reference sources used to justify the checklist rules. Quotes are verbatim from the cited page. Government/statute sources are primary law; industry sources are labelled as such.",
+ "sources": [
+  {
+   "id": "cfr-23-3",
+   "title": "16 CFR 23.3 - Misrepresentation as to gold content",
+   "publisher": "U.S. Federal Trade Commission (eCFR)",
+   "url": "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23",
+   "type": "regulation",
+   "supports": "What may lawfully be called gold; how plating must be disclosed; the rule that a hollow ring may not be called solid (eCFR currency banner read 2026-10-22: 'Displaying title 16, up to date as of 10/21/2026. Title 16 was last amended 10/19/2026.')",
+   "quotes": [
+    "Displaying title 16, up to date as of 10/21/2026. Title 16 was last amended 10/19/2026.",
+    "It is unfair or deceptive to misrepresent the presence of gold or gold alloy in an industry product, or the quantity or karat fineness of gold or gold alloy contained in the product",
+    "Such products should not be marked or described as “solid” or as being solidly of gold or of a gold alloy. For example, when the composition of such a product is 14 karat gold alloy, it should not be described or marked as either “14 Kt. Solid Gold” or as “Solid 14 Kt. Gold.”",
+    "Use of the word “Gold” or any abbreviation to describe all or part of an industry product that is not composed throughout of gold or a gold alloy, but is surface-plated or coated with gold alloy, unless the word “Gold” or its abbreviation is adequately qualified to indicate that the product or part is only surface-plated."
+   ],
+   "accessed": "2026-10-22",
+   "currency_banner": "\"Displaying title 16, up to date as of 10/21/2026. Title 16 was last amended 10/19/2026.\" - read on the eCFR page 2026-10-23, so a reader can tell which version of the text was checked."
+  },
+  {
+   "id": "cfr-23-4",
+   "title": "16 CFR 23.4 - Misuse of the word “vermeil”",
+   "publisher": "U.S. Federal Trade Commission (eCFR)",
+   "url": "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23",
+   "type": "regulation",
+   "supports": "Vermeil is a sterling-silver base with a gold coating - it is not solid gold",
+   "quotes": [
+    "An industry product may be described or marked as “vermeil” if it consists of a base of sterling silver coated or plated on all significant surfaces with gold, or gold alloy of not less than 10 karat fineness, that is of reasonable durability and a minimum thickness throughout equivalent to two and one half (2½) microns"
+   ],
+   "accessed": "2026-10-22",
+   "currency_banner": "\"Displaying title 16, up to date as of 10/21/2026. Title 16 was last amended 10/19/2026.\" - read on the eCFR page 2026-10-23, so a reader can tell which version of the text was checked."
+  },
+  {
+   "id": "cfr-23-3-c1",
+   "title": "16 CFR 23.3(c)(1) - acceptable karat markings",
+   "publisher": "U.S. Federal Trade Commission (eCFR)",
+   "url": "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23",
+   "type": "regulation",
+   "supports": "A fineness designation must immediately precede the word Gold and be equally conspicuous (e.g. '14 Karat Gold')",
+   "quotes": [
+    "An industry product or part thereof, composed throughout of an alloy of gold may be marked and described as “Gold” when such word “Gold,” wherever appearing, is immediately preceded by a correct designation of the karat fineness of the alloy"
+   ],
+   "accessed": "2026-10-22",
+   "currency_banner": "\"Displaying title 16, up to date as of 10/21/2026. Title 16 was last amended 10/19/2026.\" - read on the eCFR page 2026-10-23, so a reader can tell which version of the text was checked."
+  },
+  {
+   "id": "usc-295",
+   "title": "15 U.S.C. 295 - Standard of fineness of gold articles; deviation",
+   "publisher": "U.S. Code (Legal Information Institute, Cornell Law School)",
+   "url": "https://www.law.cornell.edu/uscode/text/15/295",
+   "type": "statute",
+   "supports": "A karat stamp is legally allowed a tolerance - it is a claim, not proof",
+   "quotes": [
+    "the actual fineness of such gold or alloy shall not be less by more than three one-thousandth parts than the fineness indicated by the mark stamped, branded, engraved, or printed upon any part of such article",
+    "shall not be less by more than three one-thousandth parts, in the case of a watchcase or flatware, or than seven one-thousandth parts, in the case of any other such article, than the fineness indicated by the mark"
+   ],
+   "accessed": "2026-10-22"
+  },
+  {
+   "id": "usc-297",
+   "title": "15 U.S.C. 297 - Stamping plated articles; identifying trademark",
+   "publisher": "U.S. Code (Legal Information Institute, Cornell Law School)",
+   "url": "https://www.law.cornell.edu/uscode/text/15/297",
+   "type": "statute",
+   "supports": "Why a karat stamp should be accompanied by a maker's / manufacturer's mark",
+   "quotes": [
+    "shall— (A) Apply or cause to be applied to that article a trademark of such persons, which has been duly registered or applied for registration under the laws of the United States ... or the name of such person",
+    "Each identifying trademark or name applied to any article of merchandise in compliance with clause (A) of this subsection shall be applied to that article by the same means as that used in applying the quality mark or stamp appearing thereon, in type or lettering at least as large as that used in such quality mark or stamp, and in a position as close as possible to that quality mark or stamp."
+   ],
+   "accessed": "2026-10-22"
+  },
+  {
+   "id": "usc-294",
+   "title": "15 U.S.C. 294 - Importation or transportation of falsely marked gold or silver ware prohibited",
+   "publisher": "U.S. Code (Legal Information Institute, Cornell Law School)",
+   "url": "https://www.law.cornell.edu/uscode/text/15/294",
+   "type": "statute",
+   "supports": "Overstating fineness on a mark is unlawful in interstate commerce",
+   "quotes": [
+    "any mark or word indicating or designed or intended to indicate that the gold or silver or alloy of either of said metals in such article is of a greater degree of fineness than the actual fineness or quality of such gold, silver, or alloy"
+   ],
+   "accessed": "2026-10-22"
+  },
+  {
+   "id": "goldprice-org",
+   "title": "Gold spot price (primary capture and later live-check reading)",
+   "publisher": "GoldPrice.org",
+   "url": "https://goldprice.org/",
+   "type": "market-data",
+   "supports": "Gold spot snapshots. The PRIMARY capture used by every calculation on this site is $4,022.22/oz read 'Oct 23rd, 2026 at 05:55 NY Time'. A later read the same evening printed $3,997.22/oz at '04:17 NY Time' (0.62% lower, same market date) and is shown only as a labelled live-check: it is NOT used in any calculation.",
+   "quotes": [
+    "Primary capture: Spot Gold Price: USD 4,022.22 / Ounce | Spot Silver Price: USD 53.82 / Ounce Oct 23rd, 2026 at 05:55 NY Time",
+    "Live-check read later the same day: Spot Gold Price: USD 3,997.22 / Ounce | Spot Silver Price: USD 53.92 / Ounce Oct 23rd, 2026 at 04:17 NY Time"
+   ],
+   "accessed": "2026-10-23"
+  },
+  {
+   "id": "wgc-gold-prices",
+   "title": "Gold spot prices & market history",
+   "publisher": "World Gold Council (Goldhub); market data by ICE Data Services",
+   "url": "https://www.gold.org/goldhub/data/gold-prices",
+   "type": "market-data",
+   "supports": "Independent cross-check of the spot snapshot",
+   "quotes": [
+    "Gold Spot price USD/oz - 3,996.31 ... Data as of 22 October, 2026"
+   ],
+   "accessed": "2026-10-23"
+  },
+  {
+   "id": "lbma-prices",
+   "title": "LBMA Precious Metal Prices",
+   "publisher": "London Bullion Market Association",
+   "url": "https://www.lbma.org.uk/prices-and-data/lbma-precious-metal-prices",
+   "type": "benchmark-administrator",
+   "supports": "Explains the LBMA Gold Price benchmark and that historical tables now require an IBA licence (so no LBMA number is reproduced here)",
+   "quotes": [
+    "The LBMA Gold Price is set twice daily in auctions independently operated and administered by ICE Benchmark Administration Limited (IBA) and commencing at 10:30 and 15:00 London time.",
+    "The historical tabulated data for the LBMA Precious Metals Prices has been moved to our MyLBMA Portal. In order to view this data on our Portal, you will need to have the relevant licence from IBA."
+   ],
+   "accessed": "2026-10-23"
+  },
+  {
+   "id": "usc-297-govinfo",
+   "title": "15 U.S.C. 297 - Official U.S. Government Publishing Office (GovInfo) text linked by 16 CFR 23.10",
+   "publisher": "U.S. Government Publishing Office (govinfo.gov)",
+   "url": "https://www.govinfo.gov/link/uscode/15/297",
+   "type": "statute",
+   "supports": "Primary government statute link embedded directly in eCFR 16 CFR 23.10 requiring a quality mark on gold to be accompanied by a registered trademark or manufacturer name",
+   "quotes": [
+    "Note 1 to § 23.10: The National Stamping Act provides that any person, firm, corporation, or association, being a manufacturer or dealer subject to section 294 of title 15, who applies or causes to be applied a quality mark or stamp to any article of merchandise ... shall apply to the article the trademark or name of such person. 15 U.S.C. 297"
+   ],
+   "accessed": "2026-10-22"
+  },
+  {
+   "id": "costco-return-policy-cu2573",
+   "title": "Costco Return Policy Exceptions (Document ID CU2573, Version 18.0, Published 10/02/2025)",
+   "publisher": "Costco Wholesale Customer Service",
+   "url": "https://customerservice.costco.com/app/answers/detail/a_id/1191",
+   "type": "retailer-policy",
+   "supports": "Why Costco fails the return-after-inspection requirement for precious metals and requires a 48-hour gemologist credit-memo inspection for >=1.00 ct diamonds",
+   "quotes": [
+    "Precious metals are non-refundable.",
+    "When returning an item with a 1.00ct or larger diamond, our warehouses require additional time to verify the diamond, in which case a Jewelry Credit Memo will be issued to the member and the diamond will be sent to our Graduate Gemologist for inspection within 48 hours.",
+    "Document ID: CU2573 · Version: 18.0 · Published: 10/02/2025"
+   ],
+   "accessed": "2026-10-22"
+  },
+  {
+   "id": "trustpilot",
+   "title": "Trustpilot business review profiles",
+   "publisher": "Trustpilot",
+   "url": "https://www.trustpilot.com/",
+   "type": "independent-reviews",
+   "supports": "Independent customer-review scores and complaint themes for each retailer",
+   "quotes": [
+    "We use technology to protect platform integrity, but we don't fact-check reviews"
+   ],
+   "accessed": "2026-10-22"
+  },
+  {
+   "id": "usc-1666",
+   "title": "15 U.S.C. § 1666 - Correction of billing errors (Fair Credit Billing Act)",
+   "publisher": "U.S. Code via Cornell LII",
+   "url": "https://www.law.cornell.edu/uscode/text/15/1666",
+   "type": "statute",
+   "supports": "Why the checklist prefers a credit card: a written billing-error notice obliges the creditor to acknowledge within 30 days and correct or explain within two billing cycles (max 90 days). Read live 2026-10-23 for the requirement that payment be reversible.",
+   "quotes": [
+    "15 U.S. Code § 1666 - Correction of billing errors",
+    "not later than thirty days after the receipt of the notice, send a written acknowledgment thereof to the obligor",
+    "not later than two complete billing cycles of the creditor (in no event later than ninety days) after the receipt of the notice"
+   ],
+   "accessed": "2026-10-23"
+  },
+  {
+   "id": "cfr-435",
+   "title": "16 CFR Part 435 - Mail, Internet, or Telephone Order Merchandise",
+   "publisher": "U.S. Federal Trade Commission (eCFR)",
+   "url": "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-D/part-435",
+   "type": "regulation",
+   "supports": "Context for the return-window requirement: the FTC's mail/internet order rule. No US statute sets a minimum return window for a correctly delivered ring, so the window itself is the seller's promise and must be read on the seller's page. Only the part page and its currency banner were read in this pass.",
+   "quotes": [
+    "PART 435—MAIL, INTERNET, OR TELEPHONE ORDER MERCHANDISE",
+    "This content is from the eCFR and is authoritative but unofficial.",
+    "Displaying title 16, up to date as of 10/21/2026. Title 16 was last amended 10/19/2026."
+   ],
+   "accessed": "2026-10-23"
+  }
+ ]
 }
