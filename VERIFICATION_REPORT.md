@@ -1,7 +1,7 @@
 # GOLD3 — Anti-Hallucination & Security Verification Report
 
-- **Latest Audit Pass:** Pass #42 — `Pass P19 integration`
-- **Timestamp (UTC):** `2026-10-24T00:02:55Z`
+- **Latest Audit Pass:** Pass #43 — `Pass P19 final`
+- **Timestamp (UTC):** `2026-10-24T00:03:43Z`
 - **Overall Result:** **PASS** (`0` integrity errors)
 - **Unique Official HTTPS URLs Verified:** `186`
 - **Catalog Entries Audited:** `21` rings + `5` sellers + `7` karat standards
@@ -18,7 +18,7 @@
 | `SEC-03` | Zero-Inference Enforcement (Unverified Values Strictly Left Blank/Null) | **PASS** | `17` | Confirmed 17 items with unconfirmed metal gram weights or mixed-karat splits keep null numeric cells (never inferred) and carry explicit review flags. |
 | `SEC-04` | NIST Troy-Ounce (31.1034768 g) & Raw Melt Arithmetic Audit | **PASS** | `11` | Mathematically verified spot conversion ($4,022.70 / 31.1034768 = $129.3328/g), all 7 karat tiers, and all 4 weight-complete rings to <= $0.02 tolerance. |
 | `SEC-05` | Automated Irregularity, Plated-Control, BBB & Return-Exclusion Scanner | **PASS** | `68` | Cataloged 68 line-by-line review flags across 21 flagged ring entries for publication on flagged-for-review.html. |
-| `SEC-06` | Static HTML Internal/External Link Integrity & Anchor Verification | **PASS** | `3304` | Parsed 25 HTML pages and verified 3304 links, stylesheets, scripts, and anchor targets with zero broken links. |
+| `SEC-06` | Static HTML Internal/External Link Integrity & Anchor Verification | **PASS** | `3309` | Parsed 25 HTML pages and verified 3309 links, stylesheets, scripts, and anchor targets with zero broken links. |
 | `SEC-07` | Front-End Security, No-Hallucinations Top Banner & Zero-External-Script Check | **PASS** | `25` | Verified zero third-party script dependencies, strict rel='noopener noreferrer' on external links, zero eval() calls, and active Front-Page No-Hallucinations Mandate summary. |
 
 ## SHA-256 Integrity Digests (`data/*.json`)
@@ -55,4 +55,4 @@
 | `data/spot-and-standards.json` | `b2b4203069b283be7a36228bf776aed7bda1e673435d1e2488c83e3fd890e03b` |
 | `data/standards.json` | `6b745302667c70fb15800fb830471250551a37e238e507a8b993f8e3c4423ad8` |
 | `data/verification-report.json` | `05c3273f4a55456fc8ea7531b05ae50251329b32cd34a532c82d78a10b55be4b` |
-| `data/verification.json` | `f54a2169904b903fc9c6177688794ccc13c1c0d5482cd036938b11827efd3369` |
+| `data/verification.json` | `9ca0ed85c32f6a950d9324fa52b3fb99b1570a0631b2dadc6c4133a7f7b612b3` |
