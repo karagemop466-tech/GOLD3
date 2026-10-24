@@ -2783,9 +2783,9 @@
     },
     {
       "pass_number": 44,
-      "pass_label": "Scheduled Verification Pass",
-      "timestamp_utc": "2026-10-24T00:10:10Z",
-      "session_id": "arena/bd0ed905-gold3 (P22)",
+      "pass_label": "Pass P19 follow-up",
+      "timestamp_utc": "2026-10-24T00:06:32Z",
+      "session_id": "arena/76359c22-gold3",
       "overall_status": "PASS",
       "error_count": 0,
       "errors": [],
@@ -2832,8 +2832,8 @@
           "check_id": "SEC-06",
           "name": "Static HTML Internal/External Link Integrity & Anchor Verification",
           "status": "PASS",
-          "verified_count": 3364,
-          "details": "Parsed 25 HTML pages and verified 3364 links, stylesheets, scripts, and anchor targets with zero broken links."
+          "verified_count": 3310,
+          "details": "Parsed 25 HTML pages and verified 3310 links, stylesheets, scripts, and anchor targets with zero broken links."
         },
         {
           "check_id": "SEC-07",
@@ -2847,9 +2847,9 @@
     },
     {
       "pass_number": 45,
-      "pass_label": "Scheduled Verification Pass",
-      "timestamp_utc": "2026-10-24T00:11:04Z",
-      "session_id": "arena/bd0ed905-gold3 (P22 final)",
+      "pass_label": "Pass P19 closeout",
+      "timestamp_utc": "2026-10-24T00:09:16Z",
+      "session_id": "arena/76359c22-gold3",
       "overall_status": "PASS",
       "error_count": 0,
       "errors": [],
@@ -2896,8 +2896,8 @@
           "check_id": "SEC-06",
           "name": "Static HTML Internal/External Link Integrity & Anchor Verification",
           "status": "PASS",
-          "verified_count": 3361,
-          "details": "Parsed 25 HTML pages and verified 3361 links, stylesheets, scripts, and anchor targets with zero broken links."
+          "verified_count": 3311,
+          "details": "Parsed 25 HTML pages and verified 3311 links, stylesheets, scripts, and anchor targets with zero broken links."
         },
         {
           "check_id": "SEC-07",

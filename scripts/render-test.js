@@ -343,6 +343,24 @@ check("P19 verification ledger includes the P19 checks",
   includesText(html["verify.html"], "P19"));
 check("P19 findings F56-F58 are published for manual review",
   includesText(html["flagged.html"], "F56") && includesText(html["flagged.html"], "F58"));
+// P19: the numbers quoted in the pass report must equal the derived matrix, so the
+// prose can never drift from the data the page renders (this caught 19/4/48 and
+// 34/28/9 going stale the moment peer P17/P18 changed the underlying rows).
+const _p19Report = read("reports/reverification-pass-p19.md");
+const _p19Sum = Object.fromEntries(_reqRows.summary.requirements.map((r) => [r.n, r.counts]));
+let _p19ProseOk = true;
+for (const line of _p19Report.split("\n")) {
+  const m = line.match(/^\| (\d+)\. .*?\| (\d+) \| (\d+) \| (\d+) \| (\d+) \|$/);
+  if (!m) continue;
+  const c = _p19Sum[Number(m[1])];
+  if (!c || c.good !== +m[2] || c.partial !== +m[3] || c.fail !== +m[4] || c.unverified !== +m[5]) {
+    _p19ProseOk = false;
+  }
+}
+check("P19 pass report figures equal the derived matrix", _p19ProseOk);
+check("P19 verification page credits this session and shows the P19 pass",
+  includesText(html["verify.html"], "arena/76359c22-gold3 (P19)") &&
+  includesText(html["verify.html"], "Independent pass 19"));
 check("P19 index links to the requirements matrix",
   html["index.html"].includes('href="requirements.html"') &&
   html["requirements.html"].includes('href="index.html"'));

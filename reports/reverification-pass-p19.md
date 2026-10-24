@@ -51,26 +51,27 @@ Two things, both aimed at the same question — *can every number on this site b
 | 2. Word "solid" used | 19 | 7 | 4 | 41 |
 | 3. Hallmark disclosed | 3 | 0 | 0 | 68 |
 | 4. Maker's mark disclosed | 2 | 0 | 0 | 69 |
-| 5. Finished weight in grams | 19 | 4 | 0 | 48 |
+| 5. Finished weight in grams | 19 | 0 | 0 | 52 |
 | 6. Independent reputation | 46 | 10 | 0 | 15 |
-| 7. Usable return window | 34 | 28 | 9 | 0 |
+| 7. Usable return window | 38 | 24 | 9 | 0 |
 | 8. Credit card accepted | 29 | 29 | 0 | 13 |
 | 9. Documentation captured | 71 | 0 | 0 | 0 |
 | 10. Independent / XRF check | 0 | 7 | 0 | 64 |
 
 - **0 of 71 rows** are "good" on all ten. That is the headline, and it is the honest one: the failure is structural, not cosmetic.
-- **6 rows** are "good" on the four facts a seller fully controls — karat, the word "solid", a gram weight and a usable return window; **11** reach at least "partial" on those four.
-- **19 of 71** rows publish a gram weight, so 19 carry a price-to-melt multiple at the dated anchor (range **1.37× – 25.07×**). The other 48 are left blank rather than back-calculated.
+- **6 rows** are "good" on the four facts a seller fully controls — karat, the word "solid", a gram weight and a usable return window; **7** more reach at least "partial" on those four.
+- **19 of 71** rows publish a numeric gram weight, so 19 carry a price-to-melt multiple at the dated anchor (range **1.37× – 25.07×**). The other 52 are left blank rather than back-calculated; four Aurate ranges were blanked by peer pass P17 as unscoped weight, so the matrix counts zero "partial" weights.
 - **3** rows document a hallmark and **2** a maker's mark (Wilson's estate pieces). No seller publishes a hallmark *policy*.
 - **13** rows leave card acceptance unverified and **9** are final sale or non-returnable — the two columns that most often decide whether a buyer can test the ring at all.
 - **0** rows record a seller offering XRF or an assay; 7 record a seller statement only (Wilson's "stamped for X karat", Menē's own certificate).
 
-## 4. Two site defects found and fixed
+## 4. Three site defects found and fixed
 
 | ID | Defect | Fix |
 |---|---|---|
 | `SD25` | `index.html` printed "Weights in this pass" and "Hallmark policies" with Dataset-A-only values while the sub-labels described the whole site. | Relabelled "Dataset A weights" and "Retailer hallmark policies", moved the 19-of-71 figure into the sub-line, added a "Checklist cells verified" tile and a link to the new page. |
 | `SD26` | The first draft of the matrix cited five authority pages at paths that are not the ones registered in `data/sources.json`, including 16 CFR Part 23 under subchapter A instead of subchapter B. | Every authority link now points at a page registered and quoted in `data/sources.json`, or at the two pages opened live this pass. `HS-09` in the new scan enforces https + an action for all ten. |
+| `SD27` | CI built the pages before running `audit.py`, so the SD21 date guard failed on the first run after UTC midnight — a guard-ordering bug, not a site defect. | The workflow rebuilds both page sets immediately after the audit, and the guard derives its expected date from `reports/audit-report.md` instead of a typed literal. |
 
 ## 5. New gates
 

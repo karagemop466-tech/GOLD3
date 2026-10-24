@@ -95,9 +95,9 @@ site's first **requirements compliance matrix** (`requirements.html`, `data/requ
 * **Every one of the 71 listings is now scored against all ten checklist requirements** — karat, the word "solid",
   hallmark, maker's mark, weight, seller reputation, return window, card payment, documentation and independent/XRF
   verification. A cell is either backed by an official page you can click, or left **blank and marked unverified**.
-  The consequence is the honest headline: **0 of 71 rows clear all ten.** 19 publish a weight, 3 a hallmark, 2 a
-  maker's mark and none records a seller offering an assay.
-* **Nothing was inferred to close a gap.** The 48 rows without a weight get no melt figure; the 13 without a verifiable
+  The consequence is the honest headline: **0 of 71 rows clear all ten.** 19 publish a numeric weight, 3 a hallmark,
+  2 a maker's mark and none records a seller offering an assay.
+* **Nothing was inferred to close a gap.** The 52 rows without a numeric weight get no melt figure; the 13 without a verifiable
   payment method stay blank. `hallucination_scan.py` proves every stored price and gram weight appears verbatim in that
   row's own quote, so a cell cannot be filled from arithmetic alone.
 * **Menē moved the Wrap Ring twice in one day** (`$3,228` → `$3,202`, 1.57% under the capture). The captured price is
