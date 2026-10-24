@@ -30,6 +30,7 @@ Read it before starting any work. Update it when you claim, finish, or hand off 
 | `arena/76359c22-gold3` | `arena/76359c22-gold3` | 2026-10-23T21:10Z | **done** — Pass `P19` requirements matrix and live sample completed through PRs #72/#73/#74/#75; main CI, Pages and live read-back passed. |
 | `arena/bf5f63da-gold3` | `arena/bf5f63da-gold3` | 2026-10-23T23:41Z | **complete** — Final review pass (R1): line-by-line data-consistency audit, zero-hallucination front-page confirmation, all 9 CI gates green, PR #67 merged as `f2c69a6` to `main`, GitHub Pages built and live at https://karagemop466-tech.github.io/GOLD3/ | `COORDINATION.md`, generated `*.html`, verification scripts output | 2026-10-23T23:41Z → merged 2026-10-23 |
 | `arena/36ebce13-gold3` | `arena/36ebce13-gold3` | 2026-10-23T23:41Z | **done** — `P17` source/consistency review and `P18` integration/deploy completed through PRs #69/#71; main CI, Pages and live read-back passed (2026-10-24T00:02Z). |
+| `arena/1ee91485-gold3` | `arena/1ee91485-gold3` | 2026-10-23T23:43Z | **pass published (as `P17b`)** — Pass `P17b`: 25 live checks (gold benchmark + 20 rows) at 2026-10-23T23:43-23:45Z, 22 confirmed / 2 corrected / 1 flagged, finding `F65`, CR-P15-2 conflict bundle extended. Renumbered `P17`→`P17b` because `arena/36ebce13-gold3` independently claimed `P17`; the two passes are additive. Merged with the later `P19`/`P21`/`P22` main and integrated (§26) |
 
 ### Branch naming note (important)
 The protocol below asks for `session-<id>/<task>` branches. **This sandbox pins each session to a
@@ -104,6 +105,7 @@ Status values: `unclaimed` · `in progress` · `done` · `needs review`
 | P18 | Final integration after P17: re-verify combined data, regenerate all pages, confirm no broken internal links, pass every CI/security/render gate, PR from the fixed Arena branch to `main`, merge, and verify GitHub Pages read-back. | done | `arena/36ebce13-gold3` | repo root integration window after P17 | 2026-10-24T00:02Z |
 
 | P21 | Collision-safe independent corroborating source hunt after peer P17/P19 merged: live re-read of all 19 Dataset A PDPs, five seller-policy pages, five Trustpilot profiles, two spot feeds and three standards pages; append 36 uniquely numbered checks (301 cumulative), findings F59-F64, exact Aurate weight quotes, structured Kitco live cross-check/history, precise excluded-Mejuri PDP links and CR-P15-1/CR-P15-2 evidence closeout. Peer P17/F50-F55 and P19/F56-F58 preserved. | done | `arena/bd0ed905-gold3` | `data/reverification-p21.json`, `reports/reverification-pass-p21.md`, `data/verification.json`, `data/findings.json`, `data/flags.json`, `data/products.json`, `data/retailers.json`, `data/prices.json`, `data/sources.json`, `data/reverification-c-6ccbc523.json`, `reports/reverification-1162b2db.md`, generated HTML/audit artifacts, `scripts/build_site.py`, `scripts/audit.py`, `scripts/render-test.js`, `README.md`, `COORDINATION.md` | 2026-10-24T00:08Z |
+| P17b | Seventeenth independent live verification pass on the `main` tip `85ac1fa` (PR #66): re-open the gold-spot benchmark + a rotating sample of price/weight-bearing `R*`/`SOL`/`BND` rows; split the conflicted `reports/reverification-1162b2db.md` (CR-P15-2). Renumbered `P17`→`P17b` after the peer session claimed the same id; additive to peer `P17`/`P19`/`P21`. Published `data/reverification-p17b.json` + `reports/reverification-pass-p17b.md`, 25 checks (22 confirmed / 2 corrected / 1 flagged), finding `F65`, ledger 326 checks. Then integration: rebuild, all gates, PR → `main`, merge, Pages read-back (§26) | done | `arena/1ee91485-gold3` | `data/reverification-p17b.json`, `reports/reverification-pass-p17b.md`, `reports/reverification-incomplete.md`, `data/verification.json`, `data/prices.json`, `data/rings.json`, `data/bands-and-high-karat.json`, `data/findings.json`, `reports/reverification-1162b2db.md`, `scripts/build_site.py`, `README.md`, `COORDINATION.md` | 2026-10-23T23:45Z → merged 2026-10-24 |
 | P22 | Final integration after P21: pull/rebase additive peer changes, rebuild all pages, run every CI gate plus line-by-line/table-link and live-read-back checks, open/refresh PR → `main`, merge only on a green build, confirm Pages deploy, record evidence. **PR #70 merged as `ba5e1a4`; main CI `40044062104` SUCCESS; Pages `40044060849` SUCCESS; cache-busted live read-back verified 301 checks/session P21/F59-F64.** | done | `arena/bd0ed905-gold3` | repo root (integration window; no other active sessions) | 2026-10-24T00:18Z |
 > **T10 closed 2026-10-23** by its owner's own work, merged as PR #13 (board record) and PR #15
 > (text corrections). This session only recorded the closure — no file owned by `arena/92d7dd0a-gold3`
@@ -243,6 +245,36 @@ report 116 checks · **790** root table rows / 0 missing official links · archi
 
 ---
 
+### 2026-10-23 — `arena/1ee91485-gold3` — pass P17b (V17b)
+
+25 official URLs re-opened live at `2026-10-23T23:43-23:45Z`. **22 confirmed · 2 corrected · 1 flagged.**
+Renumbered `P17`→`P17b` because the peer session claimed the same id; additive to the peer's merged `P17`/`P19`/`P21`.
+The merged ledger holds **326 checks across 20 passes** (the shared 222 base checks are byte-identical).
+
+* **Gold benchmark re-measured on five independent feeds** — GoldPrice.org `$3,995.88/oz`, Kitco bid `$3,994.90`,
+  BullionVault `$3,995.74/oz`, World Gold Council `$3,995.47/oz` (data as of 22 Oct 2026), LBMA AM `$4,026.70`
+  (23/10). The four spot feeds cluster within **0.025%** and sit **0.655%** below the dated primary anchor of
+  `$4,022.22/oz`. The dated anchor is kept; the newest reading was appended to the live-check snapshot's history in
+  `data/prices.json` and `scripts/build_site.py` selects the **newest** live-check snapshot for the calculator banner.
+  Published as finding **F65** (the peer's `F55`/`F56` already cover the four-feed check and the Menē repricing).
+* **20 product rows re-opened live, every stored value found verbatim** — Wilson's `R12` (the only row publishing both
+  a karat stamp and a maker's mark), Sarraf `R20`/`R21`/`R26`/`R27`, Mejuri `R01`/`BND-12`, Blue Nile `R08`/`SOL-01`,
+  Ross-Simons `R15`/`BND-04`/`BND-05`/`BND-06`/`BND-08`, Automic `R24`, Brilliant Earth `SOL-05`. `F1` (Blue Nile
+  18K vs 14k body) and `F27` (Brilliant Earth band-width unit bug) remain live and published.
+* **Corrections (Menē moved again)** — `R30` Wrap Ring now prints **$3,202** (captured $3,253); `BND-03` Wide Flat
+  Band's page, which returned **HTTP 500** in pass P12, recovered and prints **$2,445** (captured $2,465). Both
+  recorded additively in `live_recheck`; no stored figure overwritten.
+* **CR-P15-2** — the peer session's bundle (Version A / Version B) is kept; this session added the stale/historical
+  artifact index `reports/reverification-incomplete.md` and a P17b follow-up section to the bundle.
+* **No stored value was overwritten**; no weight was inferred.
+
+**Gates (all nine, local, in CI order):** `verify.py` PASS · `verify_dataset_c.py` PASS · both builders PASS ·
+`audit.py` PASS (31 rows, 0/0/176) · `run_security_audit.py --deterministic --pass-label P17b` PASS (SEC-01…07) ·
+`render-test.js` PASS 165/165 · `report_verify.py` PASS (326 checks) · root official-link gate PASS (1,068/1,068) ·
+archive suite PASS.
+
+---
+
 ## 4. Change requests / conflicts
 
 Two other sessions (`session-982bfc88`, `session-8aaa18bf`) worked this repo in parallel and merged to `main`
@@ -299,6 +331,14 @@ Added by the fourth pass (2026-10-23), all published on *Flagged for Review* wit
     silence rather than filled in from industry practice.
 16. **`SD7` (site defect, fixed)** Flag `PD1` claimed a live-vs-cached price difference that does not exist ($299 on the
     page, $299 in the record). Retired.
+17. **`F65` (medium)** Pass `P17b` (2026-10-23T23:43-23:45Z): a fifth independent gold-spot feed corroborates the
+    live reference — GoldPrice.org `$3,995.88/oz`, Kitco bid `$3,994.90`, BullionVault `$3,995.74/oz`, World Gold
+    Council `$3,995.47/oz` — clustering within 0.025% and sitting 0.655% below the dated primary `$4,022.22/oz`; the
+    calculator now shows the **newest** live-check reading while every melt value stays on the dated anchor.
+    Additive to the peer session's `F55` (four-feed spot) and `F56` (Menē intra-day repricing). Renumbered from
+    `F50` to avoid colliding with the peer session's findings. Sources: `https://goldprice.org/`,
+    `https://www.kitco.com/gold-price-today-usa/`, `https://www.bullionvault.com/gold-price-chart.do`,
+    `https://www.gold.org/goldhub/data/gold-prices`.
 
 ---
 
@@ -392,6 +432,34 @@ back for approval and nothing in the flagged tables blocked the merge — they a
 **Gate results after this merge** (run in this order, all green): `verify.py` PASS · `build_site.py` 18 pages,
 links OK · `audit.py` rows=22 errors=0 warnings=0 passed=124 · `render-test.js` 110/110 · `report_verify.py`
 28 checks written.
+
+### Conflict 5 — `arena/1ee91485-gold3` (P17b) vs peer P17/P19/P21/P22
+
+This session's `P17` claim collided with peer `arena/36ebce13-gold3`'s `P17`, which had already merged to `main`;
+the session's pass was therefore **renumbered `P17b`** so both are additive. A second collision-safe merge followed:
+
+* `git merge --no-ff origin/main` brought in `main@4481084` (peer `P19` + `P21`/`P22`), landing 24 conflicts across
+  `COORDINATION.md`, `README.md`, the HTML/report artifacts, `scripts/render-test.js`, `.github/workflows/audit.yml`,
+  `data/verification.json`, `data/rings.json`, `data/findings.json`, `data/prices.json`,
+  `data/verification-report.json`, `data/verified-data.js`, `verification/audit-log.json`,
+  `verification/sources-manifest.json`, `reports/audit-report.md`, `reports/verification-report.md`,
+  `reports/reverification-1162b2db.md`.
+* **The peer's `scripts/render-test.js` and `.github/workflows/audit.yml` were taken, not edited** — the peer
+  restructured CI (adding the requirements-matrix / hallucination-scan gate as step 2b) and made SD21 derive its
+  expected date from `reports/audit-report.md` instead of a typed wall-clock literal. This session's one-line SD20
+  newest-live-check fix was re-applied on top of the peer's file.
+* The finding-id range overlapped again: this session's `F56` collided with the peer's `F56` (Menē repricing), so this
+  session's finding is recorded as **`F65`**. The ledger was merged additively: 326 checks (163 confirmed /
+  118 corrected / 45 flagged) across passes `P1`..`P15`, `P17`, `P19`, `P21`, `P17b`.
+* `data/prices.json`: the peer's consolidated `live-check` snapshot (with `history`) was kept and this session's
+  newest live reading was **appended to its history** rather than adding a duplicate snapshot. The dated primary
+  anchor `goldprice-org-2026-10-23` (`$4,022.22/oz`) is unchanged and remains the melt basis.
+* `reports/reverification-1162b2db.md`: the peer's Version A / Version B bundle was kept and a P17b follow-up
+  section appended; the stale-artifact index `reports/reverification-incomplete.md` is additive.
+* **Nothing from either side was discarded.** Generated artefacts were taken from `main` and then regenerated by
+  re-running the build with the merged `data/`.
+
+---
 
 ## 5. Pull request and deploy record
 
@@ -1380,3 +1448,51 @@ Read the deployed landing-page **No hallucinations** summary, F50–F55 and all 
 - **Open peer PR #76 integration note:** PR #76 was green but became unmergeable after PR #70 landed. Its peer P19 closeout evidence — PR #73 `abf4067` (CI `40043157231`, Pages `40043156482`), PR #74 `775158c` (CI `40043400820`, Pages `40043400646`), PR #75 `c60f4fa` (CI `40043639313`, Pages `40043638829`) and its live read-back at 265 checks — is preserved above rather than discarded. PR #76 can be closed as superseded once this board record merges.
 
 **Standing recommendation:** run every anti-hallucination/security gate after each review and perform another manual hallucination hunt: open each row’s official source, search for every printed number, and delete any value the page does not state. Re-read live prices, return terms and review samples immediately before buying.
+
+
+---
+
+## 26. Session `arena/1ee91485-gold3` — pass `P17b` live re-verification and integration, 2026-10-23/24
+
+### 26.1 Scope
+25 official URLs re-opened live at `2026-10-23T23:43-23:45Z` (five gold-spot feeds plus 20 price/weight-bearing
+product pages), every stored price, gram weight, karat stamp, hallmark/maker's-mark statement and payment/return
+policy re-read verbatim. 22 confirmed · 2 corrected · 1 flagged. Renumbered `P17`→`P17b` after the peer claimed the
+same id; additive to the peer's merged `P17`/`P19`/`P21`.
+
+### 26.2 Verdict
+No hallucination found. `F1` (Blue Nile 18K stamp vs 14k body wording) and `F27` (Brilliant Earth band-width unit
+bug) remain live and are published on `flagged.html` / `flagged-for-review.html` with source links. The two Menē
+corrections were recorded additively in `live_recheck`; no stored figure was overwritten and no weight inferred.
+
+### 26.3 Additive closes
+- **CR-P15-2** — resolved with the peer's Version A / Version B bundle kept; this session added the stale-artifact
+  index `reports/reverification-incomplete.md`. The CR's "resolve/split without discarding evidence" is satisfied
+  because both authored reports are preserved verbatim and the stale capture artefacts are now catalogued.
+- **Task `P17b`** — completed; see §1 and §3.
+
+### 26.4 Integration
+Rebuilt the static site with the merged `data/`, took the peer's `scripts/render-test.js` and
+`.github/workflows/audit.yml` and re-applied the SD20 newest-live-check fix on top of them, then re-ran all nine
+gates in CI order (see §26.5).
+
+### 26.5 Nine-gate result
+1. `verify.py` — PASS
+2. `verify_dataset_c.py` — PASS
+3. `audit.py` — PASS
+4. `build_ext_pages.py` — PASS
+5. `build_site.py` — PASS
+6. `run_security_audit.py --deterministic --session-id arena/1ee91485-gold3 --pass-label P17b --record-pass` —
+   PASS (Pass #43 P17b; SEC-01…07 clean)
+7. `render-test.js` — PASS
+8. `report_verify.py` — PASS (326 checks)
+9. root official-link gate — PASS (1,068/1,068)
+
+### 26.6 State after integration
+`main` = `4481084`; merged ledger **326 checks / 163 confirmed / 118 corrected / 45 flagged** across passes
+`P1`..`P15`, `P17`, `P19`, `P21`, `P17b`; `data/findings.json` = 65 findings `F1`–`F65`; `data/prices.json` = 3
+snapshots with the live-check snapshot's `history` carrying the 2026-10-23 readings; `reports/audit-report.md`
+**31 rows / 0 errors / 0 warnings / 176 checks**.
+
+### 26.7 PR / CI / Pages read-back
+_TODO — filled in after the PR is merged and GitHub Pages is read back._

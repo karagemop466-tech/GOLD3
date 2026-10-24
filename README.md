@@ -9,7 +9,7 @@ It publishes as a static site on GitHub Pages and is generated entirely from mac
 > **blank** and marked **unverified** — it is never estimated, inferred, or filled in to make a row
 > look complete. **Recommendation:** actively look for hallucinations on every review pass by clicking the official source link on every row, re-checking live prices/weights before buying, and running all automated security checks below.
 
-**Price snapshots:** 22–23 October 2026 · **re-verified live:** 23 October 2026 (passes `P1`–`P21`, **301 logged checks**) · **71 rows** — Dataset A 19, Dataset B 31, Dataset C 21 · **16 sellers** · **19 published weights** (14 in Dataset B, 5 in Dataset C)
+**Price snapshots:** 22–23 October 2026 · **re-verified live:** 23 October 2026 (passes `P1`–`P21` + `P17b`, **326 logged checks**) · **71 rows** — Dataset A 19, Dataset B 31, Dataset C 21 · **16 sellers** · **19 published weights** (14 in Dataset B, 5 in Dataset C)
 
 ---
 
@@ -67,6 +67,8 @@ editing HTML by hand is pointless: change `data/*.json` or `scripts/build_site.p
 Two peer sessions merged `P17`/`P18` (PRs #69/#71) and `P19` (requirements matrix, PRs #72/#73) while this pass was running. This session preserved both peer passes and numbered its independent work **`P21`** so every check ID remains unique. P21 reopened all 19 Dataset A PDPs, five return policies, five Trustpilot profiles, GoldPrice.org, Kitco, NIST SP 811 B.9, NIST Precious Metals Conversion Information and 16 CFR 23.10: **13 confirmed · 21 corrected · 2 flagged** (`data/reverification-p21.json`, `reports/reverification-pass-p21.md`, ledger `P21-01`…`P21-36`).
 
 * **Peer work preserved:** P17 (31 checks, F50–F55) and P19 (12 checks, F56–F58, requirements matrix) remain intact; the combined ledger now holds **301 checks**.
+
+Pass **`P17b`** (`arena/1ee91485-gold3`, 2026-10-23T23:43-23:45Z) is the independent pass this branch contributed: it re-opened five gold-spot feeds and 20 price/weight-bearing product pages live, found every stored value verbatim except the two Menē re-pricings, and appended **25 checks** (`P17b-01`…`P17b-25`, 22 confirmed / 2 corrected / 1 flagged) plus finding `F65`. It was renumbered from `P17` because peer `arena/36ebce13-gold3` claimed that id first — the two passes are additive, not duplicates. The combined ledger now holds **326 checks** across `P1`–`P15`, `P17`, `P19`, `P21` and `P17b`.
 * **Aurate:** exact live weight strings are stored on all seven rows, but every `weight_g` stays `null` because metal-only/total scope and exact variant mapping are not stated (`F61`).
 * **Ring Concierge:** the last stale `E VS1` prose on the 2.72 ct row was corrected to live `E VVS2`; mixed-metal/return-window warnings remain (`F62`).
 * **Excluded Mejuri variants:** price and material evidence now link to their own PDPs, which print `$158` for 18k gold vermeil and `$138` for sterling silver (`F60`).

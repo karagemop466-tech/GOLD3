@@ -158,9 +158,11 @@ if re.fullmatch(r"\d{4}-\d{2}-\d{2}", SPOT_CAPTURED):
                      f"{['January','February','March','April','May','June','July','August','September','October','November','December'][int(_mo)-1]} "
                      f"{_y}")
 
-# Pass P13: the third snapshot in prices.json is an explicitly labelled live-check reading
-# that no calculation consumes. Show it beside the pre-filled field, never instead of it.
-LIVE = next((s for s in prices_doc["snapshots"] if str(s.get("role", "")).startswith("live-check")), None)
+# Pass P13: the live-check snapshot is an explicitly labelled reading that no calculation consumes.
+# Show it beside the pre-filled field, never instead of it. Pass P17 appended a newer live reading,
+# so select the NEWEST live-check snapshot rather than the first.
+_lives = [s for s in prices_doc["snapshots"] if str(s.get("role", "")).startswith("live-check")]
+LIVE = _lives[-1] if _lives else None
 LIVE_NOTE = ""
 if LIVE:
     _delta = (float(LIVE["price_usd_per_troy_oz"]) - SPOT) / SPOT * 100

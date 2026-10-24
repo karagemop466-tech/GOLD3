@@ -380,12 +380,27 @@ check("P21 preserves both peer passes and appends 36 unique checks",
   verif.checks.filter((c) => c.id.startsWith("P19-")).length === 12 &&
   verif.checks.filter((c) => c.id.startsWith("P21-")).length === 36 &&
   new Set(verif.checks.map((c) => c.id)).size === verif.checks.length &&
-  verif.checks.length === 301 &&
+  verif.checks.length === 326 &&
   _p21.summary.confirmed === 13 && _p21.summary.corrected === 21 && _p21.summary.flagged === 2);
 check("P21 artifacts and README counts are current",
   _p21Report.includes("Pass P21") && _p21Report.includes("P21-36") &&
-  read("README.md").includes("P1`–`P21") && read("README.md").includes("301 logged checks") &&
+  read("README.md").includes("P1`–`P21") && read("README.md").includes("326 logged checks") &&
   includesText(html["verify.html"], "arena/bd0ed905-gold3 (P21)"));
+// P17b: this session's independent pass was merged additively with the peer's P17/P19/P21
+// work; the finding id was renumbered F50 -> F65 after the peer claimed F50..F64.
+check("P17b appends 25 additive checks with the Menē drift renumbered to F65",
+  verif.session.includes("arena/1ee91485-gold3 (P17b)") &&
+  verif.checks.filter((c) => c.id.startsWith("P17b-")).length === 25 &&
+  verif.checks.filter((c) => c.id === "P17b-01" && /F65/.test(String(c.findings))).length === 1 &&
+  verif.checks.filter((c) => c.id === "P17b-01" && /F50/.test(JSON.stringify(c))).length === 0 &&
+  verif.checks.length === 326 && verif.summary.confirmed === 163 &&
+  verif.summary.corrected === 118 && verif.summary.flagged === 45 &&
+  verif.checks.every((c) => c.url && /^https:\/\//.test(c.url)));
+check("P17b live-check snapshot carries every reading and the anchor stays dated",
+  _prices.snapshots.filter((s) => String(s.role).startsWith("live-check")).length === 1 &&
+  _prices.snapshots.filter((s) => String(s.role).startsWith("live-check"))[0].history.length === 2 &&
+  html["calculator.html"].includes("$3,995.88") && html["calculator.html"].includes("value=\"4022.22\"") &&
+  html["calculator.html"].includes("reference observations only"));
 check("P21 findings F59-F64 are published for manual review",
   ["F59", "F60", "F61", "F62", "F63", "F64"].every((id) => html["flagged.html"].includes(`id=\"${id}\"`)));
 check("P21 all seven Aurate rows quote live weights without promoting exact weight_g",

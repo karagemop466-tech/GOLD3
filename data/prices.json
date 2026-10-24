@@ -43,7 +43,7 @@
       "price_usd_per_troy_oz": 3995.88,
       "as_of_text": "Oct 23rd, 2026 at 07:41 NY Time",
       "captured_on": "2026-10-23",
-      "role": "live-check (shown for reference, not used in any calculation)",
+      "role": "live-check (newest live reading shown for reference, not used in any calculation)",
       "quote": "Spot Gold Price: USD 3,995.88 / Ounce | Spot Silver Price: USD 53.92 / Ounce Oct 23rd, 2026 at 07:41 NY Time",
       "note": "Read live at 2026-10-23T23:43Z; 0.6549% below the dated primary snapshot. The page's '07:41 NY Time' label is recorded verbatim without inferring a meridiem or correcting its clock. Kitco bid $3,994.90, BullionVault $3,995.74 and the World Gold Council tile $3,995.47 corroborate the reading within 0.025%; none is used in calculations.",
       "history": [
@@ -53,6 +53,14 @@
           "as_of_text": "Oct 23rd, 2026 at 04:17 NY Time",
           "quote": "Spot Gold Price: USD 3,997.22 / Ounce | Spot Silver Price: USD 53.92 / Ounce Oct 23rd, 2026 at 04:17 NY Time",
           "note": "Earlier live-check retained from P13/F39; the page clock label is reproduced verbatim and not explained away."
+        },
+        {
+          "id": "goldprice-org-2026-10-23T23-45Z",
+          "price_usd_per_troy_oz": 3995.88,
+          "as_of_text": "Oct 23rd, 2026 at 07:41 NY Time",
+          "quote": "Spot Gold Price: USD 3,995.88 / Ounce | Spot Silver Price: USD 53.92 / Ounce Oct 23rd, 2026 at 07:41 NY Time",
+          "by": "arena/1ee91485-gold3 (P17b)",
+          "note": "Fifth independent feed read at 2026-10-23T23:43Z (Kitco bid $3,994.90, BullionVault $3,995.74, World Gold Council $3,995.47). The four spot feeds cluster within 0.025% and sit 0.655% below the dated primary anchor; the calculator shows the newest live-check reading and every melt value stays on the dated anchor."
         }
       ]
     }

@@ -91,3 +91,20 @@ Always run **both** `python3 scripts/run_security_audit.py --session-id <session
 ---
 
 **Resolution:** `2026-10-23T23:46:52Z` by `arena/bd0ed905-gold3` (P17). No report text from either side was deleted; only the three conflict-marker lines were replaced by these section headings. See CR-P15-2 in COORDINATION.md.
+
+---
+
+## Additive follow-up — pass `P17b` (`arena/1ee91485-gold3`, 2026-10-23T23:45Z)
+
+This session resolved the same conflict independently and then merged additively with the resolution above; the
+`2026-10-23T23:46:52Z` bundle structure is kept and neither report's text was altered.
+
+* Pass `P17b` re-opened the live pages behind this bundle and confirmed them verbatim: Wilson's `R12`, Sarraf
+  `R20`/`R21`/`R26`/`R27`, Mejuri `R01`/`BND-12`, Blue Nile `R08`/`SOL-01`, Ross-Simons `R15`/`BND-04`/`BND-05`/
+  `BND-06`/`BND-08`, Automic `R24` and Brilliant Earth `SOL-05` (25 checks — 22 confirmed · 2 corrected · 1 flagged).
+  `F1` (Blue Nile 18K/14k) and `F27` (Brilliant Earth band-width unit bug) remain live.
+* The stale/historical artifacts (`reverification-c-6ccbc523.md`, `reverification-dataset-c-15b00e99.md`,
+  `revalidation-sess-692d.md`) are additionally catalogued in `reports/reverification-incomplete.md`, which this
+  session added as an additive index of what is retained but not re-verified.
+* The Menē rows moved again in the same window (`R30` $3,202; `BND-03` Wide Flat Band recovered from HTTP 500 at
+  $2,445); both are recorded additively in `live_recheck` and in finding `F65`.

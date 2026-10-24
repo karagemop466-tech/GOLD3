@@ -671,6 +671,18 @@
       "action": "Use the exact NIST derivation for the constant and consult both preserved report versions if provenance is disputed.",
       "found_by": "arena/bd0ed905-gold3 (P21)",
       "date": "2026-10-23"
+    },
+    {
+      "id": "F65",
+      "severity": "medium",
+      "title": "Fifth gold-spot feed corroborates the live reference, and the calculator now shows the newest live-check reading",
+      "detail": "Read live on 2026-10-23T23:43-23:45Z, five independent gold feeds cluster at $3,994.90-$3,995.88/oz (Kitco $3,994.90, World Gold Council $3,995.47, BullionVault $3,995.74, GoldPrice.org $3,995.88), 0.65% below the dated primary snapshot of $4,022.22/oz. The calculation anchor is deliberately kept dated and reproducible; the newest live reading is shown on the calculator for reference only. In the same window Menē's Wrap Ring printed $3,202 (captured $3,253, P4 reading $3,228) and the Wide Flat Band page — HTTP 500 at 20:31Z — recovered and printed $2,445 (captured $2,465). Both are recorded additively in live_recheck.history and the stored figures were not overwritten. Additive to the peer session's F55 (four-feed spot corroboration) and F56 (Menē intra-day repricing): this pass adds the fifth independent feed (Kitco bid $3,994.90, read 2026-10-23T23:43Z) and changes the calculator to select the NEWEST live-check snapshot.",
+      "evidence": "Live quotes 2026-10-23T23:43-23:45Z: 'Spot Gold Price: USD 3,995.88 / Ounce Oct 23rd, 2026 at 07:41 NY Time'; 'Bid 3,994.90 Oct 23, 2026 - 19:43 NY Time'; 'Current Gold Price - $3,995.74 per Ounce 23 October 2026, 17:00:00 GMT-04:00'; 'Gold Price USD/oz 3,995.47 Data as of 22 October, 2026'. Menē: 'Wrap Ring ... $3,202 ... USD'; 'Wide Flat Band ... $2,445 ... USD'.",
+      "action": "Use the dated anchor for any reproducible melt comparison and the newest live reading only as a directional check; re-read the Menē product page immediately before ordering. Both Menē figures are recordings of a live page, not an offer.",
+      "source": "https://goldprice.org/",
+      "source_note": "GoldPrice.org. The other four gold-feed sources are https://www.kitco.com/gold-price-today-usa/ , https://www.bullionvault.com/gold-price-chart.do , https://www.gold.org/goldhub/data/gold-prices and https://mene.com/products/wrap-ring-gold / https://mene.com/products/mene-wide-flat-band-gold for the two bands.",
+      "found_by": "arena/1ee91485-gold3",
+      "date": "2026-10-23"
     }
   ]
 }

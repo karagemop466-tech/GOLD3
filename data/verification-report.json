@@ -735,6 +735,11 @@
       "id": "F64",
       "severity": "low",
       "title": "Both P15 documentation change requests remain closed with evidence preserved"
+    },
+    {
+      "id": "F65",
+      "severity": "medium",
+      "title": "Fifth gold-spot feed corroborates the live reference, and the calculator now shows the newest live-check reading"
     }
   ],
   "parallel_dataset": {

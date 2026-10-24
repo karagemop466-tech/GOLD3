@@ -1,8 +1,8 @@
 # Verification report
 
 - Pass date: **2026-10-23**
-- Session: `arena/e6fe3e4f-gold3 (P1-P4) · arena/699d8e05-gold3 (P5) · arena/6d6192d1-gold3 (P6-P7) · arena/2908bea4-gold3 (P8) · arena/15b00e99-gold3 (P10) · arena/bfcd8465-gold3 (P11) · arena/57724486-gold3 (P12) · arena/fb7e5e3c-gold3 (P13) · arena/438a583e-gold3 (P14) · arena/db2fe957-gold3 (P15) · arena/36ebce13-gold3 (P17) · arena/76359c22-gold3 (P19) · arena/bd0ed905-gold3 (P21)`
-- URLs opened: **301** — confirmed 141, corrected 116, flagged 44
+- Session: `arena/e6fe3e4f-gold3 (P1-P4) · arena/699d8e05-gold3 (P5) · arena/6d6192d1-gold3 (P6-P7) · arena/2908bea4-gold3 (P8) · arena/15b00e99-gold3 (P10) · arena/bfcd8465-gold3 (P11) · arena/57724486-gold3 (P12) · arena/fb7e5e3c-gold3 (P13) · arena/438a583e-gold3 (P14) · arena/db2fe957-gold3 (P15) · arena/36ebce13-gold3 (P17) · arena/76359c22-gold3 (P19) · arena/bd0ed905-gold3 (P21) · arena/1ee91485-gold3 (P17b)`
+- URLs opened: **326** — confirmed 163, corrected 118, flagged 45
 
 ## Method
 
@@ -31,6 +31,7 @@ Every URL cited in data/rings.json, data/sellers.json and data/gold-price.json w
 | P17 | Independent pass 17: all Dataset A listings, seller-policy drift, unsupported weight/solidity inferences and live spot corroboration (arena/36ebce13-gold3) | Re-opened all 19 Dataset A official product sources, five official seller policy records and five Trustpilot profiles; checked Ross-Simons Item 571221 and four spot publishers. Corrected only source-supported fields, removed unsupported stone-inclusion/solidity inferences and preserved all live contradictions and null weights. | 31 checks: 10 confirmed, 18 corrected, 3 flagged. All 19 stored numeric prices confirmed with 0 price changes; 0 published-weight changes. Published F50-F55, consolidated duplicate flags, refreshed only the labelled live spot reference, and preserved the $4,022.22/oz calculation anchor. |
 | P19 | Independent pass 19: rotating live re-verification across all three datasets + requirements compliance matrix (arena/76359c22-gold3) | Ten official pages re-opened live on 2026-10-23T23:35Z-23:46Z covering all three datasets and the gold benchmark, then a new generated page (requirements.html) scoring every listing against the ten-point checklist, with scripts/hallucination_scan.py re-deriving every cell and reading the rendered page back. Claimed as P17 but renumbered to P19 when peer session arena/36ebce13-gold3 landed its own P17 (PR #69) mid-pass. The dated calculation anchor was preserved; the newer live spot reading was published for reference only. | 12 checks recorded: 10 confirmed, 0 corrected, 2 flagged (Menē intra-day re-pricing F56; spot reading 0.66% below the anchor). Two site defects fixed (SD25, SD26). |
 | P21 | Collision-safe independent Dataset A / seller-policy corroboration after peer P17 and P19 | At 2026-10-24T00:08:30Z independently reopened every Dataset A PDP, five return policies, five Trustpilot profiles, GoldPrice.org, Kitco and three authority pages. Peer P17/P19 merged first, so this pass uses unique P21 IDs. | 36 checks: 13 confirmed, 21 corrected, 2 flagged. 0 Dataset A price changes; complementary quote, source, live-feed and CR evidence. |
+| P17b | Independent re-verification pass 17b (renumbered to avoid colliding with the peer session arena/36ebce13-gold3’s already-merged pass P17) | Re-read the gold-spot benchmark and every corroborating feed, plus a rotating sample of the highest-priced and weight-bearing R* rows, the weight-bearing Dataset C SOL/BND rows, and the Menē rows known to re-price. Every stored value was searched for verbatim. | 25 checks recorded (22 confirmed / 2 corrected / 1 flagged). Five independent gold-spot feeds read 2026-10-23T23:43-23:45Z cluster within 0.025% ($3,994.90-$3,995.88/oz) and sit 0.65% below the dated anchor. Wilson's R12, Sarraf R20/R21/R26/R27, Mejuri R01/BND-12, Blue Nile R08/SOL-01, Ross-Simons R15/BND-04/BND-05/BND-06/BND-08, Automic R24 and Brilliant Earth SOL-05 all matched verbatim. Menē R30 moved to $3,202 and BND-03's page recovered at $2,445; both were recorded additively. New finding F50. No stored value was overwritten. |
 
 ## Checks
 
@@ -337,6 +338,31 @@ Every URL cited in data/rings.json, data/sellers.json and data/gold-price.json w
 | P21-34 | [NIST Precious Metals Conversion Information](https://www.nist.gov/pml/owm/metric-si/unit-conversion/precious-metals-conversion-information) | standards | **corrected** | Live official page prints Handbook 130 §2.17 and links a conversion PDF, but does not print a troy-ounce-to-gram figure. CR-P15-1 historical assertion corrected with original text preserved in evidence_original_preserved. |
 | P21-35 | [eCFR 16 CFR 23.10 quality marks](https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23/section-23.10) | standards | **confirmed** | Live eCFR text defines quality marks and states that a person applying a quality mark must also apply the trademark/name of that person under 15 U.S.C. 297. Title 16 banner reads up to date as of 10/21/2026. |
 | P21-36 | [Aurate final-sale help FAQ](https://auratenewyork.gorgias.help/en-US/what-does-final-sale-or-exchange-only-mean-137560) | retailers | **confirmed** | Help article says selected exchange-only items are not eligible for refund and selected final-sale items are not eligible for refunds or exchanges; it instructs buyers to read the product-page marking carefully. |
+| P17b-01 | [GoldPrice.org live reading has drifted further below the dated anchor](https://goldprice.org/) | spot | **flagged** | F65 |
+| P17b-02 | [World Gold Council goldhub spot corroboration](https://www.gold.org/goldhub/data/gold-prices) | spot | **confirmed** | F65 |
+| P17b-03 | [LBMA benchmark page and licensing note still correct](https://www.lbma.org.uk/prices-and-data/lbma-precious-metal-prices) | spot | **confirmed** | F65 |
+| P17b-04 | [Kitco live bid corroboration](https://www.kitco.com/gold-price-today-usa/) | spot | **confirmed** | F65 |
+| P17b-05 | [BullionVault live spot corroboration](https://www.bullionvault.com/gold-price-chart.do) | spot | **confirmed** | F65 |
+| P17b-06 | [Wilson's R12 Art Deco Lotus ring still $5,350 with its stamp and maker's mark](https://www.wilsonsestatejewelry.com/products/art-deco-old-mine-cut-diamond-18-karat-white-gold-antique-lotus-engagement-ring-gia) | R12 | **confirmed** | F65 |
+| P17b-07 | [Sarraf R20 14k white gold solitaire still $3,004 / 3.80 g](https://www.sarraf.com/products/14k-white-gold-solitaire-ring-0-94-ctw.html) | R20 | **confirmed** | F65 |
+| P17b-08 | [Sarraf R26 18k men's solitaire still $4,068 / 6.30 g](https://www.sarraf.com/products/18k-yellow-gold-mens-solitaire-diamond-ring-3-4-ct.html) | R26 | **confirmed** | F65 |
+| P17b-09 | [Sarraf R21 10k comfort-fit band still $613 / 8.30 g](https://www.sarraf.com/products/10k-gold-6mm-high-polished-comfort-fit-wedding-band.html) | R21 | **confirmed** | F65 |
+| P17b-10 | [Sarraf R27 14k CZ ring still $695 / 2.50 g](https://www.sarraf.com/products/14k-yellow-gold-round-cut-8-8mm-wide-1-0ct-cz-engagement-ring.html) | R27 | **confirmed** | F65 |
+| P17b-11 | [Mejuri R01 Bold Diamond Eternity Ring still 'From $2,900'](https://mejuri.com/products/bold-diamond-eternity-ring) | R01 | **confirmed** | F65 |
+| P17b-12 | [Blue Nile R08 self-contradiction (F1) still live](https://www.bluenile.com/engagement-rings/design-your-own-ring/floral-marquise-diamond-engagement-ring-in-18k-white-gold-item-203738) | R08 | **confirmed** | F65 |
+| P17b-13 | [Blue Nile SOL-01 classic four-prong solitaire still $1,125](https://www.bluenile.com/engagement-rings/design-your-own-ring/classic-four-prong-solitaire-engagement-ring-in-18k-yellow-gold-item-194158) | SOL-01 | **confirmed** | F65 |
+| P17b-14 | [Ross-Simons R15 2mm 18kt band still $249 / 0.7 g](https://www.ross-simons.com/products/985230) | R15 | **confirmed** | F65 |
+| P17b-15 | [Ross-Simons BND-04 2mm 14kt band still $400 / 1.7 g](https://www.ross-simons.com/products/571221) | BND-04 | **confirmed** | F65 |
+| P17b-16 | [Ross-Simons BND-05 4mm 14kt band still $949 / 4.2 g](https://www.ross-simons.com/products/571212) | BND-05 | **confirmed** | F65 |
+| P17b-17 | [Ross-Simons BND-06 Italian dome ring still $1,195 / 4.0 g](https://www.ross-simons.com/products/823796) | BND-06 | **confirmed** | F65 |
+| P17b-18 | [Ross-Simons BND-08 22kt coin ring still $3,295 / 5.9 g](https://www.ross-simons.com/products/993085) | BND-08 | **confirmed** | F65 |
+| P17b-19 | [Mejuri BND-12 2mm smooth band still $498 / Solid Yellow Gold (14k)](https://mejuri.com/products/2mm-smooth-band?Material=Solid+Yellow+Gold+%2814k%29) | BND-12 | **confirmed** | F65 |
+| P17b-20 | [Menē R30 Wrap Ring moved again, to $3,202](https://mene.com/products/wrap-ring-gold) | R30 | **corrected** | F65 |
+| P17b-21 | [Menē BND-01 Classic Band still $1,694](https://mene.com/products/mene-classic-band-gold) | BND-01 | **confirmed** | F65 |
+| P17b-22 | [Menē BND-02 Narrow Flat Band still $1,532](https://mene.com/products/mene-narrow-flat-band-gold) | BND-02 | **confirmed** | F65 |
+| P17b-23 | [Menē BND-03 Wide Flat Band page recovered and now reads $2,445](https://mene.com/products/mene-wide-flat-band-gold) | BND-03 | **corrected** | F65 |
+| P17b-24 | [Automic Gold R24 Claddagh Ring still $875 / Solid 14k Gold and 950 Platinum](https://www.automicgold.com/products/claddagh-ring) | R24 | **confirmed** | F65 |
+| P17b-25 | [Brilliant Earth SOL-05 Fairmined solitaire still $1,090, with F27 band-width bug and no resizing](https://www.brilliantearth.com/Fairmined-2mm-Six-Prong-Solitaire-Ring-Gold-BE1FM0126-24910022/) | SOL-05, R29 | **confirmed** | F65 |
 
 ## Irregularities raised
 
