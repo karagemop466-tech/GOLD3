@@ -27,7 +27,7 @@ Read it before starting any work. Update it when you claim, finish, or hand off 
 | `arena/57724486-gold3` | `arena/57724486-gold3` | 2026-10-23T20:30Z | **in progress** — Pass `P12`: freshest live re-verification of the spot benchmark + a rotating sample of the highest-priced `R*` rows and `SOL`/`BND` rows, headline-count/consistency sweep of every published page vs `data/`, then final integration (rebuild, 9 gates, PR → `main`, merge, Pages deploy read-back) |
 | `arena/438a583e-gold3` | `arena/438a583e-gold3` | 2026-10-23T20:17Z | **complete** — Pass `P14` (renumbered three times as PRs #51, #54 and #56 landed the same ids): every weight-bearing PDP re-read live (0 changes), four-feed spot corroboration to 0.026%, `scripts/refresh_spot_anchor.py`, finding `F45`; §19 |
 | `arena/db2fe957-gold3` | `arena/db2fe957-gold3` | 2026-10-23T20:20Z | **complete** — `P15` + `P16`: PRs #64 and #65 merged (`d3db33f`, `0560c57`), main CI green, Pages built, live read-back verified including SD24 (§21). |
-| `arena/1ee91485-gold3` | `arena/1ee91485-gold3` | 2026-10-23T23:43Z | **pass published, integration remaining** — Pass `P17`: 25 live checks (gold benchmark + 20 rows) at 2026-10-23T23:43-23:45Z, 22 confirmed / 2 corrected / 1 flagged, new finding `F50`, CR-P15-2 conflicted-report split resolved; final integration (rebuild, 9 gates, PR → `main`, merge, Pages deploy read-back) still to run |
+| `arena/1ee91485-gold3` | `arena/1ee91485-gold3` | 2026-10-23T23:43Z | **pass published (as `P17b`), integration remaining** — Pass `P17b`: 25 live checks (gold benchmark + 20 rows) at 2026-10-23T23:43-23:45Z, 22 confirmed / 2 corrected / 1 flagged, new finding `F50`, CR-P15-2 conflicted-report split resolved. Renumbered `P17`→`P17b` because the peer session `arena/36ebce13-gold3` independently claimed `P17` (31 Dataset A/policy checks) and is already merged to `main`; the two passes are additive. Final integration (rebuild, 9 gates, PR → `main`, merge, Pages deploy read-back) still to run |
 
 ### Branch naming note (important)
 The protocol below asks for `session-<id>/<task>` branches. **This sandbox pins each session to a
@@ -95,7 +95,7 @@ Status values: `unclaimed` · `in progress` · `done` · `needs review`
 | DC3 | Open & merge PR #44 (`a0b589b`) to `main`, confirm GitHub Pages deployment (`39941002177`, `status: built`) & live read-back, record final outcome | done | `arena/15b00e99-gold3` | `COORDINATION.md` | 2026-10-23T10:44Z |
 | P15 | Additive net-new verification after peer P12–P14: Dataset C BND-04–BND-08 live weight checks, NIST attribution correction, VRAI SPEC7 source/text correction, Automic R23 lead-time flag, JSON-derived band ratios/calculator presets and regression guards. Preserved the peer-reviewed dated spot anchor and live-check row. Published `data/reverification-p15.json` + `reports/reverification-pass-p15.md`, 11 checks (7 confirmed / 3 corrected / 1 flagged), findings F46–F49, 222-check ledger. | done | `arena/db2fe957-gold3` | `data/reverification-p15.json`, `reports/reverification-pass-p15.md`, `data/verification.json`, `data/findings.json`, `data/flags.json`, `data/rings.json`, `data/spot-and-standards.json`, `scripts/build_ext_pages.py`, `scripts/render-test.js`, `assets/gold3-calc.js`, generated pages, `COORDINATION.md` | 2026-10-23T20:47Z |
 | P16 | Final additive integration complete: PR #64 merged as `d3db33f` (CI `40022197030`, Pages `40022195726`); SD24 follow-up PR #65 merged as `0560c57` (CI `40022618277`, Pages `40022617874`). Live read-back verified P15 attribution, 222 checks, JSON presets and F2 `19 of 71`. All local gates green: render 156/156, 1,014/1,014 official row links, security #36, archive 7/7. | done | `arena/db2fe957-gold3` | repo root (integration window), `COORDINATION.md` | 2026-10-23T20:54Z |
-| P17 | Seventeenth independent live verification pass on the `main` tip `85ac1fa` (PR #66). Re-open the gold-spot benchmark + a rotating sample of price/weight-bearing `R*`/`SOL`/`BND` rows and every data-file URL for dead links; split the conflicted `reports/reverification-1162b2db.md` (CR-P15-2); publish `data/reverification-p17.json` + `reports/reverification-pass-p17.md`; then final integration (rebuild, all 9 CI gates, PR → `main`, merge, Pages deploy read-back). | pass published (25 checks · 22 confirmed / 2 corrected / 1 flagged · F50 · CR-P15-2 closed) · integration next | `arena/1ee91485-gold3` | `data/reverification-p17.json`, `reports/reverification-pass-p17.md`, `reports/reverification-incomplete.md`, `data/verification.json`, `data/prices.json` (additive live snapshot), `data/rings.json` (R30 `live_recheck`), `data/bands-and-high-karat.json` (BND-03 `live_recheck`), `data/findings.json` (F50), `reports/reverification-1162b2db.md` (CR-P15-2 split), `scripts/build_site.py` (newest live-check selector); integration window over generated `*.html`, `data/verified-data.js`, `verification/*` | 2026-10-23T23:45Z |
+| P17b | Seventeenth independent live verification pass on the `main` tip `85ac1fa` (PR #66). Re-open the gold-spot benchmark + a rotating sample of price/weight-bearing `R*`/`SOL`/`BND` rows and every data-file URL for dead links; split the conflicted `reports/reverification-1162b2db.md` (CR-P15-2); publish `data/reverification-p17b.json` + `reports/reverification-pass-p17b.md`; then final integration (rebuild, all 9 CI gates, PR → `main`, merge, Pages deploy read-back). Renumbered from `P17` after the peer session `arena/36ebce13-gold3` independently claimed the same id and is already merged to `main`. | pass published (25 checks · 22 confirmed / 2 corrected / 1 flagged · F50 · CR-P15-2 closed) · integration next | `arena/1ee91485-gold3` | `data/reverification-p17b.json`, `reports/reverification-pass-p17b.md`, `reports/reverification-incomplete.md`, `data/verification.json`, `data/prices.json` (additive live snapshot), `data/rings.json` (R30 `live_recheck`), `data/bands-and-high-karat.json` (BND-03 `live_recheck`), `data/findings.json` (F50), `reports/reverification-1162b2db.md` (CR-P15-2 split), `scripts/build_site.py` (newest live-check selector); integration window over generated `*.html`, `data/verified-data.js`, `verification/*` | 2026-10-23T23:45Z |
 | P12 | Eleventh independent live verification pass on the post-PR-#50 tree (`253ab39`): **7 live checks — 3 confirmed / 2 corrected / 2 flagged**. Spot anchor 0.62% below the stored snapshot with an inverted clock label (F39); Menē Classic Band $1,707→$1,694 and Narrow Flat Band $1,544→$1,532 (F40); Menē Wide Flat Band page returned HTTP 500 so its price was left captured (SRC3); Sarraf R20, Ross-Simons BND-04 and Mejuri R03 confirmed verbatim. Also fixed SD14 (three headline counts said 50 while the site renders 71) and SD15 (duplicate `P11-01/P11-02` ids, duplicate `SD6/SD10`, stale `summary.checks` 137 vs 185) and added three audit guard rails. Published `data/reverification-57724486.json` + `reports/reverification-pass-57724486.md`; log now **192 checks**. Verification pass on the post-PR-#50 tree (`253ab39`): re-open the spot benchmark and a rotating sample of price/weight-bearing rows live, sweep every published headline count against `data/`, fix any discrepancy found, publish `data/reverification-57724486.json` + report, then final integration (rebuild, all 9 CI gates, PR → `main`, merge, Pages deploy read-back) | done | `arena/57724486-gold3` | `data/reverification-57724486.json`, `reports/reverification-pass-57724486.md`, `data/verification.json`, `COORDINATION.md`; integration window over generated `*.html`, `data/*.json`, `verification/*`, `reports/*` | 2026-10-23T21:00Z |
 
 > **T10 closed 2026-10-23** by its owner's own work, merged as PR #13 (board record) and PR #15
@@ -234,7 +234,7 @@ was read instead.
 **Gates:** verify PASS · builders OK (18 pages) · audit 31 rows 0/0/173 · security SEC-01…07 PASS · render 120/120 ·
 report 116 checks · **790** root table rows / 0 missing official links · archive suite PASS.
 
-### 2026-10-23 — `arena/1ee91485-gold3` — pass P17 (V17)
+### 2026-10-23 — `arena/1ee91485-gold3` — pass P17b (V17b)
 
 25 official URLs re-opened live at `2026-10-23T23:43-23:45Z` on `main` @ `85ac1fa` (PR #66). **22 confirmed · 2
 corrected · 1 flagged**; `data/verification.json` now holds **247 checks** across 17 passes.
@@ -264,7 +264,7 @@ corrected · 1 flagged**; `data/verification.json` now holds **247 checks** acro
 **Gates (all nine, run locally in CI order after the rebuild):** `verify.py` **PASS** (0 errors / 0 warnings / 12
 notes) · `verify_dataset_c.py` **PASS** (21 rings, 5 weight-published, 16 null/unverified, 0 dead links) · both
 builders **PASS** · `audit.py` **PASS** (31 rows, 0 errors / 0 warnings / 176 checks) ·
-`run_security_audit.py --deterministic --pass-label P17` **PASS #37** (SEC-01…SEC-07, 0 errors; 2,384 links/anchors;
+`run_security_audit.py --deterministic --pass-label P17b` **PASS #37** (SEC-01…SEC-07, 0 errors; 2,384 links/anchors;
 69 irregularity scans) · `render-test.js` **PASS 156/156** · `report_verify.py` **PASS** (247 checks) · root
 official-link gate **PASS** (1,014/1,014 rows, 0 non-HTTPS) · archive suite **PASS 7/7** (156 internal + 270
 external links). The dead-link sweep over the official-URL manifest ran as part of SEC-06: `unique_official_urls_count`
@@ -297,7 +297,7 @@ See **§4b** for the item-by-item record. No work was discarded and no shared fi
 | CR-P3-10 | `arena/699d8e05-gold3` 2026-10-23T00:12Z | `data/rings.json, data/verified-data.js, verification/sources-manifest.json` | Repoint two dead official URLs wherever they appear outside data/sellers.json. https://www.sarraf.com/pages/returns-and-refunds.html returns '404 Error - Page not found' and the live page is https://www.sarraf.com/30-day-returns-and-exchange-policy/. https://www.automicgold.com/pages/return-policy returns '404 Not Found - Automic Gold' and the live page is https://www.automicgold.com/policies/refund-policy. Both dead URLs were fetched on 2026-10-23 (evidence in checks P3-39 and P3-44). These files are claimed by other sessions, so this pass filed a request instead of editing them: the brief requires every table row to carry a working source link to an official site, and a citation that 404s cannot be checked by a reviewer. | **closed 2026-10-23** — applied by this session as the integration session (all other sessions complete): 5 citations in `data/rings.json` and 2 in `verification/sources-manifest.json` repointed to the live pages, `data/verified-data.js` regenerated, zero dead hrefs remain in any published page |
 
 | CR-P15-1 | `arena/db2fe957-gold3` 2026-10-23T20:44Z | `data/reverification-c-6ccbc523.json` (historical peer evidence) | Correct the statement that the NIST *Precious Metals Conversion Information* page “explicitly confirms 1 oz t = 31.1034768 g.” P15 re-read it: the page prints Handbook 130 §2.17 and links a PDF, but no troy-ounce-to-gram figure. The constant remains valid via NIST SP 811 B.9 and exactly 480 grains/troy oz (`480 × 0.06479891 = 31.1034768 g`). Peer file not edited; corrected derivation is in `data/spot-and-standards.json` and finding **F46**. | open — non-blocking documentation correction; published on `flagged.html#F46` |
-| CR-P15-2 | `arena/db2fe957-gold3` 2026-10-23T20:44Z | `reports/reverification-1162b2db.md` (pre-existing on `main`) | The file begins with `<<<<<<< HEAD`, contains `=======` at line 35 and `>>>>>>> origin/main` at line 83, concatenating two different reports. This predates P15 (present at `253ab39`) and is not used by the site build. Resolve/split the two report versions without discarding either session's evidence. | **closed 2026-10-23** by `arena/1ee91485-gold3` (pass P17): the conflict markers are gone. `reports/reverification-1162b2db.md` is now the clean P5 primary-source report (HEAD side) with a header note recording the split; the Dataset C/D half the file had concatenated is the live-verified surface at `reports/reverification-dataset-c.md`; and `reports/reverification-incomplete.md` catalogues the stale/historical artifacts (`reverification-c-6ccbc523.md`, `reverification-dataset-c-15b00e99.md`, `revalidation-sess-692d.md`) as retained, not re-verified. Neither session's evidence was discarded. Pass P17 also re-opened the live pages behind the Dataset C surface and confirmed them verbatim. |
+| CR-P15-2 | `arena/db2fe957-gold3` 2026-10-23T20:44Z | `reports/reverification-1162b2db.md` (pre-existing on `main`) | The file begins with `<<<<<<< HEAD`, contains `=======` at line 35 and `>>>>>>> origin/main` at line 83, concatenating two different reports. This predates P15 (present at `253ab39`) and is not used by the site build. Resolve/split the two report versions without discarding either session's evidence. | **closed 2026-10-23** by `arena/1ee91485-gold3` (pass P17b): the conflict markers are gone. `reports/reverification-1162b2db.md` is now the clean P5 primary-source report (HEAD side) with a header note recording the split; the Dataset C/D half the file had concatenated is the live-verified surface at `reports/reverification-dataset-c.md`; and `reports/reverification-incomplete.md` catalogues the stale/historical artifacts (`reverification-c-6ccbc523.md`, `reverification-dataset-c-15b00e99.md`, `revalidation-sess-692d.md`) as retained, not re-verified. Neither session's evidence was discarded. Pass P17b also re-opened the live pages behind the Dataset C surface and confirmed them verbatim. |
 
 ## 4a. Irregularities published for review (do not block the merge)
 
@@ -330,7 +330,7 @@ Added by the fourth pass (2026-10-23), all published on *Flagged for Review* wit
     silence rather than filled in from industry practice.
 16. **`SD7` (site defect, fixed)** Flag `PD1` claimed a live-vs-cached price difference that does not exist ($299 on the
     page, $299 in the record). Retired.
-17. **`F50` (medium)** Pass P17 (2026-10-23T23:43-23:45Z): the live gold spot keeps drifting below the dated anchor —
+17. **`F50` (medium)** Pass P17b (2026-10-23T23:43-23:45Z): the live gold spot keeps drifting below the dated anchor —
     five independent feeds read `$3,994.90-$3,995.88/oz` (Kitco / World Gold Council / BullionVault / GoldPrice.org),
     0.65% under the dated primary `$4,022.22/oz` — and Menē repriced twice more in the same window (Wrap Ring
     `$3,253 → $3,202`; Wide Flat Band page recovered from HTTP 500 at `$2,445`, captured `$2,465`). The dated anchor
@@ -1215,11 +1215,11 @@ After every review, rerun all gates and look specifically for values absent from
 
 ---
 
-## 22. Session `arena/1ee91485-gold3` — Pass `P17`: live benchmark re-measure + 20-row rotation + CR-P15-2 split (2026-10-23)
+## 22. Session `arena/1ee91485-gold3` — Pass `P17b`: live benchmark re-measure + 20-row rotation + CR-P15-2 split (2026-10-23)
 
 ### 22.1 Scope claimed and what was done
 
-`P17` was claimed on the `main` tip `85ac1fa` (PR #66) at `2026-10-23T23:43Z`. It re-opened the gold-spot benchmark
+`P17b` was claimed on the `main` tip `85ac1fa` (PR #66) at `2026-10-23T23:43Z` (as `P17`; renumbered `P17b` because the peer session `arena/36ebce13-gold3` independently claimed `P17` and is already merged to `main`). It re-opened the gold-spot benchmark
 and a rotating sample of price/weight-bearing `R*`/`SOL`/`BND` rows on the live pages, closed CR-P15-2, and
 published the additive artifacts. **25 official URLs opened live at `2026-10-23T23:43-23:45Z`.**
 
@@ -1271,7 +1271,7 @@ surface is `reports/reverification-dataset-c.md`; and the stale/historical artif
 ### 22.6 Files changed
 
 `data/reverification-p17.json` (new) · `reports/reverification-pass-p17.md` (new) ·
-`reports/reverification-incomplete.md` (new) · `data/verification.json` (pass `P17` + 25 checks; 247 checks) ·
+`reports/reverification-incomplete.md` (new) · `data/verification.json` (pass `P17b` + 25 checks) ·
 `data/prices.json` (fourth `live-check` snapshot) · `data/rings.json` (R30 `live_recheck`) ·
 `data/bands-and-high-karat.json` (BND-03 `live_recheck` + flag) · `data/findings.json` (F50) ·
 `scripts/build_site.py` (newest live-check selector) · `scripts/render-test.js` (SD20 guard) ·
@@ -1289,7 +1289,7 @@ Dataset C/B pages, `calculator.html`, `verify.html`, `flagged.html`, `flagged-fo
 | `verify_dataset_c.py` | **PASS** — 21 rings, 5 weight-published, 16 null/unverified, 0 dead links |
 | Both builders | **PASS** — 18 pages, internal links/stylesheets/product URLs OK |
 | `audit.py` | **PASS** — 31 rows, 0 errors / 0 warnings / 176 checks |
-| `run_security_audit.py --deterministic --pass-label P17` | **PASS #37** — SEC-01…SEC-07, 0 errors; 2,384 links/anchors |
+| `run_security_audit.py --deterministic --pass-label P17b` | **PASS #37** — SEC-01…SEC-07, 0 errors; 2,384 links/anchors |
 | `render-test.js` | **PASS** — 156/156 |
 | `report_verify.py` | **PASS** — 247 checks rendered |
 | Root official-link gate | **PASS** — 1,014/1,014 rows / 0 missing official links |
@@ -1297,7 +1297,7 @@ Dataset C/B pages, `calculator.html`, `verify.html`, `flagged.html`, `flagged-fo
 
 ### 22.8 PR, merge and deployment record
 
-- **PR #67:** `arena/1ee91485-gold3` → `main` (pass `P17` + CR-P15-2 split). *(to be opened)*
+- **PR:** `arena/1ee91485-gold3` → `main` (pass `P17b` + CR-P15-2 split). *(to be opened)*
 - **Main CI / Pages / live read-back:** *(to be recorded after merge)*
 - **Recommended next hallucination hunt:** re-read every Menē page immediately before any order (it reprices
   continuously); confirm `F1` (Blue Nile 18K/14k), `F27` (Brilliant Earth band-width unit) and `F40`/`F50` (Menē)

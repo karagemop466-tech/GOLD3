@@ -1,8 +1,14 @@
-# Seventeenth verification pass — the gold benchmark re-read, and 20 rows rotated back onto live pages
+# Seventeenth verification pass (P17b) — the gold benchmark re-read, and 20 rows rotated back onto live pages
 
 **Session:** `arena/1ee91485-gold3` · **Date:** 23 October 2026 · **Tip verified:** `main` @ `85ac1fa` (PR #66)
 **Result:** 25 checks — **22 confirmed · 2 corrected · 1 flagged** — 25 official URLs opened live at `2026-10-23T23:43-23:45Z`.
-**Companion data:** [`data/reverification-p17.json`](../data/reverification-p17.json) · **Ledger:** `data/verification.json` (now 17 passes / 247 checks)
+**Companion data:** [`data/reverification-p17b.json`](../data/reverification-p17b.json) · **Ledger:** `data/verification.json`
+
+> **Renumbered `P17` → `P17b`.** The peer session `arena/36ebce13-gold3` independently claimed the same task id and
+> published its own `P17` (31 checks on Dataset A PDPs, seller policies and Trustpilot snapshots), which is already
+> merged to `main`. To avoid colliding check ids (`P17-01`…) and the artifact filenames, this session's pass is
+> `P17b` and its artifacts are `data/reverification-p17b.json` / `reports/reverification-pass-p17b.md`. The two
+> passes cover different rows and are additive; neither discards the other.
 
 ## Why this pass exists
 
@@ -73,7 +79,7 @@ Both are recorded in finding **F50**.
   and `F28`/`F40` are all still live and still published on `flagged.html`.
 - No `price_usd` was overwritten; no weight was inferred; nothing peer-owned was edited.
 
-## 5. The P17 delta, in one line
+## 5. The P17b delta, in one line
 
 > Five gold-spot feeds confirm a ~$3,995/oz live cluster, 0.65% under the dated anchor; twenty rows were
 > re-opened live and every stored value matched; Menē moved twice more and its Wide Flat Band page came back.
