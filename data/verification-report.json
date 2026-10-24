@@ -424,7 +424,7 @@
     {
       "id": "F2",
       "severity": "high",
-      "title": "Only {n_all_weights} of {n_all_listings} listings publish a weight - none from Dataset A's five retailers"
+      "title": "Only {n_all_weights} of {n_all_listings} listings have a numeric gram weight for melt review - none from Dataset A's five retailers"
     },
     {
       "id": "F3",
