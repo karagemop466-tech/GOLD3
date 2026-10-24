@@ -1,12 +1,12 @@
 {
-  "generated_at_utc": "2026-10-24T00:01:36Z",
+  "generated_at_utc": "2026-10-24T00:02:55Z",
   "data_file_sha256": {
     "bands-and-high-karat.json": "954cb5aa552b14adc0bfc6b81196bea9d430dcb3dd7a0813707ef00e9c55d7f1",
-    "findings.json": "f3fa9ff24c49105ccbd18b62f9bdaca4061acce3855cf57f2a217d0c5f7a1cb7",
+    "findings.json": "01f44b91981738870d2e106ec468439678c6042594ac5cdc8c200c2d2e24e70e",
     "flags.json": "4b2174a3d2dc67b580a56ee12cc4ce30e8ba0c34035163fa9106252fd23a0bed",
     "gold-price.json": "bdb3a741c6696f56ec713c090706cb98fefb53901fe284dfe105308a7d6a7e08",
     "prices.json": "159256040f05a5a2e3a5586ee289b506e1b246c920697318d4374cb5bc5340aa",
-    "products.json": "7a44cd4838b7fe6ab8e372af4bb303de92c901cdc56263b7169b6c372a92415d",
+    "products.json": "26157967006c399925147058cbb9a2e24428c139826a7710122b2184b51ba590",
     "requirements-matrix.json": "55c36ec8d64cce9738e2020dfd018a1d50f3ba71b68356185a4182b616ef7af6",
     "retailers.json": "d4039b5186870537ca4747334d706df350380fd18ce8f4f27ad4fc072a4d8e47",
     "reverification-1162b2db.json": "803157bd7daddc10ea8ab4773c5ee1df1b5573c259c53c18c74c025263cea4b3",
@@ -30,10 +30,10 @@
     "sources.json": "bf79b38c367e0f1a267cf17c23f9ecf77a20dc48339870a2d2f043a27c10e338",
     "spot-and-standards.json": "b2b4203069b283be7a36228bf776aed7bda1e673435d1e2488c83e3fd890e03b",
     "standards.json": "6b745302667c70fb15800fb830471250551a37e238e507a8b993f8e3c4423ad8",
-    "verification-report.json": "a228beb4007b98589bfc6074559709ab4f95a5c9dc6020585ff043ce647c506a",
+    "verification-report.json": "05c3273f4a55456fc8ea7531b05ae50251329b32cd34a532c82d78a10b55be4b",
     "verification.json": "f54a2169904b903fc9c6177688794ccc13c1c0d5482cd036938b11827efd3369"
   },
-  "unique_official_urls_count": 185,
+  "unique_official_urls_count": 186,
   "official_sources": [
     {
       "url": "https://auratenewyork.com/",
@@ -1182,12 +1182,17 @@
       ]
     },
     {
+      "url": "https://www.kitco.com/precious-metals",
+      "referenced_by": [
+        "HTML Link in flagged.html"
+      ]
+    },
+    {
       "url": "https://www.kitco.com/price/precious-metals",
       "referenced_by": [
         "HTML Link in bands-vintage-rings.html",
         "HTML Link in checklist-standards.html",
         "HTML Link in flagged-for-review.html",
-        "HTML Link in flagged.html",
         "HTML Link in requirements.html",
         "HTML Link in sellers-policies.html",
         "HTML Link in solitaire-settings.html",

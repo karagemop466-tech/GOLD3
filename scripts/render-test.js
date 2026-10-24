@@ -140,8 +140,16 @@ check("SD4 rings.html makes no completeness claim", !/every verified solid gold 
 check("SD7 nav carries Combined (71)", html["index.html"].includes("Combined (71)"));
 check("SD7 index.html melt footnote does not claim zero weights overall",
   !/none of the listings publishes a weight/i.test(html["index.html"]));
-check("SD7 rings.html renders Aurate published weight range",
-  html["rings.html"].includes("Weight: 5.5-8.5g") && html["rings.html"].includes("range only (unverified)"));
+const _p17AurateRows = json("data/products.json").products.filter((p) => p.id.startsWith("aurate-")).map((p) => {
+  const start = _ringsHtml.indexOf(`<tr id="p-${p.id}"`);
+  const end = start < 0 ? -1 : _ringsHtml.indexOf("</tr>", start);
+  return { p, row: start < 0 || end < 0 ? "" : _ringsHtml.slice(start, end + 5) };
+});
+check("SD7 rings.html renders every Aurate weight without treating it as gold weight",
+  _p17AurateRows.length === 7 &&
+  _p17AurateRows.every(({ p, row }) => row && p.weight_quote && row.includes(p.weight_quote) && !row.includes("not published")) &&
+  html["rings.html"].includes("range only (unverified)") &&
+  html["rings.html"].includes("scope unverified; not gold weight"));
 
 // SD8: combined.html filter toolbar & data-cats attributes on all 3 passes
 check("SD8 combined.html toolbar has Dataset C filter", html["combined.html"].includes('data-filter="c"'));
@@ -254,8 +262,9 @@ check("P15 NIST constant carries its exact derivation and corrected attribution"
 check("SD24 verification session attribution includes P15",
   verif.session.includes("arena/db2fe957-gold3 (P15)") &&
   includesText(html["verify.html"], "arena/db2fe957-gold3 (P15)"));
-check("SD24 F2 uses full A+B+C weight and listing counts",
-  includesText(html["flagged.html"], "Only 19 of 71 listings publish a weight") &&
+check("SD24 F2 uses full counts and distinguishes entered weights from published ranges",
+  includesText(html["flagged.html"], "Only 19 of 71 listings have a numeric gram weight for melt review") &&
+  includesText(html["flagged.html"], "Published ranges and unscoped figures") &&
   !includesText(html["flagged.html"], "Only 14 of 50 listings publish a weight"));
 check("SD24 README pass range and ledger count are current",
   read("README.md").includes("P1`–`P19") && read("README.md").includes("265 logged checks"));
@@ -307,7 +316,8 @@ const _p17Primary = _prices.snapshots.find((s) => s.role === "primary");
 const _p17Live = _prices.snapshots.find((s) => String(s.role).startsWith("live-check"));
 check("P17 refreshes only the live spot reference and preserves the calculation anchor",
   _p17Primary.price_usd_per_troy_oz === 4022.22 && _p17Live.price_usd_per_troy_oz === 3995.88 &&
-  html["calculator.html"].includes("3,995.88"));
+  html["calculator.html"].includes("3,995.88") && html["calculator.html"].includes("finding F55") &&
+  !html["calculator.html"].includes("findings F39 and F43"));
 
 
 // P17: the requirements matrix must stay derived, not typed in.

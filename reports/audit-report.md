@@ -1,6 +1,6 @@
 # Anti-hallucination audit report
 
-- Run: 2026-10-24 00:02 UTC
+- Run: 2026-10-24 00:03 UTC
 - Rows audited: **31**
 - Sellers audited: **14**
 - Flag definitions: **54**
@@ -178,7 +178,7 @@ None.
 - [verify] all 31 rows appear in the verification log
 - [verify] summary counts recomputed from the entries and match
 - [flags] 54 flag definitions validated
-- [verify] all 24 site-defect ids are unique
+- [verify] all 25 site-defect ids are unique
 - [standards] all karat fractions reproduce n/24
 - [standards] 8 legal rules carry citations
 - [site] verify.html present

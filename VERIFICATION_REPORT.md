@@ -1,9 +1,9 @@
 # GOLD3 — Anti-Hallucination & Security Verification Report
 
-- **Latest Audit Pass:** Pass #41 — `Pass P19 integration`
-- **Timestamp (UTC):** `2026-10-24T00:01:36Z`
+- **Latest Audit Pass:** Pass #42 — `Pass P19 integration`
+- **Timestamp (UTC):** `2026-10-24T00:02:55Z`
 - **Overall Result:** **PASS** (`0` integrity errors)
-- **Unique Official HTTPS URLs Verified:** `185`
+- **Unique Official HTTPS URLs Verified:** `186`
 - **Catalog Entries Audited:** `21` rings + `5` sellers + `7` karat standards
 - **Items Published on Flagged for Review (`flagged-for-review.html`):** `21` entries (`68` specific findings)
 
@@ -18,7 +18,7 @@
 | `SEC-03` | Zero-Inference Enforcement (Unverified Values Strictly Left Blank/Null) | **PASS** | `17` | Confirmed 17 items with unconfirmed metal gram weights or mixed-karat splits keep null numeric cells (never inferred) and carry explicit review flags. |
 | `SEC-04` | NIST Troy-Ounce (31.1034768 g) & Raw Melt Arithmetic Audit | **PASS** | `11` | Mathematically verified spot conversion ($4,022.70 / 31.1034768 = $129.3328/g), all 7 karat tiers, and all 4 weight-complete rings to <= $0.02 tolerance. |
 | `SEC-05` | Automated Irregularity, Plated-Control, BBB & Return-Exclusion Scanner | **PASS** | `68` | Cataloged 68 line-by-line review flags across 21 flagged ring entries for publication on flagged-for-review.html. |
-| `SEC-06` | Static HTML Internal/External Link Integrity & Anchor Verification | **PASS** | `3303` | Parsed 25 HTML pages and verified 3303 links, stylesheets, scripts, and anchor targets with zero broken links. |
+| `SEC-06` | Static HTML Internal/External Link Integrity & Anchor Verification | **PASS** | `3304` | Parsed 25 HTML pages and verified 3304 links, stylesheets, scripts, and anchor targets with zero broken links. |
 | `SEC-07` | Front-End Security, No-Hallucinations Top Banner & Zero-External-Script Check | **PASS** | `25` | Verified zero third-party script dependencies, strict rel='noopener noreferrer' on external links, zero eval() calls, and active Front-Page No-Hallucinations Mandate summary. |
 
 ## SHA-256 Integrity Digests (`data/*.json`)
@@ -26,11 +26,11 @@
 | File | SHA-256 Digest |
 |---|---|
 | `data/bands-and-high-karat.json` | `954cb5aa552b14adc0bfc6b81196bea9d430dcb3dd7a0813707ef00e9c55d7f1` |
-| `data/findings.json` | `f3fa9ff24c49105ccbd18b62f9bdaca4061acce3855cf57f2a217d0c5f7a1cb7` |
+| `data/findings.json` | `01f44b91981738870d2e106ec468439678c6042594ac5cdc8c200c2d2e24e70e` |
 | `data/flags.json` | `4b2174a3d2dc67b580a56ee12cc4ce30e8ba0c34035163fa9106252fd23a0bed` |
 | `data/gold-price.json` | `bdb3a741c6696f56ec713c090706cb98fefb53901fe284dfe105308a7d6a7e08` |
 | `data/prices.json` | `159256040f05a5a2e3a5586ee289b506e1b246c920697318d4374cb5bc5340aa` |
-| `data/products.json` | `7a44cd4838b7fe6ab8e372af4bb303de92c901cdc56263b7169b6c372a92415d` |
+| `data/products.json` | `26157967006c399925147058cbb9a2e24428c139826a7710122b2184b51ba590` |
 | `data/requirements-matrix.json` | `55c36ec8d64cce9738e2020dfd018a1d50f3ba71b68356185a4182b616ef7af6` |
 | `data/retailers.json` | `d4039b5186870537ca4747334d706df350380fd18ce8f4f27ad4fc072a4d8e47` |
 | `data/reverification-1162b2db.json` | `803157bd7daddc10ea8ab4773c5ee1df1b5573c259c53c18c74c025263cea4b3` |
@@ -54,5 +54,5 @@
 | `data/sources.json` | `bf79b38c367e0f1a267cf17c23f9ecf77a20dc48339870a2d2f043a27c10e338` |
 | `data/spot-and-standards.json` | `b2b4203069b283be7a36228bf776aed7bda1e673435d1e2488c83e3fd890e03b` |
 | `data/standards.json` | `6b745302667c70fb15800fb830471250551a37e238e507a8b993f8e3c4423ad8` |
-| `data/verification-report.json` | `a228beb4007b98589bfc6074559709ab4f95a5c9dc6020585ff043ce647c506a` |
+| `data/verification-report.json` | `05c3273f4a55456fc8ea7531b05ae50251329b32cd34a532c82d78a10b55be4b` |
 | `data/verification.json` | `f54a2169904b903fc9c6177688794ccc13c1c0d5482cd036938b11827efd3369` |

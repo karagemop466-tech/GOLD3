@@ -2017,6 +2017,10 @@
         <td class="small">The first draft of the new matrix cited five authority pages at paths that were not the ones registered in data/sources.json (notably 16 CFR Part 23 under subchapter A instead of subchapter B) and used two unregistered consumer-advice URLs.</td>
         <td class="small">This pass, by cross-checking every authority URL against data/sources.json before publishing. <strong>Fix:</strong> Every authority link now points at a page already registered and quoted in data/sources.json, or at one of the two pages opened live this pass (15 U.S.C. 1666, 16 CFR Part 435) and added there. HS-09 in scripts/hallucination_scan.py enforces https + an action for all ten.</td>
         <td><span class="badge good">fixed</span></td>
+        <td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo commit</a></td></tr><tr><td class="mono">SD27</td><td class="mono small">.github/workflows/audit.yml, scripts/render-test.js</td>
+        <td class="small">The SD21 render guard compared flagged.html&#x27;s &#x27;Last automated pass&#x27; date with reports/audit-report.md, but CI built the site before running audit.py, so on the first run after UTC midnight the page carried the previous day&#x27;s date and the guard failed on a defect it had just introduced itself.</td>
+        <td class="small">This pass, when the full gate sequence failed at 00:0x UTC for that reason alone. <strong>Fix:</strong> CI now rebuilds both page sets immediately after audit.py, and the guard derives its expected date from the report instead of a typed literal (both changes committed together). The gate sequence was re-run in the corrected order: 177/177.</td>
+        <td><span class="badge good">fixed</span></td>
         <td class="small"><a href="https://github.com/karagemop466-tech/GOLD3" target="_blank" rel="noopener">repo commit</a></td></tr></tbody>
   </table>
 </div>

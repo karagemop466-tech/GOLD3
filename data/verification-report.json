@@ -424,7 +424,7 @@
     {
       "id": "F2",
       "severity": "high",
-      "title": "Only {n_all_weights} of {n_all_listings} listings publish a weight - none from Dataset A's five retailers"
+      "title": "Only {n_all_weights} of {n_all_listings} listings have a numeric gram weight for melt review - none from Dataset A's five retailers"
     },
     {
       "id": "F3",
@@ -694,7 +694,7 @@
     {
       "id": "F56",
       "severity": "medium",
-      "title": "Menē moved the Wrap Ring twice on 23 October \\u2014 a 'current price' from this seller is a moving target"
+      "title": "Menē moved the Wrap Ring twice on 23 October — a 'current price' from this seller is a moving target"
     },
     {
       "id": "F57",

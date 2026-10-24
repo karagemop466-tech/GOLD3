@@ -53,11 +53,11 @@
         </div>
         <div class="card finding high" id="F2">
           <div class="finding-head">
-            <h3>F2 · Only 19 of 71 listings publish a weight - none from Dataset A&#x27;s five retailers</h3>
+            <h3>F2 · Only 19 of 71 listings have a numeric gram weight for melt review - none from Dataset A&#x27;s five retailers</h3>
             <span class="badge bad">HIGH</span>
           </div>
-          <p class="small">Dataset A: 0 of 17 gold listings state a finished ring weight in grams. Datasets A+B: 14 of 50. Dataset C adds 5 more, giving 19 of 71 across the full site (16 sellers). None is an unqualified gold-only measurement: they are labelled approximate metal weight, total item weight including stones, or a metal-dependent figure. Aurate&#x27;s product feed carries a numeric &#x27;weight&#x27; field, but it repeats across variants and is not described as the finished item weight, so it was not used.</p>
-          <div class="evidence">Full site: 19 of 71 publish a weight (14 in A+B plus 5 in C). Each retains its source qualification; approximate, mixed-material or ambiguously scoped figures are flagged and never silently converted.</div>
+          <p class="small">Dataset A: 0 of 17 gold listings have a numeric gram weight entered for melt review. Aurate publishes ranges and unscoped figures on several listings, but no selected-variant gold-only weight, so those cells remain blank and unverified rather than being counted. Datasets A+B: 14 of 50. Dataset C adds 5 more, giving 19 of 71 across the full site (16 sellers). None of those entered figures is an unqualified gold-only measurement: each is labelled approximate metal weight, total item weight, or a metal-dependent figure.</p>
+          <div class="evidence">Full site: 19 of 71 have a numeric gram weight entered for melt review (14 in A+B plus 5 in C). Published ranges and unscoped figures outside that set remain visible but are not treated as gold weights. Each entered figure retains its source qualification; approximate, mixed-material or ambiguously scoped figures are flagged and never silently converted.</div>
           <p class="small"><strong>Source:</strong> <a href="https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring.js" target="_blank" rel="noopener">https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring.js</a></p>
 
           <p class="action"><strong>What to do:</strong> Ask the seller in writing for the gold-only weight in grams before paying, and keep the reply. Never substitute a total item weight (which includes the stone) for a gold weight - the difference can be a large share of the metal.</p>
@@ -559,10 +559,10 @@
         </div>
         <div class="card finding medium" id="F56">
           <div class="finding-head">
-            <h3>F56 · Menē moved the Wrap Ring twice on 23 October \u2014 a &#x27;current price&#x27; from this seller is a moving target</h3>
+            <h3>F56 · Menē moved the Wrap Ring twice on 23 October — a &#x27;current price&#x27; from this seller is a moving target</h3>
             <span class="badge warn">MEDIUM</span>
           </div>
-          <p class="small">The Wrap Ring was captured at $3,253 on 2026-10-22, printed $3,228 when pass P12 re-read it at 2026-10-23T20:17Z, and printed $3,202 when this pass re-read the same page at 2026-10-23T23:40Z — 1.57% below the capture and 0.81% below the earlier same-day reading. The seller states &#x27;Products are sold by weight, not size&#x27;, so the piece is priced off the metal rather than held at a fixed ticket. The stored price_usd stays at the captured $3,253 (never overwritten) and both live readings are kept in the row&#x27;s live_recheck block, so the drift is visible instead of hidden.</p>
+          <p class="small">The Wrap Ring was captured at $3,253 on 2026-10-22, printed $3,228 when pass P12 re-read it at 2026-10-23T20:17Z, and printed $3,202 when pass P19 re-read the same page at 2026-10-23T23:40Z — 1.57% below the capture and 0.81% below the earlier same-day reading. The seller states &#x27;Products are sold by weight, not size&#x27;, so the piece is priced off the metal rather than held at a fixed ticket. The stored price_usd stays at the captured $3,253 (never overwritten) and both live readings are kept in the row&#x27;s live_recheck block, so the drift is visible instead of hidden.</p>
           <div class="evidence">$3,253 (2026-10-22) · $3,228 (2026-10-23T20:17Z) · $3,202 (2026-10-23T23:40Z) · −1.57% over one day</div>
           <p class="small"><strong>Source:</strong> <a href="https://mene.com/products/wrap-ring-gold" target="_blank" rel="noopener">https://mene.com/products/wrap-ring-gold</a></p>
 
@@ -674,7 +674,7 @@
           </div>
           <p class="small">data/prices.json stores the GoldPrice.org reading of $4,022.22/oz, which is 129.3174 USD per gram of 24K and is what the dashboard&#x27;s karat tiles and the calculator use. data/spot-and-standards.json stores the Kitco bid of $4,022.70/oz, which is 129.3328 USD per gram, and Dataset C&#x27;s stored melt values were computed from that one. The gap is $0.0154/g (0.012%), so a reader who recomputes BND-04 from the dashboard tile gets 128.24 instead of the stored 128.26. Neither figure is wrong — they are two dated reads of the same market — but a reproducer must know which constant a page used. requirements.html now prints both and derives every ratio from the exact constant, so all 19 weight-bearing rows agree with Dataset C.</p>
           <div class="evidence">$4,022.22/oz ÷ 31.1034768 = $129.3174/g (prices.json) · $4,022.70/oz ÷ 31.1034768 = $129.3328/g (spot-and-standards.json) · delta $0.0154/g = 0.012%</div>
-          <p class="small"><strong>Source:</strong> <a href="https://www.kitco.com/price/precious-metals" target="_blank" rel="noopener">https://www.kitco.com/price/precious-metals</a></p>
+          <p class="small"><strong>Source:</strong> <a href="https://www.kitco.com/precious-metals" target="_blank" rel="noopener">https://www.kitco.com/precious-metals</a></p>
 
           <p class="action"><strong>What to do:</strong> Unify the two anchors at the next refresh with scripts/refresh_spot_anchor.py, or read the anchor printed beside any melt figure. Do not hand-edit either file.</p>
         </div>

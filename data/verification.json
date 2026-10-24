@@ -3510,7 +3510,7 @@
   "corrected": 95,
   "flagged": 42,
   "urls_opened": 265,
-  "site_defects_fixed": 21,
+  "site_defects_fixed": 22,
   "p15_note": "P15 added 11 net-new checks after P12-P14 (7 confirmed, 3 corrected, 1 flagged). It preserves the dated calculation anchor and adds Dataset C weight coverage, NIST/VRAI/Automic corrections and JSON-derived calculator presets.",
   "p17_note": "P17 added 31 checks (10 confirmed, 18 corrected, 3 flagged). Every Dataset A numeric price was confirmed without change. Unsupported stone-inclusion and solid-geometry/review inferences were removed; stale specifications, policies and review counts were corrected. F50-F55 and the labelled live-check reading are published; the dated calculation anchor is unchanged.",
   "p19_note": "P19 adds 12 net-new checks (10 confirmed, 2 flagged) and the first requirements compliance matrix. It preserves the peer-reviewed dated spot anchor, publishes the newer live reading beside it, and appends only net-new corrections."
@@ -3713,6 +3713,14 @@
    "what": "The first draft of the new matrix cited five authority pages at paths that were not the ones registered in data/sources.json (notably 16 CFR Part 23 under subchapter A instead of subchapter B) and used two unregistered consumer-advice URLs.",
    "found_by": "This pass, by cross-checking every authority URL against data/sources.json before publishing.",
    "fix": "Every authority link now points at a page already registered and quoted in data/sources.json, or at one of the two pages opened live this pass (15 U.S.C. 1666, 16 CFR Part 435) and added there. HS-09 in scripts/hallucination_scan.py enforces https + an action for all ten.",
+   "status": "fixed"
+  },
+  {
+   "id": "SD27",
+   "page": ".github/workflows/audit.yml, scripts/render-test.js",
+   "what": "The SD21 render guard compared flagged.html's 'Last automated pass' date with reports/audit-report.md, but CI built the site before running audit.py, so on the first run after UTC midnight the page carried the previous day's date and the guard failed on a defect it had just introduced itself.",
+   "found_by": "This pass, when the full gate sequence failed at 00:0x UTC for that reason alone.",
+   "fix": "CI now rebuilds both page sets immediately after audit.py, and the guard derives its expected date from the report instead of a typed literal (both changes committed together). The gate sequence was re-run in the corrected order: 177/177.",
    "status": "fixed"
   }
  ],

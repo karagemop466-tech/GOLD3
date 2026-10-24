@@ -168,7 +168,7 @@ if LIVE:
         f"Latest independent re-read ({e(LIVE.get('captured_on',''))}): "
         f"{money(float(LIVE['price_usd_per_troy_oz']), 2)}/oz ({e(LIVE.get('as_of_text',''))}), "
         f"{abs(_delta):.2f}% below the pre-filled snapshot. The stored figure is a dated capture, not today's price: "
-        "enter the live one before you rely on a melt comparison (findings F39 and F43)."
+        "enter the live one before you rely on a melt comparison (finding F55)."
     )
 
 # fill computed counts into finding text; verify.py guarantees the placeholders exist
@@ -275,8 +275,12 @@ def diamond_cell(p) -> str:
 def weight_cell(p) -> str:
     if p.get("weight_g") is not None:
         return f'{p["weight_g"]:g} g'
-    if str(p.get("weight_status") or "").startswith("published as a range") and p.get("weight_quote"):
-        return f'<span class="badge warn">{e(p["weight_quote"])}</span><span class="sub">range only (unverified)</span>'
+    status = str(p.get("weight_status") or "")
+    quote = p.get("weight_quote")
+    if status.startswith("published as a range") and quote:
+        return f'<span class="badge warn">{e(quote)}</span><span class="sub">range only (unverified)</span>'
+    if status.startswith("published as unscoped weight") and quote:
+        return f'<span class="badge warn">{e(quote)}</span><span class="sub">scope unverified; not gold weight</span>'
     return '<span class="badge neutral">not published</span>'
 
 
