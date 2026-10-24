@@ -356,6 +356,9 @@ for (const line of _p19Report.split("\n")) {
   }
 }
 check("P19 pass report figures equal the derived matrix", _p19ProseOk);
+check("P19 verification page credits this session and shows the P19 pass",
+  includesText(html["verify.html"], "arena/76359c22-gold3 (P19)") &&
+  includesText(html["verify.html"], "Independent pass 19"));
 check("P19 index links to the requirements matrix",
   html["index.html"].includes('href="requirements.html"') &&
   html["requirements.html"].includes('href="index.html"'));
