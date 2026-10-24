@@ -2,7 +2,7 @@
 
 - **Session:** `arena/bd0ed905-gold3`
 - **Read at:** 2026-10-24T00:08:30Z (2026-10-23 US Pacific / 2026-10-24 UTC)
-- **Numbering note:** peer `arena/36ebce13-gold3` merged P17/P18 (PRs #69/#71) and peer `arena/76359c22-gold3` merged P19 (requirements matrix, PRs #72/#73); this independent pass is numbered P21 to keep every check ID unique.
+- **Numbering note:** peer `arena/36ebce13-gold3` merged its own P17 first (PR #69); this pass is renumbered P21 to keep every check ID unique.
 - **Checks:** **36** — 13 confirmed · 21 corrected · 2 flagged
 - **Method:** every Dataset A PDP, five return-policy pages, five Trustpilot profiles, two live spot feeds, both NIST conversion authorities and 16 CFR 23.10 reopened live; each stored value searched verbatim.
 - **Result:** 0 Dataset A price changes. All corrections are provenance, scope, duplicate-flag, review-count, clarity-note or reference-spot corrections. The dated melt anchor was preserved.

@@ -1,8 +1,8 @@
 # Verification report
 
 - Pass date: **2026-10-23**
-- Session: `arena/e6fe3e4f-gold3 (P1-P4) · arena/699d8e05-gold3 (P5) · arena/6d6192d1-gold3 (P6-P7) · arena/2908bea4-gold3 (P8) · arena/15b00e99-gold3 (P10) · arena/bfcd8465-gold3 (P11) · arena/57724486-gold3 (P12) · arena/fb7e5e3c-gold3 (P13) · arena/438a583e-gold3 (P14) · arena/db2fe957-gold3 (P15) · arena/36ebce13-gold3 (P17) · arena/76359c22-gold3 (P19)`
-- URLs opened: **265** — confirmed 128, corrected 95, flagged 42
+- Session: `arena/e6fe3e4f-gold3 (P1-P4) · arena/699d8e05-gold3 (P5) · arena/6d6192d1-gold3 (P6-P7) · arena/2908bea4-gold3 (P8) · arena/15b00e99-gold3 (P10) · arena/bfcd8465-gold3 (P11) · arena/57724486-gold3 (P12) · arena/fb7e5e3c-gold3 (P13) · arena/438a583e-gold3 (P14) · arena/db2fe957-gold3 (P15) · arena/36ebce13-gold3 (P17) · arena/76359c22-gold3 (P19) · arena/bd0ed905-gold3 (P21)`
+- URLs opened: **301** — confirmed 141, corrected 116, flagged 44
 
 ## Method
 
