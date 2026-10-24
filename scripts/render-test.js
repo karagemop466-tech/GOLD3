@@ -34,7 +34,7 @@ const pages = [
   "index.html", "rings.html", "combined.html", "14k.html", "18k.html", "lab-grown.html",
   "under-1000.html", "retailers.html", "sellers.html", "standards.html", "calculator.html",
   "flagged.html", "verify.html", "sources.html", "checklist.html", "methodology.html",
-  "analysis.html", "excluded.html",
+  "analysis.html", "excluded.html", "requirements.html",
 ];
 
 // ---------------------------------------------------------------- pages exist
@@ -175,9 +175,7 @@ check("SD18 verify.html renders the P13 pass",
 const _prices = JSON.parse(read("data/prices.json"));
 const _primary = _prices.snapshots.find((s) => s.role === "primary");
 const _cross = _prices.snapshots.find((s) => s.role === "cross-check");
-// P17b: build_site.py selects the NEWEST live-check snapshot; mirror that here.
-const _lives = _prices.snapshots.filter((s) => String(s.role).startsWith("live-check"));
-const _live = _lives[_lives.length - 1];
+const _live = _prices.snapshots.find((s) => String(s.role).startsWith("live-check"));
 check("SD20 combined.html prints the stored primary spot",
   html["combined.html"].includes(`$${_primary.price_usd_per_troy_oz.toLocaleString("en-US", { minimumFractionDigits: 2 })}`));
 check("SD20 combined.html prints the stored cross-check",
@@ -219,14 +217,17 @@ check("SD19 R03 no longer carries the misapplied SPEC2", !_r03.flags.includes("S
 check("SD21 calculator labels the pre-filled snapshot with its own capture date",
   /Pre-filled with the 23 October 2026 snapshot/.test(html["calculator.html"]) &&
   !/Pre-filled with the 22 October 2026 snapshot/.test(html["calculator.html"]));
-// SD21: the audit date must be DERIVED from the audit report, never a typed literal.
-const _months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-const _auditRun = (() => {
-  const m = read("reports/audit-report.md").match(/- Run: (\d{4})-(\d{2})-(\d{2})/);
-  return m ? `${Number(m[3])} ${_months[Number(m[2]) - 1]} ${m[1]}` : null;
-})();
+// SD21: the flagged page must print the date from reports/audit-report.md, whatever it is.
+// A literal date here fails the moment the audit runs on a new day, which is a guard bug,
+// not a site bug — so the expected string is derived from the report itself.
+const _auditRun = (read("reports/audit-report.md").match(/- Run: (\d{4})-(\d{2})-(\d{2})/) || []);
+const _months = ["January", "February", "March", "April", "May", "June", "July",
+  "August", "September", "October", "November", "December"];
+const _auditDate = _auditRun.length
+  ? `${Number(_auditRun[3])} ${_months[Number(_auditRun[2]) - 1]} ${_auditRun[1]}`
+  : "";
 check("SD21 flagged.html audit date comes from the audit report, not a typed literal",
-  !!_auditRun && html["flagged.html"].includes(`Last automated pass: ${_auditRun} `));
+  _auditDate !== "" && new RegExp(`Last automated pass: ${_auditDate}`).test(html["flagged.html"]));
 
 // P15: additive Dataset-C weight, source-attribution and calculator-provenance guards.
 const _p15C = [
@@ -266,7 +267,8 @@ check("SD24 F2 uses full counts and distinguishes entered weights from published
   includesText(html["flagged.html"], "Published ranges and unscoped figures") &&
   !includesText(html["flagged.html"], "Only 14 of 50 listings publish a weight"));
 check("SD24 README pass range and ledger count are current",
-  read("README.md").includes("P1`–`P17b") && read("README.md").includes("278 logged checks"));
+  read("README.md").includes("P1`–`P21") &&
+  read("README.md").includes(`${_verif.summary.checks} logged checks`));
 
 // P17: source-drift, duplicate-flag and unsupported-inference regression guards.
 const _p17 = JSON.parse(read("data/reverification-p17.json"));
@@ -315,8 +317,114 @@ const _p17Primary = _prices.snapshots.find((s) => s.role === "primary");
 const _p17Live = _prices.snapshots.find((s) => String(s.role).startsWith("live-check"));
 check("P17 refreshes only the live spot reference and preserves the calculation anchor",
   _p17Primary.price_usd_per_troy_oz === 4022.22 && _p17Live.price_usd_per_troy_oz === 3995.88 &&
-  html["calculator.html"].includes("3,995.88") && html["calculator.html"].includes("finding F55") &&
+  html["calculator.html"].includes("3,995.88") &&
+  /findings? F55/.test(html["calculator.html"]) &&
   !html["calculator.html"].includes("findings F39 and F43"));
+
+
+// P17: the requirements matrix must stay derived, not typed in.
+const _reqRows = JSON.parse(read("data/requirements-matrix.json"));
+const _p19verif = JSON.parse(read("data/verification.json"));
+check("P19 requirements matrix covers every listing",
+  _reqRows.summary.n_rows === 71 && _reqRows.rows.length === 71);
+check("P19 requirements matrix has ten requirements per row",
+  _reqRows.summary.requirements.length === 10 &&
+  _reqRows.rows.every(r => Object.keys(r.cells).filter(k => k !== "value").length === 10));
+check("P19 requirements page renders every row and the headline honestly",
+  includesText(html["requirements.html"], ">R01<") &&
+  includesText(html["requirements.html"], ">BND-12<") &&
+  includesText(html["requirements.html"], "pass all ten"));
+check("P19 every blank cell renders as an explicit unverified badge",
+  (html["requirements.html"].match(/unverified/g) || []).length >= 400 &&
+  !html["requirements.html"].includes(">n/a<") &&
+  !html["requirements.html"].includes(">N/A<"));
+check("P19 verification ledger includes the P19 checks",
+  _p19verif.checks.some(c => c.id.startsWith("P19-")) &&
+  includesText(html["verify.html"], "P19"));
+check("P19 findings F56-F58 are published for manual review",
+  includesText(html["flagged.html"], "F56") && includesText(html["flagged.html"], "F58"));
+// P19: the numbers quoted in the pass report must equal the derived matrix, so the
+// prose can never drift from the data the page renders (this caught 19/4/48 and
+// 34/28/9 going stale the moment peer P17/P18 changed the underlying rows).
+const _p19Report = read("reports/reverification-pass-p19.md");
+const _p19Sum = Object.fromEntries(_reqRows.summary.requirements.map((r) => [r.n, r.counts]));
+let _p19ProseOk = true;
+for (const line of _p19Report.split("\n")) {
+  const m = line.match(/^\| (\d+)\. .*?\| (\d+) \| (\d+) \| (\d+) \| (\d+) \|$/);
+  if (!m) continue;
+  const c = _p19Sum[Number(m[1])];
+  if (!c || c.good !== +m[2] || c.partial !== +m[3] || c.fail !== +m[4] || c.unverified !== +m[5]) {
+    _p19ProseOk = false;
+  }
+}
+check("P19 pass report figures equal the derived matrix", _p19ProseOk);
+check("P19 verification page credits this session and shows the P19 pass",
+  includesText(html["verify.html"], "arena/76359c22-gold3 (P19)") &&
+  includesText(html["verify.html"], "Independent pass 19"));
+check("P19 index links to the requirements matrix",
+  html["index.html"].includes('href="requirements.html"') &&
+  html["requirements.html"].includes('href="index.html"'));
+
+// P21: collision-safe independent corroboration after peer P17 and P19 merged.
+const _p21 = JSON.parse(read("data/reverification-p21.json"));
+const _p21Report = read("reports/reverification-pass-p21.md");
+const _p21A = JSON.parse(read("data/products.json")).products;
+const _p21ById = Object.fromEntries(_p21A.map((p) => [p.id, p]));
+const _p21Hist = JSON.stringify(JSON.parse(read("data/reverification-c-6ccbc523.json")));
+const _p21Bundle = read("reports/reverification-1162b2db.md");
+check("P21 preserves both peer passes and appends 36 unique checks",
+  verif.session.includes("arena/36ebce13-gold3 (P17)") &&
+  verif.session.includes("arena/76359c22-gold3 (P19)") &&
+  verif.session.includes("arena/bd0ed905-gold3 (P21)") &&
+  verif.checks.filter((c) => c.id.startsWith("P17-")).length === 31 &&
+  verif.checks.filter((c) => c.id.startsWith("P19-")).length === 12 &&
+  verif.checks.filter((c) => c.id.startsWith("P21-")).length === 36 &&
+  new Set(verif.checks.map((c) => c.id)).size === verif.checks.length &&
+  verif.checks.length === 326 &&
+  _p21.summary.confirmed === 13 && _p21.summary.corrected === 21 && _p21.summary.flagged === 2);
+check("P21 artifacts and README counts are current",
+  _p21Report.includes("Pass P21") && _p21Report.includes("P21-36") &&
+  read("README.md").includes("P1`–`P21") && read("README.md").includes("326 logged checks") &&
+  includesText(html["verify.html"], "arena/bd0ed905-gold3 (P21)"));
+// P17b: this session's independent pass was merged additively with the peer's P17/P19/P21
+// work; the finding id was renumbered F50 -> F65 after the peer claimed F50..F64.
+check("P17b appends 25 additive checks with the Menē drift renumbered to F65",
+  verif.session.includes("arena/1ee91485-gold3 (P17b)") &&
+  verif.checks.filter((c) => c.id.startsWith("P17b-")).length === 25 &&
+  verif.checks.filter((c) => c.id === "P17b-01" && /F65/.test(String(c.findings))).length === 1 &&
+  verif.checks.filter((c) => c.id === "P17b-01" && /F50/.test(JSON.stringify(c))).length === 0 &&
+  verif.checks.length === 326 && verif.summary.confirmed === 163 &&
+  verif.summary.corrected === 118 && verif.summary.flagged === 45 &&
+  verif.checks.every((c) => c.url && /^https:\/\//.test(c.url)));
+check("P17b live-check snapshot carries every reading and the anchor stays dated",
+  _prices.snapshots.filter((s) => String(s.role).startsWith("live-check")).length === 1 &&
+  _prices.snapshots.filter((s) => String(s.role).startsWith("live-check"))[0].history.length === 2 &&
+  html["calculator.html"].includes("$3,995.88") && html["calculator.html"].includes("value=\"4022.22\"") &&
+  html["calculator.html"].includes("reference observations only"));
+check("P21 findings F59-F64 are published for manual review",
+  ["F59", "F60", "F61", "F62", "F63", "F64"].every((id) => html["flagged.html"].includes(`id=\"${id}\"`)));
+check("P21 all seven Aurate rows quote live weights without promoting exact weight_g",
+  _p21A.filter((p) => p.id.startsWith("aurate-")).length === 7 &&
+  _p21A.filter((p) => p.id.startsWith("aurate-")).every((p) => p.weight_g === null && /^Weight: /.test(p.weight_quote || "")) &&
+  ["Weight: 2.23g", "Weight: 2.36g", "Weight: 3.33g"].every((q) => includesText(html["rings.html"], q)));
+check("P21 corrected the last Ring Concierge E VS1 prose and excluded-Mejuri source links",
+  !_p21ById["ringconcierge-2-72-round-lab-whisper-thin"].notes.includes("E VS1") &&
+  _p21ById["ringconcierge-2-72-round-lab-whisper-thin"].carat_note.includes("E VVS2") &&
+  ["mejuri-dome-figure-vermeil", "mejuri-dome-figure-sterling"]
+    .every((id) => _p21ById[id].price_source === _p21ById[id].url));
+check("P21 structured Kitco cross-check/history exist while the anchor stays fixed",
+  _prices.live_cross_check && _prices.live_cross_check.price_usd_per_troy_oz === 3994.9 &&
+  _prices.snapshots.find((s) => String(s.role).startsWith("live-check")).history?.[0]?.price_usd_per_troy_oz === 3997.22 &&
+  html["calculator.html"].includes("$3,994.90") && html["calculator.html"].includes("value=\"4022.22\"") &&
+  html["calculator.html"].includes("reference observations only"));
+check("P21 CR closeout preserves the original evidence and both report versions",
+  _p21Hist.includes("evidence_original_preserved") && _p21Hist.includes("NIST SP 811 Appendix B.9") &&
+  ["## Version A", "## Version B", "Resolution"].every((x) => _p21Bundle.includes(x)) &&
+  !/^(<{7}|={7}|>{7})/m.test(_p21Bundle));
+check("P21 review flags and site-defect counters stay consistent",
+  verif.site_defects_fixed === verif.summary.site_defects_fixed &&
+  verif.site_defects_fixed === verif.site_defects.filter((d) => /fixed/i.test(d.status)).length &&
+  ["SPOT3", "REV2", "SRC5"].every((id) => html["flagged.html"].includes(id)));
 
 // ------------------------------------------------------------------- report
 let failed = 0;

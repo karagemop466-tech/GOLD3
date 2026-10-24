@@ -475,6 +475,27 @@ for r in rings:
     unused -= set(r.get("flags", []))
 for s in sellers:
     unused -= set(s.get("flags", []))
+# Pass P17 review flags are attached to verification-ledger discrepancies rather than
+# Dataset-B row arrays. Count those as real uses: otherwise a flag that is published on
+# verify.html and linked to an official source looks "unused" to this older audit.
+if verif_doc:
+    for d in verif_doc.get("discrepancies", []):
+        unused.discard(d.get("flag"))
+# Dataset A stores flags as objects with a `code`; include those uses too.
+for _aname, _akey in (("products.json", "products"), ("retailers.json", "retailers")):
+    _apath = DATA / _aname
+    if not _apath.exists():
+        continue
+    try:
+        _adoc = json.loads(_apath.read_text(encoding="utf-8"))
+        for _row in _adoc.get(_akey, []):
+            for _f in _row.get("flags", []) or []:
+                if isinstance(_f, dict):
+                    unused.discard(_f.get("code"))
+                else:
+                    unused.discard(_f)
+    except Exception:  # noqa: BLE001 - malformed JSON is already an earlier error
+        pass
 if unused:
     warn("flags", f"defined but never used: {sorted(unused)}")
 
@@ -594,7 +615,28 @@ for _s in _spots:
         _raw_numbers.add(_per_g * _frac)
         _raw_numbers.add(_per_g * _frac * 3)
 
-data_prices = {f"{v:,.0f}" for v in _raw_numbers} | {f"{v:,.2f}" for v in _raw_numbers}
+# The exact 24K gram price recorded in data/spot-and-standards.json is a published
+# constant (Kitco bid / 31.1034768) and is the one Dataset C's stored melt values were
+# computed from. Register it, and the melt values the requirements matrix derives from
+# it, so a derived figure is recognised instead of being reported as a stray number.
+try:
+    _bench_std = json.loads((DATA / "spot-and-standards.json").read_text(encoding="utf-8"))
+    _per_g_exact = float(_bench_std["spot_gold_benchmark"]["spot_usd_per_gram_24k_exact"])
+    _raw_numbers.add(_per_g_exact)
+    for _row in rings:
+        _w, _m = _row.get("weight_g"), re.search(r"(\d+)\s*K", _row.get("karat") or "")
+        if isinstance(_w, (int, float)) and _m:
+            _raw_numbers.add(_w * (int(_m.group(1)) / 24.0) * _per_g_exact)
+    _pdoc_exact = json.loads((DATA / "products.json").read_text(encoding="utf-8"))
+    for _row in _pdoc_exact.get("products", []):
+        _w, _m = _row.get("weight_g"), re.search(r"(\d+)\s*K", _row.get("purity") or "")
+        if isinstance(_w, (int, float)) and _m:
+            _raw_numbers.add(_w * (int(_m.group(1)) / 24.0) * _per_g_exact)
+except Exception:  # noqa: BLE001 - the file is optional for this check
+    pass
+
+data_prices = ({f"{v:,.0f}" for v in _raw_numbers} | {f"{v:,.2f}" for v in _raw_numbers}
+               | {f"{v:,.4f}" for v in _raw_numbers})
 if isinstance(spot, (int, float)):
     data_prices.add(f"{spot:,.2f}")
 

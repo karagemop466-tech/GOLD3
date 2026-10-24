@@ -1423,25 +1423,27 @@
       "verification": "Fetched directly on 2026-10-22 (session arena/cbea1001-gold3): $3,253 confirmed; exact gram weight is hidden inside a JS modal so left null rather than back-calculated.",
       "live_recheck": {
         "checked_on": "2026-10-23",
-        "checked_at_utc": "2026-10-23T23:45:00Z",
         "url": "https://mene.com/products/wrap-ring-gold",
         "price_as_shown": "$3,202",
-        "quote": "Product page: “Wrap Ring … $3,202 … USD”, “Metal: 24k Gold”, “Width: 7.5mm Thickness: 1.5mm” — read live 2026-10-23T23:45Z.",
-        "history": [
+        "readings": [
           {
-            "read_on": "2026-10-22 (capture)",
-            "price_usd": 3253.0
+            "read_utc": "2026-10-23T20:17Z",
+            "price_as_shown": "$3,228",
+            "by": "arena/57724486-gold3 (P12)"
           },
           {
-            "read_on": "2026-10-23T20:30Z (pass P4)",
-            "price_usd": 3228.0
+            "read_utc": "2026-10-23T23:40Z",
+            "price_as_shown": "$3,202",
+            "by": "arena/76359c22-gold3 (P17)"
           },
           {
-            "read_on": "2026-10-23T23:45Z (pass P17)",
-            "price_usd": 3202.0
+            "read_utc": "2026-10-23T23:45:00Z",
+            "price_as_shown": "$3,202",
+            "by": "arena/1ee91485-gold3 (P17b)"
           }
         ],
-        "note": "price_usd stays at the captured $3,253 (2026-10-22) so the continued movement stays visible; the two live readings are kept in history. Menē sells by gram weight and re-quotes continuously — re-read the product page before relying on any price."
+        "quote": "$3,202 · USD · “Price breakdown” — read live 2026-10-23T23:45Z by arena/1ee91485-gold3 (P17b); the peer session arena/76359c22-gold3 read $3,202 at 23:40Z and $3,228 at 20:17Z.",
+        "note": "price_usd stays at the captured $3,253 (2026-10-22) so the continued movement stays visible. Both sessions' live readings are kept in readings[]; the peer's F50-F56 and this session's F65 record the intra-day drift."
       }
     },
     {

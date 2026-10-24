@@ -1,6 +1,6 @@
 {
   "retrieved_utc": "2026-10-23",
-  "session": "arena/e6fe3e4f-gold3 (P1-P4) · arena/699d8e05-gold3 (P5) · arena/6d6192d1-gold3 (P6-P7) · arena/2908bea4-gold3 (P8) · arena/15b00e99-gold3 (P10) · arena/bfcd8465-gold3 (P11) · arena/57724486-gold3 (P12) · arena/fb7e5e3c-gold3 (P13) · arena/438a583e-gold3 (P14) · arena/db2fe957-gold3 (P15) · arena/36ebce13-gold3 (P17) · arena/1ee91485-gold3 (P17b)",
+  "session": "arena/e6fe3e4f-gold3 (P1-P4) · arena/699d8e05-gold3 (P5) · arena/6d6192d1-gold3 (P6-P7) · arena/2908bea4-gold3 (P8) · arena/15b00e99-gold3 (P10) · arena/bfcd8465-gold3 (P11) · arena/57724486-gold3 (P12) · arena/fb7e5e3c-gold3 (P13) · arena/438a583e-gold3 (P14) · arena/db2fe957-gold3 (P15) · arena/36ebce13-gold3 (P17) · arena/76359c22-gold3 (P19) · arena/bd0ed905-gold3 (P21) · arena/1ee91485-gold3 (P17b)",
   "method": "Every URL cited in data/rings.json, data/sellers.json and data/gold-price.json was opened again in this session on 2026-10-22. Each asserted value was compared against the text the page returned. A value that could not be found on the page was deleted or downgraded to unverified; a value that contradicted the page was corrected; a contradiction found on the page itself was raised as a flag. | Addendum 2026-10-23: the log now holds three independent passes. P1-P3 are the checks recorded by arena/e6fe3e4f-gold3 (ids V01-V37); the third pass (ids P3-01-P3-47, session arena/699d8e05-gold3) was appended from data/reverification-p3.json so that its 47 checks appear in this log instead of only in a separate file; the fourth pass (ids P4-01-P4-25, session arena/6d6192d1-gold3) was run on the merged tree on 2026-10-23 against the official pages. Older entries keep the date they were made. | P17 (2026-10-23): all 19 Dataset A official product pages re-read line by line; seller policy/reputation drift and unsupported weight/solidity inferences corrected; F50-F55 appended.",
   "passes": [
     {
@@ -104,6 +104,18 @@
       "name": "Independent pass 17: all Dataset A listings, seller-policy drift, unsupported weight/solidity inferences and live spot corroboration (arena/36ebce13-gold3)",
       "what": "Re-opened all 19 Dataset A official product sources, five official seller policy records and five Trustpilot profiles; checked Ross-Simons Item 571221 and four spot publishers. Corrected only source-supported fields, removed unsupported stone-inclusion/solidity inferences and preserved all live contradictions and null weights.",
       "result": "31 checks: 10 confirmed, 18 corrected, 3 flagged. All 19 stored numeric prices confirmed with 0 price changes; 0 published-weight changes. Published F50-F55, consolidated duplicate flags, refreshed only the labelled live spot reference, and preserved the $4,022.22/oz calculation anchor."
+    },
+    {
+      "id": "P19",
+      "name": "Independent pass 19: rotating live re-verification across all three datasets + requirements compliance matrix (arena/76359c22-gold3)",
+      "what": "Ten official pages re-opened live on 2026-10-23T23:35Z-23:46Z covering all three datasets and the gold benchmark, then a new generated page (requirements.html) scoring every listing against the ten-point checklist, with scripts/hallucination_scan.py re-deriving every cell and reading the rendered page back. Claimed as P17 but renumbered to P19 when peer session arena/36ebce13-gold3 landed its own P17 (PR #69) mid-pass. The dated calculation anchor was preserved; the newer live spot reading was published for reference only.",
+      "result": "12 checks recorded: 10 confirmed, 0 corrected, 2 flagged (Menē intra-day re-pricing F56; spot reading 0.66% below the anchor). Two site defects fixed (SD25, SD26)."
+    },
+    {
+      "id": "P21",
+      "name": "Collision-safe independent Dataset A / seller-policy corroboration after peer P17 and P19",
+      "what": "At 2026-10-24T00:08:30Z independently reopened every Dataset A PDP, five return policies, five Trustpilot profiles, GoldPrice.org, Kitco and three authority pages. Peer P17/P19 merged first, so this pass uses unique P21 IDs.",
+      "result": "36 checks: 13 confirmed, 21 corrected, 2 flagged. 0 Dataset A price changes; complementary quote, source, live-feed and CR evidence."
     },
     {
       "id": "P17b",
@@ -3279,6 +3291,511 @@
       "findings": "GoldPrice.org displayed $3,995.88/oz at label '07:41 NY Time'; Kitco bid $3,994.90 at '19:43 NY Time'; BullionVault $3,995.74 at '17:00:00 (GMT-04:00)'; WGC tile $3,995.47 with its historical dataset labelled 22 October. Numeric spread $0.98 (0.025%). Only the labelled live reference changed; primary $4,022.22/oz and all melt arithmetic remain fixed."
     },
     {
+      "id": "P19-01",
+      "kind": "listing",
+      "label": "Mejuri Diamonds Band: price, material and return window all reproduce",
+      "url": "https://mejuri.com/products/diamonds-band?Material=Solid+Yellow+Gold+%2814k%29&Stone=Natural+Diamond",
+      "rows": [
+        "mejuri-diamonds-band",
+        "BND-11"
+      ],
+      "outcome": "confirmed",
+      "findings": "Price $648, the material line and the 30-day window all match the stored row. The page still prints no gram weight and no hallmark, so both cells stay blank in the matrix. The engraving exclusion is the one return caveat and is recorded."
+    },
+    {
+      "id": "P19-02",
+      "kind": "listing",
+      "label": "Catbird Woodland Ring: sale price reproduces; no material paragraph, no weight, no hallmark",
+      "url": "https://www.catbirdnyc.com/woodland-ring.html",
+      "rows": [
+        "R18"
+      ],
+      "outcome": "confirmed",
+      "findings": "The stored $276.00 against a $368.00 regular price reproduces exactly. The returned text carries a sold-out / waitlist badge image, so availability remains unconfirmed; the product text does not contain the word 'solid', no gram weight and no hallmark. R18's UNVERIFIED solid-gold verdict and its blanks are correct."
+    },
+    {
+      "id": "P19-03",
+      "kind": "listing",
+      "label": "Tiffany Setting: 'Starting from $1,600' with two contradictory return notices on the same page",
+      "url": "https://www.tiffany.com/engagement/engagement-rings/the-tiffany-setting-engagement-ring-in-18k-yellow-gold-GRP10863/",
+      "rows": [
+        "R17"
+      ],
+      "outcome": "confirmed",
+      "findings": "The $1,600 'starting from' figure and the 18k yellow gold + platinum ring style reproduce. The page prints both 'non returnable' and 'can only be exchanged', which is what the row's return_window records, and it also prints 'currently unavailable' (flag AV1). No weight, hallmark or maker's mark is printed, so those cells stay blank."
+    },
+    {
+      "id": "P19-04",
+      "kind": "listing",
+      "label": "Local Eclectic Simple Knot Ring: 9k badge against a 10k materials bullet, confirmed again",
+      "url": "https://www.localeclectic.com/products/solid-gold-simple-knot-ring",
+      "rows": [
+        "R31"
+      ],
+      "outcome": "confirmed",
+      "findings": "Price $239 reproduces. The same page prints '9k Solid Gold' as a badge and '10k solid yellow gold' as the materials bullet, so the stored karat (10K) and flag SPEC2 are both right: the karat cannot be settled from the listing alone. No weight and no hallmark are printed."
+    },
+    {
+      "id": "P19-05",
+      "kind": "listing",
+      "label": "Mene Wrap Ring moved again inside the same day ($3,228 -> $3,202)",
+      "url": "https://mene.com/products/wrap-ring-gold",
+      "rows": [
+        "R30"
+      ],
+      "outcome": "flagged",
+      "findings": "The captured price is $3,253 (2026-10-22) and the earlier P12 reading on 2026-10-23 was $3,228; this pass reads $3,202, i.e. 1.57% below the capture and 0.81% below the earlier same-day reading. Mene re-prices by metal weight, so the capture is a dated observation, never 'current'. The static page still prints no gram weight (the weight is client-side), so R30's null weight is correct. Published as finding F50; the captured price is not overwritten and a second dated reading is added to live_recheck."
+    },
+    {
+      "id": "P19-06",
+      "kind": "listing",
+      "label": "Mejuri Diamond Eternity Band: 0.532 ct prose against a 0.044-0.056 ct spec, confirmed",
+      "url": "https://mejuri.com/shop/products/diamond-eternity-band?Material=Solid+Yellow+Gold+%2814k%29&Stone=Natural+Diamond",
+      "rows": [
+        "BND-10"
+      ],
+      "outcome": "confirmed",
+      "findings": "The 'From $1,100' price and the stated contradiction both reproduce: the prose says an average 0.532 ct while the spec block says 0.044-0.056 ct per stone. Stone weight is left out of the matrix's gold arithmetic, so the contradiction does not corrupt any melt figure. No gram weight and no hallmark are printed."
+    },
+    {
+      "id": "P19-07",
+      "kind": "listing",
+      "label": "Ross-Simons certified solitaire: $2,819 sale against $3,995 original, 14kt white gold",
+      "url": "https://www.ross-simons.com/products/990022",
+      "rows": [
+        "SOL-07"
+      ],
+      "outcome": "confirmed",
+      "findings": "The stored $2,819 reproduces, as do the 14kt white gold metal line and the GIA certificate reference. The page prints no metal weight in its static HTML (the spec rows are rendered client-side), so the null weight is correct."
+    },
+    {
+      "id": "P19-08",
+      "kind": "listing",
+      "label": "Ross-Simons coin ring: $3,295 and 'Gold Weight 5.9 grams' reproduce, mixed 14kt + 22kt",
+      "url": "https://www.ross-simons.com/products/993085",
+      "rows": [
+        "BND-08"
+      ],
+      "outcome": "confirmed",
+      "findings": "Both the price and the 5.9 g 'Gold Weight' reproduce verbatim. Because the piece mixes 14kt mounting and 22kt coin, no single fineness applies, so the record correctly leaves pure-gold grams, melt value and the price-to-melt ratio null rather than picking a karat."
+    },
+    {
+      "id": "P19-09",
+      "kind": "listing",
+      "label": "Ring Concierge 2.08 oval: $6,038 reproduced, made to order in 3-4 weeks, no 'solid' wording",
+      "url": "https://ringconcierge.com/products/2-08-oval-lab-diamond-in-whisper-thina-hidden-halo",
+      "rows": [
+        "ringconcierge-2-08-oval-lab-whisper-thin"
+      ],
+      "outcome": "confirmed",
+      "findings": "The $6,038 price, the 2.08 ct E VS1 stone description and the made-to-order lead time all reproduce. The page body does not use the word 'solid', so the matrix marks solid-gold wording unverified for this row (the stored solid_gold field is null, not false)."
+    },
+    {
+      "id": "P19-10",
+      "kind": "spot",
+      "label": "Gold benchmark re-read: USD 3,995.88/oz, 0.66% below the stored dated anchor",
+      "url": "https://goldprice.org/",
+      "rows": [
+        "spot"
+      ],
+      "outcome": "flagged",
+      "findings": "The page printed $3,995.88/oz at its own clock label 07:41 NY, against the stored GoldPrice.org anchor of $4,022.22/oz labelled 05:55 NY (0.655% lower). The label again runs behind the read time, the same inverted-clock pattern recorded in F39. This reading is published for reference only; the dated anchor still drives every melt figure so the arithmetic stays reproducible. No re-anchor was performed."
+    },
+    {
+      "id": "P19-11",
+      "kind": "authority",
+      "label": "Two authority pages opened to support the payment and returns requirements",
+      "url": "https://www.law.cornell.edu/uscode/text/15/1666",
+      "rows": [
+        "standards"
+      ],
+      "outcome": "confirmed",
+      "findings": "15 U.S.C. § 1666 (Correction of billing errors) was read live for the credit-card requirement: it obliges a creditor to acknowledge a written billing-error notice within 30 days and to correct or explain within two billing cycles (max 90 days). 16 CFR Part 435 (Mail, Internet, or Telephone Order Merchandise) was also opened for the returns requirement; only its part page and currency banner were read, so it is cited as context and not as a statutory minimum return window. Both are now in data/sources.json with verbatim quotes."
+    },
+    {
+      "id": "P19-12",
+      "kind": "site",
+      "label": "Requirements matrix derived from stored fields and re-derived independently",
+      "url": "https://github.com/karagemop466-tech/GOLD3",
+      "rows": [
+        "products",
+        "retailers"
+      ],
+      "outcome": "confirmed",
+      "findings": "The new requirements.html scores all 71 rows against the ten checklist requirements using only stored fields. Independent re-derivation by scripts/hallucination_scan.py agrees cell for cell: 0 rows good on all ten, 19 publish a weight, 3 a hallmark, 2 a maker's mark, 0 confirm an XRF offer, 13 leave payment unverified and 9 are final sale or non-returnable. Published as F58."
+    },
+    {
+      "id": "P21-01",
+      "label": "aurate-2ct-round-lgd-solitaire live PDP",
+      "url": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring",
+      "rows": [
+        "aurate-2ct-round-lgd-solitaire"
+      ],
+      "outcome": "corrected",
+      "findings": "$2,858, Rate - 14k GOLD, In Stock • Ready to Ship, Weight: 5.5-8.5g and the exchange-only/final-sale notices all printed verbatim.",
+      "action": "Price and page facts confirmed; duplicate flags, bezel weight scope, clarity/copy notes and the canonical final-sale policy URL corrected."
+    },
+    {
+      "id": "P21-02",
+      "label": "aurate-2ct-emerald-lgd-solitaire live PDP",
+      "url": "https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-solitaire-ring",
+      "rows": [
+        "aurate-2ct-emerald-lgd-solitaire"
+      ],
+      "outcome": "corrected",
+      "findings": "$2,638, Rate - 14k GOLD, Made to Order, Weight: 5.5-8.5g and the exchange-only/final-sale notices all printed verbatim.",
+      "action": "Price and page facts confirmed; duplicate flags, bezel weight scope, clarity/copy notes and the canonical final-sale policy URL corrected."
+    },
+    {
+      "id": "P21-03",
+      "label": "aurate-1ct-round-lgd-bezel live PDP",
+      "url": "https://auratenewyork.com/products/1ct-round-lab-grown-diamond-bezel-ring",
+      "rows": [
+        "aurate-1ct-round-lgd-bezel"
+      ],
+      "outcome": "corrected",
+      "findings": "$1,498, Rate - 14k GOLD, Made to Order, Final Sale!, Exchange for size only., Weight: 2.23g, 1.05tcw and SKU AU5000 printed verbatim.",
+      "action": "Price and page facts confirmed; duplicate flags, bezel weight scope, clarity/copy notes and the canonical final-sale policy URL corrected."
+    },
+    {
+      "id": "P21-04",
+      "label": "aurate-2ct-emerald-lgd-bezel live PDP",
+      "url": "https://auratenewyork.com/products/2ct-emerald-lab-grown-diamond-bezel-ring",
+      "rows": [
+        "aurate-2ct-emerald-lgd-bezel"
+      ],
+      "outcome": "corrected",
+      "findings": "$1,968, Rate - 14k GOLD, Made to Order, Weight: 2.36g, 1.8tcw and SKU AU5093 printed verbatim; the page also mislabels its emerald copy as oval.",
+      "action": "Price and page facts confirmed; duplicate flags, bezel weight scope, clarity/copy notes and the canonical final-sale policy URL corrected."
+    },
+    {
+      "id": "P21-05",
+      "label": "aurate-2ct-oval-lgd-solitaire live PDP",
+      "url": "https://auratenewyork.com/products/2ct-oval-lab-grown-diamond-solitaire-ring",
+      "rows": [
+        "aurate-2ct-oval-lgd-solitaire"
+      ],
+      "outcome": "corrected",
+      "findings": "$2,858, Rate - 14k GOLD, In Stock • Ready to Ship, Weight: 5.7-8.7g and the exchange-only/final-sale notices all printed verbatim.",
+      "action": "Price and page facts confirmed; duplicate flags, bezel weight scope, clarity/copy notes and the canonical final-sale policy URL corrected."
+    },
+    {
+      "id": "P21-06",
+      "label": "aurate-3ct-oval-lgd-solitaire live PDP",
+      "url": "https://auratenewyork.com/products/3ct-oval-lab-grown-diamond-solitaire-ring",
+      "rows": [
+        "aurate-3ct-oval-lgd-solitaire"
+      ],
+      "outcome": "corrected",
+      "findings": "$3,958, Rate - 14k GOLD, In Stock • Ready to Ship, Weight: 5.9-8.9g and the exchange-only/final-sale notices all printed verbatim.",
+      "action": "Price and page facts confirmed; duplicate flags, bezel weight scope, clarity/copy notes and the canonical final-sale policy URL corrected."
+    },
+    {
+      "id": "P21-07",
+      "label": "aurate-3ct-pear-lgd-bezel live PDP",
+      "url": "https://auratenewyork.com/products/3ct-pear-lab-grown-diamond-bezel-ring",
+      "rows": [
+        "aurate-3ct-pear-lgd-bezel"
+      ],
+      "outcome": "corrected",
+      "findings": "$2,498, Rate - 14k GOLD, Made to Order, Weight: 3.33g, 3.6tcw and SKU AU5107 printed verbatim.",
+      "action": "Price and page facts confirmed; duplicate flags, bezel weight scope, clarity/copy notes and the canonical final-sale policy URL corrected."
+    },
+    {
+      "id": "P21-08",
+      "label": "bluenile-petite-solitaire-14k-yg live PDP",
+      "url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/petite-solitaire-engagement-ring-in-14k-yellow-gold-item-195639",
+      "rows": [
+        "bluenile-petite-solitaire-14k-yg"
+      ],
+      "outcome": "confirmed",
+      "findings": "$1,000(Setting Price), Metal 14K Yellow Gold and Width 1.80mm printed on the own PDP."
+    },
+    {
+      "id": "P21-09",
+      "label": "bluenile-petite-hidden-halo-14k-yg live PDP",
+      "url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/petite-hidden-halo-solitaire-plus-diamond-engagement-ring-in-14k-yellow-gold-item-192506",
+      "rows": [
+        "bluenile-petite-hidden-halo-14k-yg"
+      ],
+      "outcome": "corrected",
+      "findings": "$1,255(Setting Price) printed on the own PDP; price_source was changed from the collection URL to this exact page.",
+      "action": "Price source now points to the page that prints the price."
+    },
+    {
+      "id": "P21-10",
+      "label": "bluenile-riviera-pave-14k-wg live PDP",
+      "url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/riviera-pave-diamond-engagement-ring-in-14k-white-gold-1-6-ct-tw-item-195326",
+      "rows": [
+        "bluenile-riviera-pave-14k-wg"
+      ],
+      "outcome": "corrected",
+      "findings": "$1,500(Setting Price), Metal Type 14K White Gold and Rhodium Finish Yes printed on the own PDP; price_source tightened to it.",
+      "action": "Price source now points to the page that prints the price."
+    },
+    {
+      "id": "P21-11",
+      "label": "bluenile-floral-marquise-18k-wg live PDP",
+      "url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/floral-marquise-diamond-engagement-ring-in-18k-white-gold-item-203738",
+      "rows": [
+        "bluenile-floral-marquise-18k-wg"
+      ],
+      "outcome": "confirmed",
+      "findings": "$2,210(Setting Price) and spec Metal 18K White Gold printed; Product Details still say “14k yellow gold”, so the existing contradiction remains flagged."
+    },
+    {
+      "id": "P21-12",
+      "label": "bluenile-criss-cross-18k-yg live PDP",
+      "url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/criss-cross-solitaire-engagement-ring-in-18k-yellow-gold-by-james-allen-item-311132",
+      "rows": [
+        "bluenile-criss-cross-18k-yg"
+      ],
+      "outcome": "corrected",
+      "findings": "$2,320(Setting Price) and Metal 18K Yellow Gold printed on the own PDP; price_source changed from the collection URL to this page.",
+      "action": "Price source now points to the page that prints the price."
+    },
+    {
+      "id": "P21-13",
+      "label": "Mejuri Diamonds Band live PDP",
+      "url": "https://mejuri.com/products/diamonds-band?Material=Solid+Yellow+Gold+%2814k%29&Stone=Natural+Diamond",
+      "rows": [
+        "mejuri-diamonds-band"
+      ],
+      "outcome": "confirmed",
+      "findings": "$648, Solid Yellow Gold (14k), Natural Diamond, free 30-day returns and the engraving return exclusion all printed."
+    },
+    {
+      "id": "P21-14",
+      "label": "Mejuri Stacker Ring live PDP",
+      "url": "https://mejuri.com/products/stacker-ring?Material=Solid+Yellow+Gold+%2810k%29",
+      "rows": [
+        "mejuri-stacker-ring-10k"
+      ],
+      "outcome": "corrected",
+      "findings": "$138 and Solid Yellow Gold (10k) printed on the own PDP; price_source and solid_gold_source changed from the collection URL to this page."
+    },
+    {
+      "id": "P21-15",
+      "label": "Ring Concierge 2.08 live PDP",
+      "url": "https://ringconcierge.com/products/2-08-oval-lab-diamond-in-whisper-thina-hidden-halo",
+      "rows": [
+        "ringconcierge-2-08-oval-lab-whisper-thin"
+      ],
+      "outcome": "confirmed",
+      "findings": "$6,038 unchanged. Title says 2.08 Carat E VS1 while Product Details say 5.63 Carat D VVS2; PDP FAQ says one week (7 days) returns and resizing makes the ring final sale. Existing contradiction preserved, duplicate chips removed."
+    },
+    {
+      "id": "P21-16",
+      "label": "Ring Concierge 2.72 live PDP",
+      "url": "https://ringconcierge.com/products/2-72-round-lab-diamond-in-whisper-thina",
+      "rows": [
+        "ringconcierge-2-72-round-lab-whisper-thin"
+      ],
+      "outcome": "corrected",
+      "findings": "$7,268 unchanged. Product Details print 2.72 Carat E VVS2 and Metal: 14K Yellow Gold with Platinum Prongs. The stale E VS1 note and PURITY_NOT_IN_BODY_TEXT flag were removed; duplicate chips consolidated."
+    },
+    {
+      "id": "P21-17",
+      "label": "Catbird Classic Half Round live PDP",
+      "url": "https://www.catbirdnyc.com/catbird-classic-wedding-bands-solid-half-round-band-2mm.html",
+      "rows": [
+        "catbird-classic-half-round-2mm"
+      ],
+      "outcome": "corrected",
+      "findings": "from$550.00 printed. Browser title contains “Solid Half Round Band”; visible heading and image alt omit/print different wording. The solid-gold evidence scope was corrected to page title metadata."
+    },
+    {
+      "id": "P21-18",
+      "label": "Mejuri Dôme Figure vermeil live PDP",
+      "url": "https://mejuri.com/products/dome-figure-ring?Material=18k+Gold+Vermeil",
+      "rows": [
+        "mejuri-dome-figure-vermeil"
+      ],
+      "outcome": "corrected",
+      "findings": "$158 and 18k Gold Vermeil printed; the page defines vermeil as 18k gold on sterling silver. Price/material sources moved from the collection URL to the own PDP."
+    },
+    {
+      "id": "P21-19",
+      "label": "Mejuri Dôme Figure sterling live PDP",
+      "url": "https://mejuri.com/products/dome-figure-ring?Material=Sterling+Silver",
+      "rows": [
+        "mejuri-dome-figure-sterling"
+      ],
+      "outcome": "corrected",
+      "findings": "$138 and Sterling Silver printed; the page defines 925 Sterling Silver as 92.5% pure silver. Price/material sources moved from the collection URL to the own PDP."
+    },
+    {
+      "id": "P21-20",
+      "label": "Aurate general returns help centre",
+      "url": "https://auratenewyork.gorgias.help/en-US/articles/returns-38636",
+      "rows": [
+        "retailers"
+      ],
+      "outcome": "confirmed",
+      "findings": "“Aurate provides a 15-day return window starting from the day your item gets fulfilled” and 21 days for international orders printed verbatim."
+    },
+    {
+      "id": "P21-21",
+      "label": "Aurate exchange-only/final-sale policy",
+      "url": "https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale",
+      "rows": [
+        "retailers"
+      ],
+      "outcome": "corrected",
+      "findings": "Live policy prints 24h made-to-order cancellation, 30% fee thereafter, exchange-for-size-only scope and final-sale non-returnability. Legacy PDP links to /pages/terms-conditions-exchange-only also resolve here; stored notes now use this canonical URL."
+    },
+    {
+      "id": "P21-22",
+      "label": "Blue Nile return policy",
+      "url": "https://www.bluenile.com/policies/returns",
+      "rows": [
+        "retailers"
+      ],
+      "outcome": "confirmed",
+      "findings": "30 days from shipment, two complimentary returns per year, RMA requirement, resized/personalized/custom/final-sale exclusions and $150 missing-report fee all printed."
+    },
+    {
+      "id": "P21-23",
+      "label": "Mejuri standard return policy",
+      "url": "https://mejuri.com/faq/return-exchanges/what-is-the-standard-return-policy",
+      "rows": [
+        "retailers"
+      ],
+      "outcome": "confirmed",
+      "findings": "Free 30-day returns for US/CA/UK/AU/DE; engraved/monogrammed, piercing earrings, gift cards and final-sale/Before We Melt items non-returnable; EU €20 and Rest of World $30 return fees printed."
+    },
+    {
+      "id": "P21-24",
+      "label": "Ring Concierge general refund policy",
+      "url": "https://ringconcierge.com/policies/refund-policy",
+      "rows": [
+        "retailers"
+      ],
+      "outcome": "confirmed",
+      "findings": "30 days on most Fine Jewelry, limited-edition 15 days, special orders/final sale excluded, and repairs guaranteed for 3 years printed. The engagement-ring PDP 7-day term remains the stricter applicable warning."
+    },
+    {
+      "id": "P21-25",
+      "label": "Catbird return policy",
+      "url": "https://www.catbirdnyc.com/returns",
+      "rows": [
+        "retailers"
+      ],
+      "outcome": "confirmed",
+      "findings": "20 days from delivery, $9 return shipping deduction, special/engraved/Forever/piercing/home/beauty/comestibles final sale, and all international sales final printed."
+    },
+    {
+      "id": "P21-26",
+      "label": "Aurate Trustpilot profile",
+      "url": "https://www.trustpilot.com/review/auratenewyork.com",
+      "rows": [
+        "retailers"
+      ],
+      "outcome": "corrected",
+      "findings": "Live profile prints 4,876 reviews and TrustScore 4.1; stored quote said 4,875. Quote corrected, numeric count already matched. Reply rate 98% confirmed."
+    },
+    {
+      "id": "P21-27",
+      "label": "Blue Nile Trustpilot profile",
+      "url": "https://www.trustpilot.com/review/www.bluenile.com",
+      "rows": [
+        "retailers"
+      ],
+      "outcome": "corrected",
+      "findings": "Live profile prints 1,937 reviews and TrustScore 4.0; record had 1,932 / quote 1,928. Live page also says replies to 97% of negative reviews, not 99%."
+    },
+    {
+      "id": "P21-28",
+      "label": "Mejuri Trustpilot profile",
+      "url": "https://www.trustpilot.com/review/mejuri.com",
+      "rows": [
+        "retailers"
+      ],
+      "outcome": "corrected",
+      "findings": "Live profile prints 5,785 reviews and TrustScore 4.3; record had 5,784 / quote 5,781. Live page says 98% of negative reviews receive a reply, not 99%."
+    },
+    {
+      "id": "P21-29",
+      "label": "Ring Concierge Trustpilot profile",
+      "url": "https://www.trustpilot.com/review/ringconcierge.com",
+      "rows": [
+        "retailers"
+      ],
+      "outcome": "confirmed",
+      "findings": "Live profile still prints an unclaimed profile, 7 reviews, TrustScore 2.7 and Trustpilot’s “reviews may not be representative” warning."
+    },
+    {
+      "id": "P21-30",
+      "label": "Catbird Trustpilot profile",
+      "url": "https://www.trustpilot.com/review/www.catbirdnyc.com",
+      "rows": [
+        "retailers"
+      ],
+      "outcome": "corrected",
+      "findings": "Live canonical profile prints 56 reviews and TrustScore 2.2; no recent review invitations and replies to 82% of negative reviews printed. Stored URL updated to the canonical /www.catbirdnyc.com path."
+    },
+    {
+      "id": "P21-31",
+      "label": "GoldPrice.org fresh live check",
+      "url": "https://goldprice.org/",
+      "rows": [
+        "spot"
+      ],
+      "outcome": "flagged",
+      "findings": "Page printed “Spot Gold Price: USD 3,995.88 / Ounce” labelled “Oct 23rd, 2026 at 07:41 NY Time” (no AM/PM stated). It is 0.65% below the preserved $4,022.22/oz calculation anchor. Published only as a dated reference; finding F63.",
+      "action": "Do not overwrite the calculation anchor; enter the live quote in the calculator before a purchase decision."
+    },
+    {
+      "id": "P21-32",
+      "label": "Kitco fresh live cross-check",
+      "url": "https://www.kitco.com/charts/gold",
+      "rows": [
+        "spot"
+      ],
+      "outcome": "flagged",
+      "findings": "Page printed Oct 23, 2026 - 19:43 NY Time, bid 3,994.90, ask 3,996.90, gram 128.44, and “7:42 p.m. EDT”. It agrees with GoldPrice.org within 0.0245% and is also 0.68% below the preserved calculation anchor; finding F63."
+    },
+    {
+      "id": "P21-33",
+      "label": "NIST SP 811 Appendix B.9",
+      "url": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9",
+      "rows": [
+        "standards"
+      ],
+      "outcome": "confirmed",
+      "findings": "Live official page states factors in boldface are exact and contains the mass conversion table used for the exact grain-to-gram derivation; P21 preserved the 31.1034768 g constant."
+    },
+    {
+      "id": "P21-34",
+      "label": "NIST Precious Metals Conversion Information",
+      "url": "https://www.nist.gov/pml/owm/metric-si/unit-conversion/precious-metals-conversion-information",
+      "rows": [
+        "standards"
+      ],
+      "outcome": "corrected",
+      "findings": "Live official page prints Handbook 130 §2.17 and links a conversion PDF, but does not print a troy-ounce-to-gram figure. CR-P15-1 historical assertion corrected with original text preserved in evidence_original_preserved."
+    },
+    {
+      "id": "P21-35",
+      "label": "eCFR 16 CFR 23.10 quality marks",
+      "url": "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23/section-23.10",
+      "rows": [
+        "standards"
+      ],
+      "outcome": "confirmed",
+      "findings": "Live eCFR text defines quality marks and states that a person applying a quality mark must also apply the trademark/name of that person under 15 U.S.C. 297. Title 16 banner reads up to date as of 10/21/2026."
+    },
+    {
+      "id": "P21-36",
+      "label": "Aurate final-sale help FAQ",
+      "url": "https://auratenewyork.gorgias.help/en-US/what-does-final-sale-or-exchange-only-mean-137560",
+      "rows": [
+        "retailers"
+      ],
+      "outcome": "confirmed",
+      "findings": "Help article says selected exchange-only items are not eligible for refund and selected final-sale items are not eligible for refunds or exchanges; it instructs buyers to read the product-page marking carefully."
+    },
+    {
       "id": "P17b-01",
       "kind": "benchmark",
       "label": "GoldPrice.org live reading has drifted further below the dated anchor",
@@ -3287,7 +3804,7 @@
         "spot"
       ],
       "outcome": "flagged",
-      "findings": "Read 2026-10-23T23:43Z: 'Spot Gold Price: USD 3,995.88 / Ounce | Spot Silver Price: USD 53.92 / Ounce Oct 23rd, 2026 at 07:41 NY Time'. The dated primary snapshot is $4,022.22/oz, so the live reading is 0.655% below it. The calculation anchor is deliberately kept dated and reproducible; the live reading is recorded here and shown on the calculator, never fed into the melt arithmetic. Published as finding F50."
+      "findings": "F65"
     },
     {
       "id": "P17b-02",
@@ -3298,7 +3815,7 @@
         "spot"
       ],
       "outcome": "confirmed",
-      "findings": "Gold spot price USD /oz 3,995.47, 'Data as of 22 October, 2026', market data by ICE Data Services. Corroborates the four-feed live cluster (Kitco 3,994.90 / BullionVault 3,995.74 / GoldPrice.org 3,995.88) to within 0.025%."
+      "findings": "F65"
     },
     {
       "id": "P17b-03",
@@ -3309,7 +3826,7 @@
         "spot"
       ],
       "outcome": "confirmed",
-      "findings": "LBMA AM gold $4,026.70 23/10. The page still states the historical tabulated data moved to the MyLBMA Portal and requires an IBA licence, so no LBMA benchmark figure is reproduced in the project. Supports the standing LBMA note in data/prices.json."
+      "findings": "F65"
     },
     {
       "id": "P17b-04",
@@ -3320,7 +3837,7 @@
         "spot"
       ],
       "outcome": "confirmed",
-      "findings": "Bid $3,994.90, Ask $3,996.90, 'Oct 23, 2026 - 19:43 NY Time', -0.71%. Gold price per gram $128.44. Fourth independent feed confirming the live cluster."
+      "findings": "F65"
     },
     {
       "id": "P17b-05",
@@ -3331,7 +3848,7 @@
         "spot"
       ],
       "outcome": "confirmed",
-      "findings": "'Current Gold Price - $3,995.74 per Ounce', 'Gold Price per Gram $128.47', '23 October 2026, 17:00:00 (GMT-04:00)'. Fifth independent feed confirming the live cluster."
+      "findings": "F65"
     },
     {
       "id": "P17b-06",
@@ -3342,7 +3859,7 @@
         "R12"
       ],
       "outcome": "confirmed",
-      "findings": "'Sale price $5,350.00'; 'Stamped for 18 karat gold'; 'With partial maker's mark for Hedges & Co.'; 'Total Weight: 2.2 grams'. All four stored figures found verbatim; R12 remains one of the few rows that publishes both a karat stamp and a maker's mark."
+      "findings": "F65"
     },
     {
       "id": "P17b-07",
@@ -3353,7 +3870,7 @@
         "R20"
       ],
       "outcome": "confirmed",
-      "findings": "'Now: US$3,004.00'; Material '14K Solid Gold'; 'Approximate Metal Weight: 3.80 grams'. Stored price, karat and weight all verbatim."
+      "findings": "F65"
     },
     {
       "id": "P17b-08",
@@ -3364,7 +3881,7 @@
         "R26"
       ],
       "outcome": "confirmed",
-      "findings": "'Now: US$4,068.00'; Material '18K Solid Gold'; 'Approximate Metal Weight: 6.30 grams'. Stored price, karat and weight all verbatim."
+      "findings": "F65"
     },
     {
       "id": "P17b-09",
@@ -3375,7 +3892,7 @@
         "R21"
       ],
       "outcome": "confirmed",
-      "findings": "'Now: US$613.00'; Material '10K Solid Gold'; 'Approximate Metal Weight: 8.30 grams'. Stored price, karat and weight all verbatim. The page also prints 'The weight listed is an approximate weight of a ring in size 10', which is the WT3/WT4 caveat already recorded."
+      "findings": "F65"
     },
     {
       "id": "P17b-10",
@@ -3386,7 +3903,7 @@
         "R27"
       ],
       "outcome": "confirmed",
-      "findings": "'Now: US$695.00'; Material '14K Solid Gold'; 'Approximate Metal Weight: 2.50 grams'. Stored price, karat and weight all verbatim."
+      "findings": "F65"
     },
     {
       "id": "P17b-11",
@@ -3397,7 +3914,7 @@
         "R01"
       ],
       "outcome": "confirmed",
-      "findings": "'From $2,900'; Material & Stone Options 'Solid White Gold (14k), Natural Diamond'; materials heading 'Solid Yellow Gold (14k)' (the SPEC8 mis-heading still prints above a white-gold selection); '14k solid white gold pieces are finished with rhodium plating' (RH1)."
+      "findings": "F65"
     },
     {
       "id": "P17b-12",
@@ -3408,7 +3925,7 @@
         "R08"
       ],
       "outcome": "confirmed",
-      "findings": "'$2,210 (Setting Price)'; spec 'Metal Type: 18K White Gold' and 'Rhodium Finish Yes', while the body prose still reads 'artfully crafted from warmly lustrous 14k yellow gold'. F1's contradiction is unchanged and remains published on flagged.html."
+      "findings": "F65"
     },
     {
       "id": "P17b-13",
@@ -3419,7 +3936,7 @@
         "SOL-01"
       ],
       "outcome": "confirmed",
-      "findings": "'$1,125 (Setting Price)'; 'Metal Type: 18K Yellow Gold'; 'platinum prongs'. Stored price, karat and the mixed-metal note all verbatim."
+      "findings": "F65"
     },
     {
       "id": "P17b-14",
@@ -3430,7 +3947,7 @@
         "R15"
       ],
       "outcome": "confirmed",
-      "findings": "'$249'; 'Metal 18kt Yellow Gold'; 'Gold Weight 0.7 grams'. Stored price, karat and weight all verbatim."
+      "findings": "F65"
     },
     {
       "id": "P17b-15",
@@ -3441,7 +3958,7 @@
         "BND-04"
       ],
       "outcome": "confirmed",
-      "findings": "'$400'; 'Metal 14kt Yellow Gold'; 'Gold Weight 1.7 grams'. Stored price, karat and weight all verbatim."
+      "findings": "F65"
     },
     {
       "id": "P17b-16",
@@ -3452,7 +3969,7 @@
         "BND-05"
       ],
       "outcome": "confirmed",
-      "findings": "'$949'; 'Metal 14kt Yellow Gold'; 'Gold Weight 4.2 grams'. Stored price, karat and weight all verbatim."
+      "findings": "F65"
     },
     {
       "id": "P17b-17",
@@ -3463,7 +3980,7 @@
         "BND-06"
       ],
       "outcome": "confirmed",
-      "findings": "'Italian 14kt Yellow Gold Diamond-Cut Dome Ring'; '$1,195'; 'Metal 14kt Yellow Gold'; 'Gold Weight 4.0 grams'; width 3/4 inch. Confirms the F49 correction (the real product behind the calculator preset)."
+      "findings": "F65"
     },
     {
       "id": "P17b-18",
@@ -3474,7 +3991,7 @@
         "BND-08"
       ],
       "outcome": "confirmed",
-      "findings": "'Men's 22kt Yellow Gold American Eagle Coin Ring in 14kt Yellow Gold'; '$3,295'; 'Metal 14kt and 22kt Gold'; 'Gold Weight 5.9 grams'. Stored price, mixed-karat label and weight all verbatim."
+      "findings": "F65"
     },
     {
       "id": "P17b-19",
@@ -3485,7 +4002,7 @@
         "BND-12"
       ],
       "outcome": "confirmed",
-      "findings": "'$498'; Material 'Solid Yellow Gold (14k)'; 'Width: 2 mm'; 'Thickness: 1.3 mm'. Stored price, karat and the explicit solid-gold wording all verbatim."
+      "findings": "F65"
     },
     {
       "id": "P17b-20",
@@ -3496,7 +4013,7 @@
         "R30"
       ],
       "outcome": "corrected",
-      "findings": "Product page reads '$3,202 USD' at 2026-10-23T23:45Z. The captured price_usd stays $3,253 (2026-10-22) and the P4 live reading $3,228 is kept, so a third history entry ($3,202) was appended to live_recheck. The stored figure was deliberately not overwritten so the continued movement stays visible. Extends F40/PRC1."
+      "findings": "F65"
     },
     {
       "id": "P17b-21",
@@ -3507,7 +4024,7 @@
         "BND-01"
       ],
       "outcome": "confirmed",
-      "findings": "'Classic Band ... $1,694 ... USD'; 'Metal: 24k Gold'; 'Width: 5mm Thickness: 2mm'. The P12 live figure now matches the stored price_usd exactly, so no change was needed."
+      "findings": "F65"
     },
     {
       "id": "P17b-22",
@@ -3518,7 +4035,7 @@
         "BND-02"
       ],
       "outcome": "confirmed",
-      "findings": "'Narrow Flat Band ... $1,532 ... USD'; 'Metal: 24k Gold'; 'Width: 4mm Thickness: 2mm'. The P12 live figure now matches the stored price_usd exactly, so no change was needed."
+      "findings": "F65"
     },
     {
       "id": "P17b-23",
@@ -3529,7 +4046,7 @@
         "BND-03"
       ],
       "outcome": "corrected",
-      "findings": "The page that answered HTTP 500 in P12 now loads and prints 'Wide Flat Band ... $2,445 ... USD' at 2026-10-23T23:45Z. The captured price_usd stays $2,465; a live_recheck entry with the new reading was added and the SRC3 note updated to record that the page is live again. The collection 'From $2,297' widget figure is still only a cross-check and was not substituted."
+      "findings": "F65"
     },
     {
       "id": "P17b-24",
@@ -3540,7 +4057,7 @@
         "R24"
       ],
       "outcome": "confirmed",
-      "findings": "'$875'; 'Solid 14k Gold and 950 Platinum'; 'Production time is 1 to 5 business days'; 'Free returns (US only)'. The stored price, metal and production-time quote are verbatim; the 2.3 g / 3.4 g weight split was read in an earlier chunk of the same page by P11/P15 and is unchanged."
+      "findings": "F65"
     },
     {
       "id": "P17b-25",
@@ -3552,7 +4069,7 @@
         "R29"
       ],
       "outcome": "confirmed",
-      "findings": "'fairmined 2mm six-prong solitaire -$1,090'; 'Metal: 18K Yellow Gold'; the Ring Information spec table still prints 'Band Width: 2 ct. tw.' (the F27 template bug); and 'Due to the materials and distinctive design of this style, resizing is not available for this ring.' Confirms the stored price, the mixed-surface template defect and the resize exclusion."
+      "findings": "F65"
     }
   ],
   "discrepancies": [
@@ -3644,19 +4161,41 @@
       "what": "Automic Gold advertises a 30-day return window but its refund policy states 'To avoid a restocking fee, please mail your items within 14 days.'",
       "flag": "RET14",
       "severity": "medium"
+    },
+    {
+      "id": "D15",
+      "row": "spot",
+      "what": "At 2026-10-24T00:08:30Z GoldPrice.org printed $3,995.88/oz and Kitco printed a $3,994.90/oz bid; they agree within 0.0245% but sit below the preserved $4,022.22/oz calculation anchor. The dated anchor remains the sole arithmetic input; live values are reference checks.",
+      "flag": "SPOT3",
+      "severity": "medium"
+    },
+    {
+      "id": "D16",
+      "row": "ringconcierge-2-72-round-lab-whisper-thin",
+      "what": "The older notes said E VS1 while the live Product Details say E VVS2. P21 corrected the final stale prose; the numeric price is unchanged.",
+      "flag": "SRC5",
+      "severity": "low"
+    },
+    {
+      "id": "D17",
+      "row": "retailers",
+      "what": "Independent P21 Trustpilot re-read corroborated Aurate 4,876, Blue Nile 1,937 and Mejuri 5,785 reviews, plus the 97%/98% reply rates; Catbird URL normalized to its canonical profile.",
+      "flag": "REV2",
+      "severity": "low"
     }
   ],
   "not_rechecked": [],
   "summary": {
-    "checks": 278,
-    "confirmed": 140,
-    "corrected": 97,
-    "flagged": 41,
-    "urls_opened": 278,
-    "site_defects_fixed": 19,
+    "checks": 326,
+    "confirmed": 163,
+    "corrected": 118,
+    "flagged": 45,
+    "urls_opened": 326,
+    "site_defects_fixed": 30,
     "p15_note": "P15 added 11 net-new checks after P12-P14 (7 confirmed, 3 corrected, 1 flagged). It preserves the dated calculation anchor and adds Dataset C weight coverage, NIST/VRAI/Automic corrections and JSON-derived calculator presets.",
     "p17_note": "P17 added 31 checks (10 confirmed, 18 corrected, 3 flagged). Every Dataset A numeric price was confirmed without change. Unsupported stone-inclusion and solid-geometry/review inferences were removed; stale specifications, policies and review counts were corrected. F50-F55 and the labelled live-check reading are published; the dated calculation anchor is unchanged.",
-    "p17b_note": "Pass P17b (arena/1ee91485-gold3) re-opened 25 official URLs live at 2026-10-23T23:43-23:45Z: the five gold-spot feeds plus 20 product rows. All stored prices/weights matched verbatim except the two Menē rows that moved again. The dated calculation anchor is unchanged; the newest live-check snapshot is now shown on the calculator."
+    "p19_note": "P19 adds 12 net-new checks (10 confirmed, 2 flagged) and the first requirements compliance matrix. It preserves the peer-reviewed dated spot anchor, publishes the newer live reading beside it, and appends only net-new corrections.",
+    "p21_note": "P21 added 36 independent checks after peer P17/P19 merged (13 confirmed, 21 corrected, 2 flagged). It preserves both peer passes and adds exact quoted Aurate weights, structured Kitco live cross-check/history, precise excluded-Mejuri PDP links and CR evidence closeout."
   },
   "site_defects": [
     {
@@ -3841,7 +4380,76 @@
       "what": "Post-P15 live read-back found three surfaces lagging the merged data: the verification session string ended at P14 although the P15 pass and 222 checks were present; finding F2 still presented the A+B subset as '14 of 50' beside the 71-row site; README still said P1-P14 / 211 checks.",
       "found_by": "arena/db2fe957-gold3, live GitHub Pages read-back after PR #64",
       "fix": "Append the P15 session attribution; compute full A+B+C counts in verify.py and use them in F2; update README to P1-P15 / 222 checks; add render assertions for all three surfaces."
+    },
+    {
+      "id": "SD25",
+      "page": "index.html",
+      "what": "Two dashboard tiles were labelled 'Weights in this pass' and 'Hallmark policies' while their values described Dataset A only and their sub-labels described the whole site. A reader could not tell which denominator was which.",
+      "found_by": "This pass, while deriving the requirements matrix from the same metrics.",
+      "fix": "Relabelled 'Dataset A weights' and 'Retailer hallmark policies', moved the combined 19-of-71 figure into the sub-line, and added a 'Checklist cells verified' tile plus a link to the new Requirements page.",
+      "status": "fixed"
+    },
+    {
+      "id": "SD26",
+      "page": "scripts/requirements_matrix.py",
+      "what": "The first draft of the new matrix cited five authority pages at paths that were not the ones registered in data/sources.json (notably 16 CFR Part 23 under subchapter A instead of subchapter B) and used two unregistered consumer-advice URLs.",
+      "found_by": "This pass, by cross-checking every authority URL against data/sources.json before publishing.",
+      "fix": "Every authority link now points at a page already registered and quoted in data/sources.json, or at one of the two pages opened live this pass (15 U.S.C. 1666, 16 CFR Part 435) and added there. HS-09 in scripts/hallucination_scan.py enforces https + an action for all ten.",
+      "status": "fixed"
+    },
+    {
+      "id": "SD27",
+      "page": ".github/workflows/audit.yml, scripts/render-test.js",
+      "what": "The SD21 render guard compared flagged.html's 'Last automated pass' date with reports/audit-report.md, but CI built the site before running audit.py, so on the first run after UTC midnight the page carried the previous day's date and the guard failed on a defect it had just introduced itself.",
+      "found_by": "This pass, when the full gate sequence failed at 00:0x UTC for that reason alone.",
+      "fix": "CI now rebuilds both page sets immediately after audit.py, and the guard derives its expected date from the report instead of a typed literal (both changes committed together). The gate sequence was re-run in the corrected order: 177/177.",
+      "status": "fixed"
+    },
+    {
+      "id": "SD28",
+      "page": "data/products.json; generated Aurate rows",
+      "severity": "medium",
+      "status": "fixed",
+      "what": "Aurate gram figures were published in prose but not all rows carried the exact live weight quote, and some legacy notes inferred whether stones were included.",
+      "found_by": "Pass P21 independent PDP re-read (F61)",
+      "fix": "All seven rows now carry the exact Weight string and state that metal-only/total scope is unverified; every weight_g remains null."
+    },
+    {
+      "id": "SD29",
+      "page": "data/products.json; Ring Concierge row",
+      "severity": "low",
+      "status": "fixed",
+      "what": "The 2.72 ct row still contained a stale E VS1 note after the carat_note was corrected.",
+      "found_by": "Pass P21 exact-string comparison (F62)",
+      "fix": "The notes now match the live Product Details E VVS2 text; the mixed-metal warning remains."
+    },
+    {
+      "id": "SD30",
+      "page": "data/products.json; excluded Mejuri rows",
+      "severity": "low",
+      "status": "fixed",
+      "what": "Both Dôme Figure exclusions were sourced through a general collection page rather than their own variant PDPs.",
+      "found_by": "Pass P21 source-link precision audit (F60)",
+      "fix": "Price and material evidence now link to the exact vermeil/sterling PDPs; no price changed."
+    },
+    {
+      "id": "SD31",
+      "page": "data/prices.json; data/sources.json; calculator.html",
+      "severity": "medium",
+      "status": "fixed",
+      "what": "A structured independent Kitco cross-check and the prior live-check history were missing, so later spot drift was only recorded in prose.",
+      "found_by": "Pass P21 live-feed re-read (F63)",
+      "fix": "Machine-readable Kitco quote/spread and snapshot history were added; the dated calculation anchor remains unchanged."
+    },
+    {
+      "id": "SD32",
+      "page": "data/reverification-c-6ccbc523.json; reports/reverification-1162b2db.md",
+      "severity": "low",
+      "status": "fixed",
+      "what": "CR-P15-1/CR-P15-2 closure needed verification on the merged tree after multiple peer passes.",
+      "found_by": "Pass P21 documentation closeout (F64)",
+      "fix": "Original NIST assertion and both historical reports remain preserved; active evidence uses the SP 811 B.9 derivation and the report bundle has no conflict markers."
     }
   ],
-  "site_defects_fixed": 21
+  "site_defects_fixed": 30
 }

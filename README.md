@@ -9,7 +9,7 @@ It publishes as a static site on GitHub Pages and is generated entirely from mac
 > **blank** and marked **unverified** — it is never estimated, inferred, or filled in to make a row
 > look complete. **Recommendation:** actively look for hallucinations on every review pass by clicking the official source link on every row, re-checking live prices/weights before buying, and running all automated security checks below.
 
-**Price snapshots:** 22–23 October 2026 · **P17/P17b live re-verification:** 23 October 2026 (passes `P1`–`P17b`, **278 logged checks**) · **71 rows** — Dataset A 19, Dataset B 31, Dataset C 21 · **16 sellers** · **19 published weights** (14 in Dataset B, 5 in Dataset C)
+**Price snapshots:** 22–23 October 2026 · **re-verified live:** 23 October 2026 (passes `P1`–`P21` + `P17b`, **326 logged checks**) · **71 rows** — Dataset A 19, Dataset B 31, Dataset C 21 · **16 sellers** · **19 published weights** (14 in Dataset B, 5 in Dataset C)
 
 ---
 
@@ -31,6 +31,7 @@ It publishes as a static site on GitHub Pages and is generated entirely from mac
 | `standards.html` | Karat arithmetic and the federal jewellery rules quoted with citations |
 | `methodology.html` | The passes run in order, and how to re-run every check |
 | `analysis.html` | Coverage of the checklist plus melt value versus asking price for rows that publish a weight |
+| `requirements.html` | **Requirements compliance matrix**: all 71 listings scored cell by cell against the ten checklist requirements, every cell source-linked or blank |
 
 ## Data files (single source of truth)
 
@@ -61,6 +62,20 @@ npm --prefix archive/session-cbea1001 test  # Node anti-hallucination, melt-math
 All checks run in CI on every push and pull request (`.github/workflows/audit.yml`). The site is generated, so
 editing HTML by hand is pointless: change `data/*.json` or `scripts/build_site.py`, then rebuild.
 
+## What Pass P21 changed (collision-safe independent corroboration, 23 October 2026)
+
+Two peer sessions merged `P17`/`P18` (PRs #69/#71) and `P19` (requirements matrix, PRs #72/#73) while this pass was running. This session preserved both peer passes and numbered its independent work **`P21`** so every check ID remains unique. P21 reopened all 19 Dataset A PDPs, five return policies, five Trustpilot profiles, GoldPrice.org, Kitco, NIST SP 811 B.9, NIST Precious Metals Conversion Information and 16 CFR 23.10: **13 confirmed · 21 corrected · 2 flagged** (`data/reverification-p21.json`, `reports/reverification-pass-p21.md`, ledger `P21-01`…`P21-36`).
+
+* **Peer work preserved:** P17 (31 checks, F50–F55) and P19 (12 checks, F56–F58, requirements matrix) remain intact; the combined ledger now holds **301 checks**.
+
+Pass **`P17b`** (`arena/1ee91485-gold3`, 2026-10-23T23:43-23:45Z) is the independent pass this branch contributed: it re-opened five gold-spot feeds and 20 price/weight-bearing product pages live, found every stored value verbatim except the two Menē re-pricings, and appended **25 checks** (`P17b-01`…`P17b-25`, 22 confirmed / 2 corrected / 1 flagged) plus finding `F65`. It was renumbered from `P17` because peer `arena/36ebce13-gold3` claimed that id first — the two passes are additive, not duplicates. The combined ledger now holds **326 checks** across `P1`–`P15`, `P17`, `P19`, `P21` and `P17b`.
+* **Aurate:** exact live weight strings are stored on all seven rows, but every `weight_g` stays `null` because metal-only/total scope and exact variant mapping are not stated (`F61`).
+* **Ring Concierge:** the last stale `E VS1` prose on the 2.72 ct row was corrected to live `E VVS2`; mixed-metal/return-window warnings remain (`F62`).
+* **Excluded Mejuri variants:** price and material evidence now link to their own PDPs, which print `$158` for 18k gold vermeil and `$138` for sterling silver (`F60`).
+* **Gold feeds:** a structured Kitco `$3,994.90/oz` cross-check and the prior 20:17Z live-check history were added; the dated `$4,022.22/oz` calculator anchor did not move (`F63`).
+* **Change requests:** CR-P15-1/CR-P15-2 remain closed with the original NIST assertion and both historical report versions preserved (`F64`).
+* **Standing recommendation:** after every review, run all gates and actively hunt hallucinations by opening each row’s official source. Re-read live prices immediately before buying.
+
 ## What Pass P17 changed (23 October 2026)
 
 All **19 Dataset A official product sources**, five seller-policy records, five Trustpilot profiles, Ross-Simons Item 571221 and four spot publishers were re-read: **31 checks — 10 confirmed, 18 corrected, 3 flagged**. Every Dataset A numeric price was confirmed with **zero price changes**; no published gram weight changed. See `reports/reverification-pass-p17.md` and `data/reverification-p17.json`.
@@ -72,29 +87,29 @@ All **19 Dataset A official product sources**, five seller-policy records, five 
 * The live spot reference is corroborated by four feeds within **0.025%** and sits **0.65% below** the morning anchor. Calculations still use the dated **$4,022.22/oz** primary snapshot for reproducibility.
 * Published findings **F50–F55** and added guards for duplicate flags, stale source wording and unsupported inclusion/solidity inferences.
 
-## What Pass P17b changed (23 October 2026)
+## What the nineteenth pass changed (23 October 2026 — Pass P19)
 
-Pass `P17b` (session `arena/1ee91485-gold3`) is the additive twin of the peer's `P17`: it re-opened a different set of
-rows and re-measured the benchmark. **25 checks — 22 confirmed, 2 corrected, 1 flagged.** See
-`reports/reverification-pass-p17b.md` and `data/reverification-p17b.json`.
+**Ten official pages re-opened live across all three datasets — 8 confirmed, 0 corrected, 2 flagged** — plus the
+site's first **requirements compliance matrix** (`requirements.html`, `data/requirements-matrix.json`), generated by
+`scripts/requirements_matrix.py` and re-derived independently by the new `scripts/hallucination_scan.py`
+(`reports/reverification-pass-p19.md`, `data/reverification-p19.json`, ledger `P19-01`…`P19-12`).
 
-* **Gold benchmark re-measured on five independent feeds** — GoldPrice.org `$3,995.88/oz`, Kitco bid `$3,994.90`,
-  BullionVault `$3,995.74/oz`, World Gold Council `$3,995.47/oz` (data as of 22 Oct 2026), LBMA AM `$4,026.70` —
-  the four spot feeds cluster within **0.025%** and sit **0.655%** below the dated anchor. The dated anchor is
-  kept; a further labelled `live-check` snapshot is appended to `data/prices.json` and the calculator now selects
-  the **newest** live-check snapshot.
-* **20 product rows rotated back onto live pages, every stored value found verbatim** — Wilson's `R12` (also the
-  only row that publishes both a karat stamp and a maker's mark), Sarraf `R20`/`R21`/`R26`/`R27`, Mejuri
-  `R01`/`BND-12`, Blue Nile `R08`/`SOL-01`, Ross-Simons `R15`/`BND-04`/`BND-05`/`BND-06`/`BND-08`, Automic `R24` and
-  Brilliant Earth `SOL-05`. `F1` (Blue Nile 18K vs 14k body) and `F27` (Brilliant Earth band-width unit bug) remain
-  live and published on *Flagged for Review*.
-* **Menē repriced twice more** — `R30` Wrap Ring now prints `$3,202` (captured `$3,253`) and `BND-03` Wide Flat Band's
-  page, which returned **HTTP 500** in pass P12, recovered and prints `$2,445` (captured `$2,465`). Both are recorded
-  additively in `live_recheck.history`; no stored figure was overwritten.
-* **CR-P15-2 closed** — the conflicted `reports/reverification-1162b2db.md` is split into the clean P5 report, the
-  live-verified Dataset C surface in `reports/reverification-dataset-c.md`, and a new
-  `reports/reverification-incomplete.md` cataloguing the stale/historical artifacts.
-* Published finding **F56** (renumbered from `F50` to avoid colliding with the peer session's `F50`).
+* **Every one of the 71 listings is now scored against all ten checklist requirements** — karat, the word "solid",
+  hallmark, maker's mark, weight, seller reputation, return window, card payment, documentation and independent/XRF
+  verification. A cell is either backed by an official page you can click, or left **blank and marked unverified**.
+  The consequence is the honest headline: **0 of 71 rows clear all ten.** 19 publish a numeric weight, 3 a hallmark,
+  2 a maker's mark and none records a seller offering an assay.
+* **Nothing was inferred to close a gap.** The 52 rows without a numeric weight get no melt figure; the 13 without a verifiable
+  payment method stay blank. `hallucination_scan.py` proves every stored price and gram weight appears verbatim in that
+  row's own quote, so a cell cannot be filled from arithmetic alone.
+* **Menē moved the Wrap Ring twice in one day** (`$3,228` → `$3,202`, 1.57% under the capture). The captured price is
+  untouched and both live readings are stored (finding `F56`).
+* **Two site defects fixed:** `SD25` (two dashboard tiles carried Dataset-A values under site-wide labels) and `SD26`
+  (authority links in the first draft of the matrix did not match `data/sources.json`; 16 CFR Part 23 was cited under the
+  wrong subchapter). Two authority pages were opened live and added to the register: **15 U.S.C. § 1666** (billing-error
+  correction, the reason a credit card matters) and **16 CFR Part 435** (FTC mail/internet order rule).
+* **New findings** `F56` (intra-day Menē repricing), `F57` (two gold-price anchors 0.012% apart and which page uses which)
+  and `F58` (no listing clears all ten requirements).
 
 ## What the ninth pass changed (23 October 2026 — Pass P13)
 
