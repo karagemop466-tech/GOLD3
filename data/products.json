@@ -51,7 +51,7 @@
         },
         {
           "code": "PAGE_SELF_CONTRADICTION",
-          "note": "Band width: the copy says \"a refined 1.8mm width\" while the specs block says \"Width: 2.75mm / Thickness: 1.8mm\". Diamond clarity: the copy says \"VVS clarity\", the specs say \"1 Round VS/EF Lab Grown Diamond\", and a quality badge on the same page says \"SI Clarity Only\". All three readings are recorded; none is averaged or chosen."
+          "note": "Product copy says “VVS clarity”; Specs print “1 Round VS/EF Lab Grown Diamond”; the quality badge says “SI Clarity Only”. Copy also says a refined 1.8mm width while Specs print Width 2.75mm / Thickness 1.8mm. All readings are recorded; none is chosen."
         },
         {
           "code": "HALLMARK_NOT_STATED",
@@ -63,7 +63,7 @@
         }
       ],
       "notes": "Diamond described as \"EF color, VVS clarity\" in the product copy, \"VS/EF\" in the specs block, with an \"SI Clarity Only\" quality badge elsewhere on the same page. Re-read live on 2026-10-22 (pass P3, session arena/699d8e05-gold3): price unchanged, and the exchange-only/final-sale notices were present.",
-      "price_recheck": "2026-10-23 (pass P17, session arena/36ebce13-gold3) — official product source re-opened; stored price $2,858 confirmed; no numeric price change.",
+      "price_recheck": "2026-10-24T00:08:30Z (independent P21 read, 2026-10-23 US Pacific / 2026-10-24 UTC) — own PDP re-opened live; stored numeric price unchanged.",
       "weight_quote": "Weight: 5.5-8.5g",
       "weight_note": "Specs publish 'Weight: 5.5-8.5g' and '2tcw' separately. The page does not define whether the gram range is metal-only or total-item weight and does not assign one value to the selected variant; weight_g remains null and no stone mass is deducted.",
       "specs_quote": "Width: 2.75mm · Thickness: 1.8mm · Weight: 5.5-8.5g · Diamonds: 1 Round VS/EF Lab Grown Diamond · Diamonds Size: 8.2mm · 2tcw · SKU: AU5760",
@@ -163,7 +163,7 @@
       "price_variant_note": "Current official product and structured endpoints support the stored minimum 14k price; higher-priced metal options are not included.",
       "price_captured_on": "2026-10-23",
       "price_source": "https://auratenewyork.com/products/1ct-round-lab-grown-diamond-bezel-ring",
-      "price_quote": "1ct Round Lab Grown Diamond Bezel Ring $1,498 | Rate - 14k GOLD | Made to Order | Final Sale! / Exchange for size only. | Weight: 2.23g | 1.05tcw | SKU: AU5000",
+      "price_quote": "1ct Round Lab Grown Diamond Bezel Ring $1,498 | Rate - 14k GOLD | Made to Order | Final Sale! | Exchange for size only. | Weight: 2.23g | 1.05tcw | SKU: AU5000",
       "weight_g": null,
       "weight_status": "published as unscoped weight",
       "weight_source": "https://auratenewyork.com/products/1ct-round-lab-grown-diamond-bezel-ring",
@@ -512,7 +512,7 @@
         }
       ],
       "notes": "Can be set with 0.20-8.00 ct stones in 13 shapes.",
-      "price_recheck": "2026-10-23 (pass P17, session arena/36ebce13-gold3) — official product source re-opened; stored price $1,000 confirmed; no numeric price change."
+      "price_recheck": "2026-10-24T00:08:30Z (independent P21 read, 2026-10-23 US Pacific / 2026-10-24 UTC) — own PDP re-opened live; stored numeric price unchanged."
     },
     {
       "id": "bluenile-petite-hidden-halo-14k-yg",
@@ -567,7 +567,7 @@
         }
       ],
       "notes": "",
-      "price_recheck": "2026-10-23 (pass P17, session arena/36ebce13-gold3) — official product source re-opened; stored price $1,255 confirmed; no numeric price change."
+      "price_recheck": "2026-10-24T00:08:30Z (independent P21 read, 2026-10-23 US Pacific / 2026-10-24 UTC) — own PDP re-opened live; stored numeric price unchanged."
     },
     {
       "id": "bluenile-riviera-pave-14k-wg",
@@ -622,7 +622,7 @@
         }
       ],
       "notes": "",
-      "price_recheck": "2026-10-23 (pass P17, session arena/36ebce13-gold3) — official product source re-opened; stored price $1,500 confirmed; no numeric price change."
+      "price_recheck": "2026-10-24T00:08:30Z (independent P21 read, 2026-10-23 US Pacific / 2026-10-24 UTC) — own PDP re-opened live; stored numeric price unchanged."
     },
     {
       "id": "bluenile-floral-marquise-18k-wg",
@@ -681,7 +681,7 @@
         }
       ],
       "notes": "The clearest example in this dataset of why a karat claim on a page cannot be taken as proof.",
-      "price_recheck": "2026-10-23 (pass P17, session arena/36ebce13-gold3) — official product source re-opened; stored price $2,210 confirmed; no numeric price change."
+      "price_recheck": "2026-10-24T00:08:30Z (independent P21 read, 2026-10-23 US Pacific / 2026-10-24 UTC) — own PDP re-opened live; stored numeric price unchanged."
     },
     {
       "id": "bluenile-criss-cross-18k-yg",
@@ -736,7 +736,7 @@
         }
       ],
       "notes": "Sold on Blue Nile's site as part of the James Allen collection.",
-      "price_recheck": "2026-10-23 (pass P17, session arena/36ebce13-gold3) — official product source re-opened; stored price $2,320 confirmed; no numeric price change."
+      "price_recheck": "2026-10-24T00:08:30Z (independent P21 read, 2026-10-23 US Pacific / 2026-10-24 UTC) — own PDP re-opened live; stored numeric price unchanged."
     },
     {
       "id": "mejuri-diamonds-band",
@@ -788,7 +788,7 @@
         }
       ],
       "notes": "Free 30-day returns and exchanges from delivery; 2-year warranty.",
-      "price_recheck": "2026-10-23 (pass P17, session arena/36ebce13-gold3) — official product source re-opened; stored price $648 confirmed; no numeric price change."
+      "price_recheck": "2026-10-24T00:08:30Z (independent P21 read, 2026-10-23 US Pacific / 2026-10-24 UTC) — own PDP re-opened live; stored numeric price unchanged."
     },
     {
       "id": "mejuri-stacker-ring-10k",
@@ -812,7 +812,7 @@
       "price_type": "listed",
       "price_variant_note": "Listed price for the Solid Yellow Gold (10k) option.",
       "price_captured_on": "2026-10-23",
-      "price_source": "https://mejuri.com/collections/rings",
+      "price_source": "https://mejuri.com/products/stacker-ring?Material=Solid+Yellow+Gold+%2810k%29",
       "price_quote": "Stacker Ring ... $138 ... Solid Yellow Gold (10k)",
       "weight_g": null,
       "weight_status": "not published",
@@ -839,7 +839,7 @@
         }
       ],
       "notes": "Lowest-priced solid-gold ring in this dataset.",
-      "price_recheck": "2026-10-23 (pass P17, session arena/36ebce13-gold3) — official product source re-opened; stored price $138 confirmed; no numeric price change."
+      "price_recheck": "2026-10-24T00:08:30Z (independent P21 read, 2026-10-23 US Pacific / 2026-10-24 UTC) — own PDP re-opened live; stored numeric price unchanged."
     },
     {
       "id": "ringconcierge-2-08-oval-lab-whisper-thin",
@@ -886,7 +886,7 @@
         },
         {
           "code": "SHORT_RETURN_WINDOW",
-          "note": "Engagement-ring PDP Shipping & Returns accordion restricts returns to '1 week (7 days) from the date of delivery to return your ready-made engagement ring' (contradicting the 30-day general Fine Jewelry policy), and resizing makes it final sale."
+          "note": "The engagement-ring PDP FAQ says “You have one week (7 days) from the date of delivery to return your ready-made engagement ring” and “Any customizations or resizing to the ring results in it becoming final sale.” The general Fine Jewelry policy says 30 days; use the stricter PDP term unless the seller confirms otherwise in writing."
         },
         {
           "code": "MIXED_METAL",
@@ -906,7 +906,7 @@
         }
       ],
       "notes": "Re-read live 2026-10-23 (session arena/15b00e99-gold3): caught major stone spec conflict (2.08 ct E VS1 vs 5.63 ct D VVS2), confirmed 'Metal: 14K Yellow Gold with Platinum Prongs', info@ringconcierge.com, and 7-day bridal return window.",
-      "price_recheck": "2026-10-23 (pass P17, session arena/36ebce13-gold3) — official product source re-opened; stored price $6,038 confirmed; no numeric price change.",
+      "price_recheck": "2026-10-24T00:08:30Z (independent P21 read, 2026-10-23 US Pacific / 2026-10-24 UTC) — own PDP re-opened live; stored numeric price unchanged.",
       "availability_quote": "Every size option read \"Made to Order\"; \"Estimated production time is 3-4 weeks\"; \"Receive a notification when this item is back in stock!\"; \"Join the Waitlist\"; page banners \"FREE RETURNS + COMPLIMENTARY WARRANTY\" and \"COMPLIMENTARY LIFETIME WARRANTY\".",
       "availability_source": "https://ringconcierge.com/products/2-08-oval-lab-diamond-in-whisper-thina-hidden-halo",
       "price_basis": "listed"
@@ -941,7 +941,7 @@
       "diamond_type": "lab-grown",
       "diamond_source": "https://ringconcierge.com/products/2-72-round-lab-diamond-in-whisper-thina",
       "carat": 2.72,
-      "carat_note": "2.72 Carat E VS1 Round Lab Grown Diamond",
+      "carat_note": "2.72 Carat E VVS2 Round Lab Grown Diamond",
       "carat_source": "https://ringconcierge.com/products/2-72-round-lab-diamond-in-whisper-thina",
       "setting_included": true,
       "hallmark_stated": null,
@@ -952,7 +952,7 @@
         },
         {
           "code": "SHORT_RETURN_WINDOW",
-          "note": "Engagement-ring PDP restricts returns to 7 days from delivery (vs 30 days in general Refund Policy); resizing makes it final sale."
+          "note": "The engagement-ring PDP FAQ says “You have one week (7 days) from the date of delivery to return your ready-made engagement ring” and “Any customizations or resizing to the ring results in it becoming final sale.” The general Fine Jewelry policy says 30 days; use the stricter PDP term unless the seller confirms otherwise in writing."
         },
         {
           "code": "MIXED_METAL",
@@ -971,9 +971,9 @@
           "note": "No hallmark / maker's-mark statement."
         }
       ],
-      "notes": "Product page opened directly on 2026-10-23 (session arena/15b00e99-gold3): $7,268, 'Metal: 14K Yellow Gold with Platinum Prongs', 2.72 ct E VS1, and 7-day bridal return window confirmed.",
+      "notes": "Product page opened directly on 2026-10-23 (session arena/15b00e99-gold3): $7,268, 'Metal: 14K Yellow Gold with Platinum Prongs', 2.72 ct E VVS2, and 7-day bridal return window confirmed.",
       "price_basis": "listed",
-      "price_recheck": "2026-10-23 (pass P17, session arena/36ebce13-gold3) — official product source re-opened; stored price $7,268 confirmed; no numeric price change."
+      "price_recheck": "2026-10-24T00:08:30Z (independent P21 read, 2026-10-23 US Pacific / 2026-10-24 UTC) — own PDP re-opened live; stored numeric price unchanged."
     },
     {
       "id": "catbird-classic-half-round-2mm",
@@ -989,8 +989,8 @@
       "purity_source": "https://www.catbirdnyc.com/catbird-classic-wedding-bands-solid-half-round-band-2mm.html",
       "metal_detail": "14k yellow gold (per the product image description)",
       "solid_gold": true,
-      "solid_gold_status": "stated in product name",
-      "solid_gold_evidence": "Catbird Classic Wedding Bands, Solid Half Round Band, 2mm",
+      "solid_gold_status": "stated in page title metadata",
+      "solid_gold_evidence": "Catbird Classic Wedding Bands, Solid Half Round Band, 2mm | Catbird",
       "solid_gold_source": "https://www.catbirdnyc.com/catbird-classic-wedding-bands-solid-half-round-band-2mm.html",
       "price": 550.0,
       "currency": "USD",
@@ -1027,8 +1027,8 @@
           "note": "An $9 return-shipping charge is deducted from the refund."
         }
       ],
-      "notes": "Plain solid-gold wedding band. The seller publishes a from-price and 14k yellow-gold image text but no usable gram weight; no markup or price-per-gram ranking is claimed.",
-      "price_recheck": "2026-10-23 (pass P17, session arena/36ebce13-gold3) — official product source re-opened; stored price $550 confirmed; no numeric price change."
+      "notes": "Plain solid-gold wedding band and the lowest markup route in this dataset. The word “Solid” appears in the page title metadata; the visible product heading returned on P21 reads “Catbird Classic Wedding Bands, Half Round Band, 2mm”. The $550.00 price is a from-price and no gram weight is usable.",
+      "price_recheck": "2026-10-24T00:08:30Z (independent P21 read, 2026-10-23 US Pacific / 2026-10-24 UTC) — own PDP re-opened live; stored numeric price unchanged."
     },
     {
       "id": "mejuri-dome-figure-vermeil",
@@ -1044,14 +1044,14 @@
       "metal_detail": "18k Gold Vermeil",
       "solid_gold": false,
       "solid_gold_status": "excluded - not solid gold",
-      "solid_gold_evidence": "Dôme Figure Ring ... $158 ... 18k Gold Vermeil",
-      "solid_gold_source": "https://mejuri.com/collections/rings",
+      "solid_gold_evidence": "Dôme Figure Ring | $158 | 18k Gold Vermeil | Not to be confused with regular gold plating, our vermeil is a thick layer of 18k solid gold on sterling silver.",
+      "solid_gold_source": "https://mejuri.com/products/dome-figure-ring?Material=18k+Gold+Vermeil",
       "price": 158.0,
       "currency": "USD",
       "price_type": "listed",
       "price_variant_note": "Listed price for the 18k Gold Vermeil option.",
       "price_captured_on": "2026-10-23",
-      "price_source": "https://mejuri.com/collections/rings",
+      "price_source": "https://mejuri.com/products/dome-figure-ring?Material=18k+Gold+Vermeil",
       "price_quote": "Dôme Figure Ring ... $158 ... 18k Gold Vermeil",
       "weight_g": null,
       "weight_status": "not published",
@@ -1070,7 +1070,7 @@
         }
       ],
       "notes": "Same design also sold in Sterling Silver at $138 and (elsewhere) in solid gold - a good example of one design name spanning three very different metals.",
-      "price_recheck": "2026-10-23 (pass P17, session arena/36ebce13-gold3) — official product source re-opened; stored price $158 confirmed; no numeric price change."
+      "price_recheck": "2026-10-24T00:08:30Z (independent P21 read, 2026-10-23 US Pacific / 2026-10-24 UTC) — own PDP re-opened live; stored numeric price unchanged."
     },
     {
       "id": "mejuri-dome-figure-sterling",
@@ -1086,14 +1086,14 @@
       "metal_detail": "Sterling Silver",
       "solid_gold": false,
       "solid_gold_status": "excluded - no gold",
-      "solid_gold_evidence": "Dôme Figure Ring ... $138 ... Sterling Silver",
-      "solid_gold_source": "https://mejuri.com/collections/rings",
+      "solid_gold_evidence": "Dôme Figure Ring | $138 | Sterling Silver | 925 Sterling Silver is a lightweight metal made of 92.5% pure silver.",
+      "solid_gold_source": "https://mejuri.com/products/dome-figure-ring?Material=Sterling+Silver",
       "price": 138.0,
       "currency": "USD",
       "price_type": "listed",
       "price_variant_note": "Listed price for the Sterling Silver option.",
       "price_captured_on": "2026-10-23",
-      "price_source": "https://mejuri.com/collections/rings",
+      "price_source": "https://mejuri.com/products/dome-figure-ring?Material=Sterling+Silver",
       "price_quote": "Dôme Figure Ring ... $138 ... Sterling Silver",
       "weight_g": null,
       "weight_status": "not published",
@@ -1112,7 +1112,7 @@
         }
       ],
       "notes": "",
-      "price_recheck": "2026-10-23 (pass P17, session arena/36ebce13-gold3) — official product source re-opened; stored price $138 confirmed; no numeric price change."
+      "price_recheck": "2026-10-24T00:08:30Z (independent P21 read, 2026-10-23 US Pacific / 2026-10-24 UTC) — own PDP re-opened live; stored numeric price unchanged."
     }
   ]
 }

@@ -164,12 +164,21 @@ LIVE = next((s for s in prices_doc["snapshots"] if str(s.get("role", "")).starts
 LIVE_NOTE = ""
 if LIVE:
     _delta = (float(LIVE["price_usd_per_troy_oz"]) - SPOT) / SPOT * 100
+    _direction = "below" if _delta < 0 else "above"
     LIVE_NOTE = (
         f"Latest independent re-read ({e(LIVE.get('captured_on',''))}): "
         f"{money(float(LIVE['price_usd_per_troy_oz']), 2)}/oz ({e(LIVE.get('as_of_text',''))}), "
         f"{abs(_delta):.2f}% below the pre-filled snapshot. The stored figure is a dated capture, not today's price: "
-        "enter the live one before you rely on a melt comparison (finding F55)."
+        "enter the live one before you rely on a melt comparison (findings F55 and F63)."
     )
+    LIVE_X = prices_doc.get("live_cross_check")
+    if LIVE_X:
+        LIVE_NOTE += (
+            f" Independent Kitco re-read: {money(float(LIVE_X['price_usd_per_troy_oz']), 2)}/oz "
+            f"({e(LIVE_X.get('as_of_text',''))}); the two live feeds differ by "
+            f"{float(LIVE_X.get('spread_percent', 0)):.4f}%. "
+            "Both are reference observations only; calculations remain pinned to the dated capture."
+        )
 
 # fill computed counts into finding text; verify.py guarantees the placeholders exist
 FINDINGS = []

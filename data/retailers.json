@@ -14,7 +14,7 @@
       "returns_window_note": "15 days for domestic orders, from the day the item is fulfilled; 21 days for international orders.",
       "returns_url": "https://auratenewyork.gorgias.help/en-US/articles/returns-38636",
       "returns_quote": "Aurate provides a 15-day return window starting from the day your item gets fulfilled.",
-      "returns_exclusions": "Items marked 'exchange only' cannot be refunded; items marked 'final sale' cannot be returned or exchanged; returns without an attached tag, or with a visibly damaged tag, are not eligible for a refund.",
+      "returns_exclusions": "General policy: items marked 'exchange only' cannot be refunded; items marked 'final sale' cannot be returned or exchanged; returns without an attached tag, or with a visibly damaged tag, are not eligible for a refund. P17 live PDPs additionally print 'Exchange for size only. Final Sale!' and link https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale, whose made-to-order terms allow cancellation within 24h and impose a 30% cancellation fee after that.",
       "hallmark_stated": null,
       "hallmark_note": "No hallmark / maker's-mark policy found on the pages checked.",
       "phone": null,
@@ -30,7 +30,8 @@
       "flags": [
         "SHORT_RETURN_WINDOW"
       ],
-      "trustpilot_captured_on": "2026-10-23"
+      "trustpilot_captured_on": "2026-10-23",
+      "trustpilot_recheck": "2026-10-24T00:08:30Z (independent P21 read) — profile re-opened live; count, score and solicitation wording checked verbatim."
     },
     {
       "id": "blue-nile",
@@ -61,7 +62,8 @@
         "RETURN_EXCLUSION_RESIZED",
         "RETURN_LIMIT_TWO_PER_YEAR"
       ],
-      "trustpilot_captured_on": "2026-10-23"
+      "trustpilot_captured_on": "2026-10-23",
+      "trustpilot_recheck": "2026-10-24T00:08:30Z (independent P21 read) — profile re-opened live; count, score and solicitation wording checked verbatim."
     },
     {
       "id": "mejuri",
@@ -91,7 +93,8 @@
       "flags": [
         "ENGRAVING_NOT_RETURNABLE"
       ],
-      "trustpilot_captured_on": "2026-10-23"
+      "trustpilot_captured_on": "2026-10-23",
+      "trustpilot_recheck": "2026-10-24T00:08:30Z (independent P21 read) — profile re-opened live; count, score and solicitation wording checked verbatim."
     },
     {
       "id": "ring-concierge",
@@ -125,7 +128,9 @@
         "WARRANTY_TERM_CONTRADICTION",
         "F28"
       ],
-      "contact_note": "info@ringconcierge.com is printed in the Resizing & Repairs / Insured Shipping accordions on the engagement-ring PDPs; no phone number published on pages checked."
+      "contact_note": "info@ringconcierge.com is printed in the Resizing & Repairs / Insured Shipping accordions on the engagement-ring PDPs; no phone number published on pages checked.",
+      "trustpilot_captured_on": "2026-10-23",
+      "trustpilot_recheck": "2026-10-24T00:08:30Z (independent P21 read) — profile re-opened live; count, score and solicitation wording checked verbatim."
     },
     {
       "id": "catbird",
@@ -145,7 +150,7 @@
       "phone": "+1-718-599-2340",
       "email": "customerservice@catbirdnyc.com",
       "contact_url": "https://www.catbirdnyc.com/facts",
-      "trustpilot_url": "https://www.trustpilot.com/review/catbirdnyc.com",
+      "trustpilot_url": "https://www.trustpilot.com/review/www.catbirdnyc.com",
       "trustpilot_score": 2.2,
       "trustpilot_reviews": 56,
       "trustpilot_quote": "56 reviews · TrustScore 2.2",
@@ -157,7 +162,8 @@
         "RETURN_SHIPPING_FEE",
         "F24"
       ],
-      "trustpilot_captured_on": "2026-10-23"
+      "trustpilot_captured_on": "2026-10-23",
+      "trustpilot_recheck": "2026-10-24T00:08:30Z (independent P21 read) — profile re-opened live; count, score and solicitation wording checked verbatim."
     }
   ]
 }

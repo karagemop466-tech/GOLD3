@@ -48,7 +48,7 @@ Two things, both aimed at the same question — *can every number on this site b
 | Requirement | Good | Partial | Fail | Blank / unverified |
 |---|---|---|---|---|
 | 1. Karat stated | 67 | 4 | 0 | 0 |
-| 2. Word "solid" used | 19 | 7 | 4 | 41 |
+| 2. Word "solid" used | 18 | 8 | 4 | 41 |
 | 3. Hallmark disclosed | 3 | 0 | 0 | 68 |
 | 4. Maker's mark disclosed | 2 | 0 | 0 | 69 |
 | 5. Finished weight in grams | 19 | 0 | 0 | 52 |
@@ -57,6 +57,8 @@ Two things, both aimed at the same question — *can every number on this site b
 | 8. Credit card accepted | 29 | 29 | 0 | 13 |
 | 9. Documentation captured | 71 | 0 | 0 | 0 |
 | 10. Independent / XRF check | 0 | 7 | 0 | 64 |
+
+*P21 re-derivation note:* after the independent P21 merge refined Catbird's "solid" evidence to page-title metadata, the matrix's row-2 counts were regenerated from the data as **18 good / 8 partial / 4 fail / 41 unverified**. The original P19 narrative and checks are preserved; only this derived table was refreshed so the prose cannot drift from `data/requirements-matrix.json`.
 
 - **0 of 71 rows** are "good" on all ten. That is the headline, and it is the honest one: the failure is structural, not cosmetic.
 - **6 rows** are "good" on the four facts a seller fully controls — karat, the word "solid", a gram weight and a usable return window; **7** more reach at least "partial" on those four.
