@@ -209,8 +209,17 @@ check("SD19 R03 no longer carries the misapplied SPEC2", !_r03.flags.includes("S
 check("SD21 calculator labels the pre-filled snapshot with its own capture date",
   /Pre-filled with the 23 October 2026 snapshot/.test(html["calculator.html"]) &&
   !/Pre-filled with the 22 October 2026 snapshot/.test(html["calculator.html"]));
+// SD21: the flagged page must print the date from reports/audit-report.md, whatever it is.
+// A literal date here fails the moment the audit runs on a new day, which is a guard bug,
+// not a site bug — so the expected string is derived from the report itself.
+const _auditRun = (read("reports/audit-report.md").match(/- Run: (\d{4})-(\d{2})-(\d{2})/) || []);
+const _months = ["January", "February", "March", "April", "May", "June", "July",
+  "August", "September", "October", "November", "December"];
+const _auditDate = _auditRun.length
+  ? `${Number(_auditRun[3])} ${_months[Number(_auditRun[2]) - 1]} ${_auditRun[1]}`
+  : "";
 check("SD21 flagged.html audit date comes from the audit report, not a typed literal",
-  /Last automated pass: 23 October 2026/.test(html["flagged.html"]));
+  _auditDate !== "" && new RegExp(`Last automated pass: ${_auditDate}`).test(html["flagged.html"]));
 
 // P15: additive Dataset-C weight, source-attribution and calculator-provenance guards.
 const _p15C = [
@@ -322,7 +331,7 @@ check("P19 verification ledger includes the P19 checks",
   includesText(html["verify.html"], "P19"));
 check("P19 findings F56-F58 are published for manual review",
   includesText(html["flagged.html"], "F56") && includesText(html["flagged.html"], "F58"));
-check("P17 index links to the requirements matrix",
+check("P19 index links to the requirements matrix",
   html["index.html"].includes('href="requirements.html"') &&
   html["requirements.html"].includes('href="index.html"'));
 
