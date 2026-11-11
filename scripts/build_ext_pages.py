@@ -95,6 +95,12 @@ def render_shell(active_file: str, title: str, body_html: str, spot_bench: dict,
   </header>
 
   <main class="container">
+    <section class="mandate-banner" aria-label="Freshness review warning">
+      <strong>Flagged for review: historical research, not current offers.</strong>
+      Prices, availability, gold benchmarks and policies are October 2026 snapshots. The 2026-11-11 review did not recheck every listing.
+      Check the official source before buying; automated checks cannot establish that information is current or error-free.
+      <a href="flagged-for-review.html">Review flags</a> · <a href="requirements.html">Requirements matrix</a>.
+    </section>
     {body_html}
   </main>
 
