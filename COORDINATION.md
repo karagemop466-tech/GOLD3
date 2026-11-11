@@ -1496,3 +1496,12 @@ snapshots with the live-check snapshot's `history` carrying the 2026-10-23 readi
 
 ### 26.7 PR / CI / Pages read-back
 _TODO — filled in after the PR is merged and GitHub Pages is read back._
+
+---
+## 27. Session `arena/16f4c867-gold3` — currentness and integration review
+
+| Task | Status | Owner | File scope | Claimed (UTC) |
+|---|---|---|---|---|
+| November currentness / anti-hallucination integration review | in progress | `arena/16f4c867-gold3` | `COORDINATION.md`, `README.md`, `scripts/`, `data/`, `reports/`, generated root HTML and `verification/` (integration window) | 2026-11-11T07:58Z |
+
+Previous October in-progress registry row for `arena/57724486-gold3` is superseded by its adjacent completed entry; its last recorded activity is more than 60 minutes old. This session uses the sandbox-assigned branch, as required by the branch naming note above. Scope excludes archive and workflow files unless separately requested.
