@@ -1496,3 +1496,13 @@ snapshots with the live-check snapshot's `history` carrying the 2026-10-23 readi
 
 ### 26.7 PR / CI / Pages read-back
 _TODO — filled in after the PR is merged and GitHub Pages is read back._
+
+---
+
+## 27. Session `arena/4c39809c-gold3` — fresh review and integration
+
+| Task | Status | Owner | File scope | Updated (UTC) |
+|---|---|---|---|---|
+| Freshness, source-access and site integration review | in progress | `arena/4c39809c-gold3` | `COORDINATION.md`, `reports/freshness-2026-11-11.md`, site build scripts and generated site files as needed | 2026-11-11T07:57Z |
+
+The prior P12 registry entry is stale and has a corresponding completed entry; this is a new review, not a takeover of its work. The environment requires the assigned `arena/` branch rather than a new session branch.
