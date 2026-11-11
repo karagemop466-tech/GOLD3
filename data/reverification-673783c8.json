@@ -1,0 +1,737 @@
+{
+  "pass": "P23",
+  "session": "arena/673783c8-gold3",
+  "retrieved_utc": "2026-11-11",
+  "retrieved_timestamp_utc": "2026-11-11T08:15:00Z",
+  "method": "Fetched 63 official HTTPS URLs live on 2026-11-11 across five gold spot/benchmark feeds, five U.S. regulatory/statutory/metrological pages, five Trustpilot profiles, official return/final-sale policy pages, and 45 ring product detail pages spanning Datasets A, B, and C. Preserved the 2026-10-23 $4,022.22/oz calculation anchor and dated October baseline prices, corrected verbatim transcription/metadata drift, and flagged all November 2026 promotional repricing, dynamic 24K metal-linked moves, and holiday/final-sale return policy contradictions.",
+  "zero_hallucination_attestation": "Every figure, timestamp, and policy statement in this artifact was read verbatim from the cited official HTTPS page on 2026-11-11. Unpublished weights, hallmarks, and JS-gated breakdown figures remain null and flagged unverified.",
+  "summary": {
+    "checks": 63,
+    "confirmed": 27,
+    "corrected": 8,
+    "flagged": 28,
+    "urls_opened": 63,
+    "spot_cluster_2026_11_11": {
+      "goldprice_org_usd_oz": 4059.31,
+      "kitco_bid_usd_oz": 4059.3,
+      "bullionvault_usd_oz": 4058.82,
+      "wgc_usd_oz": 4059.49,
+      "lbma_am_2026_11_10_usd_oz": 4073.7,
+      "spread_usd_oz": 0.67,
+      "spread_pct": 0.0165,
+      "delta_vs_oct23_anchor_usd_oz": 37.09,
+      "delta_vs_oct23_anchor_pct": 0.9221
+    }
+  },
+  "checks": [
+    {
+      "id": "P23-01",
+      "label": "GoldPrice.org live spot feed (2026-11-11)",
+      "url": "https://goldprice.org/",
+      "rows": [
+        "spot"
+      ],
+      "outcome": "flagged",
+      "findings": "Verbatim live quote: 'Spot Gold Price: USD 4,059.31 / Ounce | Spot Silver Price: USD 53.07 / OunceNov 11th, 2026 at 02:59 NY Time' (+$37.09/oz or +0.9221% above the preserved 2026-10-23 $4,022.22/oz calculation anchor; 24K fine gold = $130.51/g, 18K = $97.88/g, 14K = $76.13/g, 10K = $54.38/g).",
+      "action": "Published as newest 2026-11-11 live-check reference snapshot while preserving the 2026-10-23 $4,022.22/oz calculation anchor and retaining prior 2026-10-23 live checks in snapshot history."
+    },
+    {
+      "id": "P23-02",
+      "label": "Kitco live gold spot & purity breakdown (2026-11-11)",
+      "url": "https://www.kitco.com/charts/gold",
+      "rows": [
+        "spot"
+      ],
+      "outcome": "confirmed",
+      "findings": "Verbatim live quote: 'Nov 11, 2026 - 2:55 NY Time | Bid 4,059.30 | Ask 4,061.30 | ounce 4,059.30 | gram 130.51 | Kilo 130,511.53 | pennyweight 202.97 | Last updated: November 11, 2026 at 2:54 a.m. EST.' Corroborates GoldPrice.org $4,059.31/oz within $0.01/oz (0.00025%).",
+      "action": "Recorded 2026-11-11 Kitco corroboration alongside preserved live_cross_check structure."
+    },
+    {
+      "id": "P23-03",
+      "label": "BullionVault live wholesale gold market feed (2026-11-11)",
+      "url": "https://www.bullionvault.com/gold-price-chart.do",
+      "rows": [
+        "spot"
+      ],
+      "outcome": "confirmed",
+      "findings": "Verbatim live quote: 'Current Gold Price - $4,058.82 per Ounce | Gold Price per Gram $130.49 | Gold Price per Kilo $130,494 | 11 November 2026, 03:02:20 (GMT-05:00)'. Within $0.49/oz (0.0121%) of GoldPrice.org.",
+      "action": "Corroborated four-feed 2026-11-11 spot cluster ($4,058.82-$4,059.49/oz, 0.0165% total spread)."
+    },
+    {
+      "id": "P23-04",
+      "label": "World Gold Council Goldhub gold spot prices (2026-11-11)",
+      "url": "https://www.gold.org/goldhub/data/gold-prices",
+      "rows": [
+        "spot"
+      ],
+      "outcome": "confirmed",
+      "findings": "Verbatim live quote: 'Gold Spot price USD /oz - 4,059.49 ... Data as of 10 November, 2026 | Market Data: Provided by ICE Data Services'; confirms historical LBMA tables remain removed per ICE Benchmark Administration request.",
+      "action": "Confirmed fourth independent spot feed ($4,059.49/oz) and ICE/IBA licensing notice."
+    },
+    {
+      "id": "P23-05",
+      "label": "LBMA Precious Metal Prices benchmark portal notice (2026-11-11)",
+      "url": "https://www.lbma.org.uk/prices-and-data/lbma-precious-metal-prices",
+      "rows": [
+        "spot"
+      ],
+      "outcome": "confirmed",
+      "findings": "Page prints 'AM $4,073.70 10/11' (10 Nov 2026 AM auction) and confirms verbatim: 'The historical tabulated data for the LBMA Precious Metals Prices has been moved to our MyLBMA Portal. In order to view this data on our Portal, you will need to have the relevant licence from IBA.'",
+      "action": "Confirmed IBA benchmark licence restriction remains unchanged; no unlicensed LBMA table reproduced."
+    },
+    {
+      "id": "P23-06",
+      "label": "eCFR 16 CFR 23.3 misrepresentation as to gold content (2026-11-11)",
+      "url": "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23/section-23.3",
+      "rows": [
+        "standards",
+        "STD-02"
+      ],
+      "outcome": "corrected",
+      "findings": "eCFR header now prints verbatim: 'Displaying title 16, up to date as of 11/09/2026. Title 16 was last amended 10/30/2026.' Confirmed Part 23 source note remains '83 FR 40667, Aug. 16, 2018, unless otherwise noted' and § 23.3 text on karat fineness, hollow-center prohibition ('should not be marked or described as solid'), and plating disclosures is unchanged.",
+      "action": "Updated eCFR Title 16 currency banner metadata to the verified 11/09/2026 (amended 10/30/2026) reading."
+    },
+    {
+      "id": "P23-07",
+      "label": "eCFR 16 CFR 23.4 misuse of the word vermeil (2026-11-11)",
+      "url": "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23/section-23.4",
+      "rows": [
+        "standards",
+        "STD-02"
+      ],
+      "outcome": "confirmed",
+      "findings": "Under eCFR currency as of 11/09/2026, § 23.4(b) still requires a sterling silver base coated on all significant surfaces with >= 10K gold alloy of >= 2.5 microns (approximately 100/1,000,000ths of an inch) fine gold equivalent.",
+      "action": "Confirmed vermeil non-solid-gold exclusion rule."
+    },
+    {
+      "id": "P23-08",
+      "label": "eCFR 16 CFR 23.10 quality marks & 15 U.S.C. 297 trademark rule (2026-11-11)",
+      "url": "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23/section-23.10",
+      "rows": [
+        "standards",
+        "STD-02"
+      ],
+      "outcome": "confirmed",
+      "findings": "Under eCFR currency as of 11/09/2026, § 23.10 confirms multi-part quality mark applicability disclosure (§ 23.10(a)) and National Stamping Act trademark/manufacturer-name requirement citing 15 U.S.C. 297.",
+      "action": "Confirmed hallmark + maker's-mark and mixed-metal disclosure rules."
+    },
+    {
+      "id": "P23-09",
+      "label": "GovInfo 15 U.S.C. Chapter 8 National Gold and Silver Stamping Act (2026-11-11)",
+      "url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title15/html/USCODE-2023-title15-chap8.htm",
+      "rows": [
+        "standards",
+        "STD-01"
+      ],
+      "outcome": "confirmed",
+      "findings": "Confirmed verbatim 15 U.S.C. §§ 294-297: three one-thousandth parts unsoldered tolerance, seven one-thousandth parts soldered tolerance (Pub. L. 94-450 Gold Labeling Act of 1976), and mandatory registered trademark or legal name alongside any quality mark.",
+      "action": "Confirmed statutory tolerances and trademark accompaniment."
+    },
+    {
+      "id": "P23-10",
+      "label": "NIST SP 811 Appendix B.9 mass conversion factors (2026-11-11)",
+      "url": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9",
+      "rows": [
+        "standards"
+      ],
+      "outcome": "confirmed",
+      "findings": "Confirmed verbatim Mass table: 'carat, metric -> gram (g) | 2.0 E-01' (boldface/exact), 'grain (gr) -> kilogram (kg) | 6.479 891 E-05' (boldface/exact), and 'ounce (troy or apothecary) (oz) -> gram (g) | 3.110 348 E+01' (480 grains x 0.06479891 g = 31.1034768 g exact).",
+      "action": "Confirmed metrological conversion constants."
+    },
+    {
+      "id": "P23-11",
+      "label": "Menē Wrap Ring 24K Gold live PDP (2026-11-11)",
+      "url": "https://mene.com/products/wrap-ring-gold",
+      "rows": [
+        "R30"
+      ],
+      "outcome": "flagged",
+      "findings": "Live 2026-11-11 page prints 'Wrap Ring $3,230 USD | 24k Gold | 4.9·159 reviews | Width: 7.5mm Thickness: 1.5mm | Products are sold by weight, not size.' Dynamic 24K metal-indexed price moved from $3,253 (Oct 22) -> $3,202 (Oct 23) -> $3,230 (Nov 11); gram weight remains behind JS 'Price breakdown' modal in static HTML.",
+      "action": "Preserved dated $3,253 baseline, recorded $3,230 Nov 11 dynamic reading in F66, and kept weight_g null."
+    },
+    {
+      "id": "P23-12",
+      "label": "Menē Classic Band 24K Gold live PDP (2026-11-11)",
+      "url": "https://mene.com/products/mene-classic-band-gold",
+      "rows": [
+        "BND-01"
+      ],
+      "outcome": "flagged",
+      "findings": "Live 2026-11-11 page prints 'Classic Band $1,709 USD | 24k Gold | 4.9·410 reviews | Width: 5mm Thickness: 2mm' (+$15 or +0.89% vs 2026-10-23 $1,694 capture, tracking spot gold's +0.92% rise); gram weight remains JS-gated.",
+      "action": "Preserved dated $1,694 capture on BND-01 and logged Nov 11 live_recheck ($1,709) + F66."
+    },
+    {
+      "id": "P23-13",
+      "label": "Menē Narrow Flat Band 24K Gold live PDP (2026-11-11)",
+      "url": "https://mene.com/products/mene-narrow-flat-band-gold",
+      "rows": [
+        "BND-02"
+      ],
+      "outcome": "flagged",
+      "findings": "Live 2026-11-11 page prints 'Narrow Flat Band $1,545 USD | 24k Gold | 4.9·199 reviews | Width: 4mm Thickness: 2mm' (+$13 or +0.85% vs 2026-10-23 $1,532 capture); gram weight remains JS-gated.",
+      "action": "Preserved dated $1,532 capture on BND-02 and logged Nov 11 live_recheck ($1,545) + F66."
+    },
+    {
+      "id": "P23-14",
+      "label": "Menē Wide Flat Band 24K Gold live PDP (2026-11-11)",
+      "url": "https://mene.com/products/mene-wide-flat-band-gold",
+      "rows": [
+        "BND-03"
+      ],
+      "outcome": "flagged",
+      "findings": "Live 2026-11-11 page prints 'Wide Flat Band $2,467 USD | 24k Gold | 4.9·337 reviews | Width: 6mm Thickness: 2mm' (vs $2,465 Oct 23 capture and $2,445 Oct 23 evening P17b check; carousel card prints 'From $2,317'); gram weight remains JS-gated.",
+      "action": "Preserved dated $2,465 capture on BND-03 and updated live_recheck ($2,467) + F66."
+    },
+    {
+      "id": "P23-15",
+      "label": "Wilson's Estate R11 14K Mid-Century Solitaire live PDP (2026-11-11)",
+      "url": "https://www.wilsonsestatejewelry.com/products/mid-century-old-european-diamond-14-karat-white-gold-vintage-solitaire-engagement-ring",
+      "rows": [
+        "R11"
+      ],
+      "outcome": "confirmed",
+      "findings": "Confirmed verbatim: 'Sale price$3,725.00', 'Stamped for 14 karat gold', 'Total Weight: 6.1 grams', 'Stock Number: We-16935', '7 Day Return Policy', active Add to cart.",
+      "action": "Confirmed price, 14K stamp, 6.1 g total weight, and availability."
+    },
+    {
+      "id": "P23-16",
+      "label": "Wilson's Estate R12 18K Art Deco Hedges & Co. GIA live PDP (2026-11-11)",
+      "url": "https://www.wilsonsestatejewelry.com/products/art-deco-old-mine-cut-diamond-18-karat-white-gold-antique-lotus-engagement-ring-gia",
+      "rows": [
+        "R12"
+      ],
+      "outcome": "confirmed",
+      "findings": "Confirmed verbatim: 'Sale price$5,350.00', 'Stamped for 18 karat gold', 'With partial maker's mark for Hedges & Co.', 'Total Weight: 2.2 grams', 'GIA Diamond Dossier: 2215945495', 'Stock Number: We-17036'.",
+      "action": "Confirmed price, 18K stamp + Hedges & Co. maker's mark, 2.2 g total weight, and GIA dossier."
+    },
+    {
+      "id": "P23-17",
+      "label": "Wilson's Estate R13 19K Bailey Banks & Biddle live PDP (2026-11-11)",
+      "url": "https://www.wilsonsestatejewelry.com/products/bailey-banks-biddle-art-deco-diamond-enamel-19-karat-white-gold-vintage-fanning-engagement-ring",
+      "rows": [
+        "R13"
+      ],
+      "outcome": "confirmed",
+      "findings": "Confirmed verbatim: 'Sale price$2,850.00', 'Stamped for 19 karat gold', 'Signed with maker's mark for Bailey Banks & Biddle', 'Total Weight: 6.5 grams', 'Stock Number: We-17095', plus '3%' pre-shipment cancellation card processing fee in return block.",
+      "action": "Confirmed price, 19K stamp + Bailey Banks & Biddle maker's mark, and 6.5 g total weight."
+    },
+    {
+      "id": "P23-18",
+      "label": "Sarraf R20 14K White Gold Solitaire 0.94 ctw live PDP (2026-11-11)",
+      "url": "https://www.sarraf.com/products/14k-white-gold-solitaire-ring-0-94-ctw.html",
+      "rows": [
+        "R20"
+      ],
+      "outcome": "confirmed",
+      "findings": "Confirmed verbatim: 'Now: US$3,004.00 -14% OFF (Was: US$3,513.00)', 'Material: 14K Solid Gold', 'Approximate Metal Weight: 3.80 grams', 'Diamond Weight: 0.94 Ct. | Color: G | Clarity: I 1'.",
+      "action": "Confirmed $3,004 price, explicit 14K Solid Gold claim, and 3.80 g metal weight."
+    },
+    {
+      "id": "P23-19",
+      "label": "Sarraf R21 10K 6mm Comfort Fit Band live PDP (2026-11-11)",
+      "url": "https://www.sarraf.com/products/10k-gold-6mm-high-polished-comfort-fit-wedding-band.html",
+      "rows": [
+        "R21"
+      ],
+      "outcome": "confirmed",
+      "findings": "Confirmed verbatim: 'Now: US$613.00 -15% OFF (Was: US$717.00)', 'Material: 10K Solid Gold', 'Approximate Metal Weight: 8.30 grams', 'approximate weight of a ring in size 10 Made in the USA'.",
+      "action": "Confirmed $613 price, explicit 10K Solid Gold claim, and 8.30 g metal weight."
+    },
+    {
+      "id": "P23-20",
+      "label": "Sarraf R26 18K Yellow Gold Men's Solitaire 3/4 ct live PDP (2026-11-11)",
+      "url": "https://www.sarraf.com/products/18k-yellow-gold-mens-solitaire-diamond-ring-3-4-ct.html",
+      "rows": [
+        "R26"
+      ],
+      "outcome": "confirmed",
+      "findings": "Confirmed verbatim: 'Now: US$4,068.00 -15% OFF (Was: US$4,758.00)', 'Material: 18K Solid Gold', 'Approximate Metal Weight: 6.30 grams', 'Diamond Weight: 0.74 Ct. | Color: J | Clarity: SI 1'.",
+      "action": "Confirmed $4,068 price, explicit 18K Solid Gold claim, and 6.30 g metal weight."
+    },
+    {
+      "id": "P23-21",
+      "label": "Sarraf R27 14K Yellow Gold 1.0ct CZ Ring live PDP (2026-11-11)",
+      "url": "https://www.sarraf.com/products/14k-yellow-gold-round-cut-8-8mm-wide-1-0ct-cz-engagement-ring.html",
+      "rows": [
+        "R27"
+      ],
+      "outcome": "confirmed",
+      "findings": "Confirmed verbatim: 'Now: US$695.00 -15% OFF (Was: US$813.00)', 'Material: 14K Solid Gold', 'Approximate Metal Weight: 2.50 grams', 'Solid and Pure 14k Yellow Gold Round Cut totaling to Approximately 1.0ct CZ Engagement Ring'.",
+      "action": "Confirmed $695 price, explicit 14K Solid Gold claim, and 2.50 g metal weight."
+    },
+    {
+      "id": "P23-22",
+      "label": "Ross-Simons R15 2mm 18kt Polished Ring live PDP (2026-11-11)",
+      "url": "https://www.ross-simons.com/products/985230",
+      "rows": [
+        "R15"
+      ],
+      "outcome": "flagged",
+      "findings": "Live 2026-11-11 page prints '20% Off ~~Original price $249~~ Sale price $199.20' across sizes 5-10 ('Metal 18ktYellow Gold | Gold Weight 0.7 grams | All weights and measurements are approximate').",
+      "action": "Confirmed 0.7 g approximate gold weight and $249 base price; flagged live Nov 11 20%-off sale price ($199.20) in F67 while preserving the dated $249 baseline."
+    },
+    {
+      "id": "P23-23",
+      "label": "Ross-Simons R16 Italian 14kt Diamond-Cut Ring live PDP (2026-11-11)",
+      "url": "https://www.ross-simons.com/products/932728",
+      "rows": [
+        "R16"
+      ],
+      "outcome": "flagged",
+      "findings": "Live 2026-11-11 page prints '20% Off ~~Original price $299~~ Sale price $239.20' across sizes 5-10 ('Metal 14ktYellow Gold | Gold Weight 0.8 grams | 3 reviews').",
+      "action": "Confirmed 0.8 g approximate gold weight and $299 base price; flagged live Nov 11 20%-off sale price ($239.20) in F67."
+    },
+    {
+      "id": "P23-24",
+      "label": "Ross-Simons BND-04 Women's 2mm 14kt Band live PDP (2026-11-11)",
+      "url": "https://www.ross-simons.com/products/571221",
+      "rows": [
+        "BND-04"
+      ],
+      "outcome": "flagged",
+      "findings": "Live 2026-11-11 page prints '20% Off ~~Original price $400~~ Sale price $320' ('Metal 14ktYellow Gold | Gold Weight 1.7 grams'); half sizes 5.5, 6.5, 7.5, 8.5 are Sold Out while whole sizes 5-9 are In-Stock at $320.00.",
+      "action": "Preserved dated $400 capture and logged Nov 11 $320 sale price + half-size stockouts in BND-04 live_recheck and F67."
+    },
+    {
+      "id": "P23-25",
+      "label": "Ross-Simons BND-05 Men's 4mm 14kt Band live PDP (2026-11-11)",
+      "url": "https://www.ross-simons.com/products/571212",
+      "rows": [
+        "BND-05"
+      ],
+      "outcome": "flagged",
+      "findings": "Live 2026-11-11 page prints '20% Off ~~Original price $949~~ Sale price $759.20' across sizes 8-12 ('Metal 14ktYellow Gold | Gold Weight 4.2 grams'). At $759.20 sale price vs $317.70 dated melt, price/melt compresses from 2.99x to 2.39x.",
+      "action": "Preserved dated $949 capture and logged Nov 11 $759.20 sale price in BND-05 live_recheck and F67."
+    },
+    {
+      "id": "P23-26",
+      "label": "Ross-Simons BND-06 Italian 14kt Diamond-Cut Dome Ring live PDP (2026-11-11)",
+      "url": "https://www.ross-simons.com/products/823796",
+      "rows": [
+        "BND-06"
+      ],
+      "outcome": "flagged",
+      "findings": "Live 2026-11-11 page prints '20% Off ~~Original price $1,195~~ Sale price $956' across sizes 5-10 ('Width 3/4 inch | Metal 14ktYellow Gold | Gold Weight 4.0 grams | (14) reviews').",
+      "action": "Preserved dated $1,195 capture and logged Nov 11 $956 sale price in BND-06 live_recheck and F67."
+    },
+    {
+      "id": "P23-27",
+      "label": "Ross-Simons BND-07 Italian 14kt Fleur-De-Lis Signet Ring live PDP (2026-11-11)",
+      "url": "https://www.ross-simons.com/products/964717",
+      "rows": [
+        "BND-07"
+      ],
+      "outcome": "flagged",
+      "findings": "Live 2026-11-11 page prints '20% Off ~~Original price $599~~ Sale price $479.20' across sizes 5-10 ('Width 1/2 inch | Metal 14ktYellow Gold | Gold Weight 2.1 grams | (5) reviews').",
+      "action": "Preserved dated $599 capture and logged Nov 11 $479.20 sale price in BND-07 live_recheck and F67."
+    },
+    {
+      "id": "P23-28",
+      "label": "Ross-Simons BND-08 Men's 22kt Eagle Coin in 14kt Ring live PDP (2026-11-11)",
+      "url": "https://www.ross-simons.com/products/993085",
+      "rows": [
+        "BND-08"
+      ],
+      "outcome": "flagged",
+      "findings": "Live 2026-11-11 page prints '20% Off ~~Original price $3,295~~ Sale price $2,636' across sizes 8-12 ('Metal 14kt and 22kt Gold | Gold Weight 5.9 grams'); per-karat weight split remains undisclosed.",
+      "action": "Preserved dated $3,295 capture and logged Nov 11 $2,636 sale price in BND-08 live_recheck and F67."
+    },
+    {
+      "id": "P23-29",
+      "label": "Ross-Simons SOL-07 .80ct Certified Diamond Solitaire 14kt WG live PDP (2026-11-11)",
+      "url": "https://www.ross-simons.com/products/990022",
+      "rows": [
+        "SOL-07"
+      ],
+      "outcome": "flagged",
+      "findings": "Live 2026-11-11 page prints '36% Off ~~Original price $3,995~~ Sale price $2,537.10 | CLEARANCE EXTRA 10% OFF - PRICED AS MARKED' (down from Oct 23 $2,819 clearance price; Size 9 Sold Out; GIA Cert#2225975086 confirmed; metal weight still omitted).",
+      "action": "Preserved dated $2,819 capture and logged Nov 11 $2,537.10 extra-10%-off clearance price in SOL-07 live_recheck and F67."
+    },
+    {
+      "id": "P23-30",
+      "label": "Ross-Simons SOL-08 Opal Ring with Diamonds 10kt YG live PDP (2026-11-11)",
+      "url": "https://www.ross-simons.com/products/251663",
+      "rows": [
+        "SOL-08"
+      ],
+      "outcome": "confirmed",
+      "findings": "Confirmed '$199' unchanged (excluded from 20% sale; sizes 5, 7, 9 Sold Out; sizes 6 & 8 In-Stock at $199.00); internal contradiction between '10kt Yellow Gold' title/spec and 'Set in polished 14kt yellow gold' prose remains live; weight still omitted.",
+      "action": "Confirmed $199 price and live 10kt-vs-14kt contradiction."
+    },
+    {
+      "id": "P23-31",
+      "label": "Ross-Simons SOL-09 14kt Gold-Plated CZ Control Ring live PDP (2026-11-11)",
+      "url": "https://www.ross-simons.com/products/241592",
+      "rows": [
+        "SOL-09"
+      ],
+      "outcome": "flagged",
+      "findings": "Live 2026-11-11 page prints '53% Off ~~Original price $55~~ Sale price $26.10 | CLEARANCE EXTRA 10% OFF - PRICED AS MARKED' (down from Oct 23 $29; sizes 6 & 7 Sold Out; 'Metal 14ktYellow Gold over Brass' confirmed).",
+      "action": "Preserved dated $29 capture on plated control SOL-09 and logged Nov 11 $26.10 clearance price in F67."
+    },
+    {
+      "id": "P23-32",
+      "label": "Automic Gold R22 3ct Radiant Lab Diamond Cathedral Ring live PDP (2026-11-11)",
+      "url": "https://www.automicgold.com/products/radiant-cut-lab-diamond-cathedral-ring",
+      "rows": [
+        "R22"
+      ],
+      "outcome": "confirmed",
+      "findings": "Confirmed verbatim: '$3,074', 'Solid 14k Gold and 950 Platinum', 'Item Weight Approximately 5.4g for gold or 8.1g for platinum', '100% Recycled gold', 'Only 2 units left in stock!'.",
+      "action": "Confirmed $3,074 price, explicit Solid 14k Gold claim, and 5.4 g gold weight."
+    },
+    {
+      "id": "P23-33",
+      "label": "Automic Gold R23 Coffin Ring live PDP (2026-11-11)",
+      "url": "https://www.automicgold.com/products/coffin-ring",
+      "rows": [
+        "R23"
+      ],
+      "outcome": "confirmed",
+      "findings": "Confirmed verbatim: '$1,910', 'Solid 14k Gold and 950 Platinum', 'Item Weight Approximately 6.1g (gold) or 9.2g (platinum)', 'Only 3 units left in stock!'.",
+      "action": "Confirmed $1,910 price, explicit Solid 14k Gold claim, and 6.1 g gold weight."
+    },
+    {
+      "id": "P23-34",
+      "label": "Automic Gold R24 Claddagh Ring live PDP (2026-11-11)",
+      "url": "https://www.automicgold.com/products/claddagh-ring",
+      "rows": [
+        "R24"
+      ],
+      "outcome": "confirmed",
+      "findings": "Confirmed verbatim: '$875', 'Solid 14k Gold and 950 Platinum', 'Item Weight Approximately 2.3g (gold) or 3.5g (platinum)', 'Only 1 units left in stock!'.",
+      "action": "Confirmed $875 price, explicit Solid 14k Gold claim, and 2.3 g gold weight."
+    },
+    {
+      "id": "P23-35",
+      "label": "Automic Gold R25 Gemstone Flower Ring live PDP (2026-11-11)",
+      "url": "https://www.automicgold.com/products/gemstone-flower-ring",
+      "rows": [
+        "R25"
+      ],
+      "outcome": "confirmed",
+      "findings": "Confirmed verbatim: '$551', 'Solid 14k Gold and 950 Platinum', 'Rated 3.0 out of 5 | 1 Review'.",
+      "action": "Confirmed $551 price and explicit Solid 14k Gold claim."
+    },
+    {
+      "id": "P23-36",
+      "label": "Aurate 2ct Round LGD Solitaire live PDP (2026-11-11)",
+      "url": "https://auratenewyork.com/products/2ct-round-lab-grown-diamond-solitaire-ring?variant=46776936792236",
+      "rows": [
+        "aurate-2ct-round-lgd-solitaire"
+      ],
+      "outcome": "flagged",
+      "findings": "Confirmed '$2,858', 'Rate - 14k GOLD', 'Weight: 5.5-8.5g', 'Made to Order • Ships by Mon, Jan 4', plus sitewide 'BLACK FRIDAY SALE! 30% off everything. Use Code: BF30' AND direct PDP contradiction: 'Exchange for size only. Final Sale!' printed above 'Free Returns' badge.",
+      "action": "Confirmed $2,858 pre-code list price and 5.5-8.5g shared weight range; escalated Black Friday Final-Sale / Exchange-Only vs Free-Returns contradiction in F68."
+    },
+    {
+      "id": "P23-37",
+      "label": "Aurate 1ct Round LGD Bezel live PDP (2026-11-11)",
+      "url": "https://auratenewyork.com/products/1ct-round-lab-grown-diamond-bezel-ring",
+      "rows": [
+        "aurate-1ct-round-lgd-bezel"
+      ],
+      "outcome": "flagged",
+      "findings": "Confirmed '$1,498', 'Rate - 14k GOLD', 'Weight: 2.23g', '1.05tcw', 'SKU: AU5000', 'Made to Order • Ships by Tue, Dec 22', 'BLACK FRIDAY SALE! 30% off everything. Use Code: BF30', AND 'Final Sale! ... Exchange only! ... Exchange for size only.' alongside 'Free Returns'.",
+      "action": "Confirmed $1,498 pre-code list price and unscoped 2.23g weight; linked to F68 return-policy contradiction."
+    },
+    {
+      "id": "P23-38",
+      "label": "Aurate Exchange Only / Final Sale official policy page (2026-11-11)",
+      "url": "https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale",
+      "rows": [
+        "aurate"
+      ],
+      "outcome": "flagged",
+      "findings": "Policy prints verbatim: 'Exchange Only: Selected items marked as exchange only are not eligible for a refund and can only be exchanged. If the piece is made-to-order just for you, we have a 24h cancellation window. After the first 24 hours (our jewelers waste no time), a 30% cancellation fee applies*.' and 'Final Sale: All engravings and selected items marked as final sale are not eligible for a return or exchange at any time and are final sale.'",
+      "action": "Published HIGH-severity buyer-protection warning F68: during BF30/Final-Sale tagging, Aurate engagement rings fail Checklist Criteria #7 and #12 (no refund after independent XRF inspection, plus 30% cancellation fee after 24h)."
+    },
+    {
+      "id": "P23-39",
+      "label": "Blue Nile Petite Solitaire 14K YG (item-195639) live PDP (2026-11-11)",
+      "url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/petite-solitaire-engagement-ring-in-14k-yellow-gold-item-195639",
+      "rows": [
+        "bluenile-petite-solitaire-14k-yg",
+        "R06",
+        "SOL-03"
+      ],
+      "outcome": "flagged",
+      "findings": "Live 2026-11-11 page prints '$1,000$800(Setting Price) -20% *Discount code is applied automatically' ('Stock Number 501130y14 | Metal 14K Yellow Gold | Width 1.80mm | Extended Returns'). Note: at $800 discounted setting price, a setting-only purchase drops below Blue Nile's '$1,000 or more' Limited Lifetime Warranty threshold printed on the same page.",
+      "action": "Preserved $1,000 base setting price and flagged live Nov 11 automatic -20% setting promotion ($800) + $1,000 warranty-threshold interaction in F69."
+    },
+    {
+      "id": "P23-40",
+      "label": "Blue Nile Floral Marquise 18K WG (item-203738) live PDP (2026-11-11)",
+      "url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/floral-marquise-diamond-engagement-ring-in-18k-white-gold-item-203738",
+      "rows": [
+        "bluenile-floral-marquise-18k-wg",
+        "R08"
+      ],
+      "outcome": "flagged",
+      "findings": "Live 2026-11-11 page prints '$2,210$1,768(Setting Price) -20% *Discount code is applied automatically' ('Stock Number 502820w | Metal 18K White Gold | Width 1.70mm'); Product Details still contradictorily states 'artfully crafted from warmly lustrous 14k yellow gold' (F1/SPEC1).",
+      "action": "Preserved $2,210 base setting price, flagged live $1,768 automatic -20% promotional setting price in F69, and confirmed F1/SPEC1 remains uncorrected by seller."
+    },
+    {
+      "id": "P23-41",
+      "label": "Blue Nile SOL-01 Classic Four Prong 18K YG (item-194158) live PDP (2026-11-11)",
+      "url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/classic-four-prong-solitaire-engagement-ring-in-18k-yellow-gold-item-194158",
+      "rows": [
+        "SOL-01"
+      ],
+      "outcome": "flagged",
+      "findings": "Live 2026-11-11 page prints '$1,125$900(Setting Price) -20% *Discount code is applied automatically' ('Stock Number 500000y | Metal 18K Yellow Gold | Width 1.90mm | four-prong solitaire engagement ring with platinum prongs'); $900 discounted setting price also sits below the '$1,000 or more' warranty clause if bought without a diamond.",
+      "action": "Preserved $1,125 base setting price and logged Nov 11 $900 automatic -20% setting price in SOL-01 live_recheck and F69."
+    },
+    {
+      "id": "P23-42",
+      "label": "Blue Nile SOL-02 Wide Band 5mm 18K YG (item-195063) live PDP (2026-11-11)",
+      "url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/wide-band-solitaire-engagement-ring-in-18k-yellow-gold-5mm-item-195063",
+      "rows": [
+        "SOL-02"
+      ],
+      "outcome": "flagged",
+      "findings": "Live 2026-11-11 page prints '$2,595$2,076(Setting Price) -20% *Discount code is applied automatically' ('Stock Number 501580y | Metal 18K Yellow Gold | Width 5.00mm'); gram weight still omitted.",
+      "action": "Preserved $2,595 base setting price and logged Nov 11 $2,076 automatic -20% setting price in SOL-02 live_recheck and F69."
+    },
+    {
+      "id": "P23-43",
+      "label": "Blue Nile Riviera Pavé 14K WG (item-195326) live PDP (2026-11-11)",
+      "url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/riviera-pave-diamond-engagement-ring-in-14k-white-gold-1-6-ct-tw-item-195326",
+      "rows": [
+        "bluenile-riviera-pave-14k-wg",
+        "R09"
+      ],
+      "outcome": "flagged",
+      "findings": "Live 2026-11-11 page prints '$1,500$1,200(Setting Price) -20% *Discount code is applied automatically' ('Stock Number 501590w14 | Metal 14K White Gold | Width 2.00mm | Quantity 18 | Total Carat 1/6'); cross-sell card on SOL-01/SOL-03 also confirms item-192506 (R05 / bluenile-petite-hidden-halo-14k-yg) at '$1,255$1,004(Setting Price) -20%'.",
+      "action": "Preserved $1,500 base setting price and logged Nov 11 $1,200 (-20%) setting price in F69."
+    },
+    {
+      "id": "P23-44",
+      "label": "Blue Nile Criss Cross 18K YG by James Allen (item-311132) live PDP (2026-11-11)",
+      "url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/criss-cross-solitaire-engagement-ring-in-18k-yellow-gold-by-james-allen-item-311132",
+      "rows": [
+        "bluenile-criss-cross-18k-yg",
+        "R07"
+      ],
+      "outcome": "flagged",
+      "findings": "Live 2026-11-11 page prints '$2,320$1,856(Setting Price) -20% *Discount code is applied automatically' ('Stock Number 505032y | Metal 18K Yellow Gold | Width 8.45mm').",
+      "action": "Preserved $2,320 base setting price and logged Nov 11 $1,856 (-20%) setting price in F69."
+    },
+    {
+      "id": "P23-45",
+      "label": "Blue Nile R14 Classic Simple Solitaire 14K WG (item-195730) live PDP (2026-11-11)",
+      "url": "https://www.bluenile.com/engagement-rings/design-your-own-ring/classic-simple-solitaire-engagement-ring-in-14k-white-gold-item-195730",
+      "rows": [
+        "R14"
+      ],
+      "outcome": "flagged",
+      "findings": "Live 2026-11-11 page prints '$1,145$916(Setting Price) -20% *Discount code is applied automatically' ('Stock Number 502120w14 | Metal 14K White Gold | Width 2.40mm').",
+      "action": "Preserved $1,145 base setting price and logged Nov 11 $916 (-20%) setting price in F69."
+    },
+    {
+      "id": "P23-46",
+      "label": "Blue Nile official Return Policy & Holiday Extension (2026-11-11)",
+      "url": "https://www.bluenile.com/policies/returns",
+      "rows": [
+        "blue-nile",
+        "S-BN",
+        "SEL-BLUENILE"
+      ],
+      "outcome": "corrected",
+      "findings": "Confirmed 30-day shipment-date return rule, two complimentary returns/year limit, $150 missing diamond grading report replacement fee, resized/engraved/custom/Final Sale exclusions, AND active Extended Holiday Return Policy: 'For orders placed on or after November 1st through December 5th, customers may return eligible items through January 5, 2027'.",
+      "action": "Added verified Nov 1 - Dec 5 -> Jan 5, 2027 Extended Holiday Return window note to Blue Nile seller policy records."
+    },
+    {
+      "id": "P23-47",
+      "label": "Brilliant Earth R29 / SOL-05 Fairmined 2mm Six-Prong 18K YG live PDP (2026-11-11)",
+      "url": "https://www.brilliantearth.com/Fairmined-2mm-Six-Prong-Solitaire-Ring-Gold-BE1FM0126-24910022/?currency=USD",
+      "rows": [
+        "R29",
+        "SOL-05"
+      ],
+      "outcome": "corrected",
+      "findings": "Confirmed '$1,090(Setting Only)', 'Style: BE1FM0126-18KY', 'Band Width: 2 ct. tw.' selector typo, and 'Free 1-Year Resizing' vs 'resizing is not available for this ring' contradiction ('Last updated on November 10, 2026'). Caught transcription error in SOL-05 verbatim_excerpt which misnamed this ring 'Fairmined 18K Yellow Gold Secret Garden Ring'.",
+      "action": "Corrected SOL-05 verbatim_excerpt to the exact live page title 'Fairmined 2mm Six-Prong Solitaire Ring in 18K Yellow Gold' and recorded SD34."
+    },
+    {
+      "id": "P23-48",
+      "label": "Brilliant Earth SOL-04 Peyton 4mm Solitaire 18K YG live PDP (2026-11-11)",
+      "url": "https://www.brilliantearth.com/Peyton-4mm-Solitaire-Ring-Gold-BE12148-23884915/?currency=USD",
+      "rows": [
+        "SOL-04"
+      ],
+      "outcome": "flagged",
+      "findings": "Live 2026-11-11 page prints 'Peyton 4mm Solitaire Ring in 18K Yellow Gold $1,590(Setting Only)' (down -$60 or -3.64% from Oct 23 $1,650), AND contains an internal width discrepancy: title/selector/features state '4mm band width' while Product Details & Ring Information print 'Band Width 4.5 mm' / 'Width: 4.5 mm'.",
+      "action": "Preserved $1,650 dated capture on SOL-04 and logged Nov 11 $1,590 setting price + 4mm-vs-4.5mm spec discrepancy in SOL-04 live_recheck and F70."
+    },
+    {
+      "id": "P23-49",
+      "label": "Brilliant Earth SOL-06 Six-Prong Petite 1.5mm 18K YG live PDP (2026-11-11)",
+      "url": "https://www.brilliantearth.com/Six-Prong-Petite-Comfort-Fit-1.5mm-Solitaire-Ring-Gold-BE1199H6-1912137/?currency=USD",
+      "rows": [
+        "SOL-06"
+      ],
+      "outcome": "confirmed",
+      "findings": "Confirmed verbatim: '$850(Setting Only) | (175) | Style: BE1199H6-18KY | Metal: 18K Yellow Gold | Prong metal: 14K White Gold | Width: 1.5 mm'; weight still omitted.",
+      "action": "Confirmed $850 setting price and mixed 18K shank / 14K white gold prong disclosure."
+    },
+    {
+      "id": "P23-50",
+      "label": "Catbird Classic Half Round Band 2mm live PDP (2026-11-11)",
+      "url": "https://www.catbirdnyc.com/catbird-classic-wedding-bands-solid-half-round-band-2mm.html",
+      "rows": [
+        "catbird-classic-half-round-2mm"
+      ],
+      "outcome": "confirmed",
+      "findings": "Confirmed verbatim: 'Catbird Classic Wedding Bands, Half Round Band, 2mm | from$550.00 | Add to Bag'; URL slug and page title carry 'Solid Half Round Band, 2mm'.",
+      "action": "Confirmed $550 starting price."
+    },
+    {
+      "id": "P23-51",
+      "label": "Catbird R18 Sofia Zakia Woodland Ring live PDP (2026-11-11)",
+      "url": "https://www.catbirdnyc.com/woodland-ring.html",
+      "rows": [
+        "R18"
+      ],
+      "outcome": "confirmed",
+      "findings": "Confirmed verbatim: 'Woodland Ring $276.00Regular Price$368.00 | Add to Bag' ('Woodland Ring in 14K Gold | Catbird').",
+      "action": "Confirmed $276 sale price (regular $368)."
+    },
+    {
+      "id": "P23-52",
+      "label": "Mejuri R01 Bold Diamond Eternity Ring live PDP & Holiday Return window (2026-11-11)",
+      "url": "https://mejuri.com/products/bold-diamond-eternity-ring",
+      "rows": [
+        "R01",
+        "mejuri",
+        "S-MJ",
+        "SEL-MEJURI"
+      ],
+      "outcome": "corrected",
+      "findings": "Confirmed 'Bold Diamond Eternity Ring | 4.8 | From$2,900 | handcrafted in 14k solid gold | Minimum Carat Weight: 1.15 ct - 1.57 ct | Band Width: 2.6 mm', plus active holiday return policy: 'Orders placed between November 1 and December 31, 2026, are eligible for return through January 31, 2027.'",
+      "action": "Confirmed $2,900 starting price and recorded Mejuri's verified Nov 1 - Dec 31, 2026 -> Jan 31, 2027 holiday return window."
+    },
+    {
+      "id": "P23-53",
+      "label": "Mejuri 10K Stacker Ring live PDP (2026-11-11)",
+      "url": "https://mejuri.com/products/stacker-ring?Material=Solid+Yellow+Gold+%2810k%29",
+      "rows": [
+        "mejuri-stacker-ring-10k"
+      ],
+      "outcome": "confirmed",
+      "findings": "Confirmed verbatim: 'Stacker Ring | 4.8 | $138 | Solid Yellow Gold (10k) | Width: 1 mm | 90% Recycled 10K Gold' and '10K purity stamp' in hero image alt text only.",
+      "action": "Confirmed $138 price, 10K solid gold wording, and alt-text-only stamp reference."
+    },
+    {
+      "id": "P23-54",
+      "label": "Ring Concierge 2.08 Oval Lab Diamond Whisper Thin live PDP (2026-11-11)",
+      "url": "https://ringconcierge.com/products/2-08-oval-lab-diamond-in-whisper-thina-hidden-halo",
+      "rows": [
+        "ringconcierge-2-08-oval-lab-whisper-thin"
+      ],
+      "outcome": "flagged",
+      "findings": "Live 2026-11-11 page prints 'Sale priceRegular price ~~$0~~ 20% Off $6,038$6,038~~$6,038~~ 20% Off$4,830.40 ... Regular price$6,038' alongside 'Receive a notification when this item is back in stock! Join the Waitlist'.",
+      "action": "Preserved $6,038 regular price and flagged live Nov 11 20%-off sale price ($4,830.40) + Waitlist stock status in F71."
+    },
+    {
+      "id": "P23-55",
+      "label": "Ring Concierge 2.72 Round Lab Diamond Whisper Thin live PDP (2026-11-11)",
+      "url": "https://ringconcierge.com/products/2-72-round-lab-diamond-in-whisper-thina",
+      "rows": [
+        "ringconcierge-2-72-round-lab-whisper-thin"
+      ],
+      "outcome": "flagged",
+      "findings": "Live 2026-11-11 page prints 'Sale priceRegular price ~~$0~~ 20% Off $7,268$7,268~~$7,268~~ 20% Off$5,814.40 ... Regular price$7,268', '2.72 Carat E VVS2 Round Lab Grown Diamond', 'Metal: 14K Yellow Gold with Platinum Prongs', and 'Join the Waitlist'.",
+      "action": "Preserved $7,268 regular price and flagged live Nov 11 20%-off sale price ($5,814.40) + Waitlist stock status in F71."
+    },
+    {
+      "id": "P23-56",
+      "label": "Local Eclectic R31 Solid Gold Simple Knot Ring live PDP (2026-11-11)",
+      "url": "https://www.localeclectic.com/products/solid-gold-simple-knot-ring",
+      "rows": [
+        "R31"
+      ],
+      "outcome": "confirmed",
+      "findings": "Confirmed verbatim: 'Designed By Family Gold | Solid Gold Simple Knot Ring | Regular price$239 | 29 reviews | Only a Few Left'; gram weight still omitted.",
+      "action": "Confirmed $239 price and explicit Solid Gold title."
+    },
+    {
+      "id": "P23-57",
+      "label": "Tiffany & Co. R17 The Tiffany Setting 18k YG live PDP (2026-11-11)",
+      "url": "https://www.tiffany.com/engagement/engagement-rings/the-tiffany-setting-engagement-ring-in-18k-yellow-gold-GRP10863/",
+      "rows": [
+        "R17"
+      ],
+      "outcome": "flagged",
+      "findings": "URL resolves to SKU 40318275 ('The Tiffany® Setting Engagement Ring in 18k Yellow Gold') printing 'Starting from $1,590 — 0.18 CT H VVS1' (down -$10 from Oct 22 '$1,600'), 'This product is currently unavailable' / 'Notify me at launch', AND two adjacent contradictory return lines: 'Please note that this item is non returnable.' followed immediately by 'Please note that this item can only be exchanged.'",
+      "action": "Preserved dated $1,600 baseline on R17 and flagged Nov 11 $1,590 starting price + unavailability + dual non-returnable/exchange-only PDP notice in F70."
+    },
+    {
+      "id": "P23-58",
+      "label": "Costco Return Policy CU2573 official help page (2026-11-11)",
+      "url": "https://customerservice.costco.com/app/answers/detail/a_id/1191",
+      "rows": [
+        "S-CO",
+        "R10"
+      ],
+      "outcome": "confirmed",
+      "findings": "Confirmed verbatim: 'Document ID CU2573 | Version 18.0 | Status Published | Published Date 10/02/2025', 'Precious metals are non-refundable.', and 'Diamonds: 1.00ct or larger: Members returning a diamond over 1.00ct must also present all original paperwork (IGI and/or GIA certificates) at which time they will receive a Jewelry Credit Memo. Within 48 hours, our Costco Graduate Gemologist will inspect for authenticity.'",
+      "action": "Confirmed Costco precious-metals non-refundable exception and >=1.00ct 48-hour inspection rule remain unchanged."
+    },
+    {
+      "id": "P23-59",
+      "label": "Trustpilot Ring Concierge profile live check (2026-11-11)",
+      "url": "https://www.trustpilot.com/review/ringconcierge.com",
+      "rows": [
+        "ring-concierge"
+      ],
+      "outcome": "confirmed",
+      "findings": "Confirmed verbatim: 'ringconcierge.com Reviews 7 • 2.7 | Poor | Unclaimed profile | 5 reviews in the last 12 months' (unchanged from 2026-10-23).",
+      "action": "Confirmed TrustScore 2.7 across 7 reviews."
+    },
+    {
+      "id": "P23-60",
+      "label": "Trustpilot Aurate New York profile live check (2026-11-11)",
+      "url": "https://www.trustpilot.com/review/auratenewyork.com",
+      "rows": [
+        "aurate"
+      ],
+      "outcome": "corrected",
+      "findings": "Live 2026-11-11 page prints 'Aurate New York Reviews 4,896 • 4.1 | Great | Claimed profile' (+14 reviews since 2026-10-23 count of 4,882; TrustScore 4.1 unchanged).",
+      "action": "Updated Aurate Trustpilot review count to 4,896 (captured 2026-11-11) while preserving Oct 2026 history."
+    },
+    {
+      "id": "P23-61",
+      "label": "Trustpilot Blue Nile profile live check (2026-11-11)",
+      "url": "https://www.trustpilot.com/review/www.bluenile.com",
+      "rows": [
+        "blue-nile"
+      ],
+      "outcome": "corrected",
+      "findings": "Live 2026-11-11 page prints 'Blue Nile Reviews 2,071 • 4.0 | Great | Claimed profile' (+11 reviews since 2026-10-23 count of 2,060; TrustScore 4.0 unchanged).",
+      "action": "Updated Blue Nile Trustpilot review count to 2,071 (captured 2026-11-11) while preserving Oct 2026 history."
+    },
+    {
+      "id": "P23-62",
+      "label": "Trustpilot Mejuri profile live check (2026-11-11)",
+      "url": "https://www.trustpilot.com/review/mejuri.com",
+      "rows": [
+        "mejuri"
+      ],
+      "outcome": "corrected",
+      "findings": "Live 2026-11-11 page prints 'Mejuri Reviews 5,850 • 4.3 | Excellent | Claimed profile' (+33 reviews since 2026-10-23 count of 5,817; TrustScore 4.3 unchanged).",
+      "action": "Updated Mejuri Trustpilot review count to 5,850 (captured 2026-11-11) while preserving Oct 2026 history."
+    },
+    {
+      "id": "P23-63",
+      "label": "Trustpilot Catbird profile live check (2026-11-11)",
+      "url": "https://www.trustpilot.com/review/www.catbirdnyc.com",
+      "rows": [
+        "catbird"
+      ],
+      "outcome": "corrected",
+      "findings": "Live 2026-11-11 page prints 'Catbird Reviews 123 • 3.8 | Great | Claimed profile•May 2026' (+1 review since 2026-10-23 count of 122; TrustScore 3.8 unchanged).",
+      "action": "Updated Catbird Trustpilot review count to 123 (captured 2026-11-11) while preserving Oct 2026 history."
+    }
+  ]
+}

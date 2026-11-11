@@ -683,6 +683,72 @@
       "source_note": "GoldPrice.org. The other four gold-feed sources are https://www.kitco.com/gold-price-today-usa/ , https://www.bullionvault.com/gold-price-chart.do , https://www.gold.org/goldhub/data/gold-prices and https://mene.com/products/wrap-ring-gold / https://mene.com/products/mene-wide-flat-band-gold for the two bands.",
       "found_by": "arena/1ee91485-gold3",
       "date": "2026-10-23"
+    },
+    {
+      "id": "F66",
+      "severity": "medium",
+      "title": "November 11, 2026 five-feed spot corroboration ($4,059.31/oz) and live Menē 24K upward repricing",
+      "detail": "Live 2026-11-11 re-verification across five independent gold benchmarks shows GoldPrice.org at $4,059.31/oz ('Nov 11th, 2026 at 02:59 NY Time'), Kitco bid at $4,059.30/oz ($0.01/oz or 0.00025% apart), BullionVault at $4,058.82/oz, and World Gold Council at $4,059.49/oz (0.0165% total four-feed spread; LBMA 10/11 AM auction $4,073.70/oz). Spot now sits +0.9221% (+$37.09/oz) above the preserved 2026-10-23 calculation anchor ($4,022.22/oz; 24K fine gold = $130.51/g vs $129.32/g). Tracking that metal move, all four Menē 24K rings repriced upward since 2026-10-23: R30 Wrap Ring $3,230 (vs $3,202 Oct 23 / $3,253 Oct 22), BND-01 Classic Band $1,709 (vs $1,694), BND-02 Narrow Flat Band $1,545 (vs $1,532), and BND-03 Wide Flat Band $2,467 (vs $2,445 Oct 23 / $2,465 capture). Static HTML still gates Menē gram weights behind JavaScript, so weights remain null.",
+      "evidence": "GoldPrice.org: 'Spot Gold Price: USD 4,059.31 / Ounce | Spot Silver Price: USD 53.07 / OunceNov 11th, 2026 at 02:59 NY Time'; Kitco: 'Bid 4,059.30 | Ask 4,061.30 | gram 130.51'; BullionVault: '$4,058.82 per Ounce | $130.49'; WGC: '4,059.49'; Menē PDPs: '$3,230 USD', '$1,709 USD', '$1,545 USD', '$2,467 USD'.",
+      "source": "https://goldprice.org/",
+      "action": "Keep melt comparisons pinned to a dated snapshot for reproducibility, but type $4,059.31/oz (or the live quote at checkout) into the calculator before purchasing.",
+      "found_by": "arena/673783c8-gold3 (P23)",
+      "date": "2026-11-11"
+    },
+    {
+      "id": "F67",
+      "severity": "low",
+      "title": "Ross-Simons November 2026 20%-off and extra-clearance event lowers 9 of 10 tracked ring prices",
+      "detail": "Live 2026-11-11 product pages show Ross-Simons running '20% Off — Priced as Marked' and 'Clearance Extra 10% Off' across 9 of 10 tracked rings while retaining the October base prices as crossed-out originals: R15 $199.20 (was $249, 0.7 g 18K), R16 $239.20 (was $299, 0.8 g 14K), BND-04 $320 (was $400, 1.7 g 14K; half-sizes 5.5–8.5 Sold Out), BND-05 $759.20 (was $949, 4.2 g 14K — compressing price/melt to ~2.39x), BND-06 $956 (was $1,195, 4.0 g 14K), BND-07 $479.20 (was $599, 2.1 g 14K), BND-08 $2,636 (was $3,295, 5.9 g 14K+22K), SOL-07 $2,537.10 (was $2,819 clearance / $3,995 original), and plated control SOL-09 $26.10 (was $29). Only SOL-08 ($199) is unchanged and still carries its 10kt-vs-14kt copy contradiction.",
+      "evidence": "Verbatim Ross-Simons PDPs (2026-11-11): '20% Off Original price $400 Sale price $320', 'Original price $949 Sale price $759.20', '36% Off Original price $3,995 Sale price $2,537.10 CLEARANCE EXTRA 10% OFF'.",
+      "source": "https://www.ross-simons.com/products/571212",
+      "action": "Verify whether any promotional or clearance item remains eligible for a full refund (not store credit or final sale) before ordering, and test the ring by XRF + gram scale without resizing.",
+      "found_by": "arena/673783c8-gold3 (P23)",
+      "date": "2026-11-11"
+    },
+    {
+      "id": "F68",
+      "severity": "high",
+      "title": "Aurate Black Friday BF30 engagement ring pages print both 'Final Sale! Exchange for size only.' and 'Free Returns'",
+      "detail": "On 2026-11-11, Aurate's sitewide banner advertises 'BLACK FRIDAY SALE! 30% off everything. Use Code: BF30' while its lab-grown diamond engagement ring PDPs (including aurate-2ct-round-lgd-solitaire at $2,858 and aurate-1ct-round-lgd-bezel at $1,498) simultaneously print 'Exchange for size only. Final Sale!' / 'Exchange only!' directly below the purchase button AND 'Free Returns' in the service badge block below. The linked official terms page states that Exchange-Only and Final-Sale items are NOT eligible for a refund, and made-to-order cancellations after 24 hours incur a 30% cancellation fee — eliminating the buyer's Checklist #7/#12 right to return for a full refund if independent XRF testing fails.",
+      "evidence": "PDP text: 'Exchange for size only. Final Sale! ... Exchange only! Return & cancellation policy' above 'FINEST SERVICES, TOO: Free Shipping* · Free Returns'. Policy URL (/pages/terms-conditions-exchange-only-final-sale): 'Selected items marked as exchange only are not eligible for a refund... After the first 24 hours... a 30% cancellation fee applies*. Final Sale: ... not eligible for a return or exchange at any time.'",
+      "source": "https://auratenewyork.com/pages/terms-conditions-exchange-only-final-sale",
+      "action": "Walk away under Checklist Rule #12 unless Aurate confirms in writing before payment that your specific SKU/promo order qualifies for an unconditional full-refund return after independent jeweler inspection.",
+      "found_by": "arena/673783c8-gold3 (P23)",
+      "date": "2026-11-11"
+    },
+    {
+      "id": "F69",
+      "severity": "medium",
+      "title": "Blue Nile's automatic -20% setting promotion drops three solitaire settings below its $1,000 warranty threshold",
+      "detail": "Live 2026-11-11 checks across Blue Nile's engagement ring PDPs show an automatic '-20% *Discount code is applied automatically' promotion: SOL-03 / R06 ($1,000 -> $800), SOL-01 ($1,125 -> $900), R14 ($1,145 -> $916), R05 ($1,255 -> $1,004), R09 ($1,500 -> $1,200), R08 ($2,210 -> $1,768), R07 ($2,320 -> $1,856), and SOL-02 ($2,595 -> $2,076). Every one of those pages also prints: 'We warrant all gold and platinum jewelry items with a purchase price of $1,000 or more from manufacturer's defect' — meaning a setting-only purchase at $800, $900, or $916 falls below the literal $1,000 warranty floor unless paired with a center stone. Separately, Blue Nile's returns page adds an Extended Holiday Return window (orders Nov 1 – Dec 5, 2026 returnable through Jan 5, 2027).",
+      "evidence": "Item 195639 PDP: '$1,000$800(Setting Price) -20% *Discount code is applied automatically' alongside 'We warrant all gold and platinum jewelry items with a purchase price of $1,000 or more from manufacturer’s defect.' Returns page: 'For orders placed on or after November 1st through December 5th, customers may return eligible items through January 5, 2027'.",
+      "source": "https://www.bluenile.com/engagement-rings/design-your-own-ring/petite-solitaire-engagement-ring-in-14k-yellow-gold-item-195639",
+      "action": "Confirm in writing whether Limited Lifetime Warranty eligibility is evaluated on the complete ring total or the discounted setting line item before checkout.",
+      "found_by": "arena/673783c8-gold3 (P23)",
+      "date": "2026-11-11"
+    },
+    {
+      "id": "F70",
+      "severity": "medium",
+      "title": "Brilliant Earth SOL-05 title transcription fixed (SD34), SOL-04 repriced to $1,590 with 4mm/4.5mm conflict, and Tiffany R17 at $1,590 unavailable",
+      "detail": "Line-by-line 2026-11-11 audit caught three solitaire anomalies: (1) SOL-05's stored verbatim_excerpt misnamed BE1FM0126 'Secret Garden Ring' while the live Brilliant Earth page is 'Fairmined 2mm Six-Prong Solitaire Ring in 18K Yellow Gold' at $1,090 (fixed as SD34; the '2 ct. tw.' width-unit bug and resizing contradiction remain live); (2) Brilliant Earth SOL-04 (BE12148) dropped from $1,650 to $1,590(Setting Only) and prints '4mm band width' in title/features vs 'Band Width 4.5 mm' in Ring Information; (3) Tiffany & Co. R17 (SKU 40318275) now prints 'Starting from $1,590 — 0.18 CT H VVS1' (was $1,600), 'This product is currently unavailable' / 'Notify me at launch', and two adjacent contradictory sentences: 'this item is non returnable' and 'this item can only be exchanged'.",
+      "evidence": "BE12148 PDP: 'Peyton 4mm Solitaire Ring in 18K Yellow Gold $1,590(Setting Only) ... Width: 4.5 mm'. Tiffany 40318275 PDP: 'Starting from $1,590 — 0.18 CT H VVS1 ... This product is currently unavailable ... Please note that this item is non returnable. ... Please note that this item can only be exchanged.'",
+      "source": "https://www.brilliantearth.com/Peyton-4mm-Solitaire-Ring-Gold-BE12148-23884915/?currency=USD",
+      "action": "Never buy a ring marked both 'non returnable' and 'exchange only' online (Checklist #7/#12), and request exact millimeter width + gram weight in writing for BE12148.",
+      "found_by": "arena/673783c8-gold3 (P23)",
+      "date": "2026-11-11"
+    },
+    {
+      "id": "F71",
+      "severity": "medium",
+      "title": "Ring Concierge Whisper Thin lab-diamond listings show 20%-off holiday pricing alongside 'Join the Waitlist'",
+      "detail": "On 2026-11-11, Ring Concierge's two verified lab-diamond engagement listings display a 20%-off markdown beside their October regular prices — 2.08ct Oval ($6,038 regular / $4,830.40 at 20% Off) and 2.72ct Round E VVS2 ($7,268 regular / $5,814.40 at 20% Off) — while simultaneously printing 'Made to Order' (3–4 weeks) and 'Receive a notification when this item is back in stock! Join the Waitlist'. Neither page publishes gram weight or hallmark details.",
+      "evidence": "2.08 Oval PDP: '~~$6,038~~ 20% Off$4,830.40 ... Join the Waitlist'. 2.72 Round PDP: '~~$7,268~~ 20% Off$5,814.40 ... 2.72 Carat E VVS2 ... Metal: 14K Yellow Gold with Platinum Prongs ... Join the Waitlist'.",
+      "source": "https://ringconcierge.com/products/2-08-oval-lab-diamond-in-whisper-thina-hidden-halo",
+      "action": "Confirm live stone availability, IGI certificate number, gram weight, and whether holiday-discounted bridal orders retain even the 7-day return window before paying.",
+      "found_by": "arena/673783c8-gold3 (P23)",
+      "date": "2026-11-11"
     }
   ]
 }

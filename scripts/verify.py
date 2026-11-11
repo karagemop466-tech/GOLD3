@@ -25,16 +25,18 @@ from __future__ import annotations
 
 import json
 import math
+import os
 import re
 import sys
-from datetime import date, datetime
+from datetime import date, datetime, timezone
 from pathlib import Path
 from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 
-TODAY = date(2026, 10, 23)
+_env_today = os.environ.get("GOLD3_VERIFY_TODAY")
+TODAY = datetime.strptime(_env_today, "%Y-%m-%d").date() if _env_today else datetime.now(timezone.utc).date()
 MAX_PRICE_AGE_DAYS = 30
 
 # Official domains we are willing to cite. Anything else is an ERROR.

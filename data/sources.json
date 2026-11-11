@@ -12,10 +12,11 @@
         "Displaying title 16, up to date as of 10/21/2026. Title 16 was last amended 10/19/2026.",
         "It is unfair or deceptive to misrepresent the presence of gold or gold alloy in an industry product, or the quantity or karat fineness of gold or gold alloy contained in the product",
         "Such products should not be marked or described as “solid” or as being solidly of gold or of a gold alloy. For example, when the composition of such a product is 14 karat gold alloy, it should not be described or marked as either “14 Kt. Solid Gold” or as “Solid 14 Kt. Gold.”",
-        "Use of the word “Gold” or any abbreviation to describe all or part of an industry product that is not composed throughout of gold or a gold alloy, but is surface-plated or coated with gold alloy, unless the word “Gold” or its abbreviation is adequately qualified to indicate that the product or part is only surface-plated."
+        "Use of the word “Gold” or any abbreviation to describe all or part of an industry product that is not composed throughout of gold or a gold alloy, but is surface-plated or coated with gold alloy, unless the word “Gold” or its abbreviation is adequately qualified to indicate that the product or part is only surface-plated.",
+        "Displaying title 16, up to date as of 11/09/2026. Title 16 was last amended 10/30/2026."
       ],
-      "accessed": "2026-10-22",
-      "currency_banner": "\"Displaying title 16, up to date as of 10/21/2026. Title 16 was last amended 10/19/2026.\" - read on the eCFR page 2026-10-23, so a reader can tell which version of the text was checked."
+      "accessed": "2026-11-11",
+      "currency_banner": "\"Displaying title 16, up to date as of 11/09/2026. Title 16 was last amended 10/30/2026.\" - re-read live on the eCFR page 2026-11-11 (Pass P23; Part 23 source remains 83 FR 40667, Aug. 16, 2018; prior 2026-10-23 banner 'up to date as of 10/21/2026' preserved)."
     },
     {
       "id": "cfr-23-4",
@@ -27,8 +28,8 @@
       "quotes": [
         "An industry product may be described or marked as “vermeil” if it consists of a base of sterling silver coated or plated on all significant surfaces with gold, or gold alloy of not less than 10 karat fineness, that is of reasonable durability and a minimum thickness throughout equivalent to two and one half (2½) microns"
       ],
-      "accessed": "2026-10-22",
-      "currency_banner": "\"Displaying title 16, up to date as of 10/21/2026. Title 16 was last amended 10/19/2026.\" - read on the eCFR page 2026-10-23, so a reader can tell which version of the text was checked."
+      "accessed": "2026-11-11",
+      "currency_banner": "\"Displaying title 16, up to date as of 11/09/2026. Title 16 was last amended 10/30/2026.\" - re-read live on the eCFR page 2026-11-11 (Pass P23; Part 23 source remains 83 FR 40667, Aug. 16, 2018; prior 2026-10-23 banner 'up to date as of 10/21/2026' preserved)."
     },
     {
       "id": "cfr-23-3-c1",
@@ -40,8 +41,8 @@
       "quotes": [
         "An industry product or part thereof, composed throughout of an alloy of gold may be marked and described as “Gold” when such word “Gold,” wherever appearing, is immediately preceded by a correct designation of the karat fineness of the alloy"
       ],
-      "accessed": "2026-10-22",
-      "currency_banner": "\"Displaying title 16, up to date as of 10/21/2026. Title 16 was last amended 10/19/2026.\" - read on the eCFR page 2026-10-23, so a reader can tell which version of the text was checked."
+      "accessed": "2026-11-11",
+      "currency_banner": "\"Displaying title 16, up to date as of 11/09/2026. Title 16 was last amended 10/30/2026.\" - re-read live on the eCFR page 2026-11-11 (Pass P23; Part 23 source remains 83 FR 40667, Aug. 16, 2018; prior 2026-10-23 banner 'up to date as of 10/21/2026' preserved)."
     },
     {
       "id": "usc-295",
@@ -87,14 +88,16 @@
       "publisher": "GoldPrice.org",
       "url": "https://goldprice.org/",
       "type": "market-data",
-      "supports": "Gold spot snapshots. The PRIMARY capture used by every calculation is $4,022.22/oz read 'Oct 23rd, 2026 at 05:55 NY Time'. Peer P17 and independent P21 both re-read GoldPrice.org at $3,995.88/oz ('Oct 23rd, 2026 at 07:41 NY Time'); P21 independently re-opened Kitco bid $3,994.90/oz. The live readings are 0.0245% apart, labelled reference checks and never used in calculations. The earlier $3,997.22/oz live-check is preserved in prices.json history.",
+      "supports": "Gold spot snapshots. The PRIMARY capture used by every calculation is $4,022.22/oz read 'Oct 23rd, 2026 at 05:55 NY Time'. Pass P23 (2026-11-11) re-read GoldPrice.org live at $4,059.31/oz ('Nov 11th, 2026 at 02:59 NY Time') and Kitco bid at $4,059.30/oz (0.00025% apart; +0.9221% above the calculation anchor). Earlier 2026-10-23 live checks ($3,997.22/oz and $3,995.88/oz; Kitco $3,994.90/oz) remain preserved in prices.json history; live readings are reference checks and never used in calculations.",
       "quotes": [
         "Primary capture: Spot Gold Price: USD 4,022.22 / Ounce | Spot Silver Price: USD 53.82 / Ounce Oct 23rd, 2026 at 05:55 NY Time",
         "Earlier live-check retained in history: Spot Gold Price: USD 3,997.22 / Ounce | Spot Silver Price: USD 53.92 / Ounce Oct 23rd, 2026 at 04:17 NY Time",
         "P17/P21 GoldPrice.org live-check: Spot Gold Price: USD 3,995.88 / Ounce | Spot Silver Price: USD 53.92 / Ounce Oct 23rd, 2026 at 07:41 NY Time",
-        "P21 Kitco live cross-check: Oct 23, 2026 - 19:43 NY Time | Bid 3,994.90 | Ask 3,996.90 | gram 128.44 | as of October 23, 2026 at 7:42 p.m. EDT"
+        "P21 Kitco live cross-check: Oct 23, 2026 - 19:43 NY Time | Bid 3,994.90 | Ask 3,996.90 | gram 128.44 | as of October 23, 2026 at 7:42 p.m. EDT",
+        "P23 GoldPrice.org live-check (2026-11-11): Spot Gold Price: USD 4,059.31 / Ounce | Spot Silver Price: USD 53.07 / OunceNov 11th, 2026 at 02:59 NY Time",
+        "P23 Kitco live cross-check (2026-11-11): Nov 11, 2026 - 2:55 NY Time | Bid 4,059.30 | Ask 4,061.30 | gram 130.51 | Last updated: November 11, 2026 at 2:54 a.m. EST"
       ],
-      "accessed": "2026-10-23"
+      "accessed": "2026-11-11"
     },
     {
       "id": "wgc-gold-prices",
@@ -104,9 +107,10 @@
       "type": "market-data",
       "supports": "Independent cross-check of the spot snapshot",
       "quotes": [
-        "Gold Spot price USD/oz - 3,996.31 ... Data as of 22 October, 2026"
+        "Gold Spot price USD/oz - 3,996.31 ... Data as of 22 October, 2026",
+        "Gold Spot price USD /oz - 4,059.49 ... Data as of 10 November, 2026"
       ],
-      "accessed": "2026-10-23"
+      "accessed": "2026-11-11"
     },
     {
       "id": "lbma-prices",
@@ -119,7 +123,7 @@
         "The LBMA Gold Price is set twice daily in auctions independently operated and administered by ICE Benchmark Administration Limited (IBA) and commencing at 10:30 and 15:00 London time.",
         "The historical tabulated data for the LBMA Precious Metals Prices has been moved to our MyLBMA Portal. In order to view this data on our Portal, you will need to have the relevant licence from IBA."
       ],
-      "accessed": "2026-10-23"
+      "accessed": "2026-11-11"
     },
     {
       "id": "usc-297-govinfo",
@@ -145,7 +149,7 @@
         "When returning an item with a 1.00ct or larger diamond, our warehouses require additional time to verify the diamond, in which case a Jewelry Credit Memo will be issued to the member and the diamond will be sent to our Graduate Gemologist for inspection within 48 hours.",
         "Document ID: CU2573 · Version: 18.0 · Published: 10/02/2025"
       ],
-      "accessed": "2026-10-22"
+      "accessed": "2026-11-11"
     },
     {
       "id": "trustpilot",
@@ -157,7 +161,7 @@
       "quotes": [
         "We use technology to protect platform integrity, but we don't fact-check reviews"
       ],
-      "accessed": "2026-10-22"
+      "accessed": "2026-11-11"
     }
   ]
 }

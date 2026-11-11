@@ -42,11 +42,10 @@
         "PRICE MOVED AGAIN (PRC1): product page read $1,694 USD on 2026-10-23T20:30Z (captured $1,707 earlier the same day, $1,720 on 2026-10-22). Menē re-quotes as the metal moves; the captured figure was replaced with the live one and the earlier readings are kept in live_recheck.history."
       ],
       "live_recheck": {
-        "checked_on": "2026-10-23",
-        "checked_at_utc": "2026-10-23T20:30:00Z",
-        "url": "https://mene.com/products/mene-classic-band-gold",
-        "price_as_shown": "$1,694",
-        "quote": "Product page: “Classic Band … $1,694 … USD”, “Metal: 24k Gold”, “Width: 5mm Thickness: 2mm” — read live 2026-10-23.",
+        "checked_on": "2026-11-11",
+        "session": "arena/673783c8-gold3 (P23)",
+        "live_price_usd": 1709.0,
+        "quote": "Classic Band $1,709 USD | 24k Gold | 4.9·410 reviews",
         "history": [
           {
             "read_on": "2026-10-22",
@@ -59,9 +58,16 @@
           {
             "read_on": "2026-10-23T20:30Z (this pass)",
             "price_usd": 1694.0
+          },
+          {
+            "checked_on": "2026-10-23",
+            "checked_at_utc": "2026-10-23T20:30:00Z",
+            "url": "https://mene.com/products/mene-classic-band-gold",
+            "price_as_shown": "$1,694",
+            "quote": "Product page: “Classic Band … $1,694 … USD”, “Metal: 24k Gold”, “Width: 5mm Thickness: 2mm” — read live 2026-10-23.",
+            "note": "price_usd now carries today's live figure rather than the superseded capture, because this pass re-read the same page on the same day. The earlier figures are preserved above so the movement is auditable; the collection page's 'From' figure was not re-read in this pass and is no longer quoted here."
           }
-        ],
-        "note": "price_usd now carries today's live figure rather than the superseded capture, because this pass re-read the same page on the same day. The earlier figures are preserved above so the movement is auditable; the collection page's 'From' figure was not re-read in this pass and is no longer quoted here."
+        ]
       }
     },
     {
@@ -101,11 +107,10 @@
         "PRICE MOVED AGAIN (PRC1): product page read $1,532 USD on 2026-10-23T20:30Z (captured $1,544 via the collection 'From' figure earlier the same day). The stored figure was replaced with the product-page figure; the collection page was not re-read, so no collection-level number is quoted any more."
       ],
       "live_recheck": {
-        "checked_on": "2026-10-23",
-        "checked_at_utc": "2026-10-23T20:30:00Z",
-        "url": "https://mene.com/products/mene-narrow-flat-band-gold",
-        "price_as_shown": "$1,532",
-        "quote": "Product page: “Narrow Flat Band … $1,532 … USD”, “Metal: 24k Gold”, “Width: 4mm Thickness: 2mm” — read live 2026-10-23.",
+        "checked_on": "2026-11-11",
+        "session": "arena/673783c8-gold3 (P23)",
+        "live_price_usd": 1545.0,
+        "quote": "Narrow Flat Band $1,545 USD | 24k Gold | 4.9·199 reviews",
         "history": [
           {
             "read_on": "2026-10-22",
@@ -118,9 +123,16 @@
           {
             "read_on": "2026-10-23T20:30Z (this pass)",
             "price_usd": 1532.0
+          },
+          {
+            "checked_on": "2026-10-23",
+            "checked_at_utc": "2026-10-23T20:30:00Z",
+            "url": "https://mene.com/products/mene-narrow-flat-band-gold",
+            "price_as_shown": "$1,532",
+            "quote": "Product page: “Narrow Flat Band … $1,532 … USD”, “Metal: 24k Gold”, “Width: 4mm Thickness: 2mm” — read live 2026-10-23.",
+            "note": "The earlier 1,544 figure came from the collection grid; this pass read the product page directly and quotes only that page."
           }
-        ],
-        "note": "The earlier 1,544 figure came from the collection grid; this pass read the product page directly and quotes only that page."
+        ]
       }
     },
     {
@@ -162,11 +174,10 @@
         "RECOVERED (P17): the URL that answered HTTP 500 at 2026-10-23T20:31Z now loads and prints $2,445 USD (2026-10-23T23:45Z). price_usd keeps the captured $2,465; the new reading is recorded in live_recheck."
       ],
       "live_recheck": {
-        "checked_on": "2026-10-23",
-        "checked_at_utc": "2026-10-23T23:45:00Z",
-        "url": "https://mene.com/products/mene-wide-flat-band-gold",
-        "price_as_shown": "$2,445",
-        "quote": "Product page: “Wide Flat Band … $2,445 … USD”, “Metal: 24k Gold”, “Width: 6mm Thickness: 2mm” — read live 2026-10-23T23:45Z. The same URL answered HTTP 500 at 2026-10-23T20:31Z in pass P12.",
+        "checked_on": "2026-11-11",
+        "session": "arena/673783c8-gold3 (P23)",
+        "live_price_usd": 2467.0,
+        "quote": "Wide Flat Band $2,467 USD | 24k Gold | 4.9·337 reviews",
         "history": [
           {
             "read_on": "2026-10-22",
@@ -183,9 +194,16 @@
           {
             "read_on": "2026-10-23T23:45Z (pass P17)",
             "price_usd": 2445.0
+          },
+          {
+            "checked_on": "2026-10-23",
+            "checked_at_utc": "2026-10-23T23:45:00Z",
+            "url": "https://mene.com/products/mene-wide-flat-band-gold",
+            "price_as_shown": "$2,445",
+            "quote": "Product page: “Wide Flat Band … $2,445 … USD”, “Metal: 24k Gold”, “Width: 6mm Thickness: 2mm” — read live 2026-10-23T23:45Z. The same URL answered HTTP 500 at 2026-10-23T20:31Z in pass P12.",
+            "note": "price_usd stays at the captured $2,465. The page is live again and prints $2,445; the collection 'From $2,297' widget figure is a cross-check only and was not substituted."
           }
-        ],
-        "note": "price_usd stays at the captured $2,465. The page is live again and prints $2,445; the collection 'From $2,297' widget figure is a cross-check only and was not substituted."
+        ]
       }
     },
     {
@@ -220,7 +238,14 @@
       "flags": [
         "HALLMARK CORRECTION (2026-10-23): this record previously described a stamp the seller never printed; see the corrected hallmark_disclosure field and site defect SD6.",
         "APPROXIMATE WEIGHT DISCLAIMER (Pass P6): Ross-Simons prints 'All weights and measurements are approximate' directly beneath the spec table."
-      ]
+      ],
+      "live_recheck": {
+        "checked_on": "2026-11-11",
+        "session": "arena/673783c8-gold3 (P23)",
+        "live_price_usd": 320.0,
+        "regular_price_usd": 400.0,
+        "quote": "20% Off ~~Original price $400~~ Sale price $320 | Gold Weight 1.7 grams (half-sizes 5.5-8.5 Sold Out)"
+      }
     },
     {
       "id": "BND-05",
@@ -254,7 +279,14 @@
       "flags": [
         "HALLMARK CORRECTION (2026-10-23): this record previously described a stamp the seller never printed; see the corrected hallmark_disclosure field and site defect SD6.",
         "APPROXIMATE WEIGHT DISCLAIMER (Pass P6): Ross-Simons prints 'All weights and measurements are approximate' directly beneath the spec table."
-      ]
+      ],
+      "live_recheck": {
+        "checked_on": "2026-11-11",
+        "session": "arena/673783c8-gold3 (P23)",
+        "live_price_usd": 759.2,
+        "regular_price_usd": 949.0,
+        "quote": "20% Off ~~Original price $949~~ Sale price $759.20 | Gold Weight 4.2 grams"
+      }
     },
     {
       "id": "BND-06",
@@ -288,7 +320,14 @@
       "flags": [
         "HALLMARK CORRECTION (2026-10-23): this record previously described a stamp the seller never printed; see the corrected hallmark_disclosure field and site defect SD6.",
         "APPROXIMATE WEIGHT DISCLAIMER (Pass P6): Ross-Simons prints 'All weights and measurements are approximate' directly beneath the spec table."
-      ]
+      ],
+      "live_recheck": {
+        "checked_on": "2026-11-11",
+        "session": "arena/673783c8-gold3 (P23)",
+        "live_price_usd": 956.0,
+        "regular_price_usd": 1195.0,
+        "quote": "20% Off ~~Original price $1,195~~ Sale price $956 | Gold Weight 4.0 grams"
+      }
     },
     {
       "id": "BND-07",
@@ -322,7 +361,14 @@
       "flags": [
         "HALLMARK CORRECTION (2026-10-23): this record previously described a stamp the seller never printed; see the corrected hallmark_disclosure field and site defect SD6.",
         "APPROXIMATE WEIGHT DISCLAIMER (Pass P6): Ross-Simons prints 'All weights and measurements are approximate' directly beneath the spec table."
-      ]
+      ],
+      "live_recheck": {
+        "checked_on": "2026-11-11",
+        "session": "arena/673783c8-gold3 (P23)",
+        "live_price_usd": 479.2,
+        "regular_price_usd": 599.0,
+        "quote": "20% Off ~~Original price $599~~ Sale price $479.20 | Gold Weight 2.1 grams"
+      }
     },
     {
       "id": "BND-08",
@@ -357,7 +403,14 @@
         "MIXED-ALLOY SPLIT UNVERIFIED: Official listing publishes combined 'Gold Weight: 5.9 grams' across '14kt and 22kt Gold' without specifying coin denomination weight vs shank weight.",
         "ZERO-HALLUCINATION ENFORCEMENT: Exact pure gold grams left blank (null) rather than inferred; mathematical bounds span 3.4417 g ($445.39 at 100% 14K) to 5.4083 g ($699.89 at 100% 22K).",
         "HALLMARK CORRECTION (2026-10-23, SD6 extension): product page prints no hallmark or maker's mark."
-      ]
+      ],
+      "live_recheck": {
+        "checked_on": "2026-11-11",
+        "session": "arena/673783c8-gold3 (P23)",
+        "live_price_usd": 2636.0,
+        "regular_price_usd": 3295.0,
+        "quote": "20% Off ~~Original price $3,295~~ Sale price $2,636 | Gold Weight 5.9 grams"
+      }
     },
     {
       "id": "BND-09",
@@ -501,5 +554,5 @@
       ]
     }
   ],
-  "reverified_by_session": "arena/6ccbc523-gold3"
+  "reverified_by_session": "arena/6ccbc523-gold3 · arena/673783c8-gold3 (P23)"
 }
