@@ -1512,4 +1512,4 @@ All verification scripts pass smoothly. No broken links or hallucinated values w
 Rebuilt the site statically. All CI gates PASS.
 
 ### 27.4 PR / CI / Pages read-back
-_TODO_
+PR #80 merged successfully. Anti-hallucination checks run #42983685636 — SUCCESS. GitHub Pages deployment run #42983685265 — SUCCESS.
