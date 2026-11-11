@@ -377,9 +377,9 @@ def listings_table(products, table_id="listings", toolbar=True, buttons=True) ->
 def policy_box() -> str:
     return """<section class="policy">
       <h2>Zero-hallucination policy &mdash; No Hallucinations Commitment</h2>
-      <p><strong>No hallucinations: every price, purity claim, weight and policy on this site is copied from a named official source page and stamped with the date it was read.</strong>
-      If a source does not publish a value, the value is left <strong>blank</strong> and marked <em>unverified</em> &mdash; it is never estimated,
-      inferred, or filled in to make a row look complete. <strong>Recommendation: actively look for hallucinations</strong> by clicking the official source link on every row, re-checking live prices and weights before buying, and running our automated anti-hallucination security checks after every review pass.</p>
+      <p><strong>No hallucinations: our goal is to source every price, purity claim, weight and policy and date every observation.</strong>
+      If a value cannot be confirmed, leave it <strong>blank</strong> and mark it <em>unverified</em>; never infer a missing value.
+      Automated checks cannot independently verify a live source or guarantee that no error remains. <strong>Recommendation: actively look for hallucinations</strong> by clicking the official source link on every row, re-checking live prices and weights before buying, and running our automated anti-hallucination security checks after every review pass.</p>
     </section>"""
 
 
@@ -414,6 +414,9 @@ def page(filename: str, title: str, body: str, desc: str = "") -> str:
   </div>
 </header>
 <main id="main">
+<section class="card" role="note" style="border:2px solid #a35b00;background:#fff5dc;margin:20px 0;padding:16px">
+  <strong>Currentness alert &mdash; No Hallucinations:</strong> Prices, availability, seller policies, product details and gold quotes on this site are historical captures, not verified current values. On 11 November 2026 this review could not access the cited external sources; current values and external link health are <strong>unverified</strong>. Automated checks do not prove live claims. Do not buy based on these figures. <a href="flagged.html#currentness-review">See the review flag</a> and re-check each official listing before purchasing.
+</section>
 {body}
 </main>
 <footer class="site-footer">
@@ -659,7 +662,7 @@ def build_combined() -> str:
             row_cats.append("flagged")
         return f"""<tr data-cats="{e(' '.join(row_cats))}">
           <td><span class="badge gold">A</span></td>
-          <td>{e(r.get('name', p['retailer']))}<span class="sub"><span class="badge good">live</span></span></td>
+          <td>{e(r.get('name', p['retailer']))}<span class="sub"><span class="badge neutral">historical</span></span></td>
           <td><a href="{e(p['url'])}" target="_blank" rel="noopener">{e(p['name'])}</a></td>
           <td>{e(p['purity'])}</td>
           <td>{solid_badge(p)}</td>
@@ -1090,12 +1093,12 @@ def build_calculator() -> str:
         <option value="18K">18K (75.0% gold)</option>
         <option value="19K">19K (79.2% gold &mdash; estate alloy)</option>
         <option value="22K">22K (91.7% gold)</option>
-        <option value="24K">24K (99.99% gold)</option>
+        <option value="24K">24K (99.99% assumed for this calculation)</option>
       </select>
     </div>
     <div class="field">
       <label for="calc-grams">Ring weight (grams)</label>
-      <input type="number" id="calc-grams" value="3" step="0.1" min="0">
+      <input type="number" id="calc-grams" value="" step="0.1" min="0" placeholder="Enter a verified weight">
       <p class="tiny muted" style="margin:4px 0 0">Use the seller's stated weight (published on {len([r for r in RINGS if isinstance(r.get('weight_g'),(int,float))])} Dataset B rings; ask in writing where omitted).</p>
     </div>
     <div class="field">
@@ -1107,7 +1110,7 @@ def build_calculator() -> str:
       <label for="calc-tolerance">Seller stated weight tolerance &mdash; optional</label>
       <select id="calc-tolerance">
         <option value="none" selected>Exact scale measurement (&plusmn;0.00 g)</option>
-        <option value="pct5">Sarraf stated accuracy (&plusmn;5%)</option>
+        <option value="pct5">Illustrative &plusmn;5% (not seller-verified)</option>
         <option value="g05">Menē in-stock tolerance (&plusmn;0.50 g)</option>
         <option value="g10">Menē Crafted-on-Demand tolerance (&plusmn;1.00 g)</option>
       </select>
@@ -1122,6 +1125,7 @@ def build_calculator() -> str:
     <div class="result-grid">
       <div class="result"><div class="label">Spot / gram</div><div class="value" id="out-spot-gram">—</div><div class="note">pure gold</div></div>
       <div class="result"><div class="label">Melt / gram</div><div class="value" id="out-melt-gram">—</div><div class="note" id="out-purity">—</div></div>
+      <div class="result"><div class="label">Estimated fine gold</div><div class="value" id="out-fine-gold">—</div><div class="note">assumed metal weight × nominal fineness</div></div>
       <div class="result"><div class="label">Gold value of the ring</div><div class="value" id="out-melt-value">—</div><div class="note" id="out-tolerance-note">weight × melt per gram</div></div>
       <div class="result"><div class="label">Break-even weight</div><div class="value" id="out-implied">—</div><div class="note">price ÷ melt per gram</div></div>
       <div class="result"><div class="label">Price ÷ gold value</div><div class="value" id="out-ratio">—</div><div class="note">the retail multiple</div></div>
@@ -1167,7 +1171,7 @@ driven by the stone and the brand, not by the gold. No listing here prices below
 the "too cheap to be solid gold" alarm - the risk in this set is overpaying, not fake metal at a bargain price.</p>
 """
     return page("calculator.html", "Gold value calculator", body,
-                "Calculate the melt value of a gold ring at today's spot price, and see the break-even weight implied by an asking price.")
+                "Calculate an estimated melt value using a dated spot snapshot or an entered price, and see the break-even weight implied by an asking price.")
 
 
 
@@ -1727,10 +1731,16 @@ def build_flagged() -> str:
   Flagged items are published, not hidden, and they do not block anything - they are the honest edge of the dataset.</p>
 </div>
 
+<section class="card finding high" id="currentness-review">
+  <h2>Current prices and source access &mdash; unverified</h2>
+  <p>On 11 November 2026 this session could not reach seller or official authority websites from its restricted network. No current prices, stock, policies, product specifications or spot quotes were confirmed. The existing rows are historical observations, not current offers; the prior verification log has not been re-performed. Automated checks cannot establish that historical quotes were accurate or links still work.</p>
+  <p>Check each row's seller link and the <a href="https://www.gold.org/goldhub/data/gold-prices" target="_blank" rel="noopener noreferrer">World Gold Council gold-price source</a> before relying on any amount. Leave unavailable current values blank and unverified. Re-run the anti-hallucination checks after every review, and manually hunt for unsupported claims.</p>
+</section>
+
 <div class="grid cols-3" style="margin-bottom:20px">
   <div class="kpi"><div class="label">Editorial findings</div><div class="value">{len(FINDINGS)}</div><div class="sub">{len([f for f in FINDINGS if f['severity']=='high'])} high severity</div></div>
   <div class="kpi"><div class="label">Listing-level flags</div><div class="value">{n_flag}</div><div class="sub">across {len([p for p in PRODUCTS if p.get('flags')])} listings</div></div>
-  <div class="kpi"><div class="label">Unverified cells</div><div class="value">0 guesses</div><div class="sub">blank is used instead</div></div>
+  <div class="kpi"><div class="label">Current values</div><div class="value">Unverified</div><div class="sub">historical observations only</div></div>
 </div>
 
 <h2>Findings, by severity</h2>

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Gold value calculator · GOLD3</title>
-<meta name="description" content="Calculate the melt value of a gold ring at today&#x27;s spot price, and see the break-even weight implied by an asking price.">
+<meta name="description" content="Calculate an estimated melt value using a dated spot snapshot or an entered price, and see the break-even weight implied by an asking price.">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -19,12 +19,15 @@
   </div>
 </header>
 <main id="main">
+<section class="card" role="note" style="border:2px solid #a35b00;background:#fff5dc;margin:20px 0;padding:16px">
+  <strong>Currentness alert &mdash; No Hallucinations:</strong> Prices, availability, seller policies, product details and gold quotes on this site are historical captures, not verified current values. On 11 November 2026 this review could not access the cited external sources; current values and external link health are <strong>unverified</strong>. Automated checks do not prove live claims. Do not buy based on these figures. <a href="flagged.html#currentness-review">See the review flag</a> and re-check each official listing before purchasing.
+</section>
 
 <section class="policy">
       <h2>Zero-hallucination policy &mdash; No Hallucinations Commitment</h2>
-      <p><strong>No hallucinations: every price, purity claim, weight and policy on this site is copied from a named official source page and stamped with the date it was read.</strong>
-      If a source does not publish a value, the value is left <strong>blank</strong> and marked <em>unverified</em> &mdash; it is never estimated,
-      inferred, or filled in to make a row look complete. <strong>Recommendation: actively look for hallucinations</strong> by clicking the official source link on every row, re-checking live prices and weights before buying, and running our automated anti-hallucination security checks after every review pass.</p>
+      <p><strong>No hallucinations: our goal is to source every price, purity claim, weight and policy and date every observation.</strong>
+      If a value cannot be confirmed, leave it <strong>blank</strong> and mark it <em>unverified</em>; never infer a missing value.
+      Automated checks cannot independently verify a live source or guarantee that no error remains. <strong>Recommendation: actively look for hallucinations</strong> by clicking the official source link on every row, re-checking live prices and weights before buying, and running our automated anti-hallucination security checks after every review pass.</p>
     </section>
 <div class="page-head">
   <h1>Gold value calculator</h1>
@@ -50,12 +53,12 @@
         <option value="18K">18K (75.0% gold)</option>
         <option value="19K">19K (79.2% gold &mdash; estate alloy)</option>
         <option value="22K">22K (91.7% gold)</option>
-        <option value="24K">24K (99.99% gold)</option>
+        <option value="24K">24K (99.99% assumed for this calculation)</option>
       </select>
     </div>
     <div class="field">
       <label for="calc-grams">Ring weight (grams)</label>
-      <input type="number" id="calc-grams" value="3" step="0.1" min="0">
+      <input type="number" id="calc-grams" value="" step="0.1" min="0" placeholder="Enter a verified weight">
       <p class="tiny muted" style="margin:4px 0 0">Use the seller's stated weight (published on 14 Dataset B rings; ask in writing where omitted).</p>
     </div>
     <div class="field">
@@ -67,7 +70,7 @@
       <label for="calc-tolerance">Seller stated weight tolerance &mdash; optional</label>
       <select id="calc-tolerance">
         <option value="none" selected>Exact scale measurement (&plusmn;0.00 g)</option>
-        <option value="pct5">Sarraf stated accuracy (&plusmn;5%)</option>
+        <option value="pct5">Illustrative &plusmn;5% (not seller-verified)</option>
         <option value="g05">Menē in-stock tolerance (&plusmn;0.50 g)</option>
         <option value="g10">Menē Crafted-on-Demand tolerance (&plusmn;1.00 g)</option>
       </select>
@@ -82,6 +85,7 @@
     <div class="result-grid">
       <div class="result"><div class="label">Spot / gram</div><div class="value" id="out-spot-gram">—</div><div class="note">pure gold</div></div>
       <div class="result"><div class="label">Melt / gram</div><div class="value" id="out-melt-gram">—</div><div class="note" id="out-purity">—</div></div>
+      <div class="result"><div class="label">Estimated fine gold</div><div class="value" id="out-fine-gold">—</div><div class="note">assumed metal weight × nominal fineness</div></div>
       <div class="result"><div class="label">Gold value of the ring</div><div class="value" id="out-melt-value">—</div><div class="note" id="out-tolerance-note">weight × melt per gram</div></div>
       <div class="result"><div class="label">Break-even weight</div><div class="value" id="out-implied">—</div><div class="note">price ÷ melt per gram</div></div>
       <div class="result"><div class="label">Price ÷ gold value</div><div class="value" id="out-ratio">—</div><div class="note">the retail multiple</div></div>

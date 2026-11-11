@@ -64,7 +64,7 @@ def render_shell(active_file: str, title: str, body_html: str, spot_bench: dict,
   <div class="spot-topbar">
     <div class="spot-topbar-inner">
       <div>
-        <strong>Verified Spot Gold Benchmark ({esc(spot_bench['quote_timestamp_local'])}):</strong>
+        <strong>Historical Spot Gold Snapshot ({esc(spot_bench['quote_timestamp_local'])}):</strong>
         ${spot_bench['spot_bid_usd_per_troy_oz']:,.2f} / troy oz &bull;
         <strong>${spot_bench['spot_usd_per_gram_24k_exact']:.2f} / g (24K)</strong>
         ({ext_link(spot_bench['primary_source_url'], 'Kitco Live Feed', '')} |
@@ -95,6 +95,9 @@ def render_shell(active_file: str, title: str, body_html: str, spot_bench: dict,
   </header>
 
   <main class="container">
+    <section role="note" style="border:2px solid #a35b00;background:#fff5dc;color:#29200d;margin:20px 0;padding:16px">
+      <strong>Currentness alert &mdash; No Hallucinations:</strong> These are historical captures, not verified current prices, availability, policies, product details or gold quotes. On 11 November 2026 this review could not access the cited external sources; current values and external link health are <strong>unverified</strong>. Automated checks do not prove live claims. <a href="flagged.html#currentness-review">See the review flag</a> and re-check each official source before purchasing.
+    </section>
     {body_html}
   </main>
 

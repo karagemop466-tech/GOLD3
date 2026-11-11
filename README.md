@@ -4,10 +4,12 @@ A verified, source-linked research project for buying a **solid gold engagement 
 It publishes as a static site on GitHub Pages and is generated entirely from machine-readable data.
 
 > ## Zero-hallucination policy — No Hallucinations Commitment
-> **No hallucinations: every price, purity claim, weight and policy on this site is copied from a named official source page and
-> stamped with the date it was read.** If a source does not publish a value, the value is left
+> **No hallucinations: the goal is to cite and date every price, purity claim, weight and policy.**
+> Automated checks cannot guarantee that every historical claim is accurate. If a source does not publish a value, the value is left
 > **blank** and marked **unverified** — it is never estimated, inferred, or filled in to make a row
 > look complete. **Recommendation:** actively look for hallucinations on every review pass by clicking the official source link on every row, re-checking live prices/weights before buying, and running all automated security checks below.
+
+**Currentness warning (11 November 2026):** The seller and authority websites could not be reached from this session. Current prices, stock, policies and source-link availability are unverified; existing figures are historical captures, not current offers. Automated tests compare stored evidence and local files; they do not verify live sources or prove the absence of hallucinations. See [the currentness review](reports/currentness-2026-11-11.md) and [Flagged for Review](flagged.html#currentness-review).
 
 **Price snapshots:** 22–23 October 2026 · **re-verified live:** 23 October 2026 (passes `P1`–`P21` + `P17b`, **326 logged checks**) · **71 rows** — Dataset A 19, Dataset B 31, Dataset C 21 · **16 sellers** · **19 published weights** (14 in Dataset B, 5 in Dataset C)
 

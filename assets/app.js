@@ -61,6 +61,7 @@
       perGramSpot: document.getElementById("out-spot-gram"),
       meltPerGram: document.getElementById("out-melt-gram"),
       meltValue: document.getElementById("out-melt-value"),
+      fineGold: document.getElementById("out-fine-gold"),
       tolNote: document.getElementById("out-tolerance-note"),
       purity: document.getElementById("out-purity"),
       implied: document.getElementById("out-implied"),
@@ -69,7 +70,7 @@
       verdict: document.getElementById("out-verdict")
     };
 
-    var FINENESS = { "10K": 10 / 24, "14K": 14 / 24, "18K": 18 / 24, "19K": 19 / 24, "22K": 22 / 24, "24K": 24 / 24 };
+    var FINENESS = { "10K": 10 / 24, "14K": 14 / 24, "18K": 18 / 24, "19K": 19 / 24, "22K": 22 / 24, "24K": 0.9999 };
     var OZ_GRAMS = 31.1034768;
 
     function money(n) {
@@ -83,12 +84,14 @@
 
     function compute() {
       var spot = parseFloat(spotEl.value);
+      if (!isFinite(spot) || spot <= 0) spot = NaN;
       var karat = karatEl.value;
       var f = FINENESS[karat];
       var wRaw = parseFloat(gramsEl.value);
       var stoneCt = stoneCtEl ? parseFloat(stoneCtEl.value) : 0;
       var stoneGrams = isFinite(stoneCt) && stoneCt > 0 ? stoneCt * 0.2 : 0;
-      var w = Math.max(0, (isFinite(wRaw) ? wRaw : 0) - stoneGrams);
+      var validStone = !stoneCtEl || stoneCtEl.value.trim() === "" || (isFinite(stoneCt) && stoneCt >= 0);
+      var w = validStone && isFinite(wRaw) && wRaw > 0 && stoneGrams <= wRaw ? wRaw - stoneGrams : NaN;
       var tol = tolEl ? tolEl.value : "none";
       var price = parseFloat(priceEl.value);
 
@@ -99,8 +102,9 @@
       out.perGramSpot.textContent = money(spotPerGram);
       out.meltPerGram.textContent = money(meltPerGram);
       out.meltValue.textContent = money(meltValue);
+      out.fineGold.textContent = grams(w * f);
       out.purity.textContent = karat + " · " + (f * 100).toFixed(1) + "% fine" +
-        (stoneGrams > 0 ? " · net " + w.toFixed(2) + " g gold" : "");
+        (stoneGrams > 0 && isFinite(w) ? " · " + w.toFixed(2) + " g remaining material (assumed metal)" : "");
 
       if (out.tolNote) {
         var deltaG = tol === "pct5" ? w * 0.05 : tol === "g05" ? 0.5 : tol === "g10" ? 1.0 : 0;
@@ -124,26 +128,12 @@
 
         var v = out.verdict;
         v.className = "verdict";
-        if (price < meltValue) {
-          v.classList.add("bad");
-          v.innerHTML = "<strong>Impossible for solid gold.</strong> The price is below the gold value of the weight you entered. " +
-            "Either the weight is wrong or the metal is not what the listing claims.";
-        } else if (ratio < 1.5) {
+        if (isFinite(meltValue) && meltValue > 0) {
           v.classList.add("warn");
-          v.innerHTML = "<strong>Unusually cheap.</strong> At " + ratio.toFixed(1) + "× the gold value, something other than a normal retail margin is going on. " +
-            "Verify the purity independently before buying.";
-        } else if (ratio <= 4) {
-          v.classList.add("good");
-          v.innerHTML = "<strong>Low markup for jewellery retail.</strong> You are paying " + ratio.toFixed(1) + "× the raw gold value; " +
-            "the rest covers labour, setting, stones and margin.";
-        } else if (ratio <= 10) {
-          v.classList.add("warn");
-          v.innerHTML = "<strong>Typical branded retail range.</strong> " + ratio.toFixed(1) + "× the gold value. " +
-            "Reasonable when a certified diamond is included — compare stone prices before accepting it.";
+          v.textContent = (price < meltValue ? "The entered price is below the estimated gold value; check the inputs and investigate. " : "The price-to-estimated-metal-value ratio is " + ratio.toFixed(1) + "×. ") +
+            "This comparison cannot verify purity, establish a typical markup, or prove a listing is genuine. Estimates depend on the dated or entered spot price and assumed metal-only weight.";
         } else {
-          v.classList.add("warn");
-          v.innerHTML = "<strong>Heavy premium.</strong> " + ratio.toFixed(1) + "× the gold value. The price is being driven by brand, " +
-            "design or the stone, not the gold. Check what the premium buys.";
+          v.textContent = "Enter a valid metal weight and spot price to compare the asking price with estimated gold value.";
         }
       } else {
         out.implied.textContent = "—";
