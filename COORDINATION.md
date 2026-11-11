@@ -1505,3 +1505,5 @@ _TODO — filled in after the PR is merged and GitHub Pages is read back._
 | November currentness / anti-hallucination integration review | in progress | `arena/16f4c867-gold3` | `COORDINATION.md`, `README.md`, `scripts/`, `data/`, `reports/`, generated root HTML and `verification/` (integration window) | 2026-11-11T07:58Z |
 
 Previous October in-progress registry row for `arena/57724486-gold3` is superseded by its adjacent completed entry; its last recorded activity is more than 60 minutes old. This session uses the sandbox-assigned branch, as required by the branch naming note above. Scope excludes archive and workflow files unless separately requested.
+
+**Scope extension (2026-11-11T08:00Z):** `assets/app.js` for calculator safety; no active owner identified. Live access to seller and authority websites is unavailable from this sandbox (outbound allowlist); neither stored quotes nor external link health can be independently confirmed in this session. A currentness warning and audit-limitation report are therefore in scope; no current prices will be invented.
