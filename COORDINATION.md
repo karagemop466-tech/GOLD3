@@ -1503,10 +1503,12 @@ _TODO — filled in after the PR is merged and GitHub Pages is read back._
 
 | Task | Status | Owner | File scope | Updated (UTC) |
 |---|---|---|---|---|
-| Freshness, source-access and site integration review | in progress | `arena/4c39809c-gold3` | `COORDINATION.md`, `reports/freshness-2026-11-11.md`, site build scripts and generated site files as needed | 2026-11-11T07:57Z |
+| Freshness, source-access and site integration review | needs review | `arena/4c39809c-gold3` | `COORDINATION.md`, `reports/freshness-2026-11-11.md`, site build scripts and generated site files as needed | 2026-11-11T07:57Z |
 
 The prior P12 registry entry is stale and has a corresponding completed entry; this is a new review, not a takeover of its work. The environment requires the assigned `arena/` branch rather than a new session branch.
 
 ### 27.1 Review results and limitations
 
 Freshness/source-access review completed; the requested full current line-by-line verification remains **needs review**, not completed. Existing October 2026 data are historical and current values are unverified. Site-wide warning published on both Flagged pages and all generated pages. Sample sources and exact scope: `reports/freshness-2026-11-11.md` ([Mejuri](https://mejuri.com/products/slim-diamond-eternity-band), [eCFR §23.4](https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23/section-23.4)). The sample does not establish current status of other rows; no new spot quote is asserted. Existing anti-hallucination checks and archive suite passed, including 189/189 render tests; they check stored evidence and local consistency, not current external pages. Always re-run checks and manually hunt for hallucinations after review. October prices and policies must not be treated as current.
+
+**PR:** https://github.com/karagemop466-tech/GOLD3/pull/79 — open. CI run https://github.com/karagemop466-tech/GOLD3/actions/runs/42983377381 passed. Not merged: a fresh complete line-by-line source verification and comprehensive live external-link check have not been completed, so the requested integration preconditions are not established. GitHub Pages has not deployed this change.
