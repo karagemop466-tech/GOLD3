@@ -36,16 +36,16 @@
       "quote": "Gold Spot price USD /oz - 4,024.45 ... Data as of 22 October, 2026"
     },
     {
-      "id": "goldprice-org-2026-10-23T23-43Z",
+      "id": "goldprice-org-2026-11-11T08-00Z",
       "publisher": "GoldPrice.org",
       "url": "https://goldprice.org/",
       "metal": "gold",
-      "price_usd_per_troy_oz": 3995.88,
-      "as_of_text": "Oct 23rd, 2026 at 07:41 NY Time",
-      "captured_on": "2026-10-23",
+      "price_usd_per_troy_oz": 4059.31,
+      "as_of_text": "Nov 11th, 2026 at 02:59 NY Time",
+      "captured_on": "2026-11-11",
       "role": "live-check (newest live reading shown for reference, not used in any calculation)",
-      "quote": "Spot Gold Price: USD 3,995.88 / Ounce | Spot Silver Price: USD 53.92 / Ounce Oct 23rd, 2026 at 07:41 NY Time",
-      "note": "Read live at 2026-10-23T23:43Z; 0.6549% below the dated primary snapshot. The page's '07:41 NY Time' label is recorded verbatim without inferring a meridiem or correcting its clock. Kitco bid $3,994.90, BullionVault $3,995.74 and the World Gold Council tile $3,995.47 corroborate the reading within 0.025%; none is used in calculations.",
+      "quote": "Spot Gold Price: USD 4,059.31 / Ounce | Spot Silver Price: USD 53.07 / OunceNov 11th, 2026 at 02:59 NY Time",
+      "note": "Read live at 2026-11-11T08:00Z by arena/673783c8-gold3 (P23); 0.9221% (+$37.09/oz) above the dated $4,022.22/oz primary snapshot. Kitco bid $4,059.30/oz, BullionVault $4,058.82/oz and World Gold Council $4,059.49/oz corroborate the reading within 0.0165%; none is used in calculations.",
       "history": [
         {
           "id": "goldprice-org-2026-10-23T20-17Z",
@@ -61,6 +61,14 @@
           "quote": "Spot Gold Price: USD 3,995.88 / Ounce | Spot Silver Price: USD 53.92 / Ounce Oct 23rd, 2026 at 07:41 NY Time",
           "by": "arena/1ee91485-gold3 (P17b)",
           "note": "Fifth independent feed read at 2026-10-23T23:43Z (Kitco bid $3,994.90, BullionVault $3,995.74, World Gold Council $3,995.47). The four spot feeds cluster within 0.025% and sit 0.655% below the dated primary anchor; the calculator shows the newest live-check reading and every melt value stays on the dated anchor."
+        },
+        {
+          "id": "goldprice-org-2026-11-11T08-00Z",
+          "price_usd_per_troy_oz": 4059.31,
+          "as_of_text": "Nov 11th, 2026 at 02:59 NY Time",
+          "quote": "Spot Gold Price: USD 4,059.31 / Ounce | Spot Silver Price: USD 53.07 / OunceNov 11th, 2026 at 02:59 NY Time",
+          "by": "arena/673783c8-gold3 (P23)",
+          "note": "Live 2026-11-11 five-source corroboration: GoldPrice.org $4,059.31/oz, Kitco bid $4,059.30/oz ($0.01/oz = 0.00025% apart), BullionVault $4,058.82/oz, World Gold Council $4,059.49/oz (0.0165% total four-feed spread; LBMA 10/11 AM fix $4,073.70/oz). Sits +0.9221% (+$37.09/oz) above the preserved $4,022.22/oz dated calculation anchor."
         }
       ]
     }
@@ -71,17 +79,31 @@
     "note": "The two independent snapshots read on 2026-10-23 differ by 0.055%, which is consistent with normal intraday movement between the two timestamps (and within 0.06% of Dataset C's simultaneous Kitco $4,022.70/oz & BullionVault $4,024.23/oz quotes). Calculations use the primary (GoldPrice.org) snapshot; the World Gold Council figure is shown next to it so the reader can see the spread.",
     "benchmark_note": "The LBMA Gold Price is the global benchmark, set twice daily by ICE Benchmark Administration. LBMA states (re-verified live 2026-10-23) that real-time and historical benchmark data require an IBA licence and that the public tables have moved behind the MyLBMA portal, so no LBMA figure is reproduced here. Source: https://www.lbma.org.uk/prices-and-data/lbma-precious-metal-prices"
   },
-  "live_check_note": "Independent P21 re-read at 2026-10-24T00:08:30Z confirmed GoldPrice.org $3,995.88/oz and Kitco bid $3,994.90/oz, 0.0245% apart. Peer P17 also recorded four-feed corroboration at 23:43Z. Both readings remain reference observations; the $4,022.22/oz dated primary capture is the sole calculation anchor. The earlier 20:17Z live-check is preserved in snapshot history.",
+  "live_check_note": "Pass P23 live re-read at 2026-11-11T08:00Z confirmed GoldPrice.org $4,059.31/oz, Kitco bid $4,059.30/oz ($0.01/oz or 0.00025% apart), BullionVault $4,058.82/oz and World Gold Council $4,059.49/oz (+0.9221% above the dated $4,022.22/oz primary calculation anchor). Prior 2026-10-23 live checks ($3,997.22/oz and $3,995.88/oz GoldPrice.org; $3,994.90/oz Kitco) are preserved in history; the $4,022.22/oz dated primary capture remains the sole calculation anchor.",
   "live_cross_check": {
     "publisher": "Kitco Metals Inc.",
     "url": "https://www.kitco.com/charts/gold",
-    "price_usd_per_troy_oz": 3994.9,
-    "as_of_text": "Oct 23, 2026 - 19:43 NY Time; page also says “7:42 p.m. EDT”",
-    "quote": "Oct 23, 2026 - 19:43 NY Time | Bid 3,994.90 | Ask 3,996.90 | ounce 3,994.90 | gram 128.44 | Prices provided by Kitco Metals Inc. Displayed in U.S. dollars (USD), as of October 23, 2026 at 7:42 p.m. EDT.",
-    "captured_on": "2026-10-23",
+    "price_usd_per_troy_oz": 4059.3,
+    "as_of_text": "Nov 11, 2026 - 2:55 NY Time; Last updated: November 11, 2026 at 2:54 a.m. EST",
+    "quote": "Nov 11, 2026 - 2:55 NY Time | Bid 4,059.30 | Ask 4,061.30 | ounce 4,059.30 | gram 130.51 | Kilo 130,511.53 | pennyweight 202.97 | Last updated: November 11, 2026 at 2:54 a.m. EST.",
+    "captured_on": "2026-11-11",
     "role": "independent live cross-check (reference only, not used in any calculation)",
-    "spread_usd_per_oz": 0.98,
-    "spread_percent": 0.0245,
-    "p21_note": "Independently re-opened by arena/bd0ed905-gold3 at 2026-10-24T00:08:30Z; reference only."
+    "spread_usd_per_oz": 0.01,
+    "spread_percent": 0.0002,
+    "p23_note": "Independently re-opened by arena/673783c8-gold3 at 2026-11-11T08:00Z; reference only.",
+    "history": [
+      {
+        "publisher": "Kitco Metals Inc.",
+        "url": "https://www.kitco.com/charts/gold",
+        "price_usd_per_troy_oz": 3994.9,
+        "as_of_text": "Oct 23, 2026 - 19:43 NY Time; page also says “7:42 p.m. EDT”",
+        "quote": "Oct 23, 2026 - 19:43 NY Time | Bid 3,994.90 | Ask 3,996.90 | ounce 3,994.90 | gram 128.44 | Prices provided by Kitco Metals Inc. Displayed in U.S. dollars (USD), as of October 23, 2026 at 7:42 p.m. EDT.",
+        "captured_on": "2026-10-23",
+        "role": "independent live cross-check (reference only, not used in any calculation)",
+        "spread_usd_per_oz": 0.98,
+        "spread_percent": 0.0245,
+        "p21_note": "Independently re-opened by arena/bd0ed905-gold3 at 2026-10-24T00:08:30Z; reference only."
+      }
+    ]
   }
 }

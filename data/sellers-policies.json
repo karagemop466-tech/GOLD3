@@ -48,7 +48,7 @@
       "bbb_url": "https://www.bbb.org/us/wa/seattle/profile/jewelry-stores/blue-nile-inc-1296-15026564",
       "gram_weight_transparency": "Omitted on standard engagement ring product pages — requires live chat/phone inquiry prior to purchase.",
       "return_window_days": 30,
-      "return_shipping_terms": "Free insured return shipping (capped at 2 free returns per customer per year; $150 replacement fee if GIA/diamond report missing).",
+      "return_shipping_terms": "Free insured return shipping (capped at 2 free returns per customer per year; $150 replacement fee if GIA/diamond report missing). P23 live re-check (2026-11-11): Extended Holiday Return Policy covers eligible orders placed Nov 1–Dec 5, 2026 through January 5, 2027.",
       "resized_custom_exclusions": "Engraved rings, custom/special-order designs, and previously resized rings are excluded or non-refundable; live policy now limits one free standard resize to 6 months from purchase (shortened from prior 1-year window).",
       "return_policy_url": "https://www.bluenile.com/policies/returns",
       "accepted_payments": "Major Credit Cards, Debit Cards, PayPal, Blue Nile Credit Card, Bank Wire ($1,000+)",
@@ -135,7 +135,7 @@
       "bbb_url": "https://www.bbb.org/ca/on/toronto/profile/jewelry-manufacturers/mejuri-0107-1370644",
       "gram_weight_transparency": "Omitted — Publishes explicit '14k solid gold' wording and band mm thickness, but omits gram weights. (Official mejuri.com/us/en/company/terms also prints 60 Bloor St West, Floor 8, Toronto, Ontario, M4w1J2, contact@mejuri.com, and +1-855-496-1110.)",
       "return_window_days": 30,
-      "return_shipping_terms": "Free 30-day returns in US, Canada, UK, Australia & Germany (EUR 20 rest of Europe; USD 30 rest of world) for unworn items in original packaging.",
+      "return_shipping_terms": "Free 30-day returns in US, Canada, UK, Australia & Germany (EUR 20 rest of Europe; USD 30 rest of world) for unworn items in original packaging. P23 live re-check (2026-11-11): holiday orders placed Nov 1–Dec 31, 2026 are eligible for return through January 31, 2027.",
       "resized_custom_exclusions": "Engraved/monogrammed items, bespoke/made-to-order rings, piercing earrings, gift cards, and 'Before We Melt' items are NON-RETURNABLE (Final Sale).",
       "return_policy_url": "https://mejuri.com/faq/return-exchanges/what-is-the-standard-return-policy",
       "accepted_payments": "Visa, MasterCard, American Express, PayPal, Klarna ($35–$4,000), Afterpay, Mejuri Gift Cards & Store Credit",
@@ -149,5 +149,5 @@
       ]
     }
   ],
-  "reverified_by_session": "arena/6ccbc523-gold3"
+  "reverified_by_session": "arena/6ccbc523-gold3 · arena/673783c8-gold3 (P23)"
 }

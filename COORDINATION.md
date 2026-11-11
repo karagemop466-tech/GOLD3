@@ -168,6 +168,7 @@ If another session joins, it must claim only `unclaimed` rows and log the claim 
 | 2026-10-23T10:30Z | `arena/6d6192d1-gold3` | V6 | 25 official URLs opened live on the merged tree (`5663d5e`): Sarraf ×4, Automic ×2, Wilson's, Ross-Simons ×4 (2 listings, returns page, band 571221), Catbird ×3 (returns, contact, product), Mejuri ×3 (R01, Diamonds Band, collection), Blue Nile ×2, Costco, Menē ×3, GoldPrice.org, eCFR Part 23 + §23.10. **15 confirmed · 8 corrected · 2 flagged.** Caught: four Menē prices already moved (new flag `PRC1`); seven band records asserting a hallmark no page prints (site defect `SD6`); `PD1` describing nothing (`SD7`); `POL1` still on three rows whose policies are readable. `scripts/verify.py` PASS · builders OK · `scripts/audit.py` 31 rows / 0 errors / 0 warnings / 173 checks · `run_security_audit.py` SEC-01…07 PASS · `render-test.js` 120/120 · `report_verify.py` 109 checks. | PASS; report published |
 | 2026-11-11T08:01Z | `arena/673783c8-gold3` | P23 | Read `COORDINATION.md` on `origin/main` (`8f476a5`); noted completed October claims (>60 min old) and PR #80 merged. Claimed non-overlapping `P23` (`data/reverification-673783c8.json`, `reports/reverification-pass-673783c8.md`, `COORDINATION.md`) before editing any other file; pushing claim immediately. | claim recorded |
 | 2026-11-11T08:16Z | `arena/673783c8-gold3` | P23→P24 | Completed `P23` (63 live official HTTPS checks on 2026-11-11: 27 confirmed / 8 corrected / 28 flagged; wrote `data/reverification-673783c8.json` & `reports/reverification-pass-673783c8.md`). Checked `origin/main` (`8f476a5`, 0 active conflicting claims); claiming `P24` integration scope and pushing claim immediately before editing shared files. | P23 PASS; P24 claimed |
+| 2026-11-11T08:22Z | `arena/673783c8-gold3` | P24 | Integrated `P23` into `data/verification.json` (**389 checks**: 190 confirmed / 126 corrected / 73 flagged; **33 site defects fixed** incl. `SD33`–`SD35`), `data/findings.json` (**71 findings** `F1`–`F71`, incl. High-severity `F68` Aurate BF30 Final-Sale vs Free-Returns contradiction), `data/prices.json` (2026-11-11 `$4,059.31/oz` GoldPrice.org + `$4,059.30/oz` Kitco reference checks with Oct 23 history preserved), `data/sources.json` & `data/spot-and-standards.json` (11/09/2026 eCFR currency + 5-feed spot corroboration), `data/retailers.json` / `sellers*.json` (Trustpilot & Nov 2026 holiday return windows), and `solitaire-rings.json` / `bands-and-high-karat.json` (`SD34` `SOL-05` title fix + Nov 11 `live_recheck`). Rebuilt all 25 static HTML pages and passed all 9 CI gates: `verify.py` PASS (0/0/12), `verify_dataset_c.py` PASS, `hallucination_scan.py` PASS (81/81), `audit.py` PASS (31 rows, 0/0/177), `run_security_audit.py` Pass #49 PASS (SEC-01..07, 3,471 links), `render-test.js` PASS (193/193), `report_verify.py` PASS (389 checks), root `<tr>` HTTPS link gate PASS (1,294/1,294), archive suite PASS (7/7). | ALL 9 GATES PASS; opening PR → `main` |
 
 ---
 
@@ -1519,3 +1520,38 @@ Rebuilt the site statically. All CI gates PASS.
 
 ### 27.4 PR / CI / Pages read-back
 _TODO_
+
+---
+
+## 28. Session `arena/673783c8-gold3` — Pass `P23` (63 Live 2026-11-11 Source Checks) & `P24` Final Integration
+
+### 28.1 Scope & Anti-Hallucination Discipline
+- **Branch:** `arena/673783c8-gold3` (rebased onto `origin/main` @ `8f476a5`).
+- **Artifacts:** `data/reverification-673783c8.json`, `reports/reverification-pass-673783c8.md` (63 live official HTTPS checks opened on `2026-11-11`: **27 confirmed, 8 corrected, 28 flagged**).
+- **Zero-Hallucination Rule:** Preserved the dated `2026-10-23` `$4,022.22/oz` calculation anchor and dated October baseline prices intact; left all unpublished weights, hallmarks, and JS-gated Menē gram breakdowns `null` (`unverified`); corrected only source-contradicted strings/metadata and published all November 2026 promotional/dynamic price moves and return-policy contradictions with verbatim quotes.
+
+### 28.2 Key Live 2026-11-11 Findings (`F66`–`F71`) & Site Defects Fixed (`SD33`–`SD35`)
+- **Five-Feed Spot Corroboration (`F66`, `D18`):** GoldPrice.org `$4,059.31/oz` (`Nov 11th, 2026 at 02:59 NY Time`), Kitco bid `$4,059.30/oz` (`0.00025%` apart), BullionVault `$4,058.82/oz`, World Gold Council `$4,059.49/oz` (`0.0165%` four-feed spread; `+0.9221%` above the `$4,022.22/oz` anchor), plus LBMA `10/11` AM `$4,073.70/oz` and confirmed IBA licence restriction.
+- **Aurate Black Friday `BF30` Return Contradiction (`F68`, High Severity, `D20`):** Live engagement ring PDPs simultaneously display `Exchange for size only. Final Sale!` / `Exchange only!` (no refund; `30% cancellation fee` after 24h on made-to-order rings per `/pages/terms-conditions-exchange-only-final-sale`) AND `Free Returns` on the same page.
+- **Menē 24K Dynamic Repricing (`F66`, `D19`):** `R30` `$3,230`, `BND-01` `$1,709`, `BND-02` `$1,545`, `BND-03` `$2,467` USD.
+- **November Promotional Repricing (`F67`, `F69`, `F70`, `F71`):** Ross-Simons `20% Off` / extra-clearance across 9 of 10 rows (`R15` `$199.20`, `R16` `$239.20`, `BND-04` `$320`, `BND-05` `$759.20`, `BND-06` `$956`, `BND-07` `$479.20`, `BND-08` `$2,636`, `SOL-07` `$2,537.10`, `SOL-09` `$26.10`); Blue Nile automatic `-20%` setting promo (`$800`–`$2,076`, dropping `SOL-03`/`R06`, `SOL-01`, and `R14` below the `$1,000` Limited Lifetime Warranty threshold when bought setting-only) + Extended Holiday Return window (`Nov 1–Dec 5` -> `Jan 5, 2027`); Ring Concierge `20% Off` (`$4,830.40` / `$5,814.40`) + `Join the Waitlist`; Brilliant Earth `SOL-04` `$1,590` + `4mm`/`4.5 mm` width discrepancy; Tiffany `R17` `$1,590` + unavailable + dual `non returnable` / `exchange only` notice.
+- **Regulatory & Reputation Updates:** eCFR Title 16 currency banner updated to `up to date as of 11/09/2026. Title 16 was last amended 10/30/2026.` (16 CFR Part 23 text unchanged); Mejuri holiday returns (`Nov 1–Dec 31` -> `Jan 31, 2027`); Trustpilot counts refreshed (`aurate` `4,896`, `blue-nile` `2,071`, `mejuri` `5,850`, `catbird` `123`, `ring-concierge` `7`).
+- **Site & Gate Defects Fixed (`SD33`–`SD35`):**
+  - `SD33`: Fixed frozen `TODAY = date(2026, 10, 23)` in `scripts/verify.py` to use real UTC calendar date, and replaced hardcoded Oct-23 check/history equality literals in `scripts/render-test.js` with dynamic ledger/history invariants.
+  - `SD34`: Fixed misattributed product title (`Secret Garden Ring`) in `SOL-05` `verbatim_excerpt` to match the live Brilliant Earth title `Fairmined 2mm Six-Prong Solitaire Ring in 18K Yellow Gold`.
+  - `SD35`: Fixed `scripts/build_site.py` `LIVE_NOTE` where `_direction` (`above` vs `below`) was computed and never interpolated, preventing `$4,059.31/oz` from rendering as `"0.92% below"` `$4,022.22/oz` on `calculator.html`.
+
+### 28.3 Local Gate Verification (All 9 CI Gates Green)
+1. `verify.py` — **PASS** (0 errors, 0 warnings, 12 notes) & `verify_dataset_c.py` — **PASS** (21 rings, 0 dead links)
+2. `build_ext_pages.py` & `build_site.py` — **PASS** (25 root static HTML pages built, 0 broken internal links)
+3. `requirements_matrix.py` & `hallucination_scan.py` — **PASS** (71 rows, 81/81 checks)
+4. `audit.py` — **PASS** (31 rows, 0 errors, 0 warnings, 177 passed checks)
+5. `run_security_audit.py` (Pass #49, `arena/673783c8-gold3`) — **PASS** (`SEC-01`..`SEC-07`, 3,471 links verified, SHA-256 digests clean)
+6. `render-test.js` — **PASS** (193/193 checks)
+7. `report_verify.py` — **PASS** (389 checks)
+8. Root HTML `<tr>` official `https://` link gate — **PASS** (1,294/1,294 rows across 25 pages)
+9. `npm --prefix archive/session-cbea1001 test` — **PASS** (7/7 security checks + link verifier)
+
+### 28.4 PR, Merge & Live GitHub Pages Read-Back Record
+- Pending PR merge & GitHub Pages read-back (recorded immediately post-merge in follow-up commit).
+

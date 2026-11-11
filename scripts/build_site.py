@@ -24,7 +24,7 @@ SITE_NAME = "GOLD3"
 SITE_TAG = "Gold engagement ring buyer's guide"
 CAPTURED = "22 October 2026"          # Dataset A capture date (data/products.json)
 AUDIT_RUN_DATE = CAPTURED            # filled from reports/audit-report.md below
-RECHECKED = "23 October 2026"   # date of the most recent verification pass (P4)
+RECHECKED = "11 November 2026"       # updated dynamically from data/verification.json below
 
 NAV = [
     ("index.html", "Dashboard"),
@@ -150,6 +150,17 @@ try:
 except Exception:  # pragma: no cover
     pass
 
+try:
+    _verif_meta = json.loads((DATA / "verification.json").read_text(encoding="utf-8"))
+    _vr = _verif_meta.get("retrieved_utc") or ""
+    if re.fullmatch(r"\d{4}-\d{2}-\d{2}", _vr):
+        _vy, _vm, _vd = _vr.split("-")
+        RECHECKED = (f"{int(_vd)} "
+                     f"{['January','February','March','April','May','June','July','August','September','October','November','December'][int(_vm)-1]} "
+                     f"{_vy}")
+except Exception:  # pragma: no cover
+    pass
+
 # the pre-filled spot snapshot carries its own capture date; it is NOT Dataset A's date
 SPOT_CAPTURED = PRIMARY.get("captured_on") or ""
 if re.fullmatch(r"\d{4}-\d{2}-\d{2}", SPOT_CAPTURED):
@@ -159,19 +170,20 @@ if re.fullmatch(r"\d{4}-\d{2}-\d{2}", SPOT_CAPTURED):
                      f"{_y}")
 
 # Pass P13: the live-check snapshot is an explicitly labelled reading that no calculation consumes.
-# Show it beside the pre-filled field, never instead of it. Pass P17 appended a newer live reading,
-# so select the NEWEST live-check snapshot rather than the first.
+# Show it beside the pre-filled field, never instead of it. Pass P17/P23 appended newer live readings,
+# so select the NEWEST live-check snapshot rather than the first, and fix SD35 by interpolating _direction.
 _lives = [s for s in prices_doc["snapshots"] if str(s.get("role", "")).startswith("live-check")]
 LIVE = _lives[-1] if _lives else None
 LIVE_NOTE = ""
+LIVE_HISTORY_NOTE = ""
 if LIVE:
     _delta = (float(LIVE["price_usd_per_troy_oz"]) - SPOT) / SPOT * 100
     _direction = "below" if _delta < 0 else "above"
     LIVE_NOTE = (
         f"Latest independent re-read ({e(LIVE.get('captured_on',''))}): "
         f"{money(float(LIVE['price_usd_per_troy_oz']), 2)}/oz ({e(LIVE.get('as_of_text',''))}), "
-        f"{abs(_delta):.2f}% below the pre-filled snapshot. The stored figure is a dated capture, not today's price: "
-        "enter the live one before you rely on a melt comparison (findings F55 and F63)."
+        f"{abs(_delta):.2f}% {_direction} the pre-filled snapshot. The stored figure is a dated capture, not today's price: "
+        "enter the live one before you rely on a melt comparison (findings F55, F63 and F66)."
     )
     LIVE_X = prices_doc.get("live_cross_check")
     if LIVE_X:
@@ -180,6 +192,16 @@ if LIVE:
             f"({e(LIVE_X.get('as_of_text',''))}); the two live feeds differ by "
             f"{float(LIVE_X.get('spread_percent', 0)):.4f}%. "
             "Both are reference observations only; calculations remain pinned to the dated capture."
+        )
+    _prior_gp = [h for h in (LIVE.get("history") or []) if h.get("price_usd_per_troy_oz") != LIVE.get("price_usd_per_troy_oz")]
+    _prior_kc = (LIVE_X or {}).get("history") or []
+    if _prior_gp or _prior_kc:
+        _gp_str = ", ".join(f"{money(float(h['price_usd_per_troy_oz']), 2)}/oz ({e(h.get('as_of_text',''))})" for h in _prior_gp)
+        _kc_str = ", ".join(f"{money(float(h['price_usd_per_troy_oz']), 2)}/oz ({e(h.get('captured_on',''))})" for h in _prior_kc)
+        LIVE_HISTORY_NOTE = (
+            "Preserved prior reference history: GoldPrice.org "
+            + (_gp_str or "n/a")
+            + (f"; Kitco {_kc_str}." if _kc_str else ".")
         )
 
 # fill computed counts into finding text; verify.py guarantees the placeholders exist
@@ -518,7 +540,7 @@ def build_index() -> str:
 <div class="page-head">
   <h1>A gold engagement ring you can actually verify &mdash; No Hallucinations</h1>
   <p class="lead">{METRICS['n_combined']} listings across {METRICS['n_sellers_total']} sellers &mdash; {len(PRODUCTS)} verified in Dataset A and {METRICS['n_other_items']} in Dataset B &mdash; plus {len(DATASET_C_ITEMS)} Dataset C settings and bands, {len(PRODUCTS) + len(OTHER_ITEMS) + len(DATASET_C_ITEMS)} rows in all, checked line by line under our <strong>No Hallucinations</strong> commitment against official seller pages, US jewellery-marking
-  regulations and the gold price captured on 22 October 2026 and re-checked live on 23 October 2026. Every single table row links to an official source. Where a seller publishes nothing, the cell is left blank
+  regulations and the gold price captured on 22 October 2026 and re-checked live through {RECHECKED} (Pass P23: $4,059.31/oz live spot reference across five official feeds alongside the preserved $4,022.22/oz calculation anchor). Every single table row links to an official source. Where a seller publishes nothing, the cell is left blank
   and flagged <em>unverified</em>. Need stone-carat deduction &amp; post-arrival ED-XRF assay tolerances? Open the <a href="archive/session-cbea1001/calculator.html">XRF &amp; Stone-Deduction Lab Calculator</a> or <a href="archive/session-cbea1001/index.html">Session Observatory</a>.</p>
 </div>
 
@@ -1081,6 +1103,7 @@ def build_calculator() -> str:
       <p class="tiny muted" style="margin:4px 0 0">Pre-filled with the {SPOT_CAPTURED or CAPTURED} snapshot: {money(SPOT,2)}/oz ({e(PRIMARY['as_of_text'])}).
       Change it to test another price.</p>
       {f'<p class="tiny" style="margin:4px 0 0;color:#8a5a00"><strong>{LIVE_NOTE}</strong></p>' if LIVE_NOTE else ''}
+      {f'<p class="tiny muted" style="margin:4px 0 0">{LIVE_HISTORY_NOTE}</p>' if LIVE_HISTORY_NOTE else ''}
     </div>
     <div class="field">
       <label for="calc-karat">Karat</label>

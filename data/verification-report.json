@@ -1,5 +1,5 @@
 {
-  "generated_on": "2026-10-23",
+  "generated_on": "2026-11-11",
   "spot": {
     "primary": {
       "id": "goldprice-org-2026-10-23",
@@ -740,6 +740,36 @@
       "id": "F65",
       "severity": "medium",
       "title": "Fifth gold-spot feed corroborates the live reference, and the calculator now shows the newest live-check reading"
+    },
+    {
+      "id": "F66",
+      "severity": "medium",
+      "title": "November 11, 2026 five-feed spot corroboration ($4,059.31/oz) and live Menē 24K upward repricing"
+    },
+    {
+      "id": "F67",
+      "severity": "low",
+      "title": "Ross-Simons November 2026 20%-off and extra-clearance event lowers 9 of 10 tracked ring prices"
+    },
+    {
+      "id": "F68",
+      "severity": "high",
+      "title": "Aurate Black Friday BF30 engagement ring pages print both 'Final Sale! Exchange for size only.' and 'Free Returns'"
+    },
+    {
+      "id": "F69",
+      "severity": "medium",
+      "title": "Blue Nile's automatic -20% setting promotion drops three solitaire settings below its $1,000 warranty threshold"
+    },
+    {
+      "id": "F70",
+      "severity": "medium",
+      "title": "Brilliant Earth SOL-05 title transcription fixed (SD34), SOL-04 repriced to $1,590 with 4mm/4.5mm conflict, and Tiffany R17 at $1,590 unavailable"
+    },
+    {
+      "id": "F71",
+      "severity": "medium",
+      "title": "Ring Concierge Whisper Thin lab-diamond listings show 20%-off holiday pricing alongside 'Join the Waitlist'"
     }
   ],
   "parallel_dataset": {

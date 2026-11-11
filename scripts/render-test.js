@@ -267,7 +267,7 @@ check("SD24 F2 uses full counts and distinguishes entered weights from published
   includesText(html["flagged.html"], "Published ranges and unscoped figures") &&
   !includesText(html["flagged.html"], "Only 14 of 50 listings publish a weight"));
 check("SD24 README pass range and ledger count are current",
-  read("README.md").includes("P1`–`P21") &&
+  read("README.md").includes("P1`–`P23") &&
   read("README.md").includes(`${_verif.summary.checks} logged checks`));
 
 // P17: source-drift, duplicate-flag and unsupported-inference regression guards.
@@ -316,7 +316,8 @@ check("P17 publishes F50-F55 for manual review",
 const _p17Primary = _prices.snapshots.find((s) => s.role === "primary");
 const _p17Live = _prices.snapshots.find((s) => String(s.role).startsWith("live-check"));
 check("P17 refreshes only the live spot reference and preserves the calculation anchor",
-  _p17Primary.price_usd_per_troy_oz === 4022.22 && _p17Live.price_usd_per_troy_oz === 3995.88 &&
+  _p17Primary.price_usd_per_troy_oz === 4022.22 &&
+  (_p17Live.price_usd_per_troy_oz === 3995.88 || (_p17Live.history || []).some((h) => h.price_usd_per_troy_oz === 3995.88)) &&
   html["calculator.html"].includes("3,995.88") &&
   /findings? F55/.test(html["calculator.html"]) &&
   !html["calculator.html"].includes("findings F39 and F43"));
@@ -380,11 +381,11 @@ check("P21 preserves both peer passes and appends 36 unique checks",
   verif.checks.filter((c) => c.id.startsWith("P19-")).length === 12 &&
   verif.checks.filter((c) => c.id.startsWith("P21-")).length === 36 &&
   new Set(verif.checks.map((c) => c.id)).size === verif.checks.length &&
-  verif.checks.length === 326 &&
+  verif.checks.length >= 326 && verif.checks.length === verif.summary.checks &&
   _p21.summary.confirmed === 13 && _p21.summary.corrected === 21 && _p21.summary.flagged === 2);
 check("P21 artifacts and README counts are current",
   _p21Report.includes("Pass P21") && _p21Report.includes("P21-36") &&
-  read("README.md").includes("P1`–`P21") && read("README.md").includes("326 logged checks") &&
+  read("README.md").includes("P1`–`P23") && read("README.md").includes(`${verif.summary.checks} logged checks`) &&
   includesText(html["verify.html"], "arena/bd0ed905-gold3 (P21)"));
 // P17b: this session's independent pass was merged additively with the peer's P17/P19/P21
 // work; the finding id was renumbered F50 -> F65 after the peer claimed F50..F64.
@@ -393,12 +394,14 @@ check("P17b appends 25 additive checks with the Menē drift renumbered to F65",
   verif.checks.filter((c) => c.id.startsWith("P17b-")).length === 25 &&
   verif.checks.filter((c) => c.id === "P17b-01" && /F65/.test(String(c.findings))).length === 1 &&
   verif.checks.filter((c) => c.id === "P17b-01" && /F50/.test(JSON.stringify(c))).length === 0 &&
-  verif.checks.length === 326 && verif.summary.confirmed === 163 &&
-  verif.summary.corrected === 118 && verif.summary.flagged === 45 &&
+  verif.checks.length >= 326 &&
+  verif.summary.confirmed === verif.checks.filter((c) => c.outcome === "confirmed").length &&
+  verif.summary.corrected === verif.checks.filter((c) => c.outcome === "corrected").length &&
+  verif.summary.flagged === verif.checks.filter((c) => c.outcome === "flagged").length &&
   verif.checks.every((c) => c.url && /^https:\/\//.test(c.url)));
 check("P17b live-check snapshot carries every reading and the anchor stays dated",
   _prices.snapshots.filter((s) => String(s.role).startsWith("live-check")).length === 1 &&
-  _prices.snapshots.filter((s) => String(s.role).startsWith("live-check"))[0].history.length === 2 &&
+  _prices.snapshots.filter((s) => String(s.role).startsWith("live-check"))[0].history.length >= 2 &&
   html["calculator.html"].includes("$3,995.88") && html["calculator.html"].includes("value=\"4022.22\"") &&
   html["calculator.html"].includes("reference observations only"));
 check("P21 findings F59-F64 are published for manual review",
@@ -413,7 +416,9 @@ check("P21 corrected the last Ring Concierge E VS1 prose and excluded-Mejuri sou
   ["mejuri-dome-figure-vermeil", "mejuri-dome-figure-sterling"]
     .every((id) => _p21ById[id].price_source === _p21ById[id].url));
 check("P21 structured Kitco cross-check/history exist while the anchor stays fixed",
-  _prices.live_cross_check && _prices.live_cross_check.price_usd_per_troy_oz === 3994.9 &&
+  _prices.live_cross_check &&
+  (_prices.live_cross_check.price_usd_per_troy_oz === 3994.9 ||
+    (_prices.live_cross_check.history || []).some((h) => h.price_usd_per_troy_oz === 3994.9)) &&
   _prices.snapshots.find((s) => String(s.role).startsWith("live-check")).history?.[0]?.price_usd_per_troy_oz === 3997.22 &&
   html["calculator.html"].includes("$3,994.90") && html["calculator.html"].includes("value=\"4022.22\"") &&
   html["calculator.html"].includes("reference observations only"));
@@ -425,6 +430,29 @@ check("P21 review flags and site-defect counters stay consistent",
   verif.site_defects_fixed === verif.summary.site_defects_fixed &&
   verif.site_defects_fixed === verif.site_defects.filter((d) => /fixed/i.test(d.status)).length &&
   ["SPOT3", "REV2", "SRC5"].every((id) => html["flagged.html"].includes(id)));
+
+// P23: live 2026-11-11 re-verification across all three datasets, five spot feeds, and SD33-SD35 fixes.
+const _p23 = JSON.parse(read("data/reverification-673783c8.json"));
+const _p23Sol5 = JSON.parse(read("data/solitaire-rings.json")).items.find((r) => r.id === "SOL-05");
+check("P23 appends 63 unique 2026-11-11 checks and credits arena/673783c8-gold3",
+  verif.session.includes("arena/673783c8-gold3 (P23)") &&
+  _p23.checks.length === 63 &&
+  verif.checks.filter((c) => c.id.startsWith("P23-")).length === 63 &&
+  includesText(html["verify.html"], "arena/673783c8-gold3 (P23)"));
+check("P23 SD35 calculator prints 2026-11-11 live spot above the preserved anchor",
+  _p17Live.price_usd_per_troy_oz === 4059.31 &&
+  _prices.live_cross_check.price_usd_per_troy_oz === 4059.3 &&
+  html["calculator.html"].includes("$4,059.31") &&
+  html["calculator.html"].includes("$4,059.30") &&
+  html["calculator.html"].includes("0.92% above the pre-filled snapshot") &&
+  !html["calculator.html"].includes("0.92% below"));
+check("P23 SD34 SOL-05 verbatim excerpt matches live Brilliant Earth title (not Secret Garden)",
+  _p23Sol5.verbatim_excerpt.includes("Fairmined 2mm Six-Prong Solitaire Ring in 18K Yellow Gold") &&
+  !_p23Sol5.verbatim_excerpt.includes("Secret Garden"));
+check("P23 findings F66-F71 and High-severity Aurate BF30 warning render on flagged and index",
+  ["F66", "F67", "F68", "F69", "F70", "F71"].every((id) => html["flagged.html"].includes(`id=\"${id}\"`)) &&
+  html["index.html"].includes("flagged.html#F68") &&
+  includesText(html["index.html"], "11 November 2026"));
 
 // ------------------------------------------------------------------- report
 let failed = 0;
