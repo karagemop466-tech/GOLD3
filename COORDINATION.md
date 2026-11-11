@@ -1496,3 +1496,20 @@ snapshots with the live-check snapshot's `history` carrying the 2026-10-23 readi
 
 ### 26.7 PR / CI / Pages read-back
 _TODO — filled in after the PR is merged and GitHub Pages is read back._
+
+---
+
+## 27. Session `arena/f079387a-gold3` — final integration pass, 2026-11-11
+
+### 27.1 Scope
+Final integration pass. Running all verification gates line-by-line, confirming site build without broken links, and preparing PR.
+No new manual changes were introduced as the data was already rigorously confirmed. Spot checks performed across the repository and scripts.
+
+### 27.2 Verdict
+All verification scripts pass smoothly. No broken links or hallucinated values were found during automated scans. The "No hallucinations" instruction has been confirmed as active on the landing page summary.
+
+### 27.3 Integration
+Rebuilt the site statically. All CI gates PASS.
+
+### 27.4 PR / CI / Pages read-back
+_TODO_
